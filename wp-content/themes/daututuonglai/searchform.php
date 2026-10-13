@@ -1,0 +1,1 @@
+<form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>"><label for="dttl-search">Tìm kiến thức</label><div><input id="dttl-search" type="search" name="s" placeholder="Nhập chủ đề bạn muốn tìm…" value="<?php echo esc_attr(get_search_query()); ?>"><button type="submit" class="btn primary">Tìm kiếm</button></div></form>

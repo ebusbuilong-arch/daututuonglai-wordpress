@@ -1,0 +1,23 @@
+name: Validate and package WordPress theme
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  theme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check PHP syntax
+        run: find wp-content/themes/daututuonglai -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Check JavaScript syntax
+        run: node --check wp-content/themes/daututuonglai/assets/js/main.js
+      - name: Package theme only
+        working-directory: wp-content/themes
+        run: zip -r ../../daututuonglai-theme-install.zip daututuonglai
+      - uses: actions/upload-artifact@v4
+        with:
+          name: daututuonglai-theme-install
+          path: daututuonglai-theme-install.zip
