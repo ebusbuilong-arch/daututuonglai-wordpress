@@ -53,13 +53,19 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
  const chosenOverlays=new Set(),chosenStudies=new Set(),panels=new Map();
  const overlayOptions=[['ma','MA20 / MA50'],['ema','EMA20'],['bb','Bollinger (20, 2)'],['ichi','Ichimoku (9, 26, 52)']];
  const studyOptions=[['rsi','RSI (14)'],['macd','MACD (12, 26, 9)'],['stoch','Stochastic RSI (14, 14, 3, 3)'],['mfi','MFI (14)'],['crsi','Connors RSI (3, 2, 100)'],['obv','OBV']];
- for(const [options,chosen,title] of [[overlayOptions,chosenOverlays,t('Đường giá','Price overlays')],[studyOptions,chosenStudies,t('Chỉ báo','Indicators')]]){
-  const details=document.createElement('details'),summary=document.createElement('summary'),choices=document.createElement('div');
-  details.className='dttl-indicator-picker';choices.className='dttl-indicator-choices';summary.textContent=title;details.append(summary,choices);
-  for(const [value,label] of options){const item=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=value;item.append(input,document.createTextNode(label));choices.append(item);input.addEventListener('change',()=>{if(input.checked)chosen.add(value);else chosen.delete(value);summary.textContent=title+(chosen.size?' ('+chosen.size+')':'');draw();});}
-  indicators.append(details);
+
+ for(const [options,chosen,title] of [[overlayOptions,chosenOverlays,t('Đường giá','Price overlay')],[studyOptions,chosenStudies,t('Chỉ báo','Indicator')]]){
+  const field=document.createElement('div'),caption=document.createElement('span'),details=document.createElement('details'),summary=document.createElement('summary'),choices=document.createElement('div');
+  field.className='dttl-indicator-field';caption.textContent=title;caption.className='dttl-indicator-caption';
+  details.className='dttl-indicator-picker';choices.className='dttl-indicator-choices';
+  const update=()=>{summary.textContent=chosen.size?options.filter(([key])=>chosen.has(key)).map(([,label])=>label).join(', '):t('Không','None');summary.title=summary.textContent;};
+  summary.setAttribute('aria-label',title);update();details.append(summary,choices);field.append(caption,details);
+  for(const [value,label] of options){const item=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=value;item.append(input,document.createTextNode(label));choices.append(item);input.addEventListener('change',()=>{if(input.checked)chosen.add(value);else chosen.delete(value);update();draw();});}
+  details.addEventListener('toggle',()=>{if(details.open)indicators.querySelectorAll('details').forEach(other=>{if(other!==details)other.open=false;});});
+  details.addEventListener('keydown',e=>{if(e.key==='Escape'){details.open=false;summary.focus();}});
+  document.addEventListener('click',e=>{if(!details.contains(e.target))details.open=false;});
+  indicators.append(field);
  }
- const clear=document.createElement('button');clear.type='button';clear.textContent=t('Bỏ chọn tất cả','Clear all');clear.addEventListener('click',()=>{chosenOverlays.clear();chosenStudies.clear();indicators.querySelectorAll('input').forEach(el=>el.checked=false);indicators.querySelectorAll('summary').forEach((el,i)=>el.textContent=i?t('Chỉ báo','Indicators'):t('Đường giá','Price overlays'));draw();});indicators.append(clear);
  const legend=document.createElement('span');legend.className='dttl-indicator-legend';indicators.append(legend);plot.before(indicators);
  const panelHost=document.createElement('div');panelHost.className='dttl-indicator-panels';plot.after(panelHost);
  for(const [value,label] of studyOptions){const sub=document.createElement('canvas');sub.className='dttl-indicator-panel';sub.hidden=true;sub.setAttribute('aria-label',label);panelHost.append(sub);panels.set(value,sub);}
