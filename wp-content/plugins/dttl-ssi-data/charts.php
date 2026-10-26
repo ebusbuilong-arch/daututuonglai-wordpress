@@ -5,6 +5,10 @@ final class DTTL_SSI_Charts {
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_shortcode('dttl_stock_chart', [__CLASS__, 'shortcode']);
+        add_filter('the_title', function($title, $id) {
+            if (!is_admin() && strpos($_SERVER['REQUEST_URI'] ?? '', '/en/') === 0 && $title === 'Biểu đồ chứng khoán' && has_shortcode((string) get_post_field('post_content', $id), 'dttl_stock_chart')) { return 'Stock charts'; }
+            return $title;
+        }, 20, 2);
         add_action('admin_enqueue_scripts', function($hook) { if ($hook === 'toplevel_page_dttl-ssi') { self::assets(); } });
         add_action('wp_enqueue_scripts', function() { if (is_singular() && has_shortcode((string) get_post_field('post_content', get_queried_object_id()), 'dttl_stock_chart')) { self::assets(); } });
     }
@@ -172,6 +176,7 @@ final class DTTL_SSI_Charts {
         self::assets();
         $en = strpos($_SERVER['REQUEST_URI'] ?? '', '/en/') === 0;
         ob_start(); ?>
+        <p><?php echo $en ? 'Explore candlestick charts and trading volumes for stocks on HOSE, HNX and UPCOM using data from SSI.' : 'Tra cứu biểu đồ nến và khối lượng giao dịch các mã chứng khoán trên HOSE, HNX và UPCOM với dữ liệu từ SSI.'; ?></p>
         <section class="dttl-stock" data-endpoint="<?php echo esc_url(rest_url('dttl-ssi/v1/')); ?>" data-lang="<?php echo $en ? 'en' : 'vi'; ?>" aria-label="<?php echo $en ? 'Vietnam stock chart' : 'Biểu đồ chứng khoán Việt Nam'; ?>">
             <div class="dttl-stock-heading"><div><span class="dttl-stock-eyebrow">SSI MARKET DATA</span><h2><?php echo $en ? 'Vietnam stock chart' : 'Biểu đồ chứng khoán Việt Nam'; ?></h2></div><span class="dttl-stock-badge"><?php echo $en ? 'Market data' : 'Dữ liệu thị trường'; ?></span></div>
             <form class="dttl-stock-controls">
@@ -186,6 +191,9 @@ final class DTTL_SSI_Charts {
             <div class="dttl-stock-tools"><label><?php echo $en ? 'Visible candles' : 'Số nến hiển thị'; ?><select name="count"><option value="40">40</option><option value="80" selected>80</option><option value="160">160</option><option value="10000"><?php echo $en ? 'All' : 'Tất cả'; ?></option></select></label><label class="dttl-stock-pan"><?php echo $en ? 'History' : 'Xem lịch sử'; ?><input name="pan" type="range" min="0" max="0" value="0" aria-label="<?php echo $en ? 'Move through history' : 'Di chuyển qua lịch sử'; ?>"></label><button type="button" class="dttl-stock-refresh"><?php echo $en ? 'Refresh' : 'Làm mới'; ?></button></div>
             <p class="dttl-stock-note"><?php echo $en ? 'Source: SSI · Vietnam time (UTC+7). Prices use SSI’s returned units. Change is versus the previous candle. Updates every 1–5 minutes; not a live tick feed.' : 'Nguồn: SSI · Giờ Việt Nam (UTC+7). Giá theo đơn vị SSI trả về. Tăng/giảm so với nến trước. Cập nhật mỗi 1–5 phút; nến hiện tại có thể chưa kết thúc.'; ?></p>
         </section>
+        <h2><?php echo $en ? 'How to use the chart' : 'Cách xem biểu đồ'; ?></h2>
+        <p><?php echo $en ? 'Choose an exchange, enter a stock symbol and select View chart. Change the timeframe to explore minute, hourly or daily candles. Tap or hover over a candle to see its opening, high, low and closing prices and trading volume.' : 'Chọn sàn, nhập mã chứng khoán rồi bấm Xem biểu đồ. Đổi khung nến để xem biến động theo phút, giờ hoặc ngày. Chạm hoặc đưa chuột lên nến để xem giá mở cửa, cao nhất, thấp nhất, đóng cửa và khối lượng.'; ?></p>
+        <p><?php echo $en ? 'Choose the number of visible candles and use the History slider to explore earlier periods. The last candle time and data retrieval time appear above the chart; the latest trades may not yet be reflected.' : 'Chọn số nến hiển thị và kéo thanh Xem lịch sử để xem các giai đoạn trước. Thời điểm nến cuối và thời điểm tải dữ liệu được ghi phía trên biểu đồ; dữ liệu có thể chưa phản ánh giao dịch mới nhất.'; ?></p>
         <?php return ob_get_clean();
     }
 }
