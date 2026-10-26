@@ -3,7 +3,7 @@ name: DTTL - Deploy VPS
 on:
   push:
     branches: [main]
-    paths: ['wp-content/**']
+    paths: ['wp-content/**', '.github/workflows/deploy-vps.yml']
   workflow_dispatch:
 
 permissions:
@@ -23,22 +23,26 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Validate and package changed files
+        id: package
         if: github.event_name == 'push'
         env:
           BEFORE: ${{ github.event.before }}
           AFTER: ${{ github.sha }}
-        run: python3 scripts/deploy.py build "$BEFORE" "$AFTER" "$RUNNER_TEMP/release.json"
+        run: |
+          python3 scripts/deploy.py build "$BEFORE" "$AFTER" "$RUNNER_TEMP/release.json"
+          if ! git diff --quiet "$BEFORE" "$AFTER" -- wp-content; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Configure SSH
         env:
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_PORT: ${{ secrets.VPS_PORT }}
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
-          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
         shell: bash
         run: |
           set -euo pipefail
-          for name in VPS_HOST VPS_PORT VPS_USER VPS_SSH_KEY VPS_KNOWN_HOSTS; do
+          for name in VPS_HOST VPS_PORT VPS_USER VPS_SSH_KEY; do
             if [ -z "${!name}" ]; then echo "::error::Missing secret: $name"; exit 1; fi
           done
           [[ "$VPS_HOST" =~ ^[a-zA-Z0-9.-]+$ ]]
@@ -47,7 +51,9 @@ jobs:
           umask 077
           mkdir -p "$HOME/.ssh"
           printf '%s\n' "$VPS_SSH_KEY" > "$HOME/.ssh/dttl_actions"
-          printf '%s\n' "$VPS_KNOWN_HOSTS" > "$HOME/.ssh/known_hosts"
+          host_label="$VPS_HOST"
+          if [ "$VPS_PORT" != 22 ]; then host_label="[$VPS_HOST]:$VPS_PORT"; fi
+          printf '%s %s\n' "$host_label" 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcY6kITMRi7ho4xaf0+lxgkH1LDbp/losU415CclxbI' > "$HOME/.ssh/known_hosts"
           ssh-keygen -y -P '' -f "$HOME/.ssh/dttl_actions" >/dev/null
           cat > "$HOME/.ssh/config" <<EOF
           Host dttl-vps
@@ -63,7 +69,7 @@ jobs:
       - name: Check VPS connection (manual runs stop here)
         run: ssh dttl-vps 'python3 - check' < scripts/deploy.py
       - name: Deploy guarded release
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.package.outputs.changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
