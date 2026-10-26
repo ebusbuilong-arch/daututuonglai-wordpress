@@ -10,6 +10,29 @@ const calc = values => {
  const sd=values.map((v,i)=>ma[i]===null?null:Math.sqrt(values.slice(i-19,i+1).reduce((sum,x)=>sum+(x-ma[i])**2,0)/20));
  return {ma20:ma,ma50:sma(50),ema20:ema(values,20),upper:ma.map((v,i)=>v===null?null:v+2*sd[i]),lower:ma.map((v,i)=>v===null?null:v-2*sd[i]),rsi,macd,signal,histogram:macd.map((v,i)=>signal[i]===null?null:v-signal[i])};
 };
+
+function extraStudies(bars) {
+ const close=bars.map(b=>b.close),N=bars.length,empty=()=>Array(N).fill(null);
+ const average=(a,n)=>a.map((v,i)=>{const w=a.slice(i-n+1,i+1);return i<n-1||w.some(x=>x===null)?null:w.reduce((x,y)=>x+y,0)/n;});
+ const rsiOf=(a,n)=>{let up=0,down=0;return a.map((v,i)=>{if(!i)return null;const d=v-a[i-1];if(i<=n){up+=Math.max(d,0)/n;down+=Math.max(-d,0)/n;}else{up=(up*(n-1)+Math.max(d,0))/n;down=(down*(n-1)+Math.max(-d,0))/n;}return i<n?null:down===0?(up===0?50:100):100-100/(1+up/down);});};
+ const r=rsiOf(close,14),stoch=r.map((v,i)=>{const w=r.slice(i-13,i+1);if(i<27||w.some(x=>x===null))return null;const lo=Math.min(...w),hi=Math.max(...w);return hi===lo?0:100*(v-lo)/(hi-lo);});
+ const stochK=average(stoch,3),stochD=average(stochK,3);
+ const typical=bars.map(b=>(b.high+b.low+b.close)/3);
+ const mfi=empty(),obv=empty();let total=0;
+ for(let i=0;i<N;i++){
+  if(i)total+=close[i]>close[i-1]?bars[i].volume:close[i]<close[i-1]?-bars[i].volume:0;obv[i]=total;
+  if(i>=14){let pos=0,neg=0;for(let j=i-13;j<=i;j++){const flow=typical[j]*bars[j].volume;if(typical[j]>typical[j-1])pos+=flow;else if(typical[j]<typical[j-1])neg+=flow;}mfi[i]=neg===0?(pos===0?50:100):100-100/(1+pos/neg);}
+ }
+ const streak=close.map(()=>0),roc=empty();
+ for(let i=1;i<N;i++){streak[i]=close[i]>close[i-1]?Math.max(0,streak[i-1])+1:close[i]<close[i-1]?Math.min(0,streak[i-1])-1:0;roc[i]=close[i-1]===0?null:(close[i]/close[i-1]-1)*100;}
+ const r3=rsiOf(close,3),r2=rsiOf(streak,2);
+ const crsi=close.map((v,i)=>{if(i<101||roc[i]===null)return null;const prior=roc.slice(i-100,i);if(prior.some(x=>x===null))return null;return (r3[i]+r2[i]+prior.filter(x=>x<roc[i]).length)/3;});
+ const midpoint=n=>bars.map((b,i)=>i<n-1?null:(Math.max(...bars.slice(i-n+1,i+1).map(x=>x.high))+Math.min(...bars.slice(i-n+1,i+1).map(x=>x.low)))/2);
+ const tenkan=midpoint(9),kijun=midpoint(26),b=midpoint(52),spanA=Array(N+26).fill(null),spanB=Array(N+26).fill(null),chikou=empty();
+ for(let i=0;i<N;i++){if(kijun[i]!==null)spanA[i+26]=(tenkan[i]+kijun[i])/2;if(b[i]!==null)spanB[i+26]=b[i];if(i>=26)chikou[i-26]=close[i];}
+ return {stochK,stochD,mfi,obv,crsi,tenkan,kijun,spanA,spanB,chikou};
+}
+
 let uid = 0;
 function syncTheme(){let theme=new URLSearchParams(location.search).get('theme')||'light';try{if(window.parent!==window&&window.parent.document.documentElement.dataset.theme)theme=window.parent.document.documentElement.dataset.theme;}catch{}document.documentElement.dataset.ssiTheme=theme==='dark'?'dark':'light';}
 syncTheme();
@@ -27,8 +50,8 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
 
  const indicators=document.createElement('div');indicators.className='dttl-indicators';
  const overlay=document.createElement('select'),oscillator=document.createElement('select');
- for(const [value,label] of [['none',t('Không','None')],['ma','MA20 / MA50'],['ema','EMA20'],['bb','Bollinger (20, 2)']])overlay.add(new Option(label,value));
- for(const [value,label] of [['none',t('Không','None')],['rsi','RSI (14)'],['macd','MACD (12, 26, 9)']])oscillator.add(new Option(label,value));
+ for(const [value,label] of [['none',t('Không','None')],['ma','MA20 / MA50'],['ema','EMA20'],['bb','Bollinger (20, 2)'],['ichi','Ichimoku (9, 26, 52)']])overlay.add(new Option(label,value));
+ for(const [value,label] of [['none',t('Không','None')],['rsi','RSI (14)'],['macd','MACD (12, 26, 9)'],['stoch','Stochastic RSI (14, 14, 3, 3)'],['mfi','MFI (14)'],['crsi','Connors RSI (3, 2, 100)'],['obv','OBV']])oscillator.add(new Option(label,value));
  for(const [control,label] of [[overlay,t('Đường giá','Price overlay')],[oscillator,t('Chỉ báo','Indicator')]]){const el=document.createElement('label');el.textContent=label+' ';el.append(control);indicators.append(el);control.addEventListener('change',draw);}
  const legend=document.createElement('span');legend.className='dttl-indicator-legend';indicators.append(legend);plot.before(indicators);
  const sub=document.createElement('canvas');sub.className='dttl-indicator-panel';sub.hidden=true;plot.after(sub);
@@ -61,7 +84,7 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
    const data = await get('history', query, controller.signal); if(id!==serial)return;
    if (!Array.isArray(data.bars)) throw new Error(t('Dữ liệu chưa hợp lệ.','Invalid data.'));
    const wasLatest = Number(pan.value)===Number(pan.max); const oldPan=Number(pan.value);
-   bars=data.bars; studies=calc(bars.map(b=>b.close)); selected=data.security; activeQuery=JSON.stringify(query);
+   bars=data.bars; studies={...calc(bars.map(b=>b.close)),...extraStudies(bars)}; selected=data.security; activeQuery=JSON.stringify(query);
    text(name,`${selected.symbol} · ${en ? selected.nameEn : selected.name} · ${selected.board}`);
    const last=bars.at(-1), previous=bars.at(-2);
    if(data.provisionalAt) text(status,t('Nến ngày đang hình thành từ dữ liệu phút','Daily candle derived from minute data'));
@@ -73,10 +96,10 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   finally { if(id===serial){busy=false;root.removeAttribute('aria-busy');} }
  }
  function draw() {
-  const start=Number(pan.value),end=start+Number(count.value);
+  const start=Number(pan.value),end=Math.min(bars.length,start+Number(count.value))+(overlay.value==='ichi'?26:0);
   const series=(key)=> (studies[key]||[]).slice(start,end);
-  const overlays=overlay.value==='ma'?[['ma20','#f59e0b'],['ma50','#38bdf8']]:overlay.value==='ema'?[['ema20','#f59e0b']]:overlay.value==='bb'?[['ma20','#f59e0b'],['upper','#a78bfa'],['lower','#a78bfa']]:[];
-  legend.textContent=overlay.value==='ma'?'MA20 · 🟠 / MA50 · 🔵':overlay.value==='ema'?'EMA20':overlay.value==='bb'?'BB (20, 2σ)':'';
+  const overlays=overlay.value==='ma'?[['ma20','#f59e0b'],['ma50','#38bdf8']]:overlay.value==='ema'?[['ema20','#f59e0b']]:overlay.value==='bb'?[['ma20','#f59e0b'],['upper','#a78bfa'],['lower','#a78bfa']]:overlay.value==='ichi'?[['tenkan','#38bdf8'],['kijun','#f59e0b'],['spanA','#009688'],['spanB','#e53935'],['chikou','#a78bfa']]:[];
+  legend.textContent=overlay.value==='ma'?'MA20 · 🟠 / MA50 · 🔵':overlay.value==='ema'?'EMA20':overlay.value==='bb'?'BB (20, 2σ)':overlay.value==='ichi'?'Ichimoku · 9 / 26 / 52 · +26':'';
   sub.hidden=oscillator.value==='none'||!bars.length;
 
   const width=plot.clientWidth||700, height=plot.clientHeight||430, dpr=window.devicePixelRatio||1;
@@ -86,7 +109,7 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   visible=bars.slice(Number(pan.value),Number(pan.value)+Number(count.value));
   if(!visible.length){ctx.fillStyle=dark?'#94a3b8':'#64748b';ctx.textAlign='center';ctx.fillText(t('Biểu đồ sẽ hiển thị khi có dữ liệu','Chart will appear when data is available'),width/2,height/2);return;}
   const extra=overlays.flatMap(([key])=>series(key).filter(v=>v!==null)),low=Math.min(...visible.map(b=>b.low),...extra),high=Math.max(...visible.map(b=>b.high),...extra),pad=(high-low)*.06||high*.01||1,min=low-pad,max=high+pad;
-  const pw=width-left-right,step=pw/visible.length,y=v=>top+(max-v)/(max-min)*(ph-top),vol=Math.max(...visible.map(b=>b.volume),1);
+  const pw=width-left-right,step=pw/(visible.length+(overlay.value==='ichi'?26:0)),y=v=>top+(max-v)/(max-min)*(ph-top),vol=Math.max(...visible.map(b=>b.volume),1);
   geometry={left,step,pw,width,height};
   ctx.textAlign='left';
   for(let i=0;i<=4;i++){const value=min+(max-min)*i/4,yy=y(value);ctx.strokeStyle=dark?'#263445':'#e5eaf1';ctx.beginPath();ctx.moveTo(left,yy);ctx.lineTo(width-right,yy);ctx.stroke();ctx.fillStyle=dark?'#94a3b8':'#64748b';ctx.fillText(nf.format(value),width-right+7,yy+4);}
@@ -94,14 +117,15 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   visible.forEach((bar,i)=>{const x=left+(i+.5)*step,color=bar.close>=bar.open?'#18c49a':'#ed5470';ctx.strokeStyle=color;ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x,y(bar.high));ctx.lineTo(x,y(bar.low));ctx.stroke();ctx.fillRect(x-Math.max(1,step*.65)/2,Math.min(y(bar.open),y(bar.close)),Math.max(1,step*.65),Math.max(1,Math.abs(y(bar.open)-y(bar.close))));ctx.globalAlpha=.55;const v=bar.volume/vol*vh;ctx.fillRect(x-step*.32,vtop+vh-v,Math.max(1,step*.64),v);ctx.globalAlpha=1;});
 
   function line(context, data, color, scale){context.strokeStyle=color;context.lineWidth=1.5;context.beginPath();let begun=false;data.forEach((v,i)=>{if(v===null||!Number.isFinite(v)){begun=false;return;}const x=left+(i+.5)*step;if(begun)context.lineTo(x,scale(v));else context.moveTo(x,scale(v));begun=true;});context.stroke();context.lineWidth=1;}
+  if(overlay.value==='ichi'){const a=series('spanA'),b=series('spanB');for(let i=1;i<a.length;i++){if([a[i-1],a[i],b[i-1],b[i]].some(v=>v==null))continue;ctx.fillStyle=a[i]>=b[i]?'rgba(0,150,136,.18)':'rgba(229,57,53,.18)';ctx.beginPath();ctx.moveTo(left+(i-.5)*step,y(a[i-1]));ctx.lineTo(left+(i+.5)*step,y(a[i]));ctx.lineTo(left+(i+.5)*step,y(b[i]));ctx.lineTo(left+(i-.5)*step,y(b[i-1]));ctx.closePath();ctx.fill();}}
   overlays.forEach(([key,color])=>line(ctx,series(key),color,y));
   if(!sub.hidden){
    const h=150;sub.width=width*dpr;sub.height=h*dpr;sub.style.width='100%';sub.style.height=h+'px';
    const sc=sub.getContext('2d');sc.setTransform(dpr,0,0,dpr,0,0);sc.fillStyle=dark?'#101923':'#fbfcfe';sc.fillRect(0,0,width,h);sc.font='11px system-ui';sc.fillStyle=dark?'#94a3b8':'#64748b';
-   const keys=oscillator.value==='rsi'?['rsi']:['macd','signal'],data=(oscillator.value==='rsi'?keys:[...keys,'histogram']).flatMap(k=>series(k).filter(v=>v!==null));
-   const lo=oscillator.value==='rsi'?0:Math.min(0,...data),hi=oscillator.value==='rsi'?100:Math.max(0,...data),scale=v=>26+(hi-v)/(hi-lo||1)*102;
-   sc.fillText(oscillator.value==='rsi'?'RSI (14)':'MACD (12,26) / Signal (9)',left,15);
-   (oscillator.value==='rsi'?[30,70]:[0]).forEach(v=>{sc.strokeStyle=dark?'#334155':'#cbd5e1';sc.beginPath();sc.moveTo(left,scale(v));sc.lineTo(width-right,scale(v));sc.stroke();sc.fillText(String(v),width-right+5,scale(v)+4);});
+   const bounded=['rsi','stoch','mfi','crsi'].includes(oscillator.value),keys=oscillator.value==='macd'?['macd','signal']:oscillator.value==='stoch'?['stochK','stochD']:[oscillator.value],data=(oscillator.value==='macd'?[...keys,'histogram']:keys).flatMap(k=>series(k).filter(v=>v!==null));
+   const lo=bounded?0:Math.min(0,...data),hi=bounded?100:Math.max(0,...data),scale=v=>26+(hi-v)/(hi-lo||1)*102;
+   sc.fillText(oscillator.selectedOptions[0].textContent,left,15);
+   (bounded?(oscillator.value==='rsi'?[30,70]:[20,80]):[0]).forEach(v=>{sc.strokeStyle=dark?'#334155':'#cbd5e1';sc.beginPath();sc.moveTo(left,scale(v));sc.lineTo(width-right,scale(v));sc.stroke();sc.fillText(String(v),width-right+5,scale(v)+4);});
    if(oscillator.value==='macd'){series('histogram').forEach((v,i)=>{if(v===null)return;const previous=studies.histogram[start+i-1];const strengthening=previous==null||(v>=0?v>=previous:v<=previous);sc.fillStyle=v>=0?(strengthening?'#009688':'#80cbc4'):(strengthening?'#e53935':'#ef9a9a');const zero=scale(0),yy=scale(v);sc.fillRect(left+(i+.18)*step,Math.min(zero,yy),Math.max(1,step*.64),Math.max(1,Math.abs(zero-yy)));});}
    keys.forEach((key,i)=>line(sc,series(key),i?'#f59e0b':'#a78bfa',scale));
    if(!data.length)sc.fillText(t('Chưa đủ nến để tính chỉ báo','Not enough candles'),left,80);

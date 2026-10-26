@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 final class DTTL_SSI_Charts {
-    const VERSION = '0.3.2';
+    const VERSION = '0.4.0';
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_filter('rest_pre_serve_request', [__CLASS__, 'public_cors'], 100, 4);
