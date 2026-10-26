@@ -1,0 +1,17 @@
+<?php defined('ABSPATH') || exit; ?>
+<div class="ex-forex-pilot" id="cm-pilot">
+<h3>Tài khoản Hàng hóa CFD · thử nghiệm quản trị</h3>
+<p>1 AIM = 1.000 USD sức mua. Vị thế và lịch sử lưu trên máy chủ. Chuyển vốn từ AIM giao ngay; Lãi/lỗ đối ứng quỹ admin; không gửi lệnh ra nhà môi giới. Chưa mở cho thành viên, chưa tính phí qua đêm.</p>
+<p id="cm-pilot-readiness" role="status">Đang kiểm tra dữ liệu Hàng hóa CFD…</p>
+<p>Giá khớp lấy từ OANDA Practice khi tài khoản nguồn có mã tương ứng. Biểu đồ TradingView chỉ để tham khảo. Cần cấu hình AIM_OANDA_PRACTICE_ACCOUNT và AIM_OANDA_PRACTICE_TOKEN trên máy chủ.</p><button type="button" id="cm-feed-check" class="start">Kiểm tra Bid/Ask hàng hóa</button><p id="cm-feed-status" role="status"></p><div id="cm-feed-quotes" class="table-scroll"></div>
+<button type="button" id="cm-pilot-refresh" class="start">Tải lại tài khoản Hàng hóa CFD</button>
+<div class="ex-admin-fields"><div>AIM khả dụng<strong id="cm-pilot-cash">—</strong></div><div>Ký quỹ đang giữ<strong id="cm-pilot-margin">—</strong></div><div>Lãi/lỗ đã chốt, trước phí<strong id="cm-pilot-realized">—</strong></div><div>Phí đã trả<strong id="cm-pilot-fees">—</strong></div></div>
+<p>Lot mô phỏng AIM: vàng 10 ounce, bạc 100 ounce, dầu 100 thùng. Phí 0,1% giá trị mỗi chiều; đòn bẩy tối đa 20x, có thể thấp hơn theo ký quỹ nguồn. Đóng cưỡng bức tại 50% ký quỹ ban đầu. Đây là CFD mô phỏng, không có giao nhận hàng.</p><details><summary>Chuyển vốn và mở vị thế thử</summary>
+<p>Chỉ mở sau khi cấu hình nguồn và bật <code>AIM_COMMODITY_ADMIN_PILOT</code> trên VPS. Nguồn phải được kiểm chứng; phiên bản này dùng quy tắc ký quỹ riêng của AIM.</p>
+<form id="cm-pilot-transfer"><div class="ex-admin-fields"><label>Số AIM<input id="cm-pilot-amount" inputmode="decimal" placeholder="10" required></label><label>Hướng chuyển<select id="cm-pilot-direction"><option value="transfer_in">Giao ngay → Hàng hóa CFD</option><option value="transfer_out">Hàng hóa CFD → Giao ngay</option></select></label></div><button class="start" id="cm-pilot-transfer-submit" disabled>Chuyển AIM</button></form>
+<form id="cm-pilot-open"><div class="ex-admin-fields"><label>Mã hàng hóa<select id="cm-pilot-symbol"><option>XAU_USD</option><option>XAG_USD</option><option>WTICO_USD</option><option>BCO_USD</option></select></label><label>Chiều<select id="cm-pilot-side"><option value="long">Long / Mua</option><option value="short">Short / Bán</option></select></label><label>Khối lượng lot<input id="cm-pilot-lots" inputmode="decimal" value="1" required></label><label>Đòn bẩy<select id="cm-pilot-leverage"><option value="1">1x</option><option value="5">5x</option><option value="10" selected>10x</option><option value="20">20x</option></select></label><label>Chốt lời<input id="cm-pilot-tp" inputmode="decimal" placeholder="Không bắt buộc"></label><label>Cắt lỗ<input id="cm-pilot-sl" inputmode="decimal" placeholder="Không bắt buộc"></label></div><button id="cm-pilot-open-submit" class="start" disabled>Mở vị thế theo giá thị trường</button></form>
+</details>
+<p id="cm-pilot-message" role="status"></p><button type="button" id="cm-pilot-retry" class="start" hidden>Kiểm tra lại yêu cầu trước</button>
+<h3>Vị thế đang giữ</h3><p>Giá mở đã ghi nhận; bảng này không phải định giá lãi/lỗ tức thời.</p><div id="cm-pilot-positions" class="table-scroll"></div>
+<h3>Lịch sử Hàng hóa CFD</h3><div id="cm-pilot-history" class="table-scroll"></div>
+</div>

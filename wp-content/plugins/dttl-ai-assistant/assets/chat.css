@@ -1,0 +1,31 @@
+#dttl-ai{--dttl-ai-ink:#163747;--dttl-ai-accent:#087f8c;position:fixed;right:20px;bottom:calc(var(--dttl-ai-bottom,88px) + env(safe-area-inset-bottom,0px));z-index:99990;font:15px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--dttl-ai-ink);text-align:left}
+#dttl-ai *{box-sizing:border-box}#dttl-ai [hidden]{display:none!important}#dttl-ai button{font:inherit;cursor:pointer;margin:0;min-height:40px;letter-spacing:normal;text-transform:none}#dttl-ai button:focus-visible,#dttl-ai a:focus-visible,#dttl-ai textarea:focus-visible{outline:3px solid #f0b849;outline-offset:3px}
+#dttl-ai .dttl-ai-launcher{display:flex;align-items:center;gap:9px;border:0;border-radius:30px;padding:12px 18px;background:var(--dttl-ai-ink);color:#fff;box-shadow:0 6px 24px #16374733;font-weight:650}#dttl-ai svg{width:24px;height:24px;overflow:visible}
+#dttl-ai-panel{position:absolute;right:0;bottom:64px;width:min(390px,calc(100vw - 32px));height:min(610px,calc(100dvh - var(--dttl-ai-bottom,88px) - 100px));min-height:230px;display:flex;flex-direction:column;overflow:hidden;border:1px solid #dce6e8;border-radius:20px;background:#fff;box-shadow:0 14px 60px #102f4430}
+#dttl-ai header{display:flex;align-items:center;gap:8px;padding:15px 16px;background:var(--dttl-ai-ink);color:#fff;flex-shrink:0}#dttl-ai header div{flex:1}#dttl-ai header strong{font-size:16px;color:inherit}#dttl-ai header small{display:block;color:#d0e4e8;font-size:12px}#dttl-ai header button{border:0;background:transparent;color:#fff;font-size:25px;min-width:32px;padding:0}
+#dttl-ai .dttl-ai-messages{flex:1;overflow:auto;overscroll-behavior:contain;padding:16px;background:#f5f8f9;min-height:60px}#dttl-ai .dttl-ai-message{padding:11px 13px;margin-bottom:12px;background:#fff;border:1px solid #e2eaec;border-radius:13px 13px 13px 3px;overflow-wrap:anywhere}#dttl-ai .dttl-ai-message p{margin:0;white-space:pre-wrap;font-size:14px;line-height:1.6}#dttl-ai .dttl-ai-user{margin-left:30px;background:#e3f3f2;border-color:#cae6e3;border-radius:13px 13px 3px 13px}#dttl-ai .dttl-ai-message strong{display:block;margin-top:12px;font-size:12px}#dttl-ai ol{padding-left:20px;margin:6px 0 0}#dttl-ai li{margin:5px 0;font-size:13px}#dttl-ai a{color:#086b77;text-decoration:underline}
+#dttl-ai .dttl-ai-suggestions{padding:8px 14px;display:flex;flex-wrap:wrap;gap:6px}#dttl-ai .dttl-ai-suggestions button{background:#fff;border:1px solid #cddfe2;color:#245260;border-radius:12px;padding:6px 10px;font-size:12px;min-height:32px}
+#dttl-ai .dttl-ai-privacy{font-size:10px;line-height:1.45;color:#667780;margin:0;padding:7px 14px}#dttl-ai form{display:flex;align-items:center;gap:8px;padding:10px 12px 12px;margin:0;border-top:1px solid #e4ebed;flex-shrink:0}#dttl-ai textarea{font:14px/1.4 system-ui;resize:none;min-height:48px;max-height:100px;width:100%;min-width:0;border:1px solid #cbdade;border-radius:12px;padding:10px;margin:0;box-shadow:none;background:#fff;color:#163747}#dttl-ai form button{border:0;border-radius:12px;background:#087f8c;color:#fff;padding:10px 13px;flex-shrink:0}#dttl-ai button:disabled{opacity:.5;cursor:wait}
+@media(max-width:480px){#dttl-ai{right:12px}#dttl-ai-panel{width:calc(100vw - 24px);bottom:60px;border-radius:17px}#dttl-ai .dttl-ai-launcher{padding:11px 15px}#dttl-ai textarea{font-size:16px}}
+@media(prefers-reduced-motion:reduce){#dttl-ai *{scroll-behavior:auto}}
+
+/* Compact mobile launcher and clearance above it for VI / EN. */
+#dttl-ai .dttl-ai-label-mobile{display:none}
+@media(max-width:1000px){
+ #dttl-ai .dttl-ai-label-desktop{display:none}
+ #dttl-ai .dttl-ai-label-mobile{display:inline}
+ #dttl-ai .dttl-ai-launcher{gap:6px;padding:10px 12px;min-height:44px}
+ .site-header .brand .dttl-header-languages{bottom:calc(156px + env(safe-area-inset-bottom,0px))!important}
+}
+
+@media(max-width:1000px){
+ #dttl-ai-panel{position:fixed;left:8px;right:8px;bottom:0;width:auto;height:60vh;height:60dvh;min-height:0;max-height:60dvh;border-radius:18px 18px 0 0}
+ #dttl-ai form{padding-bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+ body:has(#dttl-ai-panel:not([hidden])) #dttl-ai .dttl-ai-launcher,
+ body:has(#dttl-ai-panel:not([hidden])) .dttl-header-languages,
+ body:has(#dttl-ai-panel:not([hidden])) .back-to-top,
+ body:has(#dttl-ai-panel:not([hidden])) .trp-floating-switcher{visibility:hidden!important;pointer-events:none!important}
+ #dttl-ai header{padding:10px 12px}
+ #dttl-ai .dttl-ai-suggestions{padding:5px 10px;gap:4px}
+ #dttl-ai .dttl-ai-privacy{padding:4px 12px;font-size:10px}
+}
