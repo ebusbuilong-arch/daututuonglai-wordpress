@@ -28,3 +28,9 @@ html[data-ssi-theme=dark] footer a{color:#94a3b8}
 .dttl-indicator-choices input[type=checkbox]{width:16px;height:16px;margin:0;flex:none;accent-color:#009688}
 html[data-ssi-theme=dark] .dttl-indicator-picker summary,html[data-ssi-theme=dark] .dttl-indicator-choices{background:#172231;color:#e2e8f0;border-color:#34445a}
 @media(max-width:600px){.dttl-indicator-field{width:calc(50% - 5px)}}
+
+/* Compact indicator toolbar: both dropdowns and legend share one row. */
+.dttl-indicators{flex-wrap:nowrap;align-items:flex-end;gap:8px}
+.dttl-indicator-field{flex:0 1 220px;width:220px;min-width:0}
+.dttl-indicator-legend{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-bottom:10px}
+@media(max-width:600px){.dttl-indicator-field{flex:1 1 0;width:0}.dttl-indicator-legend{display:none}.dttl-indicator-picker summary{padding:8px 25px 8px 8px;font-size:12px}}
