@@ -5,12 +5,26 @@ final class DTTL_SSI_Charts {
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_shortcode('dttl_stock_chart', [__CLASS__, 'shortcode']);
+        add_action('template_redirect', [__CLASS__, 'embed']);
         add_filter('the_title', function($title, $id) {
             if (!is_admin() && strpos($_SERVER['REQUEST_URI'] ?? '', '/en/') === 0 && $title === 'Biểu đồ chứng khoán' && has_shortcode((string) get_post_field('post_content', $id), 'dttl_stock_chart')) { return 'Stock charts'; }
             return $title;
         }, 20, 2);
         add_action('admin_enqueue_scripts', function($hook) { if ($hook === 'toplevel_page_dttl-ssi') { self::assets(); } });
         add_action('wp_enqueue_scripts', function() { if (is_singular() && has_shortcode((string) get_post_field('post_content', get_queried_object_id()), 'dttl_stock_chart')) { self::assets(); } });
+    }
+    public static function market_data($path, $query) {
+        if ($path !== 'ohlc') { return self::error('Tuyến dữ liệu không hợp lệ.', 400); }
+        return self::request($path, $query);
+    }
+    public static function embed() {
+        if (!is_page('bieu-do-chung-khoan') || !isset($_GET['dttl_ssi_embed'])) { return; }
+        nocache_headers(); header("Content-Security-Policy: frame-ancestors 'self'");
+        self::assets();
+        echo '<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>SSI chart</title>';
+        wp_print_styles('dttl-ssi-chart');
+        echo '<style>body{margin:0;background:#fff}body>p,body>h2{display:none}.dttl-stock{margin:0!important;border:0!important;border-radius:0!important;padding:12px!important}.dttl-stock-heading,.dttl-stock-controls,.dttl-stock-note{display:none!important}.dttl-stock-plot{height:310px!important}.dttl-stock-summary{font-size:12px}.dttl-stock-price{font-size:14px}.dttl-stock-tools{margin-top:8px}</style></head><body>';
+        echo self::shortcode(); wp_print_scripts('dttl-ssi-chart'); echo '</body></html>'; exit;
     }
     public static function routes() {
         register_rest_route('dttl-ssi/v1', '/symbols', ['methods' => 'GET', 'callback' => [__CLASS__, 'symbols_route'], 'permission_callback' => '__return_true']);
@@ -175,14 +189,18 @@ final class DTTL_SSI_Charts {
     public static function shortcode($attributes = []) {
         self::assets();
         $en = strpos($_SERVER['REQUEST_URI'] ?? '', '/en/') === 0;
+        $embed = isset($_GET['dttl_ssi_embed']);
+        $initial_symbol = $embed && isset($_GET['symbol']) && is_string($_GET['symbol']) && preg_match('/^[A-Z0-9]{2,15}$/', $_GET['symbol']) ? $_GET['symbol'] : 'FPT';
+        $initial_board = $embed && isset($_GET['board']) && in_array($_GET['board'], ['HOSE','HNX','UPCOM'], true) ? $_GET['board'] : 'HOSE';
+        $initial_frame = $embed && isset($_GET['frame']) && in_array($_GET['frame'], ['1d','1h','15m','5m','1m'], true) ? $_GET['frame'] : '1d';
         ob_start(); ?>
         <p><?php echo $en ? 'Explore candlestick charts and trading volumes for stocks on HOSE, HNX and UPCOM using data from SSI.' : 'Tra cứu biểu đồ nến và khối lượng giao dịch các mã chứng khoán trên HOSE, HNX và UPCOM với dữ liệu từ SSI.'; ?></p>
         <section class="dttl-stock" data-endpoint="<?php echo esc_url(rest_url('dttl-ssi/v1/')); ?>" data-lang="<?php echo $en ? 'en' : 'vi'; ?>" aria-label="<?php echo $en ? 'Vietnam stock chart' : 'Biểu đồ chứng khoán Việt Nam'; ?>">
             <div class="dttl-stock-heading"><div><span class="dttl-stock-eyebrow">SSI MARKET DATA</span><h2><?php echo $en ? 'Vietnam stock chart' : 'Biểu đồ chứng khoán Việt Nam'; ?></h2></div><span class="dttl-stock-badge"><?php echo $en ? 'Market data' : 'Dữ liệu thị trường'; ?></span></div>
             <form class="dttl-stock-controls">
-                <label><?php echo $en ? 'Exchange' : 'Sàn'; ?><select name="board"><option>HOSE</option><option>HNX</option><option>UPCOM</option></select></label>
-                <label class="dttl-stock-search"><?php echo $en ? 'Symbol' : 'Mã chứng khoán'; ?><input name="symbol" value="FPT" maxlength="15" autocomplete="off" placeholder="FPT, HPG, VNM…"><datalist></datalist></label>
-                <label><?php echo $en ? 'Timeframe' : 'Khung nến'; ?><select name="frame"><option value="1d"><?php echo $en ? '1 day' : '1 ngày'; ?></option><option value="1h"><?php echo $en ? '1 hour' : '1 giờ'; ?></option><option value="15m"><?php echo $en ? '15 min' : '15 phút'; ?></option><option value="5m"><?php echo $en ? '5 min' : '5 phút'; ?></option><option value="1m"><?php echo $en ? '1 min' : '1 phút'; ?></option></select></label>
+                <label><?php echo $en ? 'Exchange' : 'Sàn'; ?><select name="board"><?php foreach (['HOSE','HNX','UPCOM'] as $b) { echo '<option' . selected($initial_board,$b,false) . '>' . esc_html($b) . '</option>'; } ?></select></label>
+                <label class="dttl-stock-search"><?php echo $en ? 'Symbol' : 'Mã chứng khoán'; ?><input name="symbol" value="<?php echo esc_attr($initial_symbol); ?>" maxlength="15" autocomplete="off" placeholder="FPT, HPG, VNM…"><datalist></datalist></label>
+                <label><?php echo $en ? 'Timeframe' : 'Khung nến'; ?><select name="frame"><option value="1d" <?php selected($initial_frame,'1d'); ?>><?php echo $en ? '1 day' : '1 ngày'; ?></option><option value="1h" <?php selected($initial_frame,'1h'); ?>><?php echo $en ? '1 hour' : '1 giờ'; ?></option><option value="15m" <?php selected($initial_frame,'15m'); ?>><?php echo $en ? '15 min' : '15 phút'; ?></option><option value="5m" <?php selected($initial_frame,'5m'); ?>><?php echo $en ? '5 min' : '5 phút'; ?></option><option value="1m" <?php selected($initial_frame,'1m'); ?>><?php echo $en ? '1 min' : '1 phút'; ?></option></select></label>
                 <button type="submit"><?php echo $en ? 'View chart' : 'Xem biểu đồ'; ?></button>
             </form>
             <div class="dttl-stock-summary"><strong class="dttl-stock-name">—</strong><span class="dttl-stock-price">—</span></div>
