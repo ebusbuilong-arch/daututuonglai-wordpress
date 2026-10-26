@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 final class DTTL_SSI_Charts {
-    const VERSION = '0.3.0';
+    const VERSION = '0.3.1';
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_filter('rest_pre_serve_request', [__CLASS__, 'public_cors'], 100, 4);
@@ -188,7 +188,7 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         $frame = (string) ($request->get_param('frame') ?: '1d');
         $days = ['1d' => 365, '1h' => 30, '15m' => 10, '5m' => 5, '1m' => 2];
         if (!preg_match('/^[A-Z0-9]{2,15}$/', $symbol) || !isset($days[$frame]) || !in_array($board, ['HOSE', 'HNX', 'UPCOM'], true)) { return self::error('Mã hoặc khung thời gian không hợp lệ.', 400); }
-        $key = 'dttl_ssi_bars_' . self::namespace_key() . '_' . $board . '_' . $symbol . '_' . $frame;
+        $key = 'dttl_ssi_bars_031_' . self::namespace_key() . '_' . $board . '_' . $symbol . '_' . $frame;
         $cached = get_transient($key); if (is_array($cached)) { return rest_ensure_response($cached); }
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $ipkey = 'dttl_ssi_ip_' . substr(hash_hmac('sha256', $ip, wp_salt('nonce')), 0, 24) . '_' . floor(time()/60);
@@ -217,8 +217,33 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
             }
             $bars = self::normalize($rows, $frame);
             if ($rows && !$bars) { return self::error('SSI đã trả dữ liệu nhưng định dạng nến cần được kiểm tra.'); }
-            $result = ['security' => $selected, 'frame' => $frame, 'bars' => $bars, 'fetchedAt' => $now->format(DATE_ATOM), 'source' => 'SSI', 'priceUnit' => 'SSI', 'pollSeconds' => $frame === '1d' ? 300 : 60];
-            set_transient($key, $result, $frame === '1d' ? 300 : 60);
+            $provisional = false;
+            // Daily history may contain completed sessions only. Build today's
+            // evolving candle from SSI minute bars; never invent a live quote.
+            if ($frame === '1d') {
+                $minute_request = new WP_REST_Request('GET');
+                $minute_request->set_param('symbol', $symbol);
+                $minute_request->set_param('board', $board);
+                $minute_request->set_param('frame', '1m');
+                $minute_response = self::history_route($minute_request);
+                if (!is_wp_error($minute_response)) {
+                    $minute_data = $minute_response->get_data();
+                    $today = $now->format('Y-m-d');
+                    $intraday = array_values(array_filter($minute_data['bars'] ?? [], function($b) use ($today) { return substr($b['date'], 0, 10) === $today; }));
+                    if ($intraday) {
+                        $first = reset($intraday); $last = end($intraday);
+                        $current = ['time' => $now->setTime(0,0)->getTimestamp(), 'date' => $today,
+                            'open' => $first['open'], 'high' => max(array_column($intraday,'high')),
+                            'low' => min(array_column($intraday,'low')), 'close' => $last['close'],
+                            'volume' => array_sum(array_column($intraday,'volume'))];
+                        $bars = array_values(array_filter($bars, function($b) use ($today) { return $b['date'] !== $today; }));
+                        $bars[] = $current;
+                        $provisional = $last['date'];
+                    }
+                }
+            }
+            $result = ['security' => $selected, 'frame' => $frame, 'bars' => $bars, 'fetchedAt' => $now->format(DATE_ATOM), 'source' => 'SSI', 'priceUnit' => 'SSI', 'provisionalAt' => $provisional, 'pollSeconds' => 60];
+            set_transient($key, $result, 60);
             return rest_ensure_response($result);
         } finally { delete_transient($lock); }
     }

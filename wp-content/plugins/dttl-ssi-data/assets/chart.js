@@ -8,7 +8,7 @@ const calc = values => {
  let gain=0,loss=0;
  const rsi=values.map((v,i)=>{if(!i)return null;const delta=v-values[i-1];if(i<=14){gain+=Math.max(delta,0)/14;loss+=Math.max(-delta,0)/14;}else{gain=(gain*13+Math.max(delta,0))/14;loss=(loss*13+Math.max(-delta,0))/14;}return i<14?null:loss===0?(gain===0?50:100):100-100/(1+gain/loss);});
  const sd=values.map((v,i)=>ma[i]===null?null:Math.sqrt(values.slice(i-19,i+1).reduce((sum,x)=>sum+(x-ma[i])**2,0)/20));
- return {ma20:ma,ma50:sma(50),ema20:ema(values,20),upper:ma.map((v,i)=>v===null?null:v+2*sd[i]),lower:ma.map((v,i)=>v===null?null:v-2*sd[i]),rsi,macd,signal};
+ return {ma20:ma,ma50:sma(50),ema20:ema(values,20),upper:ma.map((v,i)=>v===null?null:v+2*sd[i]),lower:ma.map((v,i)=>v===null?null:v-2*sd[i]),rsi,macd,signal,histogram:macd.map((v,i)=>signal[i]===null?null:v-signal[i])};
 };
 let uid = 0;
 function syncTheme(){let theme=new URLSearchParams(location.search).get('theme')||'light';try{if(window.parent!==window&&window.parent.document.documentElement.dataset.theme)theme=window.parent.document.documentElement.dataset.theme;}catch{}document.documentElement.dataset.ssiTheme=theme==='dark'?'dark':'light';}
@@ -64,8 +64,9 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
    bars=data.bars; studies=calc(bars.map(b=>b.close)); selected=data.security; activeQuery=JSON.stringify(query);
    text(name,`${selected.symbol} · ${en ? selected.nameEn : selected.name} · ${selected.board}`);
    const last=bars.at(-1), previous=bars.at(-2);
+   if(data.provisionalAt) text(status,t('Nến ngày đang hình thành từ dữ liệu phút','Daily candle derived from minute data'));
    if(last) { const change=previous ? (last.close-previous.close) : 0; const pct=previous && previous.close ? change/previous.close*100:0; text(price,`${nf.format(last.close)}${previous ? `  ${change>=0?'+':''}${nf.format(change)} (${pct>=0?'+':''}${nf.format(pct)}%)`:''}`); price.style.color=change>=0?'#087e63':'#d54454'; }
-   text(status,bars.length ? `${t('Nến cuối','Last candle')}: ${last.date} · ${bars.length} ${t('nến','candles')} · ${t('Tải lúc','Fetched')} ${new Date(data.fetchedAt).toLocaleTimeString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'})}` : t('Chưa có dữ liệu trong khoảng thời gian này. Thử khung 1 ngày.','No data in this period. Try the daily timeframe.'));
+   text(status,bars.length ? `${t('Nến cuối','Last candle')}: ${data.provisionalAt||last.date}${data.provisionalAt?t(' (nến ngày tạm tính)',' (provisional daily candle)'):''} · ${bars.length} ${t('nến','candles')} · ${t('Tải lúc','Fetched')} ${new Date(data.fetchedAt).toLocaleTimeString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'})}` : t('Chưa có dữ liệu trong khoảng thời gian này. Thử khung 1 ngày.','No data in this period. Try the daily timeframe.'));
    resetView(); if(same&&!wasLatest){pan.value=String(Math.min(oldPan,Number(pan.max)));draw();}
    timer=setTimeout(()=>load(true),Math.max(60,data.pollSeconds||300)*1000);
   } catch(error) { if(error.name==='AbortError'||id!==serial)return; text(status,(same&&bars.length?t('Đang giữ dữ liệu cũ. ','Showing previous data. '):'')+error.message); timer=setTimeout(()=>load(true),120000); }
@@ -97,10 +98,11 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   if(!sub.hidden){
    const h=150;sub.width=width*dpr;sub.height=h*dpr;sub.style.width='100%';sub.style.height=h+'px';
    const sc=sub.getContext('2d');sc.setTransform(dpr,0,0,dpr,0,0);sc.fillStyle=dark?'#101923':'#fbfcfe';sc.fillRect(0,0,width,h);sc.font='11px system-ui';sc.fillStyle=dark?'#94a3b8':'#64748b';
-   const keys=oscillator.value==='rsi'?['rsi']:['macd','signal'],data=keys.flatMap(k=>series(k).filter(v=>v!==null));
+   const keys=oscillator.value==='rsi'?['rsi']:['macd','signal'],data=(oscillator.value==='rsi'?keys:[...keys,'histogram']).flatMap(k=>series(k).filter(v=>v!==null));
    const lo=oscillator.value==='rsi'?0:Math.min(0,...data),hi=oscillator.value==='rsi'?100:Math.max(0,...data),scale=v=>26+(hi-v)/(hi-lo||1)*102;
    sc.fillText(oscillator.value==='rsi'?'RSI (14)':'MACD (12,26) / Signal (9)',left,15);
    (oscillator.value==='rsi'?[30,70]:[0]).forEach(v=>{sc.strokeStyle=dark?'#334155':'#cbd5e1';sc.beginPath();sc.moveTo(left,scale(v));sc.lineTo(width-right,scale(v));sc.stroke();sc.fillText(String(v),width-right+5,scale(v)+4);});
+   if(oscillator.value==='macd'){series('histogram').forEach((v,i)=>{if(v===null)return;sc.fillStyle=v>=0?'#18c49a':'#ed5470';const zero=scale(0),yy=scale(v);sc.fillRect(left+(i+.18)*step,Math.min(zero,yy),Math.max(1,step*.64),Math.max(1,Math.abs(zero-yy)));});}
    keys.forEach((key,i)=>line(sc,series(key),i?'#f59e0b':'#a78bfa',scale));
    if(!data.length)sc.fillText(t('Chưa đủ nến để tính chỉ báo','Not enough candles'),left,80);
   }
