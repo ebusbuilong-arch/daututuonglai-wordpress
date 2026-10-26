@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 final class DTTL_SSI_Charts {
-    const VERSION = '0.2.2';
+    const VERSION = '0.3.0';
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_filter('rest_pre_serve_request', [__CLASS__, 'public_cors'], 100, 4);
@@ -252,6 +252,16 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         <h2><?php echo $en ? 'How to use the chart' : 'Cách xem biểu đồ'; ?></h2>
         <p><?php echo $en ? 'Choose an exchange, enter a stock symbol and select View chart. Change the timeframe to explore minute, hourly or daily candles. Tap or hover over a candle to see its opening, high, low and closing prices and trading volume.' : 'Chọn sàn, nhập mã chứng khoán rồi bấm Xem biểu đồ. Đổi khung nến để xem biến động theo phút, giờ hoặc ngày. Chạm hoặc đưa chuột lên nến để xem giá mở cửa, cao nhất, thấp nhất, đóng cửa và khối lượng.'; ?></p>
         <p><?php echo $en ? 'Choose the number of visible candles and use the History slider to explore earlier periods. The last candle time and data retrieval time appear above the chart; the latest trades may not yet be reflected.' : 'Chọn số nến hiển thị và kéo thanh Xem lịch sử để xem các giai đoạn trước. Thời điểm nến cuối và thời điểm tải dữ liệu được ghi phía trên biểu đồ; dữ liệu có thể chưa phản ánh giao dịch mới nhất.'; ?></p>
-        <?php if (!$embed) { echo self::api_guide($en); } return ob_get_clean();
+        <?php if (!$embed) { ?>
+        <section class="dttl-fx" data-lang="<?php echo $en?'en':'vi'; ?>">
+        <h2><?php echo $en?'Forex charts':'Biểu đồ Forex'; ?></h2>
+        <p><?php echo $en?'Embedded TradingView chart. Availability and delay depend on the selected provider. Forex data is not included in the SSI API.':'Biểu đồ nhúng TradingView. Khả năng hiển thị và độ trễ phụ thuộc nguồn được chọn. Dữ liệu Forex không nằm trong API SSI của web.'; ?></p>
+        <label><?php echo $en?'Currency pair':'Cặp tiền'; ?> <select class="dttl-fx-pair"><option>EURUSD</option><option>GBPUSD</option><option>USDJPY</option><option>AUDUSD</option><option>USDCHF</option><option>USDCAD</option><option>NZDUSD</option></select></label>
+        <button type="button" class="dttl-fx-open"><?php echo $en?'Load Forex chart':'Mở biểu đồ Forex'; ?></button>
+        <div class="dttl-fx-chart"></div>
+        <p><a class="dttl-fx-link" href="https://www.tradingview.com/symbols/EURUSD/" target="_blank" rel="noopener nofollow"><?php echo $en?'View on TradingView if the chart cannot load':'Xem trên TradingView nếu biểu đồ không tải được'; ?></a></p>
+        </section>
+        <?php echo self::api_guide($en); } return ob_get_clean();
     }
 }
+

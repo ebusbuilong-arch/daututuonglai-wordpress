@@ -10,3 +10,6 @@ html[data-ssi-theme=dark] .dttl-stock button:hover{background:#30d4ac}
 html[data-ssi-theme=dark] .dttl-stock-tooltip{background:#172231f5;border-color:#34445a;color:#e2e8f0;box-shadow:0 4px 18px #0005}
 html[data-ssi-theme=dark] .dttl-stock-pan input{accent-color:#18c49a}
 html[data-ssi-theme=dark] footer a{color:#94a3b8}
+
+
+.dttl-indicators{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0;font-size:13px}.dttl-indicators select,.dttl-fx select{padding:7px;border:1px solid #94a3b8;border-radius:7px;background:transparent;color:inherit;max-width:100%}.dttl-indicator-panel{display:block;border-top:1px solid #64748b33}.dttl-indicator-panel[hidden]{display:none}.dttl-indicator-legend{font-size:12px}.dttl-fx{margin:28px 0;padding:20px;border:1px solid #94a3b855;border-radius:12px}.dttl-fx button{margin:10px;padding:9px 14px;border-radius:8px;background:#087e63;color:white;border:0}.dttl-fx-chart{width:100%;margin-top:12px}.tradingview-widget-copyright{font-size:12px;padding:6px}
