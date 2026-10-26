@@ -49,12 +49,20 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
  let bars = [], visible = [], selected = null, hover = -1, geometry = {}, serial = 0, controller, timer, busy = false, activeQuery = null;
 
  const indicators=document.createElement('div');indicators.className='dttl-indicators';
- const overlay=document.createElement('select'),oscillator=document.createElement('select');
- for(const [value,label] of [['none',t('Không','None')],['ma','MA20 / MA50'],['ema','EMA20'],['bb','Bollinger (20, 2)'],['ichi','Ichimoku (9, 26, 52)']])overlay.add(new Option(label,value));
- for(const [value,label] of [['none',t('Không','None')],['rsi','RSI (14)'],['macd','MACD (12, 26, 9)'],['stoch','Stochastic RSI (14, 14, 3, 3)'],['mfi','MFI (14)'],['crsi','Connors RSI (3, 2, 100)'],['obv','OBV']])oscillator.add(new Option(label,value));
- for(const [control,label] of [[overlay,t('Đường giá','Price overlay')],[oscillator,t('Chỉ báo','Indicator')]]){const el=document.createElement('label');el.textContent=label+' ';el.append(control);indicators.append(el);control.addEventListener('change',draw);}
+
+ const chosenOverlays=new Set(),chosenStudies=new Set(),panels=new Map();
+ const overlayOptions=[['ma','MA20 / MA50'],['ema','EMA20'],['bb','Bollinger (20, 2)'],['ichi','Ichimoku (9, 26, 52)']];
+ const studyOptions=[['rsi','RSI (14)'],['macd','MACD (12, 26, 9)'],['stoch','Stochastic RSI (14, 14, 3, 3)'],['mfi','MFI (14)'],['crsi','Connors RSI (3, 2, 100)'],['obv','OBV']];
+ for(const [options,chosen,title] of [[overlayOptions,chosenOverlays,t('Đường giá','Price overlays')],[studyOptions,chosenStudies,t('Chỉ báo','Indicators')]]){
+  const details=document.createElement('details'),summary=document.createElement('summary'),choices=document.createElement('div');
+  details.className='dttl-indicator-picker';choices.className='dttl-indicator-choices';summary.textContent=title;details.append(summary,choices);
+  for(const [value,label] of options){const item=document.createElement('label'),input=document.createElement('input');input.type='checkbox';input.value=value;item.append(input,document.createTextNode(label));choices.append(item);input.addEventListener('change',()=>{if(input.checked)chosen.add(value);else chosen.delete(value);summary.textContent=title+(chosen.size?' ('+chosen.size+')':'');draw();});}
+  indicators.append(details);
+ }
+ const clear=document.createElement('button');clear.type='button';clear.textContent=t('Bỏ chọn tất cả','Clear all');clear.addEventListener('click',()=>{chosenOverlays.clear();chosenStudies.clear();indicators.querySelectorAll('input').forEach(el=>el.checked=false);indicators.querySelectorAll('summary').forEach((el,i)=>el.textContent=i?t('Chỉ báo','Indicators'):t('Đường giá','Price overlays'));draw();});indicators.append(clear);
  const legend=document.createElement('span');legend.className='dttl-indicator-legend';indicators.append(legend);plot.before(indicators);
- const sub=document.createElement('canvas');sub.className='dttl-indicator-panel';sub.hidden=true;plot.after(sub);
+ const panelHost=document.createElement('div');panelHost.className='dttl-indicator-panels';plot.after(panelHost);
+ for(const [value,label] of studyOptions){const sub=document.createElement('canvas');sub.className='dttl-indicator-panel';sub.hidden=true;sub.setAttribute('aria-label',label);panelHost.append(sub);panels.set(value,sub);}
  let studies={};
  const text = (el, value) => { el.textContent = value; };
  async function get(path, params, signal) {
@@ -96,12 +104,13 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   finally { if(id===serial){busy=false;root.removeAttribute('aria-busy');} }
  }
  function draw() {
-  const start=Number(pan.value),end=Math.min(bars.length,start+Number(count.value))+(overlay.value==='ichi'?26:0);
+  const start=Number(pan.value),end=Math.min(bars.length,start+Number(count.value))+(chosenOverlays.has('ichi')?26:0);
   const series=(key)=> (studies[key]||[]).slice(start,end);
-  const overlays=overlay.value==='ma'?[['ma20','#f59e0b'],['ma50','#38bdf8']]:overlay.value==='ema'?[['ema20','#f59e0b']]:overlay.value==='bb'?[['ma20','#f59e0b'],['upper','#a78bfa'],['lower','#a78bfa']]:overlay.value==='ichi'?[['tenkan','#38bdf8'],['kijun','#f59e0b'],['spanA','#009688'],['spanB','#e53935'],['chikou','#a78bfa']]:[];
-  legend.textContent=overlay.value==='ma'?'MA20 · 🟠 / MA50 · 🔵':overlay.value==='ema'?'EMA20':overlay.value==='bb'?'BB (20, 2σ)':overlay.value==='ichi'?'Ichimoku · 9 / 26 / 52 · +26':'';
-  sub.hidden=oscillator.value==='none'||!bars.length;
 
+  const overlayMap={ma:[['ma20','#f59e0b'],['ma50','#38bdf8']],ema:[['ema20','#fb923c']],bb:[['ma20','#f59e0b'],['upper','#a78bfa'],['lower','#a78bfa']],ichi:[['tenkan','#38bdf8'],['kijun','#f59e0b'],['spanA','#009688'],['spanB','#e53935'],['chikou','#a78bfa']]};
+  const overlays=[...new Map([...chosenOverlays].flatMap(key=>overlayMap[key]).map(pair=>[pair[0],pair])).values()];
+  legend.textContent=overlayOptions.filter(([key])=>chosenOverlays.has(key)).map(([,label])=>label).join(' · ');
+  for(const [key,sub] of panels)sub.hidden=!chosenStudies.has(key)||!bars.length;
   const width=plot.clientWidth||700, height=plot.clientHeight||430, dpr=window.devicePixelRatio||1;
   canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);canvas.style.width=width+'px';canvas.style.height=height+'px';ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,width,height);
   const dark=document.documentElement.dataset.ssiTheme==='dark';ctx.fillStyle=dark?'#101923':'#fbfcfe';ctx.fillRect(0,0,width,height);ctx.font='11px system-ui';
@@ -109,7 +118,7 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   visible=bars.slice(Number(pan.value),Number(pan.value)+Number(count.value));
   if(!visible.length){ctx.fillStyle=dark?'#94a3b8':'#64748b';ctx.textAlign='center';ctx.fillText(t('Biểu đồ sẽ hiển thị khi có dữ liệu','Chart will appear when data is available'),width/2,height/2);return;}
   const extra=overlays.flatMap(([key])=>series(key).filter(v=>v!==null)),low=Math.min(...visible.map(b=>b.low),...extra),high=Math.max(...visible.map(b=>b.high),...extra),pad=(high-low)*.06||high*.01||1,min=low-pad,max=high+pad;
-  const pw=width-left-right,step=pw/(visible.length+(overlay.value==='ichi'?26:0)),y=v=>top+(max-v)/(max-min)*(ph-top),vol=Math.max(...visible.map(b=>b.volume),1);
+  const pw=width-left-right,step=pw/(visible.length+(chosenOverlays.has('ichi')?26:0)),y=v=>top+(max-v)/(max-min)*(ph-top),vol=Math.max(...visible.map(b=>b.volume),1);
   geometry={left,step,pw,width,height};
   ctx.textAlign='left';
   for(let i=0;i<=4;i++){const value=min+(max-min)*i/4,yy=y(value);ctx.strokeStyle=dark?'#263445':'#e5eaf1';ctx.beginPath();ctx.moveTo(left,yy);ctx.lineTo(width-right,yy);ctx.stroke();ctx.fillStyle=dark?'#94a3b8':'#64748b';ctx.fillText(nf.format(value),width-right+7,yy+4);}
@@ -117,9 +126,10 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
   visible.forEach((bar,i)=>{const x=left+(i+.5)*step,color=bar.close>=bar.open?'#18c49a':'#ed5470';ctx.strokeStyle=color;ctx.fillStyle=color;ctx.beginPath();ctx.moveTo(x,y(bar.high));ctx.lineTo(x,y(bar.low));ctx.stroke();ctx.fillRect(x-Math.max(1,step*.65)/2,Math.min(y(bar.open),y(bar.close)),Math.max(1,step*.65),Math.max(1,Math.abs(y(bar.open)-y(bar.close))));ctx.globalAlpha=.55;const v=bar.volume/vol*vh;ctx.fillRect(x-step*.32,vtop+vh-v,Math.max(1,step*.64),v);ctx.globalAlpha=1;});
 
   function line(context, data, color, scale){context.strokeStyle=color;context.lineWidth=1.5;context.beginPath();let begun=false;data.forEach((v,i)=>{if(v===null||!Number.isFinite(v)){begun=false;return;}const x=left+(i+.5)*step;if(begun)context.lineTo(x,scale(v));else context.moveTo(x,scale(v));begun=true;});context.stroke();context.lineWidth=1;}
-  if(overlay.value==='ichi'){const a=series('spanA'),b=series('spanB');for(let i=1;i<a.length;i++){if([a[i-1],a[i],b[i-1],b[i]].some(v=>v==null))continue;ctx.fillStyle=a[i]>=b[i]?'rgba(0,150,136,.18)':'rgba(229,57,53,.18)';ctx.beginPath();ctx.moveTo(left+(i-.5)*step,y(a[i-1]));ctx.lineTo(left+(i+.5)*step,y(a[i]));ctx.lineTo(left+(i+.5)*step,y(b[i]));ctx.lineTo(left+(i-.5)*step,y(b[i-1]));ctx.closePath();ctx.fill();}}
+  if(chosenOverlays.has('ichi')){const a=series('spanA'),b=series('spanB');for(let i=1;i<a.length;i++){if([a[i-1],a[i],b[i-1],b[i]].some(v=>v==null))continue;ctx.fillStyle=a[i]>=b[i]?'rgba(0,150,136,.18)':'rgba(229,57,53,.18)';ctx.beginPath();ctx.moveTo(left+(i-.5)*step,y(a[i-1]));ctx.lineTo(left+(i+.5)*step,y(a[i]));ctx.lineTo(left+(i+.5)*step,y(b[i]));ctx.lineTo(left+(i-.5)*step,y(b[i-1]));ctx.closePath();ctx.fill();}}
   overlays.forEach(([key,color])=>line(ctx,series(key),color,y));
-  if(!sub.hidden){
+  for(const [studyKey,sub] of panels){if(sub.hidden)continue;
+   const oscillator={value:studyKey,selectedOptions:[{textContent:studyOptions.find(([key])=>key===studyKey)[1]}]};
    const h=150;sub.width=width*dpr;sub.height=h*dpr;sub.style.width='100%';sub.style.height=h+'px';
    const sc=sub.getContext('2d');sc.setTransform(dpr,0,0,dpr,0,0);sc.fillStyle=dark?'#101923':'#fbfcfe';sc.fillRect(0,0,width,h);sc.font='11px system-ui';sc.fillStyle=dark?'#94a3b8':'#64748b';
    const bounded=['rsi','stoch','mfi','crsi'].includes(oscillator.value),keys=oscillator.value==='macd'?['macd','signal']:oscillator.value==='stoch'?['stochK','stochD']:[oscillator.value],data=(oscillator.value==='macd'?[...keys,'histogram']:keys).flatMap(k=>series(k).filter(v=>v!==null));
