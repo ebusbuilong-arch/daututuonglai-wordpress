@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DTTL SSI Data
  * Description: Cấu hình kết nối dữ liệu thị trường SSI cho Đầu Tư Tương Lai.
- * Version: 0.1.0
+ * Version: 0.2.1
  * Author: DTTL
  */
 if (!defined('ABSPATH')) { exit; }
@@ -23,7 +23,7 @@ final class DTTL_SSI_Data {
         add_menu_page('Cấu hình SSI', 'Dữ liệu SSI', 'manage_options', 'dttl-ssi', [__CLASS__, 'page'], 'dashicons-chart-line', 59);
     }
     private static function key() { return hash('sha256', wp_salt('auth') . wp_salt('secure_auth'), true); }
-    private static function encrypt($value) {
+    public static function encrypt($value) {
         if (!function_exists('openssl_encrypt')) { throw new RuntimeException('Máy chủ cần bật OpenSSL để lưu khóa an toàn.'); }
         $iv = random_bytes(12);
         $tag = '';
@@ -75,6 +75,7 @@ final class DTTL_SSI_Data {
             if ($new['apiKey'] !== '' || $new['apiSecret'] !== '') {
                 update_option(self::OPTION, self::encrypt($credentials), false);
                 delete_option(self::STATUS);
+                delete_transient('dttl_ssi_access_token');
             }
             $result = ['ok' => true, 'message' => 'Đã lưu cấu hình SSI. Anh bấm “Kiểm tra kết nối” để xác thực khóa.'];
             if ($mode === 'test') {
@@ -124,10 +125,16 @@ final class DTTL_SSI_Data {
                     <p><?php echo esc_html($status['message']); ?></p>
                 <?php else : ?><p>Chưa kiểm tra kết nối với khóa hiện tại.</p><?php endif; ?>
                 <p>Quyền dùng cho biểu đồ: <strong>All api data</strong> và <strong>All stream data</strong>. Không cần Private Key hoặc OTP cho bước xác thực dữ liệu này.</p>
-                <p class="description">Phiên bản này cung cấp cấu hình và kiểm tra xác thực. Biểu đồ sẽ được tích hợp ở bước tiếp theo.</p>
+                <p class="description">Chèn shortcode [dttl_stock_chart] vào trang hoặc bài viết để hiển thị biểu đồ. Dữ liệu được lưu đệm để giảm số lượt gọi SSI.</p>
             </div>
+            <?php $diag = get_option('dttl_ssi_data_diagnostic', []); if ($diag) : ?><p><strong>Chẩn đoán SSI:</strong> <?php echo esc_html(wp_json_encode($diag, JSON_UNESCAPED_UNICODE)); ?></p><?php endif; ?>
+            <h2>Xem trước biểu đồ</h2>
+            <?php echo DTTL_SSI_Charts::shortcode(); ?>
         </div>
         <?php
     }
 }
 DTTL_SSI_Data::boot();
+
+require_once __DIR__ . '/charts.php';
+DTTL_SSI_Charts::boot();
