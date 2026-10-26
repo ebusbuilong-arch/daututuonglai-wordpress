@@ -1,0 +1,22 @@
+name: Validate DTTL AI plugin
+on:
+  push:
+    paths: ['wp-content/plugins/dttl-ai-assistant/**', 'tests/dttl-ai/**', '.github/workflows/dttl-ai.yml']
+  pull_request:
+    paths: ['wp-content/plugins/dttl-ai-assistant/**', 'tests/dttl-ai/**', '.github/workflows/dttl-ai.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: php -l wp-content/plugins/dttl-ai-assistant/dttl-ai-assistant.php
+      - run: php tests/dttl-ai/backend.php
+      - run: node --check wp-content/plugins/dttl-ai-assistant/assets/chat.js
+      - run: cd wp-content/plugins && zip -r ../../../dttl-ai-assistant-0.1.0.zip dttl-ai-assistant
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dttl-ai-assistant-0.1.0
+          path: dttl-ai-assistant-0.1.0.zip

@@ -1,0 +1,22 @@
+<?php
+// Isolated contract tests: WordPress/database/provider calls are test doubles.
+define('ABSPATH',__DIR__);$cfg=['enabled'=>1,'key'=>'test-key-not-real'];$rows=[];$remote_calls=0;$quota=true;
+function add_action(...$a){} function register_deactivation_hook(...$a){} function wp_parse_args($a,$b){return array_merge($b,$a);} function get_option($k,$d=[]){global $cfg;return $cfg;}
+function current_user_can($v){return true;} function sanitize_text_field($s){return strip_tags($s);} function sanitize_textarea_field($s){return strip_tags($s);} function absint($v){return abs((int)$v);} function remove_accents($s){return iconv('UTF-8','ASCII//TRANSLIT',$s);} function wp_strip_all_tags($s,$b=false){return strip_tags($s);} function strip_shortcodes($s){return preg_replace('/\[[^\]]*\]/','',$s);} function get_permalink($id){return 'https://example.test/article-'.$id.'/';} function home_url(){return 'https://example.test/';} function wp_parse_url($s,$i){return parse_url($s,$i);} function wp_salt(){return 'test-salt';} function nocache_headers(){} function check_ajax_referer(...$args){} function wp_unslash($s){return $s;} function wp_next_scheduled($s){return true;} function wp_json_encode($v,$f=0){return json_encode($v,$f);} function is_wp_error($x){return $x==='error';}
+function wp_remote_post($url,$args){global $remote_calls,$reply;$remote_calls++;check($url==='https://api.openai.com/v1/responses','fixed provider endpoint');$body=json_decode($args['body'],true);check($body['store']===false,'provider storage disabled');return $reply;}
+function wp_remote_retrieve_response_code($r){return $r['code'];}function wp_remote_retrieve_body($r){return $r['body'];}
+class Result extends Exception{public $data;public $status;function __construct($d,$s){$this->data=$d;$this->status=$s;}}
+function wp_send_json_success($d){throw new Result($d,200);}function wp_send_json_error($d,$s){throw new Result($d,$s);}
+function check($v,$m){if(!$v)throw new Exception('FAIL: '.$m);}
+class DB{public $posts='posts';public $options='options';public $sql='';function esc_like($s){return addcslashes($s,'_%');}function prepare($q,...$args){$this->sql=$q;return $q;}function get_results($q){global $rows;check(strpos($q,"post_status='publish'")!==false,'published only');check(strpos($q,"post_password=''")!==false,'no password sources');check(strpos($q,"('post','page')")!==false,'only public content types');return $rows;}function query($q){global $quota;return $quota?1:0;}}
+$wpdb=new DB();require __DIR__.'/../../wp-content/plugins/dttl-ai-assistant/dttl-ai-assistant.php';
+function run_chat($q){$_POST=['message'=>$q,'history'=>'[]','lang'=>'en'];try{DTTL_AI_Assistant::chat();}catch(Result $r){return $r;}throw new Exception('No result');}
+$r=run_chat('leverage');check($r->data['mode']==='no_sources'&&$remote_calls===0,'no evidence must not call provider');
+$rows=[(object)['ID'=>1,'post_title'=>'Leverage explained','post_content'=>'Leverage increases exposure and can magnify both gains and losses. Borrowing creates additional risk.','post_modified'=>'2026-10-26'],(object)['ID'=>2,'post_title'=>'Leverage private exception','post_content'=>'Leverage article hidden by administrative exclusion with enough text for indexing.','post_modified'=>'2026-10-26']];
+$cfg['exclude']='2';$cfg['key']='';$r=run_chat('leverage');check($r->data['mode']==='articles'&&count($r->data['sources'])===1&&$remote_calls===0,'excluded IDs and no-key fallback');
+$cfg['key']='test-key';$reply='error';$r=run_chat('leverage');check($r->data['mode']==='articles'&&count($r->data['sources'])===1,'provider failure preserves articles');
+$reply=['code'=>200,'body'=>json_encode(['output'=>[['content'=>[['type'=>'output_text','text'=>'Leverage magnifies losses [1]. https://evil.test/ <script>x</script>']]]]])];$r=run_chat('leverage');check($r->data['mode']==='ai','provider success');check(strpos($r->data['reply'],'https://')===false&&strpos($r->data['reply'],'<script>')===false,'model URLs and HTML removed');
+$quota=false;$r=run_chat('leverage');check($r->status===429,'rate limit blocks request');$quota=true;
+$r=run_chat(str_repeat('a',2401));check($r->status===400,'oversize rejected');
+$cfg['key']='old-key';$clean=DTTL_AI_Assistant::sanitize(['key'=>'','daily'=>99999,'bottom'=>999]);check($clean['key']==='old-key'&&$clean['daily']===5000&&$clean['bottom']===300,'safe settings and key retained');
+echo "PASS: no-source/no-key fallback, excluded sources, provider error/success, URL sanitization, rate limit, input bounds, settings.\n";
