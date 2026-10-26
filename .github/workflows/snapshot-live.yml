@@ -1,0 +1,128 @@
+name: DTTL - Snapshot live source
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/snapshot-live.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: dttl-live-snapshot
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Configure SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USER: ${{ secrets.VPS_USER }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in VPS_HOST VPS_PORT VPS_USER VPS_SSH_KEY; do
+            if [ -z "${!name}" ]; then echo "::error::Missing secret: $name"; exit 1; fi
+          done
+          [[ "$VPS_HOST" =~ ^[a-zA-Z0-9.-]+$ ]]
+          [[ "$VPS_PORT" =~ ^[0-9]+$ ]]
+          [[ "$VPS_USER" =~ ^[a-zA-Z_][a-zA-Z0-9_-]*$ ]]
+          umask 077
+          mkdir -p "$HOME/.ssh"
+          printf '%s\n' "$VPS_SSH_KEY" > "$HOME/.ssh/dttl_actions"
+          host_label="$VPS_HOST"
+          if [ "$VPS_PORT" != 22 ]; then host_label="[$VPS_HOST]:$VPS_PORT"; fi
+          printf '%s %s\n' "$host_label" 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILcY6kITMRi7ho4xaf0+lxgkH1LDbp/losU415CclxbI' > "$HOME/.ssh/known_hosts"
+          ssh-keygen -y -P '' -f "$HOME/.ssh/dttl_actions" >/dev/null
+          cat > "$HOME/.ssh/config" <<EOF
+          Host dttl-vps
+            HostName $VPS_HOST
+            Port $VPS_PORT
+            User $VPS_USER
+            IdentityFile ~/.ssh/dttl_actions
+            IdentitiesOnly yes
+            BatchMode yes
+            StrictHostKeyChecking yes
+            ConnectTimeout 20
+          EOF
+
+      - name: Read custom source from VPS
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh dttl-vps 'python3 -' > "$RUNNER_TEMP/live-source.tar" <<'PY'
+          import pathlib, tarfile, sys
+          root = pathlib.Path('/www/wwwroot/daututuonglai.vn')
+          roots = [root / 'wp-content/themes/daututuonglai']
+          roots += sorted(p for p in (root / 'wp-content/plugins').iterdir()
+                          if p.is_dir() and p.name.startswith(('aim-', 'dttl-')))
+          suffixes = {'.php','.js','.css','.html','.svg','.png','.jpg','.jpeg','.webp','.woff','.woff2','.md'}
+          with tarfile.open(fileobj=sys.stdout.buffer, mode='w|') as out:
+              for folder in roots:
+                  if folder.is_symlink(): raise RuntimeError('Symlink source rejected')
+                  for path in sorted(folder.rglob('*')):
+                      relative = path.relative_to(root)
+                      if path.is_symlink(): raise RuntimeError('Symlink source rejected: ' + str(relative))
+                      if not path.is_file() or path.suffix.lower() not in suffixes: continue
+                      if any(part.startswith('.') or part in {'node_modules','vendor','cache','logs','uploads','backup','backups'} for part in relative.parts): continue
+                      if any(word in path.name.lower() for word in ('secret','credential','wp-config','.bak','backup')): continue
+                      if path.stat().st_size > 5_000_000: raise RuntimeError('Oversized source: ' + str(relative))
+                      out.add(path, arcname=str(relative), recursive=False)
+          PY
+      - name: Stage and scan source before publishing
+        run: |
+          python3 - <<'PY'
+          import os, pathlib, tarfile, re, shutil
+          stage = pathlib.Path(os.environ['RUNNER_TEMP']) / 'live-source'
+          stage.mkdir()
+          with tarfile.open(pathlib.Path(os.environ['RUNNER_TEMP']) / 'live-source.tar') as archive:
+              archive.extractall(stage, filter='data')
+          rules = [
+              rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',
+              rb'\bAKIA[0-9A-Z]{16}\b',
+              rb'\bsk-[A-Za-z0-9_-]{20,}',
+              rb'(?i)(?:api[_-]?key|api[_-]?secret|password|access[_-]?token|client[_-]?secret)[\x22\x27]?\s*(?:=>|:|=|,)\s*[\x22\x27][A-Za-z0-9_+/=.:-]{16,}[\x22\x27]',
+          ]
+          problems = []
+          files = list(stage.rglob('*'))
+          for path in files:
+              if path.is_file() and path.suffix in {'.php','.js','.html','.md'}:
+                  if any(re.search(rule, path.read_bytes()) for rule in rules):
+                      problems.append(str(path.relative_to(stage)))
+          if problems:
+              print('Possible embedded credentials; publishing stopped. Review files:')
+              print('\n'.join(problems))
+              raise SystemExit(1)
+          for path in files:
+              if path.is_file():
+                  dest = pathlib.Path.cwd() / path.relative_to(stage)
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  shutil.copyfile(path, dest)
+          print('Source files scanned:', sum(p.is_file() for p in files))
+          PY
+      - name: Validate PHP and JavaScript
+        run: |
+          find wp-content -name '*.php' -print0 | xargs -0 -r -n1 php -l >/dev/null
+          find wp-content -name '*.js' -print0 | xargs -0 -r -n1 node --check
+      - name: Save source to snapshot branch
+        env:
+          SNAPSHOT_BRANCH: snapshot/live-${{ github.run_id }}
+        run: |
+          git switch -c "$SNAPSHOT_BRANCH"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add wp-content
+          if git diff --cached --quiet; then
+            echo 'Source already matches repository.'
+          else
+            git commit -m 'Snapshot current live DTTL theme and custom plugins'
+            git push origin "$SNAPSHOT_BRANCH"
+            echo "Saved branch: $SNAPSHOT_BRANCH" >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Remove runner key and temporary source
+        if: always()
+        run: rm -rf "$HOME/.ssh/dttl_actions" "$RUNNER_TEMP/live-source" "$RUNNER_TEMP/live-source.tar"
