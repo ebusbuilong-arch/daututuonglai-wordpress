@@ -8,7 +8,6 @@ Repository secrets (Settings → Secrets and variables → Actions):
 | VPS_PORT | SSH port |
 | VPS_USER | SSH account with write access to the DTTL site and /www/backup/dttl-deploy |
 | VPS_SSH_KEY | Dedicated Actions private key, entire OpenSSH block, no passphrase |
-| VPS_KNOWN_HOSTS | Verified VPS host key line, obtained locally on the VPS below |
 
 The existing dttl_github deploy key authenticates VPS → GitHub. It is separate from the Actions → VPS key.
 
@@ -37,18 +36,7 @@ echo 'Actions public key authorized.'
 
 Copy the complete contents of `~/.ssh/dttl_actions` directly into VPS_SSH_KEY using aaPanel's file editor. Never paste it into chat, commits or screenshots. This key grants the SSH user's deployment rights; prefer a dedicated account when available.
 
-Obtain VPS_KNOWN_HOSTS locally on the VPS, substituting the same HOST and PORT entered in Secrets:
-
-```bash
-read -r -p 'VPS_HOST: ' dttl_host
-read -r -p 'VPS_PORT: ' dttl_port
-if [ "$dttl_port" = 22 ]; then
-  printf '%s ' "$dttl_host"
-else
-  printf '[%s]:%s ' "$dttl_host" "$dttl_port"
-fi
-cut -d ' ' -f 1,2 /etc/ssh/ssh_host_ed25519_key.pub
-```
+The VPS public host key supplied by the owner is pinned directly in deploy-vps.yml. Only four Secrets are required; VPS_KNOWN_HOSTS is not used. If the server host key changes, verify it locally on the VPS before updating the pinned key.
 
 Choose Actions → DTTL - Deploy VPS → Run workflow on main to test SSH, site path, write permission and PHP. Manual runs never deploy files.
 
