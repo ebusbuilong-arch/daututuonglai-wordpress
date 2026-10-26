@@ -59,7 +59,7 @@ jobs:
           root = pathlib.Path('/www/wwwroot/daututuonglai.vn')
           roots = [root / 'wp-content/themes/daututuonglai']
           roots += sorted(p for p in (root / 'wp-content/plugins').iterdir()
-                          if p.is_dir() and p.name.startswith(('aim-', 'dttl-')))
+                          if p.is_dir() and p.name in {'aim-trading', 'dttl-ssi-data', 'dttl-ai-assistant'})
           suffixes = {'.php','.js','.css','.html','.svg','.png','.jpg','.jpeg','.webp','.woff','.woff2','.md'}
           with tarfile.open(fileobj=sys.stdout.buffer, mode='w|') as out:
               for folder in roots:
