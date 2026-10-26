@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DTTL AI Assistant
  * Description: Trợ lý nội dung Đầu Tư Tương Lai, tìm bài công khai và trả lời có nguồn, hỗ trợ VI/EN.
- * Version: 0.1.0
+ * Version: 0.1.2
  * Requires at least: 6.2
  * Requires PHP: 7.4
  * Author: L0
@@ -55,8 +55,8 @@ final class DTTL_AI_Assistant {
     }
     public static function assets() {
         $c=self::config(); if (empty($c['enabled']) || is_feed()) { return; }
-        wp_enqueue_style('dttl-ai',plugins_url('assets/chat.css',__FILE__),[], '0.1.0');
-        wp_enqueue_script('dttl-ai',plugins_url('assets/chat.js',__FILE__),[], '0.1.0',true);
+        wp_enqueue_style('dttl-ai',plugins_url('assets/chat.css',__FILE__),[], '0.1.2');
+        wp_enqueue_script('dttl-ai',plugins_url('assets/chat.js',__FILE__),[], '0.1.2',true);
         wp_localize_script('dttl-ai','DTTL_AI',['url'=>admin_url('admin-ajax.php'),'bottom'=>(int)$c['bottom']]);
     }
     public static function token() {
