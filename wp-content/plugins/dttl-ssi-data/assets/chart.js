@@ -102,7 +102,7 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
    const lo=oscillator.value==='rsi'?0:Math.min(0,...data),hi=oscillator.value==='rsi'?100:Math.max(0,...data),scale=v=>26+(hi-v)/(hi-lo||1)*102;
    sc.fillText(oscillator.value==='rsi'?'RSI (14)':'MACD (12,26) / Signal (9)',left,15);
    (oscillator.value==='rsi'?[30,70]:[0]).forEach(v=>{sc.strokeStyle=dark?'#334155':'#cbd5e1';sc.beginPath();sc.moveTo(left,scale(v));sc.lineTo(width-right,scale(v));sc.stroke();sc.fillText(String(v),width-right+5,scale(v)+4);});
-   if(oscillator.value==='macd'){series('histogram').forEach((v,i)=>{if(v===null)return;sc.fillStyle=v>=0?'#18c49a':'#ed5470';const zero=scale(0),yy=scale(v);sc.fillRect(left+(i+.18)*step,Math.min(zero,yy),Math.max(1,step*.64),Math.max(1,Math.abs(zero-yy)));});}
+   if(oscillator.value==='macd'){series('histogram').forEach((v,i)=>{if(v===null)return;const previous=studies.histogram[start+i-1];const strengthening=previous==null||(v>=0?v>=previous:v<=previous);sc.fillStyle=v>=0?(strengthening?'#009688':'#80cbc4'):(strengthening?'#e53935':'#ef9a9a');const zero=scale(0),yy=scale(v);sc.fillRect(left+(i+.18)*step,Math.min(zero,yy),Math.max(1,step*.64),Math.max(1,Math.abs(zero-yy)));});}
    keys.forEach((key,i)=>line(sc,series(key),i?'#f59e0b':'#a78bfa',scale));
    if(!data.length)sc.fillText(t('Chưa đủ nến để tính chỉ báo','Not enough candles'),left,80);
   }
