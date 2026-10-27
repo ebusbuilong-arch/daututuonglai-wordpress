@@ -34,3 +34,7 @@ html[data-ssi-theme=dark] .dttl-indicator-picker summary,html[data-ssi-theme=dar
 .dttl-indicator-field{flex:0 1 220px;width:220px;min-width:0}
 .dttl-indicator-legend{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-bottom:10px}
 @media(max-width:600px){.dttl-indicator-field{flex:1 1 0;width:0}.dttl-indicator-legend{display:none}.dttl-indicator-picker summary{padding:8px 25px 8px 8px;font-size:12px}}
+
+/* Keep checkbox and indicator name on the same row in embedded charts. */
+.dttl-stock .dttl-indicators .dttl-indicator-choices label{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:flex-start!important;gap:8px!important;text-align:left!important;min-height:32px!important;margin:0!important;padding:7px 8px!important;line-height:1.4!important}
+.dttl-stock .dttl-indicators .dttl-indicator-choices input[type=checkbox]{display:inline-block!important;flex:0 0 16px!important;width:16px!important;height:16px!important;min-height:0!important;margin:0!important;padding:0!important}

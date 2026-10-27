@@ -55,7 +55,25 @@ final class AIM_Stock_Accounts {
   if($wpdb->query('COMMIT')===false)return AIM_Trading::error('Chưa rõ kết quả. Gửi lại đúng mã yêu cầu để đối chiếu.',503);
   return array('event'=>$ev,'replayed'=>false);
  }
+ static function valuation($r){
+  $symbol=strtoupper((string)$r->get_param('symbol'));
+  $map=AIM_VN_Stock_Feed::map();
+  if(!isset($map[$symbol]))return self::quote($r);
+  if(!AIM_VN_Stock_Feed::configured())return AIM_Trading::error('Chưa kết nối nguồn SSI.',503);
+  // Valuation is read-only and may use the last completed session.
+  // Never pass this historical reference price into order execution.
+  $request=new WP_REST_Request('GET');
+  $request->set_param('symbol',$symbol);$request->set_param('board',$map[$symbol]);$request->set_param('frame','1d');
+  $response=DTTL_SSI_Charts::history_route($request);
+  if(is_wp_error($response))return $response;
+  $data=$response->get_data();$bars=$data['bars']??array();$bar=$bars?end($bars):null;
+  if(!$bar||!is_numeric($bar['close'])||$bar['close']<=0)return AIM_Trading::error('Chưa có giá SSI cho mã này.',503);
+  $time=(int)$bar['time']*1000;
+  if(!empty($data['provisionalAt'])){$dt=DateTimeImmutable::createFromFormat('!Y-m-d H:i',$data['provisionalAt'],new DateTimeZone('Asia/Ho_Chi_Minh'));if($dt)$time=$dt->getTimestamp()*1000;}
+  return array('symbol'=>$symbol,'bid'=>round($bar['close']*0.9995,2),'time'=>$time,'source'=>'SSI','valuation_only'=>true);
+ }
  static function routes(){
+  register_rest_route('aim-trading/v1','/stocks/valuation',array('methods'=>'GET','callback'=>array(__CLASS__,'valuation'),'permission_callback'=>array(__CLASS__,'data_permission')));
   register_rest_route('aim-trading/v1','/stocks/account',array('methods'=>'GET','callback'=>array(__CLASS__,'account'),'permission_callback'=>array('AIM_Trading','permission')));
   register_rest_route('aim-trading/v1','/stocks/quote',array('methods'=>'GET','callback'=>array(__CLASS__,'quote'),'permission_callback'=>array(__CLASS__,'data_permission')));
   register_rest_route('aim-trading/v1','/stocks/order',array('methods'=>'POST','callback'=>array(__CLASS__,'order'),'permission_callback'=>array('AIM_Trading','permission')));
