@@ -2,15 +2,59 @@
 (()=>{'use strict';const c=window.AIMTradingConfig,$=id=>document.getElementById(id),all=c.exchange.instruments;
 const storageKey='aim-exchange-'+c.user_id+'-'+c.market;let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};}catch{}
 let selected=all.find(x=>x[0]===saved.symbol)||all[0],interval=['15','60','240','D','W'].includes(saved.interval)?saved.interval:'D',theme=saved.theme==='light'?'light':'dark',favorites=Array.isArray(saved.favorites)?saved.favorites.filter(s=>all.some(x=>x[0]===s)):[],onlyFavorites=false;
-function save(){try{localStorage.setItem(storageKey,JSON.stringify({symbol:selected[0],interval,theme,favorites}));}catch{}}
+let recent=Array.isArray(saved.recent)?[...new Set(saved.recent)].filter(s=>all.some(x=>x[0]===s)).slice(0,8):[];
+function save(){try{localStorage.setItem(storageKey,JSON.stringify({symbol:selected[0],interval,theme,favorites,recent}));}catch{}}
 function text(tag,value,cls){const n=document.createElement(tag);n.textContent=value;if(cls)n.className=cls;return n;}
-function renderList(){const query=$('ex-search').value.toLocaleLowerCase('vi').trim();$('ex-symbols').replaceChildren();let count=0,lastGroup='';all.filter(x=>(!onlyFavorites||favorites.includes(x[0]))&&x.join(' ').toLocaleLowerCase('vi').includes(query)).forEach(x=>{if(c.market==='stock'){const group=['NASDAQ','NYSE'].includes(x[3])?'10 CỔ PHIẾU QUỐC TẾ LỚN':'VIỆT NAM';if(group!==lastGroup){$('ex-symbols').append(text('div',group,'ex-list-group'));lastGroup=group;}}count++;const row=text('div','','ex-symbol-row'+(x[0]===selected[0]?' active':'')),fav=text('button',favorites.includes(x[0])?'★':'☆','ex-star');fav.setAttribute('aria-label','Yêu thích '+x[1]);fav.setAttribute('aria-pressed',String(favorites.includes(x[0])));fav.onclick=()=>{favorites=favorites.includes(x[0])?favorites.filter(s=>s!==x[0]):[...favorites,x[0]];save();renderList();};const pick=text('button','','ex-pick');pick.setAttribute('aria-label','Xem '+x[1]);pick.setAttribute('aria-pressed',String(x[0]===selected[0]));pick.append(text('strong',x[1]),text('small',x[2]),text('span',x[3]+(c.market==='stock'?(['HOSE','HNX','UPCOM'].includes(x[3])?' · SSI':' · USD'):'')));pick.onclick=()=>{selected=x;save();renderList();chart();};row.append(fav,pick);$('ex-symbols').append(row);});$('ex-no-symbols').hidden=!!count;}
+
+function rememberSymbol(id){
+ if(!all.some(x=>x[0]===id))return;
+ recent=[id,...recent.filter(s=>s!==id)].slice(0,8);save();renderRecent();
+}
+function pickSymbol(x){
+ selected=x;rememberSymbol(x[0]);save();renderList();chart();
+}
+function renderRecent(){
+ let host=$('ex-recent');
+ if(!host){
+  host=text('div','','ex-recent');host.id='ex-recent';host.style.cssText='margin:8px 0 12px;flex:0 0 auto';
+  $('ex-search').parentElement.insertAdjacentElement('afterend',host);
+ }
+ host.replaceChildren();host.hidden=!recent.length;
+ if(!recent.length)return;
+ const head=text('div','',''),label=text('small',c.lang==='en'?'Recent searches':'Mã đã tìm'),clear=text('button',c.lang==='en'?'Clear':'Xóa');
+ head.style.cssText='display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px';
+ clear.type='button';clear.setAttribute('aria-label',c.lang==='en'?'Clear recent searches':'Xóa lịch sử tìm mã');
+ clear.style.cssText='width:auto;min-height:0;padding:2px 5px;font-size:11px;color:inherit;background:transparent;border:0';
+ clear.onclick=()=>{recent=[];save();renderRecent();};
+ head.append(label,clear);host.append(head);
+ const list=text('div','');list.style.cssText='display:flex;flex-wrap:wrap;gap:5px';
+ recent.forEach(id=>{
+  const item=all.find(x=>x[0]===id);if(!item)return;
+  const button=text('button',item[1]);button.type='button';button.title=item[2];
+  button.setAttribute('aria-label',(c.lang==='en'?'Open recent ':'Mở lại ')+item[1]);
+  button.style.cssText='width:auto;min-height:0;padding:5px 8px;border:1px solid #64748b;border-radius:6px;background:transparent;color:inherit;font-size:12px';
+  button.onclick=()=>{$('ex-search').value='';onlyFavorites=false;$('ex-favorites').setAttribute('aria-pressed','false');pickSymbol(item);};
+  list.append(button);
+ });
+ host.append(list);
+}
+
+function renderList(){const query=$('ex-search').value.toLocaleLowerCase('vi').trim();$('ex-symbols').replaceChildren();let count=0,lastGroup='';all.filter(x=>(!onlyFavorites||favorites.includes(x[0]))&&x.join(' ').toLocaleLowerCase('vi').includes(query)).forEach(x=>{if(c.market==='stock'){const group=['NASDAQ','NYSE'].includes(x[3])?'10 CỔ PHIẾU QUỐC TẾ LỚN':'VIỆT NAM';if(group!==lastGroup){$('ex-symbols').append(text('div',group,'ex-list-group'));lastGroup=group;}}count++;const row=text('div','','ex-symbol-row'+(x[0]===selected[0]?' active':'')),fav=text('button',favorites.includes(x[0])?'★':'☆','ex-star');fav.setAttribute('aria-label','Yêu thích '+x[1]);fav.setAttribute('aria-pressed',String(favorites.includes(x[0])));fav.onclick=()=>{favorites=favorites.includes(x[0])?favorites.filter(s=>s!==x[0]):[...favorites,x[0]];save();renderList();};const pick=text('button','','ex-pick');pick.setAttribute('aria-label','Xem '+x[1]);pick.setAttribute('aria-pressed',String(x[0]===selected[0]));pick.append(text('strong',x[1]),text('small',x[2]),text('span',x[3]+(c.market==='stock'?(['HOSE','HNX','UPCOM'].includes(x[3])?' · SSI':' · USD'):'')));pick.onclick=()=>pickSymbol(x);row.append(fav,pick);$('ex-symbols').append(row);});$('ex-no-symbols').hidden=!!count;}
 function chart(){document.dispatchEvent(new CustomEvent('aim-symbol-change',{detail:{symbol:selected[1],exchange:selected[3]}}));if(c.market==='stock'&&['HOSE','HNX','UPCOM'].includes(selected[3])&&['W','240'].includes(interval))interval=interval==='240'?'60':'D';document.documentElement.dataset.theme=theme;document.body.classList.toggle('light',theme==='light');$('ex-symbol').textContent=selected[1];$('ex-name').textContent=selected[2]+' · '+selected[3]+(c.market==='stock'?' · '+(['NASDAQ','NYSE'].includes(selected[3])?'USD':'VND'):'');$('ex-theme').textContent=theme==='dark'?'☀':'☾';document.querySelectorAll('[data-ex-interval]').forEach(b=>{b.classList.toggle('selected',b.dataset.exInterval===interval);b.setAttribute('aria-pressed',String(b.dataset.exInterval===interval));b.disabled=c.market==='stock'&&['HOSE','HNX','UPCOM'].includes(selected[3])&&['W','240'].includes(b.dataset.exInterval);});
 const host=$('ex-chart-host');host.replaceChildren();if(c.market==='stock'){const source=document.querySelector('.ex-watch .source-note'),note=document.querySelector('.ex-feed-note');if(source)source.textContent='Biểu đồ TradingView · Giá đặt lệnh theo nguồn trên khung mua bán.';if(note)note.textContent='Giá nguồn đặt lệnh có thể khác biểu đồ TradingView.';}if(c.market==='stock'&&['HOSE','HNX','UPCOM'].includes(selected[3])){const iframe=document.createElement('iframe'),url=new URL(c.home);url.pathname=(c.lang==='en'?'/en':'')+'/bieu-do-chung-khoan/';url.searchParams.set('dttl_ssi_embed','1');url.searchParams.set('symbol',selected[1]);url.searchParams.set('board',selected[3]);url.searchParams.set('frame',interval==='15'?'15m':interval==='60'||interval==='240'?'1h':'1d');iframe.src=url.toString();iframe.title='SSI · '+selected[1];iframe.style.cssText='width:100%;height:100%;border:0;display:block';host.append(iframe);const source=document.querySelector('.ex-watch .source-note');if(source)source.textContent='Mã Việt Nam: SSI · Giá VND · Khớp mô phỏng theo nến 1 phút.';const note=document.querySelector('.ex-feed-note');if(note)note.textContent='Biểu đồ và giá mô phỏng mã Việt Nam lấy từ SSI. Giá khớp lấy riêng nến 1 phút mới, có spread mô phỏng 0,1%.';return;}if(c.market==='commodity'&&selected[0].includes('!')){const note=text('div','','ex-unavailable');note.append(text('strong','Chưa có nguồn biểu đồ hợp đồng này'),text('p',selected[2]+' cần nguồn dữ liệu được phép hiển thị và hợp đồng tháng xác định trước khi mở giao dịch.'),text('p','Các mã WTI, BRENT, XAU/USD và XAG/USD hiện dùng để quan sát giá tham khảo.'));host.append(note);return;}const container=text('div','','tradingview-widget-container'),widget=text('div','','tradingview-widget-container__widget');container.style.height='100%';widget.style.height='calc(100% - 26px)';const copyright=text('div','','tradingview-widget-copyright'),link=text('a','Biểu đồ '+selected[1]+' bởi TradingView');link.href='https://www.tradingview.com/chart/?symbol='+encodeURIComponent(selected[0]);link.target='_blank';link.rel='noopener nofollow';copyright.append(link);const script=document.createElement('script');script.src='https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';script.async=true;script.textContent=JSON.stringify({autosize:true,symbol:selected[0],interval,timezone:'Asia/Ho_Chi_Minh',theme,style:'1',locale:c.lang==='en'?'en':'vi_VN',allow_symbol_change:false,calendar:false,hide_top_toolbar:false,hide_side_toolbar:false,save_image:false,support_host:'https://www.tradingview.com'});script.onerror=()=>{widget.replaceChildren(text('p','Chưa tải được biểu đồ từ nhà cung cấp. Kiểm tra kết nối rồi bấm Tải lại biểu đồ.','empty'));};container.append(widget,copyright,script);host.append(container);}
-$('ex-search').oninput=renderList;$('ex-favorites').onclick=()=>{onlyFavorites=!onlyFavorites;$('ex-favorites').setAttribute('aria-pressed',String(onlyFavorites));renderList();};$('ex-theme').onclick=()=>{theme=theme==='dark'?'light':'dark';save();chart();};$('ex-chart-reload').onclick=chart;document.querySelectorAll('[data-ex-interval]').forEach(b=>b.onclick=()=>{interval=b.dataset.exInterval;save();chart();});
+let searchTimer;
+function rememberExactSearch(){
+ const query=$('ex-search').value.trim().toUpperCase();
+ if(!query)return;
+ const match=all.find(x=>x[1].toUpperCase()===query||x[0].toUpperCase()===query);
+ if(match)rememberSymbol(match[0]);
+}
+$('ex-search').oninput=()=>{renderList();clearTimeout(searchTimer);searchTimer=setTimeout(rememberExactSearch,500);};
+$('ex-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();clearTimeout(searchTimer);rememberExactSearch();}});
+$('ex-search').addEventListener('blur',rememberExactSearch);$('ex-favorites').onclick=()=>{onlyFavorites=!onlyFavorites;$('ex-favorites').setAttribute('aria-pressed',String(onlyFavorites));renderList();};$('ex-theme').onclick=()=>{theme=theme==='dark'?'light':'dark';save();chart();};$('ex-chart-reload').onclick=chart;document.querySelectorAll('[data-ex-interval]').forEach(b=>b.onclick=()=>{interval=b.dataset.exInterval;save();chart();});
 ['buy','sell'].forEach(side=>$('ex-'+side).onclick=()=>{['buy','sell'].forEach(s=>{$('ex-'+s).classList.toggle('selected',s===side);$('ex-'+s).setAttribute('aria-pressed',String(s===side));});$('ex-submit').className='action '+side;});
 const tabs=[...document.querySelectorAll('[data-ex-tab]')];function tabSelect(b,focus=false){tabs.forEach(x=>{const chosen=x===b;x.setAttribute('aria-selected',String(chosen));x.tabIndex=chosen?0:-1;$('ex-panel-'+x.dataset.exTab).hidden=!chosen;});if(focus)b.focus();}tabs.forEach((b,i)=>{b.onclick=()=>tabSelect(b);b.onkeydown=e=>{let j;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();tabSelect(tabs[j],true);};});
-function clock(){$('ex-clock').textContent=new Intl.DateTimeFormat((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'),{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' · Giờ Việt Nam';}clock();setInterval(clock,1000);renderList();chart();
+function clock(){$('ex-clock').textContent=new Intl.DateTimeFormat((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'),{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' · Giờ Việt Nam';}clock();setInterval(clock,1000);renderRecent();renderList();chart();
 if(c.market==='forex'&&c.is_admin){
  async function feedApi(path,body){const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),15000);try{const r=await fetch(c.api+'forex-feed/'+path,{method:body?'POST':'GET',headers:{'X-WP-Nonce':c.nonce,'Content-Type':'application/json'},credentials:'same-origin',signal:ctrl.signal,...(body?{body:JSON.stringify(body)}:{})});const data=await r.json();if(!r.ok)throw Error(data.message||'Chưa đọc được nguồn Forex.');return data;}finally{clearTimeout(timer);}}
  feedApi('status').then(s=>{$('fx-feed-status').textContent=s.configured?'Đã có cấu hình. Bấm kiểm tra để xác minh báo giá.':'Chưa cấu hình tài khoản / token OANDA Practice trên VPS.';}).catch(()=>{$('fx-feed-status').textContent='Chưa kiểm tra được cấu hình nguồn.';});

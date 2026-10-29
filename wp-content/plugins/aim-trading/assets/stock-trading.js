@@ -11,7 +11,10 @@ function valuationCell(sym,p){
  const box=node('div',''),q=valuations.get(sym);
  if(q){
   const value=Math.round(p.quantity*q.bid*1e6/scale(sym)),pnl=value-Math.max(1,Math.ceil(value*.001))-p.cost;
-  const result=node('strong',money(pnl));result.style.color=pnl<0?'#ef9a9a':pnl>0?'#66d4b5':'inherit';
+  const percentage=Number.isFinite(p.cost)&&p.cost>0?pnl/p.cost*100:null;
+  const percentText=percentage===null?'—':new Intl.NumberFormat(en?'en-US':'vi-VN',{minimumFractionDigits:2,maximumFractionDigits:2,signDisplay:'exceptZero'}).format(Math.abs(percentage)<0.005?0:percentage)+'%';
+  const result=node('strong',money(pnl)+' ('+percentText+')');
+  result.title=en?'Return on cost paid, after estimated selling fee':'Tỷ suất trên vốn đã trả, sau phí bán dự kiến';result.style.color=pnl<0?'#ef9a9a':pnl>0?'#66d4b5':'inherit';
   const at=node('small',(en?'Reference price · ':'Giá tham khảo · ')+new Date(q.time).toLocaleString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'})+' (VN)');
   at.style.display='block';box.append(result,at);
  }else box.append(node('span',en?'Price unavailable':'Chưa có giá'));

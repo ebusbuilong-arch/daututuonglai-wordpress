@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AIM Trading
  * Description: Sàn thực hành AIM: dữ liệu crypto thị trường, biểu đồ và tài khoản giao dịch thử lưu trên máy chủ.
- * Version: 0.4.27
+ * Version: 0.4.28
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
@@ -19,7 +19,7 @@ require_once __DIR__.'/commodity-accounts.php';
 require_once __DIR__.'/market-launch.php';
 require_once __DIR__.'/oil-reference.php';
 final class AIM_Trading {
- const VERSION = '0.4.27';
+ const VERSION = '0.4.28';
  const UNIT = 1000000;
  const START = 100000000;
  const FEE = 0.001;
