@@ -49,11 +49,11 @@ final class AIM_Stock_Feed {
 final class AIM_VN_Stock_Feed {
  static function map(){return array('SHS'=>'HNX','PVS'=>'HNX','FPT'=>'HOSE','HPG'=>'HOSE','VCB'=>'HOSE','MBB'=>'HOSE','TCB'=>'HOSE','SSI'=>'HOSE','VNM'=>'HOSE','VIC'=>'HOSE','VHM'=>'HOSE','MWG'=>'HOSE','ACV'=>'UPCOM');}
  static function configured(){return class_exists('DTTL_SSI_Charts')&&method_exists('DTTL_SSI_Charts','market_data')&&(bool)get_option('dttl_ssi_credentials','');}
- static function session($now){$d=(new DateTimeImmutable('@'.(int)($now/1000)))->setTimezone(new DateTimeZone('Asia/Ho_Chi_Minh'));$hm=(int)$d->format('Hi');return (int)$d->format('N')<=5&&(($hm>=915&&$hm<1130)||($hm>=1300&&$hm<1430));}
+ static function session($now){$d=(new DateTimeImmutable('@'.(int)($now/1000)))->setTimezone(new DateTimeZone('Asia/Ho_Chi_Minh'));$hm=(int)$d->format('Hi');return (int)$d->format('N')<=5&&(($hm>=900&&$hm<1130)||($hm>=1300&&$hm<1500));}
  static function quote($symbol){
   if(!self::configured()||!isset(self::map()[$symbol]))return AIM_Trading::error('Chưa kết nối nguồn SSI cho mã này.',503);
   $now=(int)round(microtime(true)*1000);
-  if(!self::session($now))return AIM_Trading::error('Cổ phiếu VN: chỉ mô phỏng trong phiên liên tục 09:15–11:30 và 13:00–14:30 (giờ Việt Nam, thứ Hai–thứ Sáu).',503);
+  if(!self::session($now))return AIM_Trading::error('Cổ phiếu VN: giờ giao dịch mô phỏng 09:00–11:30 và 13:00–15:00 (giờ Việt Nam, thứ Hai–thứ Sáu).',503);
   $key='aimtr_ssi_quote_'.$symbol;$cached=get_transient($key);if(is_array($cached)){try{AIM_Stock_Engine::quote($cached,$symbol,$now);return $cached;}catch(Throwable $e){delete_transient($key);}}
   $date=(new DateTimeImmutable('now',new DateTimeZone('Asia/Ho_Chi_Minh')))->format('Y/m/d');
   $d=DTTL_SSI_Charts::market_data('ohlc',array('symbol'=>$symbol,'timeFrame'=>'1m','from'=>$date.' 09:00:00','to'=>(new DateTimeImmutable('now',new DateTimeZone('Asia/Ho_Chi_Minh')))->format('Y/m/d H:i:s'),'pageIndex'=>1,'pageSize'=>5));if(is_wp_error($d))return $d;
