@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DTTL Công cụ miễn phí
  * Description: Kho nhiều ứng dụng, phân nhóm, bản tải theo hệ điều hành và tải dành cho thành viên.
- * Version: 0.2.0
+ * Version: 0.2.1
  * Author: Đầu Tư Tương Lai
  */
 if (!defined('ABSPATH')) { exit; }
@@ -77,13 +77,13 @@ add_shortcode('dttl_free_tools',function(){
     <p class="dttl-app-more">Cần tính lãi lỗ, giá vốn hoặc lãi kép? <a href="<?php echo esc_url(home_url('/cong-cu-dau-tu/')); ?>">Mở công cụ đầu tư trực tuyến →</a></p></div>
     <?php return ob_get_clean();
 });
-add_action('wp_enqueue_scripts',function(){ if(is_singular('dttl_app') || is_page((int)get_option('dttl_apps_hub_id')) || (is_singular() && has_shortcode(get_post()->post_content,'dttl_screen_layout_download')))wp_enqueue_style('dttl-apps',plugins_url('catalog.css',__FILE__),array(),'0.2.0'); });
+add_action('wp_enqueue_scripts',function(){ if(is_singular('dttl_app') || is_page((int)get_option('dttl_apps_hub_id')) || (is_singular() && has_shortcode(get_post()->post_content,'dttl_screen_layout_download')))wp_enqueue_style('dttl-apps',plugins_url('catalog.css',__FILE__),array(),'0.2.1'); });
 
 add_action('add_meta_boxes',function(){add_meta_box('dttl-app-files','Phiên bản và file tải','dttl_apps_meta','dttl_app','normal','high');});
 add_action('post_edit_form_tag',function($post){if($post->post_type==='dttl_app')echo ' enctype="multipart/form-data"';});
 function dttl_apps_meta($post){
     wp_nonce_field('dttl_apps_save','dttl_apps_nonce');
-    echo '<p><label>Phiên bản <input name="dttl_version" value="'.esc_attr(get_post_meta($post->ID,'_dttl_version',true)).'" placeholder="1.0 hoặc 0.1 beta"></label></p>';
+    echo '<p><label>Phiên bản <input name="dttl_version" value="'.esc_attr(get_post_meta($post->ID,'_dttl_version',true)).'" placeholder="1.0 hoặc 0.2 beta"></label></p>';
     echo '<p><label>Yêu cầu và lưu ý sử dụng<br><textarea name="dttl_requirements" rows="3" style="width:100%">'.esc_textarea(get_post_meta($post->ID,'_dttl_requirements',true)).'</textarea></label></p>';
     echo '<p>Tải gói ZIP riêng cho mỗi hệ điều hành (tối đa 50 MB, chịu thêm giới hạn upload của máy chủ). Bỏ trống để giữ bản cũ. File chỉ được trả qua điểm tải có kiểm tra đăng nhập.</p>';
     foreach(dttl_apps_platforms() as $os=>$label){$meta=get_post_meta($post->ID,'_dttl_file_'.$os,true);echo '<p><label><strong>'.esc_html($label).'</strong> <input type="file" accept=".zip,application/zip" name="dttl_zip_'.$os.'"></label>';if(is_array($meta))echo '<br>Bản hiện có: '.esc_html($meta['name']).' · '.esc_html(size_format($meta['size']));echo '</p>';}
@@ -129,8 +129,8 @@ add_action('admin_post_dttl_apps_setup',function(){
         $first=wp_insert_post(array('post_type'=>'dttl_app','post_status'=>'draft','post_title'=>'DTTL Chia màn hình','post_name'=>'chia-man-hinh','post_excerpt'=>'Sắp xếp cửa sổ thành 2, 3 hoặc 4 ô, chọn màn hình và hoàn tác nhanh.','post_content'=>'<p>Ứng dụng chia màn hình dành cho Windows 10/11. Mở sẵn các ứng dụng, chọn bố cục và cửa sổ cho từng ô, rồi bấm <strong>Sắp xếp</strong>.</p><ul><li>5 bố cục: 2 cột, 2 hàng, 1 lớn + 2 nhỏ, 3 cột và 4 ô.</li><li>Chọn màn hình, chỉnh tỷ lệ bên trái 30–70% ở bố cục hỗ trợ.</li><li>Hoàn tác vị trí cửa sổ; phím tắt Ctrl + Alt + F8 để xếp lại.</li><li>Chạy trực tiếp sau khi giải nén; không có quảng cáo, không gửi dữ liệu mạng.</li></ul><p>Chọn cửa sổ qua danh sách. Một số ứng dụng có kích thước tối thiểu hoặc quyền quản trị có thể không vừa ô. Bản beta chưa ký số.</p>'),true);
         if(is_wp_error($first))wp_die(esc_html($first->get_error_message()));update_option('dttl_first_app_id',$first,false);
         $term=term_exists('Năng suất & công việc','dttl_app_group');if($term)wp_set_object_terms($first,array((int)$term['term_id']),'dttl_app_group');
-        update_post_meta($first,'_dttl_version','0.1 beta');update_post_meta($first,'_dttl_requirements','Windows 10/11 Intel/AMD, 32-bit hoặc 64-bit; .NET Framework 4.8. Chưa có bản macOS/Linux/ARM được kiểm thử.');
-        if(is_readable(__DIR__.'/payload.php')){$raw=base64_decode((require __DIR__.'/payload.php'),true);if($raw)update_post_meta($first,'_dttl_file_windows',array('file'=>'bundled','name'=>'DTTL-Chia-Man-Hinh-0.1-beta.zip','size'=>strlen($raw),'sha256'=>hash('sha256',$raw)));}
+        update_post_meta($first,'_dttl_version','0.2 beta');update_post_meta($first,'_dttl_requirements','Windows 10/11 Intel/AMD, 32-bit hoặc 64-bit; .NET Framework 4.8. Chưa có bản macOS/Linux/ARM được kiểm thử.');
+        if(is_readable(__DIR__.'/payload.php')){$raw=base64_decode((require __DIR__.'/payload.php'),true);if($raw)update_post_meta($first,'_dttl_file_windows',array('file'=>'bundled','name'=>'DTTL-Chia-Man-Hinh-0.2-beta.zip','size'=>strlen($raw),'sha256'=>hash('sha256',$raw)));}
     }
     flush_rewrite_rules(false);wp_safe_redirect(admin_url('edit.php?post_type=dttl_app&page=dttl-free-apps'));exit;
 });

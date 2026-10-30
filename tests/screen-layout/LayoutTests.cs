@@ -3,52 +3,54 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 class LayoutTests {
- static BindingFlags Flags=BindingFlags.Instance|BindingFlags.NonPublic;
- static T Field<T>(MainForm f,string n){return (T)typeof(MainForm).GetField(n,Flags).GetValue(f);}
- static void Call(MainForm f,string n){typeof(MainForm).GetMethod(n,Flags).Invoke(f,null);}
+ [DllImport("user32.dll")] static extern bool SetCursorPos(int x,int y);
+ [DllImport("user32.dll")] static extern void NotifyWinEvent(uint ev,IntPtr h,int obj,int child);
  static void Pump(int ms){var t=Stopwatch.StartNew();while(t.ElapsedMilliseconds<ms){Application.DoEvents();System.Threading.Thread.Sleep(10);}}
- static Native.Rect Read(IntPtr h){Native.Rect r;if(Native.DwmGetWindowAttribute(h,9,out r,System.Runtime.InteropServices.Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(h,out r);return r;}
+ static Native.Rect Read(IntPtr h){Native.Rect r;if(Native.DwmGetWindowAttribute(h,9,out r,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(h,out r);return r;}
+ static void Near(IntPtr h,Rectangle wanted,string message){var a=Read(h);if(Math.Abs(a.L-wanted.Left)>5||Math.Abs(a.T-wanted.Top)>5||Math.Abs(a.R-wanted.Right)>5||Math.Abs(a.B-wanted.Bottom)>5)throw new Exception(message+" got="+a.L+","+a.T+","+a.R+","+a.B+" expected="+wanted);}
+ static Rectangle Rect(IntPtr h){var r=Read(h);return Rectangle.FromLTRB(r.L,r.T,r.R,r.B);}
+ static void Fixture(string index){
+  var f=new Form{Text="DTTL test window "+index,StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(index)*20,60),Size=new Size(340,250)};
+  f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
+  var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
+ }
  [STAThread] public static void Main(string[] args){
-  Application.EnableVisualStyles();
-  if(args.Length>0&&args[0]=="fixture"){
-   var f=new Form{Text="DTTL test window "+args[1],StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(args[1])*20,60),Size=new Size(340,250)};
-   f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};Application.Run(f);return;
+  try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
+  Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
+  int cases=0;foreach(var area in new[]{new Rectangle(900,0,466,728),new Rectangle(-600,0,600,1040),new Rectangle(2700,-2160,1140,2120)})for(int count=1;count<=3;count++)for(int i=0;i<count;i++){
+   var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
   }
-  int count=0;foreach(var area in new[]{new Rectangle(0,0,1366,728),new Rectangle(-1920,0,1920,1040),new Rectangle(0,-2160,3840,2120),new Rectangle(1920,0,1080,1880)})for(int k=0;k<5;k++)for(int ratio=30;ratio<=70;ratio+=10)foreach(int gap in new[]{0,8}){
-   var cells=Layouts.Make(area,k,ratio,gap);long total=0;for(int i=0;i<cells.Length;i++){if(!area.Contains(cells[i])||cells[i].Width<=0||cells[i].Height<=0)throw new Exception("Out of bounds");total+=(long)cells[i].Width*cells[i].Height;for(int j=0;j<i;j++)if(cells[i].IntersectsWith(cells[j]))throw new Exception("Overlap");}if(gap==0&&total!=(long)area.Width*area.Height)throw new Exception("Missing area");count++;
-  }
-  Console.WriteLine("PASS: "+count+" geometry cases");
-  var processes=new List<Process>();var handles=new List<IntPtr>();
+  Console.WriteLine("PASS: "+cases+" auxiliary cell geometry/hit cases including negative monitors");
+  var processes=new List<Process>();var handles=new List<IntPtr>();var initial=new List<Rectangle>();var workBefore=Screen.PrimaryScreen.WorkingArea;
   try {
-   for(int i=0;i<4;i++){
-    var p=Process.Start(new ProcessStartInfo(Assembly.GetExecutingAssembly().Location,"fixture "+i){UseShellExecute=false,RedirectStandardOutput=true});processes.Add(p);
-    handles.Add(new IntPtr(long.Parse(p.StandardOutput.ReadLine())));
-   }
-   using(var form=new MainForm()){
-    form.Show();Pump(200);Field<CheckBox>(form,"minimize").Checked=false;
-    var combos=Field<ComboBox[]>(form,"windows");var layout=Field<ComboBox>(form,"layout");
-    for(int i=0;i<4;i++)foreach(WindowItem item in combos[i].Items)if(item.Handle==handles[i]){combos[i].SelectedItem=item;break;}
-    var initial=new Native.Rect[4];for(int i=0;i<4;i++)initial[i]=Read(handles[i]);
-    for(int k=0;k<5;k++){
-     layout.SelectedIndex=k;Call(form,"Apply");Pump(800);
-     var monitor=Field<ComboBox>(form,"monitor");var screens=Field<Screen[]>(form,"screens");
-     var expected=Layouts.Make(screens[monitor.SelectedIndex].WorkingArea,k,Field<TrackBar>(form,"ratio").Value,8);
-     for(int i=0;i<expected.Length;i++){
-      var actual=Read(handles[i]);var wanted=expected[i];
-      if(Math.Abs(actual.L-wanted.Left)>4||Math.Abs(actual.T-wanted.Top)>4||Math.Abs(actual.R-wanted.Right)>4||Math.Abs(actual.B-wanted.Bottom)>4)throw new Exception("Native positioning mismatch layout="+k+" cell="+i+" got="+actual.L+","+actual.T+","+actual.R+","+actual.B+" expected="+wanted);
-     }
-     Call(form,"Undo");Pump(200);for(int i=0;i<4;i++){var a=Read(handles[i]);var b=initial[i];if(Math.Abs(a.L-b.L)>4||Math.Abs(a.T-b.T)>4||Math.Abs(a.R-b.R)>4||Math.Abs(a.B-b.B)>4)throw new Exception("Undo mismatch");}
+   for(int i=0;i<3;i++){var p=Process.Start(new ProcessStartInfo(Assembly.GetExecutingAssembly().Location,"fixture "+i){UseShellExecute=false,RedirectStandardOutput=true,RedirectStandardInput=true});processes.Add(p);handles.Add(new IntPtr(long.Parse(p.StandardOutput.ReadLine())));initial.Add(Rect(handles[i]));}
+   using(var dock=new DesktopDock(false)){
+    dock.Show();Pump(1000);if(!dock.Reserved)throw new Exception("AppBar not registered");
+    var remaining=Screen.FromHandle(handles[0]).WorkingArea;
+    if(remaining.Right>dock.Left+2||remaining.Width>=workBefore.Width)throw new Exception("Desktop work area not reserved");
+    Native.ShowWindowAsync(handles[2],3);Pump(400);var main=Read(handles[2]);if(main.R>dock.Left+5)throw new Exception("Main maximized window covers sidebar");Native.ShowWindowAsync(handles[2],9);Pump(250);
+    Console.WriteLine("PASS: native AppBar reserves desktop; maximized main window respects auxiliary area");
+    for(int n=1;n<=3;n++){
+     dock.Configure(n,40,Screen.PrimaryScreen.DeviceName);Pump(500);
+     for(int i=0;i<n;i++){var c=dock.Cells[i];processes[i].StandardInput.WriteLine("drag "+(c.Left+35)+" "+(c.Top+35));processes[i].StandardInput.Flush();Pump(700);Near(handles[i],c,"Event-hook docking "+n+"/"+i);}
+     dock.ReleaseAll();Pump(400);for(int i=0;i<n;i++)Near(handles[i],initial[i],"Restore original placement");
     }
-    Console.WriteLine("PASS: native positioning and undo for all 5 layouts, using 4 separate window processes");
-    layout.SelectedIndex=0;combos[1].SelectedItem=combos[0].SelectedItem;Call(form,"Apply");
-    if(!Field<Label>(form,"status").Text.Contains("Mỗi cửa sổ"))throw new Exception("Duplicate selection not rejected");
-    Console.WriteLine("PASS: duplicate selection rejected");
-    Call(form,"RefreshWindows");layout.SelectedIndex=2;
-    using(var bitmap=new Bitmap(form.Width,form.Height)){form.DrawToBitmap(bitmap,new Rectangle(0,0,form.Width,form.Height));bitmap.Save("apps/screen-layout/dist/app-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
-    form.Close();
+    Console.WriteLine("PASS: external move events dock 1/2/3 windows and restore original placements");
+    dock.Configure(2,33,Screen.PrimaryScreen.DeviceName);Pump(400);
+    var cell=dock.Cells[0];dock.Drop(handles[0],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[0]));Pump(500);
+    dock.Drop(handles[1],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[1]));Pump(500);Near(handles[0],initial[0],"Replacement restore");Near(handles[1],cell,"Replacement dock");
+    dock.Drop(handles[1],new Point(workBefore.Left+20,workBefore.Top+20),null);
+    Native.SetWindowPos(handles[1],IntPtr.Zero,100,100,350,240,0x4014);Pump(900);if(Rect(handles[1]).Left>dock.Left)throw new Exception("Dragged-out window still pinned");
+    Console.WriteLine("PASS: occupied cell replacement restores previous window; dragging out releases pin");
+    dock.Drop(handles[0],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[0]));Pump(500);
+    using(var bitmap=new Bitmap(workBefore.Width,workBefore.Height)){using(var g=Graphics.FromImage(bitmap))g.CopyFromScreen(workBefore.Location,Point.Empty,workBefore.Size);bitmap.Save("apps/screen-layout/dist/app-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
+    dock.Close();Pump(700);Near(handles[0],initial[0],"Close restores window");
    }
+   if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Desktop work area not restored after exit");
+   Console.WriteLine("PASS: exit restores desktop work area and docked windows");
   }finally{foreach(var p in processes){if(!p.HasExited){p.CloseMainWindow();if(!p.WaitForExit(1000))p.Kill();}p.Dispose();}}
  }
 }

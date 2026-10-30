@@ -1,28 +1,29 @@
-DTTL CHIA MÀN HÌNH • 0.1 BETA
-Ứng dụng miễn phí của Đầu Tư Tương Lai — https://daututuonglai.vn
+DTTL CHIA MÀN HÌNH — 0.2 beta
+Đầu Tư Tương Lai • daututuonglai.vn
 
-Dành cho Windows 10/11 Intel/AMD, 32-bit hoặc 64-bit; cần .NET Framework 4.8.
-Chưa có bản macOS/Linux/Windows ARM được kiểm thử.
+1. Giải nén toàn bộ ZIP, mở DTTL-Chia-Man-Hinh.exe.
+2. Desktop chính vẫn dùng bình thường; vùng phụ nằm bên phải.
+3. Kéo thanh tiêu đề cửa sổ đang mở, thả vào ô phụ muốn dùng.
+4. Kéo cửa sổ ra vùng chính để bỏ ghim. Nút Trả cửa sổ khôi phục vị trí trước khi ghim.
+5. Tùy chọn: 1, 2 hoặc 3 ô phụ; chiều rộng 25–45%; chọn màn hình.
+6. Chọn Thoát và trả desktop để đóng app, trả các cửa sổ và diện tích desktop.
+   Có thể mở menu từ biểu tượng DTTL trong khay hệ thống.
 
-1. Giải nén toàn bộ ZIP và mở DTTL-Chia-Man-Hinh.exe. Không cần cài đặt.
-2. Mở các ứng dụng bạn muốn sắp xếp (Chrome, Excel, Zalo...).
-3. Chọn bố cục 2, 3 hoặc 4 ô và màn hình đích.
-4. Chọn cửa sổ cho từng ô. Có thể để trống ô; không chọn trùng cửa sổ.
-5. Bấm Sắp xếp. Ctrl + Alt + F8 để xếp lại; Hoàn tác trả về vị trí trước lần xếp gần nhất.
-6. Khi mở thêm ứng dụng, bấm Làm mới cửa sổ.
+Mỗi ô chứa một cửa sổ. Thả cửa sổ mới vào ô đã dùng sẽ trả cửa sổ cũ về vị trí trước đó.
+Đổi cấu hình sẽ trả các cửa sổ cũ; kéo lại vào bố cục mới.
+Không mở thêm màn hình ảo, không nhân bản cùng một cửa sổ.
+Có thể cần tách tab trình duyệt thành cửa sổ riêng trước khi kéo.
+Cửa sổ đang thu nhỏ vẫn thu nhỏ; mở lại từ taskbar để tiếp tục xem.
 
-Tỷ lệ bên trái chỉnh từ 30–70% cho bố cục 2 cột, 1 lớn + 2 nhỏ và 4 ô.
-Bố cục, tỷ lệ, màn hình và lựa chọn thu nhỏ được lưu tự động tại:
-%LOCALAPPDATA%\DTTL\ScreenLayout.ini
-Không lưu tên cửa sổ, không gửi dữ liệu mạng, không đọc nội dung tài liệu.
-Đóng app không đóng các cửa sổ đang làm việc. Xóa thư mục giải nén để gỡ bỏ;
-xóa thư mục cấu hình phía trên nếu muốn xóa thiết lập.
+Windows 10/11 Intel/AMD, 32-bit hoặc 64-bit, .NET Framework 4.8.
+Bản portable: chạy EXE trực tiếp, không cần cài đặt hoặc quyền quản trị.
+Chưa kiểm thử bản ARM, macOS, Linux. Đây là bản beta chưa ký số.
+Không tắt phần mềm bảo vệ để chạy app; nếu bị chặn, gửi lại thông báo cho người phát triển.
+App không gửi dữ liệu mạng, không quảng cáo, không tự chạy khi bật máy.
+Tùy chọn lưu tại %LOCALAPPDATA%\DTTL\DesktopDock.ini.
 
-GIỚI HẠN BẢN BETA
-- Chưa ký số. Windows có thể cảnh báo chưa nhận diện nhà phát hành.
-  Chỉ tải từ nguồn chính thức và xác minh SHA256. Không cần tắt phần mềm bảo vệ.
-- Một số ứng dụng có kích thước tối thiểu nên không thể vừa ô quá nhỏ.
-- App chạy quyền thường không điều khiển được cửa sổ chạy quyền quản trị.
-- Không phải tính năng chia sẻ/điều khiển máy tính từ xa.
-- Chọn cửa sổ qua danh sách; chưa có kéo-thả cửa sổ vào vùng hoặc tự mở lại ứng dụng.
-- Bản beta cần kiểm thử thực tế trên Windows 10/11, nhiều màn hình và mức DPI khác nhau trước khi công bố là bản ổn định.
+Giới hạn: cửa sổ có kích thước tối thiểu lớn có thể không vừa ô.
+Chọn ít ô hơn/tăng chiều rộng nếu cửa sổ tràn. Một số app chạy quyền quản trị
+không cho app thông thường điều khiển. Chế độ toàn màn hình game/video có thể che vùng phụ.
+Build và kiểm tra tự động trên Windows runner; cần thử trên máy Windows 10/11 thực tế
+với mức DPI, taskbar, nhiều màn hình và ứng dụng sử dụng hằng ngày trước bản ổn định.
