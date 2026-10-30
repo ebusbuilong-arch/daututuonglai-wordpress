@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 class LayoutTests {
+ [DllImport("user32.dll")] static extern IntPtr WindowFromPoint(Native.Point p);
+ [DllImport("user32.dll")] static extern IntPtr GetAncestor(IntPtr h,uint flag);
  [DllImport("user32.dll")] static extern bool SetCursorPos(int x,int y);
  [DllImport("user32.dll")] static extern void NotifyWinEvent(uint ev,IntPtr h,int obj,int child);
  static void Pump(int ms){var t=Stopwatch.StartNew();while(t.ElapsedMilliseconds<ms){Application.DoEvents();System.Threading.Thread.Sleep(10);}}
@@ -35,7 +37,7 @@ class LayoutTests {
     Console.WriteLine("PASS: native AppBar reserves desktop; maximized main window respects auxiliary area");
     for(int n=1;n<=3;n++){
      dock.Configure(n,40,Screen.PrimaryScreen.DeviceName);Pump(500);
-     for(int i=0;i<n;i++){var c=dock.Cells[i];processes[i].StandardInput.WriteLine("drag "+(c.Left+35)+" "+(c.Top+35));processes[i].StandardInput.Flush();Pump(700);Near(handles[i],c,"Event-hook docking "+n+"/"+i);}
+     for(int i=0;i<n;i++){var c=dock.Cells[i];processes[i].StandardInput.WriteLine("drag "+(c.Left+35)+" "+(c.Top+35));processes[i].StandardInput.Flush();Pump(700);Near(handles[i],c,"Event-hook docking "+n+"/"+i);if(GetAncestor(WindowFromPoint(new Native.Point{X=c.Left+c.Width/2,Y=c.Top+c.Height/2}),2)!=handles[i])throw new Exception("Docked window obscured by sidebar");}
      dock.ReleaseAll();Pump(400);for(int i=0;i<n;i++)Near(handles[i],initial[i],"Restore original placement");
     }
     Console.WriteLine("PASS: external move events dock 1/2/3 windows and restore original placements");

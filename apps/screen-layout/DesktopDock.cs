@@ -93,6 +93,7 @@ internal sealed class DesktopDock : Form {
             ShellNative.SHAppBarMessage(2,ref d);d.Rect.L=d.Rect.R-width;
             ShellNative.SHAppBarMessage(3,ref d);
             SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);
+            Native.SetWindowPos(Handle,new IntPtr(-2),0,0,0,0,0x13);
             hint.Width=Math.Max(100,ClientSize.Width-24);
             for(int i=0;i<3;i++){release[i].Visible=i<count; if(i<count){var cell=Cells[i];release[i].Location=new Point(ClientSize.Width-117,cell.Top-Top-27);}}
             Invalidate();settle.Stop();settle.Start();
@@ -140,6 +141,7 @@ internal sealed class DesktopDock : Form {
     internal void ReleaseAll(){for(int i=0;i<3;i++)Release(i,true);}
     void FitAll(){
         if(closing||suspended)return;
+        Native.SetWindowPos(Handle,new IntPtr(1),0,0,0,0,0x13);
         for(int i=0;i<count;i++)if(Valid(slots[i])&&slots[i].Handle!=moving&&!ShellNative.IsIconic(slots[i].Handle))Fit(slots[i].Handle,Cells[i]);
         Invalidate();
     }
