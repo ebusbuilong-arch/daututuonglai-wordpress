@@ -85,5 +85,21 @@ add_action('admin_post_dttl_apps_publish', function () {
         update_post_meta($id, 'rank_math_description', 'Tải DTTL Chia màn hình cho Windows 10/11: bố cục 2–4 ô, chỉnh tỷ lệ, chọn màn hình và hoàn tác. Miễn phí cho thành viên Đầu Tư Tương Lai.');
         update_post_meta($id, 'rank_math_focus_keyword', 'phần mềm chia màn hình máy tính');
     }
+    $hub_id = (int) get_option('dttl_apps_hub_id');
+    if (!$hub_id || !get_post($hub_id)) {
+        $existing_hub = get_page_by_path('cong-cu-mien-phi');
+        if ($existing_hub) { update_option('dttl_apps_hub_id', $existing_hub->ID, false); }
+        else {
+            $hub_id = wp_insert_post(array('post_type'=>'page','post_status'=>'publish','post_title'=>'Công cụ miễn phí','post_name'=>'cong-cu-mien-phi','post_content'=>'[dttl_free_tools]'), true);
+            if (is_wp_error($hub_id)) { wp_die(esc_html($hub_id->get_error_message())); }
+            update_option('dttl_apps_hub_id', $hub_id, false);
+            update_post_meta($hub_id, 'rank_math_description', 'Kho công cụ miễn phí của Đầu Tư Tương Lai. Khám phá ứng dụng chia màn hình Windows và các tiện ích hỗ trợ học tập, làm việc.');
+        }
+    }
     wp_safe_redirect(admin_url('tools.php?page=dttl-free-apps')); exit;
+});
+
+add_shortcode('dttl_free_tools', function () {
+    $url = dttl_apps_page_url();
+    return '<p>Các công cụ đơn giản hỗ trợ học tập và làm việc. Xem hướng dẫn, chọn đúng hệ điều hành và đăng nhập để tải miễn phí.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px;margin:24px 0"><article style="border:1px solid #dce5f0;border-radius:16px;padding:26px;background:#f5f8fc"><p style="color:#003399;font-weight:700">ỨNG DỤNG WINDOWS · BẢN BETA</p><h2>DTTL Chia màn hình</h2><p>Sắp xếp cửa sổ thành 2, 3 hoặc 4 ô. Chọn màn hình, chỉnh tỷ lệ và hoàn tác nhanh.</p><p>Windows 10/11 · Intel/AMD · Miễn phí</p><a style="display:inline-block;background:#003399;color:white;padding:12px 18px;border-radius:8px;text-decoration:none" href="' . esc_url($url) . '">Xem hướng dẫn và tải về →</a></article></div><p>Bạn đang tìm công cụ tính toán? <a href="' . esc_url(home_url('/cong-cu-dau-tu/')) . '">Mở công cụ đầu tư: lãi lỗ, giá vốn và lãi kép →</a></p>';
 });

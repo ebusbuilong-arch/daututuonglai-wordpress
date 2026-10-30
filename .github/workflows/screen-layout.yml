@@ -6,6 +6,13 @@ on:
 permissions:
   contents: read
 jobs:
+  php:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - run: php -l wp-content/plugins/dttl-free-apps/dttl-free-apps.php
   windows:
     runs-on: windows-latest
     steps:
@@ -31,4 +38,5 @@ jobs:
           path: |
             apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.1-beta.zip
             apps/screen-layout/dist/dttl-free-apps.zip
+            apps/screen-layout/dist/app-preview.png
           retention-days: 30

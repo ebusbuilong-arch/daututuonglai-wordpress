@@ -77,8 +77,8 @@ class MainForm : Form {
     public MainForm() {
         Text="DTTL • Chia màn hình 0.1 beta"; Font=new Font("Segoe UI",10); BackColor=Color.White;
         AutoScaleMode=AutoScaleMode.Dpi; ClientSize=new Size(650,660); MinimumSize=new Size(610,650);
-        StartPosition=FormStartPosition.CenterScreen;
-        var root=new TableLayoutPanel { Dock=DockStyle.Fill,Padding=new Padding(22),ColumnCount=2, RowCount=12 };
+        StartPosition=FormStartPosition.CenterScreen; AutoScroll=true;
+        var root=new TableLayoutPanel { Dock=DockStyle.Top,AutoSize=true,Padding=new Padding(22),ColumnCount=2, RowCount=12 };
         root.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute,145)); root.ColumnStyles.Add(new ColumnStyle(SizeType.Percent,100));
         Controls.Add(root);
         var title=new Label {Text="Sắp xếp gọn. Làm việc dễ hơn.",Font=new Font(Font.FontFamily,17,FontStyle.Bold),AutoSize=true,Margin=new Padding(0,0,0,12)};
