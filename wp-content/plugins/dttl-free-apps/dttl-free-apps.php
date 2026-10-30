@@ -2,7 +2,7 @@
 /**
  * Plugin Name: DTTL Công cụ miễn phí
  * Description: Kho nhiều ứng dụng, phân nhóm, bản tải theo hệ điều hành và tải dành cho thành viên.
- * Version: 0.2.1
+ * Version: 0.2.2
  * Author: Đầu Tư Tương Lai
  */
 if (!defined('ABSPATH')) { exit; }
@@ -44,6 +44,8 @@ function dttl_apps_download() {
 add_action('admin_post_dttl_apps_download','dttl_apps_download');
 add_action('admin_post_nopriv_dttl_apps_download','dttl_apps_download');
 function dttl_apps_download_panel($id) {
+    $online=esc_url(get_post_meta($id,'_dttl_online_url',true));
+    if($online)return '<section class="dttl-download"><h2>Dùng ứng dụng trực tuyến</h2><p><a class="dttl-app-button" href="'.$online.'">Mở ứng dụng miễn phí →</a></p><p>Chạy trên trình duyệt, không cần tải bộ cài.</p></section>'; 
     $version=get_post_meta($id,'_dttl_version',true); $req=get_post_meta($id,'_dttl_requirements',true);
     $html='<section class="dttl-download"><h2>Tải ứng dụng</h2><p>Phiên bản '.esc_html($version).'</p>';
     $found=false;
@@ -69,20 +71,21 @@ add_shortcode('dttl_free_tools',function(){
     <div class="dttl-catalog"><p class="dttl-app-intro">Những công cụ đơn giản giúp bạn học tập và làm việc thuận tiện hơn. Khám phá từng ứng dụng, chọn đúng hệ điều hành và đăng nhập để tải miễn phí.</p>
     <form class="dttl-app-filters" method="get" action="<?php echo esc_url(get_permalink()); ?>"><label>Tìm công cụ<input type="search" name="tim" value="<?php echo esc_attr($query); ?>" placeholder="Tên hoặc chức năng ứng dụng"></label><label>Nhóm công cụ<select name="nhom"><option value="">Tất cả nhóm</option><?php foreach(get_terms(array('taxonomy'=>'dttl_app_group','hide_empty'=>false)) as $term): ?><option value="<?php echo esc_attr($term->slug); ?>" <?php selected($group,$term->slug); ?>><?php echo esc_html($term->name); ?></option><?php endforeach; ?></select></label><button class="dttl-app-button" type="submit">Tìm kiếm</button></form>
     <div class="dttl-app-grid"><?php while($apps->have_posts()):$apps->the_post();$id=get_the_ID(); ?>
-    <a class="dttl-app-card" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr(get_the_title().' — tải và hướng dẫn sử dụng'); ?>"><?php if(has_post_thumbnail()):echo get_the_post_thumbnail($id,'thumbnail',array('loading'=>'lazy','alt'=>''));else:?><div class="dttl-app-icon" aria-hidden="true">▦</div><?php endif; ?>
-    <h2><?php the_title(); ?></h2><span class="dttl-app-card-hint">Tải &amp; hướng dẫn sử dụng →</span></a>
+    <a class="dttl-app-card" href="<?php echo esc_url(get_post_meta($id,'_dttl_online_url',true) ?: get_permalink()); ?>" aria-label="<?php echo esc_attr(get_the_title().(get_post_meta($id,'_dttl_online_url',true)?' — mở ứng dụng trực tuyến':' — tải và hướng dẫn sử dụng')); ?>"><?php if(has_post_thumbnail()):echo get_the_post_thumbnail($id,'thumbnail',array('loading'=>'lazy','alt'=>''));else:?><div class="dttl-app-icon" aria-hidden="true">▦</div><?php endif; ?>
+    <h2><?php the_title(); ?></h2><span class="dttl-app-card-hint"><?php echo get_post_meta($id,'_dttl_online_url',true)?'Mở ứng dụng trực tuyến →':'Tải &amp; hướng dẫn sử dụng →'; ?></span></a>
     <?php endwhile;wp_reset_postdata(); ?></div>
     <?php if(!$apps->found_posts): ?><div class="dttl-download"><h2><?php echo $query||$group?'Chưa tìm thấy công cụ phù hợp':'Ứng dụng đầu tiên đang được hoàn thiện'; ?></h2><p><?php echo $query||$group?'Thử từ khóa khác hoặc chọn tất cả nhóm công cụ.':'DTTL Chia màn hình đang được kiểm tra. Các ứng dụng đã sẵn sàng sẽ xuất hiện tại đây.'; ?></p></div><?php endif; ?>
     <?php if($apps->max_num_pages>1)echo '<nav aria-label="Các trang ứng dụng">'.wp_kses_post(paginate_links(array('base'=>add_query_arg('trang','%#%'),'format'=>'','current'=>$args['paged'],'total'=>$apps->max_num_pages))).'</nav>'; ?>
     <p class="dttl-app-more">Cần tính lãi lỗ, giá vốn hoặc lãi kép? <a href="<?php echo esc_url(home_url('/cong-cu-dau-tu/')); ?>">Mở công cụ đầu tư trực tuyến →</a></p></div>
     <?php return ob_get_clean();
 });
-add_action('wp_enqueue_scripts',function(){ if(is_singular('dttl_app') || is_page((int)get_option('dttl_apps_hub_id')) || (is_singular() && has_shortcode(get_post()->post_content,'dttl_screen_layout_download')))wp_enqueue_style('dttl-apps',plugins_url('catalog.css',__FILE__),array(),'0.2.1'); });
+add_action('wp_enqueue_scripts',function(){ if(is_singular('dttl_app') || is_page((int)get_option('dttl_apps_hub_id')) || (is_singular() && has_shortcode(get_post()->post_content,'dttl_screen_layout_download')))wp_enqueue_style('dttl-apps',plugins_url('catalog.css',__FILE__),array(),'0.2.2'); });
 
 add_action('add_meta_boxes',function(){add_meta_box('dttl-app-files','Phiên bản và file tải','dttl_apps_meta','dttl_app','normal','high');});
 add_action('post_edit_form_tag',function($post){if($post->post_type==='dttl_app')echo ' enctype="multipart/form-data"';});
 function dttl_apps_meta($post){
     wp_nonce_field('dttl_apps_save','dttl_apps_nonce');
+    echo '<p><label>Link ứng dụng trực tuyến <input type="url" style="width:100%" name="dttl_online_url" value="'.esc_attr(get_post_meta($post->ID,'_dttl_online_url',true)).'"></label></p>';
     echo '<p><label>Phiên bản <input name="dttl_version" value="'.esc_attr(get_post_meta($post->ID,'_dttl_version',true)).'" placeholder="1.0 hoặc 0.2 beta"></label></p>';
     echo '<p><label>Yêu cầu và lưu ý sử dụng<br><textarea name="dttl_requirements" rows="3" style="width:100%">'.esc_textarea(get_post_meta($post->ID,'_dttl_requirements',true)).'</textarea></label></p>';
     echo '<p>Tải gói ZIP riêng cho mỗi hệ điều hành (tối đa 50 MB, chịu thêm giới hạn upload của máy chủ). Bỏ trống để giữ bản cũ. File chỉ được trả qua điểm tải có kiểm tra đăng nhập.</p>';
@@ -91,6 +94,7 @@ function dttl_apps_meta($post){
 }
 add_action('save_post_dttl_app',function($id){
     if(defined('DOING_AUTOSAVE')&&DOING_AUTOSAVE||wp_is_post_revision($id)||!current_user_can('manage_options')||!isset($_POST['dttl_apps_nonce'])||!wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['dttl_apps_nonce'])),'dttl_apps_save'))return;
+    update_post_meta($id,'_dttl_online_url',esc_url_raw(wp_unslash($_POST['dttl_online_url']??''),array('https')));
     update_post_meta($id,'_dttl_version',sanitize_text_field(wp_unslash($_POST['dttl_version']??'')));
     update_post_meta($id,'_dttl_requirements',sanitize_textarea_field(wp_unslash($_POST['dttl_requirements']??'')));
     foreach(dttl_apps_platforms() as $os=>$label){
