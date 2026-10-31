@@ -42,5 +42,6 @@ jobs:
             apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.3-beta.zip
             apps/screen-layout/dist/dttl-free-apps.zip
             apps/screen-layout/dist/app-preview.png
-            apps/screen-layout/dist/DTTL-Man-Hinh-Ao-0.4.1-thu-nghiem.zip
+            apps/screen-layout/dist/workspace-preview.png
+            apps/screen-layout/dist/DTTL-Workspace-0.5-thu-nghiem.zip
           retention-days: 30

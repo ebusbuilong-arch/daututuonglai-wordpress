@@ -1,51 +1,25 @@
-DTTL MÀN HÌNH ẢO 0.4.1 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
+DTTL WORKSPACE 0.5 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
 
-Bản này đọc một màn hình mở rộng có thật trong Windows và thu toàn bộ hình vào ô phụ.
-Không dùng cách ép cửa sổ Zalo xuống nhỏ nữa. Mỗi ô có thể chọn nguồn màn hình riêng.
-Bản thân EXE không tạo màn hình: máy cần màn hình mở rộng hoặc driver màn hình ảo.
+Vùng chính 67%, vùng phụ mặc định 33% chiều rộng màn hình.
+Vùng phụ gồm webcam trên 1/3 chiều cao và Zalo/ứng dụng dưới 2/3. Vách ngăn xanh ngọc, nút chữ sáng.
 
-CHUẨN BỊ MỘT LẦN
-1. Thoát các bản DTTL 0.2.x cũ.
-2. Nguồn driver bên thứ ba: https://github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23
-   Tải VDD.Control.25.7.23.zip từ trang chính thức. Theo hướng dẫn của nhà cung cấp để cài
-   Virtual Display Driver. Không cần cài Virtual Audio Driver cho DTTL.
-   Việc cài driver cần quyền quản trị Windows. DTTL không tự cài hoặc thay đổi bảo vệ máy.
-3. Windows Settings → System → Display: giữ màn hình vật lý là màn hình chính;
-   chọn Extend these displays. Chọn độ phân giải 1280×720 hoặc 1920×1080 cho màn hình ảo.
-   Ghi lại số/tên màn hình ảo. Mỗi ô độc lập cần một màn hình nguồn riêng.
+ZALO
+Mở Zalo → Tùy chọn → Chọn Zalo / ứng dụng, hoặc kéo thanh tiêu đề vào ô dưới. Đây là cửa sổ thật: chat, cuộn, gõ trực tiếp, không có ảnh chụp màn hình hay khóa chuột. Kéo ra ngoài để bỏ ghim; Trả ứng dụng về vị trí cũ để khôi phục. Đóng DTTL cũng trả cửa sổ và desktop.
+Ứng dụng vẫn chịu giới hạn kích thước tối thiểu của chính nó. Nếu không vừa, DTTL trả lại cửa sổ và báo rõ. Màn 32 inch không tự tăng số điểm ảnh; độ phân giải và Scale ảnh hưởng kích thước ô.
+Bản này không sử dụng màn hình ảo; không tự gỡ driver đã cài. Có thể chuyển Windows về chỉ màn hình thật trong Display rồi đóng VDD Control. Nếu muốn gỡ driver, dùng công cụ của nhà cung cấp.
 
-SỬ DỤNG
-1. Mở DTTL-Man-Hinh-Ao.exe. Giao diện chỉ có Tùy chọn và ×.
-2. Tùy chọn → Ô 1 → Nguồn màn hình: chọn màn hình ảo vừa thêm.
-3. Tùy chọn → Ô 1 → Đưa ứng dụng sang: chọn Zalo, Chrome... đang mở.
-4. Bấm trong hình ở ô phụ để chuyển chuột và bàn phím vào màn hình nguồn.
-   Lần bấm đầu chỉ chuyển điều khiển, bấm tiếp để thao tác trong ứng dụng.
-   Con trỏ trắng trong hình cho biết vị trí chuột trên màn hình nguồn.
-5. Ctrl+Alt+Space: trả chuột về màn hình vật lý. Sau đó dùng Tùy chọn hoặc ×.
-   Khi đang điều khiển, chuột được giữ trong màn hình nguồn; phải dùng phím tắt để quay lại.
-6. Tùy chọn → Trả ứng dụng về vị trí cũ, hoặc × để đóng và khôi phục cửa sổ đã chuyển.
+WEBCAM
+Bấm Bật webcam → chọn ffmpeg.exe → chọn camera → Bật webcam. Bấm Tắt webcam để dừng truy cập camera. Đóng app cũng dừng camera.
+Tải FFmpeg Windows qua https://ffmpeg.org/download.html; cần bản có dshow, gdigrab, libx264, AAC và RTMPS. ZIP này chưa kèm FFmpeg. Đặt ffmpeg.exe cạnh app để tự nhận hoặc dùng nút Chọn.
+Nếu không thấy hình, kiểm tra Windows Settings → Privacy → Camera và quyền cho ứng dụng desktop; đóng ứng dụng khác đang giữ camera.
+Webcam xem tại máy; nếu anh chọn quay/phát toàn màn hình thật chứa webcam và Zalo thì cả hai sẽ nằm trong hình quay. Chưa có bộ ghép cảnh riêng.
 
-GIỚI HẠN VÀ KIỂM THỬ
-- 10 khung hình/giây, ưu tiên văn phòng. Chưa tối ưu video/game/HDR/DRM.
-- Hình ảnh được thu đúng tỷ lệ, có thể có viền trống. Hiện chưa lưu lựa chọn qua lần mở sau.
-- Chụp tối đa 4096×4096 cho mỗi màn hình. Chưa có nguồn thì ô để trống.
-- Xem màn hình phụ xử lý tại máy. Chỉ lưu video khi bật Quay; chỉ gửi hình/tiếng khi bật Livestream. Không gửi phím bấm lên mạng.
-- Chưa kiểm thử đầu-cuối driver + capture + nhập liệu trên Windows 10 thực tế.
-  Kiểm thử Windows build gồm tính tọa độ, khởi động/thoát và trả vùng desktop.
-- Driver là thành phần bên thứ ba, không đóng gói trong file này; đọc giấy phép và hướng dẫn
-  của nhà cung cấp. Đóng DTTL không gỡ driver. Gỡ bằng Virtual Driver Control nếu không dùng.
-- Đây là bản thử nghiệm, chưa phải bản để công bố đại trà.
+QUAY / LIVESTREAM
+Tùy chọn → Quay / Livestream. Chọn ffmpeg.exe, màn hình nguồn và 720p/1080p 30fps. Lưu MP4; bấm Dừng để hoàn tất file trước khi mở. Không ghi đè file đã có; mất điện hoặc buộc dừng có thể làm MP4 chưa hoàn tất.
+Âm thanh để trống: không thu tiếng. Nhập chính xác tên micro/Stereo Mix của DirectShow nếu cần; chưa có bộ trộn tiếng máy và micro tự động.
+Có thể chọn YouTube, Facebook, TikTok bằng URL RTMP/RTMPS và khóa luồng được nền tảng cấp. Mỗi đích mã hóa riêng, tăng tải CPU/băng thông; chưa tự nối lại khi mất mạng. Khóa không lưu file/log, chỉ giữ trong phiên thiết lập và truyền cho encoder trên máy.
+Test YouTube: đặt buổi phát Riêng tư trong YouTube Studio, nhập URL + khóa luồng ngay trong app, chọn 720p và chỉ tích YouTube. Xác nhận hình/tiếng tại Studio. App không tự thay đổi quyền riêng tư của buổi phát. Dừng trong app và kết thúc buổi phát trong Studio.
+Chỉ gửi hình/tiếng khi anh bật Livestream. Chọn toàn màn hình, chưa hỗ trợ chọn riêng cửa sổ/vùng tùy ý hoặc ghép cảnh riêng.
 
-
-0.4 THỬ NGHIỆM — QUAY / LIVESTREAM
-Tùy chọn → Quay / Livestream. Cần FFmpeg Windows có libx264, gdigrab, dshow, AAC và RTMPS; tải qua https://ffmpeg.org/download.html rồi chọn ffmpeg.exe. ZIP này chưa kèm FFmpeg.
-Chọn màn hình nguồn thật/ảo, 720p hoặc 1080p / 30fps. Giữ đúng tỷ lệ bằng viền đen; nguồn nhỏ hơn không tự có thêm chi tiết khi xuất 1080p.
-Tích Lưu video MP4 để quay. Bấm Dừng để hoàn tất video trước khi mở. Nếu mất điện hoặc buộc dừng, file MP4 có thể chưa hoàn tất.
-Âm thanh: để trống là không thu tiếng. Có thể nhập chính xác tên micro hoặc Stereo Mix do DirectShow cung cấp; xem bằng ffmpeg -list_devices true -f dshow -i dummy. Chưa có bộ trộn micro + tiếng máy tự động.
-YouTube / Facebook / TikTok: tích đích phát và nhập URL máy chủ, khóa luồng từ tài khoản có quyền dùng encoder. Chỉ phát khi bấm Bắt đầu và xác nhận. Khóa chỉ giữ trong bộ nhớ của cửa sổ thiết lập, không ghi log/file; tiến trình encoder trên máy cần nhận khóa để gửi luồng.
-Có thể chọn ba đích cùng lúc. Mỗi đích mã hóa riêng nên tải CPU và băng thông tăng; trạng thái của từng đích hiển thị riêng. Chưa tự nối lại khi mất mạng.
-TEST YOUTUBE: tạo buổi phát Riêng tư trong YouTube Studio, lấy URL RTMPS + khóa luồng, chỉ tích YouTube, chọn 720p trước. Bấm Bắt đầu, xem hình/âm thanh và sức khỏe luồng trong Studio; bấm Dừng trong app và kết thúc buổi phát trong Studio. App không tự đặt quyền riêng tư cho buổi phát.
-Đóng cửa sổ Quay / Livestream hoặc đóng app sẽ dừng tất cả phiên quay/phát. Bản này chọn toàn màn hình nguồn, chưa chọn riêng ứng dụng hoặc vùng tùy ý.
-Kiểm thử tự động: quay màn hình Windows 720p/1080p và luồng RTMP nội bộ. Không coi đó là đã kiểm thử YouTube thật; cần tài khoản và máy của người dùng.
-
-0.4.1: chữ/nút sáng; chụp màn hình chạy nền và thu nhỏ trước khi vẽ, tối đa khoảng 25fps tùy máy. Mỗi ô chỉ dùng một nguồn riêng. Ba ô độc lập cần ba màn hình phụ (tổng bốn màn hình gồm màn chính). Tạo thêm hai màn hình bằng VDD Control và chọn Extend trong Windows; ứng dụng không tự cài/tạo màn hình ảo. Ô thiếu nguồn sẽ báo rõ, không nhân cùng màn hình vào ba ô. Ctrl+Alt+Space vẫn cần để rời điều khiển trước khi đổi ô.
+KIỂM THỬ
+Kiểm tra Windows cho bố cục, đặt/trả cửa sổ thật, khôi phục topmost và desktop, quay MP4 720p/1080p và RTMP nội bộ. Máy kiểm thử không có webcam/Zalo; camera thực tế, Zalo và phát lên nền tảng cần kiểm tra trên máy người dùng.

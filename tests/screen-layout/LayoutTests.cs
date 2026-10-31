@@ -32,6 +32,9 @@ class LayoutTests {
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
   Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
+  var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
+  if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
+  Console.WriteLine("PASS fixed 33% sidebar with 1/3 webcam and 2/3 application geometry");
   int mappings=0;
   foreach(var screen in new[]{new Rectangle(1920,0,1920,1080),new Rectangle(-2560,-500,2560,1440),new Rectangle(0,1080,1080,1920)})
    foreach(var cellSize in new[]{new Size(640,400),new Size(320,700),new Size(800,250)}){
@@ -103,27 +106,19 @@ class LayoutTests {
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Desktop work area not restored after exit");
    Console.WriteLine("PASS: exit restores desktop work area and docked windows");
    using(var virtualDock=new VirtualDesktopDock(false)){
-    virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=2)throw new Exception("Virtual viewer must have two controls");
+    virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=3)throw new Exception("Virtual viewer must have options, close and webcam controls");
     foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
-    var ids=(string[])typeof(VirtualDesktopDock).GetField("sources",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(virtualDock);
-    ids[0]="test-source";if(virtualDock.SourceOwner("test-source",1)!=0||virtualDock.SourceOwner("test-source",0)!=-1)throw new Exception("Duplicate source ownership");ids[0]=null;
-    virtualDock.Close();Pump(500);
+    var original=Rect(handles[0]);var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
+    virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
+    using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
+    virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
+    virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
+    virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
    }
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
-   Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with two controls");
-   using(var fixture=new Form{BackColor=Color.Red,FormBorderStyle=FormBorderStyle.None,StartPosition=FormStartPosition.Manual,Bounds=new Rectangle(50,50,300,200),TopMost=true}){
-    fixture.Show();Pump(300);
-    using(var worker=new MonitorCapture()){
-     worker.Request(new List<MonitorFrame>{new MonitorFrame{Index=0,Source="fixture",Bounds=fixture.Bounds,Output=new Size(150,100)}});
-     List<MonitorFrame> result=null;for(int retry=0;retry<100&&result==null;retry++){Pump(30);result=worker.Take();}
-     if(result==null||result[0].Image==null||result[0].Image.Size!=new Size(150,100)||result[0].Image.GetPixel(75,50).R<180)throw new Exception("Background capture or resize failed");
-     foreach(var frame in result)frame.Dispose();
-     worker.Request(new List<MonitorFrame>{new MonitorFrame{Source="fixture",Bounds=fixture.Bounds,Output=new Size(150,100)}});
-    }
-    fixture.Close();Pump(300);
-   }
-   Console.WriteLine("PASS: background capture renders scaled desktop pixels and closes with a pending request; toolbar text and unique source ownership");
-   Console.WriteLine("LIMITATION: runner has no configured virtual monitor; driver, capture and remote-input integration require device testing");
+   Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with compact toolbar and webcam control");
+   Console.WriteLine("PASS: driver-free native application fit, release, topmost and shutdown restoration; bright controls");
+   Console.WriteLine("LIMITATION: runner has no webcam or Zalo; actual webcam and Zalo require device testing.");
   }finally{foreach(var p in processes){if(!p.HasExited){p.CloseMainWindow();if(!p.WaitForExit(1000))p.Kill();}p.Dispose();}}
  }
 }
