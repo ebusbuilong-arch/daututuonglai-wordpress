@@ -48,7 +48,7 @@ uint restartMessage;
  internal VirtualDesktopDock(bool readSettings){
   Text="DTTL • Không gian làm việc 0.6.4";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
-  foreach(var button in new[]{options,quit,webcamButton}){button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
+  foreach(var button in new[]{options,quit,webcamButton}){button.TextAlign=ContentAlignment.MiddleCenter;button.Padding=Padding.Empty;button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
   host=Screen.PrimaryScreen.DeviceName;if(readSettings)LoadSettings();
   moveEvent=delegate(IntPtr h,uint ev,IntPtr window,int obj,int child,uint thread,uint time){

@@ -66,26 +66,28 @@ internal sealed class BroadcastForm : Form {
  readonly Timer poll=new Timer{Interval=1000};readonly Panel settings=new Panel{Dock=DockStyle.Top,Height=360};
  string savedFile; bool hasLive; string lastError=""; readonly Button details=new Button{Text="Chi tiết lỗi",Width=100,Visible=false};
  internal BroadcastForm(){
-  Text="Quay / Livestream • thử nghiệm 0.6.4";Size=new Size(720,540);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
-  Controls.Add(settings);int y=12;
-  Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80};settings.Controls.Add(browse);encoder.Width=445;
+  Text="Quay / Livestream • thử nghiệm 0.6.4";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,560);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  BackColor=Color.FromArgb(243,247,248);ForeColor=Color.FromArgb(25,45,53);Controls.Add(settings);int y=16;
+  Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80,Height=30};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};
   string bundled=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe");if(File.Exists(bundled))encoder.Text=bundled;
   y+=36;Row("Màn hình",screen,y);foreach(var s in Screen.AllScreens)screen.Items.Add(s.DeviceName+" • "+s.Bounds.Width+"×"+s.Bounds.Height);screen.SelectedIndex=0;
   y+=36;Row("Độ nét",quality,y);quality.Items.AddRange(new object[]{"720p / 30 fps","1080p / 30 fps"});quality.SelectedIndex=1;
   y+=36;Row("Micro",audio,y);audio.Items.Add("Tắt micro (vẫn thu tiếng máy)");audio.SelectedIndex=0;
-  y+=30;settings.Controls.Add(new Label{Text="Luôn thu tiếng loa/tai nghe mặc định và trộn với micro đã chọn.",Left=150,Top=y,Width=540});
+  y+=30;settings.Controls.Add(new Label{Text="Luôn thu tiếng loa/tai nghe mặc định và trộn với micro đã chọn.",Left=150,Top=y,Width=540,Height=28});
   y+=28;record.Location=new Point(150,y);settings.Controls.Add(record);
   string[] platforms={"YouTube","Facebook","TikTok"};
   for(int i=0;i<3;i++){y+=38;live[i]=new CheckBox{Text=platforms[i],Left=8,Top=y,Width=130};urls[i]=new TextBox{Left=150,Top=y,Width=320};keys[i]=new TextBox{Left=480,Top=y,Width=200,UseSystemPasswordChar=true};settings.Controls.AddRange(new Control[]{live[i],urls[i],keys[i]});}
-  settings.Controls.Add(new Label{Text="Tích nơi muốn phát • cột giữa: URL máy chủ • cột phải: khóa luồng",Left=150,Top=y+28,Width=540});
-  details.Location=new Point(370,370);Controls.Add(details);details.Click+=delegate{MessageBox.Show(this,lastError,"Chi tiết lỗi quay — Ctrl+C để sao chép");};
-  start.Location=new Point(150,370);stop.Location=new Point(260,370);status.Location=new Point(12,410);status.Width=680;Controls.AddRange(new Control[]{start,stop,status});status.Text="Chưa quay/phát. Chọn FFmpeg và màn hình nguồn. Khóa luồng chỉ giữ trong phiên này.";
+  settings.Controls.Add(new Label{Text="Tích nơi muốn phát • cột giữa: URL máy chủ • cột phải: khóa luồng",Left=150,Top=y+28,Width=540,Height=28});
+  details.Location=new Point(390,382);Controls.Add(details);details.Click+=delegate{MessageBox.Show(this,lastError,"Chi tiết lỗi quay — Ctrl+C để sao chép");};
+  start.Location=new Point(150,382);stop.Location=new Point(270,382);status.Location=new Point(16,432);status.Width=680;Controls.AddRange(new Control[]{start,stop,status});status.Text="Chưa quay/phát. Chọn FFmpeg và màn hình nguồn. Khóa luồng chỉ giữ trong phiên này.";
+  StyleButtons(this);
   Shown+=delegate{System.Threading.ThreadPool.QueueUserWorkItem(delegate{string[] microphones;try{microphones=NativeWebcam.Microphones();}catch{return;}try{BeginInvoke((Action)delegate{if(IsDisposed)return;audio.Items.AddRange(microphones);if(microphones.Length==1)audio.SelectedIndex=1;});}catch(InvalidOperationException){}});};
   start.Click+=delegate{StartAll();};stop.Click+=delegate{StopAll();};poll.Tick+=delegate{UpdateStatus();};
   FormClosing+=delegate{StopAll();};FormClosed+=delegate{poll.Dispose();foreach(var key in keys)key.Clear();};
  }
- void Row(string label,Control c,int y){settings.Controls.Add(new Label{Text=label,Left=8,Top=y+3,Width=140});c.SetBounds(150,y,530,26);settings.Controls.Add(c);}
+ void StyleButtons(Control parent){foreach(Control c in parent.Controls){var b=c as Button;if(b!=null){b.Height=34;b.Width=Math.Max(b.Width,TextRenderer.MeasureText(b.Text,b.Font).Width+28);b.TextAlign=ContentAlignment.MiddleCenter;b.FlatStyle=FlatStyle.Flat;b.FlatAppearance.BorderColor=Color.FromArgb(77,115,125);b.FlatAppearance.MouseOverBackColor=Color.FromArgb(49,109,119);b.BackColor=Color.FromArgb(34,77,87);b.ForeColor=Color.White;b.Padding=Padding.Empty;}StyleButtons(c);}}
+ void Row(string label,Control c,int y){settings.Controls.Add(new Label{Text=label,Left=16,Top=y,Height=30,TextAlign=ContentAlignment.MiddleLeft,Width=128});c.SetBounds(150,y,530,26);settings.Controls.Add(c);}
  void StartAll(){
   try{
    if(!File.Exists(encoder.Text)||!String.Equals(Path.GetFileName(encoder.Text),"ffmpeg.exe",StringComparison.OrdinalIgnoreCase))throw new Exception("Chọn ffmpeg.exe từ bản Windows của FFmpeg (ffmpeg.org/download.html).");

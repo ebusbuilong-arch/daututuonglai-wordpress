@@ -30,6 +30,7 @@ class LayoutTests {
   f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
   var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="minimum"){f.MinimumSize=new Size(int.Parse(parts[1]),int.Parse(parts[2]));}if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
  }
+ static void CheckButtonText(Control parent){foreach(Control c in parent.Controls){var b=c as Button;if(b!=null)foreach(float scale in new[]{1f,1.25f,1.5f}){using(var font=new Font(b.Font.FontFamily,b.Font.Size*scale,b.Font.Style)){var size=TextRenderer.MeasureText(b.Text,font,Size.Empty,TextFormatFlags.NoPadding);if(size.Width>b.Width-8||size.Height>b.Height-4)throw new Exception("Button label overflow: "+b.Text+" at "+scale);}}CheckButtonText(c);}}
  [STAThread] public static void Main(string[] args){
   var target=new Rectangle(100,100,600,800);
   if(!VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=500,B=600},target)||VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=800,B=600},target))throw new Exception("Contained app size validation");
@@ -40,12 +41,15 @@ class LayoutTests {
    int clicks=0;under.MouseDown+=delegate{clicks++;};under.Show();Pump(100);ink.Show(new Rectangle(60,60,600,440));Pump(100);
    foreach(int mode in new[]{1,2,3}){ink.SelectTool(mode);Pump(100);DragPoint(new Point(160,160+mode*30),new Point(360,180+mode*30));}
    if(ink.StrokeCount!=3||clicks!=0)throw new Exception("Ink did not intercept drawing gestures");
+   using(var shot=new Bitmap(600,440)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(new Point(60,60),Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/ink-preview.png");}
    ink.SelectTool(0);Pump(100);SetCursorPos(260,260);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
    if(clicks!=1)throw new Exception("Ink blocks application clicks in mouse mode");
    ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(2900);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
    ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
   }
   Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");
+  using(var dialog=new BroadcastForm()){dialog.Show();Pump(300);CheckButtonText(dialog);using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-preview.png");}dialog.Close();}
+
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
   Console.WriteLine("PASS default split geometry");

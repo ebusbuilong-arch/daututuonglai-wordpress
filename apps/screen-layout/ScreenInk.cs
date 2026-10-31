@@ -24,7 +24,7 @@ internal sealed class ScreenInk : IDisposable {
  readonly List<Button> modes=new List<Button>();Stroke current;int tool;Color color=Color.Red;float width=3;bool disposed;Rectangle area;
  internal int StrokeCount{get{return strokes.Count;}}internal int ParticleCount{get{return particles.Count;}}internal bool Drawing{get{return shield.Visible;}}
  internal ScreenInk(){
-  canvas.Ink=this;bar.FormBorderStyle=FormBorderStyle.None;bar.ShowInTaskbar=false;bar.StartPosition=FormStartPosition.Manual;bar.TopMost=true;bar.BackColor=Color.FromArgb(27,44,51);bar.ClientSize=new Size(444,42);bar.Font=new Font("Segoe UI",10);bar.KeyPreview=true;
+  canvas.Ink=this;bar.FormBorderStyle=FormBorderStyle.None;bar.ShowInTaskbar=false;bar.StartPosition=FormStartPosition.Manual;bar.TopMost=true;bar.BackColor=Color.FromArgb(27,44,51);bar.ClientSize=new Size(444,42);bar.AutoScaleMode=AutoScaleMode.None;bar.Font=new Font("Segoe UI",9);bar.KeyPreview=true;
   string[] labels={"↖","Bút","／","→"};string[] help={"Dùng chuột bình thường (Esc)","Vẽ tự do","Đường thẳng","Mũi tên"};
   for(int i=0;i<4;i++){int mode=i;var b=Button(labels[i],i*44,44,help[i]);modes.Add(b);b.Click+=delegate{SelectTool(mode);};}
   var palette=Button("Màu",176,48,"Chọn màu nét");palette.ForeColor=color;palette.Click+=delegate{using(var d=new ColorDialog{Color=color,FullOpen=true}){if(d.ShowDialog(bar)==DialogResult.OK){color=d.Color;palette.ForeColor=color;}}};
@@ -38,7 +38,7 @@ internal sealed class ScreenInk : IDisposable {
   KeyEventHandler escape=delegate(object s,KeyEventArgs e){if(e.KeyCode==Keys.Escape){SelectTool(0);e.Handled=true;}};shield.KeyDown+=escape;bar.KeyDown+=escape;
   animation.Tick+=delegate{particles.RemoveAll(delegate(Particle p){return (DateTime.UtcNow-p.Born).TotalSeconds>2.5;});canvas.Invalidate();if(particles.Count==0)animation.Stop();};
  }
- Button Button(string text,int x,int w,string tip){var b=new Button{Text=text,Location=new Point(x+2,3),Size=new Size(w-4,36),FlatStyle=FlatStyle.Flat,ForeColor=Color.White,BackColor=Color.FromArgb(36,60,68),TabStop=false};b.FlatAppearance.BorderSize=0;bar.Controls.Add(b);tips.SetToolTip(b,tip);return b;}
+ Button Button(string text,int x,int w,string tip){var b=new Button{Text=text,Location=new Point(x+2,3),Size=new Size(w-4,36),FlatStyle=FlatStyle.Flat,ForeColor=Color.White,BackColor=Color.FromArgb(36,60,68),TabStop=false,TextAlign=ContentAlignment.MiddleCenter,Padding=Padding.Empty};b.FlatAppearance.BorderSize=0;bar.Controls.Add(b);tips.SetToolTip(b,tip);return b;}
  internal void Show(Rectangle bounds){SetArea(bounds);if(!canvas.Visible)canvas.Show();bar.Show();SelectTool(0);}
  internal void SetArea(Rectangle bounds){if(disposed||bounds.Width<100||bounds.Height<100)return;area=bounds;canvas.Bounds=shield.Bounds=area;bar.Location=new Point(Math.Max(area.Left,area.Right-bar.Width-12),area.Bottom-bar.Height-12);}
  internal void SelectTool(int value){tool=value;current=null;shield.Capture=false;for(int i=0;i<modes.Count;i++)modes[i].BackColor=i==tool?Color.Teal:Color.FromArgb(36,60,68);if(tool==0)shield.Hide();else{shield.Show();shield.Activate();}canvas.BringToFront();bar.BringToFront();}
