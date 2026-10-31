@@ -35,35 +35,46 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
  readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6.1"};
  readonly ShellNative.WinEvent moveEvent;
- IntPtr hook;DockedWindow app,beforeMove;NativeWebcam webcam;Bitmap webcamImage;BroadcastForm broadcast;
+ IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;Bitmap webcamImage;BroadcastForm broadcast;
  string webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";
  string host;bool registered,closing,placing,cameraVisible,cameraOpening,dragWidth,dragSplit;int cameraGeneration,fitGeneration,fitAttempts;double sidebarRatio=.33,splitRatio=1.0/3;
  readonly string settings=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"DTTL","Workspace.ini");
 uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool readSettings){
-  Text="DTTL • Không gian làm việc 0.6";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+  Text="DTTL • Không gian làm việc 0.6.1";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
   host=Screen.PrimaryScreen.DeviceName;if(readSettings)LoadSettings();
   moveEvent=delegate(IntPtr h,uint ev,IntPtr window,int obj,int child,uint thread,uint time){
    if(closing||obj!=0||!IsHandleCreated)return;
-   if(ev==0xA){beforeMove=DesktopDock.Capture(window);return;}
+   if(ev==0xA){
+    var captured=DesktopDock.Capture(window);if(!DesktopDock.Valid(captured))return;
+    beforeMove=app!=null&&app.Handle==window?app:captured;moving=window;fitGeneration++;settle.Stop();
+    // Do not place or raise either dock surface over a window while the user drags it.
+    Native.SetWindowPos(Handle,new IntPtr(-2),0,0,0,0,0x13);
+    Native.SetWindowPos(Handle,window,0,0,0,0,0x13);
+    if(DesktopDock.Valid(app)&&app.Handle!=window){Native.SetWindowPos(app.Handle,new IntPtr(-2),0,0,0,0,0x13);Native.SetWindowPos(app.Handle,window,0,0,0,0,0x13);}
+    return;
+   }
    if(ev!=0xB)return;
    var saved=beforeMove!=null&&beforeMove.Handle==window?beforeMove:DesktopDock.Capture(window);beforeMove=null;
-   BeginInvoke((Action)delegate{if(closing)return;Native.Point p;if(!ShellNative.GetCursorPos(out p))return;
-    var target=ApplicationArea;target.Inflate(28,0);
-    if(target.Contains(p.X,p.Y)){if(DesktopDock.Valid(saved))Attach(saved);}
-    else if(app!=null&&app.Handle==window)ReleaseApp(false);
+   Native.Point drop;bool hasDrop=ShellNative.GetCursorPos(out drop);moving=IntPtr.Zero;
+   BeginInvoke((Action)delegate{if(closing)return;Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);
+    if(hasDrop){var target=ApplicationArea;target.Inflate(28,0);
+     if(target.Contains(drop.X,drop.Y)){if(DesktopDock.Valid(saved))Attach(saved);}
+     else if(app!=null&&app.Handle==window)ReleaseApp(false);
+    }
+    RaiseApp();
    });
   };
   Shown+=delegate{restartMessage=ShellNative.RegisterWindowMessage("TaskbarCreated");RegisterBar();hook=ShellNative.SetWinEventHook(0xA,0xB,IntPtr.Zero,moveEvent,0,0,2);tray.Visible=true;tray.MouseClick+=delegate{Menu().Show(Cursor.Position);};maintenance.Start();};
   Activated+=delegate{if(!closing&&DesktopDock.Valid(app))BeginInvoke((Action)delegate{RaiseApp();});};
   settle.Tick+=delegate{settle.Stop();FitApp();};
-  maintenance.Tick+=delegate{if(app!=null&&!DesktopDock.Valid(app)){app=null;Invalidate();}RaiseApp();};
+  maintenance.Tick+=delegate{if(moving!=IntPtr.Zero&&!DesktopDock.Valid(beforeMove)){moving=IntPtr.Zero;beforeMove=null;Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);}if(app!=null&&!DesktopDock.Valid(app)){app=null;Invalidate();}RaiseApp();};
   cameraTimer.Tick+=delegate{if(webcam==null)return;var next=webcam.Take();if(next!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=next;Invalidate(Cell(0));}if(webcam.Ended){string error=webcam.Error;StopWebcam();tray.ShowBalloonTip(5000,"Webcam",error??"Webcam đã dừng. Kiểm tra kết nối/quyền Camera.",ToolTipIcon.Info);}};
   FormClosed+=delegate{Shutdown();};
  }
@@ -71,14 +82,14 @@ uint restartMessage;
  internal static Rectangle Pane(Rectangle client,int index,bool camera,double ratio){
   int top=client.Top+42,bottom=client.Bottom-8;
   if(!camera)return index==0?Rectangle.Empty:Rectangle.FromLTRB(client.Left+16,top+5,client.Right-8,bottom);
-  int split=top+(int)(Math.Max(1,client.Height-42)*Math.Max(.15,Math.Min(.65,ratio)));
+  int split=top+(int)(Math.Max(1,client.Height-42)*Math.Max(.06,Math.Min(.65,ratio)));
   return index==0?Rectangle.FromLTRB(client.Left+16,top+5,client.Right-8,split-5):Rectangle.FromLTRB(client.Left+16,split+5,client.Right-8,bottom);
  }
  Rectangle Cell(int index){return Pane(ClientRectangle,index,cameraVisible,splitRatio);}
  internal Rectangle ApplicationArea{get{var r=Cell(1);r.Offset(Left,Top);return r;}}
  Rectangle WebcamArea(){return Cell(0);}
- internal void SetLayout(double width,double split,bool camera){sidebarRatio=Math.Max(.25,Math.Min(.65,width));splitRatio=Math.Max(.15,Math.Min(.65,split));cameraVisible=camera;fitAttempts=0;fitGeneration++;Place();Invalidate();}
- void LoadSettings(){try{var v=File.ReadAllLines(settings);double w,h;if(v.Length>=2&&double.TryParse(v[0],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out w)&&double.TryParse(v[1],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out h)){sidebarRatio=Math.Max(.25,Math.Min(.65,w));splitRatio=Math.Max(.15,Math.Min(.65,h));}}catch(IOException){}catch(UnauthorizedAccessException){}}
+ internal void SetLayout(double width,double split,bool camera){sidebarRatio=Math.Max(.25,Math.Min(.65,width));splitRatio=Math.Max(.06,Math.Min(.65,split));cameraVisible=camera;fitAttempts=0;fitGeneration++;Place();Invalidate();}
+ void LoadSettings(){try{var v=File.ReadAllLines(settings);double w,h;if(v.Length>=2&&double.TryParse(v[0],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out w)&&double.TryParse(v[1],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out h)){sidebarRatio=Math.Max(.25,Math.Min(.65,w));splitRatio=Math.Max(.06,Math.Min(.65,h));}}catch(IOException){}catch(UnauthorizedAccessException){}}
  void SaveSettings(){try{Directory.CreateDirectory(Path.GetDirectoryName(settings));File.WriteAllLines(settings,new[]{sidebarRatio.ToString(System.Globalization.CultureInfo.InvariantCulture),splitRatio.ToString(System.Globalization.CultureInfo.InvariantCulture)});}catch(IOException){}catch(UnauthorizedAccessException){}}
  protected override void OnMouseDown(MouseEventArgs e){base.OnMouseDown(e);if(e.Button!=MouseButtons.Left)return;dragWidth=e.X<=8;dragSplit=!dragWidth&&cameraVisible&&Math.Abs(e.Y-(42+(int)((ClientSize.Height-42)*splitRatio)))<=6;if(dragWidth||dragSplit)Capture=true;}
  protected override void OnMouseMove(MouseEventArgs e){base.OnMouseMove(e);
@@ -93,8 +104,8 @@ uint restartMessage;
   if(!registered||closing||placing)return;placing=true;
   try{Screen monitor=null;foreach(var s in Screen.AllScreens)if(s.DeviceName==host)monitor=s;if(monitor==null){ReleaseApp(true);monitor=Screen.PrimaryScreen;host=monitor.DeviceName;}
    var b=monitor.Bounds;int width=(int)(b.Width*sidebarRatio);var d=Data();d.Rect=new Native.Rect{L=b.Right-width,T=b.Top,R=b.Right,B=b.Bottom};ShellNative.SHAppBarMessage(2,ref d);d.Rect.L=d.Rect.R-width;ShellNative.SHAppBarMessage(3,ref d);
-   SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);quit.Location=new Point(ClientSize.Width-40,5);Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);
-   if(DesktopDock.Valid(app)){settle.Stop();settle.Start();}Invalidate();
+   SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);quit.Location=new Point(ClientSize.Width-40,5);if(moving==IntPtr.Zero)Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);
+   if(moving==IntPtr.Zero&&DesktopDock.Valid(app)){settle.Stop();settle.Start();}Invalidate();
   }finally{placing=false;}
  }
  void Retire(ContextMenuStrip menu){menu.Closed+=delegate{if(!closing&&IsHandleCreated)BeginInvoke((Action)delegate{menu.Dispose();});};}
@@ -119,9 +130,9 @@ uint restartMessage;
   if(app==null||app.Handle!=window.Handle){ReleaseApp(true);app=window;}
   fitAttempts=0;fitGeneration++;appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
  }
- void RaiseApp(){foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
+ void RaiseApp(){if(moving!=IntPtr.Zero||dragWidth||dragSplit)return;foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
  void FitApp(){
-  if(closing||!DesktopDock.Valid(app))return;var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
+  if(closing||moving!=IntPtr.Zero||dragWidth||dragSplit||!DesktopDock.Valid(app))return;var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
   if(Native.GetWindowRect(app.Handle,out outer)&&Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)))==0){l=visible.L-outer.L;t=visible.T-outer.T;r=outer.R-visible.R;b=outer.B-visible.B;}
   bool ok=Native.SetWindowPos(app.Handle,new IntPtr(-1),wanted.X-l,wanted.Y-t,wanted.Width+l+r,wanted.Height+t+b,0x4010);
   int generation=++fitGeneration;var expected=app;var verify=new Timer{Interval=200};verify.Tick+=delegate{verify.Stop();verify.Dispose();if(closing||generation!=fitGeneration||app!=expected||!DesktopDock.Valid(expected))return;
@@ -130,7 +141,7 @@ uint restartMessage;
     // Respect the actual application minimum, expanding the workspace instead of cropping chat input.
     if(ok&&fitAttempts++<2){var screen=Screen.FromHandle(Handle);int aw=actual.R-actual.L,ah=actual.B-actual.T;bool changed=false;
      if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+28)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
-     if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.15,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
+     if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.06,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
      if(changed){Place();settle.Stop();settle.Start();SaveSettings();return;}
     }
     ReleaseApp(true);appStatus="Ứng dụng cần ô lớn hơn. Kéo mép trái để mở rộng; tắt webcam để dùng hết chiều cao.";tray.ShowBalloonTip(6000,"Chưa đủ chỗ cho ứng dụng","Đã trả cửa sổ về chỗ cũ. Kéo rộng vùng phụ hoặc tắt webcam rồi chọn lại ứng dụng.",ToolTipIcon.Info);Invalidate();

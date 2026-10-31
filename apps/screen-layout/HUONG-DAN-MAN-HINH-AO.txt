@@ -1,6 +1,7 @@
-DTTL WORKSPACE 0.6 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
+DTTL WORKSPACE 0.6.1 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
 
 Vùng phụ mặc định rộng 33%; kéo mép trái để chỉnh rộng/hẹp (25–65%).
+Ô webcam có thể thu xuống 6% chiều cao vùng phụ để nhường chỗ cho ứng dụng. Khi kéo cửa sổ, DTTL tạm nhường lớp hiển thị và chỉ căn sau khi thả chuột.
 Webcam tắt: ứng dụng dùng hết chiều cao. Webcam bật: kéo vách ngăn ngang lên/xuống để chia hai ô. App nhớ chiều rộng và tỷ lệ; camera luôn tắt khi mở app.
 
 ZALO / TELEGRAM / CHROME

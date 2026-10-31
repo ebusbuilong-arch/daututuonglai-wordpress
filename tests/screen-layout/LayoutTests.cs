@@ -16,11 +16,12 @@ class LayoutTests {
  static Native.Rect Read(IntPtr h){Native.Rect r;if(Native.DwmGetWindowAttribute(h,9,out r,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(h,out r);return r;}
  static void Near(IntPtr h,Rectangle wanted,string message){var a=Read(h);if(Math.Abs(a.L-wanted.Left)>5||Math.Abs(a.T-wanted.Top)>5||Math.Abs(a.R-wanted.Right)>5||Math.Abs(a.B-wanted.Bottom)>5)throw new Exception(message+" got="+a.L+","+a.T+","+a.R+","+a.B+" expected="+wanted);}
  static Rectangle Rect(IntPtr h){var r=Read(h);return Rectangle.FromLTRB(r.L,r.T,r.R,r.B);}
- static void RealDrag(IntPtr window,Point target){
+ static void RealDrag(IntPtr window,Point target,bool checkWhileHeld=false){
   SetForegroundWindow(window);Pump(150);var r=Read(window);
   int x=r.L+100,y=r.T+12;SetCursorPos(x,y);Pump(80);
   mouse_event(2,0,0,0,UIntPtr.Zero);Pump(80);
   for(int i=1;i<=20;i++){SetCursorPos(x+(target.X-x)*i/20,y+(target.Y-y)*i/20);Pump(35);}
+  if(checkWhileHeld){var held=Rect(window);Pump(1000);Near(window,held,"App must not jump while mouse held");var sample=new Native.Point{X=held.Left+40,Y=held.Top+60};if(GetAncestor(WindowFromPoint(sample),2)!=window)throw new Exception("Dragged window hidden by workspace");}
   mouse_event(4,0,0,0,UIntPtr.Zero);Pump(1000);
  }
  static void DragPoint(Point from,Point to){SetCursorPos(from.X,from.Y);Pump(100);mouse_event(2,0,0,0,UIntPtr.Zero);Pump(100);for(int i=1;i<=10;i++){SetCursorPos(from.X+(to.X-from.X)*i/10,from.Y+(to.Y-from.Y)*i/10);Pump(40);}mouse_event(4,0,0,0,UIntPtr.Zero);Pump(200);}
@@ -134,16 +135,16 @@ class LayoutTests {
     Console.WriteLine("PASS actual mouse divider and sidebar resize; camera-off full height");
     using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
     virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
-    var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35));Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");
+    var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35),true);Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");
     RealDrag(handles[0],new Point(workBefore.Left+170,workBefore.Top+80));Pump(500);if(Rect(handles[0]).Left>=destination.Left)throw new Exception("Native drag-out did not release");
     Native.SetWindowPlacement(handles[0],ref originalPlacement);Pump(300);
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
     virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
    }
-   processes[2].StandardInput.WriteLine("minimum 600 300");processes[2].StandardInput.Flush();Pump(300);
+   processes[2].StandardInput.WriteLine("minimum 600 "+(int)(workBefore.Height*.82));processes[2].StandardInput.Flush();Pump(300);
    var beforeMinimum=Rect(handles[2]);
-   using(var adaptive=new VirtualDesktopDock(false)){adaptive.Show();Pump(500);adaptive.Attach(DesktopDock.Capture(handles[2]));Pump(2200);Near(handles[2],adaptive.ApplicationArea,"Workspace expands for minimum-sized app");if(adaptive.Width<600)throw new Exception("Minimum width not respected");adaptive.Close();Pump(400);Near(handles[2],beforeMinimum,"Minimum-sized app restores");}
-   Console.WriteLine("PASS workspace expands for external minimum-width window");
+   using(var adaptive=new VirtualDesktopDock(false)){adaptive.Show();Pump(500);adaptive.SetLayout(.33,1.0/3,true);Pump(300);adaptive.Attach(DesktopDock.Capture(handles[2]));Pump(2200);Near(handles[2],adaptive.ApplicationArea,"Workspace expands for minimum-sized app");if(adaptive.Width<600)throw new Exception("Minimum width not respected");adaptive.Close();Pump(400);Near(handles[2],beforeMinimum,"Minimum-sized app restores");}
+   Console.WriteLine("PASS workspace expands width and shrinks camera below 15% for tall minimum-sized app");
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
    Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with compact toolbar and webcam control");
    Console.WriteLine("PASS: driver-free native application fit, release, topmost and shutdown restoration; bright controls");
