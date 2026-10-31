@@ -1,0 +1,48 @@
+DTTL WORKSPACE 0.6.7 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
+
+Vùng phụ mặc định rộng 33%; kéo mép trái để chỉnh rộng/hẹp (25–65%).
+Ô webcam có thể thu xuống 6% chiều cao vùng phụ để nhường chỗ cho ứng dụng. Khi kéo cửa sổ, DTTL tạm nhường lớp hiển thị và chỉ căn sau khi thả chuột.
+Webcam tắt: ứng dụng dùng hết chiều cao. Webcam bật: kéo vách ngăn ngang lên/xuống để chia hai ô. App nhớ chiều rộng và tỷ lệ; camera luôn tắt khi mở app.
+
+ZALO / TELEGRAM / CHROME
+Mở ứng dụng → Tùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề vào vùng phụ. Mỗi lần ghim một cửa sổ; chọn cửa sổ khác sẽ trả cửa cũ. Với Chrome, có thể mở cửa sổ riêng rồi chọn.
+Chat, gõ, cuộn trực tiếp trên cửa sổ thật. Kéo ra ngoài để bỏ ghim; đóng DTTL trả vị trí và desktop.
+Nếu ứng dụng có kích thước tối thiểu, DTTL thử mở rộng vùng phụ và giảm ô webcam để vừa. Nếu vẫn không đủ, trả lại cửa sổ; tắt webcam hoặc kéo rộng rồi chọn lại. Không thu nhỏ toàn bộ giao diện và không cắt ô nhập tin nhắn.
+Không cần màn hình ảo; không tự gỡ driver đã cài. Có thể chuyển Windows về chỉ màn hình thật trong Display rồi đóng VDD Control.
+
+WEBCAM
+Bấm Bật webcam: tự tìm và mở camera đầu tiên mà Windows nhận. Không cần FFmpeg. Nếu có nhiều camera, bản này dùng camera đầu tiên.
+Bấm Tắt webcam để dừng, trả toàn bộ chiều cao cho ứng dụng. Tắt app cũng dừng camera.
+Giữ các file AForge*.dll cùng thư mục với EXE. Nếu không thấy hình, kiểm tra Windows Settings → Privacy → Camera, quyền cho ứng dụng desktop, và đóng phần mềm khác đang giữ camera.
+Webcam chỉ xem tại máy. Chưa bật thu mic khi chỉ xem webcam.
+
+QUAY / LIVESTREAM
+Phần quay / live vẫn cần FFmpeg Windows riêng (https://ffmpeg.org/download.html); chưa kèm trong ZIP. Webcam không cần FFmpeg.
+Tùy chọn → Quay / Livestream. Chọn ffmpeg.exe, màn hình nguồn và 720p/1080p 30fps. Lưu MP4; bấm Dừng để hoàn tất file trước khi mở. Không ghi đè file đã có; mất điện hoặc buộc dừng có thể làm MP4 chưa hoàn tất.
+Danh sách Micro tự lấy thiết bị Windows: chọn mic webcam. Có đúng một mic thì app chọn sẵn; nhiều mic thì anh chọn thiết bị muốn dùng. Chọn Không thu tiếng để tắt âm thanh. Chưa tự trộn tiếng máy và mic.
+Có thể chọn YouTube, Facebook, TikTok bằng URL RTMP/RTMPS và khóa luồng được nền tảng cấp. Mỗi đích mã hóa riêng, tăng tải CPU/băng thông; chưa tự nối lại khi mất mạng. Khóa không lưu file/log, chỉ giữ trong phiên thiết lập và truyền cho encoder trên máy.
+Test YouTube: đặt buổi phát Riêng tư trong YouTube Studio, nhập URL + khóa luồng ngay trong app, chọn 720p và chỉ tích YouTube. Xác nhận hình/tiếng tại Studio. App không tự thay đổi quyền riêng tư của buổi phát. Dừng trong app và kết thúc buổi phát trong Studio.
+Chỉ gửi hình/tiếng khi anh bật Livestream. Chọn toàn màn hình, chưa hỗ trợ chọn riêng cửa sổ/vùng tùy ý hoặc ghép cảnh riêng.
+
+KIỂM THỬ
+Kiểm tra Windows cho bố cục, đặt/trả cửa sổ thật, khôi phục topmost và desktop, quay MP4 720p/1080p và RTMP nội bộ. Máy kiểm thử không có webcam/Zalo; camera thực tế, Zalo và phát lên nền tảng cần kiểm tra trên máy người dùng.
+
+CHẨN ĐOÁN GHIM CỬA SỔ
+Nếu ghim chưa được: Tùy chọn → Thông tin lần ghim gần nhất. Ctrl+C sao chép nội dung để gửi hỗ trợ. Chỉ có tọa độ, kích thước và mã lỗi; không ghi nội dung chat hay khóa live. Không tự gửi dữ liệu.
+Bản 0.6.7 chờ lệnh đổi kích thước tối đa 2 giây và chấp nhận cửa sổ nhỏ hơn ô nếu đã nằm gọn trong ô. Không ép ứng dụng phóng đầy ô mới coi là thành công.
+
+QUAY / PHÁT 0.6.7
+- Luôn thu tiếng đang phát trên loa/tai nghe mặc định Windows (WASAPI), trộn với micro đã chọn.
+- Tắt micro vẫn giữ tiếng máy. Âm thanh phát sang một thiết bị khác không nằm trong bản thu.
+- Nếu đổi loa/tai nghe giữa chừng, dừng rồi bắt đầu lại. Không tự bật nhạc hoặc phát tiếng micro ra loa.
+- Khi loa ngoài phát và micro cùng mở, micro có thể thu lại tiếng loa; dùng tai nghe nếu bị vọng.
+- Không cài driver âm thanh ảo. NAudio.dll phải nằm cùng thư mục EXE.
+- Quay vẫn cần FFmpeg.exe. Chọn file, Bắt đầu, chọn tên MP4 mới để quay; Dừng để hoàn tất.
+- Nếu báo lỗi, bấm Chi tiết lỗi và Ctrl+C sao chép thông tin. Không cần gửi khóa livestream.
+- Kiểm thử tự động có nguồn âm thanh giả và kiểm tra hai tín hiệu trong MP4; chưa xác nhận loa/mic thật trên máy người dùng.
+
+SỬA LỖI 0.6.7
+Bỏ tham số thread_queue_size ở đầu vào để tương thích bản FFmpeg git mới. Giữ thu tiếng máy và trộn micro. Không cần cài lại FFmpeg.
+
+BÚT VẼ / HIỆU ỨNG
+Thanh công cụ ở góc dưới bên phải vùng chính. Chọn Bút, đường thẳng hoặc mũi tên rồi kéo trên màn hình. Màu chọn tự do; độ dày 3/6/10 px. Esc hoặc nút chuột để thao tác ứng dụng bên dưới. Xoá dọn tất cả nét và hiệu ứng, trả về chuột. Tim/hoa bay lên khi bấm. Nút — ẩn thanh; mở lại qua Tùy chọn → Bút vẽ / Hiệu ứng. Nét và hiệu ứng trên màn hình nguồn được ghi vào video/live.

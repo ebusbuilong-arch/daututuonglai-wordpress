@@ -1,0 +1,187 @@
+using System;
+using System.Drawing;
+using System.Diagnostics;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+class LayoutTests {
+ [DllImport("user32.dll")] static extern void mouse_event(uint flags,uint dx,uint dy,uint data,UIntPtr extra);
+ [DllImport("user32.dll")] static extern bool SetForegroundWindow(IntPtr h);
+ [DllImport("user32.dll")] static extern IntPtr WindowFromPoint(Native.Point p);
+ [DllImport("user32.dll")] static extern IntPtr GetAncestor(IntPtr h,uint flag);
+ [DllImport("user32.dll")] static extern bool SetCursorPos(int x,int y);
+ [DllImport("user32.dll")] static extern void NotifyWinEvent(uint ev,IntPtr h,int obj,int child);
+ static void Pump(int ms){var t=Stopwatch.StartNew();while(t.ElapsedMilliseconds<ms){Application.DoEvents();System.Threading.Thread.Sleep(10);}}
+ static Native.Rect Read(IntPtr h){Native.Rect r;if(Native.DwmGetWindowAttribute(h,9,out r,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(h,out r);return r;}
+ static void Near(IntPtr h,Rectangle wanted,string message){var a=Read(h);if(Math.Abs(a.L-wanted.Left)>5||Math.Abs(a.T-wanted.Top)>5||Math.Abs(a.R-wanted.Right)>5||Math.Abs(a.B-wanted.Bottom)>5)throw new Exception(message+" got="+a.L+","+a.T+","+a.R+","+a.B+" expected="+wanted);}
+ static Rectangle Rect(IntPtr h){var r=Read(h);return Rectangle.FromLTRB(r.L,r.T,r.R,r.B);}
+ static void RealDrag(IntPtr window,Point target,bool checkWhileHeld=false){
+  SetForegroundWindow(window);Pump(150);var r=Read(window);
+  int x=r.L+100,y=r.T+12;SetCursorPos(x,y);Pump(80);
+  mouse_event(2,0,0,0,UIntPtr.Zero);Pump(80);
+  for(int i=1;i<=20;i++){SetCursorPos(x+(target.X-x)*i/20,y+(target.Y-y)*i/20);Pump(35);}
+  if(checkWhileHeld){var held=Rect(window);Pump(1000);Near(window,held,"App must not jump while mouse held");var sample=new Native.Point{X=held.Left+40,Y=held.Top+60};if(GetAncestor(WindowFromPoint(sample),2)!=window)throw new Exception("Dragged window hidden by workspace");}
+  mouse_event(4,0,0,0,UIntPtr.Zero);Pump(1000);
+ }
+ static void DragPoint(Point from,Point to){SetCursorPos(from.X,from.Y);Pump(100);mouse_event(2,0,0,0,UIntPtr.Zero);Pump(100);for(int i=1;i<=10;i++){SetCursorPos(from.X+(to.X-from.X)*i/10,from.Y+(to.Y-from.Y)*i/10);Pump(40);}mouse_event(4,0,0,0,UIntPtr.Zero);Pump(200);}
+ static void Fixture(string index){
+  var f=new Form{Text="DTTL test window "+index,StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(index)*20,60),Size=new Size(340,250)};
+  f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
+  var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="minimum"){f.MinimumSize=new Size(int.Parse(parts[1]),int.Parse(parts[2]));}if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
+ }
+ static void CheckButtonText(Control parent){foreach(Control c in parent.Controls){var b=c as Button;if(b!=null)foreach(float scale in new[]{1f,1.25f,1.5f}){using(var font=new Font(b.Font.FontFamily,b.Font.Size*scale,b.Font.Style)){var size=TextRenderer.MeasureText(b.Text,font,Size.Empty,TextFormatFlags.NoPadding);if(size.Width>b.Width-8||size.Height>b.Height-4)throw new Exception("Button label overflow: "+b.Text+" at "+scale);}}CheckButtonText(c);}}
+ [STAThread] public static void Main(string[] args){
+  var target=new Rectangle(100,100,600,800);
+  if(!VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=500,B=600},target)||VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=800,B=600},target))throw new Exception("Contained app size validation");
+  try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
+  Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
+  Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
+  using(var under=new Form{StartPosition=FormStartPosition.Manual,Bounds=new Rectangle(60,60,600,440)})using(var ink=new ScreenInk()){
+   int clicks=0;under.MouseDown+=delegate{clicks++;};under.Show();Pump(100);ink.Show(new Rectangle(60,60,600,440));Pump(100);
+   foreach(int mode in new[]{1,2,3}){ink.SelectTool(mode);Pump(100);DragPoint(new Point(160,160+mode*30),new Point(360,180+mode*30));}
+   if(ink.StrokeCount!=3||clicks!=0)throw new Exception("Ink did not intercept drawing gestures");
+   using(var shot=new Bitmap(600,440)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(new Point(60,60),Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/ink-preview.png");}
+   // Select mouse mode by clicking the real toolbar while the input shield is active.
+   var mouseButton=ink.ToolCenter(0);SetCursorPos(mouseButton.X,mouseButton.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(ink.Drawing)throw new Exception("Drawing shield blocks toolbar");
+   ink.SelectTool(1);Pump(100);var clearButton=ink.ClearCenter;SetCursorPos(clearButton.X,clearButton.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(ink.Drawing||ink.StrokeCount!=0)throw new Exception("Cannot clear from toolbar while drawing");
+   ink.SelectTool(0);Pump(100);SetCursorPos(260,260);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(clicks!=1)throw new Exception("Ink blocks application clicks in mouse mode");
+   ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(4600);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
+   ink.SetArea(new Rectangle(60,60,500,440),new Rectangle(60,60,700,440));ink.SelectTool(1);Pump(100);
+   int beforeSide=ink.StrokeCount;DragPoint(new Point(690,180),new Point(710,280));if(ink.StrokeCount!=beforeSide+1)throw new Exception("Cannot draw in auxiliary area");
+   ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
+  }
+  Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");
+  using(var dialog=new BroadcastForm()){dialog.Show();Pump(300);CheckButtonText(dialog);using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-preview.png");}dialog.Close();}
+
+  var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
+  if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
+  Console.WriteLine("PASS default split geometry");
+  int mappings=0;
+  foreach(var screen in new[]{new Rectangle(1920,0,1920,1080),new Rectangle(-2560,-500,2560,1440),new Rectangle(0,1080,1080,1920)})
+   foreach(var cellSize in new[]{new Size(640,400),new Size(320,700),new Size(800,250)}){
+    var cell=new Rectangle(0,42,cellSize.Width,cellSize.Height);var view=ViewGeometry.Fit(cell,screen.Size);
+    if(!cell.Contains(view))throw new Exception("Scaled monitor outside viewport");
+    for(int y=0;y<=10;y++)for(int x=0;x<=10;x++){
+     var p=new Point(view.Left+x*(view.Width-1)/10,view.Top+y*(view.Height-1)/10);var source=ViewGeometry.ToSource(p,view,screen);
+     if(!screen.Contains(source))throw new Exception("Input outside source monitor");
+     var round=ViewGeometry.ToView(source,screen,view);if(Math.Abs(round.X-p.X)>1||Math.Abs(round.Y-p.Y)>1)throw new Exception("Input mapping roundtrip");mappings++;
+    }
+   }
+  Console.WriteLine("PASS: "+mappings+" scaled monitor input coordinates including portrait and negative origins");
+  int cases=0;foreach(var area in new[]{new Rectangle(900,0,466,728),new Rectangle(-600,0,600,1040),new Rectangle(2700,-2160,1140,2120)})for(int count=1;count<=3;count++)for(int i=0;i<count;i++){
+   var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
+  }
+  var edge=new Rectangle(900,0,466,728);
+  if(DockGeometry.Hit(edge,2,new Point(899,135))!=0||DockGeometry.Hit(edge,2,new Point(899,500))!=1||DockGeometry.Hit(edge,2,new Point(880,135))!=-1||DockGeometry.Hit(edge,2,new Point(920,20))!=-1)throw new Exception("Drop edge/header hit regression");
+  Console.WriteLine("PASS: "+cases+" auxiliary cell geometry/hit cases including negative monitors");
+  var processes=new List<Process>();var handles=new List<IntPtr>();var initial=new List<Rectangle>();var workBefore=Screen.PrimaryScreen.WorkingArea;
+  try {
+   for(int i=0;i<3;i++){var p=Process.Start(new ProcessStartInfo(Assembly.GetExecutingAssembly().Location,"fixture "+i){UseShellExecute=false,RedirectStandardOutput=true,RedirectStandardInput=true});processes.Add(p);handles.Add(new IntPtr(long.Parse(p.StandardOutput.ReadLine())));initial.Add(Rect(handles[i]));}
+   using(var dock=new DesktopDock(false)){
+    dock.Show();Pump(1000);if(!dock.Reserved)throw new Exception("AppBar not registered");
+    if(dock.Controls.Count!=2||dock.Cells[0].Top-dock.Top>46)throw new Exception("Compact UI must have two controls and 42px toolbar");
+    // Repeated real menu clicks must not dispose a menu during its click dispatch.
+    for(int menuPass=0;menuPass<3;menuPass++){
+     var m=(ContextMenuStrip)typeof(DesktopDock).GetMethod("MakeMenu",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(dock,null);
+     m.Show(dock,new Point(12,70));Pump(100);var item=m.Items[0];var pt=m.PointToScreen(new Point(item.Bounds.Left+15,item.Bounds.Top+item.Height/2));
+     SetCursorPos(pt.X,pt.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(300);
+     if(!m.IsDisposed)throw new Exception("Menu was not retired after dispatch");
+    }
+    dock.Configure(2,33,Screen.PrimaryScreen.DeviceName);Pump(400);
+    Console.WriteLine("PASS: menu selection closes and disposes after click dispatch without exception");
+    var remaining=Screen.FromHandle(handles[0]).WorkingArea;
+    if(remaining.Right>dock.Left+2||remaining.Width>=workBefore.Width)throw new Exception("Desktop work area not reserved");
+    Native.ShowWindowAsync(handles[2],3);Pump(400);var main=Read(handles[2]);if(main.R>dock.Left+5)throw new Exception("Main maximized window covers sidebar");Native.ShowWindowAsync(handles[2],9);Pump(250);
+    Console.WriteLine("PASS: native AppBar reserves desktop; maximized main window respects auxiliary area");
+    dock.FitMain(DesktopDock.Capture(handles[0]));Pump(700);
+    Near(handles[0],Screen.FromHandle(handles[0]).WorkingArea,"Manual fit to main work area");
+    dock.ReleaseAll();Pump(400);Near(handles[0],initial[0],"Main fit restores original placement");
+    Console.WriteLine("PASS: manually fit main window and restore original placement");
+    for(int n=1;n<=3;n++){
+     dock.Configure(n,40,Screen.PrimaryScreen.DeviceName);Pump(500);
+     for(int i=0;i<n;i++){var c=dock.Cells[i];processes[i].StandardInput.WriteLine("drag "+(c.Left+35)+" "+(c.Top+35));processes[i].StandardInput.Flush();Pump(700);Near(handles[i],c,"Event-hook docking "+n+"/"+i);if(GetAncestor(WindowFromPoint(new Native.Point{X=c.Left+c.Width/2,Y=c.Top+c.Height/2}),2)!=handles[i])throw new Exception("Docked window obscured by sidebar");}
+     dock.ReleaseAll();Pump(400);for(int i=0;i<n;i++)Near(handles[i],initial[i],"Restore original placement");
+    }
+    Console.WriteLine("PASS: external move events dock 1/2/3 windows and restore original placements");
+    dock.Configure(2,40,Screen.PrimaryScreen.DeviceName);Pump(500);
+    var realCell=dock.Cells[1];
+    RealDrag(handles[0],new Point(realCell.Left+60,realCell.Top+60));
+    Near(handles[0],realCell,"Actual mouse title-bar drag must dock");
+    Console.WriteLine("PASS: actual mouse title-bar drag docks external window");
+    RealDrag(handles[0],new Point(workBefore.Left+150,workBefore.Top+170));
+    Native.SetWindowPos(handles[0],IntPtr.Zero,80,80,340,250,0x4014);Pump(800);
+    if(Rect(handles[0]).Left>dock.Left)throw new Exception("Real drag out remains pinned");
+    Console.WriteLine("PASS: actual mouse drag out releases window");
+    dock.ReleaseAll();Native.SetWindowPos(handles[0],IntPtr.Zero,initial[0].X,initial[0].Y,initial[0].Width,initial[0].Height,0x4014);Pump(300);
+    initial[0]=Rect(handles[0]);
+    dock.Configure(2,33,Screen.PrimaryScreen.DeviceName);Pump(400);
+    var cell=dock.Cells[0];dock.Drop(handles[0],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[0]));Pump(500);
+    dock.Drop(handles[1],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[1]));Pump(500);Near(handles[0],initial[0],"Replacement restore");Near(handles[1],cell,"Replacement dock");
+    dock.Drop(handles[1],new Point(workBefore.Left+20,workBefore.Top+20),null);
+    Native.SetWindowPos(handles[1],IntPtr.Zero,100,100,350,240,0x4014);Pump(900);if(Rect(handles[1]).Left>dock.Left)throw new Exception("Dragged-out window still pinned");
+    Console.WriteLine("PASS: occupied cell replacement restores previous window; dragging out releases pin");
+    dock.Drop(handles[0],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[0]));Pump(500);
+    using(var bitmap=new Bitmap(workBefore.Width,workBefore.Height)){using(var g=Graphics.FromImage(bitmap))g.CopyFromScreen(workBefore.Location,Point.Empty,workBefore.Size);bitmap.Save("apps/screen-layout/dist/app-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
+    dock.Close();Pump(700);Near(handles[0],initial[0],"Close restores window");
+   }
+   if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Desktop work area not restored after exit");
+   Console.WriteLine("PASS: exit restores desktop work area and docked windows");
+   using(var virtualDock=new VirtualDesktopDock(false)){
+    virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=3)throw new Exception("Virtual viewer must have options, close and webcam controls");
+    foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
+    var original=Rect(handles[0]);var originalPlacement=DesktopDock.Capture(handles[0]).Original;var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
+    virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
+    using(var recordingDialog=new BroadcastForm()){
+     recordingDialog.Show();recordingDialog.Location=new Point(workBefore.Left+10,workBefore.Top+10);
+     // Reproduce the owner rising above its pinned external window.
+     Native.SetWindowPos(virtualDock.Handle,new IntPtr(-1),0,0,0,0,0x13);Pump(1100);
+     var pane=virtualDock.ApplicationArea;var point=new Native.Point{X=pane.Right-35,Y=pane.Bottom-35};
+     if(GetAncestor(WindowFromPoint(point),2)!=handles[0])throw new Exception("Recording dialog hides pinned app behind workspace");
+     using(var shot=new Bitmap(workBefore.Width,workBefore.Height)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(workBefore.Location,Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/recording-dock-preview.png");}
+     recordingDialog.Close();Pump(300);
+    }
+    Console.WriteLine("PASS pinned application stays visible with recording dialog open");
+    int fullHeight=virtualDock.ApplicationArea.Height;
+    virtualDock.SetLayout(.45,.3,true);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"App refits after webcam opens");
+    if(virtualDock.ApplicationArea.Height>=fullHeight)throw new Exception("Camera must split the area");
+    int oldHeight=virtualDock.ApplicationArea.Height;
+    // Exercise the actual pointer path for the separator, without requiring a camera.
+    var splitY=virtualDock.ApplicationArea.Top-5;
+    DragPoint(new Point(virtualDock.Left+virtualDock.Width/2,splitY),new Point(virtualDock.Left+virtualDock.Width/2,splitY-45));Pump(900);
+    if(virtualDock.ApplicationArea.Height<=oldHeight+20)throw new Exception("Divider did not move");
+    Near(handles[0],virtualDock.ApplicationArea,"App refits after separator drag");
+    int oldWidth=virtualDock.Width;
+    DragPoint(new Point(virtualDock.Left+2,virtualDock.Top+150),new Point(virtualDock.Left-65,virtualDock.Top+150));Pump(900);
+    if(virtualDock.Width<=oldWidth+30)throw new Exception("Sidebar edge did not resize");
+    Near(handles[0],virtualDock.ApplicationArea,"App refits after width drag");
+    virtualDock.SetLayout(.33,.33,false);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Camera off returns full height");
+    if(virtualDock.ApplicationArea.Height!=fullHeight)throw new Exception("Camera off kept unused space");
+    oldWidth=virtualDock.Width;
+    DragPoint(new Point(virtualDock.Left+2,virtualDock.Top+150),new Point(virtualDock.Left-45,virtualDock.Top+150));Pump(900);
+    if(virtualDock.Width<=oldWidth+20)throw new Exception("App covered resize edge with camera off");
+    Near(handles[0],virtualDock.ApplicationArea,"Full-height app follows edge resize");
+    virtualDock.SetLayout(.33,.33,false);Pump(900);
+    Console.WriteLine("PASS actual mouse divider and sidebar resize; camera-off full height");
+    using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
+    virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
+    var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35),true);Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");
+    RealDrag(handles[0],new Point(workBefore.Left+170,workBefore.Top+80));Pump(500);if(Rect(handles[0]).Left>=destination.Left)throw new Exception("Native drag-out did not release");
+    Native.SetWindowPlacement(handles[0],ref originalPlacement);Pump(300);
+    virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
+    virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
+   }
+   processes[2].StandardInput.WriteLine("minimum 600 "+(int)(workBefore.Height*.82));processes[2].StandardInput.Flush();Pump(300);
+   var beforeMinimum=Rect(handles[2]);
+   using(var adaptive=new VirtualDesktopDock(false)){adaptive.Show();Pump(500);adaptive.SetLayout(.33,1.0/3,true);Pump(300);adaptive.Attach(DesktopDock.Capture(handles[2]));Pump(2200);Near(handles[2],adaptive.ApplicationArea,"Workspace expands for minimum-sized app");if(adaptive.Width<600)throw new Exception("Minimum width not respected");adaptive.Close();Pump(400);Near(handles[2],beforeMinimum,"Minimum-sized app restores");}
+   Console.WriteLine("PASS workspace expands width and shrinks camera below 15% for tall minimum-sized app");
+   if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
+   Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with compact toolbar and webcam control");
+   Console.WriteLine("PASS: driver-free native application fit, release, topmost and shutdown restoration; bright controls");
+   Console.WriteLine("LIMITATION: runner has no webcam or Zalo; actual webcam and Zalo require device testing.");
+  }finally{foreach(var p in processes){if(!p.HasExited){p.CloseMainWindow();if(!p.WaitForExit(1000))p.Kill();}p.Dispose();}}
+ }
+}

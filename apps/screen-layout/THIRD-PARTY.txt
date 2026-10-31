@@ -1,0 +1,13 @@
+DTTL Workspace includes unmodified AForge.NET 2.2.5 assemblies:
+AForge.dll, AForge.Video.dll, AForge.Video.DirectShow.dll
+Copyright (c) AForge.NET authors, Andrew Kirillov and contributors.
+Licensed under GNU LGPL v3 or later; see licenses/AForge-License.txt.
+These dynamically loaded DLLs may be replaced with compatible modified versions.
+Reverse engineering for debugging modifications to these libraries is permitted.
+Upstream source and build instructions: https://github.com/andrewkirillov/AForge.NET
+NuGet distribution: https://www.nuget.org/packages/AForge.Video.DirectShow/2.2.5
+DTTL source: https://github.com/ebusbuilong-arch/daututuonglai-wordpress/tree/feat/screen-layout-app/apps/screen-layout
+
+NAudio 1.10.0 — https://github.com/naudio/NAudio/tree/v1.10.0
+License: Microsoft Public License (Ms-PL), included in licenses/NAudio.txt.
+Used for Windows WASAPI output loopback; no audio driver installed.
