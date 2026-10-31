@@ -40,6 +40,12 @@ class BroadcastTests {
  static void AudioTests(string ff,string folder){
   var fake=new FakeAudio();string output=Path.Combine(folder,"loopback-pipe.mp4");if(File.Exists(output))File.Delete(output);
   using(var pipe=new SystemAudioPipe(fake)){
+   // New FFmpeg git builds reject thread_queue_size as an input option.
+   foreach(bool desktop in new[]{false,true})foreach(string mic in new[]{"","Test Microphone"})foreach(bool loopback in new[]{false,true}){
+    string generated=BroadcastSession.Arguments(new Rectangle(0,0,1920,1080),720,output,false,mic,!desktop,loopback?pipe:null);
+    if(generated.Contains("-thread_queue_size"))throw new Exception("Input queue option is incompatible with new FFmpeg builds");
+   }
+   Console.WriteLine("PASS FFmpeg input compatibility: desktop, microphone, loopback combinations");
    // Exercise the exact generated input command, including silence before playback begins.
    string command=BroadcastSession.Arguments(Rectangle.Empty,720,output,false,"",true,pipe);
    command=command.Replace(" -movflags", " -t 3 -movflags");RunEncoder(ff,command);

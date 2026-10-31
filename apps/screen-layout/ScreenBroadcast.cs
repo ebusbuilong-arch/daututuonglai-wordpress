@@ -29,9 +29,9 @@ internal sealed class BroadcastSession : IDisposable {
  }
  internal static string Arguments(Rectangle r,int height,string destination,bool live,string audio,bool synthetic){return Arguments(r,height,destination,live,audio,synthetic,null);}
  internal static string Arguments(Rectangle r,int height,string destination,bool live,string audio,bool synthetic,SystemAudioPipe loopback){
-  string input=synthetic?"-re -f lavfi -i testsrc2=size=1280x720:rate=30":"-thread_queue_size 512 -f gdigrab -framerate 30 -draw_mouse 1 -offset_x "+r.X+" -offset_y "+r.Y+" -video_size "+r.Width+"x"+r.Height+" -i desktop";
-  string sound=String.IsNullOrWhiteSpace(audio)?" -f lavfi -i anullsrc=r=48000:cl=stereo":" -thread_queue_size 512 -f dshow -i "+Quote("audio="+audio);
-  if(loopback!=null){sound=" -thread_queue_size 512 -probesize 32 -analyzeduration 0 -f "+loopback.RawFormat+" -ar "+loopback.Format.SampleRate+" -ac "+loopback.Format.Channels+" -i "+Quote(loopback.PathName)+(String.IsNullOrWhiteSpace(audio)?"":" -thread_queue_size 512 -f dshow -i "+Quote("audio="+audio));}
+  string input=synthetic?"-re -f lavfi -i testsrc2=size=1280x720:rate=30":"-f gdigrab -framerate 30 -draw_mouse 1 -offset_x "+r.X+" -offset_y "+r.Y+" -video_size "+r.Width+"x"+r.Height+" -i desktop";
+  string sound=String.IsNullOrWhiteSpace(audio)?" -f lavfi -i anullsrc=r=48000:cl=stereo":" -f dshow -i "+Quote("audio="+audio);
+  if(loopback!=null){sound=" -probesize 32 -analyzeduration 0 -f "+loopback.RawFormat+" -ar "+loopback.Format.SampleRate+" -ac "+loopback.Format.Channels+" -i "+Quote(loopback.PathName)+(String.IsNullOrWhiteSpace(audio)?"":" -f dshow -i "+Quote("audio="+audio));}
   return "-hide_banner -loglevel error -progress pipe:1 -nostats -n "+input+sound+Encoding(height,loopback!=null&&!String.IsNullOrWhiteSpace(audio))+(live?" -rw_timeout 15000000 -f flv ":" -movflags +faststart -f mp4 ")+Quote(destination);
  }
  internal void Start(string exe,Rectangle r,int height,string destination,bool live,string audio,bool synthetic){Start(exe,r,height,destination,live,audio,synthetic,false);}
@@ -66,7 +66,7 @@ internal sealed class BroadcastForm : Form {
  readonly Timer poll=new Timer{Interval=1000};readonly Panel settings=new Panel{Dock=DockStyle.Top,Height=360};
  string savedFile; bool hasLive; string lastError=""; readonly Button details=new Button{Text="Chi tiết lỗi",Width=100,Visible=false};
  internal BroadcastForm(){
-  Text="Quay / Livestream • thử nghiệm 0.6.2";Size=new Size(720,540);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  Text="Quay / Livestream • thử nghiệm 0.6.3";Size=new Size(720,540);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
   Controls.Add(settings);int y=12;
   Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};

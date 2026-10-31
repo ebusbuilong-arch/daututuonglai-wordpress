@@ -19,7 +19,7 @@ internal sealed class WebcamFeed : IDisposable {
   }return devices;
  }
  internal void Start(string exe,string device){
-  StartPipe(exe,"-hide_banner -loglevel error -thread_queue_size 256 -f dshow -i "+BroadcastSession.Quote("video="+device)+" -an -vf \"scale=640:360:force_original_aspect_ratio=decrease,pad=640:360:(ow-iw)/2:(oh-ih)/2,fps=15\" -pix_fmt bgr24 -f rawvideo pipe:1");
+  StartPipe(exe,"-hide_banner -loglevel error -f dshow -i "+BroadcastSession.Quote("video="+device)+" -an -vf \"scale=640:360:force_original_aspect_ratio=decrease,pad=640:360:(ow-iw)/2:(oh-ih)/2,fps=15\" -pix_fmt bgr24 -f rawvideo pipe:1");
  }
  internal void StartSynthetic(string exe){StartPipe(exe,"-hide_banner -loglevel error -re -f lavfi -i testsrc2=size=640x360:rate=15 -an -pix_fmt bgr24 -f rawvideo pipe:1");}
  void StartPipe(string exe,string arguments){
