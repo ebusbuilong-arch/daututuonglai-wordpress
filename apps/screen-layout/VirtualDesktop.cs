@@ -86,7 +86,7 @@ internal sealed class VirtualDesktopDock : Form {
   var show=m.Items.Add("Căn lại / Hiện ứng dụng",null,delegate{if(DesktopDock.Valid(app)){Native.ShowWindowAsync(app.Handle,9);settle.Start();}});show.Enabled=DesktopDock.Valid(app);
   var release=m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{ReleaseApp(true);});release.Enabled=DesktopDock.Valid(app);
   m.Items.Add(new ToolStripSeparator());
-  m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();broadcast.Show();broadcast.Activate();});});
+  m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();if(!broadcast.Visible)broadcast.Show(this);broadcast.Activate();});});
   m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ rộng 33%; webcam trên 1/3 và cửa sổ ứng dụng dưới 2/3.\nTùy chọn → Chọn Zalo / ứng dụng, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam cần ffmpeg.exe và quyền Camera của Windows. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
  }
@@ -100,7 +100,7 @@ internal sealed class VirtualDesktopDock : Form {
   if(app==null||app.Handle!=window.Handle){ReleaseApp(true);app=window;}
   appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
  }
- void RaiseApp(){if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
+ void RaiseApp(){foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
  void FitApp(){
   if(closing||!DesktopDock.Valid(app))return;var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
   if(Native.GetWindowRect(app.Handle,out outer)&&Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)))==0){l=visible.L-outer.L;t=visible.T-outer.T;r=outer.R-visible.R;b=outer.B-visible.B;}

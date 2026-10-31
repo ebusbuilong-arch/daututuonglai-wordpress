@@ -108,13 +108,13 @@ class LayoutTests {
    using(var virtualDock=new VirtualDesktopDock(false)){
     virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=3)throw new Exception("Virtual viewer must have options, close and webcam controls");
     foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
-    var original=Rect(handles[0]);var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
+    var original=Rect(handles[0]);var originalPlacement=DesktopDock.Capture(handles[0]).Original;var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
     using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
     virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
     var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35));Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");
     RealDrag(handles[0],new Point(workBefore.Left+170,workBefore.Top+80));Pump(500);if(Rect(handles[0]).Left>=destination.Left)throw new Exception("Native drag-out did not release");
-    Native.SetWindowPos(handles[0],IntPtr.Zero,original.X,original.Y,original.Width,original.Height,0x4014);Pump(300);
+    Native.SetWindowPlacement(handles[0],ref originalPlacement);Pump(300);
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
     virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
    }
