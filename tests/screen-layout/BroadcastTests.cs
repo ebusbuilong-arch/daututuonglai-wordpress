@@ -13,6 +13,12 @@ class BroadcastTests {
  [STAThread] static void Main(string[] args){
   string ff=args[0],probe=Path.Combine(Path.GetDirectoryName(ff),"ffprobe.exe"),folder=args[1];
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
+  using(var webcam=new WebcamFeed()){
+   webcam.StartSynthetic(ff);Bitmap image=null;for(int attempt=0;attempt<100&&image==null;attempt++){Thread.Sleep(100);image=webcam.Take();}
+   if(image==null||image.Size!=new Size(640,360))throw new Exception("Webcam frame decoding failed");image.Dispose();webcam.Dispose();
+   for(int attempt=0;attempt<50&&!webcam.Ended;attempt++)Thread.Sleep(100);if(!webcam.Ended)throw new Exception("Camera process did not stop");
+   Console.WriteLine("PASS webcam raw-frame pipeline and stop using synthetic input; no physical camera tested");
+  }
   foreach(string bad in new[]{"https://example.com","file:///tmp/test","rtmps://user:secret@example.com/live"}){bool rejected=false;try{BroadcastSession.Destination(bad,"key");}catch(ArgumentException){rejected=true;}if(!rejected)throw new Exception("Invalid destination accepted");}
   foreach(int height in new[]{720,1080}){
    string file=Path.Combine(folder,"record-"+height+".mp4");if(File.Exists(file))File.Delete(file);

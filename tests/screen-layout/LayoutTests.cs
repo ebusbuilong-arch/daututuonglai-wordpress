@@ -112,6 +112,9 @@ class LayoutTests {
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
     using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
     virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
+    var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35));Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");
+    RealDrag(handles[0],new Point(workBefore.Left+170,workBefore.Top+80));Pump(500);if(Rect(handles[0]).Left>=destination.Left)throw new Exception("Native drag-out did not release");
+    Native.SetWindowPos(handles[0],IntPtr.Zero,original.X,original.Y,original.Width,original.Height,0x4014);Pump(300);
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
     virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
    }

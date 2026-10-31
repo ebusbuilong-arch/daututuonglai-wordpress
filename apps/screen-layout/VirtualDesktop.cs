@@ -37,7 +37,7 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
  readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.5"};
  readonly ShellNative.WinEvent moveEvent;
- IntPtr hook;DockedWindow app;WebcamFeed webcam;Bitmap webcamImage;BroadcastForm broadcast;
+ IntPtr hook;DockedWindow app,beforeMove;WebcamFeed webcam;Bitmap webcamImage;BroadcastForm broadcast;
  string webcamExe=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe"),webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / ứng dụng";
  string host;bool registered,closing,placing;uint restartMessage;
  internal VirtualDesktopDock():this(true){}
@@ -48,9 +48,13 @@ internal sealed class VirtualDesktopDock : Form {
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
   host=Screen.PrimaryScreen.DeviceName;
   moveEvent=delegate(IntPtr h,uint ev,IntPtr window,int obj,int child,uint thread,uint time){
-   if(ev!=0xB||closing||obj!=0||!IsHandleCreated)return;
+   if(closing||obj!=0||!IsHandleCreated)return;
+   if(ev==0xA){beforeMove=DesktopDock.Capture(window);return;}
+   if(ev!=0xB)return;
+   var saved=beforeMove!=null&&beforeMove.Handle==window?beforeMove:DesktopDock.Capture(window);beforeMove=null;
    BeginInvoke((Action)delegate{if(closing)return;Native.Point p;if(!ShellNative.GetCursorPos(out p))return;
-    if(ApplicationArea.Contains(p.X,p.Y)){var w=DesktopDock.Capture(window);if(DesktopDock.Valid(w))Attach(w);}
+    var target=ApplicationArea;target.Inflate(12,0);
+    if(target.Contains(p.X,p.Y)){if(DesktopDock.Valid(saved))Attach(saved);}
     else if(app!=null&&app.Handle==window)ReleaseApp(false);
    });
   };
