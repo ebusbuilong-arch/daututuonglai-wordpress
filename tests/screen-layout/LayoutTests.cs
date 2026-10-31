@@ -27,7 +27,7 @@ class LayoutTests {
  static void Fixture(string index){
   var f=new Form{Text="DTTL test window "+index,StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(index)*20,60),Size=new Size(340,250)};
   f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
-  var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
+  var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="minimum"){f.MinimumSize=new Size(int.Parse(parts[1]),int.Parse(parts[2]));}if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
  }
  [STAThread] public static void Main(string[] args){
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
@@ -126,6 +126,11 @@ class LayoutTests {
     Near(handles[0],virtualDock.ApplicationArea,"App refits after width drag");
     virtualDock.SetLayout(.33,.33,false);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Camera off returns full height");
     if(virtualDock.ApplicationArea.Height!=fullHeight)throw new Exception("Camera off kept unused space");
+    oldWidth=virtualDock.Width;
+    DragPoint(new Point(virtualDock.Left+2,virtualDock.Top+150),new Point(virtualDock.Left-45,virtualDock.Top+150));Pump(900);
+    if(virtualDock.Width<=oldWidth+20)throw new Exception("App covered resize edge with camera off");
+    Near(handles[0],virtualDock.ApplicationArea,"Full-height app follows edge resize");
+    virtualDock.SetLayout(.33,.33,false);Pump(900);
     Console.WriteLine("PASS actual mouse divider and sidebar resize; camera-off full height");
     using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
     virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
@@ -135,6 +140,10 @@ class LayoutTests {
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);
     virtualDock.Close();Pump(500);Near(handles[0],original,"Native shutdown restores placement");
    }
+   processes[2].StandardInput.WriteLine("minimum 600 300");processes[2].StandardInput.Flush();Pump(300);
+   var beforeMinimum=Rect(handles[2]);
+   using(var adaptive=new VirtualDesktopDock(false)){adaptive.Show();Pump(500);adaptive.Attach(DesktopDock.Capture(handles[2]));Pump(2200);Near(handles[2],adaptive.ApplicationArea,"Workspace expands for minimum-sized app");if(adaptive.Width<600)throw new Exception("Minimum width not respected");adaptive.Close();Pump(400);Near(handles[2],beforeMinimum,"Minimum-sized app restores");}
+   Console.WriteLine("PASS workspace expands for external minimum-width window");
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
    Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with compact toolbar and webcam control");
    Console.WriteLine("PASS: driver-free native application fit, release, topmost and shutdown restoration; bright controls");

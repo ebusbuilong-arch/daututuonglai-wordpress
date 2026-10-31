@@ -70,9 +70,9 @@ uint restartMessage;
  internal static Rectangle Pane(Rectangle client,int index){return Pane(client,index,true,1.0/3);}
  internal static Rectangle Pane(Rectangle client,int index,bool camera,double ratio){
   int top=client.Top+42,bottom=client.Bottom-8;
-  if(!camera)return index==0?Rectangle.Empty:Rectangle.FromLTRB(client.Left+8,top+5,client.Right-8,bottom);
+  if(!camera)return index==0?Rectangle.Empty:Rectangle.FromLTRB(client.Left+16,top+5,client.Right-8,bottom);
   int split=top+(int)(Math.Max(1,client.Height-42)*Math.Max(.15,Math.Min(.65,ratio)));
-  return index==0?Rectangle.FromLTRB(client.Left+8,top+5,client.Right-8,split-5):Rectangle.FromLTRB(client.Left+8,split+5,client.Right-8,bottom);
+  return index==0?Rectangle.FromLTRB(client.Left+16,top+5,client.Right-8,split-5):Rectangle.FromLTRB(client.Left+16,split+5,client.Right-8,bottom);
  }
  Rectangle Cell(int index){return Pane(ClientRectangle,index,cameraVisible,splitRatio);}
  internal Rectangle ApplicationArea{get{var r=Cell(1);r.Offset(Left,Top);return r;}}
@@ -129,7 +129,7 @@ uint restartMessage;
    if(!ok||Math.Abs(actual.L-wanted.Left)>12||Math.Abs(actual.T-wanted.Top)>12||Math.Abs(actual.R-wanted.Right)>12||Math.Abs(actual.B-wanted.Bottom)>12){
     // Respect the actual application minimum, expanding the workspace instead of cropping chat input.
     if(ok&&fitAttempts++<2){var screen=Screen.FromHandle(Handle);int aw=actual.R-actual.L,ah=actual.B-actual.T;bool changed=false;
-     if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+20)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
+     if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+28)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
      if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.15,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
      if(changed){Place();settle.Stop();settle.Start();SaveSettings();return;}
     }
