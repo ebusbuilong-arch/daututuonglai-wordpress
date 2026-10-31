@@ -35,3 +35,15 @@ GIỚI HẠN VÀ KIỂM THỬ
 - Driver là thành phần bên thứ ba, không đóng gói trong file này; đọc giấy phép và hướng dẫn
   của nhà cung cấp. Đóng DTTL không gỡ driver. Gỡ bằng Virtual Driver Control nếu không dùng.
 - Đây là bản thử nghiệm, chưa phải bản để công bố đại trà.
+
+
+0.4 THỬ NGHIỆM — QUAY / LIVESTREAM
+Tùy chọn → Quay / Livestream. Cần FFmpeg Windows có libx264, gdigrab, dshow, AAC và RTMPS; tải qua https://ffmpeg.org/download.html rồi chọn ffmpeg.exe. ZIP này chưa kèm FFmpeg.
+Chọn màn hình nguồn thật/ảo, 720p hoặc 1080p / 30fps. Giữ đúng tỷ lệ bằng viền đen; nguồn nhỏ hơn không tự có thêm chi tiết khi xuất 1080p.
+Tích Lưu video MP4 để quay. Bấm Dừng để hoàn tất video trước khi mở. Nếu mất điện hoặc buộc dừng, file MP4 có thể chưa hoàn tất.
+Âm thanh: để trống là không thu tiếng. Có thể nhập chính xác tên micro hoặc Stereo Mix do DirectShow cung cấp; xem bằng ffmpeg -list_devices true -f dshow -i dummy. Chưa có bộ trộn micro + tiếng máy tự động.
+YouTube / Facebook / TikTok: tích đích phát và nhập URL máy chủ, khóa luồng từ tài khoản có quyền dùng encoder. Chỉ phát khi bấm Bắt đầu và xác nhận. Khóa chỉ giữ trong bộ nhớ của cửa sổ thiết lập, không ghi log/file; tiến trình encoder trên máy cần nhận khóa để gửi luồng.
+Có thể chọn ba đích cùng lúc. Mỗi đích mã hóa riêng nên tải CPU và băng thông tăng; trạng thái của từng đích hiển thị riêng. Chưa tự nối lại khi mất mạng.
+TEST YOUTUBE: tạo buổi phát Riêng tư trong YouTube Studio, lấy URL RTMPS + khóa luồng, chỉ tích YouTube, chọn 720p trước. Bấm Bắt đầu, xem hình/âm thanh và sức khỏe luồng trong Studio; bấm Dừng trong app và kết thúc buổi phát trong Studio. App không tự đặt quyền riêng tư cho buổi phát.
+Đóng cửa sổ Quay / Livestream hoặc đóng app sẽ dừng tất cả phiên quay/phát. Bản này chọn toàn màn hình nguồn, chưa chọn riêng ứng dụng hoặc vùng tùy ý.
+Kiểm thử tự động: quay màn hình Windows 720p/1080p và luồng RTMP nội bộ. Không coi đó là đã kiểm thử YouTube thật; cần tài khoản và máy của người dùng.

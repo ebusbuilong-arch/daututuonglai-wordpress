@@ -19,6 +19,9 @@ jobs:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           persist-credentials: false
+      - name: Install test encoder
+        shell: powershell
+        run: choco install ffmpeg -y --no-progress
       - name: Build and test Windows executable
         shell: powershell
         run: ./apps/screen-layout/build.ps1
@@ -39,5 +42,5 @@ jobs:
             apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.3-beta.zip
             apps/screen-layout/dist/dttl-free-apps.zip
             apps/screen-layout/dist/app-preview.png
-            apps/screen-layout/dist/DTTL-Man-Hinh-Ao-0.3-thu-nghiem.zip
+            apps/screen-layout/dist/DTTL-Man-Hinh-Ao-0.4-thu-nghiem.zip
           retention-days: 30

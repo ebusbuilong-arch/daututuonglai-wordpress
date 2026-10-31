@@ -37,6 +37,7 @@ internal sealed class VirtualDesktopDock : Form {
  readonly string[] sources=new string[3]; readonly Bitmap[] frames=new Bitmap[3];
  readonly Dictionary<IntPtr,DockedWindow> moved=new Dictionary<IntPtr,DockedWindow>();
  readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Màn hình ảo 0.3"};
+ BroadcastForm broadcast;
  string host; int count=1,percent=33,active=-1; bool registered,closing,placing,hotkey;
  Point returnCursor; uint restartMessage;
  internal VirtualDesktopDock():this(true){}
@@ -89,13 +90,14 @@ internal sealed class VirtualDesktopDock : Form {
    var move=slot.DropDownItems.Add("Đưa ứng dụng sang…",null,delegate{BeginInvoke((Action)delegate{if(!closing)PickWindow(index);});});move.Enabled=Find(sources[index])!=null;
    slot.DropDownItems.Add("Bỏ nguồn",null,delegate{sources[index]=null;ResetFrame(index);});m.Items.Add(slot);
   }
+  m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();broadcast.Show();broadcast.Activate();});});
   m.Items.Add(new ToolStripSeparator());m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{RestoreWindows();});
   m.Items.Add("Tải driver màn hình ảo",null,delegate{System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23"){UseShellExecute=true});});
   m.Items.Add("Cài màn hình ảo / Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)SetupHelp();});});
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
  }
  void SetupHelp(){
-  MessageBox.Show(this,"BẢN THỬ NGHIỆM MÀN HÌNH ẢO\n\n1. Cần một màn hình mở rộng thật hoặc driver màn hình ảo. Mỗi ô có thể chọn một màn hình riêng.\n2. Windows Settings → Display: chọn Extend, giữ màn hình vật lý là màn hình chính.\n3. Tùy chọn → Ô 1 → Nguồn màn hình; sau đó Đưa ứng dụng sang.\n4. Bấm trong hình để chuyển chuột/bàn phím sang màn hình đó. Bấm Ctrl+Alt+Space để trở về và mở Tùy chọn hoặc ×.\n\nChuột và bàn phím thao tác trực tiếp trên màn hình nguồn; đây không phải ảnh xem trước chỉ đọc. Thu/phóng ứng dụng diễn ra trên màn hình nguồn.\n\nNguồn driver: github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23\nChỉ cài phần Virtual Display Driver bằng bộ cài của dự án. Ứng dụng này không tự cài driver hay thay đổi bảo vệ Windows.\n\nBản thử dùng chụp màn hình khoảng 10 lần/giây, dành cho làm việc văn phòng; chưa tối ưu game/video. Nội dung chỉ xử lý trên máy, không truyền mạng.\n\nGiữ Ctrl+Alt+Space để thoát điều khiển nếu chưa quen. Driver vẫn còn sau khi đóng app; gỡ bằng công cụ của nhà cung cấp.",Text);
+  MessageBox.Show(this,"BẢN THỬ NGHIỆM MÀN HÌNH ẢO\n\n1. Cần một màn hình mở rộng thật hoặc driver màn hình ảo. Mỗi ô có thể chọn một màn hình riêng.\n2. Windows Settings → Display: chọn Extend, giữ màn hình vật lý là màn hình chính.\n3. Tùy chọn → Ô 1 → Nguồn màn hình; sau đó Đưa ứng dụng sang.\n4. Bấm trong hình để chuyển chuột/bàn phím sang màn hình đó. Bấm Ctrl+Alt+Space để trở về và mở Tùy chọn hoặc ×.\n\nChuột và bàn phím thao tác trực tiếp trên màn hình nguồn; đây không phải ảnh xem trước chỉ đọc. Thu/phóng ứng dụng diễn ra trên màn hình nguồn.\n\nNguồn driver: github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23\nChỉ cài phần Virtual Display Driver bằng bộ cài của dự án. Ứng dụng này không tự cài driver hay thay đổi bảo vệ Windows.\n\nBản thử dùng chụp màn hình khoảng 10 lần/giây, dành cho làm việc văn phòng; chưa tối ưu game/video. Chỉ truyền mạng khi anh bật Livestream trong Tùy chọn → Quay / Livestream.\n\nGiữ Ctrl+Alt+Space để thoát điều khiển nếu chưa quen. Driver vẫn còn sau khi đóng app; gỡ bằng công cụ của nhà cung cấp.",Text);
  }
  void PickWindow(int index){
   var screen=Find(sources[index]);if(screen==null)return;var menu=new ContextMenuStrip();
@@ -162,7 +164,7 @@ internal sealed class VirtualDesktopDock : Form {
   if(m.Msg==0x11)ReleaseInput();
   base.WndProc(ref m);
  }
- void Shutdown(){if(closing)return;ReleaseInput();closing=true;frameTimer.Stop();RestoreWindows();if(hotkey)Native.UnregisterHotKey(Handle,ExitHotkey);if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}for(int i=0;i<3;i++)ResetFrame(i);frameTimer.Dispose();tray.Dispose();}
+ void Shutdown(){if(closing)return;ReleaseInput();closing=true;if(broadcast!=null&&!broadcast.IsDisposed)broadcast.Close();frameTimer.Stop();RestoreWindows();if(hotkey)Native.UnregisterHotKey(Handle,ExitHotkey);if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}for(int i=0;i<3;i++)ResetFrame(i);frameTimer.Dispose();tray.Dispose();}
 }
 static class VirtualDisplayProgram {
  [STAThread] static void Main(){
