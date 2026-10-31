@@ -134,7 +134,7 @@ class LayoutTests {
     var original=Rect(handles[0]);var originalPlacement=DesktopDock.Capture(handles[0]).Original;var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
     using(var recordingDialog=new BroadcastForm()){
-     recordingDialog.Show(virtualDock);recordingDialog.Location=new Point(workBefore.Left+10,workBefore.Top+10);
+     recordingDialog.Show();recordingDialog.Location=new Point(workBefore.Left+10,workBefore.Top+10);
      // Reproduce the owner rising above its pinned external window.
      Native.SetWindowPos(virtualDock.Handle,new IntPtr(-1),0,0,0,0,0x13);Pump(1100);
      var pane=virtualDock.ApplicationArea;var point=new Native.Point{X=pane.Right-35,Y=pane.Bottom-35};
