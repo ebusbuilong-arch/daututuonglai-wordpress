@@ -36,13 +36,13 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Timer frameTimer=new Timer{Interval=100};
  readonly string[] sources=new string[3]; readonly Bitmap[] frames=new Bitmap[3];
  readonly Dictionary<IntPtr,DockedWindow> moved=new Dictionary<IntPtr,DockedWindow>();
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Màn hình ảo 0.3"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Màn hình ảo 0.4"};
  BroadcastForm broadcast;
  string host; int count=1,percent=33,active=-1; bool registered,closing,placing,hotkey;
  Point returnCursor; uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool showHelp){
-  Text="DTTL • Màn hình ảo 0.3 thử nghiệm";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;
+  Text="DTTL • Màn hình ảo 0.4 thử nghiệm";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;
   StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(18,28,31);Font=new Font("Segoe UI",9);
   host=Screen.PrimaryScreen.DeviceName;Controls.Add(options);Controls.Add(quit);

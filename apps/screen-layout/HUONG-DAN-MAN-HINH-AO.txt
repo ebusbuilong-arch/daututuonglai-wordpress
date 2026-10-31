@@ -1,4 +1,4 @@
-DTTL MÀN HÌNH ẢO 0.3 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
+DTTL MÀN HÌNH ẢO 0.4 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
 
 Bản này đọc một màn hình mở rộng có thật trong Windows và thu toàn bộ hình vào ô phụ.
 Không dùng cách ép cửa sổ Zalo xuống nhỏ nữa. Mỗi ô có thể chọn nguồn màn hình riêng.
@@ -29,7 +29,7 @@ GIỚI HẠN VÀ KIỂM THỬ
 - 10 khung hình/giây, ưu tiên văn phòng. Chưa tối ưu video/game/HDR/DRM.
 - Hình ảnh được thu đúng tỷ lệ, có thể có viền trống. Hiện chưa lưu lựa chọn qua lần mở sau.
 - Chụp tối đa 4096×4096 cho mỗi màn hình. Chưa có nguồn thì ô để trống.
-- Chỉ xử lý trên máy; không lưu ảnh, không gửi hình hoặc phím bấm lên mạng.
+- Xem màn hình phụ xử lý tại máy. Chỉ lưu video khi bật Quay; chỉ gửi hình/tiếng khi bật Livestream. Không gửi phím bấm lên mạng.
 - Chưa kiểm thử đầu-cuối driver + capture + nhập liệu trên Windows 10 thực tế.
   Kiểm thử Windows build gồm tính tọa độ, khởi động/thoát và trả vùng desktop.
 - Driver là thành phần bên thứ ba, không đóng gói trong file này; đọc giấy phép và hướng dẫn
