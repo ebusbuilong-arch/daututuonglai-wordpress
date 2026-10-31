@@ -12,4 +12,4 @@ if ($LASTEXITCODE -ne 0) { throw 'Test build failed' }
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
 Copy-Item "$root\HUONG-DAN.txt" $out
 Get-FileHash "$out\DTTL-Chia-Man-Hinh.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Chia-Man-Hinh.exe" } | Set-Content "$out\SHA256.txt"
-Compress-Archive -Path "$out\DTTL-Chia-Man-Hinh.exe","$out\HUONG-DAN.txt","$out\SHA256.txt" -DestinationPath "$out\DTTL-Chia-Man-Hinh-0.2.1-beta.zip" -Force
+Compress-Archive -Path "$out\DTTL-Chia-Man-Hinh.exe","$out\HUONG-DAN.txt","$out\SHA256.txt" -DestinationPath "$out\DTTL-Chia-Man-Hinh-0.2.2-beta.zip" -Force

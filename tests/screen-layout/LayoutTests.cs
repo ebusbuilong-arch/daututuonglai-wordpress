@@ -30,6 +30,7 @@ class LayoutTests {
  }
  [STAThread] public static void Main(string[] args){
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
+  Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
   int cases=0;foreach(var area in new[]{new Rectangle(900,0,466,728),new Rectangle(-600,0,600,1040),new Rectangle(2700,-2160,1140,2120)})for(int count=1;count<=3;count++)for(int i=0;i<count;i++){
    var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
@@ -42,10 +43,23 @@ class LayoutTests {
    for(int i=0;i<3;i++){var p=Process.Start(new ProcessStartInfo(Assembly.GetExecutingAssembly().Location,"fixture "+i){UseShellExecute=false,RedirectStandardOutput=true,RedirectStandardInput=true});processes.Add(p);handles.Add(new IntPtr(long.Parse(p.StandardOutput.ReadLine())));initial.Add(Rect(handles[i]));}
    using(var dock=new DesktopDock(false)){
     dock.Show();Pump(1000);if(!dock.Reserved)throw new Exception("AppBar not registered");
+    // Repeated real menu clicks must not dispose a menu during its click dispatch.
+    for(int menuPass=0;menuPass<3;menuPass++){
+     var m=(ContextMenuStrip)typeof(DesktopDock).GetMethod("MakeMenu",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(dock,null);
+     m.Show(dock,new Point(12,70));Pump(100);var item=m.Items[0];var pt=m.PointToScreen(new Point(item.Bounds.Left+15,item.Bounds.Top+item.Height/2));
+     SetCursorPos(pt.X,pt.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(300);
+     if(!m.IsDisposed)throw new Exception("Menu was not retired after dispatch");
+    }
+    dock.Configure(2,33,Screen.PrimaryScreen.DeviceName);Pump(400);
+    Console.WriteLine("PASS: menu selection closes and disposes after click dispatch without exception");
     var remaining=Screen.FromHandle(handles[0]).WorkingArea;
     if(remaining.Right>dock.Left+2||remaining.Width>=workBefore.Width)throw new Exception("Desktop work area not reserved");
     Native.ShowWindowAsync(handles[2],3);Pump(400);var main=Read(handles[2]);if(main.R>dock.Left+5)throw new Exception("Main maximized window covers sidebar");Native.ShowWindowAsync(handles[2],9);Pump(250);
     Console.WriteLine("PASS: native AppBar reserves desktop; maximized main window respects auxiliary area");
+    dock.FitMain(DesktopDock.Capture(handles[0]));Pump(700);
+    Near(handles[0],Screen.FromHandle(handles[0]).WorkingArea,"Manual fit to main work area");
+    dock.ReleaseAll();Pump(400);Near(handles[0],initial[0],"Main fit restores original placement");
+    Console.WriteLine("PASS: manually fit main window and restore original placement");
     for(int n=1;n<=3;n++){
      dock.Configure(n,40,Screen.PrimaryScreen.DeviceName);Pump(500);
      for(int i=0;i<n;i++){var c=dock.Cells[i];processes[i].StandardInput.WriteLine("drag "+(c.Left+35)+" "+(c.Top+35));processes[i].StandardInput.Flush();Pump(700);Near(handles[i],c,"Event-hook docking "+n+"/"+i);if(GetAncestor(WindowFromPoint(new Native.Point{X=c.Left+c.Width/2,Y=c.Top+c.Height/2}),2)!=handles[i])throw new Exception("Docked window obscured by sidebar");}
