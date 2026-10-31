@@ -32,6 +32,18 @@ class LayoutTests {
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
   Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
+  int mappings=0;
+  foreach(var screen in new[]{new Rectangle(1920,0,1920,1080),new Rectangle(-2560,-500,2560,1440),new Rectangle(0,1080,1080,1920)})
+   foreach(var cellSize in new[]{new Size(640,400),new Size(320,700),new Size(800,250)}){
+    var cell=new Rectangle(0,42,cellSize.Width,cellSize.Height);var view=ViewGeometry.Fit(cell,screen.Size);
+    if(!cell.Contains(view))throw new Exception("Scaled monitor outside viewport");
+    for(int y=0;y<=10;y++)for(int x=0;x<=10;x++){
+     var p=new Point(view.Left+x*(view.Width-1)/10,view.Top+y*(view.Height-1)/10);var source=ViewGeometry.ToSource(p,view,screen);
+     if(!screen.Contains(source))throw new Exception("Input outside source monitor");
+     var round=ViewGeometry.ToView(source,screen,view);if(Math.Abs(round.X-p.X)>1||Math.Abs(round.Y-p.Y)>1)throw new Exception("Input mapping roundtrip");mappings++;
+    }
+   }
+  Console.WriteLine("PASS: "+mappings+" scaled monitor input coordinates including portrait and negative origins");
   int cases=0;foreach(var area in new[]{new Rectangle(900,0,466,728),new Rectangle(-600,0,600,1040),new Rectangle(2700,-2160,1140,2120)})for(int count=1;count<=3;count++)for(int i=0;i<count;i++){
    var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
   }
@@ -90,6 +102,13 @@ class LayoutTests {
    }
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Desktop work area not restored after exit");
    Console.WriteLine("PASS: exit restores desktop work area and docked windows");
+   using(var virtualDock=new VirtualDesktopDock(false)){
+    virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=2)throw new Exception("Virtual viewer must have two controls");
+    virtualDock.Close();Pump(500);
+   }
+   if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
+   Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with two controls");
+   Console.WriteLine("LIMITATION: runner has no configured virtual monitor; driver, capture and remote-input integration require device testing");
   }finally{foreach(var p in processes){if(!p.HasExited){p.CloseMainWindow();if(!p.WaitForExit(1000))p.Kill();}p.Dispose();}}
  }
 }

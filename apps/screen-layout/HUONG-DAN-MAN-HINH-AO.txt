@@ -1,0 +1,37 @@
+DTTL MÀN HÌNH ẢO 0.3 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
+
+Bản này đọc một màn hình mở rộng có thật trong Windows và thu toàn bộ hình vào ô phụ.
+Không dùng cách ép cửa sổ Zalo xuống nhỏ nữa. Mỗi ô có thể chọn nguồn màn hình riêng.
+Bản thân EXE không tạo màn hình: máy cần màn hình mở rộng hoặc driver màn hình ảo.
+
+CHUẨN BỊ MỘT LẦN
+1. Thoát các bản DTTL 0.2.x cũ.
+2. Nguồn driver bên thứ ba: https://github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23
+   Tải VDD.Control.25.7.23.zip từ trang chính thức. Theo hướng dẫn của nhà cung cấp để cài
+   Virtual Display Driver. Không cần cài Virtual Audio Driver cho DTTL.
+   Việc cài driver cần quyền quản trị Windows. DTTL không tự cài hoặc thay đổi bảo vệ máy.
+3. Windows Settings → System → Display: giữ màn hình vật lý là màn hình chính;
+   chọn Extend these displays. Chọn độ phân giải 1280×720 hoặc 1920×1080 cho màn hình ảo.
+   Ghi lại số/tên màn hình ảo. Mỗi ô độc lập cần một màn hình nguồn riêng.
+
+SỬ DỤNG
+1. Mở DTTL-Man-Hinh-Ao.exe. Giao diện chỉ có Tùy chọn và ×.
+2. Tùy chọn → Ô 1 → Nguồn màn hình: chọn màn hình ảo vừa thêm.
+3. Tùy chọn → Ô 1 → Đưa ứng dụng sang: chọn Zalo, Chrome... đang mở.
+4. Bấm trong hình ở ô phụ để chuyển chuột và bàn phím vào màn hình nguồn.
+   Lần bấm đầu chỉ chuyển điều khiển, bấm tiếp để thao tác trong ứng dụng.
+   Con trỏ trắng trong hình cho biết vị trí chuột trên màn hình nguồn.
+5. Ctrl+Alt+Space: trả chuột về màn hình vật lý. Sau đó dùng Tùy chọn hoặc ×.
+   Khi đang điều khiển, chuột được giữ trong màn hình nguồn; phải dùng phím tắt để quay lại.
+6. Tùy chọn → Trả ứng dụng về vị trí cũ, hoặc × để đóng và khôi phục cửa sổ đã chuyển.
+
+GIỚI HẠN VÀ KIỂM THỬ
+- 10 khung hình/giây, ưu tiên văn phòng. Chưa tối ưu video/game/HDR/DRM.
+- Hình ảnh được thu đúng tỷ lệ, có thể có viền trống. Hiện chưa lưu lựa chọn qua lần mở sau.
+- Chụp tối đa 4096×4096 cho mỗi màn hình. Chưa có nguồn thì ô để trống.
+- Chỉ xử lý trên máy; không lưu ảnh, không gửi hình hoặc phím bấm lên mạng.
+- Chưa kiểm thử đầu-cuối driver + capture + nhập liệu trên Windows 10 thực tế.
+  Kiểm thử Windows build gồm tính tọa độ, khởi động/thoát và trả vùng desktop.
+- Driver là thành phần bên thứ ba, không đóng gói trong file này; đọc giấy phép và hướng dẫn
+  của nhà cung cấp. Đóng DTTL không gỡ driver. Gỡ bằng Virtual Driver Control nếu không dùng.
+- Đây là bản thử nghiệm, chưa phải bản để công bố đại trà.
