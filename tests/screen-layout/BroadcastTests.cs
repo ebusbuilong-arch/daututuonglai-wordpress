@@ -13,6 +13,50 @@ class BroadcastTests {
   public void Start(){IsRunning=true;}public void SignalToStop(){IsRunning=false;}public void WaitForStop(){}public void Stop(){SignalToStop();}
   public void Emit(Bitmap b){if(NewFrame!=null)NewFrame(this,new AForge.Video.NewFrameEventArgs(b));}
  }
+ sealed class FakeAudio : NAudio.Wave.IWaveIn {
+  public event EventHandler<NAudio.Wave.WaveInEventArgs> DataAvailable;
+  public event EventHandler<NAudio.Wave.StoppedEventArgs> RecordingStopped;
+  public NAudio.Wave.WaveFormat WaveFormat{get;set;}
+  System.Threading.Timer timer; int frame; internal bool Disposed;
+  internal FakeAudio(){WaveFormat=new NAudio.Wave.WaveFormat(48000,16,2);}
+  public void StartRecording(){timer=new System.Threading.Timer(delegate{
+   byte[] data=new byte[960*4];for(int i=0;i<960;i++){short sample=frame++<24000?(short)0:(short)(Math.Sin(2*Math.PI*440*frame/48000)*5000);for(int channel=0;channel<2;channel++){int at=i*4+channel*2;data[at]=(byte)sample;data[at+1]=(byte)(sample>>8);}}
+   var handler=DataAvailable;if(handler!=null)handler(this,new NAudio.Wave.WaveInEventArgs(data,data.Length));
+  },null,0,20);}
+  public void StopRecording(){if(timer!=null){timer.Dispose();timer=null;}}
+  public void Dispose(){StopRecording();Disposed=true;}
+ }
+ static void RunEncoder(string ff,string arguments){
+  using(var p=Process.Start(new ProcessStartInfo(ff,arguments){UseShellExecute=false,RedirectStandardError=true,RedirectStandardOutput=true,CreateNoWindow=true})){
+   string error="";p.ErrorDataReceived+=delegate(object sender,DataReceivedEventArgs e){error+=e.Data+"\n";};p.OutputDataReceived+=delegate{};p.BeginErrorReadLine();p.BeginOutputReadLine();
+   if(!p.WaitForExit(30000)){p.Kill();throw new Exception("Audio encoding timeout");}p.WaitForExit();if(p.ExitCode!=0)throw new Exception(error);
+  }
+ }
+ static double Tone(byte[] data,int hz){
+  double re=0,im=0;int start=48000,count=Math.Min(48000,data.Length/4-start);
+  for(int i=0;i<count;i++){float value=BitConverter.ToSingle(data,(i+start)*4);re+=value*Math.Cos(2*Math.PI*hz*i/48000);im+=value*Math.Sin(2*Math.PI*hz*i/48000);}
+  return Math.Sqrt(re*re+im*im)/Math.Max(1,count);
+ }
+ static void AudioTests(string ff,string folder){
+  var fake=new FakeAudio();string output=Path.Combine(folder,"loopback-pipe.mp4");if(File.Exists(output))File.Delete(output);
+  using(var pipe=new SystemAudioPipe(fake)){
+   // Exercise the exact generated input command, including silence before playback begins.
+   string command=BroadcastSession.Arguments(Rectangle.Empty,720,output,false,"",true,pipe);
+   command=command.Replace(" -movflags", " -t 3 -movflags");RunEncoder(ff,command);
+  }
+  if(!fake.Disposed)throw new Exception("Loopback source not disposed");
+  string raw=Path.Combine(folder,"loopback.f32");if(File.Exists(raw))File.Delete(raw);
+  RunEncoder(ff,"-v error -i "+BroadcastSession.Quote(output)+" -map 0:a:0 -ac 1 -ar 48000 -f f32le "+BroadcastSession.Quote(raw));
+  if(Tone(File.ReadAllBytes(raw),440)<.02)throw new Exception("Loopback tone missing");
+  Console.WriteLine("PASS paced audio pipe: initial silence then tone captured in MP4; source disposed");
+  string mixed=Path.Combine(folder,"mixed.mp4");if(File.Exists(mixed))File.Delete(mixed);
+  RunEncoder(ff,"-v error -f lavfi -i testsrc2=size=1280x720:rate=30 -f lavfi -i sine=frequency=440:sample_rate=48000 -f lavfi -i sine=frequency=880:sample_rate=48000"+BroadcastSession.Encoding(720,true)+" -t 3 -f mp4 "+BroadcastSession.Quote(mixed));
+  File.Delete(raw);RunEncoder(ff,"-v error -i "+BroadcastSession.Quote(mixed)+" -map 0:a:0 -ac 1 -ar 48000 -f f32le "+BroadcastSession.Quote(raw));
+  byte[] samples=File.ReadAllBytes(raw);if(Tone(samples,440)<.02||Tone(samples,880)<.02)throw new Exception("Both mixed sources must remain audible");
+  Console.WriteLine("PASS two independent tones survive mixed AAC output (system + microphone filter)");
+  using(var bad=new BroadcastSession()){bad.Start(ff,Rectangle.Empty,720,Path.Combine(folder,"missing-folder","bad.mp4"),false,"",true);for(int i=0;i<150&&bad.Running;i++)Thread.Sleep(100);if(bad.Running||bad.ExitCode==0)throw new Exception("Invalid output should fail");Thread.Sleep(100);if(String.IsNullOrEmpty(bad.Error))throw new Exception("Recording error detail lost");}
+  Console.WriteLine("PASS failed recording exposes local encoder error");
+ }
  static void CheckVideo(string probe,string file,int height){
   var p=Process.Start(new ProcessStartInfo(probe,"-v error -select_streams v:0 -show_entries stream=width,height,codec_name -of csv=p=0 "+BroadcastSession.Quote(file)){UseShellExecute=false,RedirectStandardOutput=true,CreateNoWindow=true});
   string result=p.StandardOutput.ReadToEnd();p.WaitForExit();if(p.ExitCode!=0||!result.Contains("h264,"+(height==720?1280:1920)+","+height))throw new Exception("Bad video "+result);p.Dispose();
@@ -33,6 +77,7 @@ class BroadcastTests {
    Console.WriteLine("PASS webcam raw-frame pipeline and stop using synthetic input; no physical camera tested");
   }
   foreach(string bad in new[]{"https://example.com","file:///tmp/test","rtmps://user:secret@example.com/live"}){bool rejected=false;try{BroadcastSession.Destination(bad,"key");}catch(ArgumentException){rejected=true;}if(!rejected)throw new Exception("Invalid destination accepted");}
+  AudioTests(ff,folder);
   foreach(int height in new[]{720,1080}){
    string file=Path.Combine(folder,"record-"+height+".mp4");if(File.Exists(file))File.Delete(file);
    using(var s=new BroadcastSession()){s.Start(ff,Screen.PrimaryScreen.Bounds,height,file,false,"",false);AwaitFrames(s);}

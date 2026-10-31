@@ -31,6 +31,8 @@ class LayoutTests {
   var thread=new System.Threading.Thread(delegate(){string line;while((line=Console.ReadLine())!=null){var parts=line.Split(' ');f.BeginInvoke((Action)delegate{if(parts[0]=="minimum"){f.MinimumSize=new Size(int.Parse(parts[1]),int.Parse(parts[2]));}if(parts[0]=="drag"){NotifyWinEvent(0xA,f.Handle,0,0);SetCursorPos(int.Parse(parts[1]),int.Parse(parts[2]));NotifyWinEvent(0xB,f.Handle,0,0);} });}});thread.IsBackground=true;thread.Start();Application.Run(f);
  }
  [STAThread] public static void Main(string[] args){
+  var target=new Rectangle(100,100,600,800);
+  if(!VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=500,B=600},target)||VirtualDesktopDock.FitsInside(new Native.Rect{L=100,T=100,R=800,B=600},target))throw new Exception("Contained app size validation");
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
   Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}

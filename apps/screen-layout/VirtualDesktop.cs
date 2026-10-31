@@ -35,16 +35,17 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
  readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6.1"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6.2"};
  readonly ShellNative.WinEvent moveEvent;
  IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;Bitmap webcamImage;BroadcastForm broadcast;
+ string lastFit="Chưa ghim ứng dụng trong phiên này.";
  string webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";
  string host;bool registered,closing,placing,cameraVisible,cameraOpening,dragWidth,dragSplit;int cameraGeneration,fitGeneration,fitAttempts;double sidebarRatio=.33,splitRatio=1.0/3;
  readonly string settings=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"DTTL","Workspace.ini");
 uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool readSettings){
-  Text="DTTL • Không gian làm việc 0.6.1";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+  Text="DTTL • Không gian làm việc 0.6.2";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
@@ -118,6 +119,7 @@ uint restartMessage;
   m.Items.Add(new ToolStripSeparator());
   m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();if(!broadcast.Visible)broadcast.Show(this);broadcast.Activate();});});
   m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ mặc định rộng 33%. Kéo mép trái để đổi chiều rộng. Tắt webcam: ứng dụng dùng hết chiều cao. Bật webcam: kéo vách ngăn ngang để chia lại hai ô.\nTùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam tự nhận camera Windows, không cần FFmpeg. Cho phép ứng dụng desktop truy cập camera trong Windows Settings. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
+  m.Items.Add("Thông tin lần ghim gần nhất…",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,lastFit,"Thông tin ghim cửa sổ — Ctrl+C để sao chép");});});
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
  }
  void PickWindow(){
@@ -131,21 +133,38 @@ uint restartMessage;
   fitAttempts=0;fitGeneration++;appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
  }
  void RaiseApp(){if(moving!=IntPtr.Zero||dragWidth||dragSplit)return;foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
+ internal static bool FitsInside(Native.Rect actual,Rectangle wanted){return actual.R-actual.L>80&&actual.B-actual.T>80&&actual.L>=wanted.Left-12&&actual.T>=wanted.Top-12&&actual.R<=wanted.Right+12&&actual.B<=wanted.Bottom+12;}
+ static string BoundsText(Native.Rect r){return r.L+","+r.T+" → "+r.R+","+r.B+" ("+(r.R-r.L)+"×"+(r.B-r.T)+")";}
  void FitApp(){
-  if(closing||moving!=IntPtr.Zero||dragWidth||dragSplit||!DesktopDock.Valid(app))return;var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
-  if(Native.GetWindowRect(app.Handle,out outer)&&Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)))==0){l=visible.L-outer.L;t=visible.T-outer.T;r=outer.R-visible.R;b=outer.B-visible.B;}
+  if(closing||moving!=IntPtr.Zero||dragWidth||dragSplit||!DesktopDock.Valid(app))return;
+  var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
+  bool haveOuter=Native.GetWindowRect(app.Handle,out outer);
+  int dwm=Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)));
+  if(haveOuter&&dwm==0&&visible.R>visible.L&&visible.B>visible.T){l=Math.Max(0,Math.Min(32,visible.L-outer.L));t=Math.Max(0,Math.Min(32,visible.T-outer.T));r=Math.Max(0,Math.Min(32,outer.R-visible.R));b=Math.Max(0,Math.Min(32,outer.B-visible.B));}
+  lastFit="DTTL 0.6.2 • "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"\nÔ đích: "+wanted+"\nTrước ghim (Win32): "+BoundsText(outer)+"\nTrước ghim (DWM): "+BoundsText(visible)+"\nDWM result: "+dwm+"; bù viền: "+l+","+t+","+r+","+b;
   bool ok=Native.SetWindowPos(app.Handle,new IntPtr(-1),wanted.X-l,wanted.Y-t,wanted.Width+l+r,wanted.Height+t+b,0x4010);
-  int generation=++fitGeneration;var expected=app;var verify=new Timer{Interval=200};verify.Tick+=delegate{verify.Stop();verify.Dispose();if(closing||generation!=fitGeneration||app!=expected||!DesktopDock.Valid(expected))return;
-   Native.Rect actual;if(Native.DwmGetWindowAttribute(expected.Handle,9,out actual,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(expected.Handle,out actual);
-   if(!ok||Math.Abs(actual.L-wanted.Left)>12||Math.Abs(actual.T-wanted.Top)>12||Math.Abs(actual.R-wanted.Right)>12||Math.Abs(actual.B-wanted.Bottom)>12){
-    // Respect the actual application minimum, expanding the workspace instead of cropping chat input.
-    if(ok&&fitAttempts++<2){var screen=Screen.FromHandle(Handle);int aw=actual.R-actual.L,ah=actual.B-actual.T;bool changed=false;
-     if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+28)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
-     if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.06,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
-     if(changed){Place();settle.Stop();settle.Start();SaveSettings();return;}
-    }
-    ReleaseApp(true);appStatus="Ứng dụng cần ô lớn hơn. Kéo mép trái để mở rộng; tắt webcam để dùng hết chiều cao.";tray.ShowBalloonTip(6000,"Chưa đủ chỗ cho ứng dụng","Đã trả cửa sổ về chỗ cũ. Kéo rộng vùng phụ hoặc tắt webcam rồi chọn lại ứng dụng.",ToolTipIcon.Info);Invalidate();
+  int winError=ok?0:Marshal.GetLastWin32Error();lastFit+="\nSetWindowPos: "+ok+"; Windows error: "+winError;
+  int generation=++fitGeneration;var expected=app;int polls=0;Native.Rect previous=new Native.Rect();int stable=0;
+  var verify=new Timer{Interval=200};
+  Action finish=delegate{verify.Stop();verify.Dispose();};
+  verify.Tick+=delegate{
+   if(closing||generation!=fitGeneration||app!=expected||!DesktopDock.Valid(expected)){finish();return;}
+   Native.Rect actual;int result=Native.DwmGetWindowAttribute(expected.Handle,9,out actual,Marshal.SizeOf(typeof(Native.Rect)));
+   if(result!=0||actual.R<=actual.L||actual.B<=actual.T)Native.GetWindowRect(expected.Handle,out actual);
+   polls++;stable=actual.L==previous.L&&actual.T==previous.T&&actual.R==previous.R&&actual.B==previous.B?stable+1:0;previous=actual;
+   lastFit+="\n"+(polls*200)+" ms: "+BoundsText(actual);
+   if(ok&&FitsInside(actual,wanted)){if(stable<1)return;lastFit+="\nKết quả: cửa sổ nằm trong ô (không bắt buộc lấp đầy ô).";finish();return;}
+   // An async request can take longer than 200 ms. Expand only after the window has moved to the destination.
+   bool atTarget=Math.Abs(actual.L-wanted.Left)<=12&&Math.Abs(actual.T-wanted.Top)<=12;
+   if(ok&&atTarget&&stable>=2&&fitAttempts<2){var screen=Screen.FromHandle(Handle);int aw=actual.R-actual.L,ah=actual.B-actual.T;bool changed=false;
+    if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+28)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
+    if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.06,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
+    if(changed){fitAttempts++;finish();Place();settle.Stop();settle.Start();SaveSettings();return;}
    }
+   if(ok&&polls<10)return;
+   finish();string reason=!ok?(winError==5?"Windows từ chối quyền điều khiển cửa sổ.":"Windows không nhận lệnh đặt cửa sổ (mã "+winError+")."):!atTarget?"Ứng dụng chưa chuyển đến vị trí yêu cầu.":"Kích thước thực tế của ứng dụng vượt ô đích.";
+   lastFit+="\nKết quả: "+reason+"\nĐã trả về vị trí cũ.";
+   ReleaseApp(true);appStatus=reason+"\nTùy chọn → Thông tin lần ghim gần nhất.";tray.ShowBalloonTip(6000,"Chưa ghim được ứng dụng",reason+" Xem thông tin lần ghim trong Tùy chọn.",ToolTipIcon.Info);Invalidate();
   };verify.Start();
  }
  internal void ReleaseApp(bool restore){fitGeneration++;settle.Stop();var old=app;app=null;if(DesktopDock.Valid(old)){Native.SetWindowPos(old.Handle,new IntPtr(old.WasTopMost?-1:-2),0,0,0,0,0x13);if(restore){var p=old.Original;Native.SetWindowPlacement(old.Handle,ref p);}}appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";Invalidate();}

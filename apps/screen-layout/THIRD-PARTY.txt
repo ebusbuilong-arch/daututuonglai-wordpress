@@ -7,3 +7,7 @@ Reverse engineering for debugging modifications to these libraries is permitted.
 Upstream source and build instructions: https://github.com/andrewkirillov/AForge.NET
 NuGet distribution: https://www.nuget.org/packages/AForge.Video.DirectShow/2.2.5
 DTTL source: https://github.com/ebusbuilong-arch/daututuonglai-wordpress/tree/feat/screen-layout-app/apps/screen-layout
+
+NAudio 1.10.0 — https://github.com/naudio/NAudio/tree/v1.10.0
+License: Microsoft Public License (Ms-PL), included in licenses/NAudio.txt.
+Used for Windows WASAPI output loopback; no audio driver installed.

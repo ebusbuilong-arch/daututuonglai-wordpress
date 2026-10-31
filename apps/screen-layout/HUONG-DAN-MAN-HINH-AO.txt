@@ -1,4 +1,4 @@
-DTTL WORKSPACE 0.6.1 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
+DTTL WORKSPACE 0.6.2 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
 
 Vùng phụ mặc định rộng 33%; kéo mép trái để chỉnh rộng/hẹp (25–65%).
 Ô webcam có thể thu xuống 6% chiều cao vùng phụ để nhường chỗ cho ứng dụng. Khi kéo cửa sổ, DTTL tạm nhường lớp hiển thị và chỉ căn sau khi thả chuột.
@@ -26,3 +26,17 @@ Chỉ gửi hình/tiếng khi anh bật Livestream. Chọn toàn màn hình, ch�
 
 KIỂM THỬ
 Kiểm tra Windows cho bố cục, đặt/trả cửa sổ thật, khôi phục topmost và desktop, quay MP4 720p/1080p và RTMP nội bộ. Máy kiểm thử không có webcam/Zalo; camera thực tế, Zalo và phát lên nền tảng cần kiểm tra trên máy người dùng.
+
+CHẨN ĐOÁN GHIM CỬA SỔ
+Nếu ghim chưa được: Tùy chọn → Thông tin lần ghim gần nhất. Ctrl+C sao chép nội dung để gửi hỗ trợ. Chỉ có tọa độ, kích thước và mã lỗi; không ghi nội dung chat hay khóa live. Không tự gửi dữ liệu.
+Bản 0.6.2 chờ lệnh đổi kích thước tối đa 2 giây và chấp nhận cửa sổ nhỏ hơn ô nếu đã nằm gọn trong ô. Không ép ứng dụng phóng đầy ô mới coi là thành công.
+
+QUAY / PHÁT 0.6.2
+- Luôn thu tiếng đang phát trên loa/tai nghe mặc định Windows (WASAPI), trộn với micro đã chọn.
+- Tắt micro vẫn giữ tiếng máy. Âm thanh phát sang một thiết bị khác không nằm trong bản thu.
+- Nếu đổi loa/tai nghe giữa chừng, dừng rồi bắt đầu lại. Không tự bật nhạc hoặc phát tiếng micro ra loa.
+- Khi loa ngoài phát và micro cùng mở, micro có thể thu lại tiếng loa; dùng tai nghe nếu bị vọng.
+- Không cài driver âm thanh ảo. NAudio.dll phải nằm cùng thư mục EXE.
+- Quay vẫn cần FFmpeg.exe. Chọn file, Bắt đầu, chọn tên MP4 mới để quay; Dừng để hoàn tất.
+- Nếu báo lỗi, bấm Chi tiết lỗi và Ctrl+C sao chép thông tin. Không cần gửi khóa livestream.
+- Kiểm thử tự động có nguồn âm thanh giả và kiểm tra hai tín hiệu trong MP4; chưa xác nhận loa/mic thật trên máy người dùng.
