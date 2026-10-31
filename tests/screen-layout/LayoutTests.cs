@@ -36,13 +36,14 @@ class LayoutTests {
    var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
   }
   var edge=new Rectangle(900,0,466,728);
-  if(DockGeometry.Hit(edge,2,new Point(899,135))!=0||DockGeometry.Hit(edge,2,new Point(899,500))!=1||DockGeometry.Hit(edge,2,new Point(880,135))!=-1||DockGeometry.Hit(edge,2,new Point(920,60))!=-1)throw new Exception("Drop edge/header hit regression");
+  if(DockGeometry.Hit(edge,2,new Point(899,135))!=0||DockGeometry.Hit(edge,2,new Point(899,500))!=1||DockGeometry.Hit(edge,2,new Point(880,135))!=-1||DockGeometry.Hit(edge,2,new Point(920,20))!=-1)throw new Exception("Drop edge/header hit regression");
   Console.WriteLine("PASS: "+cases+" auxiliary cell geometry/hit cases including negative monitors");
   var processes=new List<Process>();var handles=new List<IntPtr>();var initial=new List<Rectangle>();var workBefore=Screen.PrimaryScreen.WorkingArea;
   try {
    for(int i=0;i<3;i++){var p=Process.Start(new ProcessStartInfo(Assembly.GetExecutingAssembly().Location,"fixture "+i){UseShellExecute=false,RedirectStandardOutput=true,RedirectStandardInput=true});processes.Add(p);handles.Add(new IntPtr(long.Parse(p.StandardOutput.ReadLine())));initial.Add(Rect(handles[i]));}
    using(var dock=new DesktopDock(false)){
     dock.Show();Pump(1000);if(!dock.Reserved)throw new Exception("AppBar not registered");
+    if(dock.Controls.Count!=2||dock.Cells[0].Top-dock.Top>46)throw new Exception("Compact UI must have two controls and 42px toolbar");
     // Repeated real menu clicks must not dispose a menu during its click dispatch.
     for(int menuPass=0;menuPass<3;menuPass++){
      var m=(ContextMenuStrip)typeof(DesktopDock).GetMethod("MakeMenu",BindingFlags.NonPublic|BindingFlags.Instance).Invoke(dock,null);

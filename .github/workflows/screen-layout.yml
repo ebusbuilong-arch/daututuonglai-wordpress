@@ -27,7 +27,7 @@ jobs:
         run: |
           import pathlib, base64, zipfile
           root=pathlib.Path('wp-content/plugins/dttl-free-apps')
-          data=pathlib.Path('apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.2-beta.zip').read_bytes()
+          data=pathlib.Path('apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.3-beta.zip').read_bytes()
           (root/'payload.php').write_text("<?php\nif (!defined('ABSPATH')) { http_response_code(403); exit; }\nreturn '"+base64.b64encode(data).decode()+"';\n")
           with zipfile.ZipFile('apps/screen-layout/dist/dttl-free-apps.zip','w',zipfile.ZIP_DEFLATED) as z:
               for p in root.rglob('*'):
@@ -36,7 +36,7 @@ jobs:
         with:
           name: DTTL-Screen-Layout-beta
           path: |
-            apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.2-beta.zip
+            apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.3-beta.zip
             apps/screen-layout/dist/dttl-free-apps.zip
             apps/screen-layout/dist/app-preview.png
           retention-days: 30

@@ -31,17 +31,17 @@ internal sealed class DockedWindow {
 
 internal static class DockGeometry {
     internal static Rectangle Cell(Rectangle bounds,int count,int index) {
-        int top=bounds.Top+100, height=Math.Max(0,bounds.Height-100);
+        int top=bounds.Top+42, height=Math.Max(0,bounds.Height-42);
         int start=top+height*index/count, end=top+height*(index+1)/count;
-        return Rectangle.FromLTRB(bounds.Left+6,start+64,bounds.Right-6,end-6);
+        return Rectangle.FromLTRB(bounds.Left+2,start+2,bounds.Right-2,end-2);
     }
     internal static int Hit(Rectangle bounds,int count,Point point) {
         // Windows can constrain a dragged title bar to the desktop work-area edge.
         // Accept the adjacent 12px edge and the full row, including its heading.
-        if(point.X<bounds.Left-12||point.X>=bounds.Right||point.Y<bounds.Top+100||point.Y>=bounds.Bottom)return -1;
+        if(point.X<bounds.Left-12||point.X>=bounds.Right||point.Y<bounds.Top+42||point.Y>=bounds.Bottom)return -1;
         for(int i=0;i<count;i++){
-            int top=bounds.Top+100+(bounds.Height-100)*i/count;
-            int bottom=bounds.Top+100+(bounds.Height-100)*(i+1)/count;
+            int top=bounds.Top+42+(bounds.Height-42)*i/count;
+            int bottom=bounds.Top+42+(bounds.Height-42)*(i+1)/count;
             if(point.Y>=top&&point.Y<bottom)return i;
         }
         return -1;
@@ -53,14 +53,12 @@ internal sealed class DesktopDock : Form {
     readonly ShellNative.WinEvent eventCallback;
     readonly DockedWindow[] slots=new DockedWindow[3];
     readonly Dictionary<IntPtr,DockedWindow> mainWindows=new Dictionary<IntPtr,DockedWindow>();
-    readonly Button[] release=new Button[3];
-    readonly Button[] choose=new Button[3];
+    readonly Button closeButton=new Button{Text="×",Size=new Size(34,34),FlatStyle=FlatStyle.Flat,Padding=Padding.Empty};
     readonly Timer dragWatch=new Timer{Interval=40};
     int hover=-1;
     readonly Timer maintenance=new Timer{Interval=600};
     readonly Timer settle=new Timer{Interval=220};
     readonly NotifyIcon tray=new NotifyIcon();
-    readonly Label hint=new Label();
     readonly string config=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"DTTL","DesktopDock.ini");
     IntPtr hook, moving; DockedWindow beforeMove;
     bool registered, positioning, closing, pending, suspended;
@@ -69,20 +67,15 @@ internal sealed class DesktopDock : Form {
     internal int SlotCount {get{return count;}}
     internal bool Reserved {get{return registered;}}
     internal DesktopDock(bool readSettings) {
-        Text="DTTL • Vùng phụ 0.2.2 beta"; FormBorderStyle=FormBorderStyle.None;
+        Text="DTTL • Vùng phụ 0.2.3 beta"; FormBorderStyle=FormBorderStyle.None;
         ShowInTaskbar=false; StartPosition=FormStartPosition.Manual;
         BackColor=Color.FromArgb(237,246,243); ForeColor=Color.FromArgb(20,36,59);
         Font=new Font("Segoe UI",10); DoubleBuffered=true; AutoScaleMode=AutoScaleMode.None;
         device=Screen.PrimaryScreen.DeviceName;
         if(readSettings)LoadSettings();
-        var title=new Label{Text="DTTL • Vùng phụ",AutoSize=true,Location=new Point(12,10),Font=new Font(Font,FontStyle.Bold)};
-        Controls.Add(title);
-        var menuButton=new Button{Text="Tùy chọn ▾",Location=new Point(12,37),Size=new Size(120,29),FlatStyle=FlatStyle.Flat};
+        var menuButton=new Button{Text="Tùy chọn ▾",Location=new Point(4,4),Size=new Size(120,34),Padding=Padding.Empty,FlatStyle=FlatStyle.Flat};
         menuButton.Click+=delegate{MakeMenu().Show(menuButton,new Point(0,menuButton.Height));};Controls.Add(menuButton);
-        hint.Text="Kéo thanh tiêu đề cửa sổ vào ô bên dưới";hint.Location=new Point(12,73);hint.Height=24;Controls.Add(hint);
-        for(int i=0;i<3;i++){int index=i;release[i]=new Button{Text="Trả cửa sổ",Size=new Size(125,34),Padding=Padding.Empty,Font=new Font("Segoe UI",9),FlatStyle=FlatStyle.Flat};release[i].Click+=delegate{Release(index,true);};Controls.Add(release[i]);
-            choose[i]=new Button{Text="Chọn cửa sổ",Size=new Size(135,34),Padding=Padding.Empty,Font=new Font("Segoe UI",9),FlatStyle=FlatStyle.Flat};
-            choose[i].Click+=delegate{ChooseWindow(index);};Controls.Add(choose[i]);}
+        closeButton.Click+=delegate{Close();};Controls.Add(closeButton);
         eventCallback=OnWindowEvent;
         Shown+=delegate {
             taskbarRestart=ShellNative.RegisterWindowMessage("TaskbarCreated");
@@ -114,8 +107,7 @@ internal sealed class DesktopDock : Form {
             ShellNative.SHAppBarMessage(3,ref d);
             SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);
             Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);
-            hint.Width=Math.Max(100,ClientSize.Width-24);
-            for(int i=0;i<3;i++){release[i].Visible=i<count;choose[i].Visible=i<count; if(i<count){var cell=Cells[i];release[i].Location=new Point(ClientSize.Width-137,cell.Top-Top-38);choose[i].Location=new Point(12,cell.Top-Top-38);}}
+            closeButton.Location=new Point(ClientSize.Width-38,4);
             Invalidate();settle.Stop();settle.Start();
         } finally{positioning=false;}
     }
@@ -128,7 +120,14 @@ internal sealed class DesktopDock : Form {
         for(int i=1;i<=3;i++){int n=i;var item=new ToolStripMenuItem(n+" ô phụ"){Checked=count==n};item.Click+=delegate{Configure(n,percent,device);};menu.Items.Add(item);}
         var widths=new ToolStripMenuItem("Chiều rộng vùng phụ");foreach(int value in new[]{25,33,40,45}){int v=value;var item=new ToolStripMenuItem(v+"%"){Checked=percent==v};item.Click+=delegate{Configure(count,v,device);};widths.DropDownItems.Add(item);}menu.Items.Add(widths);
         var monitors=new ToolStripMenuItem("Chọn màn hình");foreach(var screen in Screen.AllScreens){string id=screen.DeviceName;var item=new ToolStripMenuItem(id+(screen.Primary?" • Chính":"")){Checked=device==id};item.Click+=delegate{Configure(count,percent,id);};monitors.DropDownItems.Add(item);}menu.Items.Add(monitors);
-        menu.Items.Add("Đưa cửa sổ về vùng chính…",null,delegate{ChooseWindow(-1);});
+        menu.Items.Add(new ToolStripSeparator());
+        for(int i=0;i<count;i++){
+            int slot=i;var item=new ToolStripMenuItem("Ô "+(i+1));
+            item.DropDownItems.Add("Chọn cửa sổ…",null,delegate{BeginInvoke((Action)delegate{if(!closing)ChooseWindow(slot);});});
+            var back=item.DropDownItems.Add("Trả cửa sổ",null,delegate{Release(slot,true);});back.Enabled=Valid(slots[slot]);
+            menu.Items.Add(item);
+        }
+        menu.Items.Add("Đưa cửa sổ về vùng chính…",null,delegate{BeginInvoke((Action)delegate{if(!closing)ChooseWindow(-1);});});
         menu.Items.Add(new ToolStripSeparator());menu.Items.Add("Trả tất cả cửa sổ",null,delegate{ReleaseAll();});
         menu.Items.Add("Hướng dẫn",null,delegate{MessageBox.Show(this,"Desktop chính vẫn dùng bình thường.\n\nKéo thanh tiêu đề của một cửa sổ đang mở, thả vào vùng trống của ô phụ. Mỗi ô chứa một cửa sổ. Kéo cửa sổ ra vùng chính để bỏ ghim, hoặc bấm Trả cửa sổ để khôi phục vị trí cũ.\n\nTùy chọn: 1–3 ô phụ, chiều rộng và màn hình. Đóng ứng dụng sẽ trả vùng desktop và các cửa sổ về trước khi ghim.\n\nỨng dụng có kích thước tối thiểu lớn có thể không vừa ô: chọn ít ô hơn hoặc tăng chiều rộng. Ứng dụng chạy quyền quản trị có thể không di chuyển được.\n\nChế độ toàn màn hình của game/video có thể che vùng phụ. Đây là chia vùng hiển thị, không tạo màn hình ảo mới.",Text);});
         menu.Items.Add("Thoát và trả desktop",null,delegate{BeginInvoke((Action)delegate{Close();});});RetireAfterClose(menu);return menu;
@@ -160,7 +159,7 @@ internal sealed class DesktopDock : Form {
             menu.Items.Add(title.ToString(),null,delegate{if(index<0){FitMain(saved);return;}var c=Cells[index];Drop(h,new Point(c.Left+20,c.Top+20),saved);});return true;
         },IntPtr.Zero);
         if(menu.Items.Count==0)menu.Items.Add("Mở ứng dụng cần đưa sang trước").Enabled=false;
-        RetireAfterClose(menu);if(index<0)menu.Show(this,new Point(12,70));else menu.Show(choose[index],new Point(0,choose[index].Height));
+        RetireAfterClose(menu);menu.Show(this,new Point(4,40));
     }
     internal void FitMain(DockedWindow saved){
         if(!Valid(saved))return;
@@ -224,8 +223,22 @@ internal sealed class DesktopDock : Form {
     void FitAll(){
         if(closing||suspended)return;
         RaiseDocked();
-        for(int i=0;i<count;i++)if(Valid(slots[i])&&slots[i].Handle!=moving&&!ShellNative.IsIconic(slots[i].Handle))Fit(slots[i].Handle,Cells[i]);
+        for(int i=0;i<count;i++)if(Valid(slots[i])&&slots[i].Handle!=moving&&!ShellNative.IsIconic(slots[i].Handle)){Fit(slots[i].Handle,Cells[i]);VerifyFit(i,slots[i]);}
         Invalidate();
+    }
+    void VerifyFit(int index,DockedWindow saved){
+        var timer=new Timer{Interval=250};
+        timer.Tick+=delegate{
+            timer.Stop();timer.Dispose();
+            if(closing||index>=count||slots[index]!=saved||!Valid(saved)||saved.Handle==moving||ShellNative.IsIconic(saved.Handle))return;
+            Native.Rect actual;
+            if(Native.DwmGetWindowAttribute(saved.Handle,9,out actual,Marshal.SizeOf(typeof(Native.Rect)))!=0&&!Native.GetWindowRect(saved.Handle,out actual))return;
+            var cell=Cells[index];
+            if(actual.R>cell.Right+5||actual.B>cell.Bottom+5||actual.L<cell.Left-5||actual.T<cell.Top-5){
+                Release(index,true);
+                tray.ShowBalloonTip(6000,"Cửa sổ chưa vừa ô","Ứng dụng không nhận kích thước ô này. Đã trả lại vị trí cũ để tránh bị cắt. Chọn 1 ô hoặc tăng chiều rộng trong Tùy chọn.",ToolTipIcon.Info);
+            }
+        };timer.Start();
     }
     void RaiseDocked(){
         if(closing||suspended||!registered)return;
@@ -244,7 +257,7 @@ internal sealed class DesktopDock : Form {
         if(pending){pending=false;PositionBar();}
         RaiseDocked();
         for(int i=0;i<count;i++){
-            var w=slots[i];release[i].Enabled=Valid(w);
+            var w=slots[i];
             if(w!=null&&!Valid(w)){slots[i]=null;Invalidate();continue;}
             if(!Valid(w)||w.Handle==moving||ShellNative.IsIconic(w.Handle)||suspended)continue;
             Native.Rect r;if(!Native.GetWindowRect(w.Handle,out r))continue;
@@ -258,9 +271,7 @@ internal sealed class DesktopDock : Form {
         for(int i=0;i<count;i++){
             var rect=Cells[i];rect.Offset(-Left,-Top);
             using(var pen=new Pen(Color.FromArgb(155,197,184),1))e.Graphics.DrawRectangle(pen,rect);
-            TextRenderer.DrawText(e.Graphics,"Ô phụ "+(i+1),Font,new Point(12,rect.Top-62),ForeColor);
             if(i==hover){using(var pen=new Pen(Color.FromArgb(8,127,112),4))e.Graphics.DrawRectangle(pen,rect);}
-            if(!Valid(slots[i]))TextRenderer.DrawText(e.Graphics,"Kéo cửa sổ vào đây",Font,rect,Color.FromArgb(8,127,112),TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter);
         }
     }
     protected override void WndProc(ref Message m){
