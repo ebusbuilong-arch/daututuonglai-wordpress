@@ -35,7 +35,7 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
  readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6.5"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6.6"};
  readonly ShellNative.WinEvent moveEvent;
  IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;Bitmap webcamImage;BroadcastForm broadcast;
  ScreenInk ink;
@@ -46,7 +46,7 @@ internal sealed class VirtualDesktopDock : Form {
 uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool readSettings){
-  Text="DTTL • Không gian làm việc 0.6.5";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+  Text="DTTL • Không gian làm việc 0.6.6";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.TextAlign=ContentAlignment.MiddleCenter;button.Padding=Padding.Empty;button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
@@ -135,7 +135,13 @@ uint restartMessage;
   if(app==null||app.Handle!=window.Handle){ReleaseApp(true);app=window;}
   fitAttempts=0;fitGeneration++;appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
  }
- void RaiseApp(){if(moving!=IntPtr.Zero||dragWidth||dragSplit)return;foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
+ void RaiseApp(){
+  if(closing||moving!=IntPtr.Zero||dragWidth||dragSplit||!DesktopDock.Valid(app)||ShellNative.IsIconic(app.Handle))return;
+  // Opening an owned recording dialog raises its owner over the pinned app.
+  // Keep the app above the dock, then keep visible dialogs above the app.
+  Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);
+  foreach(Form owned in OwnedForms)if(owned.Visible&&!owned.IsDisposed)Native.SetWindowPos(owned.Handle,new IntPtr(-1),0,0,0,0,0x13);
+ }
  internal static bool FitsInside(Native.Rect actual,Rectangle wanted){return actual.R-actual.L>80&&actual.B-actual.T>80&&actual.L>=wanted.Left-12&&actual.T>=wanted.Top-12&&actual.R<=wanted.Right+12&&actual.B<=wanted.Bottom+12;}
  static string BoundsText(Native.Rect r){return r.L+","+r.T+" → "+r.R+","+r.B+" ("+(r.R-r.L)+"×"+(r.B-r.T)+")";}
  void FitApp(){
@@ -144,7 +150,7 @@ uint restartMessage;
   bool haveOuter=Native.GetWindowRect(app.Handle,out outer);
   int dwm=Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)));
   if(haveOuter&&dwm==0&&visible.R>visible.L&&visible.B>visible.T){l=Math.Max(0,Math.Min(32,visible.L-outer.L));t=Math.Max(0,Math.Min(32,visible.T-outer.T));r=Math.Max(0,Math.Min(32,outer.R-visible.R));b=Math.Max(0,Math.Min(32,outer.B-visible.B));}
-  lastFit="DTTL 0.6.5 • "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"\nÔ đích: "+wanted+"\nTrước ghim (Win32): "+BoundsText(outer)+"\nTrước ghim (DWM): "+BoundsText(visible)+"\nDWM result: "+dwm+"; bù viền: "+l+","+t+","+r+","+b;
+  lastFit="DTTL 0.6.6 • "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"\nÔ đích: "+wanted+"\nTrước ghim (Win32): "+BoundsText(outer)+"\nTrước ghim (DWM): "+BoundsText(visible)+"\nDWM result: "+dwm+"; bù viền: "+l+","+t+","+r+","+b;
   bool ok=Native.SetWindowPos(app.Handle,new IntPtr(-1),wanted.X-l,wanted.Y-t,wanted.Width+l+r,wanted.Height+t+b,0x4010);
   int winError=ok?0:Marshal.GetLastWin32Error();lastFit+="\nSetWindowPos: "+ok+"; Windows error: "+winError;
   int generation=++fitGeneration;var expected=app;int polls=0;Native.Rect previous=new Native.Rect();int stable=0;

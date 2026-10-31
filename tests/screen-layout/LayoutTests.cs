@@ -133,6 +133,16 @@ class LayoutTests {
     foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
     var original=Rect(handles[0]);var originalPlacement=DesktopDock.Capture(handles[0]).Original;var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
+    using(var recordingDialog=new BroadcastForm()){
+     recordingDialog.Show(virtualDock);recordingDialog.Location=new Point(workBefore.Left+10,workBefore.Top+10);
+     // Reproduce the owner rising above its pinned external window.
+     Native.SetWindowPos(virtualDock.Handle,new IntPtr(-1),0,0,0,0,0x13);Pump(1100);
+     var pane=virtualDock.ApplicationArea;var point=new Native.Point{X=pane.Right-35,Y=pane.Bottom-35};
+     if(GetAncestor(WindowFromPoint(point),2)!=handles[0])throw new Exception("Recording dialog hides pinned app behind workspace");
+     using(var shot=new Bitmap(workBefore.Width,workBefore.Height)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(workBefore.Location,Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/recording-dock-preview.png");}
+     recordingDialog.Close();Pump(300);
+    }
+    Console.WriteLine("PASS pinned application stays visible with recording dialog open");
     int fullHeight=virtualDock.ApplicationArea.Height;
     virtualDock.SetLayout(.45,.3,true);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"App refits after webcam opens");
     if(virtualDock.ApplicationArea.Height>=fullHeight)throw new Exception("Camera must split the area");
