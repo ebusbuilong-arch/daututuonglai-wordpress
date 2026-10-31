@@ -23,6 +23,7 @@ class LayoutTests {
   for(int i=1;i<=20;i++){SetCursorPos(x+(target.X-x)*i/20,y+(target.Y-y)*i/20);Pump(35);}
   mouse_event(4,0,0,0,UIntPtr.Zero);Pump(1000);
  }
+ static void DragPoint(Point from,Point to){SetCursorPos(from.X,from.Y);Pump(100);mouse_event(2,0,0,0,UIntPtr.Zero);Pump(100);for(int i=1;i<=10;i++){SetCursorPos(from.X+(to.X-from.X)*i/10,from.Y+(to.Y-from.Y)*i/10);Pump(40);}mouse_event(4,0,0,0,UIntPtr.Zero);Pump(200);}
  static void Fixture(string index){
   var f=new Form{Text="DTTL test window "+index,StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(index)*20,60),Size=new Size(340,250)};
   f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
@@ -34,7 +35,7 @@ class LayoutTests {
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
-  Console.WriteLine("PASS fixed 33% sidebar with 1/3 webcam and 2/3 application geometry");
+  Console.WriteLine("PASS default split geometry");
   int mappings=0;
   foreach(var screen in new[]{new Rectangle(1920,0,1920,1080),new Rectangle(-2560,-500,2560,1440),new Rectangle(0,1080,1080,1920)})
    foreach(var cellSize in new[]{new Size(640,400),new Size(320,700),new Size(800,250)}){
@@ -110,6 +111,22 @@ class LayoutTests {
     foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
     var original=Rect(handles[0]);var originalPlacement=DesktopDock.Capture(handles[0]).Original;var originalStyle=ShellNative.GetWindowLong(handles[0],-20)&8;
     virtualDock.Attach(DesktopDock.Capture(handles[0]));Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Native application must fill lower pane");
+    int fullHeight=virtualDock.ApplicationArea.Height;
+    virtualDock.SetLayout(.45,.3,true);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"App refits after webcam opens");
+    if(virtualDock.ApplicationArea.Height>=fullHeight)throw new Exception("Camera must split the area");
+    int oldHeight=virtualDock.ApplicationArea.Height;
+    // Exercise the actual pointer path for the separator, without requiring a camera.
+    var splitY=virtualDock.ApplicationArea.Top-5;
+    DragPoint(new Point(virtualDock.Left+virtualDock.Width/2,splitY),new Point(virtualDock.Left+virtualDock.Width/2,splitY-45));Pump(900);
+    if(virtualDock.ApplicationArea.Height<=oldHeight+20)throw new Exception("Divider did not move");
+    Near(handles[0],virtualDock.ApplicationArea,"App refits after separator drag");
+    int oldWidth=virtualDock.Width;
+    DragPoint(new Point(virtualDock.Left+2,virtualDock.Top+150),new Point(virtualDock.Left-65,virtualDock.Top+150));Pump(900);
+    if(virtualDock.Width<=oldWidth+30)throw new Exception("Sidebar edge did not resize");
+    Near(handles[0],virtualDock.ApplicationArea,"App refits after width drag");
+    virtualDock.SetLayout(.33,.33,false);Pump(900);Near(handles[0],virtualDock.ApplicationArea,"Camera off returns full height");
+    if(virtualDock.ApplicationArea.Height!=fullHeight)throw new Exception("Camera off kept unused space");
+    Console.WriteLine("PASS actual mouse divider and sidebar resize; camera-off full height");
     using(var bitmap=new Bitmap(virtualDock.Width,virtualDock.Height)){virtualDock.DrawToBitmap(bitmap,virtualDock.ClientRectangle);bitmap.Save("apps/screen-layout/dist/workspace-preview.png",System.Drawing.Imaging.ImageFormat.Png);}
     virtualDock.ReleaseApp(true);Pump(400);Near(handles[0],original,"Native release restores placement");if((ShellNative.GetWindowLong(handles[0],-20)&8)!=originalStyle)throw new Exception("Topmost state not restored");
     var destination=virtualDock.ApplicationArea;RealDrag(handles[0],new Point(destination.Left+50,destination.Top+35));Pump(500);Near(handles[0],destination,"Driver-free title drag docks in lower pane");

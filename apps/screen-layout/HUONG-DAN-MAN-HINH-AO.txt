@@ -1,22 +1,24 @@
-DTTL WORKSPACE 0.5 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
+DTTL WORKSPACE 0.6 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
 
-Vùng chính 67%, vùng phụ mặc định 33% chiều rộng màn hình.
-Vùng phụ gồm webcam trên 1/3 chiều cao và Zalo/ứng dụng dưới 2/3. Vách ngăn xanh ngọc, nút chữ sáng.
+Vùng phụ mặc định rộng 33%; kéo mép trái để chỉnh rộng/hẹp (25–65%).
+Webcam tắt: ứng dụng dùng hết chiều cao. Webcam bật: kéo vách ngăn ngang lên/xuống để chia hai ô. App nhớ chiều rộng và tỷ lệ; camera luôn tắt khi mở app.
 
-ZALO
-Mở Zalo → Tùy chọn → Chọn Zalo / ứng dụng, hoặc kéo thanh tiêu đề vào ô dưới. Đây là cửa sổ thật: chat, cuộn, gõ trực tiếp, không có ảnh chụp màn hình hay khóa chuột. Kéo ra ngoài để bỏ ghim; Trả ứng dụng về vị trí cũ để khôi phục. Đóng DTTL cũng trả cửa sổ và desktop.
-Ứng dụng vẫn chịu giới hạn kích thước tối thiểu của chính nó. Nếu không vừa, DTTL trả lại cửa sổ và báo rõ. Màn 32 inch không tự tăng số điểm ảnh; độ phân giải và Scale ảnh hưởng kích thước ô.
-Bản này không sử dụng màn hình ảo; không tự gỡ driver đã cài. Có thể chuyển Windows về chỉ màn hình thật trong Display rồi đóng VDD Control. Nếu muốn gỡ driver, dùng công cụ của nhà cung cấp.
+ZALO / TELEGRAM / CHROME
+Mở ứng dụng → Tùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề vào vùng phụ. Mỗi lần ghim một cửa sổ; chọn cửa sổ khác sẽ trả cửa cũ. Với Chrome, có thể mở cửa sổ riêng rồi chọn.
+Chat, gõ, cuộn trực tiếp trên cửa sổ thật. Kéo ra ngoài để bỏ ghim; đóng DTTL trả vị trí và desktop.
+Nếu ứng dụng có kích thước tối thiểu, DTTL thử mở rộng vùng phụ và giảm ô webcam để vừa. Nếu vẫn không đủ, trả lại cửa sổ; tắt webcam hoặc kéo rộng rồi chọn lại. Không thu nhỏ toàn bộ giao diện và không cắt ô nhập tin nhắn.
+Không cần màn hình ảo; không tự gỡ driver đã cài. Có thể chuyển Windows về chỉ màn hình thật trong Display rồi đóng VDD Control.
 
 WEBCAM
-Bấm Bật webcam → chọn ffmpeg.exe → chọn camera → Bật webcam. Bấm Tắt webcam để dừng truy cập camera. Đóng app cũng dừng camera.
-Tải FFmpeg Windows qua https://ffmpeg.org/download.html; cần bản có dshow, gdigrab, libx264, AAC và RTMPS. ZIP này chưa kèm FFmpeg. Đặt ffmpeg.exe cạnh app để tự nhận hoặc dùng nút Chọn.
-Nếu không thấy hình, kiểm tra Windows Settings → Privacy → Camera và quyền cho ứng dụng desktop; đóng ứng dụng khác đang giữ camera.
-Webcam xem tại máy; nếu anh chọn quay/phát toàn màn hình thật chứa webcam và Zalo thì cả hai sẽ nằm trong hình quay. Chưa có bộ ghép cảnh riêng.
+Bấm Bật webcam: tự tìm và mở camera đầu tiên mà Windows nhận. Không cần FFmpeg. Nếu có nhiều camera, bản này dùng camera đầu tiên.
+Bấm Tắt webcam để dừng, trả toàn bộ chiều cao cho ứng dụng. Tắt app cũng dừng camera.
+Giữ các file AForge*.dll cùng thư mục với EXE. Nếu không thấy hình, kiểm tra Windows Settings → Privacy → Camera, quyền cho ứng dụng desktop, và đóng phần mềm khác đang giữ camera.
+Webcam chỉ xem tại máy. Chưa bật thu mic khi chỉ xem webcam.
 
 QUAY / LIVESTREAM
+Phần quay / live vẫn cần FFmpeg Windows riêng (https://ffmpeg.org/download.html); chưa kèm trong ZIP. Webcam không cần FFmpeg.
 Tùy chọn → Quay / Livestream. Chọn ffmpeg.exe, màn hình nguồn và 720p/1080p 30fps. Lưu MP4; bấm Dừng để hoàn tất file trước khi mở. Không ghi đè file đã có; mất điện hoặc buộc dừng có thể làm MP4 chưa hoàn tất.
-Âm thanh để trống: không thu tiếng. Nhập chính xác tên micro/Stereo Mix của DirectShow nếu cần; chưa có bộ trộn tiếng máy và micro tự động.
+Danh sách Micro tự lấy thiết bị Windows: chọn mic webcam. Có đúng một mic thì app chọn sẵn; nhiều mic thì anh chọn thiết bị muốn dùng. Chọn Không thu tiếng để tắt âm thanh. Chưa tự trộn tiếng máy và mic.
 Có thể chọn YouTube, Facebook, TikTok bằng URL RTMP/RTMPS và khóa luồng được nền tảng cấp. Mỗi đích mã hóa riêng, tăng tải CPU/băng thông; chưa tự nối lại khi mất mạng. Khóa không lưu file/log, chỉ giữ trong phiên thiết lập và truyền cho encoder trên máy.
 Test YouTube: đặt buổi phát Riêng tư trong YouTube Studio, nhập URL + khóa luồng ngay trong app, chọn 720p và chỉ tích YouTube. Xác nhận hình/tiếng tại Studio. App không tự thay đổi quyền riêng tư của buổi phát. Dừng trong app và kết thúc buổi phát trong Studio.
 Chỉ gửi hình/tiếng khi anh bật Livestream. Chọn toàn màn hình, chưa hỗ trợ chọn riêng cửa sổ/vùng tùy ý hoặc ghép cảnh riêng.

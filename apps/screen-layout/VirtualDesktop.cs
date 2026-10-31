@@ -33,20 +33,22 @@ internal sealed class VirtualDesktopDock : Form {
  const uint Callback=0x8101;
  readonly Button options=new Button{Text="Tùy chọn ▾",Size=new Size(120,32),Location=new Point(8,5),FlatStyle=FlatStyle.Flat};
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
- readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(12,48),FlatStyle=FlatStyle.Flat};
+ readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.5"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Không gian làm việc 0.6"};
  readonly ShellNative.WinEvent moveEvent;
- IntPtr hook;DockedWindow app,beforeMove;WebcamFeed webcam;Bitmap webcamImage;BroadcastForm broadcast;
- string webcamExe=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe"),webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / ứng dụng";
- string host;bool registered,closing,placing;uint restartMessage;
+ IntPtr hook;DockedWindow app,beforeMove;NativeWebcam webcam;Bitmap webcamImage;BroadcastForm broadcast;
+ string webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";
+ string host;bool registered,closing,placing,cameraVisible,cameraOpening,dragWidth,dragSplit;int cameraGeneration,fitGeneration,fitAttempts;double sidebarRatio=.33,splitRatio=1.0/3;
+ readonly string settings=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),"DTTL","Workspace.ini");
+uint restartMessage;
  internal VirtualDesktopDock():this(true){}
- internal VirtualDesktopDock(bool unused){
-  Text="DTTL • Không gian làm việc 0.5";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+ internal VirtualDesktopDock(bool readSettings){
+  Text="DTTL • Không gian làm việc 0.6";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
-  host=Screen.PrimaryScreen.DeviceName;
+  host=Screen.PrimaryScreen.DeviceName;if(readSettings)LoadSettings();
   moveEvent=delegate(IntPtr h,uint ev,IntPtr window,int obj,int child,uint thread,uint time){
    if(closing||obj!=0||!IsHandleCreated)return;
    if(ev==0xA){beforeMove=DesktopDock.Capture(window);return;}
@@ -62,18 +64,35 @@ internal sealed class VirtualDesktopDock : Form {
   Activated+=delegate{if(!closing&&DesktopDock.Valid(app))BeginInvoke((Action)delegate{RaiseApp();});};
   settle.Tick+=delegate{settle.Stop();FitApp();};
   maintenance.Tick+=delegate{if(app!=null&&!DesktopDock.Valid(app)){app=null;Invalidate();}RaiseApp();};
-  cameraTimer.Tick+=delegate{if(webcam==null)return;var next=webcam.Take();if(next!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=next;Invalidate(Pane(ClientRectangle,0));}if(webcam.Ended){StopWebcam();webcamStatus="Webcam đã dừng. Kiểm tra kết nối/quyền Camera.";Invalidate();}};
+  cameraTimer.Tick+=delegate{if(webcam==null)return;var next=webcam.Take();if(next!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=next;Invalidate(Cell(0));}if(webcam.Ended){string error=webcam.Error;StopWebcam();tray.ShowBalloonTip(5000,"Webcam",error??"Webcam đã dừng. Kiểm tra kết nối/quyền Camera.",ToolTipIcon.Info);}};
   FormClosed+=delegate{Shutdown();};
  }
- internal static Rectangle Pane(Rectangle client,int index){int top=client.Top+42,h=Math.Max(1,client.Height-42),split=top+h/3;return index==0?Rectangle.FromLTRB(client.Left+8,top+5,client.Right-8,split-5):Rectangle.FromLTRB(client.Left+8,split+5,client.Right-8,client.Bottom-8);}
- internal Rectangle ApplicationArea{get{var r=Pane(ClientRectangle,1);r.Offset(Left,Top);return r;}}
- Rectangle WebcamArea(){var r=Pane(ClientRectangle,0);r.Y+=36;r.Height=Math.Max(1,r.Height-36);return r;}
+ internal static Rectangle Pane(Rectangle client,int index){return Pane(client,index,true,1.0/3);}
+ internal static Rectangle Pane(Rectangle client,int index,bool camera,double ratio){
+  int top=client.Top+42,bottom=client.Bottom-8;
+  if(!camera)return index==0?Rectangle.Empty:Rectangle.FromLTRB(client.Left+8,top+5,client.Right-8,bottom);
+  int split=top+(int)(Math.Max(1,client.Height-42)*Math.Max(.15,Math.Min(.65,ratio)));
+  return index==0?Rectangle.FromLTRB(client.Left+8,top+5,client.Right-8,split-5):Rectangle.FromLTRB(client.Left+8,split+5,client.Right-8,bottom);
+ }
+ Rectangle Cell(int index){return Pane(ClientRectangle,index,cameraVisible,splitRatio);}
+ internal Rectangle ApplicationArea{get{var r=Cell(1);r.Offset(Left,Top);return r;}}
+ Rectangle WebcamArea(){return Cell(0);}
+ internal void SetLayout(double width,double split,bool camera){sidebarRatio=Math.Max(.25,Math.Min(.65,width));splitRatio=Math.Max(.15,Math.Min(.65,split));cameraVisible=camera;fitAttempts=0;fitGeneration++;Place();Invalidate();}
+ void LoadSettings(){try{var v=File.ReadAllLines(settings);double w,h;if(v.Length>=2&&double.TryParse(v[0],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out w)&&double.TryParse(v[1],System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out h)){sidebarRatio=Math.Max(.25,Math.Min(.65,w));splitRatio=Math.Max(.15,Math.Min(.65,h));}}catch(IOException){}catch(UnauthorizedAccessException){}}
+ void SaveSettings(){try{Directory.CreateDirectory(Path.GetDirectoryName(settings));File.WriteAllLines(settings,new[]{sidebarRatio.ToString(System.Globalization.CultureInfo.InvariantCulture),splitRatio.ToString(System.Globalization.CultureInfo.InvariantCulture)});}catch(IOException){}catch(UnauthorizedAccessException){}}
+ protected override void OnMouseDown(MouseEventArgs e){base.OnMouseDown(e);if(e.Button!=MouseButtons.Left)return;dragWidth=e.X<=8;dragSplit=!dragWidth&&cameraVisible&&Math.Abs(e.Y-(42+(int)((ClientSize.Height-42)*splitRatio)))<=6;if(dragWidth||dragSplit)Capture=true;}
+ protected override void OnMouseMove(MouseEventArgs e){base.OnMouseMove(e);
+  if(dragWidth){var screen=Screen.FromHandle(Handle);SetLayout((double)(screen.Bounds.Right-Cursor.Position.X)/screen.Bounds.Width,splitRatio,cameraVisible);}
+  else if(dragSplit){SetLayout(sidebarRatio,(double)(e.Y-42)/Math.Max(1,ClientSize.Height-42),true);}
+  else Cursor=e.X<=8?Cursors.SizeWE:cameraVisible&&Math.Abs(e.Y-(42+(int)((ClientSize.Height-42)*splitRatio)))<=6?Cursors.SizeNS:Cursors.Default;
+ }
+ protected override void OnMouseUp(MouseEventArgs e){base.OnMouseUp(e);if(dragWidth||dragSplit){dragWidth=dragSplit=false;Capture=false;SaveSettings();settle.Stop();settle.Start();}}
  ShellNative.AppBar Data(){return new ShellNative.AppBar{Size=(uint)Marshal.SizeOf(typeof(ShellNative.AppBar)),Window=Handle,Callback=Callback,Edge=2};}
  void RegisterBar(){if(closing||registered)return;var d=Data();registered=ShellNative.SHAppBarMessage(0,ref d)!=UIntPtr.Zero;if(registered)Place();else{MessageBox.Show("Không giữ được vùng phụ.");Close();}}
  void Place(){
   if(!registered||closing||placing)return;placing=true;
   try{Screen monitor=null;foreach(var s in Screen.AllScreens)if(s.DeviceName==host)monitor=s;if(monitor==null){ReleaseApp(true);monitor=Screen.PrimaryScreen;host=monitor.DeviceName;}
-   var b=monitor.Bounds;int width=b.Width*33/100;var d=Data();d.Rect=new Native.Rect{L=b.Right-width,T=b.Top,R=b.Right,B=b.Bottom};ShellNative.SHAppBarMessage(2,ref d);d.Rect.L=d.Rect.R-width;ShellNative.SHAppBarMessage(3,ref d);
+   var b=monitor.Bounds;int width=(int)(b.Width*sidebarRatio);var d=Data();d.Rect=new Native.Rect{L=b.Right-width,T=b.Top,R=b.Right,B=b.Bottom};ShellNative.SHAppBarMessage(2,ref d);d.Rect.L=d.Rect.R-width;ShellNative.SHAppBarMessage(3,ref d);
    SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);quit.Location=new Point(ClientSize.Width-40,5);Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);
    if(DesktopDock.Valid(app)){settle.Stop();settle.Start();}Invalidate();
   }finally{placing=false;}
@@ -81,13 +100,13 @@ internal sealed class VirtualDesktopDock : Form {
  void Retire(ContextMenuStrip menu){menu.Closed+=delegate{if(!closing&&IsHandleCreated)BeginInvoke((Action)delegate{menu.Dispose();});};}
  ContextMenuStrip Menu(){
   var m=new ContextMenuStrip{BackColor=Color.White,ForeColor=Color.FromArgb(20,30,35)};
-  m.Items.Add("33% • Webcam 1/3 • Ứng dụng 2/3").Enabled=false;
-  m.Items.Add("Chọn Zalo / ứng dụng…",null,delegate{BeginInvoke((Action)delegate{if(!closing)PickWindow();});});
+  m.Items.Add("Mặc định rộng 33%",null,delegate{SetLayout(.33,1.0/3,cameraVisible);SaveSettings();});
+  m.Items.Add("Chọn Zalo / Telegram / Chrome…",null,delegate{BeginInvoke((Action)delegate{if(!closing)PickWindow();});});
   var show=m.Items.Add("Căn lại / Hiện ứng dụng",null,delegate{if(DesktopDock.Valid(app)){Native.ShowWindowAsync(app.Handle,9);settle.Start();}});show.Enabled=DesktopDock.Valid(app);
   var release=m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{ReleaseApp(true);});release.Enabled=DesktopDock.Valid(app);
   m.Items.Add(new ToolStripSeparator());
   m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();if(!broadcast.Visible)broadcast.Show(this);broadcast.Activate();});});
-  m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ rộng 33%; webcam trên 1/3 và cửa sổ ứng dụng dưới 2/3.\nTùy chọn → Chọn Zalo / ứng dụng, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam cần ffmpeg.exe và quyền Camera của Windows. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
+  m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ mặc định rộng 33%. Kéo mép trái để đổi chiều rộng. Tắt webcam: ứng dụng dùng hết chiều cao. Bật webcam: kéo vách ngăn ngang để chia lại hai ô.\nTùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam tự nhận camera Windows, không cần FFmpeg. Cho phép ứng dụng desktop truy cập camera trong Windows Settings. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
  }
  void PickWindow(){
@@ -98,36 +117,49 @@ internal sealed class VirtualDesktopDock : Form {
  internal void Attach(DockedWindow window){
   if(!DesktopDock.Valid(window))return;
   if(app==null||app.Handle!=window.Handle){ReleaseApp(true);app=window;}
-  appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
+  fitAttempts=0;fitGeneration++;appStatus="";Native.ShowWindowAsync(app.Handle,9);settle.Stop();settle.Start();Invalidate();
  }
  void RaiseApp(){foreach(Form owned in OwnedForms)if(owned.Visible)return;if(!closing&&DesktopDock.Valid(app)&&!ShellNative.IsIconic(app.Handle))Native.SetWindowPos(app.Handle,new IntPtr(-1),0,0,0,0,0x13);}
  void FitApp(){
   if(closing||!DesktopDock.Valid(app))return;var wanted=ApplicationArea;Native.Rect outer,visible;int l=0,t=0,r=0,b=0;
   if(Native.GetWindowRect(app.Handle,out outer)&&Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)))==0){l=visible.L-outer.L;t=visible.T-outer.T;r=outer.R-visible.R;b=outer.B-visible.B;}
   bool ok=Native.SetWindowPos(app.Handle,new IntPtr(-1),wanted.X-l,wanted.Y-t,wanted.Width+l+r,wanted.Height+t+b,0x4010);
-  var expected=app;var verify=new Timer{Interval=200};verify.Tick+=delegate{verify.Stop();verify.Dispose();if(closing||app!=expected||!DesktopDock.Valid(expected))return;
+  int generation=++fitGeneration;var expected=app;var verify=new Timer{Interval=200};verify.Tick+=delegate{verify.Stop();verify.Dispose();if(closing||generation!=fitGeneration||app!=expected||!DesktopDock.Valid(expected))return;
    Native.Rect actual;if(Native.DwmGetWindowAttribute(expected.Handle,9,out actual,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(expected.Handle,out actual);
-   if(!ok||Math.Abs(actual.L-wanted.Left)>12||Math.Abs(actual.T-wanted.Top)>12||Math.Abs(actual.R-wanted.Right)>12||Math.Abs(actual.B-wanted.Bottom)>12){ReleaseApp(true);appStatus="Ứng dụng chưa thu vừa ô. Kiểm tra độ phân giải / Scale.";tray.ShowBalloonTip(6000,"Ứng dụng không vừa ô","Đã trả cửa sổ về chỗ cũ. Ứng dụng có giới hạn kích thước hoặc không cho điều chỉnh.",ToolTipIcon.Info);Invalidate();}
+   if(!ok||Math.Abs(actual.L-wanted.Left)>12||Math.Abs(actual.T-wanted.Top)>12||Math.Abs(actual.R-wanted.Right)>12||Math.Abs(actual.B-wanted.Bottom)>12){
+    // Respect the actual application minimum, expanding the workspace instead of cropping chat input.
+    if(ok&&fitAttempts++<2){var screen=Screen.FromHandle(Handle);int aw=actual.R-actual.L,ah=actual.B-actual.T;bool changed=false;
+     if(aw>wanted.Width+12){double width=Math.Min(.65,(double)(aw+20)/screen.Bounds.Width);if(width>sidebarRatio+.001){sidebarRatio=width;changed=true;}}
+     if(cameraVisible&&ah>wanted.Height+12){double split=Math.Max(.15,(double)(ClientSize.Height-42-ah-17)/Math.Max(1,ClientSize.Height-42));if(split<splitRatio-.001){splitRatio=split;changed=true;}}
+     if(changed){Place();settle.Stop();settle.Start();SaveSettings();return;}
+    }
+    ReleaseApp(true);appStatus="Ứng dụng cần ô lớn hơn. Kéo mép trái để mở rộng; tắt webcam để dùng hết chiều cao.";tray.ShowBalloonTip(6000,"Chưa đủ chỗ cho ứng dụng","Đã trả cửa sổ về chỗ cũ. Kéo rộng vùng phụ hoặc tắt webcam rồi chọn lại ứng dụng.",ToolTipIcon.Info);Invalidate();
+   }
   };verify.Start();
  }
- internal void ReleaseApp(bool restore){settle.Stop();var old=app;app=null;if(DesktopDock.Valid(old)){Native.SetWindowPos(old.Handle,new IntPtr(old.WasTopMost?-1:-2),0,0,0,0,0x13);if(restore){var p=old.Original;Native.SetWindowPlacement(old.Handle,ref p);}}appStatus="Tùy chọn → Chọn Zalo / ứng dụng";Invalidate();}
- void StopWebcam(){cameraTimer.Stop();if(webcam!=null){webcam.Dispose();webcam=null;}if(webcamImage!=null){webcamImage.Dispose();webcamImage=null;}webcamButton.Text="Bật webcam";Invalidate();}
+ internal void ReleaseApp(bool restore){fitGeneration++;settle.Stop();var old=app;app=null;if(DesktopDock.Valid(old)){Native.SetWindowPos(old.Handle,new IntPtr(old.WasTopMost?-1:-2),0,0,0,0,0x13);if(restore){var p=old.Original;Native.SetWindowPlacement(old.Handle,ref p);}}appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";Invalidate();}
+ void StopWebcam(){cameraGeneration++;cameraOpening=false;cameraTimer.Stop();if(webcam!=null){webcam.Dispose();webcam=null;}if(webcamImage!=null){webcamImage.Dispose();webcamImage=null;}webcamButton.Text="Bật webcam";SetLayout(sidebarRatio,splitRatio,false);}
  void ToggleWebcam(){
-  if(webcam!=null){StopWebcam();webcamStatus="Webcam đang tắt";return;}
-  using(var picker=new WebcamPicker(webcamExe)){if(picker.ShowDialog(this)!=DialogResult.OK)return;webcamExe=picker.Encoder;
-   try{webcam=new WebcamFeed();webcam.Start(webcamExe,picker.Device);webcamButton.Text="Tắt webcam";webcamStatus="Đang mở webcam…";cameraTimer.Start();}
-   catch{StopWebcam();webcamStatus="Không mở được webcam. Kiểm tra quyền Camera và ứng dụng đang dùng camera.";}
-  }Invalidate();
+  if(webcam!=null||cameraOpening){StopWebcam();return;}
+  cameraOpening=true;int generation=++cameraGeneration;webcamButton.Text="Hủy mở camera";webcamStatus="Đang tìm camera…";SetLayout(sidebarRatio,splitRatio,true);
+  System.Threading.ThreadPool.QueueUserWorkItem(delegate{
+   NativeWebcam feed=null;string error=null;try{feed=NativeWebcam.OpenDefault();}catch(Exception e){error=e.Message;}
+   if(closing||!IsHandleCreated){if(feed!=null)feed.Dispose();return;}
+   try{BeginInvoke((Action)delegate{if(closing||generation!=cameraGeneration){if(feed!=null)feed.Dispose();return;}cameraOpening=false;
+    if(feed==null){StopWebcam();tray.ShowBalloonTip(6000,"Không mở được webcam",error??"Kiểm tra kết nối và quyền Camera của Windows.",ToolTipIcon.Info);return;}
+    webcam=feed;webcamButton.Text="Tắt webcam";webcamStatus="Đang mở webcam…";cameraTimer.Start();Invalidate();
+   });}catch(InvalidOperationException){if(feed!=null)feed.Dispose();}
+  });
  }
  protected override void OnPaint(PaintEventArgs e){
-  base.OnPaint(e);var upper=Pane(ClientRectangle,0);var lower=Pane(ClientRectangle,1);
+  base.OnPaint(e);var upper=Cell(0);var lower=Cell(1);
   using(var fill=new SolidBrush(Color.FromArgb(25,41,47))){e.Graphics.FillRectangle(fill,upper);e.Graphics.FillRectangle(fill,lower);}
-  using(var border=new Pen(Color.FromArgb(54,86,93))){e.Graphics.DrawRectangle(border,upper);e.Graphics.DrawRectangle(border,lower);}
-  int split=42+(ClientSize.Height-42)/3;
-  using(var line=new Pen(Color.FromArgb(59,139,143))){e.Graphics.DrawLine(line,14,split,Width-14,split);e.Graphics.DrawLine(line,1,6,1,Height-6);}
-  using(var grip=new Pen(Color.FromArgb(116,212,203),3)){e.Graphics.DrawLine(grip,Width/2-15,split,Width/2+15,split);}
+  using(var border=new Pen(Color.FromArgb(54,86,93))){if(cameraVisible)e.Graphics.DrawRectangle(border,upper);e.Graphics.DrawRectangle(border,lower);}
+  int split=42+(int)((ClientSize.Height-42)*splitRatio);
+  using(var line=new Pen(Color.FromArgb(59,139,143))){if(cameraVisible)e.Graphics.DrawLine(line,14,split,Width-14,split);e.Graphics.DrawLine(line,1,6,1,Height-6);}
+  using(var grip=new Pen(Color.FromArgb(116,212,203),3)){if(cameraVisible)e.Graphics.DrawLine(grip,Width/2-15,split,Width/2+15,split);}
   if(webcamImage!=null){e.Graphics.InterpolationMode=InterpolationMode.Bilinear;e.Graphics.DrawImage(webcamImage,ViewGeometry.Fit(WebcamArea(),webcamImage.Size));}
-  else TextRenderer.DrawText(e.Graphics,webcamStatus,Font,WebcamArea(),ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
+  else if(cameraVisible)TextRenderer.DrawText(e.Graphics,webcamStatus,Font,WebcamArea(),ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
   if(!DesktopDock.Valid(app))TextRenderer.DrawText(e.Graphics,appStatus,Font,lower,ForeColor,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
  }
  internal void ReleaseInput(){} // No cursor clipping or forwarding in the driver-free version.
@@ -137,7 +169,7 @@ internal sealed class VirtualDesktopDock : Form {
   if(restartMessage!=0&&m.Msg==restartMessage&&!closing){registered=false;BeginInvoke((Action)delegate{RegisterBar();});}
   base.WndProc(ref m);
  }
- void Shutdown(){if(closing)return;closing=true;if(hook!=IntPtr.Zero)ShellNative.UnhookWinEvent(hook);StopWebcam();maintenance.Stop();ReleaseApp(true);if(broadcast!=null&&!broadcast.IsDisposed)broadcast.Close();if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}cameraTimer.Dispose();maintenance.Dispose();settle.Dispose();tray.Dispose();}
+ void Shutdown(){if(closing)return;SaveSettings();closing=true;if(hook!=IntPtr.Zero)ShellNative.UnhookWinEvent(hook);StopWebcam();maintenance.Stop();ReleaseApp(true);if(broadcast!=null&&!broadcast.IsDisposed)broadcast.Close();if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}cameraTimer.Dispose();maintenance.Dispose();settle.Dispose();tray.Dispose();}
 }
 static class VirtualDisplayProgram {
  [STAThread] static void Main(){

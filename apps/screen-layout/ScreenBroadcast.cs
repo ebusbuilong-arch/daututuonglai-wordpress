@@ -46,7 +46,7 @@ internal sealed class BroadcastSession : IDisposable {
 internal sealed class BroadcastForm : Form {
  readonly ComboBox screen=new ComboBox{DropDownStyle=ComboBoxStyle.DropDownList};
  readonly ComboBox quality=new ComboBox{DropDownStyle=ComboBoxStyle.DropDownList};
- readonly TextBox encoder=new TextBox(),audio=new TextBox();
+ readonly TextBox encoder=new TextBox();readonly ComboBox audio=new ComboBox{DropDownStyle=ComboBoxStyle.DropDownList};
  readonly CheckBox record=new CheckBox{Text="Lưu video MP4",Checked=true,AutoSize=true};
  readonly CheckBox[] live=new CheckBox[3];readonly TextBox[] urls=new TextBox[3],keys=new TextBox[3];
  readonly Label status=new Label{AutoSize=false,Height=70};
@@ -56,20 +56,21 @@ internal sealed class BroadcastForm : Form {
  readonly Timer poll=new Timer{Interval=1000};readonly Panel settings=new Panel{Dock=DockStyle.Top,Height=360};
  string savedFile;
  internal BroadcastForm(){
-  Text="Quay / Livestream • thử nghiệm 0.4";Size=new Size(720,540);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  Text="Quay / Livestream • thử nghiệm 0.6";Size=new Size(720,540);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
   Controls.Add(settings);int y=12;
   Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};
   string bundled=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe");if(File.Exists(bundled))encoder.Text=bundled;
   y+=36;Row("Màn hình",screen,y);foreach(var s in Screen.AllScreens)screen.Items.Add(s.DeviceName+" • "+s.Bounds.Width+"×"+s.Bounds.Height);screen.SelectedIndex=0;
   y+=36;Row("Độ nét",quality,y);quality.Items.AddRange(new object[]{"720p / 30 fps","1080p / 30 fps"});quality.SelectedIndex=1;
-  y+=36;Row("Thiết bị âm thanh",audio,y);audio.Text="";
-  y+=30;settings.Controls.Add(new Label{Text="Để trống: không thu tiếng. Nhập đúng tên micro/Stereo Mix của DirectShow.",Left=150,Top=y,Width=540});
+  y+=36;Row("Micro",audio,y);audio.Items.Add("Không thu tiếng");audio.SelectedIndex=0;
+  y+=30;settings.Controls.Add(new Label{Text="Chọn mic webcam để nói khi live. Mở lại cửa sổ này nếu vừa cắm mic.",Left=150,Top=y,Width=540});
   y+=28;record.Location=new Point(150,y);settings.Controls.Add(record);
   string[] platforms={"YouTube","Facebook","TikTok"};
   for(int i=0;i<3;i++){y+=38;live[i]=new CheckBox{Text=platforms[i],Left=8,Top=y,Width=130};urls[i]=new TextBox{Left=150,Top=y,Width=320};keys[i]=new TextBox{Left=480,Top=y,Width=200,UseSystemPasswordChar=true};settings.Controls.AddRange(new Control[]{live[i],urls[i],keys[i]});}
   settings.Controls.Add(new Label{Text="Tích nơi muốn phát • cột giữa: URL máy chủ • cột phải: khóa luồng",Left=150,Top=y+28,Width=540});
   start.Location=new Point(150,370);stop.Location=new Point(260,370);status.Location=new Point(12,410);status.Width=680;Controls.AddRange(new Control[]{start,stop,status});status.Text="Chưa quay/phát. Chọn FFmpeg và màn hình nguồn. Khóa luồng chỉ giữ trong phiên này.";
+  Shown+=delegate{System.Threading.ThreadPool.QueueUserWorkItem(delegate{string[] microphones;try{microphones=NativeWebcam.Microphones();}catch{return;}try{BeginInvoke((Action)delegate{if(IsDisposed)return;audio.Items.AddRange(microphones);if(microphones.Length==1)audio.SelectedIndex=1;});}catch(InvalidOperationException){}});};
   start.Click+=delegate{StartAll();};stop.Click+=delegate{StopAll();};poll.Tick+=delegate{UpdateStatus();};
   FormClosing+=delegate{StopAll();};FormClosed+=delegate{poll.Dispose();foreach(var key in keys)key.Clear();};
  }
@@ -85,7 +86,7 @@ internal sealed class BroadcastForm : Form {
    savedFile=null;if(record.Checked){using(var f=new SaveFileDialog{Filter="Video MP4|*.mp4",FileName="DTTL-"+DateTime.Now.ToString("yyyyMMdd-HHmmss")+".mp4"}){if(f.ShowDialog(this)!=DialogResult.OK)return;if(File.Exists(f.FileName))throw new Exception("Chọn tên file mới để giữ video cũ.");savedFile=f.FileName;}}
    settings.Enabled=false;start.Enabled=false;stop.Enabled=true;
    if(savedFile!=null){targets.Insert(0,savedFile);labels.Insert(0,"Video");}
-   for(int i=0;i<targets.Count;i++){var session=new BroadcastSession();sessions.Add(session);names.Add(labels[i]);session.Start(encoder.Text,monitors[screen.SelectedIndex].Bounds,quality.SelectedIndex==0?720:1080,targets[i],labels[i]!="Video",audio.Text.Trim(),false);}
+   for(int i=0;i<targets.Count;i++){var session=new BroadcastSession();sessions.Add(session);names.Add(labels[i]);session.Start(encoder.Text,monitors[screen.SelectedIndex].Bounds,quality.SelectedIndex==0?720:1080,targets[i],labels[i]!="Video",audio.SelectedIndex>0?audio.Text:"",false);}
    poll.Start();UpdateStatus();
   }catch(Exception){StopAll();MessageBox.Show(this,"Không thể bắt đầu. Kiểm tra FFmpeg, màn hình, đường dẫn lưu, URL/khóa luồng và tên thiết bị âm thanh. File đã có sẽ không bị ghi đè.",Text);}
  }

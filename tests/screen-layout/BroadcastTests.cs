@@ -5,6 +5,14 @@ using System.IO;
 using System.Threading;
 using System.Windows.Forms;
 class BroadcastTests {
+ sealed class FakeCamera : AForge.Video.IVideoSource {
+  public event AForge.Video.NewFrameEventHandler NewFrame;
+  public event AForge.Video.VideoSourceErrorEventHandler VideoSourceError;
+  public event AForge.Video.PlayingFinishedEventHandler PlayingFinished;
+  public string Source{get{return "synthetic";}}public int FramesReceived{get{return 1;}}public long BytesReceived{get{return 0;}}public bool IsRunning{get;private set;}
+  public void Start(){IsRunning=true;}public void SignalToStop(){IsRunning=false;}public void WaitForStop(){}public void Stop(){SignalToStop();}
+  public void Emit(Bitmap b){if(NewFrame!=null)NewFrame(this,new AForge.Video.NewFrameEventArgs(b));}
+ }
  static void CheckVideo(string probe,string file,int height){
   var p=Process.Start(new ProcessStartInfo(probe,"-v error -select_streams v:0 -show_entries stream=width,height,codec_name -of csv=p=0 "+BroadcastSession.Quote(file)){UseShellExecute=false,RedirectStandardOutput=true,CreateNoWindow=true});
   string result=p.StandardOutput.ReadToEnd();p.WaitForExit();if(p.ExitCode!=0||!result.Contains("h264,"+(height==720?1280:1920)+","+height))throw new Exception("Bad video "+result);p.Dispose();
@@ -13,6 +21,11 @@ class BroadcastTests {
  [STAThread] static void Main(string[] args){
   string ff=args[0],probe=Path.Combine(Path.GetDirectoryName(ff),"ffprobe.exe"),folder=args[1];
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
+  var fake=new FakeCamera();using(var native=new NativeWebcam(fake)){
+   using(var original=new Bitmap(1280,720)){fake.Emit(original);using(var frame=native.Take()){if(frame==null||frame.Size!=original.Size)throw new Exception("Native frame missing");}}
+   native.Dispose();if(fake.IsRunning)throw new Exception("Native camera did not receive stop");using(var late=new Bitmap(10,10))fake.Emit(late);if(native.Take()!=null)throw new Exception("Camera accepted late frame");
+  }
+  Console.WriteLine("PASS native camera frame ownership and stop without FFmpeg; simulated camera only");
   using(var webcam=new WebcamFeed()){
    webcam.StartSynthetic(ff);Bitmap image=null;for(int attempt=0;attempt<100&&image==null;attempt++){Thread.Sleep(100);image=webcam.Take();}
    if(image==null||image.Size!=new Size(640,360))throw new Exception("Webcam frame decoding failed");image.Dispose();webcam.Dispose();
