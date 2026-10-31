@@ -6,6 +6,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 class LayoutTests {
+ [DllImport("user32.dll")] static extern void mouse_event(uint flags,uint dx,uint dy,uint data,UIntPtr extra);
+ [DllImport("user32.dll")] static extern bool SetForegroundWindow(IntPtr h);
  [DllImport("user32.dll")] static extern IntPtr WindowFromPoint(Native.Point p);
  [DllImport("user32.dll")] static extern IntPtr GetAncestor(IntPtr h,uint flag);
  [DllImport("user32.dll")] static extern bool SetCursorPos(int x,int y);
@@ -14,6 +16,13 @@ class LayoutTests {
  static Native.Rect Read(IntPtr h){Native.Rect r;if(Native.DwmGetWindowAttribute(h,9,out r,Marshal.SizeOf(typeof(Native.Rect)))!=0)Native.GetWindowRect(h,out r);return r;}
  static void Near(IntPtr h,Rectangle wanted,string message){var a=Read(h);if(Math.Abs(a.L-wanted.Left)>5||Math.Abs(a.T-wanted.Top)>5||Math.Abs(a.R-wanted.Right)>5||Math.Abs(a.B-wanted.Bottom)>5)throw new Exception(message+" got="+a.L+","+a.T+","+a.R+","+a.B+" expected="+wanted);}
  static Rectangle Rect(IntPtr h){var r=Read(h);return Rectangle.FromLTRB(r.L,r.T,r.R,r.B);}
+ static void RealDrag(IntPtr window,Point target){
+  SetForegroundWindow(window);Pump(150);var r=Read(window);
+  int x=r.L+100,y=r.T+12;SetCursorPos(x,y);Pump(80);
+  mouse_event(2,0,0,0,UIntPtr.Zero);Pump(80);
+  for(int i=1;i<=20;i++){SetCursorPos(x+(target.X-x)*i/20,y+(target.Y-y)*i/20);Pump(35);}
+  mouse_event(4,0,0,0,UIntPtr.Zero);Pump(1000);
+ }
  static void Fixture(string index){
   var f=new Form{Text="DTTL test window "+index,StartPosition=FormStartPosition.Manual,Location=new Point(40+int.Parse(index)*20,60),Size=new Size(340,250)};
   f.Shown+=delegate{Console.WriteLine(f.Handle.ToInt64());Console.Out.Flush();};
@@ -25,6 +34,8 @@ class LayoutTests {
   int cases=0;foreach(var area in new[]{new Rectangle(900,0,466,728),new Rectangle(-600,0,600,1040),new Rectangle(2700,-2160,1140,2120)})for(int count=1;count<=3;count++)for(int i=0;i<count;i++){
    var c=DockGeometry.Cell(area,count,i);if(!area.Contains(c)||c.Width<=0||c.Height<=0)throw new Exception("Invalid cell");if(DockGeometry.Hit(area,count,new Point(c.Left+10,c.Top+10))!=i)throw new Exception("Hit failed");for(int j=0;j<i;j++)if(c.IntersectsWith(DockGeometry.Cell(area,count,j)))throw new Exception("Overlap");cases++;
   }
+  var edge=new Rectangle(900,0,466,728);
+  if(DockGeometry.Hit(edge,2,new Point(899,135))!=0||DockGeometry.Hit(edge,2,new Point(899,500))!=1||DockGeometry.Hit(edge,2,new Point(880,135))!=-1||DockGeometry.Hit(edge,2,new Point(920,60))!=-1)throw new Exception("Drop edge/header hit regression");
   Console.WriteLine("PASS: "+cases+" auxiliary cell geometry/hit cases including negative monitors");
   var processes=new List<Process>();var handles=new List<IntPtr>();var initial=new List<Rectangle>();var workBefore=Screen.PrimaryScreen.WorkingArea;
   try {
@@ -41,6 +52,17 @@ class LayoutTests {
      dock.ReleaseAll();Pump(400);for(int i=0;i<n;i++)Near(handles[i],initial[i],"Restore original placement");
     }
     Console.WriteLine("PASS: external move events dock 1/2/3 windows and restore original placements");
+    dock.Configure(2,40,Screen.PrimaryScreen.DeviceName);Pump(500);
+    var realCell=dock.Cells[1];
+    RealDrag(handles[0],new Point(realCell.Left+60,realCell.Top+60));
+    Near(handles[0],realCell,"Actual mouse title-bar drag must dock");
+    Console.WriteLine("PASS: actual mouse title-bar drag docks external window");
+    RealDrag(handles[0],new Point(workBefore.Left+150,workBefore.Top+170));
+    Native.SetWindowPos(handles[0],IntPtr.Zero,80,80,340,250,0x4014);Pump(800);
+    if(Rect(handles[0]).Left>dock.Left)throw new Exception("Real drag out remains pinned");
+    Console.WriteLine("PASS: actual mouse drag out releases window");
+    dock.ReleaseAll();Native.SetWindowPos(handles[0],IntPtr.Zero,initial[0].X,initial[0].Y,initial[0].Width,initial[0].Height,0x4014);Pump(300);
+    initial[0]=Rect(handles[0]);
     dock.Configure(2,33,Screen.PrimaryScreen.DeviceName);Pump(400);
     var cell=dock.Cells[0];dock.Drop(handles[0],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[0]));Pump(500);
     dock.Drop(handles[1],new Point(cell.Left+20,cell.Top+20),DesktopDock.Capture(handles[1]));Pump(500);Near(handles[0],initial[0],"Replacement restore");Near(handles[1],cell,"Replacement dock");

@@ -1,9 +1,11 @@
-DTTL CHIA MÀN HÌNH — 0.2 beta
+DTTL CHIA MÀN HÌNH — 0.2.1 beta
 Đầu Tư Tương Lai • daututuonglai.vn
 
 1. Giải nén toàn bộ ZIP, mở DTTL-Chia-Man-Hinh.exe.
 2. Desktop chính vẫn dùng bình thường; vùng phụ nằm bên phải.
-3. Kéo thanh tiêu đề cửa sổ đang mở, thả vào ô phụ muốn dùng.
+3. Kéo thanh tiêu đề (không phải biểu tượng hay tab) của cửa sổ đang mở vào ô phụ.
+   Có thể thả tại mép trái của vùng phụ khi Windows chặn kéo qua; ô đích sáng viền xanh.
+   Nếu kéo chưa được, bấm Chọn cửa sổ trên ô phụ rồi chọn ứng dụng đang mở.
 4. Kéo cửa sổ ra vùng chính để bỏ ghim. Nút Trả cửa sổ khôi phục vị trí trước khi ghim.
 5. Tùy chọn: 1, 2 hoặc 3 ô phụ; chiều rộng 25–45%; chọn màn hình.
 6. Chọn Thoát và trả desktop để đóng app, trả các cửa sổ và diện tích desktop.

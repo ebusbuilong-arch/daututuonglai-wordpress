@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 
 [assembly: System.Reflection.AssemblyTitle("DTTL Chia màn hình")]
-[assembly: System.Reflection.AssemblyVersion("0.2.0.0")]
+[assembly: System.Reflection.AssemblyVersion("0.2.1.0")]
 [assembly: System.Reflection.AssemblyCompany("Đầu Tư Tương Lai")]
 
 static class Native {

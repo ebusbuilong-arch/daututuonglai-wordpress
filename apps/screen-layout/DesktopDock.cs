@@ -16,6 +16,11 @@ static class ShellNative {
     [DllImport("user32.dll")] internal static extern bool UnhookWinEvent(IntPtr hook);
     [DllImport("user32.dll")] internal static extern bool GetCursorPos(out Native.Point point);
     [DllImport("user32.dll")] internal static extern bool IsIconic(IntPtr window);
+    [DllImport("user32.dll")] internal static extern IntPtr GetForegroundWindow();
+    [DllImport("user32.dll")] internal static extern bool GetGUIThreadInfo(uint thread,ref GuiInfo info);
+    [StructLayout(LayoutKind.Sequential)] internal struct GuiInfo {
+        public int Size; public uint Flags; public IntPtr Active,Focus,Capture,MenuOwner,MoveSize,Caret; public Native.Rect CaretRect;
+    }
     [DllImport("user32.dll")] internal static extern bool IsZoomed(IntPtr window);
 }
 
@@ -30,7 +35,14 @@ internal static class DockGeometry {
         return Rectangle.FromLTRB(bounds.Left+6,start+30,bounds.Right-6,end-6);
     }
     internal static int Hit(Rectangle bounds,int count,Point point) {
-        for(int i=0;i<count;i++)if(Cell(bounds,count,i).Contains(point))return i;
+        // Windows can constrain a dragged title bar to the desktop work-area edge.
+        // Accept the adjacent 12px edge and the full row, including its heading.
+        if(point.X<bounds.Left-12||point.X>=bounds.Right||point.Y<bounds.Top+100||point.Y>=bounds.Bottom)return -1;
+        for(int i=0;i<count;i++){
+            int top=bounds.Top+100+(bounds.Height-100)*i/count;
+            int bottom=bounds.Top+100+(bounds.Height-100)*(i+1)/count;
+            if(point.Y>=top&&point.Y<bottom)return i;
+        }
         return -1;
     }
 }
@@ -40,6 +52,9 @@ internal sealed class DesktopDock : Form {
     readonly ShellNative.WinEvent eventCallback;
     readonly DockedWindow[] slots=new DockedWindow[3];
     readonly Button[] release=new Button[3];
+    readonly Button[] choose=new Button[3];
+    readonly Timer dragWatch=new Timer{Interval=40};
+    int hover=-1;
     readonly Timer maintenance=new Timer{Interval=600};
     readonly Timer settle=new Timer{Interval=220};
     readonly NotifyIcon tray=new NotifyIcon();
@@ -52,7 +67,7 @@ internal sealed class DesktopDock : Form {
     internal int SlotCount {get{return count;}}
     internal bool Reserved {get{return registered;}}
     internal DesktopDock(bool readSettings) {
-        Text="DTTL • Vùng phụ 0.2 beta"; FormBorderStyle=FormBorderStyle.None;
+        Text="DTTL • Vùng phụ 0.2.1 beta"; FormBorderStyle=FormBorderStyle.None;
         ShowInTaskbar=false; StartPosition=FormStartPosition.Manual;
         BackColor=Color.FromArgb(237,246,243); ForeColor=Color.FromArgb(20,36,59);
         Font=new Font("Segoe UI",10); DoubleBuffered=true; AutoScaleMode=AutoScaleMode.None;
@@ -63,7 +78,9 @@ internal sealed class DesktopDock : Form {
         var menuButton=new Button{Text="Tùy chọn ▾",Location=new Point(12,37),Size=new Size(120,29),FlatStyle=FlatStyle.Flat};
         menuButton.Click+=delegate{MakeMenu().Show(menuButton,new Point(0,menuButton.Height));};Controls.Add(menuButton);
         hint.Text="Kéo thanh tiêu đề cửa sổ vào ô bên dưới";hint.Location=new Point(12,73);hint.Height=24;Controls.Add(hint);
-        for(int i=0;i<3;i++){int index=i;release[i]=new Button{Text="Trả cửa sổ",Size=new Size(105,25),FlatStyle=FlatStyle.Flat};release[i].Click+=delegate{Release(index,true);};Controls.Add(release[i]);}
+        for(int i=0;i<3;i++){int index=i;release[i]=new Button{Text="Trả cửa sổ",Size=new Size(105,25),FlatStyle=FlatStyle.Flat};release[i].Click+=delegate{Release(index,true);};Controls.Add(release[i]);
+            choose[i]=new Button{Text="Chọn cửa sổ",Size=new Size(110,25),FlatStyle=FlatStyle.Flat};
+            choose[i].Click+=delegate{ChooseWindow(index);};Controls.Add(choose[i]);}
         eventCallback=OnWindowEvent;
         Shown+=delegate {
             taskbarRestart=ShellNative.RegisterWindowMessage("TaskbarCreated");
@@ -72,9 +89,10 @@ internal sealed class DesktopDock : Form {
             if(hook==IntPtr.Zero){MessageBox.Show("Không bật được kéo thả cửa sổ. Hãy đóng và mở lại ứng dụng.",Text);Close();return;}
             tray.Icon=SystemIcons.Application;tray.Text="DTTL • Chia màn hình";tray.Visible=true;
             tray.MouseClick+=delegate(object sender,MouseEventArgs e){if(e.Button==MouseButtons.Right){tray.ContextMenuStrip=MakeMenu();tray.ContextMenuStrip.Show(Cursor.Position);}else{Show();Activate();}};
-            maintenance.Start();
+            maintenance.Start();dragWatch.Start();
         };
         maintenance.Tick+=delegate{Maintain();};
+        dragWatch.Tick+=delegate{WatchDrag();};
         settle.Tick+=delegate{settle.Stop();FitAll();};
         Activated+=delegate{if(registered&&!closing)BeginInvoke((Action)delegate{FitAll();});};
         FormClosed+=delegate{Shutdown();};
@@ -88,14 +106,14 @@ internal sealed class DesktopDock : Form {
         if(!registered||positioning||closing)return;positioning=true;
         try {
             var screen=Target();device=screen.DeviceName;var b=screen.Bounds;
-            int width=Math.Max(220,Math.Min(b.Width/2,b.Width*percent/100));
+            int width=Math.Max(320,Math.Min(b.Width/2,b.Width*percent/100));
             var d=Data();d.Rect=new Native.Rect{L=b.Right-width,T=b.Top,R=b.Right,B=b.Bottom};
             ShellNative.SHAppBarMessage(2,ref d);d.Rect.L=d.Rect.R-width;
             ShellNative.SHAppBarMessage(3,ref d);
             SetBounds(d.Rect.L,d.Rect.T,d.Rect.R-d.Rect.L,d.Rect.B-d.Rect.T);
             Native.SetWindowPos(Handle,new IntPtr(-2),0,0,0,0,0x13);
             hint.Width=Math.Max(100,ClientSize.Width-24);
-            for(int i=0;i<3;i++){release[i].Visible=i<count; if(i<count){var cell=Cells[i];release[i].Location=new Point(ClientSize.Width-117,cell.Top-Top-27);}}
+            for(int i=0;i<3;i++){release[i].Visible=i<count;choose[i].Visible=i<count; if(i<count){var cell=Cells[i];release[i].Location=new Point(ClientSize.Width-117,cell.Top-Top-27);choose[i].Location=new Point(75,cell.Top-Top-27);}}
             Invalidate();settle.Stop();settle.Start();
         } finally{positioning=false;}
     }
@@ -119,14 +137,44 @@ internal sealed class DesktopDock : Form {
         var p=new Native.Placement{Length=Marshal.SizeOf(typeof(Native.Placement))};if(!Native.GetWindowPlacement(h,ref p))return null;
         return new DockedWindow{Handle=h,Pid=pid,Original=p};
     }
+    void ChooseWindow(int index){
+        var menu=new ContextMenuStrip();
+        Native.EnumWindows(delegate(IntPtr h,IntPtr unused){
+            var saved=Capture(h);int cloaked;
+            if(!Valid(saved)||(Native.Cloaked(h,14,out cloaked,4)==0&&cloaked!=0))return true;
+            var title=new System.Text.StringBuilder(256);Native.GetWindowText(h,title,title.Capacity);
+            menu.Items.Add(title.ToString(),null,delegate{var c=Cells[index];Drop(h,new Point(c.Left+20,c.Top+20),saved);});return true;
+        },IntPtr.Zero);
+        if(menu.Items.Count==0)menu.Items.Add("Mở ứng dụng cần đưa sang trước").Enabled=false;
+        menu.Closed+=delegate{menu.Dispose();};menu.Show(choose[index],new Point(0,choose[index].Height));
+    }
+    void BeginMove(IntPtr window){
+        if(window==moving)return;
+        var saved=Capture(window);if(!Valid(saved))return;
+        moving=window;beforeMove=saved;
+    }
+    void EndMove(IntPtr window){
+        var saved=moving==window?beforeMove:Capture(window);
+        moving=IntPtr.Zero;beforeMove=null;hover=-1;Invalidate();
+        Native.Point p;if(ShellNative.GetCursorPos(out p))Drop(window,new Point(p.X,p.Y),saved);
+    }
+    void WatchDrag(){
+        if(closing)return;
+        IntPtr foreground=ShellNative.GetForegroundWindow();uint pid;
+        uint thread=Native.GetWindowThreadProcessId(foreground,out pid);
+        var info=new ShellNative.GuiInfo{Size=Marshal.SizeOf(typeof(ShellNative.GuiInfo))};
+        bool inMove=thread!=0&&ShellNative.GetGUIThreadInfo(thread,ref info)&&(info.Flags&2)!=0;
+        if(inMove&&info.MoveSize!=IntPtr.Zero)BeginMove(info.MoveSize);
+        // Polling supplements applications which do not deliver the accessibility move events.
+        if(moving!=IntPtr.Zero&&!inMove){EndMove(moving);return;}
+        Native.Point p;int next=-1;
+        if(moving!=IntPtr.Zero&&ShellNative.GetCursorPos(out p))next=DockGeometry.Hit(Bounds,count,new Point(p.X,p.Y));
+        if(next!=hover){hover=next;Invalidate();}
+    }
     void OnWindowEvent(IntPtr eventHook,uint ev,IntPtr window,int obj,int child,uint thread,uint time){
         if(closing||window==Handle||obj!=0)return;
-        if(ev==0xA){moving=window;beforeMove=Capture(window);}
-        else if(ev==0xB){
-            var saved=moving==window?beforeMove:Capture(window);moving=IntPtr.Zero;beforeMove=null;
-            Native.Point p;if(!ShellNative.GetCursorPos(out p))return;
-            Drop(window,new Point(p.X,p.Y),saved);
-        }
+        if(ev==0xA)BeginMove(window);
+        else if(ev==0xB)EndMove(window);
     }
     internal void Drop(IntPtr window,Point cursor,DockedWindow saved){
         int target=DockGeometry.Hit(Bounds,count,cursor),old=-1;
@@ -170,6 +218,7 @@ internal sealed class DesktopDock : Form {
             var rect=Cells[i];rect.Offset(-Left,-Top);
             using(var pen=new Pen(Color.FromArgb(155,197,184),1))e.Graphics.DrawRectangle(pen,rect);
             TextRenderer.DrawText(e.Graphics,"Ô phụ "+(i+1),Font,new Point(12,rect.Top-25),ForeColor);
+            if(i==hover){using(var pen=new Pen(Color.FromArgb(8,127,112),4))e.Graphics.DrawRectangle(pen,rect);}
             if(!Valid(slots[i]))TextRenderer.DrawText(e.Graphics,"Kéo cửa sổ vào đây",Font,rect,Color.FromArgb(8,127,112),TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter);
         }
     }
@@ -184,7 +233,7 @@ internal sealed class DesktopDock : Form {
         if(m.Msg==0x6&&registered){var d=Data();ShellNative.SHAppBarMessage(6,ref d);}
         base.WndProc(ref m);
     }
-    void Shutdown(){if(closing)return;closing=true;maintenance.Stop();settle.Stop();if(hook!=IntPtr.Zero)ShellNative.UnhookWinEvent(hook);RemoveBar();ReleaseAll();tray.Visible=false;tray.Dispose();maintenance.Dispose();settle.Dispose();}
+    void Shutdown(){if(closing)return;closing=true;maintenance.Stop();settle.Stop();dragWatch.Stop();dragWatch.Dispose();if(hook!=IntPtr.Zero)ShellNative.UnhookWinEvent(hook);RemoveBar();ReleaseAll();tray.Visible=false;tray.Dispose();maintenance.Dispose();settle.Dispose();}
     void SaveSettings(){try{Directory.CreateDirectory(Path.GetDirectoryName(config));File.WriteAllLines(config,new[]{count.ToString(),percent.ToString(),device});}catch(IOException){}catch(UnauthorizedAccessException){}}
     void LoadSettings(){try{var v=File.ReadAllLines(config);int n;if(v.Length>=3){if(int.TryParse(v[0],out n)&&n>=1&&n<=3)count=n;if(int.TryParse(v[1],out n)&&n>=25&&n<=45)percent=n;device=v[2];}}catch(IOException){}catch(UnauthorizedAccessException){}}
 }
