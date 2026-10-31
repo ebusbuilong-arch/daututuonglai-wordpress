@@ -33,22 +33,25 @@ internal sealed class VirtualDesktopDock : Form {
  const uint Callback=0x8101; const int ExitHotkey=103;
  readonly Button options=new Button{Text="Tùy chọn ▾",Size=new Size(120,34),Location=new Point(4,4),FlatStyle=FlatStyle.Flat};
  readonly Button quit=new Button{Text="×",Size=new Size(34,34),FlatStyle=FlatStyle.Flat};
- readonly Timer frameTimer=new Timer{Interval=100};
+ readonly Timer frameTimer=new Timer{Interval=40};
+ readonly MonitorCapture capture=new MonitorCapture();
  readonly string[] sources=new string[3]; readonly Bitmap[] frames=new Bitmap[3];
  readonly Dictionary<IntPtr,DockedWindow> moved=new Dictionary<IntPtr,DockedWindow>();
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Màn hình ảo 0.4"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="DTTL • Màn hình ảo 0.4.1"};
  BroadcastForm broadcast;
  string host; int count=1,percent=33,active=-1; bool registered,closing,placing,hotkey;
  Point returnCursor; uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool showHelp){
-  Text="DTTL • Màn hình ảo 0.4 thử nghiệm";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;
+  Text="DTTL • Màn hình ảo 0.4.1 thử nghiệm";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;
   StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(18,28,31);Font=new Font("Segoe UI",9);
+  ForeColor=Color.White;
+  foreach(var button in new[]{options,quit}){button.ForeColor=Color.White;button.BackColor=Color.FromArgb(43,65,70);button.FlatAppearance.BorderColor=Color.FromArgb(110,150,155);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(65,95,100);}
   host=Screen.PrimaryScreen.DeviceName;Controls.Add(options);Controls.Add(quit);
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};
   Shown+=delegate{
-   restartMessage=ShellNative.RegisterWindowMessage("TaskbarCreated");RegisterBar();
+   restartMessage=ShellNative.RegisterWindowMessage("TaskbarCreated");RegisterBar();AssignUnusedSources();
    hotkey=Native.RegisterHotKey(Handle,ExitHotkey,0x4003,(uint)Keys.Space);
    tray.Visible=true;tray.MouseClick+=delegate{ReleaseInput();Menu().Show(Cursor.Position);};
    frameTimer.Start();
@@ -76,20 +79,22 @@ internal sealed class VirtualDesktopDock : Form {
  }
  void Retire(ContextMenuStrip menu){menu.Closed+=delegate{if(!closing&&IsHandleCreated)BeginInvoke((Action)delegate{menu.Dispose();});};}
  ContextMenuStrip Menu(){
-  ReleaseInput();var m=new ContextMenuStrip();
-  for(int n=1;n<=3;n++){int v=n;var item=new ToolStripMenuItem(v+" ô"){Checked=count==v};item.Click+=delegate{count=v;Invalidate();};m.Items.Add(item);}
+  ReleaseInput();var m=new ContextMenuStrip{BackColor=Color.White,ForeColor=Color.FromArgb(20,30,35)};
+  for(int n=1;n<=3;n++){int v=n;var item=new ToolStripMenuItem(v+" ô"){Checked=count==v};item.Click+=delegate{count=v;AssignUnusedSources();Invalidate();};m.Items.Add(item);}
   var widths=new ToolStripMenuItem("Chiều rộng");foreach(int value in new[]{25,33,40,45}){int v=value;var item=new ToolStripMenuItem(v+"%"){Checked=percent==v};item.Click+=delegate{percent=v;Place();};widths.DropDownItems.Add(item);}m.Items.Add(widths);
   for(int i=0;i<count;i++){
    int index=i;var slot=new ToolStripMenuItem("Ô "+(i+1));var choose=new ToolStripMenuItem("Nguồn màn hình");
    foreach(var screen in OtherScreens()){
     string id=screen.DeviceName;var item=new ToolStripMenuItem(id+" • "+screen.Bounds.Width+"×"+screen.Bounds.Height){Checked=sources[index]==id};
-    item.Click+=delegate{sources[index]=id;ResetFrame(index);};choose.DropDownItems.Add(item);
+    int owner=SourceOwner(id,index);if(owner>=0){item.Enabled=false;item.Text+=" (ô "+(owner+1)+")";}
+    item.Click+=delegate{if(SourceOwner(id,index)<0){sources[index]=id;ResetFrame(index);}};choose.DropDownItems.Add(item);
    }
    if(choose.DropDownItems.Count==0)choose.DropDownItems.Add("Chưa có màn hình phụ").Enabled=false;
    slot.DropDownItems.Add(choose);
    var move=slot.DropDownItems.Add("Đưa ứng dụng sang…",null,delegate{BeginInvoke((Action)delegate{if(!closing)PickWindow(index);});});move.Enabled=Find(sources[index])!=null;
    slot.DropDownItems.Add("Bỏ nguồn",null,delegate{sources[index]=null;ResetFrame(index);});m.Items.Add(slot);
   }
+  if(OtherScreens().Count<count)m.Items.Add("Cần "+count+" màn hình phụ để dùng "+count+" ô độc lập").Enabled=false;
   m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm();broadcast.Show();broadcast.Activate();});});
   m.Items.Add(new ToolStripSeparator());m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{RestoreWindows();});
   m.Items.Add("Tải driver màn hình ảo",null,delegate{System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo("https://github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23"){UseShellExecute=true});});
@@ -97,7 +102,7 @@ internal sealed class VirtualDesktopDock : Form {
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
  }
  void SetupHelp(){
-  MessageBox.Show(this,"BẢN THỬ NGHIỆM MÀN HÌNH ẢO\n\n1. Cần một màn hình mở rộng thật hoặc driver màn hình ảo. Mỗi ô có thể chọn một màn hình riêng.\n2. Windows Settings → Display: chọn Extend, giữ màn hình vật lý là màn hình chính.\n3. Tùy chọn → Ô 1 → Nguồn màn hình; sau đó Đưa ứng dụng sang.\n4. Bấm trong hình để chuyển chuột/bàn phím sang màn hình đó. Bấm Ctrl+Alt+Space để trở về và mở Tùy chọn hoặc ×.\n\nChuột và bàn phím thao tác trực tiếp trên màn hình nguồn; đây không phải ảnh xem trước chỉ đọc. Thu/phóng ứng dụng diễn ra trên màn hình nguồn.\n\nNguồn driver: github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23\nChỉ cài phần Virtual Display Driver bằng bộ cài của dự án. Ứng dụng này không tự cài driver hay thay đổi bảo vệ Windows.\n\nBản thử dùng chụp màn hình khoảng 10 lần/giây, dành cho làm việc văn phòng; chưa tối ưu game/video. Chỉ truyền mạng khi anh bật Livestream trong Tùy chọn → Quay / Livestream.\n\nGiữ Ctrl+Alt+Space để thoát điều khiển nếu chưa quen. Driver vẫn còn sau khi đóng app; gỡ bằng công cụ của nhà cung cấp.",Text);
+  MessageBox.Show(this,"BẢN THỬ NGHIỆM MÀN HÌNH ẢO\n\n1. Cần một màn hình mở rộng thật hoặc driver màn hình ảo. Mỗi ô có thể chọn một màn hình riêng.\n2. Windows Settings → Display: chọn Extend, giữ màn hình vật lý là màn hình chính.\n3. Tùy chọn → Ô 1 → Nguồn màn hình; sau đó Đưa ứng dụng sang.\n4. Bấm trong hình để chuyển chuột/bàn phím sang màn hình đó. Bấm Ctrl+Alt+Space để trở về và mở Tùy chọn hoặc ×.\n\nChuột và bàn phím thao tác trực tiếp trên màn hình nguồn; đây không phải ảnh xem trước chỉ đọc. Thu/phóng ứng dụng diễn ra trên màn hình nguồn.\n\nNguồn driver: github.com/VirtualDrivers/Virtual-Display-Driver/releases/tag/25.7.23\nChỉ cài phần Virtual Display Driver bằng bộ cài của dự án. Ứng dụng này không tự cài driver hay thay đổi bảo vệ Windows.\n\nBản thử dùng chụp màn hình nền, tối đa khoảng 25 lần/giây, dành cho làm việc văn phòng; chưa tối ưu game/video. Chỉ truyền mạng khi anh bật Livestream trong Tùy chọn → Quay / Livestream.\n\nGiữ Ctrl+Alt+Space để thoát điều khiển nếu chưa quen. Driver vẫn còn sau khi đóng app; gỡ bằng công cụ của nhà cung cấp.",Text);
  }
  void PickWindow(int index){
   var screen=Find(sources[index]);if(screen==null)return;var menu=new ContextMenuStrip();
@@ -115,19 +120,29 @@ internal sealed class VirtualDesktopDock : Form {
   if(menu.Items.Count==0)menu.Items.Add("Mở ứng dụng trước").Enabled=false;Retire(menu);menu.Show(this,new Point(4,40));
  }
  void ResetFrame(int i){if(frames[i]!=null){frames[i].Dispose();frames[i]=null;}Invalidate();}
+ internal int SourceOwner(string id,int except){for(int i=0;i<sources.Length;i++)if(i!=except&&sources[i]==id)return i;return -1;}
+ void AssignUnusedSources(){
+  var available=OtherScreens();
+  for(int i=0;i<3;i++)if(i>=count||Find(sources[i])==null||sources[i]==host){sources[i]=null;ResetFrame(i);}
+  for(int i=0;i<count;i++)if(sources[i]==null)foreach(var screen in available)if(SourceOwner(screen.DeviceName,i)<0){sources[i]=screen.DeviceName;break;}
+ }
  void CaptureFrames(){
   if(closing)return;
-  for(int i=0;i<count;i++){
-   var s=Find(sources[i]);if(s==null||s.DeviceName==host){if(active==i)ReleaseInput();ResetFrame(i);continue;}
-   var r=s.Bounds;
-   // Never capture the host screen (recursive display). Large displays have an explicit cap.
-   if(r.Width>4096||r.Height>4096){if(active==i)ReleaseInput();ResetFrame(i);continue;}
-   try{
-    if(frames[i]==null||frames[i].Width!=r.Width||frames[i].Height!=r.Height){ResetFrame(i);frames[i]=new Bitmap(r.Width,r.Height);}
-    using(var g=Graphics.FromImage(frames[i]))g.CopyFromScreen(r.Location,Point.Empty,r.Size,CopyPixelOperation.SourceCopy);
-   }catch(System.ComponentModel.Win32Exception){if(active==i)ReleaseInput();ResetFrame(i);}catch(ExternalException){if(active==i)ReleaseInput();ResetFrame(i);}
+  var screens=Screen.AllScreens;var byId=new Dictionary<string,Screen>();foreach(var screen in screens)byId[screen.DeviceName]=screen;
+  var completed=capture.Take();
+  if(completed!=null)foreach(var f in completed){
+   Screen current;
+   if(f.Index<count&&sources[f.Index]==f.Source&&byId.TryGetValue(f.Source,out current)&&current.Bounds==f.Bounds){
+    ResetFrame(f.Index);frames[f.Index]=f.Image;f.Image=null;
+   }f.Dispose();
   }
-  Invalidate();
+  var requests=new List<MonitorFrame>();
+  for(int i=0;i<count;i++){
+   Screen source;if(sources[i]==null||!byId.TryGetValue(sources[i],out source)||source.DeviceName==host){if(active==i)ReleaseInput();if(frames[i]!=null)ResetFrame(i);continue;}
+   var view=ViewGeometry.Fit(Cell(i),source.Bounds.Size);
+   requests.Add(new MonitorFrame{Index=i,Source=source.DeviceName,Bounds=source.Bounds,Output=view.Size});
+  }
+  capture.Request(requests);Invalidate();
  }
  void EnterInput(Point point){
   if(!hotkey)return;
@@ -148,9 +163,10 @@ internal sealed class VirtualDesktopDock : Form {
   base.OnPaint(e);e.Graphics.InterpolationMode=InterpolationMode.HighQualityBilinear;
   for(int i=0;i<count;i++){
    var cell=Cell(i);var s=Find(sources[i]);
-   if(s!=null&&frames[i]!=null){var view=ViewGeometry.Fit(cell,frames[i].Size);e.Graphics.DrawImage(frames[i],view);
+   if(s!=null&&frames[i]!=null){var view=ViewGeometry.Fit(cell,s.Bounds.Size);e.Graphics.DrawImage(frames[i],view);
     if(active==i){var pt=ViewGeometry.ToView(Cursor.Position,s.Bounds,view);var p=new[]{pt,new Point(pt.X+3,pt.Y+17),new Point(pt.X+7,pt.Y+11),new Point(pt.X+14,pt.Y+10)};e.Graphics.FillPolygon(Brushes.White,p);e.Graphics.DrawPolygon(Pens.Black,p);}
    }
+   if(s==null||frames[i]==null)TextRenderer.DrawText(e.Graphics,s==null?"Chưa có màn hình riêng cho ô "+(i+1):"Đang lấy hình…",Font,cell,Color.White,TextFormatFlags.HorizontalCenter|TextFormatFlags.VerticalCenter|TextFormatFlags.WordBreak);
    using(var pen=new Pen(active==i?Color.LimeGreen:Color.FromArgb(70,100,95),active==i?3:1))e.Graphics.DrawRectangle(pen,cell);
   }
   if(active>=0)TextRenderer.DrawText(e.Graphics,"Ctrl+Alt+Space: trở về",Font,new Rectangle(135,7,Math.Max(1,Width-175),30),Color.White,TextFormatFlags.VerticalCenter|TextFormatFlags.EndEllipsis);
@@ -159,12 +175,12 @@ internal sealed class VirtualDesktopDock : Form {
  protected override void WndProc(ref Message m){
   if(m.Msg==0x312&&m.WParam.ToInt32()==ExitHotkey){ReleaseInput();Activate();}
   if(m.Msg==Callback&&m.WParam.ToInt32()==1&&!placing&&!closing)BeginInvoke((Action)delegate{Place();});
-  if(m.Msg==0x7E&&!closing){ReleaseInput();RestoreWindows();BeginInvoke((Action)delegate{Place();});}
+  if(m.Msg==0x7E&&!closing){ReleaseInput();RestoreWindows();BeginInvoke((Action)delegate{Place();AssignUnusedSources();});}
   if(restartMessage!=0&&m.Msg==restartMessage&&!closing){registered=false;BeginInvoke((Action)delegate{RegisterBar();});}
   if(m.Msg==0x11)ReleaseInput();
   base.WndProc(ref m);
  }
- void Shutdown(){if(closing)return;ReleaseInput();closing=true;if(broadcast!=null&&!broadcast.IsDisposed)broadcast.Close();frameTimer.Stop();RestoreWindows();if(hotkey)Native.UnregisterHotKey(Handle,ExitHotkey);if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}for(int i=0;i<3;i++)ResetFrame(i);frameTimer.Dispose();tray.Dispose();}
+ void Shutdown(){if(closing)return;ReleaseInput();closing=true;capture.Dispose();if(broadcast!=null&&!broadcast.IsDisposed)broadcast.Close();frameTimer.Stop();RestoreWindows();if(hotkey)Native.UnregisterHotKey(Handle,ExitHotkey);if(registered){var d=Data();ShellNative.SHAppBarMessage(1,ref d);registered=false;}for(int i=0;i<3;i++)ResetFrame(i);frameTimer.Dispose();tray.Dispose();}
 }
 static class VirtualDisplayProgram {
  [STAThread] static void Main(){

@@ -104,10 +104,25 @@ class LayoutTests {
    Console.WriteLine("PASS: exit restores desktop work area and docked windows");
    using(var virtualDock=new VirtualDesktopDock(false)){
     virtualDock.Show();Pump(500);if(virtualDock.Controls.Count!=2)throw new Exception("Virtual viewer must have two controls");
+    foreach(Control control in virtualDock.Controls)if(control.ForeColor!=Color.White)throw new Exception("Unreadable toolbar text");
+    var ids=(string[])typeof(VirtualDesktopDock).GetField("sources",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(virtualDock);
+    ids[0]="test-source";if(virtualDock.SourceOwner("test-source",1)!=0||virtualDock.SourceOwner("test-source",0)!=-1)throw new Exception("Duplicate source ownership");ids[0]=null;
     virtualDock.Close();Pump(500);
    }
    if(Screen.PrimaryScreen.WorkingArea!=workBefore)throw new Exception("Virtual viewer failed to restore desktop");
    Console.WriteLine("PASS: virtual monitor viewer opens and closes cleanly with two controls");
+   using(var fixture=new Form{BackColor=Color.Red,FormBorderStyle=FormBorderStyle.None,StartPosition=FormStartPosition.Manual,Bounds=new Rectangle(50,50,300,200),TopMost=true}){
+    fixture.Show();Pump(300);
+    using(var worker=new MonitorCapture()){
+     worker.Request(new List<MonitorFrame>{new MonitorFrame{Index=0,Source="fixture",Bounds=fixture.Bounds,Output=new Size(150,100)}});
+     List<MonitorFrame> result=null;for(int retry=0;retry<100&&result==null;retry++){Pump(30);result=worker.Take();}
+     if(result==null||result[0].Image==null||result[0].Image.Size!=new Size(150,100)||result[0].Image.GetPixel(75,50).R<180)throw new Exception("Background capture or resize failed");
+     foreach(var frame in result)frame.Dispose();
+     worker.Request(new List<MonitorFrame>{new MonitorFrame{Source="fixture",Bounds=fixture.Bounds,Output=new Size(150,100)}});
+    }
+    fixture.Close();Pump(300);
+   }
+   Console.WriteLine("PASS: background capture renders scaled desktop pixels and closes with a pending request; toolbar text and unique source ownership");
    Console.WriteLine("LIMITATION: runner has no configured virtual monitor; driver, capture and remote-input integration require device testing");
   }finally{foreach(var p in processes){if(!p.HasExited){p.CloseMainWindow();if(!p.WaitForExit(1000))p.Kill();}p.Dispose();}}
  }

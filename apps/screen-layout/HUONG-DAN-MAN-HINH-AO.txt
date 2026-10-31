@@ -1,4 +1,4 @@
-DTTL MÀN HÌNH ẢO 0.4 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
+DTTL MÀN HÌNH ẢO 0.4.1 — BẢN THỬ NGHIỆM KIẾN TRÚC MỚI
 
 Bản này đọc một màn hình mở rộng có thật trong Windows và thu toàn bộ hình vào ô phụ.
 Không dùng cách ép cửa sổ Zalo xuống nhỏ nữa. Mỗi ô có thể chọn nguồn màn hình riêng.
@@ -47,3 +47,5 @@ Có thể chọn ba đích cùng lúc. Mỗi đích mã hóa riêng nên tải C
 TEST YOUTUBE: tạo buổi phát Riêng tư trong YouTube Studio, lấy URL RTMPS + khóa luồng, chỉ tích YouTube, chọn 720p trước. Bấm Bắt đầu, xem hình/âm thanh và sức khỏe luồng trong Studio; bấm Dừng trong app và kết thúc buổi phát trong Studio. App không tự đặt quyền riêng tư cho buổi phát.
 Đóng cửa sổ Quay / Livestream hoặc đóng app sẽ dừng tất cả phiên quay/phát. Bản này chọn toàn màn hình nguồn, chưa chọn riêng ứng dụng hoặc vùng tùy ý.
 Kiểm thử tự động: quay màn hình Windows 720p/1080p và luồng RTMP nội bộ. Không coi đó là đã kiểm thử YouTube thật; cần tài khoản và máy của người dùng.
+
+0.4.1: chữ/nút sáng; chụp màn hình chạy nền và thu nhỏ trước khi vẽ, tối đa khoảng 25fps tùy máy. Mỗi ô chỉ dùng một nguồn riêng. Ba ô độc lập cần ba màn hình phụ (tổng bốn màn hình gồm màn chính). Tạo thêm hai màn hình bằng VDD Control và chọn Extend trong Windows; ứng dụng không tự cài/tạo màn hình ảo. Ô thiếu nguồn sẽ báo rõ, không nhân cùng màn hình vào ba ô. Ctrl+Alt+Space vẫn cần để rời điều khiển trước khi đổi ô.
