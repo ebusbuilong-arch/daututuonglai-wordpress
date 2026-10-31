@@ -42,9 +42,14 @@ class LayoutTests {
    foreach(int mode in new[]{1,2,3}){ink.SelectTool(mode);Pump(100);DragPoint(new Point(160,160+mode*30),new Point(360,180+mode*30));}
    if(ink.StrokeCount!=3||clicks!=0)throw new Exception("Ink did not intercept drawing gestures");
    using(var shot=new Bitmap(600,440)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(new Point(60,60),Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/ink-preview.png");}
+   // Select mouse mode by clicking the real toolbar while the input shield is active.
+   var mouseButton=ink.ToolCenter(0);SetCursorPos(mouseButton.X,mouseButton.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(ink.Drawing)throw new Exception("Drawing shield blocks toolbar");
+   ink.SelectTool(1);Pump(100);var clearButton=ink.ClearCenter;SetCursorPos(clearButton.X,clearButton.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(ink.Drawing||ink.StrokeCount!=0)throw new Exception("Cannot clear from toolbar while drawing");
    ink.SelectTool(0);Pump(100);SetCursorPos(260,260);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
    if(clicks!=1)throw new Exception("Ink blocks application clicks in mouse mode");
-   ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(2900);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
+   ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(4600);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
    ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
   }
   Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");

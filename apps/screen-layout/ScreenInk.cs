@@ -36,18 +36,21 @@ internal sealed class ScreenInk : IDisposable {
   shield.MouseMove+=delegate(object s,MouseEventArgs e){if(current!=null)Move(e.Location);};
   shield.MouseUp+=delegate{current=null;shield.Capture=false;};shield.MouseCaptureChanged+=delegate{if(!shield.Capture)current=null;};
   KeyEventHandler escape=delegate(object s,KeyEventArgs e){if(e.KeyCode==Keys.Escape){SelectTool(0);e.Handled=true;}};shield.KeyDown+=escape;bar.KeyDown+=escape;
-  animation.Tick+=delegate{particles.RemoveAll(delegate(Particle p){return (DateTime.UtcNow-p.Born).TotalSeconds>2.5;});canvas.Invalidate();if(particles.Count==0)animation.Stop();};
+  animation.Tick+=delegate{particles.RemoveAll(delegate(Particle p){return (DateTime.UtcNow-p.Born).TotalSeconds>4.2;});canvas.Invalidate();if(particles.Count==0)animation.Stop();};
  }
  Button Button(string text,int x,int w,string tip){var b=new Button{Text=text,Location=new Point(x+2,3),Size=new Size(w-4,36),FlatStyle=FlatStyle.Flat,ForeColor=Color.White,BackColor=Color.FromArgb(36,60,68),TabStop=false,TextAlign=ContentAlignment.MiddleCenter,Padding=Padding.Empty};b.FlatAppearance.BorderSize=0;bar.Controls.Add(b);tips.SetToolTip(b,tip);return b;}
  internal void Show(Rectangle bounds){SetArea(bounds);if(!canvas.Visible)canvas.Show();bar.Show();SelectTool(0);}
- internal void SetArea(Rectangle bounds){if(disposed||bounds.Width<100||bounds.Height<100)return;area=bounds;canvas.Bounds=shield.Bounds=area;bar.Location=new Point(Math.Max(area.Left,area.Right-bar.Width-12),area.Bottom-bar.Height-12);}
- internal void SelectTool(int value){tool=value;current=null;shield.Capture=false;for(int i=0;i<modes.Count;i++)modes[i].BackColor=i==tool?Color.Teal:Color.FromArgb(36,60,68);if(tool==0)shield.Hide();else{shield.Show();shield.Activate();}canvas.BringToFront();bar.BringToFront();}
+ internal void SetArea(Rectangle bounds){if(disposed||bounds.Width<100||bounds.Height<100)return;area=bounds;canvas.Bounds=shield.Bounds=area;bar.Location=new Point(Math.Max(area.Left,area.Right-bar.Width-12),area.Bottom-bar.Height-12);UpdateInputRegion();}
+ void UpdateInputRegion(){var region=new Region(new Rectangle(Point.Empty,area.Size));var buttons=bar.Bounds;buttons.Offset(-area.Left,-area.Top);buttons.Inflate(2,2);region.Exclude(buttons);var old=shield.Region;shield.Region=region;if(old!=null)old.Dispose();}
+ internal Point ToolCenter(int index){return new Point(bar.Left+index*44+22,bar.Top+21);}
+ internal Point ClearCenter{get{return new Point(bar.Left+300,bar.Top+21);}}
+ internal void SelectTool(int value){tool=value;current=null;shield.Capture=false;for(int i=0;i<modes.Count;i++)modes[i].BackColor=i==tool?Color.Teal:Color.FromArgb(36,60,68);if(tool==0)shield.Hide();else{UpdateInputRegion();shield.Show();shield.Activate();}canvas.BringToFront();bar.BringToFront();}
  internal void Begin(Point p){if(tool==0)return;current=new Stroke{Color=color,Width=width,Tool=tool};current.Points.Add(p);current.Points.Add(p);strokes.Add(current);canvas.Invalidate();}
  internal void Move(Point p){if(current==null)return;if(current.Tool==1)current.Points.Add(p);else current.Points[1]=p;canvas.Invalidate();}
  internal void Clear(){current=null;strokes.Clear();particles.Clear();animation.Stop();canvas.Invalidate();SelectTool(0);}
  internal void Burst(bool heart){for(int i=0;i<7;i++)particles.Add(new Particle{X=area.Width-60-random.Next(Math.Max(1,Math.Min(260,area.Width-80))),Y=area.Height-65+random.Next(30),Born=DateTime.UtcNow.AddMilliseconds(random.Next(200)),Heart=heart});if(particles.Count>70)particles.RemoveRange(0,particles.Count-70);animation.Start();canvas.Invalidate();}
  void Paint(Graphics g){g.SmoothingMode=SmoothingMode.AntiAlias;foreach(var s in strokes){using(var pen=new Pen(s.Color,s.Width)){pen.StartCap=LineCap.Round;pen.EndCap=LineCap.Round;if(s.Tool==3){using(var cap=new AdjustableArrowCap(4,5,true)){pen.CustomEndCap=cap;g.DrawLine(pen,s.Points[0],s.Points[1]);}}else g.DrawLines(pen,s.Points.ToArray());}}
-  foreach(var p in particles){float age=(float)(DateTime.UtcNow-p.Born).TotalSeconds;if(age<0)continue;float x=p.X+(float)Math.Sin(age*4)*18,y=p.Y-age*130;using(var font=new Font("Segoe UI Symbol",28)){using(var brush=new SolidBrush(p.Heart?Color.HotPink:Color.Gold)){g.DrawString(p.Heart?"♥":"✿",font,brush,x,y);}}}
+  foreach(var p in particles){float age=(float)(DateTime.UtcNow-p.Born).TotalSeconds;if(age<0)continue;float x=p.X+(float)Math.Sin(age*4)*18,y=p.Y-age*(p.Y+60)/4f;using(var font=new Font("Segoe UI Symbol",28)){using(var brush=new SolidBrush(p.Heart?Color.HotPink:Color.Gold)){g.DrawString(p.Heart?"♥":"✿",font,brush,x,y);}}}
  }
  public void Dispose(){if(disposed)return;disposed=true;animation.Stop();animation.Dispose();tips.Dispose();shield.Dispose();canvas.Dispose();bar.Dispose();strokes.Clear();particles.Clear();}
 }

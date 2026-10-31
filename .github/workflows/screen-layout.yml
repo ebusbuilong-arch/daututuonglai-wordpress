@@ -45,5 +45,5 @@ jobs:
             apps/screen-layout/dist/workspace-preview.png
             apps/screen-layout/dist/ink-preview.png
             apps/screen-layout/dist/broadcast-preview.png
-            apps/screen-layout/dist/DTTL-Workspace-0.6.4-thu-nghiem.zip
+            apps/screen-layout/dist/DTTL-Workspace-0.6.5-thu-nghiem.zip
           retention-days: 30

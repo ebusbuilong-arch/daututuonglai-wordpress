@@ -66,7 +66,7 @@ internal sealed class BroadcastForm : Form {
  readonly Timer poll=new Timer{Interval=1000};readonly Panel settings=new Panel{Dock=DockStyle.Top,Height=360};
  string savedFile; bool hasLive; string lastError=""; readonly Button details=new Button{Text="Chi tiết lỗi",Width=100,Visible=false};
  internal BroadcastForm(){
-  Text="Quay / Livestream • thử nghiệm 0.6.4";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,560);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  Text="Quay / Livestream • thử nghiệm 0.6.5";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,560);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
   BackColor=Color.FromArgb(243,247,248);ForeColor=Color.FromArgb(25,45,53);Controls.Add(settings);int y=16;
   Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80,Height=30};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};

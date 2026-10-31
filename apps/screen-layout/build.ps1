@@ -40,7 +40,7 @@ Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\DTTL-Workspace-0.6.4-thu-nghiem.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\DTTL-Workspace-0.6.5-thu-nghiem.zip" -Force
 
 & $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }
