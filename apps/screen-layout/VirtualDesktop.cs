@@ -55,7 +55,7 @@ uint restartMessage;
    if(ev!=0xB)return;
    var saved=beforeMove!=null&&beforeMove.Handle==window?beforeMove:DesktopDock.Capture(window);beforeMove=null;
    BeginInvoke((Action)delegate{if(closing)return;Native.Point p;if(!ShellNative.GetCursorPos(out p))return;
-    var target=ApplicationArea;target.Inflate(12,0);
+    var target=ApplicationArea;target.Inflate(28,0);
     if(target.Contains(p.X,p.Y)){if(DesktopDock.Valid(saved))Attach(saved);}
     else if(app!=null&&app.Handle==window)ReleaseApp(false);
    });
