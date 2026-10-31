@@ -36,6 +36,16 @@ class LayoutTests {
   try{Native.SetProcessDpiAwarenessContext(new IntPtr(-4));}catch{}
   Application.SetUnhandledExceptionMode(UnhandledExceptionMode.ThrowException);
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
+  using(var under=new Form{StartPosition=FormStartPosition.Manual,Bounds=new Rectangle(60,60,600,440)})using(var ink=new ScreenInk()){
+   int clicks=0;under.MouseDown+=delegate{clicks++;};under.Show();Pump(100);ink.Show(new Rectangle(60,60,600,440));Pump(100);
+   foreach(int mode in new[]{1,2,3}){ink.SelectTool(mode);Pump(100);DragPoint(new Point(160,160+mode*30),new Point(360,180+mode*30));}
+   if(ink.StrokeCount!=3||clicks!=0)throw new Exception("Ink did not intercept drawing gestures");
+   ink.SelectTool(0);Pump(100);SetCursorPos(260,260);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
+   if(clicks!=1)throw new Exception("Ink blocks application clicks in mouse mode");
+   ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(2900);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
+   ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
+  }
+  Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
   Console.WriteLine("PASS default split geometry");

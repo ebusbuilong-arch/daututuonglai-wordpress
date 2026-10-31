@@ -1,4 +1,4 @@
-DTTL WORKSPACE 0.6.3 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
+DTTL WORKSPACE 0.6.4 — KHÔNG CẦN DRIVER MÀN HÌNH ẢO
 
 Vùng phụ mặc định rộng 33%; kéo mép trái để chỉnh rộng/hẹp (25–65%).
 Ô webcam có thể thu xuống 6% chiều cao vùng phụ để nhường chỗ cho ứng dụng. Khi kéo cửa sổ, DTTL tạm nhường lớp hiển thị và chỉ căn sau khi thả chuột.
@@ -29,9 +29,9 @@ Kiểm tra Windows cho bố cục, đặt/trả cửa sổ thật, khôi phục 
 
 CHẨN ĐOÁN GHIM CỬA SỔ
 Nếu ghim chưa được: Tùy chọn → Thông tin lần ghim gần nhất. Ctrl+C sao chép nội dung để gửi hỗ trợ. Chỉ có tọa độ, kích thước và mã lỗi; không ghi nội dung chat hay khóa live. Không tự gửi dữ liệu.
-Bản 0.6.3 chờ lệnh đổi kích thước tối đa 2 giây và chấp nhận cửa sổ nhỏ hơn ô nếu đã nằm gọn trong ô. Không ép ứng dụng phóng đầy ô mới coi là thành công.
+Bản 0.6.4 chờ lệnh đổi kích thước tối đa 2 giây và chấp nhận cửa sổ nhỏ hơn ô nếu đã nằm gọn trong ô. Không ép ứng dụng phóng đầy ô mới coi là thành công.
 
-QUAY / PHÁT 0.6.3
+QUAY / PHÁT 0.6.4
 - Luôn thu tiếng đang phát trên loa/tai nghe mặc định Windows (WASAPI), trộn với micro đã chọn.
 - Tắt micro vẫn giữ tiếng máy. Âm thanh phát sang một thiết bị khác không nằm trong bản thu.
 - Nếu đổi loa/tai nghe giữa chừng, dừng rồi bắt đầu lại. Không tự bật nhạc hoặc phát tiếng micro ra loa.
@@ -41,5 +41,8 @@ QUAY / PHÁT 0.6.3
 - Nếu báo lỗi, bấm Chi tiết lỗi và Ctrl+C sao chép thông tin. Không cần gửi khóa livestream.
 - Kiểm thử tự động có nguồn âm thanh giả và kiểm tra hai tín hiệu trong MP4; chưa xác nhận loa/mic thật trên máy người dùng.
 
-SỬA LỖI 0.6.3
+SỬA LỖI 0.6.4
 Bỏ tham số thread_queue_size ở đầu vào để tương thích bản FFmpeg git mới. Giữ thu tiếng máy và trộn micro. Không cần cài lại FFmpeg.
+
+BÚT VẼ / HIỆU ỨNG
+Thanh công cụ ở góc dưới bên phải vùng chính. Chọn Bút, đường thẳng hoặc mũi tên rồi kéo trên màn hình. Màu chọn tự do; độ dày 3/6/10 px. Esc hoặc nút chuột để thao tác ứng dụng bên dưới. Xoá dọn tất cả nét và hiệu ứng, trả về chuột. Tim/hoa bay lên khi bấm. Nút — ẩn thanh; mở lại qua Tùy chọn → Bút vẽ / Hiệu ứng. Nét và hiệu ứng trên màn hình nguồn được ghi vào video/live.
