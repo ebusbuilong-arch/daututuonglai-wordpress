@@ -19,8 +19,8 @@ class BroadcastTests {
   public NAudio.Wave.WaveFormat WaveFormat{get;set;}
   System.Threading.Timer timer; int frame; internal bool Disposed;
   internal FakeAudio(){WaveFormat=new NAudio.Wave.WaveFormat(48000,16,2);}
-  public void StartRecording(){timer=new System.Threading.Timer(delegate{
-   byte[] data=new byte[960*4];for(int i=0;i<960;i++){short sample=frame++<24000?(short)0:(short)(Math.Sin(2*Math.PI*440*frame/48000)*5000);for(int channel=0;channel<2;channel++){int at=i*4+channel*2;data[at]=(byte)sample;data[at+1]=(byte)(sample>>8);}}
+  public void StartRecording(){var clock=Stopwatch.StartNew();timer=new System.Threading.Timer(delegate{
+   int frames=Math.Max(0,(int)(clock.ElapsedMilliseconds*48)-frame);byte[] data=new byte[frames*4];for(int i=0;i<frames;i++){short sample=frame++<24000?(short)0:(short)(Math.Sin(2*Math.PI*440*frame/48000)*5000);for(int channel=0;channel<2;channel++){int at=i*4+channel*2;data[at]=(byte)sample;data[at+1]=(byte)(sample>>8);}}
    var handler=DataAvailable;if(handler!=null)handler(this,new NAudio.Wave.WaveInEventArgs(data,data.Length));
   },null,0,20);}
   public void StopRecording(){if(timer!=null){timer.Dispose();timer=null;}}
@@ -47,7 +47,7 @@ class BroadcastTests {
   if(!fake.Disposed)throw new Exception("Loopback source not disposed");
   string raw=Path.Combine(folder,"loopback.f32");if(File.Exists(raw))File.Delete(raw);
   RunEncoder(ff,"-v error -i "+BroadcastSession.Quote(output)+" -map 0:a:0 -ac 1 -ar 48000 -f f32le "+BroadcastSession.Quote(raw));
-  if(Tone(File.ReadAllBytes(raw),440)<.02)throw new Exception("Loopback tone missing");
+  double amplitude=Tone(File.ReadAllBytes(raw),440);Console.WriteLine("Loopback amplitude: "+amplitude);if(amplitude<.02)throw new Exception("Loopback tone missing");
   Console.WriteLine("PASS paced audio pipe: initial silence then tone captured in MP4; source disposed");
   string mixed=Path.Combine(folder,"mixed.mp4");if(File.Exists(mixed))File.Delete(mixed);
   RunEncoder(ff,"-v error -f lavfi -i testsrc2=size=1280x720:rate=30 -f lavfi -i sine=frequency=440:sample_rate=48000 -f lavfi -i sine=frequency=880:sample_rate=48000"+BroadcastSession.Encoding(720,true)+" -t 3 -f mp4 "+BroadcastSession.Quote(mixed));

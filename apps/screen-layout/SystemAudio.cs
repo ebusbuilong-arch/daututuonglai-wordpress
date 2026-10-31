@@ -30,6 +30,8 @@ internal sealed class SystemAudioPipe : IDisposable {
  void Run(){
   try{
    pipe.WaitForConnection();if(disposed)return;buffer.ClearBuffer();
+   // WASAPI delivers packets in batches; retain a short cushion instead of inserting gaps between batches.
+   if(stop.WaitOne(150))return;
    int frames=Math.Max(1,Format.SampleRate/50);byte[] chunk=new byte[frames*Format.BlockAlign];
    var clock=Stopwatch.StartNew();long total=0;
    while(!disposed){
