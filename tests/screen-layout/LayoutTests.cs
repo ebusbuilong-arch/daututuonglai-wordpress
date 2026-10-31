@@ -50,6 +50,8 @@ class LayoutTests {
    ink.SelectTool(0);Pump(100);SetCursorPos(260,260);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(100);
    if(clicks!=1)throw new Exception("Ink blocks application clicks in mouse mode");
    ink.Burst(true);ink.Burst(false);if(ink.ParticleCount!=14)throw new Exception("Effects missing");Pump(4600);if(ink.ParticleCount!=0)throw new Exception("Effects did not expire");
+   ink.SetArea(new Rectangle(60,60,500,440),new Rectangle(60,60,700,440));ink.SelectTool(1);Pump(100);
+   int beforeSide=ink.StrokeCount;DragPoint(new Point(690,180),new Point(710,280));if(ink.StrokeCount!=beforeSide+1)throw new Exception("Cannot draw in auxiliary area");
    ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
   }
   Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");

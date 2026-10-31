@@ -21,7 +21,7 @@ internal sealed class ScreenInk : IDisposable {
  readonly Canvas canvas=new Canvas();readonly Shield shield=new Shield();readonly Form bar=new Form();
  readonly List<Stroke> strokes=new List<Stroke>();readonly List<Particle> particles=new List<Particle>();
  readonly Timer animation=new Timer{Interval=33};readonly ToolTip tips=new ToolTip();readonly Random random=new Random();
- readonly List<Button> modes=new List<Button>();Stroke current;int tool;Color color=Color.Red;float width=3;bool disposed;Rectangle area;
+ readonly List<Button> modes=new List<Button>();Stroke current;int tool;Color color=Color.Red;float width=3;bool disposed;Rectangle area,mainArea;
  internal int StrokeCount{get{return strokes.Count;}}internal int ParticleCount{get{return particles.Count;}}internal bool Drawing{get{return shield.Visible;}}
  internal ScreenInk(){
   canvas.Ink=this;bar.FormBorderStyle=FormBorderStyle.None;bar.ShowInTaskbar=false;bar.StartPosition=FormStartPosition.Manual;bar.TopMost=true;bar.BackColor=Color.FromArgb(27,44,51);bar.ClientSize=new Size(444,42);bar.AutoScaleMode=AutoScaleMode.None;bar.Font=new Font("Segoe UI",9);bar.KeyPreview=true;
@@ -39,9 +39,12 @@ internal sealed class ScreenInk : IDisposable {
   animation.Tick+=delegate{particles.RemoveAll(delegate(Particle p){return (DateTime.UtcNow-p.Born).TotalSeconds>4.2;});canvas.Invalidate();if(particles.Count==0)animation.Stop();};
  }
  Button Button(string text,int x,int w,string tip){var b=new Button{Text=text,Location=new Point(x+2,3),Size=new Size(w-4,36),FlatStyle=FlatStyle.Flat,ForeColor=Color.White,BackColor=Color.FromArgb(36,60,68),TabStop=false,TextAlign=ContentAlignment.MiddleCenter,Padding=Padding.Empty};b.FlatAppearance.BorderSize=0;bar.Controls.Add(b);tips.SetToolTip(b,tip);return b;}
- internal void Show(Rectangle bounds){SetArea(bounds);if(!canvas.Visible)canvas.Show();bar.Show();SelectTool(0);}
- internal void SetArea(Rectangle bounds){if(disposed||bounds.Width<100||bounds.Height<100)return;area=bounds;canvas.Bounds=shield.Bounds=area;bar.Location=new Point(Math.Max(area.Left,area.Right-bar.Width-12),area.Bottom-bar.Height-12);UpdateInputRegion();}
- void UpdateInputRegion(){var region=new Region(new Rectangle(Point.Empty,area.Size));var buttons=bar.Bounds;buttons.Offset(-area.Left,-area.Top);buttons.Inflate(2,2);region.Exclude(buttons);var old=shield.Region;shield.Region=region;if(old!=null)old.Dispose();}
+ internal void Show(Rectangle bounds){Show(bounds,bounds);}
+ internal void Show(Rectangle bounds,Rectangle drawingArea){SetArea(bounds,drawingArea);if(!canvas.Visible)canvas.Show();bar.Show();SelectTool(0);}
+ internal void SetArea(Rectangle bounds){SetArea(bounds,bounds);}
+ internal void SetArea(Rectangle bounds,Rectangle drawingArea){if(disposed||bounds.Width<100||bounds.Height<100)return;mainArea=bounds;area=drawingArea;canvas.Bounds=shield.Bounds=area;bar.Location=new Point(Math.Max(bounds.Left,bounds.Right-bar.Width-12),bounds.Bottom-bar.Height-12);UpdateInputRegion();}
+ void UpdateInputRegion(){var region=new Region(new Rectangle(Point.Empty,area.Size));var buttons=bar.Bounds;buttons.Offset(-area.Left,-area.Top);buttons.Inflate(2,2);region.Exclude(buttons);if(mainArea.Right<area.Right)region.Exclude(new Rectangle(mainArea.Right-area.Left,0,area.Right-mainArea.Right,42));var old=shield.Region;shield.Region=region;if(old!=null)old.Dispose();}
+ internal void EnsureAbove(){if(disposed)return;foreach(var f in new Form[]{shield,canvas,bar})if(f.Visible)Native.SetWindowPos(f.Handle,new IntPtr(-1),0,0,0,0,0x13);}
  internal Point ToolCenter(int index){return new Point(bar.Left+index*44+22,bar.Top+21);}
  internal Point ClearCenter{get{return new Point(bar.Left+300,bar.Top+21);}}
  internal void SelectTool(int value){tool=value;current=null;shield.Capture=false;for(int i=0;i<modes.Count;i++)modes[i].BackColor=i==tool?Color.Teal:Color.FromArgb(36,60,68);if(tool==0)shield.Hide();else{UpdateInputRegion();shield.Show();shield.Activate();}canvas.BringToFront();bar.BringToFront();}
