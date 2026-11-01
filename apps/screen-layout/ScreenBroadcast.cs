@@ -61,7 +61,7 @@ internal sealed class BroadcastForm : Form {
  readonly ComboBox mode=new ComboBox{DropDownStyle=ComboBoxStyle.DropDownList};
  readonly TextBox mp3=new TextBox(),avatar=new TextBox();
  readonly CheckBox systemSound=new CheckBox{Text="Thu tiếng máy",Checked=true,AutoSize=true},listen=new CheckBox{Text="Nghe MP3 trên máy",AutoSize=true};
- readonly Button playVoice=new Button{Text="Phát lời",Width=100,Enabled=false},pauseVoice=new Button{Text="Tạm dừng lời",Width=120,Enabled=false},rewindVoice=new Button{Text="Về đầu",Width=100,Enabled=false};
+ readonly Button playVoice=new Button{Text="Phát lời",Width=100,Enabled=false},pauseVoice=new Button{Text="Tạm dừng lời",Width=150,Enabled=false},rewindVoice=new Button{Text="Về đầu",Width=100,Enabled=false};
  readonly Panel aiSettings=new Panel{Height=108},normalSettings=new Panel{Height=108};
  NarrationAudio narration;internal Action<string,string> ShowAvatar;internal Action StopAvatar;
  readonly ComboBox screen=new ComboBox{DropDownStyle=ComboBoxStyle.DropDownList};
@@ -97,7 +97,7 @@ internal sealed class BroadcastForm : Form {
   settings.Controls.Add(new Label{Text="Tích nơi muốn phát • cột giữa: URL máy chủ • cột phải: khóa luồng",Left=150,Top=y+28,Width=540,Height=28});
   details.Location=new Point(390,462);Controls.Add(details);details.Click+=delegate{MessageBox.Show(this,lastError,"Chi tiết lỗi quay — Ctrl+C để sao chép");};
   start.Location=new Point(150,462);stop.Location=new Point(270,462);status.Location=new Point(16,562);status.Width=680;Controls.AddRange(new Control[]{start,stop,status});status.Text="Chưa quay/phát. Chọn FFmpeg và màn hình nguồn. Khóa luồng chỉ giữ trong phiên này.";
-  playVoice.Location=new Point(150,510);pauseVoice.Location=new Point(270,510);rewindVoice.Location=new Point(410,510);Controls.AddRange(new Control[]{playVoice,pauseVoice,rewindVoice});
+  playVoice.Location=new Point(150,510);pauseVoice.Location=new Point(270,510);rewindVoice.Location=new Point(440,510);Controls.AddRange(new Control[]{playVoice,pauseVoice,rewindVoice});
   playVoice.Click+=delegate{if(narration!=null)narration.Play();};pauseVoice.Click+=delegate{if(narration!=null)narration.Pause();};rewindVoice.Click+=delegate{if(narration!=null)narration.Rewind();};
   StyleButtons(this);
   Shown+=delegate{System.Threading.ThreadPool.QueueUserWorkItem(delegate{string[] microphones;try{microphones=NativeWebcam.Microphones();}catch{return;}try{BeginInvoke((Action)delegate{if(IsDisposed)return;audio.Items.AddRange(microphones);if(microphones.Length==1)audio.SelectedIndex=1;});}catch(InvalidOperationException){}});};
