@@ -2,6 +2,7 @@ $ErrorActionPreference = 'Stop'
 $root = $PSScriptRoot
 $out = Join-Path $root 'dist'
 New-Item -ItemType Directory -Force $out | Out-Null
+& "$root\build-icon.ps1" -OutputDirectory $out
 # Pinned camera libraries; webcam works offline without an encoder installation.
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $packages = @{
@@ -34,13 +35,13 @@ Copy-Item "$root\HUONG-DAN.txt" $out
 Get-FileHash "$out\DTTL-Chia-Man-Hinh.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Chia-Man-Hinh.exe" } | Set-Content "$out\SHA256.txt"
 Compress-Archive -Path "$out\DTTL-Chia-Man-Hinh.exe","$out\HUONG-DAN.txt","$out\SHA256.txt" -DestinationPath "$out\DTTL-Chia-Man-Hinh-0.2.3-beta.zip" -Force
 
-& $csc @cameraRefs /nologo /target:winexe /main:VirtualDisplayProgram /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
+& $csc @cameraRefs /nologo /target:winexe /main:VirtualDisplayProgram "/win32icon:$out\DTTL-Workspace.ico" /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Virtual desktop build failed' }
 Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\DTTL-Workspace-0.6.7-thu-nghiem.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\DTTL-Workspace-0.6.8-thu-nghiem.zip" -Force
 
 & $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }

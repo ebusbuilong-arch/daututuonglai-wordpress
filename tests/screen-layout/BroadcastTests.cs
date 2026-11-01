@@ -63,6 +63,25 @@ class BroadcastTests {
   using(var bad=new BroadcastSession()){bad.Start(ff,Rectangle.Empty,720,Path.Combine(folder,"missing-folder","bad.mp4"),false,"",true);for(int i=0;i<150&&bad.Running;i++)Thread.Sleep(100);if(bad.Running||bad.ExitCode==0)throw new Exception("Invalid output should fail");Thread.Sleep(100);if(String.IsNullOrEmpty(bad.Error))throw new Exception("Recording error detail lost");}
   Console.WriteLine("PASS failed recording exposes local encoder error");
  }
+ static void AiTests(string ff,string folder){
+  string mp3=Path.Combine(folder,"narration.mp3"),output=Path.Combine(folder,"ai.mp4"),raw=Path.Combine(folder,"ai.f32"),avatar=Path.Combine(folder,"avatar.mp4");
+  foreach(string file in new[]{mp3,output,raw,avatar})if(File.Exists(file))File.Delete(file);
+  RunEncoder(ff,"-v error -f lavfi -i sine=frequency=440:sample_rate=48000 -t 12 -c:a libmp3lame "+BroadcastSession.Quote(mp3));
+  using(var voice=new NarrationAudio(mp3,false)){
+   using(var source=voice.CreateSource()){
+    double peak=0;source.DataAvailable+=delegate(object o,NAudio.Wave.WaveInEventArgs e){for(int i=0;i<e.BytesRecorded;i+=4)peak=Math.Max(peak,Math.Abs(BitConverter.ToSingle(e.Buffer,i)));};source.StartRecording();
+    Thread.Sleep(150);if(peak!=0)throw new Exception("AI should wait silently");voice.Play();Thread.Sleep(300);if(peak<.02)throw new Exception("MP3 did not play");voice.Pause();Thread.Sleep(50);peak=0;Thread.Sleep(200);if(peak!=0)throw new Exception("Paused MP3 not silent");voice.Rewind();if(voice.Playing)throw new Exception("Rewind must pause");
+   }
+   // Deliberately request bogus microphone and loopback: AI must ignore both.
+   using(var session=new BroadcastSession()){session.Start(ff,Rectangle.Empty,720,output,false,"NO SUCH MICROPHONE",true,true,voice);AwaitFrames(session);voice.Play();Thread.Sleep(3000);voice.Pause();Thread.Sleep(500);}
+  }
+  RunEncoder(ff,"-v error -i "+BroadcastSession.Quote(output)+" -ss 3 -t 2 -map 0:a:0 -ac 1 -ar 48000 -f f32le "+BroadcastSession.Quote(raw));
+  if(Tone(File.ReadAllBytes(raw),440)<.02)throw new Exception("Direct MP3 missing from AI recording");
+  Console.WriteLine("PASS AI MP3 transport: pause, rewind, direct AAC recording; ignores microphone and system capture");
+  RunEncoder(ff,"-v error -f lavfi -i testsrc2=size=320x180:rate=15 -t 1 -an -c:v libx264 -pix_fmt yuv420p "+BroadcastSession.Quote(avatar));
+  using(var feed=new WebcamFeed()){feed.StartVideo(ff,avatar);Thread.Sleep(2500);using(var frame=feed.Take()){if(feed.Ended||frame==null||frame.Size!=new Size(640,360))throw new Exception("AI avatar loop failed");}}
+  Console.WriteLine("PASS silent AI video continues beyond original clip duration");
+ }
  static void CheckVideo(string probe,string file,int height){
   var p=Process.Start(new ProcessStartInfo(probe,"-v error -select_streams v:0 -show_entries stream=width,height,codec_name -of csv=p=0 "+BroadcastSession.Quote(file)){UseShellExecute=false,RedirectStandardOutput=true,CreateNoWindow=true});
   string result=p.StandardOutput.ReadToEnd();p.WaitForExit();if(p.ExitCode!=0||!result.Contains("h264,"+(height==720?1280:1920)+","+height))throw new Exception("Bad video "+result);p.Dispose();
@@ -83,7 +102,7 @@ class BroadcastTests {
    Console.WriteLine("PASS webcam raw-frame pipeline and stop using synthetic input; no physical camera tested");
   }
   foreach(string bad in new[]{"https://example.com","file:///tmp/test","rtmps://user:secret@example.com/live"}){bool rejected=false;try{BroadcastSession.Destination(bad,"key");}catch(ArgumentException){rejected=true;}if(!rejected)throw new Exception("Invalid destination accepted");}
-  AudioTests(ff,folder);
+  AudioTests(ff,folder);AiTests(ff,folder);
   foreach(int height in new[]{720,1080}){
    string file=Path.Combine(folder,"record-"+height+".mp4");if(File.Exists(file))File.Delete(file);
    using(var s=new BroadcastSession()){s.Start(ff,Screen.PrimaryScreen.Bounds,height,file,false,"",false);AwaitFrames(s);}

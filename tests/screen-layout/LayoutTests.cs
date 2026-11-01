@@ -55,7 +55,11 @@ class LayoutTests {
    ink.Burst(true);ink.Clear();if(ink.StrokeCount!=0||ink.ParticleCount!=0||ink.Drawing)throw new Exception("Clear did not reset overlay");under.Close();
   }
   Console.WriteLine("PASS real mouse ink gestures, click-through, timed effects and clear");
-  using(var dialog=new BroadcastForm()){dialog.Show();Pump(300);CheckButtonText(dialog);using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-preview.png");}dialog.Close();}
+  using(var dialog=new BroadcastForm()){dialog.Show();Pump(300);CheckButtonText(dialog);using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-preview.png");}var mode=(ComboBox)typeof(BroadcastForm).GetField("mode",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);mode.SelectedIndex=1;Pump(100);
+   var ai=(Panel)typeof(BroadcastForm).GetField("aiSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);var normal=(Panel)typeof(BroadcastForm).GetField("normalSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);
+   if(!ai.Visible||normal.Visible)throw new Exception("AI mode controls not separated");CheckButtonText(dialog);
+   using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-ai-preview.png");}
+   mode.SelectedIndex=0;if(ai.Visible||!normal.Visible)throw new Exception("Normal mode controls not restored");dialog.Close();}
 
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
