@@ -37,6 +37,15 @@ $g.Clear([Drawing.Color]::Beige)
 for ($yy=0;$yy -lt 941;$yy+=8) { $g.DrawLine([Drawing.Pens]::Brown,0,$yy,1671,$yy) }
 $testAtlas.Save((Join-Path $out 'avatars.jpg'),[Drawing.Imaging.ImageFormat]::Jpeg)
 $g.Dispose(); $testAtlas.Dispose()
+# Synthetic expression frames exercise the texture path without uploading private artwork.
+$expressions = New-Object Drawing.Bitmap 600,400
+$eg = [Drawing.Graphics]::FromImage($expressions)
+for ($row=0;$row -lt 4;$row++) { for ($col=0;$col -lt 6;$col++) {
+ $brush = New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb((80+$col*25),(100+$row*30),120))
+ $eg.FillRectangle($brush,$col*100,$row*100,100,100); $brush.Dispose()
+} }
+$expressions.Save((Join-Path $out 'face-transitions.png'),[Drawing.Imaging.ImageFormat]::Png)
+$eg.Dispose(); $expressions.Dispose()
 & "$out\LayoutTests.exe"
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
 Copy-Item "$root\HUONG-DAN.txt" $out
