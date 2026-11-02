@@ -35,9 +35,9 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
  readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="Phần mềm livestream màn hình • v1.1.0"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="Phần mềm livestream màn hình • v1.2.0"};
  readonly ShellNative.WinEvent moveEvent;
- IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;WebcamFeed avatarFeed;Bitmap webcamImage;BroadcastForm broadcast;
+ IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;WebcamFeed avatarFeed;PhotoAvatar photoAvatar;Bitmap webcamImage;BroadcastForm broadcast;
  ScreenInk ink;
  string lastFit="Chưa ghim ứng dụng trong phiên này.";
  string webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";
@@ -47,7 +47,7 @@ uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool readSettings){
   try{Icon=Icon.ExtractAssociatedIcon(Application.ExecutablePath);if(Icon!=null)tray.Icon=Icon;}catch{}
-  Text="Phần mềm livestream màn hình • v1.1.0";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+  Text="Phần mềm livestream màn hình • v1.2.0";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.TextAlign=ContentAlignment.MiddleCenter;button.Padding=Padding.Empty;button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};
@@ -78,7 +78,7 @@ uint restartMessage;
   Activated+=delegate{if(!closing&&DesktopDock.Valid(app))BeginInvoke((Action)delegate{RaiseApp();});};
   settle.Tick+=delegate{settle.Stop();FitApp();};
   maintenance.Tick+=delegate{if(moving!=IntPtr.Zero&&!DesktopDock.Valid(beforeMove)){moving=IntPtr.Zero;beforeMove=null;Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);}if(app!=null&&!DesktopDock.Valid(app)){app=null;Invalidate();}RaiseApp();};
-  cameraTimer.Tick+=delegate{if(avatarFeed!=null){var frame=avatarFeed.Take();if(frame!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=frame;Invalidate(Cell(0));}if(avatarFeed.Ended){StopWebcam();tray.ShowBalloonTip(5000,"Video AI","Không đọc được video AI. Kiểm tra file MP4.",ToolTipIcon.Info);}return;}if(webcam==null)return;var next=webcam.Take();if(next!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=next;Invalidate(Cell(0));}if(webcam.Ended){string error=webcam.Error;StopWebcam();tray.ShowBalloonTip(5000,"Webcam",error??"Webcam đã dừng. Kiểm tra kết nối/quyền Camera.",ToolTipIcon.Info);}};
+  cameraTimer.Tick+=delegate{if(photoAvatar!=null){var pic=photoAvatar.Take();if(webcamImage!=null)webcamImage.Dispose();webcamImage=pic;Invalidate(Cell(0));return;}if(avatarFeed!=null){var frame=avatarFeed.Take();if(frame!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=frame;Invalidate(Cell(0));}if(avatarFeed.Ended){StopWebcam();tray.ShowBalloonTip(5000,"Video AI","Không đọc được video AI. Kiểm tra file MP4.",ToolTipIcon.Info);}return;}if(webcam==null)return;var next=webcam.Take();if(next!=null){if(webcamImage!=null)webcamImage.Dispose();webcamImage=next;Invalidate(Cell(0));}if(webcam.Ended){string error=webcam.Error;StopWebcam();tray.ShowBalloonTip(5000,"Webcam",error??"Webcam đã dừng. Kiểm tra kết nối/quyền Camera.",ToolTipIcon.Info);}};
   FormClosed+=delegate{Shutdown();};
  }
  internal static Rectangle Pane(Rectangle client,int index){return Pane(client,index,true,1.0/3);}
@@ -122,7 +122,7 @@ uint restartMessage;
   var release=m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{ReleaseApp(true);});release.Enabled=DesktopDock.Valid(app);
   m.Items.Add(new ToolStripSeparator());
   m.Items.Add("Bút vẽ / Hiệu ứng",null,delegate{if(ink!=null)ink.Show(MainArea(),DrawingArea());});
-  m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm{ShowAvatar=StartAvatar,StopAvatar=StopAvatar,ShowSpokenVideo=StartSpokenVideo};if(!broadcast.Visible)broadcast.Show();broadcast.Activate();});});
+  m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm{ShowAvatar=StartAvatar,StopAvatar=StopAvatar,ShowSpokenVideo=StartSpokenVideo,ShowPhoto=StartPhoto};if(!broadcast.Visible)broadcast.Show();broadcast.Activate();});});
   m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ mặc định rộng 33%. Kéo mép trái để đổi chiều rộng. Tắt webcam: ứng dụng dùng hết chiều cao. Bật webcam: kéo vách ngăn ngang để chia lại hai ô.\nTùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam tự nhận camera Windows, không cần FFmpeg. Cho phép ứng dụng desktop truy cập camera trong Windows Settings. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
   m.Items.Add("Thông tin lần ghim gần nhất…",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,lastFit,"Thông tin ghim cửa sổ — Ctrl+C để sao chép");});});
   m.Items.Add("Thoát",null,delegate{BeginInvoke((Action)delegate{Close();});});Retire(m);return m;
@@ -182,10 +182,11 @@ uint restartMessage;
  internal void ReleaseApp(bool restore){fitGeneration++;settle.Stop();var old=app;app=null;if(DesktopDock.Valid(old)){Native.SetWindowPos(old.Handle,new IntPtr(old.WasTopMost?-1:-2),0,0,0,0,0x13);if(restore){var p=old.Original;Native.SetWindowPlacement(old.Handle,ref p);}}appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";Invalidate();}
  void StartAvatar(string exe,string path){StopWebcam();try{avatarFeed=new WebcamFeed();avatarFeed.StartVideo(exe,path);webcamButton.Text="Tắt video AI";webcamStatus="Đang mở video AI…";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
  void StartSpokenVideo(string exe,string path,NarrationAudio voice){StopWebcam();try{avatarFeed=new WebcamFeed();avatarFeed.StartSyncedVideo(exe,path,voice);webcamButton.Text="Tắt video AI";webcamStatus="MP4 có lời — chờ phát";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
- void StopAvatar(){if(avatarFeed!=null)StopWebcam();}
- void StopWebcam(){cameraGeneration++;cameraOpening=false;cameraTimer.Stop();if(avatarFeed!=null){avatarFeed.Dispose();avatarFeed=null;}if(webcam!=null){webcam.Dispose();webcam=null;}if(webcamImage!=null){webcamImage.Dispose();webcamImage=null;}webcamButton.Text="Bật webcam";SetLayout(sidebarRatio,splitRatio,false);}
+ void StartPhoto(int character,int shirt,NarrationAudio voice){StopWebcam();try{photoAvatar=new PhotoAvatar(character,shirt,voice);webcamButton.Text="Tắt ảnh nói";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
+ void StopAvatar(){if(avatarFeed!=null||photoAvatar!=null)StopWebcam();}
+ void StopWebcam(){cameraGeneration++;cameraOpening=false;cameraTimer.Stop();if(photoAvatar!=null){photoAvatar.Dispose();photoAvatar=null;}if(avatarFeed!=null){avatarFeed.Dispose();avatarFeed=null;}if(webcam!=null){webcam.Dispose();webcam=null;}if(webcamImage!=null){webcamImage.Dispose();webcamImage=null;}webcamButton.Text="Bật webcam";SetLayout(sidebarRatio,splitRatio,false);}
  void ToggleWebcam(){
-  if(avatarFeed!=null||webcam!=null||cameraOpening){StopWebcam();return;}
+  if(photoAvatar!=null||avatarFeed!=null||webcam!=null||cameraOpening){StopWebcam();return;}
   cameraOpening=true;int generation=++cameraGeneration;webcamButton.Text="Hủy mở camera";webcamStatus="Đang tìm camera…";SetLayout(sidebarRatio,splitRatio,true);
   System.Threading.ThreadPool.QueueUserWorkItem(delegate{
    NativeWebcam feed=null;string error=null;try{feed=NativeWebcam.OpenDefault();}catch(Exception e){error=e.Message;}

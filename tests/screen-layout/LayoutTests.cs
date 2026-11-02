@@ -59,8 +59,11 @@ class LayoutTests {
    var ai=(Panel)typeof(BroadcastForm).GetField("aiSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);var normal=(Panel)typeof(BroadcastForm).GetField("normalSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);
    if(!ai.Visible||normal.Visible)throw new Exception("AI mode controls not separated");CheckButtonText(dialog);
    using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-ai-preview.png");}
+   mode.SelectedIndex=3;Pump(100);CheckButtonText(dialog);var photos=(Panel)typeof(BroadcastForm).GetField("photoSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);if(!photos.Visible||ai.Visible||normal.Visible)throw new Exception("Photo mode controls");using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-photo-preview.png");}
    mode.SelectedIndex=0;if(ai.Visible||!normal.Visible)throw new Exception("Normal mode controls not restored");dialog.Close();}
 
+  for(int person=0;person<3;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
+  if(PhotoAvatar.Blink(1)!=0||PhotoAvatar.Blink(4.44)<.99)throw new Exception("Blink cycle");Console.WriteLine("PASS all 12 photo variants, mouth/eye rendering and blink cycle");
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
   Console.WriteLine("PASS default split geometry");

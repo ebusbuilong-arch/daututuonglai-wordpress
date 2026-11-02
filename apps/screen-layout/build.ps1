@@ -27,23 +27,31 @@ $csc = Join-Path $env:WINDIR 'Microsoft.NET\Framework64\v4.0.30319\csc.exe'
 if (!(Test-Path $csc)) { $csc = Join-Path $env:WINDIR 'Microsoft.NET\Framework\v4.0.30319\csc.exe' }
 & $csc /nologo /target:winexe /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Chia-Man-Hinh.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
-& $csc @cameraRefs /nologo /target:exe /platform:anycpu /main:LayoutTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\LayoutTests.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\..\..\tests\screen-layout\LayoutTests.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
+& $csc @cameraRefs /nologo /target:exe /platform:anycpu /main:LayoutTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\LayoutTests.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\..\..\tests\screen-layout\LayoutTests.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Test build failed' }
+# CI uses a generated texture; presenter artwork is added only to the private delivery ZIP.
+Add-Type -AssemblyName System.Drawing
+$testAtlas = New-Object Drawing.Bitmap 1672,941
+$g = [Drawing.Graphics]::FromImage($testAtlas)
+$g.Clear([Drawing.Color]::Beige)
+for ($yy=0;$yy -lt 941;$yy+=8) { $g.DrawLine([Drawing.Pens]::Brown,0,$yy,1671,$yy) }
+$testAtlas.Save((Join-Path $out 'avatars.jpg'),[Drawing.Imaging.ImageFormat]::Jpeg)
+$g.Dispose(); $testAtlas.Dispose()
 & "$out\LayoutTests.exe"
 if ($LASTEXITCODE -ne 0) { throw 'Tests failed' }
 Copy-Item "$root\HUONG-DAN.txt" $out
 Get-FileHash "$out\DTTL-Chia-Man-Hinh.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Chia-Man-Hinh.exe" } | Set-Content "$out\SHA256.txt"
 Compress-Archive -Path "$out\DTTL-Chia-Man-Hinh.exe","$out\HUONG-DAN.txt","$out\SHA256.txt" -DestinationPath "$out\DTTL-Chia-Man-Hinh-0.2.3-beta.zip" -Force
 
-& $csc @cameraRefs /nologo /target:winexe /define:WORKSPACE /main:VirtualDisplayProgram "/win32icon:$out\DTTL-Workspace.ico" /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
+& $csc @cameraRefs /nologo /target:winexe /define:WORKSPACE /main:VirtualDisplayProgram "/win32icon:$out\DTTL-Workspace.ico" /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Virtual desktop build failed' }
 Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.1.0.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.2.0.zip" -Force
 
-& $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
+& $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }
 $ffmpeg = (Get-Command ffmpeg.exe -ErrorAction Stop).Source
 # Chocolatey may expose a shim; find the matching actual encoder and ffprobe.

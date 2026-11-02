@@ -57,7 +57,8 @@ internal sealed class NarrationAudio : IDisposable {
  readonly object gate=new object();readonly AudioFileReader reader;readonly Timer timer;
  readonly System.Collections.Generic.List<Source> sources=new System.Collections.Generic.List<Source>();
  readonly BufferedWaveProvider monitorBuffer;WaveOutEvent monitor;bool disposed,playing,reachedEnd;readonly Stopwatch clock=Stopwatch.StartNew();long emitted;internal string Error;
- int playbackVersion;
+ int playbackVersion; float level;
+ internal float Level{get{lock(gate)return playing?level:0;}}
  internal double PositionSeconds{get{lock(gate)return reader.CurrentTime.TotalSeconds;}}
  internal int PlaybackVersion{get{lock(gate)return playbackVersion;}}
  internal bool Playing{get{lock(gate)return playing;}}
@@ -75,6 +76,7 @@ internal sealed class NarrationAudio : IDisposable {
  void Tick(object state){lock(gate){if(disposed)return;long due=clock.ElapsedMilliseconds*reader.WaveFormat.SampleRate/1000;int frames=(int)Math.Min(reader.WaveFormat.SampleRate/4,Math.Max(0,due-emitted));emitted=due;if(frames==0)return;byte[] data=new byte[frames*reader.WaveFormat.BlockAlign];
   try{
   if(playing){int n=reader.Read(data,0,data.Length);if(n<data.Length){playing=false;reachedEnd=true;}}
+  double energy=0;for(int i=0;i+3<data.Length;i+=4){float v=BitConverter.ToSingle(data,i);energy+=v*v;}level=(float)Math.Min(1,Math.Sqrt(energy/Math.Max(1,data.Length/4))*7);
   foreach(var source in sources.ToArray())source.Emit(data);
   if(monitorBuffer!=null)monitorBuffer.AddSamples(data,0,data.Length);
   }catch(Exception ex){playing=false;Error="Không đọc được âm thanh: "+ex.Message;}
