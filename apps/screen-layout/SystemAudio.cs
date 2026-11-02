@@ -75,7 +75,7 @@ internal sealed class NarrationAudio : IDisposable {
  internal void Rewind(){lock(gate){playing=false;reader.Position=0;reachedEnd=false;playbackVersion++;if(monitorBuffer!=null)monitorBuffer.ClearBuffer();}}
  void Tick(object state){lock(gate){if(disposed)return;long due=clock.ElapsedMilliseconds*reader.WaveFormat.SampleRate/1000;int frames=(int)Math.Min(reader.WaveFormat.SampleRate/4,Math.Max(0,due-emitted));emitted=due;if(frames==0)return;byte[] data=new byte[frames*reader.WaveFormat.BlockAlign];
   try{
-  if(playing){int n=reader.Read(data,0,data.Length);if(n<data.Length){playing=false;reachedEnd=true;}}
+  if(playing){int n=reader.Read(data,0,data.Length);if(n<data.Length||reader.Position>=reader.Length){playing=false;reachedEnd=true;}}
   double energy=0;for(int i=0;i+3<data.Length;i+=4){float v=BitConverter.ToSingle(data,i);energy+=v*v;}level=(float)Math.Min(1,Math.Sqrt(energy/Math.Max(1,data.Length/4))*7);
   foreach(var source in sources.ToArray())source.Emit(data);
   if(monitorBuffer!=null)monitorBuffer.AddSamples(data,0,data.Length);
