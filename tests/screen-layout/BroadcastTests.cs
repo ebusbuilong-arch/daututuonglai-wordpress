@@ -102,7 +102,7 @@ class BroadcastTests {
     voice.Rewind();using(var b=WaitFrame(feed)){}if(voice.PositionSeconds>.01||voice.Playing)throw new Exception("Rewind failed");
     voice.Play();Thread.Sleep(3000);
    }
-   voice.Rewind();voice.Play();Thread.Sleep(8500);if(!voice.Ended||voice.Playing)throw new Exception("MP4 should stop at end");
+   voice.Rewind();voice.Play();for(int wait=0;wait<120&&!voice.Ended;wait++)Thread.Sleep(100);if(!voice.Ended||voice.Playing)throw new Exception("MP4 should stop at end: position="+voice.PositionSeconds+", playing="+voice.Playing+", error="+voice.Error);
    if(feed.Ended)throw new Exception("Final video frame should remain available");
    int version=voice.PlaybackVersion;voice.Play();if(voice.PlaybackVersion==version)throw new Exception("Replay must reset video");using(var b=WaitFrame(feed)){}
   }
