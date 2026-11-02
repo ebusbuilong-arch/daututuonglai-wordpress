@@ -52,3 +52,12 @@ Nếu tiếng vọng: tắt tiếng Studio, tránh để micro thu lại tiếng
 9. PHẠM VI VÀ PHIÊN BẢN
 v1.0.0 là bản chính thức của dòng DTTL Workspace 0.6.8 đã được người dùng kiểm tra, đổi tên và bổ sung hướng dẫn. Không thêm chức năng tự động lên lịch hoặc tự tạo lời/video AI. Phần mềm tải miễn phí; dịch vụ tạo nội dung AI và điều kiện nền tảng là phần riêng.
 Các thư viện đi kèm và giấy phép nằm trong THIRD-PARTY.txt, thư mục licenses. SHA256-virtual.txt dùng kiểm tra EXE. Hỗ trợ và bản mới: https://daututuonglai.vn/
+
+
+BỔ SUNG v1.1.0 — MP4 CÓ LỜI
+- Giữ nguyên chế độ Thường và AI — video + MP3. MP4 trong chế độ AI luôn tắt tiếng gốc, chỉ phát MP3.
+- Chọn chế độ MP4 có lời, chọn video có âm thanh AAC. Hình hiển thị ở vùng camera, tiếng đưa trực tiếp vào bản quay/livestream; không thu micro/tiếng máy.
+- Bấm Bắt đầu để mở quay/phát, sau đó Phát video khi sẵn sàng. Tạm dừng video và Về đầu điều khiển cả hình lẫn tiếng.
+- Hết video giữ hình cuối và im tiếng; bấm Phát video để phát lại. Không tự lặp lời.
+- Nghe tiếng video trên máy chỉ bật/tắt nghe tại máy; không làm mất tiếng gửi lên live.
+- Các cấu hình và đường dẫn của hai chế độ cũ được giữ khi đổi chế độ trong cùng phiên.

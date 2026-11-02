@@ -82,6 +82,34 @@ class BroadcastTests {
   using(var feed=new WebcamFeed()){feed.StartVideo(ff,avatar);Thread.Sleep(2500);using(var frame=feed.Take()){if(feed.Ended||frame==null||frame.Size!=new Size(640,360))throw new Exception("AI avatar loop failed");}}
   Console.WriteLine("PASS silent AI video continues beyond original clip duration");
  }
+ static Bitmap WaitFrame(WebcamFeed feed){for(int i=0;i<100;i++){var b=feed.Take();if(b!=null)return b;if(feed.Ended)break;Thread.Sleep(50);}throw new Exception("No MP4 frame");}
+ static void SpokenVideoTests(string ff,string folder){
+  string input=Path.Combine(folder,"spoken-source.mp4"),output=Path.Combine(folder,"spoken-record.mp4"),raw=Path.Combine(folder,"spoken.f32");
+  foreach(string f in new[]{input,output,raw})if(File.Exists(f))File.Delete(f);
+  RunEncoder(ff,"-v error -f lavfi -i testsrc2=size=320x180:rate=15 -f lavfi -i sine=frequency=880:sample_rate=48000 -t 8 -c:v libx264 -pix_fmt yuv420p -c:a aac "+BroadcastSession.Quote(input));
+  // The old MP4+MP3 path must explicitly discard the source MP4 soundtrack.
+  if(!WebcamFeed.SilentVideoArguments(input,true).Contains(" -an "))throw new Exception("Old avatar path must be muted");
+  using(var silent=new WebcamFeed()){silent.StartVideo(ff,input);using(var b=WaitFrame(silent)){}if(silent.Ended)throw new Exception("MP4 with audio failed as silent avatar");}
+  using(var voice=new NarrationAudio(input,false))using(var feed=new WebcamFeed()){
+   feed.StartSyncedVideo(ff,input,voice);using(var b=WaitFrame(feed)){}
+   Thread.Sleep(250);using(var unexpected=feed.Take()){if(unexpected!=null)throw new Exception("MP4 advanced before Play");}
+   using(var session=new BroadcastSession()){
+    session.Start(ff,Rectangle.Empty,720,output,false,"INVALID MICROPHONE",true,true,voice);AwaitFrames(session);
+    voice.Play();Thread.Sleep(1600);using(var b=WaitFrame(feed)){}
+    voice.Pause();double position=voice.PositionSeconds;Thread.Sleep(250);using(var b=feed.Take()){}
+    Thread.Sleep(250);using(var b=feed.Take()){if(b!=null)throw new Exception("Video continued during pause");}
+    if(Math.Abs(voice.PositionSeconds-position)>.01)throw new Exception("Audio continued during pause");
+    voice.Rewind();using(var b=WaitFrame(feed)){}if(voice.PositionSeconds>.01||voice.Playing)throw new Exception("Rewind failed");
+    voice.Play();Thread.Sleep(3000);
+   }
+   voice.Rewind();voice.Play();Thread.Sleep(8500);if(!voice.Ended||voice.Playing)throw new Exception("MP4 should stop at end");
+   if(feed.Ended)throw new Exception("Final video frame should remain available");
+   int version=voice.PlaybackVersion;voice.Play();if(voice.PlaybackVersion==version)throw new Exception("Replay must reset video");using(var b=WaitFrame(feed)){}
+  }
+  RunEncoder(ff,"-v error -i "+BroadcastSession.Quote(output)+" -map 0:a:0 -ac 1 -ar 48000 -f f32le "+BroadcastSession.Quote(raw));
+  byte[] data=File.ReadAllBytes(raw);double peak=0;for(int i=0;i<data.Length;i+=4)peak=Math.Max(peak,Math.Abs(BitConverter.ToSingle(data,i)));if(peak<.02)throw new Exception("MP4 audio missing in recording");
+  Console.WriteLine("PASS MP4 AAC: direct recording, no mic/system, shared playback/pause/rewind/end/replay; old MP4 remains muted");
+ }
  static void CheckVideo(string probe,string file,int height){
   var p=Process.Start(new ProcessStartInfo(probe,"-v error -select_streams v:0 -show_entries stream=width,height,codec_name -of csv=p=0 "+BroadcastSession.Quote(file)){UseShellExecute=false,RedirectStandardOutput=true,CreateNoWindow=true});
   string result=p.StandardOutput.ReadToEnd();p.WaitForExit();if(p.ExitCode!=0||!result.Contains("h264,"+(height==720?1280:1920)+","+height))throw new Exception("Bad video "+result);p.Dispose();
@@ -102,7 +130,7 @@ class BroadcastTests {
    Console.WriteLine("PASS webcam raw-frame pipeline and stop using synthetic input; no physical camera tested");
   }
   foreach(string bad in new[]{"https://example.com","file:///tmp/test","rtmps://user:secret@example.com/live"}){bool rejected=false;try{BroadcastSession.Destination(bad,"key");}catch(ArgumentException){rejected=true;}if(!rejected)throw new Exception("Invalid destination accepted");}
-  AudioTests(ff,folder);AiTests(ff,folder);
+  AudioTests(ff,folder);AiTests(ff,folder);SpokenVideoTests(ff,folder);
   foreach(int height in new[]{720,1080}){
    string file=Path.Combine(folder,"record-"+height+".mp4");if(File.Exists(file))File.Delete(file);
    using(var s=new BroadcastSession()){s.Start(ff,Screen.PrimaryScreen.Bounds,height,file,false,"",false);AwaitFrames(s);}
