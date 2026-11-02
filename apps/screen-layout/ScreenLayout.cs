@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -6,8 +6,15 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
+#if WORKSPACE
+[assembly: System.Reflection.AssemblyTitle("Phần mềm livestream màn hình")]
+[assembly: System.Reflection.AssemblyProduct("DTTL Livestream màn hình")]
+[assembly: System.Reflection.AssemblyVersion("1.0.0.0")]
+[assembly: System.Reflection.AssemblyFileVersion("1.0.0.0")]
+#else
 [assembly: System.Reflection.AssemblyTitle("DTTL Chia màn hình")]
 [assembly: System.Reflection.AssemblyVersion("0.2.3.0")]
+#endif
 [assembly: System.Reflection.AssemblyCompany("Đầu Tư Tương Lai")]
 
 static class Native {

@@ -6,11 +6,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-[assembly: System.Reflection.AssemblyTitle("Phần mềm livestream màn hình")]
-[assembly: System.Reflection.AssemblyProduct("DTTL Livestream màn hình")]
-[assembly: System.Reflection.AssemblyVersion("1.0.0.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.0.0.0")]
-
 static class VirtualNative {
  [DllImport("user32.dll")] internal static extern bool SetCursorPos(int x,int y);
  [DllImport("user32.dll",EntryPoint="ClipCursor")] internal static extern bool Clip(ref Native.Rect r);

@@ -35,7 +35,7 @@ Copy-Item "$root\HUONG-DAN.txt" $out
 Get-FileHash "$out\DTTL-Chia-Man-Hinh.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Chia-Man-Hinh.exe" } | Set-Content "$out\SHA256.txt"
 Compress-Archive -Path "$out\DTTL-Chia-Man-Hinh.exe","$out\HUONG-DAN.txt","$out\SHA256.txt" -DestinationPath "$out\DTTL-Chia-Man-Hinh-0.2.3-beta.zip" -Force
 
-& $csc @cameraRefs /nologo /target:winexe /main:VirtualDisplayProgram "/win32icon:$out\DTTL-Workspace.ico" /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
+& $csc @cameraRefs /nologo /target:winexe /define:WORKSPACE /main:VirtualDisplayProgram "/win32icon:$out\DTTL-Workspace.ico" /platform:anycpu /optimize+ "/win32manifest:$root\app.manifest" /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\DTTL-Workspace.exe" "$root\ScreenLayout.cs" "$root\DesktopDock.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\VirtualDesktop.cs" "$root\ScreenInk.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Virtual desktop build failed' }
 Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
