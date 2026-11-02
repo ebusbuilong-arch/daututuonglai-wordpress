@@ -21,7 +21,7 @@ internal sealed class PhotoAvatar : IDisposable {
    using(var g=Graphics.FromImage(portrait))g.DrawImage(atlas,new Rectangle(0,0,256,256),0,0,(float)(256*sx),(float)(256*sy),GraphicsUnit.Pixel);
    double[] centers={136,412,680,948,1216,1474};
    mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
-   for(int i=1;i<6;i++)mouths[i]=Patch(atlas,centers[i],156,136,156,34,30,sx,sy);
+   for(int i=1;i<6;i++)mouths[i]=Patch(atlas,centers[i],160,136,160,30,23,sx,sy);
    for(int i=1;i<4;i++)eyes[i]=Patch(atlas,centers[i],875,132,103,54,21,sx,sy);
   }
  }
@@ -45,14 +45,22 @@ internal sealed class PhotoAvatar : IDisposable {
  internal static float Blink(double seconds){double t=seconds%4.6;return t<4.28?0:(float)Math.Sin((t-4.28)/.32*Math.PI);}
  internal Bitmap Take(){
   double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;
-  float target=voice==null?0:voice.Level;
-  opening+=(target-opening)*(float)(1-Math.Exp(-dt/(target>opening?.065:.10)));
-  if(opening<.005f)opening=0;
+  AdvanceMouth(voice==null?0:voice.Level,dt);
   return Render(opening,Blink(now));
+ }
+ // Keep natural loudness dips rather than holding a wide-open mouth between syllables.
+ // The small noise gate also prevents breathing/background noise from moving the lips.
+ internal float AdvanceMouth(float level,double dt){
+  level=Math.Max(0,Math.Min(1,level));
+  float target=level<=.035f?0:.72f*(float)Math.Pow((level-.035f)/.965f,.85);
+  dt=Math.Max(0,Math.Min(.25,dt));
+  opening+=(target-opening)*(float)(1-Math.Exp(-dt/(target>opening?.045:.050)));
+  if(opening<.008f)opening=0;
+  return opening;
  }
  internal Bitmap Render(float amplitude,float blink){
   var result=(Bitmap)portrait.Clone();
-  BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,new Rectangle(102,126,69,61));
+  BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,new Rectangle(106,137,61,47));
   BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,new Rectangle(78,82,109,43));
   return result;
  }

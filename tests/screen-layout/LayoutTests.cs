@@ -66,9 +66,17 @@ class LayoutTests {
   using(var photo=new PhotoAvatar(0,0,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(1,0))using(var blink=photo.Render(0,1))using(var quiet=photo.Render(0,0)){
    for(int y=0;y<rest.Height;y++)for(int x=0;x<rest.Width;x++){
     if(rest.GetPixel(x,y)!=quiet.GetPixel(x,y))throw new Exception("Neutral face is not deterministic");
-    if(!new Rectangle(102,126,69,61).Contains(x,y)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Mouth changed outside its region");
+    if(!new Rectangle(106,137,61,47).Contains(x,y)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Mouth changed outside its region");
     if(!new Rectangle(78,82,109,43).Contains(x,y)&&rest.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Blink changed outside its region");
    }
+  }
+  using(var photo=new PhotoAvatar(0,0,null)){
+   float peak=0;for(int n=0;n<120;n++)peak=photo.AdvanceMouth(1,1.0/24);
+   if(peak>.721f||peak<.70f)throw new Exception("Mouth opening limit");
+   float dip=photo.AdvanceMouth(.08f,.10);if(dip>=peak*.4f)throw new Exception("Mouth did not follow a speech dip");
+   for(int n=0;n<8;n++)photo.AdvanceMouth(0,1.0/24);
+   if(photo.AdvanceMouth(0,1.0/24)!=0)throw new Exception("Mouth did not close in silence");
+   if(photo.AdvanceMouth(.02f,.1)!=0)throw new Exception("Background noise moves mouth");
   }
   if(PhotoAvatar.Blink(1)!=0||PhotoAvatar.Blink(4.44)<.99)throw new Exception("Blink cycle");Console.WriteLine("PASS registered face, mouth/eye rendering and blink cycle");
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
