@@ -22,12 +22,23 @@ internal sealed class PhotoAvatar : IDisposable {
    double[] centers={136,412,680,948,1216,1474};
    mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
    for(int i=1;i<6;i++)mouths[i]=Patch(atlas,centers[i],160,136,160,30,23,sx,sy);
-   for(int i=1;i<4;i++)eyes[i]=Patch(atlas,centers[i],875,132,103,54,21,sx,sy);
+   // Register each eyelid separately. Brows, bridge of nose and cheeks stay in the base.
+   double[,] left={{1187,875},{382,878},{919,881}};
+   double[,] right={{1240,870},{435,872},{970,876}};
+   for(int i=1;i<4;i++){
+    eyes[i]=(Bitmap)portrait.Clone();
+    PaintPatch(eyes[i],atlas,left[i-1,0],left[i-1,1],107,104,22,12,sx,sy);
+    PaintPatch(eyes[i],atlas,right[i-1,0],right[i-1,1],158,100,22,12,sx,sy);
+   }
   }
  }
  // Precompute soft, registered patches once. No skin recoloring or painted teeth.
  Bitmap Patch(Bitmap atlas,double sourceX,double sourceY,int cx,int cy,int rx,int ry,double sx,double sy){
   var result=(Bitmap)portrait.Clone();
+  PaintPatch(result,atlas,sourceX,sourceY,cx,cy,rx,ry,sx,sy);
+  return result;
+ }
+ void PaintPatch(Bitmap result,Bitmap atlas,double sourceX,double sourceY,int cx,int cy,int rx,int ry,double sx,double sy){
   for(int y=cy-ry;y<=cy+ry;y++)for(int x=cx-rx;x<=cx+rx;x++){
    double u=(x-cx)/(double)rx,v=(y-cy)/(double)ry,q=Math.Sqrt(u*u+v*v);
    if(q>=1)continue;
@@ -35,14 +46,20 @@ internal sealed class PhotoAvatar : IDisposable {
    Color source=Sample(atlas,(sourceX+x-cx)*sx,(sourceY+y-cy)*sy);
    result.SetPixel(x,y,Mix(portrait.GetPixel(x,y),source,alpha));
   }
-  return result;
  }
  static Color Sample(Bitmap b,double x,double y){
   x=Math.Max(0,Math.Min(b.Width-1,x));y=Math.Max(0,Math.Min(b.Height-1,y));
   int ix=(int)x,iy=(int)y;
   return Mix(Mix(b.GetPixel(ix,iy),b.GetPixel(Math.Min(ix+1,b.Width-1),iy),x-ix),Mix(b.GetPixel(ix,Math.Min(iy+1,b.Height-1)),b.GetPixel(Math.Min(ix+1,b.Width-1),Math.Min(iy+1,b.Height-1)),x-ix),y-iy);
  }
- internal static float Blink(double seconds){double t=seconds%4.6;return t<4.28?0:(float)Math.Sin((t-4.28)/.32*Math.PI);}
+ internal static float Blink(double seconds){
+  double t=seconds%4.6-4.04;
+  if(t<=0)return 0;
+  if(t<.18)return (float)Ease(t/.18);
+  if(t<.22)return 1;
+  return (float)(1-Ease((t-.22)/.34));
+ }
+ static double Ease(double t){t=Math.Max(0,Math.Min(1,t));return t*t*(3-2*t);}
  internal Bitmap Take(){
   double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;
   AdvanceMouth(voice==null?0:voice.Level,dt);
@@ -61,7 +78,7 @@ internal sealed class PhotoAvatar : IDisposable {
  internal Bitmap Render(float amplitude,float blink){
   var result=(Bitmap)portrait.Clone();
   BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,new Rectangle(106,137,61,47));
-  BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,new Rectangle(78,82,109,43));
+  BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,new Rectangle(85,88,96,29));
   return result;
  }
  static void BlendTrack(Bitmap dst,Bitmap[] track,double phase,Rectangle region){

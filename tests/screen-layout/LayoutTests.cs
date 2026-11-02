@@ -67,7 +67,7 @@ class LayoutTests {
    for(int y=0;y<rest.Height;y++)for(int x=0;x<rest.Width;x++){
     if(rest.GetPixel(x,y)!=quiet.GetPixel(x,y))throw new Exception("Neutral face is not deterministic");
     if(!new Rectangle(106,137,61,47).Contains(x,y)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Mouth changed outside its region");
-    if(!new Rectangle(78,82,109,43).Contains(x,y)&&rest.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Blink changed outside its region");
+    if(!new Rectangle(85,88,96,29).Contains(x,y)&&rest.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Blink changed outside its region");
    }
   }
   using(var photo=new PhotoAvatar(0,0,null)){
@@ -78,7 +78,13 @@ class LayoutTests {
    if(photo.AdvanceMouth(0,1.0/24)!=0)throw new Exception("Mouth did not close in silence");
    if(photo.AdvanceMouth(.02f,.1)!=0)throw new Exception("Background noise moves mouth");
   }
-  if(PhotoAvatar.Blink(1)!=0||PhotoAvatar.Blink(4.44)<.99)throw new Exception("Blink cycle");Console.WriteLine("PASS registered face, mouth/eye rendering and blink cycle");
+  using(var photo=new PhotoAvatar(0,0,null)){
+   for(int m=0;m<6;m++)using(var mouthOnly=photo.Render(m/5f,0))for(int e=0;e<4;e++)using(var combined=photo.Render(m/5f,e/3f)){
+    for(int y=137;y<184;y++)for(int x=106;x<167;x++)if(combined.GetPixel(x,y)!=mouthOnly.GetPixel(x,y))throw new Exception("Blink changed approved mouth in 24-state set");
+   }
+  }
+  if(PhotoAvatar.Blink(4.04)!=0||PhotoAvatar.Blink(4.599)>.001||PhotoAvatar.Blink(4.30)<=PhotoAvatar.Blink(4.50))throw new Exception("Blink ease/reopening");
+  if(PhotoAvatar.Blink(1)!=0||PhotoAvatar.Blink(4.24)<.99)throw new Exception("Blink cycle");Console.WriteLine("PASS registered face, mouth/eye rendering and blink cycle");
   var layout=new Rectangle(0,0,633,1040);var upper=VirtualDesktopDock.Pane(layout,0);var lower=VirtualDesktopDock.Pane(layout,1);
   if(upper.IntersectsWith(lower)||Math.Abs(lower.Height-2*upper.Height)>12||!layout.Contains(upper)||!layout.Contains(lower))throw new Exception("Webcam 1/3 and application 2/3 geometry");
   Console.WriteLine("PASS default split geometry");
