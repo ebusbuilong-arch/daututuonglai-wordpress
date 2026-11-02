@@ -50,7 +50,7 @@ internal sealed class WebcamFeed : IDisposable {
       break;
      }
      double due=index/15.0;
-     while(!stopping&&voice.PlaybackVersion==version&&Math.Max(0,voice.PositionSeconds-0.15)<due)Thread.Sleep(5);
+     while(!stopping&&voice.PlaybackVersion==version&&!voice.Ended&&Math.Max(0,voice.PositionSeconds-0.15)<due)Thread.Sleep(5);
      if(stopping||voice.PlaybackVersion!=version)break;
      var image=new Bitmap(640,360,PixelFormat.Format24bppRgb);var data=image.LockBits(new Rectangle(0,0,640,360),ImageLockMode.WriteOnly,PixelFormat.Format24bppRgb);
      try{Marshal.Copy(bytes,0,data.Scan0,bytes.Length);}finally{image.UnlockBits(data);}
