@@ -140,6 +140,9 @@ internal sealed class PhotoAvatar : IDisposable {
    dr+=to.R-from.R;dg+=to.G-from.G;db+=to.B-from.B;
   }
   dr/=32;dg/=32;db/=32;
+  // Keep the approved skin tone for every wardrobe look; hair around the face
+  // must not brighten or tint the face when changing hairstyles.
+  if(MouthY!=153){dr=4.5;dg=2.3;db=-2.5;}
   for(int y=(int)MouthY-105;y<(int)MouthY+43;y++)for(int x=364;x<475;x++){
    double sx=SourceX(x),sy=SourceY(y),u=(sx-134)/58,v=(sy-126)/80,q=Math.Sqrt(u*u+v*v);
    if(q>=1)continue;double a=Math.Min(1,(1-q)/.24);a=a*a*(3-2*a);
