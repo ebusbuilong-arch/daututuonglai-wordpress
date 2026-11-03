@@ -99,7 +99,7 @@ internal sealed class PhotoAvatar : IDisposable {
  internal readonly Rectangle MouthRegion=new Rectangle(391,131,58,44),EyeRegion=new Rectangle(373,87,90,29);
  const double Scale=.9, MouthX=420, MouthY=153;
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
-  if(person!=0||color!=0)throw new ArgumentOutOfRangeException("person","Bản mẫu dùng một khuôn mặt tóc dài, áo đen đã duyệt.");
+  if(person<0||person>1||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn tóc dài hoặc bob và một trong bốn phối cảnh.");
   voice=audio;
   string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"presenter-"+(person*4+color+1).ToString("00")+".png");
   if(!File.Exists(path))throw new FileNotFoundException("Thiếu ảnh nhân vật: "+Path.GetFileName(path)+". Giải nén toàn bộ gói ứng dụng.",path);
