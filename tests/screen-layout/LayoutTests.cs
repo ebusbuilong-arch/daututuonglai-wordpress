@@ -74,7 +74,7 @@ class LayoutTests {
     if(rest.GetPixel(xx,yy)!=original.GetPixel(xx,yy))throw new Exception("Neutral face must exactly match the unmodified source portrait");
    }
    var expected=Color.FromArgb(40+color*35,60+person*30,120);
-   if(rest.GetPixel(10,10).ToArgb()!=expected.ToArgb())throw new Exception("Look mapped to wrong atlas cell");
+   if(rest.GetPixel(100,10).ToArgb()!=expected.ToArgb())throw new Exception("Look mapped to wrong atlas cell");
    rest.Save("apps/screen-layout/dist/photo-look-"+(person*4+color+1).ToString("00")+".png");
    using(var returned=photo.Render(0,0))for(int yy=0;yy<rest.Height;yy++)for(int xx=0;xx<rest.Width;xx++)
     if(rest.GetPixel(xx,yy)!=returned.GetPixel(xx,yy))throw new Exception("Speech does not return to identical neutral face");
