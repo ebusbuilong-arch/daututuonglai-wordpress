@@ -91,91 +91,97 @@ internal sealed class FaceMotion : IDisposable {
  public void Dispose(){portrait.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }
 
-// Sixteen numbered looks share the approved master face and sprite motion.
+// Preserve each portrait's forehead, hair, brows, nose, jaw and neck.
+// Register only the lips and individual eyelids against measured per-look landmarks.
 internal sealed class PhotoAvatar : IDisposable {
- readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
+ readonly Bitmap original,portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
  readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
+ readonly Feature[] features;
  double lastFrame;
  internal readonly Rectangle MouthRegion,EyeRegion;
- // Eye-to-mouth spacing in the new portraits is larger than the old atlas.
- // The old .9 scale left the original eyebrows visible above the pasted face.
- const double Scale=1.05, MouthX=420; readonly double MouthY;
+ sealed class Feature {
+  internal double SX,SY,X,Y,Scale,RX,RY;
+  internal Rectangle Bounds {get{return Rectangle.FromLTRB((int)Math.Floor(X-RX*Scale),(int)Math.Floor(Y-RY*Scale),(int)Math.Ceiling(X+RX*Scale),(int)Math.Ceiling(Y+RY*Scale));}}
+  internal double SourceX(int x){return SX+(x-X)/Scale;}
+  internal double SourceY(int y){return SY+(y-Y)/Scale;}
+  internal double Alpha(int x,int y){double u=(x-X)/(RX*Scale),v=(y-Y)/(RY*Scale),q=Math.Sqrt(u*u+v*v);double a=Math.Max(0,Math.Min(1,(1-q)/.35));return a*a*(3-2*a);}
+ }
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
   if(person<0||person>3||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn bối cảnh và mẫu trong danh sách.");
-  MouthY=190;
-  MouthRegion=MapRegion(new Rectangle(106,137,61,47));
-  EyeRegion=MapRegion(new Rectangle(85,88,96,29));
-  voice=audio;
-  string name="studio-looks-16.png";
-  string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,name);
-  if(!File.Exists(path))throw new FileNotFoundException("Thiếu "+name+". Giải nén toàn bộ gói ứng dụng.",path);
-  portrait=new Bitmap(836,470,PixelFormat.Format24bppRgb);
+  voice=audio;string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"studio-looks-16.png");
+  if(!File.Exists(path))throw new FileNotFoundException("Thiếu studio-looks-16.png. Giải nén toàn bộ gói ứng dụng.",path);
+  double[,] landmarks={{243.77,79.13,231.71,55.44,254.23,53.81},
+   {727.33,78.35,715.18,55.24,737.39,53.53},
+   {1211.18,78.46,1198.9,55.1,1221.19,53.44},
+   {1695.4,78.45,1682.73,55.15,1705.15,53.45},
+   {245.91,288.78,233.35,265.77,255.9,263.87},
+   {728.89,289.25,716.67,265.8,738.78,263.86},
+   {1212.61,288.64,1200.59,265.68,1222.76,263.89},
+   {1695.81,290.1,1683.91,266.05,1706.01,264.17},
+   {245.56,498.44,233.38,475.52,255.52,473.79},
+   {728.98,498.59,716.63,475.63,738.61,473.88},
+   {1212.8,498.3,1200.37,475.49,1222.83,473.75},
+   {1696.73,498.42,1684.57,475.33,1706.73,473.7},
+   {246.03,701.34,232.92,678.67,255.63,676.94},
+   {728.98,701.35,716.28,678.47,738.96,676.83},
+   {1213.1,701.05,1200.24,678.43,1222.94,676.56},
+   {1696.56,701.57,1684.3,678.72,1706.86,677.07}};
+  int index=person*4+color;double mx=landmarks[index,0],my=landmarks[index,1],zoom=470.0/180;
+  double lx=landmarks[index,2],ly=landmarks[index,3],rx=landmarks[index,4],ry=landmarks[index,5];
+  double scale=(rx-lx)*zoom/(157.985-107.238);
+  features=new[]{new Feature{SX=136.789,SY=156.684,X=420,Y=190,Scale=scale,RX=28,RY=22},
+   new Feature{SX=107.238,SY=103.372,X=420+(lx-mx)*zoom,Y=190+(ly-my)*zoom,Scale=scale,RX=22,RY=11},
+   new Feature{SX=157.985,SY=99.205,X=420+(rx-mx)*zoom,Y=190+(ry-my)*zoom,Scale=scale,RX=22,RY=11}};
+  MouthRegion=features[0].Bounds;EyeRegion=Rectangle.Union(features[1].Bounds,features[2].Bounds);
+  original=new Bitmap(836,470,PixelFormat.Format24bppRgb);
   try{
-   using(var image=new Bitmap(path))using(var g=Graphics.FromImage(portrait)){
-    // The approved artwork has uneven rows. Register every look by its mouth
-    // anchor, not equal grid divisions. Use a uniform scale, never stretch faces.
-    double[,] anchors={{243.77,79.13},{727.33,78.35},{1211.18,78.46},{1695.40,78.45},
-     {245.91,288.78},{728.89,289.25},{1212.61,288.64},{1695.81,290.10},
-     {245.56,498.44},{728.98,498.59},{1212.80,498.30},{1696.73,498.42},
-     {246.03,701.34},{728.98,701.35},{1213.10,701.05},{1696.56,701.57}};
-    int index=person*4+color; double sx=image.Width/1933.0,sy=image.Height/813.0,zoom=470.0/180;
-    var crop=new RectangleF((float)((anchors[index,0]-MouthX/zoom)*sx),
-     (float)((anchors[index,1]-MouthY/zoom)*sy),(float)(836/zoom*sx),(float)(180*sy));
+   using(var image=new Bitmap(path))using(var g=Graphics.FromImage(original)){
+    double sx=image.Width/1933.0,sy=image.Height/813.0;
+    var crop=new RectangleF((float)((mx-420/zoom)*sx),(float)((my-190/zoom)*sy),(float)(836/zoom*sx),(float)(180*sy));
     if(crop.Left<0||crop.Top<0||crop.Right>image.Width||crop.Bottom>image.Height)throw new InvalidDataException("Bộ ảnh 16 mẫu không đúng kích thước.");
     g.InterpolationMode=System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
     g.DrawImage(image,new RectangleF(0,0,836,470),crop,GraphicsUnit.Pixel);
    }
-   motion=new FaceMotion(audio);
+   portrait=(Bitmap)original.Clone();motion=new FaceMotion(audio);
    using(var rest=motion.Render(0,0)){
-    RegisterFace(rest);
+    foreach(var f in features)RegisterFeature(rest,f);
     mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
-    for(int i=1;i<6;i++)using(var frame=motion.Render(i/5f,0))mouths[i]=MotionFrame(rest,frame,MouthRegion);
-    for(int i=1;i<4;i++)using(var frame=motion.Render(0,i/3f))eyes[i]=MotionFrame(rest,frame,EyeRegion);
+    for(int i=1;i<6;i++)using(var frame=motion.Render(i/5f,0))mouths[i]=MotionFrame(rest,frame,new[]{features[0]});
+    for(int i=1;i<4;i++)using(var frame=motion.Render(0,i/3f))eyes[i]=MotionFrame(rest,frame,new[]{features[1],features[2]});
    }
   }catch{Dispose();throw;}
  }
- double SourceX(int x){return 136+(x-MouthX)/Scale;}
- double SourceY(int y){return 160+(y-MouthY)/Scale;}
- Rectangle MapRegion(Rectangle source){
-  int l=(int)Math.Floor(MouthX+(source.Left-136)*Scale),t=(int)Math.Floor(MouthY+(source.Top-160)*Scale);
-  int r=(int)Math.Ceiling(MouthX+(source.Right-136)*Scale),b=(int)Math.Ceiling(MouthY+(source.Bottom-160)*Scale);
-  return Rectangle.FromLTRB(l,t,r,b);
- }
- void RegisterFace(Bitmap face){
-  // Register the whole neutral face once, including the resting mouth. This avoids
-  // switching between two different lip contours when speech begins or ends.
+ void RegisterFeature(Bitmap rest,Feature f){
   double dr=0,dg=0,db=0;
   for(int k=0;k<32;k++){
-   double a=k*Math.PI/16,sx=134+58*.92*Math.Cos(a),sy=126+80*.92*Math.Sin(a);
-   Color from=FaceMotion.Sample(face,sx,sy),to=FaceMotion.Sample(portrait,MouthX+(sx-136)*Scale,MouthY+(sy-160)*Scale);
+   double a=k*Math.PI/16,sx=f.SX+f.RX*.98*Math.Cos(a),sy=f.SY+f.RY*.98*Math.Sin(a);
+   Color from=FaceMotion.Sample(rest,sx,sy),to=FaceMotion.Sample(original,f.X+(sx-f.SX)*f.Scale,f.Y+(sy-f.SY)*f.Scale);
    dr+=to.R-from.R;dg+=to.G-from.G;db+=to.B-from.B;
   }
-  dr/=32;dg/=32;db/=32;
-  // Keep the approved skin tone for every wardrobe look; hair around the face
-  // must not brighten or tint the face when changing hairstyles.
-  dr=Math.Max(-18,Math.Min(18,dr));dg=Math.Max(-18,Math.Min(18,dg));db=Math.Max(-18,Math.Min(18,db));
-  Rectangle faceBounds=MapRegion(new Rectangle(76,46,116,160));
-  for(int y=faceBounds.Top;y<faceBounds.Bottom;y++)for(int x=faceBounds.Left;x<faceBounds.Right;x++){
-   double sx=SourceX(x),sy=SourceY(y),u=(sx-134)/58,v=(sy-126)/80,q=Math.Sqrt(u*u+v*v);
-   if(q>=1)continue;double a=Math.Min(1,(1-q)/.24);a=a*a*(3-2*a);
-   Color c=FaceMotion.Sample(face,sx,sy);c=Color.FromArgb(Clamp(c.R+dr),Clamp(c.G+dg),Clamp(c.B+db));
-   portrait.SetPixel(x,y,FaceMotion.Mix(portrait.GetPixel(x,y),c,a));
+  dr=Math.Max(-30,Math.Min(30,dr/32));dg=Math.Max(-30,Math.Min(30,dg/32));db=Math.Max(-30,Math.Min(30,db/32));
+  Rectangle r=f.Bounds;
+  for(int y=r.Top;y<r.Bottom;y++)for(int x=r.Left;x<r.Right;x++){
+   double alpha=f.Alpha(x,y);if(alpha<=0)continue;
+   Color c=FaceMotion.Sample(rest,f.SourceX(x),f.SourceY(y));c=Color.FromArgb(Clamp(c.R+dr),Clamp(c.G+dg),Clamp(c.B+db));
+   portrait.SetPixel(x,y,FaceMotion.Mix(portrait.GetPixel(x,y),c,alpha));
   }
  }
- Bitmap MotionFrame(Bitmap rest,Bitmap frame,Rectangle region){
+ Bitmap MotionFrame(Bitmap rest,Bitmap frame,Feature[] active){
   var result=(Bitmap)portrait.Clone();
-  // Transfer the approved sprite differences, not a newly stretched mouth.
-  // One fixed base/color correction keeps the skin and rest position continuous.
-  for(int y=region.Top;y<region.Bottom;y++)for(int x=region.Left;x<region.Right;x++){
-   Color a=FaceMotion.Sample(rest,SourceX(x),SourceY(y)),b=FaceMotion.Sample(frame,SourceX(x),SourceY(y)),p=portrait.GetPixel(x,y);
-   result.SetPixel(x,y,Color.FromArgb(Clamp(p.R+b.R-a.R),Clamp(p.G+b.G-a.G),Clamp(p.B+b.B-a.B)));
+  foreach(var f in active){Rectangle r=f.Bounds;
+   for(int y=r.Top;y<r.Bottom;y++)for(int x=r.Left;x<r.Right;x++){
+    double alpha=f.Alpha(x,y);if(alpha<=0)continue;double sx=f.SourceX(x),sy=f.SourceY(y);
+    Color a=FaceMotion.Sample(rest,sx,sy),b=FaceMotion.Sample(frame,sx,sy),p=portrait.GetPixel(x,y);
+    result.SetPixel(x,y,Color.FromArgb(Clamp(p.R+(b.R-a.R)*alpha),Clamp(p.G+(b.G-a.G)*alpha),Clamp(p.B+(b.B-a.B)*alpha)));
+   }
   }
   return result;
  }
+ internal Bitmap ReferencePortrait(){return (Bitmap)original.Clone();}
  static int Clamp(double n){return Math.Max(0,Math.Min(255,(int)Math.Round(n)));}
  internal static float Blink(double seconds){return FaceMotion.Blink(seconds);}
  internal float AdvanceMouth(float level,double dt){return motion.AdvanceMouth(level,dt);}
  internal Bitmap Take(){double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;return Render(AdvanceMouth(voice==null?0:voice.Level,dt),Blink(now));}
  internal Bitmap Render(float amplitude,float blink){var result=(Bitmap)portrait.Clone();FaceMotion.BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,MouthRegion);FaceMotion.BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,EyeRegion);return result;}
- public void Dispose(){if(portrait!=null)portrait.Dispose();if(motion!=null)motion.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
+ public void Dispose(){if(original!=null)original.Dispose();if(portrait!=null)portrait.Dispose();if(motion!=null)motion.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }
