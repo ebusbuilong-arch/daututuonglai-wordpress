@@ -111,18 +111,54 @@ internal sealed class PhotoAvatar : IDisposable {
    double[,] landmarks={{250,99,229,74,259,66,-.24},{244,114,219,87,249,76,-.30},{237,124,212,94,247,86,-.24}};
    int[,] shifts={{0,-1,-1,0},{0,0,0,1},{0,0,0,0}};int dx=shifts[person,color];
    double mx=landmarks[person,0]+dx,my=landmarks[person,1],angle=landmarks[person,6];
-   MouthRegion=new Rectangle((int)mx-24,(int)my-14,49,29);
+   MouthRegion=new Rectangle((int)mx-23,(int)my-12,47,35);
    EyeRegion=new Rectangle((int)landmarks[person,2]+dx-16,(int)landmarks[person,5]-10,(int)(landmarks[person,4]-landmarks[person,2])+33, (int)(landmarks[person,3]-landmarks[person,5])+21);
    mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
-   for(int i=1;i<6;i++)using(var face=motion.Render(i/5f,0)){
-    mouths[i]=(Bitmap)portrait.Clone();Transfer(mouths[i],face,136,160,mx,my,30,18,.64,.55,angle);
-   }
+   // Animate this portrait's own lips. Borrow only the inner mouth texture,
+   // never the donor lip contour, surrounding skin, or smile corners.
+   using(var interior=motion.Render(1,0))for(int i=1;i<6;i++)
+    mouths[i]=OpenOwnLips(interior,mx,my,15.5,angle,i/5.0);
    for(int i=1;i<4;i++)using(var face=motion.Render(0,i/3f)){
     eyes[i]=(Bitmap)portrait.Clone();
     Transfer(eyes[i],face,107,104,landmarks[person,2]+dx,landmarks[person,3],21,11,.62,.65,angle+.08);
     Transfer(eyes[i],face,158,100,landmarks[person,4]+dx,landmarks[person,5],21,11,.62,.65,angle+.08);
    }
   }catch{Dispose();throw;}
+ }
+ Bitmap OpenOwnLips(Bitmap interior,double cx,double cy,double width,double angle,double amount){
+  var result=(Bitmap)portrait.Clone();double co=Math.Cos(angle),si=Math.Sin(angle);
+  if(amount<=0)return result;
+  for(int y=MouthRegion.Top;y<MouthRegion.Bottom;y++)for(int x=MouthRegion.Left;x<MouthRegion.Right;x++){
+   double red=0,green=0,blue=0;
+   // Four subpixel samples avoid stair steps along a tilted smile.
+   for(int oy=0;oy<2;oy++)for(int ox=0;ox<2;ox++){
+    double px=x+(ox==0?-.25:.25),py=y+(oy==0?-.25:.25);
+    double u=co*(px-cx)+si*(py-cy),v=-si*(px-cx)+co*(py-cy);
+    if(Math.Abs(u)>=width)continue;
+    double taper=Math.Pow(Math.Max(0,1-u*u/(width*width)),1.3);
+    double gap=5.5*amount*taper,seam=-.6*u*u/(width*width),top=seam-gap*.22,bottom=seam+gap*.78;
+    if(v<=top-7||v>=bottom+11)continue;
+    bool inside=v>=top&&v<=bottom;
+    double sourceV=seam;
+    if(!inside){
+     double distance=v<top?top-v:v-bottom,support=v<top?7:11;
+     double weight=Math.Max(0,Math.Min(1,1-distance/support));weight=weight*weight*(3-2*weight);
+     sourceV=v+(v<top?gap*.22:-gap*.78)*weight;
+    }
+    Color original=FaceMotion.Sample(portrait,px,py);
+    Color warped=FaceMotion.Sample(portrait,cx+co*u-si*sourceV,cy+si*u+co*sourceV);
+    if(inside&&gap>.01){
+     double t=Math.Max(0,Math.Min(1,(v-top)/gap));
+     Color cavity=FaceMotion.Sample(interior,136+u/width*13,154.5+t*7);
+     double coverage=Math.Max(0,Math.Min(1,Math.Min((v-top)*1.5,(bottom-v)*1.5)));
+     warped=FaceMotion.Mix(warped,cavity,coverage);
+    }
+    red+=warped.R-original.R;green+=warped.G-original.G;blue+=warped.B-original.B;
+   }
+   Color pixel=portrait.GetPixel(x,y);
+   result.SetPixel(x,y,Color.FromArgb(Clamp(pixel.R+red/4),Clamp(pixel.G+green/4),Clamp(pixel.B+blue/4)));
+  }
+  return result;
  }
  void Transfer(Bitmap target,Bitmap source,double sx,double sy,double cx,double cy,double rx,double ry,double scaleX,double scaleY,double angle){
   double co=Math.Cos(angle),si=Math.Sin(angle);double dr=0,dg=0,db=0;int count=0;
