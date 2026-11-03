@@ -13,3 +13,7 @@ CI produces `Phan-mem-livestream-man-hinh-v1.3.1.zip` with EXE and pinned depend
 
 ### v1.3.2 approved-face sample
 Photo mode temporarily exposes one long-haired, black-shirt studio sample. Register the master neutral face once and transfer the original mouth/eyelid sprite differences with a single transform. This supersedes the v1.3.1 own-lip warp. Private studio-approved.png and face-transitions.png are added only to the delivery package. Other capture modes and preparation delay are unchanged.
+
+
+### v1.4.0 complete wardrobe
+Restore 3 hair styles x 4 shirt colors. Long hair/black retains the exact v1.3.2 asset and transform. Other looks use private studio-wardrobe.png with a shared registered master face, mouth sprites, and blink. Runtime photo rendering requires no intermediate MP4.

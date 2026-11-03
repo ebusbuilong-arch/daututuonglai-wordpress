@@ -91,21 +91,34 @@ internal sealed class FaceMotion : IDisposable {
  public void Dispose(){portrait.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }
 
-// Approved single-face sample. The resting face and all motion share one transform.
+// Twelve wardrobe looks share the approved master face and sprite motion.
 internal sealed class PhotoAvatar : IDisposable {
  readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
  readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
  double lastFrame;
- internal readonly Rectangle MouthRegion=new Rectangle(391,131,58,44),EyeRegion=new Rectangle(373,87,90,29);
- const double Scale=.9, MouthX=420, MouthY=153;
+ internal readonly Rectangle MouthRegion,EyeRegion;
+ const double Scale=.9, MouthX=420; readonly double MouthY;
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
-  if(person!=0||color!=0)throw new ArgumentOutOfRangeException("person","Bản mẫu dùng một khuôn mặt tóc dài, áo đen đã duyệt.");
+  if(person<0||person>2||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn kiểu tóc và màu áo trong danh sách.");
+  bool approved=person==0&&color==0;
+  MouthY=approved?153:163;
+  int shift=(int)MouthY-153;
+  MouthRegion=new Rectangle(391,131+shift,58,44);EyeRegion=new Rectangle(373,87+shift,90,29);
   voice=audio;
-  string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"studio-approved.png");
-  if(!File.Exists(path))throw new FileNotFoundException("Thiếu studio-approved.png. Giải nén toàn bộ gói ứng dụng.",path);
+  string name=approved?"studio-approved.png":"studio-wardrobe.png";
+  string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,name);
+  if(!File.Exists(path))throw new FileNotFoundException("Thiếu "+name+". Giải nén toàn bộ gói ứng dụng.",path);
   portrait=new Bitmap(836,470,PixelFormat.Format24bppRgb);
   try{
-   using(var image=new Bitmap(path))using(var g=Graphics.FromImage(portrait))g.DrawImage(image,new Rectangle(0,0,836,470));
+   using(var image=new Bitmap(path))using(var g=Graphics.FromImage(portrait)){
+    if(approved)g.DrawImage(image,new Rectangle(0,0,836,470));
+    else {
+     // Shared edges avoid seams/rounding drift in the 4-column, 3-row atlas.
+     int left=(int)Math.Round(color*image.Width/4.0),right=(int)Math.Round((color+1)*image.Width/4.0);
+     int top=(int)Math.Round(person*image.Height/3.0),bottom=(int)Math.Round((person+1)*image.Height/3.0);
+     g.DrawImage(image,new Rectangle(0,0,836,470),left,top,right-left,bottom-top,GraphicsUnit.Pixel);
+    }
+   }
    motion=new FaceMotion(audio);
    using(var rest=motion.Render(0,0)){
     RegisterFace(rest);
@@ -115,8 +128,8 @@ internal sealed class PhotoAvatar : IDisposable {
    }
   }catch{Dispose();throw;}
  }
- static double SourceX(int x){return 136+(x-MouthX)/Scale;}
- static double SourceY(int y){return 160+(y-MouthY)/Scale;}
+ double SourceX(int x){return 136+(x-MouthX)/Scale;}
+ double SourceY(int y){return 160+(y-MouthY)/Scale;}
  void RegisterFace(Bitmap face){
   // Register the whole neutral face once, including the resting mouth. This avoids
   // switching between two different lip contours when speech begins or ends.
@@ -127,7 +140,7 @@ internal sealed class PhotoAvatar : IDisposable {
    dr+=to.R-from.R;dg+=to.G-from.G;db+=to.B-from.B;
   }
   dr/=32;dg/=32;db/=32;
-  for(int y=48;y<196;y++)for(int x=364;x<475;x++){
+  for(int y=(int)MouthY-105;y<(int)MouthY+43;y++)for(int x=364;x<475;x++){
    double sx=SourceX(x),sy=SourceY(y),u=(sx-134)/58,v=(sy-126)/80,q=Math.Sqrt(u*u+v*v);
    if(q>=1)continue;double a=Math.Min(1,(1-q)/.24);a=a*a*(3-2*a);
    Color c=FaceMotion.Sample(face,sx,sy);c=Color.FromArgb(Clamp(c.R+dr),Clamp(c.G+dg),Clamp(c.B+db));
