@@ -62,15 +62,28 @@ class LayoutTests {
    mode.SelectedIndex=3;Pump(100);CheckButtonText(dialog);var photos=(Panel)typeof(BroadcastForm).GetField("photoSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);if(!photos.Visible||ai.Visible||normal.Visible)throw new Exception("Photo mode controls");using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-photo-preview.png");}
    mode.SelectedIndex=0;if(ai.Visible||!normal.Visible)throw new Exception("Normal mode controls not restored");dialog.Close();}
 
-  for(int person=0;person<1;person++)for(int color=0;color<1;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
-  using(var photo=new PhotoAvatar(0,0,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(1,0))using(var blink=photo.Render(0,1))using(var quiet=photo.Render(0,0)){
+  for(int person=0;person<3;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
+  for(int person=0;person<3;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
+   for(int y=0;y<rest.Height;y++)for(int x=0;x<rest.Width;x++){
+    var pt=new Point(x,y);
+    if(!photo.MouthRegion.Contains(pt)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Full portrait mouth escaped region");
+    if(!photo.EyeRegion.Contains(pt)&&mouth.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Full portrait eye escaped region");
+    if(photo.MouthRegion.Contains(pt)&&mouth.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Full portrait blink changes mouth");
+   }
+  }
+  using(var delayed=new BroadcastForm()){
+   delayed.Show();bool started=false;var timer=Stopwatch.StartNew();delayed.BeginPreparation(delegate{started=true;});Pump(500);
+   if(started)throw new Exception("Capture started during preparation");delayed.StopAll();Pump(3100);if(started)throw new Exception("Cancelled preparation captured frames");
+   timer.Restart();delayed.BeginPreparation(delegate{if(timer.ElapsedMilliseconds<3000)throw new Exception("Preparation shorter than 3s");started=true;});Pump(3400);if(!started)throw new Exception("Preparation never starts capture");delayed.StopAll();delayed.Close();
+  }
+  using(var photo=new FaceMotion(null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(1,0))using(var blink=photo.Render(0,1))using(var quiet=photo.Render(0,0)){
    for(int y=0;y<rest.Height;y++)for(int x=0;x<rest.Width;x++){
     if(rest.GetPixel(x,y)!=quiet.GetPixel(x,y))throw new Exception("Neutral face is not deterministic");
     if(!new Rectangle(106,137,61,47).Contains(x,y)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Mouth changed outside its region");
     if(!new Rectangle(85,88,96,29).Contains(x,y)&&rest.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Blink changed outside its region");
    }
   }
-  using(var photo=new PhotoAvatar(0,0,null)){
+  using(var photo=new FaceMotion(null)){
    float peak=0;for(int n=0;n<120;n++)peak=photo.AdvanceMouth(1,1.0/24);
    if(peak>.721f||peak<.70f)throw new Exception("Mouth opening limit");
    float dip=photo.AdvanceMouth(.08f,.10);if(dip>=peak*.4f)throw new Exception("Mouth did not follow a speech dip");
@@ -78,7 +91,7 @@ class LayoutTests {
    if(photo.AdvanceMouth(0,1.0/24)!=0)throw new Exception("Mouth did not close in silence");
    if(photo.AdvanceMouth(.02f,.1)!=0)throw new Exception("Background noise moves mouth");
   }
-  using(var photo=new PhotoAvatar(0,0,null)){
+  using(var photo=new FaceMotion(null)){
    for(int m=0;m<6;m++)using(var mouthOnly=photo.Render(m/5f,0))for(int e=0;e<4;e++)using(var combined=photo.Render(m/5f,e/3f)){
     for(int y=137;y<184;y++)for(int x=106;x<167;x++)if(combined.GetPixel(x,y)!=mouthOnly.GetPixel(x,y))throw new Exception("Blink changed approved mouth in 24-state set");
    }

@@ -5,12 +5,11 @@ using System.Diagnostics;
 using System.IO;
 
 // One registered face. Audio amplitude drives opening, not phoneme recognition.
-internal sealed class PhotoAvatar : IDisposable {
+internal sealed class FaceMotion : IDisposable {
  readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
  readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
  double lastFrame; float opening;
- internal PhotoAvatar(int person,int color,NarrationAudio audio){
-  if(person!=0||color!=0)throw new ArgumentException("Bản thử chuyển động chỉ hỗ trợ tóc dài, áo đen.");
+ internal FaceMotion(NarrationAudio audio){
   voice=audio;
   string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"face-transitions.png");
   if(!File.Exists(path))throw new FileNotFoundException("Thiếu bộ ảnh chuyển động face-transitions.png",path);
@@ -47,7 +46,7 @@ internal sealed class PhotoAvatar : IDisposable {
    result.SetPixel(x,y,Mix(portrait.GetPixel(x,y),source,alpha));
   }
  }
- static Color Sample(Bitmap b,double x,double y){
+ internal static Color Sample(Bitmap b,double x,double y){
   x=Math.Max(0,Math.Min(b.Width-1,x));y=Math.Max(0,Math.Min(b.Height-1,y));
   int ix=(int)x,iy=(int)y;
   return Mix(Mix(b.GetPixel(ix,iy),b.GetPixel(Math.Min(ix+1,b.Width-1),iy),x-ix),Mix(b.GetPixel(ix,Math.Min(iy+1,b.Height-1)),b.GetPixel(Math.Min(ix+1,b.Width-1),Math.Min(iy+1,b.Height-1)),x-ix),y-iy);
@@ -81,13 +80,72 @@ internal sealed class PhotoAvatar : IDisposable {
   BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,new Rectangle(85,88,96,29));
   return result;
  }
- static void BlendTrack(Bitmap dst,Bitmap[] track,double phase,Rectangle region){
+ internal static void BlendTrack(Bitmap dst,Bitmap[] track,double phase,Rectangle region){
   if(phase<=0)return;
   int first=Math.Min(track.Length-1,(int)phase),next=Math.Min(track.Length-1,first+1);
   double t=phase-first;t=t*t*(3-2*t);
   for(int y=region.Top;y<region.Bottom;y++)for(int x=region.Left;x<region.Right;x++)dst.SetPixel(x,y,Mix(track[first].GetPixel(x,y),track[next].GetPixel(x,y),t));
  }
- static Color Mix(Color a,Color b,double t){return Color.FromArgb(Channel(a.R+(b.R-a.R)*t),Channel(a.G+(b.G-a.G)*t),Channel(a.B+(b.B-a.B)*t));}
+ internal static Color Mix(Color a,Color b,double t){return Color.FromArgb(Channel(a.R+(b.R-a.R)*t),Channel(a.G+(b.G-a.G)*t),Channel(a.B+(b.B-a.B)*t));}
  static int Channel(double n){return Math.Max(0,Math.Min(255,(int)Math.Round(n)));}
  public void Dispose(){portrait.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
+}
+
+// Complete studio portraits. Only registered mouth/eyelid patches are animated.
+internal sealed class PhotoAvatar : IDisposable {
+ readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
+ readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
+ double lastFrame; internal readonly Rectangle MouthRegion,EyeRegion;
+ internal PhotoAvatar(int person,int color,NarrationAudio audio){
+  if(person<0||person>2||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn nhân vật và màu áo trong danh sách.");
+  string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"avatars.jpg");
+  if(!File.Exists(path))throw new FileNotFoundException("Thiếu avatars.jpg. Giải nén toàn bộ gói ứng dụng vào cùng thư mục.",path);
+  voice=audio;
+  using(var sheet=new Bitmap(path)){
+   int[] tops={0,288,599},heights={286,308,342};
+   portrait=new Bitmap(418,heights[person],PixelFormat.Format24bppRgb);
+   using(var g=Graphics.FromImage(portrait))g.DrawImage(sheet,new Rectangle(0,0,portrait.Width,portrait.Height),(float)(color*418*sheet.Width/1672.0),(float)(tops[person]*sheet.Height/941.0),(float)(418*sheet.Width/1672.0),(float)(heights[person]*sheet.Height/941.0),GraphicsUnit.Pixel);
+  }
+  try{
+   motion=new FaceMotion(audio);
+   double[,] landmarks={{250,99,229,74,259,66,-.24},{244,114,219,87,249,76,-.30},{237,124,212,94,247,86,-.24}};
+   int[,] shifts={{0,-1,-1,0},{0,0,0,1},{0,0,0,0}};int dx=shifts[person,color];
+   double mx=landmarks[person,0]+dx,my=landmarks[person,1],angle=landmarks[person,6];
+   MouthRegion=new Rectangle((int)mx-24,(int)my-14,49,29);
+   EyeRegion=new Rectangle((int)landmarks[person,2]+dx-16,(int)landmarks[person,5]-10,(int)(landmarks[person,4]-landmarks[person,2])+33, (int)(landmarks[person,3]-landmarks[person,5])+21);
+   mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
+   for(int i=1;i<6;i++)using(var face=motion.Render(i/5f,0)){
+    mouths[i]=(Bitmap)portrait.Clone();Transfer(mouths[i],face,136,160,mx,my,30,18,.64,.55,angle);
+   }
+   for(int i=1;i<4;i++)using(var face=motion.Render(0,i/3f)){
+    eyes[i]=(Bitmap)portrait.Clone();
+    Transfer(eyes[i],face,107,104,landmarks[person,2]+dx,landmarks[person,3],21,11,.62,.65,angle+.08);
+    Transfer(eyes[i],face,158,100,landmarks[person,4]+dx,landmarks[person,5],21,11,.62,.65,angle+.08);
+   }
+  }catch{Dispose();throw;}
+ }
+ void Transfer(Bitmap target,Bitmap source,double sx,double sy,double cx,double cy,double rx,double ry,double scaleX,double scaleY,double angle){
+  double co=Math.Cos(angle),si=Math.Sin(angle);double dr=0,dg=0,db=0;int count=0;
+  // Match surrounding skin, not the dark mouth interior, once at construction.
+  for(int k=0;k<32;k++){
+   double a=k*Math.PI/16,u=rx*.92*Math.Cos(a),v=ry*.92*Math.Sin(a);
+   var from=FaceMotion.Sample(source,sx+u,sy+v);var to=FaceMotion.Sample(portrait,cx+co*u*scaleX-si*v*scaleY,cy+si*u*scaleX+co*v*scaleY);
+   dr+=to.R-from.R;dg+=to.G-from.G;db+=to.B-from.B;count++;
+  }
+  dr/=count;dg/=count;db/=count;
+  int radius=(int)Math.Ceiling(Math.Max(rx*scaleX,ry*scaleY))+2;
+  for(int y=Math.Max(0,(int)cy-radius);y<Math.Min(target.Height,(int)cy+radius+1);y++)for(int x=Math.Max(0,(int)cx-radius);x<Math.Min(target.Width,(int)cx+radius+1);x++){
+   double px=x-cx,py=y-cy,u=(co*px+si*py)/scaleX,v=(-si*px+co*py)/scaleY,q=Math.Sqrt(u*u/(rx*rx)+v*v/(ry*ry));if(q>=1)continue;
+   double a=Math.Min(1,(1-q)/.3);a=a*a*(3-2*a);
+   Color s=FaceMotion.Sample(source,sx+u,sy+v);
+   s=Color.FromArgb(Clamp(s.R+dr),Clamp(s.G+dg),Clamp(s.B+db));
+   target.SetPixel(x,y,FaceMotion.Mix(portrait.GetPixel(x,y),s,a));
+  }
+ }
+ static int Clamp(double n){return Math.Max(0,Math.Min(255,(int)Math.Round(n)));}
+ internal static float Blink(double seconds){return FaceMotion.Blink(seconds);}
+ internal float AdvanceMouth(float level,double dt){return motion.AdvanceMouth(level,dt);}
+ internal Bitmap Take(){double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;return Render(AdvanceMouth(voice==null?0:voice.Level,dt),Blink(now));}
+ internal Bitmap Render(float amplitude,float blink){var result=(Bitmap)portrait.Clone();FaceMotion.BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,MouthRegion);FaceMotion.BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,EyeRegion);return result;}
+ public void Dispose(){if(portrait!=null)portrait.Dispose();if(motion!=null)motion.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }

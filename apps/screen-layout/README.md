@@ -1,11 +1,11 @@
-# Phần mềm livestream màn hình — DTTL v1.0.0
+# Phần mềm livestream màn hình — DTTL v1.3.0
 
-Windows desktop application, promoted from user-validated Workspace 0.6.8. This release changes branding, assembly version, package name and documentation without changing recording, audio or docking behavior.
+Windows desktop app with four recording/streaming modes: webcam and microphone; silent video plus MP3; voiced MP4; animated studio portrait plus MP3.
 
-Run `./apps/screen-layout/build.ps1` on Windows with .NET Framework compiler and FFmpeg/ffprobe available. Pinned AForge and NAudio packages are verified before compilation. Existing LayoutTests and BroadcastTests cover geometry, window behavior, recording and local streaming; live platform accounts and physical cameras require manual validation.
+Photo mode uses three presenters and four shirt colors. FaceMotion retains the approved amplitude-driven mouth and eased blink timing. PhotoAvatar precomputes registered mouth/eyelid patches on the full studio portraits. Only these regions change. There are six mouth levels and four eye levels, with interpolated transitions; this is not phoneme recognition or 24 independent full-face emotions.
 
-Release ZIP: `Phan-mem-livestream-man-hinh-v1.0.0.zip`. Entry point remains `DTTL-Workspace.exe` for compatibility. FFmpeg is supplied separately by the user. Keep dependency DLLs, licenses and guide alongside the executable.
+Start preparation defaults to three seconds (optional zero or five). It runs after validation, save selection and source setup. The control window minimizes while waiting. No BroadcastSession is created before the timer expires. Stop/close cancels pending capture. Existing media playback controls remain manual.
 
-`HUONG-DAN-MAN-HINH-AO.txt` is the offline Vietnamese guide (legacy filename retained). `huong-dan-livestream-v1.html` is the full website guide. Publish the tested ZIP using the existing WordPress app catalogue upload form; do not reinstall the historical catalogue seed package to upgrade an app.
+Run `./apps/screen-layout/build.ps1` on Windows. Tests use synthetic textures, verify all twelve character/color combinations, region isolation, mouth dynamics, blink timing, delayed start/cancel, docking, audio, local recording and streaming. Hardware cameras and public platform accounts require manual testing.
 
-Known limitation: restore maximized third-party windows to normal size before docking. Docking places real windows and respects their minimum sizes. AI mode uses direct MP3 audio and excludes microphone/system audio. Saving MP4 asks for destination before recording; Stop finalizes the file. No automatic reconnect, scheduled streaming or lip sync.
+CI produces `Phan-mem-livestream-man-hinh-v1.3.0.zip` with EXE and pinned dependencies. Private delivery adds `avatars.jpg` and `face-transitions.png`; never upload presenter artwork to the source repository. FFmpeg is supplied separately. See `HUONG-DAN-MAN-HINH-AO.txt` for installation and use.

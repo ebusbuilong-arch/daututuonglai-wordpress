@@ -35,7 +35,7 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Button quit=new Button{Text="×",Size=new Size(32,32),FlatStyle=FlatStyle.Flat};
  readonly Button webcamButton=new Button{Text="Bật webcam",Size=new Size(115,28),Location=new Point(136,7),FlatStyle=FlatStyle.Flat};
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
- readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="Phần mềm livestream màn hình • v1.2.0"};
+ readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="Phần mềm livestream màn hình • v1.3.0"};
  readonly ShellNative.WinEvent moveEvent;
  IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;WebcamFeed avatarFeed;PhotoAvatar photoAvatar;Bitmap webcamImage;BroadcastForm broadcast;
  ScreenInk ink;
@@ -47,7 +47,7 @@ uint restartMessage;
  internal VirtualDesktopDock():this(true){}
  internal VirtualDesktopDock(bool readSettings){
   try{Icon=Icon.ExtractAssociatedIcon(Application.ExecutablePath);if(Icon!=null)tray.Icon=Icon;}catch{}
-  Text="Phần mềm livestream màn hình • v1.2.0";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
+  Text="Phần mềm livestream màn hình • v1.3.0";FormBorderStyle=FormBorderStyle.None;ShowInTaskbar=false;StartPosition=FormStartPosition.Manual;AutoScaleMode=AutoScaleMode.None;DoubleBuffered=true;
   BackColor=Color.FromArgb(20,31,37);ForeColor=Color.FromArgb(235,245,247);Font=new Font("Segoe UI",9);
   foreach(var button in new[]{options,quit,webcamButton}){button.TextAlign=ContentAlignment.MiddleCenter;button.Padding=Padding.Empty;button.ForeColor=Color.White;button.BackColor=Color.FromArgb(40,65,73);button.FlatAppearance.BorderColor=Color.FromArgb(76,116,124);button.FlatAppearance.MouseOverBackColor=Color.FromArgb(55,93,102);button.FlatAppearance.MouseDownBackColor=Color.FromArgb(35,120,123);Controls.Add(button);}
   options.Click+=delegate{Menu().Show(options,new Point(0,options.Height));};quit.Click+=delegate{Close();};webcamButton.Click+=delegate{ToggleWebcam();};

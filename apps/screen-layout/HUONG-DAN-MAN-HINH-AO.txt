@@ -62,5 +62,29 @@ BỔ SUNG v1.1.0 — MP4 CÓ LỜI
 - Nghe tiếng video trên máy chỉ bật/tắt nghe tại máy; không làm mất tiếng gửi lên live.
 - Các cấu hình và đường dẫn của hai chế độ cũ được giữ khi đổi chế độ trong cùng phiên.
 
-V1.2.0 — ẢNH NÓI + MP3 (THỬ NGHIỆM)
-Chọn chế độ Ảnh nói + MP3, chọn 1 trong 3 nhân vật và màu áo Đen/Đỏ/Cam/Trắng. Chọn MP3, Bắt đầu rồi Phát lời. Miệng mở theo âm lượng lời, chưa khớp từng âm tiết; mắt chớp mỗi 4,6 giây. Tạm dừng hoặc hết lời: miệng khép, mắt vẫn chớp. Không tạo MP4 trung gian; bỏ tích Lưu video MP4 nếu chỉ live. Cần giữ avatars.jpg cạnh EXE. Các chế độ cũ không đổi.
+V1.3.0 — ẢNH NÓI + MP3
+- Chọn 1 trong 3 nhân vật: tóc dài, tóc ngắn, tóc đuôi gà; áo Đen/Đỏ/Cam/Trắng.
+- Chọn MP3, bấm Bắt đầu. Sau khi đã quay/phát, mở lại bảng điều khiển và bấm Phát lời khi sẵn sàng.
+- Môi mở theo âm lượng lời, chưa nhận dạng từng âm tiết. Mắt chớp theo chu kỳ 4,6 giây; có các mức chuyển tiếp.
+- 24 tổ hợp môi–mắt = 6 mức môi × 4 mức mí, không phải 24 biểu cảm toàn khuôn mặt khác nhau.
+- Tạm dừng hoặc hết lời: môi khép, mắt vẫn chớp. Không tạo MP4 trung gian.
+- Bỏ tích Lưu video MP4 nếu chỉ muốn live. Giữ avatars.jpg và face-transitions.png cạnh EXE, không thay bằng bộ ảnh khác.
+
+CHUẨN BỊ TRƯỚC KHI QUAY / LIVE
+- Mặc định chờ 3 giây; có thể chọn Không chờ hoặc 5 giây ở cuối bảng điều khiển.
+- Đếm ngược bắt đầu sau khi chọn nơi lưu và chuẩn bị nguồn hình. Bảng điều khiển tự thu nhỏ; lúc này chưa ghi hoặc gửi hình.
+- Hết thời gian chờ mới khởi động quay/gửi luồng. Mở lại bảng điều khiển từ thanh tác vụ nếu muốn Dừng hoặc Phát lời.
+- Bấm Dừng hoặc đóng bảng điều khiển trong lúc chờ sẽ hủy lượt quay. Không đóng bảng điều khiển nếu muốn tiếp tục quay.
+- Đây là bỏ khoảng chuẩn bị ở đầu nguồn phát, không cắt ngược video đã gửi và không thay đổi độ trễ của YouTube.
+
+CÁC CHẾ ĐỘ CŨ VẪN CÓ
+Thường: webcam + micro, tùy chọn thu tiếng máy.
+AI — video và lời MP3: video im tiếng; chỉ phát lời từ MP3.
+MP4 có lời: dùng hình và tiếng trong cùng MP4; không phát thêm MP3.
+Ảnh nói + MP3: nhân vật dựng trực tiếp trong app, âm thanh MP3 gửi thẳng lên live.
+Trong ba chế độ AI, không thu micro/tiếng máy; Nghe trên máy chỉ điều khiển nghe kiểm tra.
+
+CÀI ĐẶT
+Đóng app cũ. Giải nén nguyên gói vào thư mục mới ngoài OneDrive, ví dụ C:\DTTL-Live-1.3.
+Mở DTTL-Workspace.exe. Chọn ffmpeg.exe của bản FFmpeg Windows đang dùng; gói không kèm FFmpeg.
+Windows 10/11 và .NET Framework 4.8. Không xóa các DLL hoặc thư mục licenses.
