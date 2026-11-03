@@ -95,3 +95,9 @@ Windows 10/11 và .NET Framework 4.8. Không xóa các DLL hoặc thư mục lic
 
 SỬA v1.4.0 — GIỮ MÔI GỐC
 Viền môi dùng chính ảnh nhân vật, mở–khép quanh đường môi hiện có. Không thay cả miệng bằng ảnh khuôn mặt khác. Giữ mắt, nhịp nói, 12 lựa chọn và thời gian chờ như v1.3.0.
+
+
+BẢN 1.5.0 — 16 MẪU ĐÃ ĐỒNG BỘ
+Trong Ảnh nói + MP3, chọn nhóm bối cảnh rồi chọn mẫu có số 01–16. Mỗi mẫu gắn sẵn tóc, màu áo và nền theo bảng duyệt. Không chọn màu áo tách rời. Không còn tóc đuôi gà.
+01–04 Phòng sách ấm; 05–08 Studio sáng; 09–12 Văn phòng thành phố; 13–16 Góc cây xanh.
+Giữ file studio-looks-16.png và face-transitions.png cạnh EXE. Miệng vẫn chạy theo âm lượng MP3, không phải khớp từng âm vị.

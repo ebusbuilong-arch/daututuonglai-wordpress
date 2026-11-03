@@ -84,16 +84,18 @@ internal sealed class BroadcastForm : Form {
  string savedFile; bool hasLive; string lastError=""; readonly Button details=new Button{Text="Chi tiết lỗi",Width=100,Visible=false};
  internal BroadcastForm(){
   try{Icon=Icon.ExtractAssociatedIcon(Application.ExecutablePath);}catch{}
-  Text="Phần mềm livestream màn hình • v1.4.0";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,700);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  Text="Phần mềm livestream màn hình • v1.5.0";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,700);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
   BackColor=Color.FromArgb(243,247,248);ForeColor=Color.FromArgb(25,45,53);Controls.Add(settings);int y=16;
   Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80,Height=30};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};
   string bundled=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe");if(File.Exists(bundled))encoder.Text=bundled;
   y+=36;Row("Màn hình",screen,y);foreach(var s in Screen.AllScreens)screen.Items.Add(s.DeviceName+" • "+s.Bounds.Width+"×"+s.Bounds.Height);screen.SelectedIndex=0;
   y+=36;Row("Độ nét",quality,y);quality.Items.AddRange(new object[]{"720p / 30 fps","1080p / 30 fps"});quality.SelectedIndex=1;
-  y+=36;Row("Chế độ",mode,y);mode.Items.AddRange(new object[]{"Thường — webcam và micro","AI — video và lời MP3","MP4 có lời — hình và tiếng cùng video","Ảnh nói + MP3 — 12 mẫu"});mode.SelectedIndex=0;
+  y+=36;Row("Chế độ",mode,y);mode.Items.AddRange(new object[]{"Thường — webcam và micro","AI — video và lời MP3","MP4 có lời — hình và tiếng cùng video","Ảnh nói + MP3 — 16 mẫu"});mode.SelectedIndex=0;
   y+=36;normalSettings.SetBounds(0,y,700,108);aiSettings.SetBounds(0,y,700,108);videoSettings.SetBounds(0,y,700,108);photoSettings.SetBounds(0,y,700,108);settings.Controls.AddRange(new Control[]{normalSettings,aiSettings,videoSettings,photoSettings});
-  character.Items.AddRange(new object[]{"Tóc dài","Tóc ngắn","Tóc đuôi gà"});shirt.Items.AddRange(new object[]{"Đen","Đỏ","Cam","Trắng"});character.SelectedIndex=shirt.SelectedIndex=0;character.SetBounds(150,0,250,26);shirt.SetBounds(410,0,180,26);photoSettings.Controls.AddRange(new Control[]{character,shirt,new Label{Text="Nhân vật / áo",Left=16,Top=4,Width=130}});AddMediaRow(photoSettings,"Lời MP3",photoMp3,36,"Âm thanh MP3|*.mp3");photoListen.Location=new Point(150,78);photoSettings.Controls.Add(photoListen);
+  character.Items.AddRange(new object[]{"01–04 · Phòng sách ấm","05–08 · Studio sáng","09–12 · Văn phòng thành phố","13–16 · Góc cây xanh"});
+  character.SelectedIndexChanged+=delegate{SetPhotoLooks();};character.SelectedIndex=0;
+  character.SetBounds(150,0,250,26);shirt.SetBounds(410,0,274,26);photoSettings.Controls.AddRange(new Control[]{character,shirt,new Label{Text="Bối cảnh / mẫu",Left=16,Top=4,Width=130}});AddMediaRow(photoSettings,"Lời MP3",photoMp3,36,"Âm thanh MP3|*.mp3");photoListen.Location=new Point(150,78);photoSettings.Controls.Add(photoListen);
   normalSettings.Controls.Add(new Label{Text="Micro",Left=16,Top=0,Width=128,Height=30,TextAlign=ContentAlignment.MiddleLeft});audio.SetBounds(150,0,530,26);normalSettings.Controls.Add(audio);audio.Items.Add("Tắt micro");audio.SelectedIndex=0;
   systemSound.Location=new Point(150,36);normalSettings.Controls.Add(systemSound);
   normalSettings.Controls.Add(new Label{Text="Webcam bật/tắt tại vùng phụ. Tiếng máy và micro chọn riêng.",Left=150,Top=66,Width=530,Height=28});
@@ -119,6 +121,14 @@ internal sealed class BroadcastForm : Form {
  }
  void AddMediaRow(string title,TextBox box,int y,string filter){AddMediaRow(aiSettings,title,box,y,filter);}
  void AddMediaRow(Panel panel,string title,TextBox box,int y,string filter){panel.Controls.Add(new Label{Text=title,Left=16,Top=y,Width=128,Height=30,TextAlign=ContentAlignment.MiddleLeft});box.SetBounds(150,y,440,26);var b=new Button{Text="Chọn…",Left=600,Top=y,Width=80};panel.Controls.AddRange(new Control[]{box,b});b.Click+=delegate{using(var f=new OpenFileDialog{Filter=filter})if(f.ShowDialog(this)==DialogResult.OK)box.Text=f.FileName;};}
+ void SetPhotoLooks(){
+  string[][] looks={new[]{"01 · Tóc dài / áo đen","02 · Tóc dài / áo đỏ","03 · Tóc dài / áo cam","04 · Tóc dài / áo trắng"},
+   new[]{"05 · Bob đen / xanh ngọc","06 · Bob nâu / trắng kem","07 · Bob hạt dẻ / navy","08 · Bob caramel / hồng"},
+   new[]{"09 · Tóc nâu khói / xanh nhạt","10 · Tóc nâu đồng / kem","11 · Tóc khói bạc / đen","12 · Tóc nâu hồng / tím"},
+   new[]{"13 · Pixie nâu / đỏ rượu","14 · Bob nâu tím / xanh sage","15 · Tóc xanh đen / vàng nhạt","16 · Bob ánh hồng / xám"}};
+  int group=character.SelectedIndex;if(group<0||group>=looks.Length)return;
+  shirt.BeginUpdate();try{shirt.Items.Clear();shirt.Items.AddRange(looks[group]);shirt.SelectedIndex=0;}finally{shirt.EndUpdate();}
+ }
  void SetMode(){bool ai=mode.SelectedIndex==1,video=mode.SelectedIndex==2,photo=mode.SelectedIndex==3;aiSettings.Visible=ai;videoSettings.Visible=video;photoSettings.Visible=photo;normalSettings.Visible=!ai&&!video&&!photo;playVoice.Text=video?"Phát video":"Phát lời";pauseVoice.Text=video?"Tạm dừng video":"Tạm dừng lời";if(StopAvatar!=null)StopAvatar();}
  void VoiceButtons(bool enabled){playVoice.Enabled=pauseVoice.Enabled=rewindVoice.Enabled=enabled;}
  void DisposeNarration(){VoiceButtons(false);if(StopAvatar!=null)StopAvatar();if(narration!=null){narration.Dispose();narration=null;}}

@@ -91,7 +91,7 @@ internal sealed class FaceMotion : IDisposable {
  public void Dispose(){portrait.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }
 
-// Twelve wardrobe looks share the approved master face and sprite motion.
+// Sixteen numbered looks share the approved master face and sprite motion.
 internal sealed class PhotoAvatar : IDisposable {
  readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
  readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
@@ -99,25 +99,29 @@ internal sealed class PhotoAvatar : IDisposable {
  internal readonly Rectangle MouthRegion,EyeRegion;
  const double Scale=.9, MouthX=420; readonly double MouthY;
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
-  if(person<0||person>2||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn kiểu tóc và màu áo trong danh sách.");
-  bool approved=person==0&&color==0;
-  MouthY=approved?153:163;
+  if(person<0||person>3||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn bối cảnh và mẫu trong danh sách.");
+  MouthY=190;
   int shift=(int)MouthY-153;
   MouthRegion=new Rectangle(391,131+shift,58,44);EyeRegion=new Rectangle(373,87+shift,90,29);
   voice=audio;
-  string name=approved?"studio-approved.png":"studio-wardrobe.png";
+  string name="studio-looks-16.png";
   string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,name);
   if(!File.Exists(path))throw new FileNotFoundException("Thiếu "+name+". Giải nén toàn bộ gói ứng dụng.",path);
   portrait=new Bitmap(836,470,PixelFormat.Format24bppRgb);
   try{
    using(var image=new Bitmap(path))using(var g=Graphics.FromImage(portrait)){
-    if(approved)g.DrawImage(image,new Rectangle(0,0,836,470));
-    else {
-     // Shared edges avoid seams/rounding drift in the 4-column, 3-row atlas.
-     int left=(int)Math.Round(color*image.Width/4.0),right=(int)Math.Round((color+1)*image.Width/4.0);
-     int top=(int)Math.Round(person*image.Height/3.0),bottom=(int)Math.Round((person+1)*image.Height/3.0);
-     g.DrawImage(image,new Rectangle(0,0,836,470),left,top,right-left,bottom-top,GraphicsUnit.Pixel);
-    }
+    // The approved artwork has uneven rows. Register every look by its mouth
+    // anchor, not equal grid divisions. Use a uniform scale, never stretch faces.
+    double[,] anchors={{243.77,79.13},{727.33,78.35},{1211.18,78.46},{1695.40,78.45},
+     {245.91,288.78},{728.89,289.25},{1212.61,288.64},{1695.81,290.10},
+     {245.56,498.44},{728.98,498.59},{1212.80,498.30},{1696.73,498.42},
+     {246.03,701.34},{728.98,701.35},{1213.10,701.05},{1696.56,701.57}};
+    int index=person*4+color; double sx=image.Width/1933.0,sy=image.Height/813.0,zoom=470.0/180;
+    var crop=new RectangleF((float)((anchors[index,0]-MouthX/zoom)*sx),
+     (float)((anchors[index,1]-MouthY/zoom)*sy),(float)(836/zoom*sx),(float)(180*sy));
+    if(crop.Left<0||crop.Top<0||crop.Right>image.Width||crop.Bottom>image.Height)throw new InvalidDataException("Bộ ảnh 16 mẫu không đúng kích thước.");
+    g.InterpolationMode=System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+    g.DrawImage(image,new RectangleF(0,0,836,470),crop,GraphicsUnit.Pixel);
    }
    motion=new FaceMotion(audio);
    using(var rest=motion.Render(0,0)){
@@ -142,7 +146,7 @@ internal sealed class PhotoAvatar : IDisposable {
   dr/=32;dg/=32;db/=32;
   // Keep the approved skin tone for every wardrobe look; hair around the face
   // must not brighten or tint the face when changing hairstyles.
-  if(MouthY!=153){dr=4.5;dg=2.3;db=-2.5;}
+  dr=Math.Max(-18,Math.Min(18,dr));dg=Math.Max(-18,Math.Min(18,dg));db=Math.Max(-18,Math.Min(18,db));
   for(int y=(int)MouthY-105;y<(int)MouthY+43;y++)for(int x=364;x<475;x++){
    double sx=SourceX(x),sy=SourceY(y),u=(sx-134)/58,v=(sy-126)/80,q=Math.Sqrt(u*u+v*v);
    if(q>=1)continue;double a=Math.Min(1,(1-q)/.24);a=a*a*(3-2*a);
