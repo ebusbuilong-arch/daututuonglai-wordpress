@@ -45,6 +45,8 @@ $xb = @(0,483,966,1450,1933); $yb = @(0,212,421,624,813)
 for ($row=0;$row -lt 4;$row++) { for ($col=0;$col -lt 4;$col++) {
  $brush = New-Object Drawing.SolidBrush ([Drawing.Color]::FromArgb((40+$col*35),(60+$row*30),120))
  $lg.FillRectangle($brush,$xb[$col],$yb[$row],($xb[$col+1]-$xb[$col]),($yb[$row+1]-$yb[$row])); $brush.Dispose()
+ $lg.FillRectangle([Drawing.Brushes]::Magenta,($xb[$col]+8),($yb[$row]+8),16,16)
+ $lg.FillRectangle([Drawing.Brushes]::Lime,($xb[$col+1]-24),($yb[$row+1]-24),16,16)
 } }
 $looks.Save((Join-Path $out 'studio-looks-16.png'),[Drawing.Imaging.ImageFormat]::Png)
 $lg.Dispose(); $looks.Dispose()
@@ -69,7 +71,7 @@ Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.5.2.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.5.3.zip" -Force
 
 & $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }

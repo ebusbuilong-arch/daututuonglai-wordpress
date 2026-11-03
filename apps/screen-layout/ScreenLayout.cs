@@ -9,8 +9,8 @@ using System.Windows.Forms;
 #if WORKSPACE
 [assembly: System.Reflection.AssemblyTitle("Phần mềm livestream màn hình")]
 [assembly: System.Reflection.AssemblyProduct("DTTL Livestream màn hình")]
-[assembly: System.Reflection.AssemblyVersion("1.5.2.0")]
-[assembly: System.Reflection.AssemblyFileVersion("1.5.2.0")]
+[assembly: System.Reflection.AssemblyVersion("1.5.3.0")]
+[assembly: System.Reflection.AssemblyFileVersion("1.5.3.0")]
 #else
 [assembly: System.Reflection.AssemblyTitle("DTTL Chia màn hình")]
 [assembly: System.Reflection.AssemblyVersion("0.2.3.0")]

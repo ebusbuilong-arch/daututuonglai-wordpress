@@ -68,9 +68,10 @@ class LayoutTests {
 
   for(int person=0;person<4;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
   for(int person=0;person<4;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
-   if(rest.Width!=836||rest.Height!=470)throw new Exception("Approved studio frame dimensions");
+   if(rest.Width!=836||rest.Height<300||rest.Height>400)throw new Exception("Natural full-tile aspect ratio");
+   if(rest.GetPixel(24,24).ToArgb()!=Color.Magenta.ToArgb()||rest.GetPixel(rest.Width-24,rest.Height-24).ToArgb()!=Color.Lime.ToArgb())throw new Exception("Source tile corners or hands were cropped");
    using(var original=photo.ReferencePortrait())for(int yy=0;yy<rest.Height;yy++)for(int xx=0;xx<rest.Width;xx++){
-    if(!photo.MouthRegion.Contains(xx,yy)&&!photo.EyeRegion.Contains(xx,yy)&&rest.GetPixel(xx,yy)!=original.GetPixel(xx,yy))throw new Exception("Hair, forehead, brows, nose or face outline was overwritten");
+    if(rest.GetPixel(xx,yy)!=original.GetPixel(xx,yy))throw new Exception("Neutral face must exactly match the unmodified source portrait");
    }
    var expected=Color.FromArgb(40+color*35,60+person*30,120);
    if(rest.GetPixel(10,10).ToArgb()!=expected.ToArgb())throw new Exception("Look mapped to wrong atlas cell");

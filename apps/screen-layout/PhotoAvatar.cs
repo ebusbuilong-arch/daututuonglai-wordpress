@@ -100,7 +100,7 @@ internal sealed class PhotoAvatar : IDisposable {
  double lastFrame;
  internal readonly Rectangle MouthRegion,EyeRegion;
  sealed class Feature {
-  internal double SX,SY,X,Y,Scale,RX,RY;
+  internal double SX,SY,X,Y,Scale,RX,RY,DR,DG,DB;
   internal Rectangle Bounds {get{return Rectangle.FromLTRB((int)Math.Floor(X-RX*Scale),(int)Math.Floor(Y-RY*Scale),(int)Math.Ceiling(X+RX*Scale),(int)Math.Ceiling(Y+RY*Scale));}}
   internal double SourceX(int x){return SX+(x-X)/Scale;}
   internal double SourceY(int y){return SY+(y-Y)/Scale;}
@@ -126,53 +126,52 @@ internal sealed class PhotoAvatar : IDisposable {
    {728.98,701.35,716.28,678.47,738.96,676.83},
    {1213.1,701.05,1200.24,678.43,1222.94,676.56},
    {1696.56,701.57,1684.3,678.72,1706.86,677.07}};
-  int index=person*4+color;double mx=landmarks[index,0],my=landmarks[index,1],zoom=470.0/180;
+  int index=person*4+color;double mx=landmarks[index,0],my=landmarks[index,1];
+  int[] xb={0,483,966,1450,1933},yb={0,212,421,624,813};
+  // Retain the complete tile, trimming only the contact-sheet divider pixels.
+  var tile=Rectangle.FromLTRB(xb[color]+1,yb[person]+(person==0?1:3),xb[color+1]-1,yb[person+1]-1);
+  double zoom=836.0/tile.Width;int height=(int)Math.Round(tile.Height*zoom);double zoomY=height/(double)tile.Height;
   double lx=landmarks[index,2],ly=landmarks[index,3],rx=landmarks[index,4],ry=landmarks[index,5];
   double scale=(rx-lx)*zoom/(157.985-107.238);
-  features=new[]{new Feature{SX=136.789,SY=156.684,X=420,Y=190,Scale=scale,RX=28,RY=22},
-   new Feature{SX=107.238,SY=103.372,X=420+(lx-mx)*zoom,Y=190+(ly-my)*zoom,Scale=scale,RX=22,RY=11},
-   new Feature{SX=157.985,SY=99.205,X=420+(rx-mx)*zoom,Y=190+(ry-my)*zoom,Scale=scale,RX=22,RY=11}};
+  features=new[]{new Feature{SX=136.789,SY=156.684,X=(mx-tile.Left)*zoom,Y=(my-tile.Top)*zoomY,Scale=scale,RX=28,RY=22},
+   new Feature{SX=107.238,SY=103.372,X=(lx-tile.Left)*zoom,Y=(ly-tile.Top)*zoomY,Scale=scale,RX=22,RY=11},
+   new Feature{SX=157.985,SY=99.205,X=(rx-tile.Left)*zoom,Y=(ry-tile.Top)*zoomY,Scale=scale,RX=22,RY=11}};
   MouthRegion=features[0].Bounds;EyeRegion=Rectangle.Union(features[1].Bounds,features[2].Bounds);
-  original=new Bitmap(836,470,PixelFormat.Format24bppRgb);
+  original=new Bitmap(836,height,PixelFormat.Format24bppRgb);
   try{
    using(var image=new Bitmap(path))using(var g=Graphics.FromImage(original)){
     double sx=image.Width/1933.0,sy=image.Height/813.0;
-    var crop=new RectangleF((float)((mx-420/zoom)*sx),(float)((my-190/zoom)*sy),(float)(836/zoom*sx),(float)(180*sy));
+    var crop=new RectangleF((float)(tile.Left*sx),(float)(tile.Top*sy),(float)(tile.Width*sx),(float)(tile.Height*sy));
     if(crop.Left<0||crop.Top<0||crop.Right>image.Width||crop.Bottom>image.Height)throw new InvalidDataException("Bộ ảnh 16 mẫu không đúng kích thước.");
     g.InterpolationMode=System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-    g.DrawImage(image,new RectangleF(0,0,836,470),crop,GraphicsUnit.Pixel);
+    g.DrawImage(image,new RectangleF(0,0,836,height),crop,GraphicsUnit.Pixel);
    }
    portrait=(Bitmap)original.Clone();motion=new FaceMotion(audio);
    using(var rest=motion.Render(0,0)){
-    foreach(var f in features)RegisterFeature(rest,f);
+    foreach(var f in features)MatchFeatureColor(rest,f);
     mouths[0]=(Bitmap)portrait.Clone();eyes[0]=(Bitmap)portrait.Clone();
     for(int i=1;i<6;i++)using(var frame=motion.Render(i/5f,0))mouths[i]=MotionFrame(rest,frame,new[]{features[0]});
     for(int i=1;i<4;i++)using(var frame=motion.Render(0,i/3f))eyes[i]=MotionFrame(rest,frame,new[]{features[1],features[2]});
    }
   }catch{Dispose();throw;}
  }
- void RegisterFeature(Bitmap rest,Feature f){
+ void MatchFeatureColor(Bitmap rest,Feature f){
   double dr=0,dg=0,db=0;
   for(int k=0;k<32;k++){
    double a=k*Math.PI/16,sx=f.SX+f.RX*.98*Math.Cos(a),sy=f.SY+f.RY*.98*Math.Sin(a);
    Color from=FaceMotion.Sample(rest,sx,sy),to=FaceMotion.Sample(original,f.X+(sx-f.SX)*f.Scale,f.Y+(sy-f.SY)*f.Scale);
    dr+=to.R-from.R;dg+=to.G-from.G;db+=to.B-from.B;
   }
-  dr=Math.Max(-30,Math.Min(30,dr/32));dg=Math.Max(-30,Math.Min(30,dg/32));db=Math.Max(-30,Math.Min(30,db/32));
-  Rectangle r=f.Bounds;
-  for(int y=r.Top;y<r.Bottom;y++)for(int x=r.Left;x<r.Right;x++){
-   double alpha=f.Alpha(x,y);if(alpha<=0)continue;
-   Color c=FaceMotion.Sample(rest,f.SourceX(x),f.SourceY(y));c=Color.FromArgb(Clamp(c.R+dr),Clamp(c.G+dg),Clamp(c.B+db));
-   portrait.SetPixel(x,y,FaceMotion.Mix(portrait.GetPixel(x,y),c,alpha));
-  }
+  f.DR=Math.Max(-30,Math.Min(30,dr/32));f.DG=Math.Max(-30,Math.Min(30,dg/32));f.DB=Math.Max(-30,Math.Min(30,db/32));
  }
  Bitmap MotionFrame(Bitmap rest,Bitmap frame,Feature[] active){
   var result=(Bitmap)portrait.Clone();
   foreach(var f in active){Rectangle r=f.Bounds;
    for(int y=r.Top;y<r.Bottom;y++)for(int x=r.Left;x<r.Right;x++){
     double alpha=f.Alpha(x,y);if(alpha<=0)continue;double sx=f.SourceX(x),sy=f.SourceY(y);
-    Color a=FaceMotion.Sample(rest,sx,sy),b=FaceMotion.Sample(frame,sx,sy),p=portrait.GetPixel(x,y);
-    result.SetPixel(x,y,Color.FromArgb(Clamp(p.R+(b.R-a.R)*alpha),Clamp(p.G+(b.G-a.G)*alpha),Clamp(p.B+(b.B-a.B)*alpha)));
+    Color b=FaceMotion.Sample(frame,sx,sy),p=portrait.GetPixel(x,y);
+    b=Color.FromArgb(Clamp(b.R+f.DR),Clamp(b.G+f.DG),Clamp(b.B+f.DB));
+    result.SetPixel(x,y,FaceMotion.Mix(p,b,alpha));
    }
   }
   return result;
