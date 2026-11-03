@@ -9,3 +9,7 @@ Start preparation defaults to three seconds (optional zero or five). It runs aft
 Run `./apps/screen-layout/build.ps1` on Windows. Tests use synthetic textures, verify all twelve character/color combinations, region isolation, mouth dynamics, blink timing, delayed start/cancel, docking, audio, local recording and streaming. Hardware cameras and public platform accounts require manual testing.
 
 CI produces `Phan-mem-livestream-man-hinh-v1.3.1.zip` with EXE and pinned dependencies. Private delivery adds `avatars.jpg` and `face-transitions.png`; never upload presenter artwork to the source repository. FFmpeg is supplied separately. See `HUONG-DAN-MAN-HINH-AO.txt` for installation and use.
+
+
+### v1.3.2 approved-face sample
+Photo mode temporarily exposes one long-haired, black-shirt studio sample. Register the master neutral face once and transfer the original mouth/eyelid sprite differences with a single transform. This supersedes the v1.3.1 own-lip warp. Private studio-approved.png and face-transitions.png are added only to the delivery package. Other capture modes and preparation delay are unchanged.

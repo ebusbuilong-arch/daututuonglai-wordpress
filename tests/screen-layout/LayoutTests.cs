@@ -62,11 +62,11 @@ class LayoutTests {
    mode.SelectedIndex=3;Pump(100);CheckButtonText(dialog);var photos=(Panel)typeof(BroadcastForm).GetField("photoSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);if(!photos.Visible||ai.Visible||normal.Visible)throw new Exception("Photo mode controls");using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-photo-preview.png");}
    mode.SelectedIndex=0;if(ai.Visible||!normal.Visible)throw new Exception("Normal mode controls not restored");dialog.Close();}
 
-  for(int person=0;person<3;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
-  for(int person=0;person<3;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
-   int mx=photo.MouthRegion.Left+23,my=photo.MouthRegion.Top+12;
-   using(var wide=photo.Render(1,0))foreach(var anchor in new[]{new Point(mx-20,my),new Point(mx+20,my),new Point(mx,my-10)})
-    if(rest.GetPixel(anchor.X,anchor.Y)!=wide.GetPixel(anchor.X,anchor.Y))throw new Exception("Lip warp moved a corner/upper-face anchor");
+  for(int person=0;person<1;person++)for(int color=0;color<1;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
+  for(int person=0;person<1;person++)for(int color=0;color<1;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
+   if(rest.Width!=836||rest.Height!=470)throw new Exception("Approved studio frame dimensions");
+   using(var returned=photo.Render(0,0))for(int yy=0;yy<rest.Height;yy++)for(int xx=0;xx<rest.Width;xx++)
+    if(rest.GetPixel(xx,yy)!=returned.GetPixel(xx,yy))throw new Exception("Speech does not return to identical neutral face");
    for(int y=0;y<rest.Height;y++)for(int x=0;x<rest.Width;x++){
     var pt=new Point(x,y);
     if(!photo.MouthRegion.Contains(pt)&&rest.GetPixel(x,y)!=mouth.GetPixel(x,y))throw new Exception("Full portrait mouth escaped region");

@@ -36,6 +36,7 @@ $g = [Drawing.Graphics]::FromImage($testAtlas)
 $g.Clear([Drawing.Color]::Beige)
 for ($yy=0;$yy -lt 941;$yy+=8) { $g.DrawLine([Drawing.Pens]::Brown,0,$yy,1671,$yy) }
 $testAtlas.Save((Join-Path $out 'avatars.jpg'),[Drawing.Imaging.ImageFormat]::Jpeg)
+$testAtlas.Save((Join-Path $out 'studio-approved.png'),[Drawing.Imaging.ImageFormat]::Png)
 $g.Dispose(); $testAtlas.Dispose()
 # Synthetic expression frames exercise the texture path without uploading private artwork.
 $expressions = New-Object Drawing.Bitmap 600,400
@@ -58,7 +59,7 @@ Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.3.1.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.3.2.zip" -Force
 
 & $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }

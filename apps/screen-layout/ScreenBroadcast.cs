@@ -84,16 +84,16 @@ internal sealed class BroadcastForm : Form {
  string savedFile; bool hasLive; string lastError=""; readonly Button details=new Button{Text="Chi tiết lỗi",Width=100,Visible=false};
  internal BroadcastForm(){
   try{Icon=Icon.ExtractAssociatedIcon(Application.ExecutablePath);}catch{}
-  Text="Phần mềm livestream màn hình • v1.3.1";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,700);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
+  Text="Phần mềm livestream màn hình • v1.3.2";AutoScaleMode=AutoScaleMode.None;ClientSize=new Size(720,700);MinimumSize=Size;MaximumSize=Size;StartPosition=FormStartPosition.CenterScreen;Font=new Font("Segoe UI",9);FormBorderStyle=FormBorderStyle.FixedDialog;MaximizeBox=false;
   BackColor=Color.FromArgb(243,247,248);ForeColor=Color.FromArgb(25,45,53);Controls.Add(settings);int y=16;
   Row("FFmpeg.exe",encoder,y);var browse=new Button{Text="Chọn…",Left=600,Top=y,Width=80,Height=30};settings.Controls.Add(browse);encoder.Width=445;
   browse.Click+=delegate{using(var f=new OpenFileDialog{Filter="FFmpeg|ffmpeg.exe"})if(f.ShowDialog(this)==DialogResult.OK)encoder.Text=f.FileName;};
   string bundled=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"ffmpeg.exe");if(File.Exists(bundled))encoder.Text=bundled;
   y+=36;Row("Màn hình",screen,y);foreach(var s in Screen.AllScreens)screen.Items.Add(s.DeviceName+" • "+s.Bounds.Width+"×"+s.Bounds.Height);screen.SelectedIndex=0;
   y+=36;Row("Độ nét",quality,y);quality.Items.AddRange(new object[]{"720p / 30 fps","1080p / 30 fps"});quality.SelectedIndex=1;
-  y+=36;Row("Chế độ",mode,y);mode.Items.AddRange(new object[]{"Thường — webcam và micro","AI — video và lời MP3","MP4 có lời — hình và tiếng cùng video","Ảnh nói + MP3 — 3 nhân vật"});mode.SelectedIndex=0;
+  y+=36;Row("Chế độ",mode,y);mode.Items.AddRange(new object[]{"Thường — webcam và micro","AI — video và lời MP3","MP4 có lời — hình và tiếng cùng video","Ảnh nói + MP3 — mẫu đã duyệt"});mode.SelectedIndex=0;
   y+=36;normalSettings.SetBounds(0,y,700,108);aiSettings.SetBounds(0,y,700,108);videoSettings.SetBounds(0,y,700,108);photoSettings.SetBounds(0,y,700,108);settings.Controls.AddRange(new Control[]{normalSettings,aiSettings,videoSettings,photoSettings});
-  character.Items.AddRange(new object[]{"Tóc dài","Tóc ngắn","Tóc đuôi gà"});shirt.Items.AddRange(new object[]{"Đen","Đỏ","Cam","Trắng"});character.SelectedIndex=shirt.SelectedIndex=0;character.SetBounds(150,0,250,26);shirt.SetBounds(410,0,180,26);photoSettings.Controls.AddRange(new Control[]{character,shirt,new Label{Text="Nhân vật / áo",Left=16,Top=4,Width=130}});AddMediaRow(photoSettings,"Lời MP3",photoMp3,36,"Âm thanh MP3|*.mp3");photoListen.Location=new Point(150,78);photoSettings.Controls.Add(photoListen);
+  character.Items.AddRange(new object[]{"Tóc dài — mặt đã duyệt"});shirt.Items.AddRange(new object[]{"Đen"});character.SelectedIndex=shirt.SelectedIndex=0;character.SetBounds(150,0,250,26);shirt.SetBounds(410,0,180,26);photoSettings.Controls.AddRange(new Control[]{character,shirt,new Label{Text="Nhân vật / áo",Left=16,Top=4,Width=130}});AddMediaRow(photoSettings,"Lời MP3",photoMp3,36,"Âm thanh MP3|*.mp3");photoListen.Location=new Point(150,78);photoSettings.Controls.Add(photoListen);
   normalSettings.Controls.Add(new Label{Text="Micro",Left=16,Top=0,Width=128,Height=30,TextAlign=ContentAlignment.MiddleLeft});audio.SetBounds(150,0,530,26);normalSettings.Controls.Add(audio);audio.Items.Add("Tắt micro");audio.SelectedIndex=0;
   systemSound.Location=new Point(150,36);normalSettings.Controls.Add(systemSound);
   normalSettings.Controls.Add(new Label{Text="Webcam bật/tắt tại vùng phụ. Tiếng máy và micro chọn riêng.",Left=150,Top=66,Width=530,Height=28});
