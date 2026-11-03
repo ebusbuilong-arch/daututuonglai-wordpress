@@ -97,12 +97,14 @@ internal sealed class PhotoAvatar : IDisposable {
  readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
  double lastFrame;
  internal readonly Rectangle MouthRegion,EyeRegion;
- const double Scale=.9, MouthX=420; readonly double MouthY;
+ // Eye-to-mouth spacing in the new portraits is larger than the old atlas.
+ // The old .9 scale left the original eyebrows visible above the pasted face.
+ const double Scale=1.05, MouthX=420; readonly double MouthY;
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
   if(person<0||person>3||color<0||color>3)throw new ArgumentOutOfRangeException("person","Chọn bối cảnh và mẫu trong danh sách.");
   MouthY=190;
-  int shift=(int)MouthY-153;
-  MouthRegion=new Rectangle(391,131+shift,58,44);EyeRegion=new Rectangle(373,87+shift,90,29);
+  MouthRegion=MapRegion(new Rectangle(106,137,61,47));
+  EyeRegion=MapRegion(new Rectangle(85,88,96,29));
   voice=audio;
   string name="studio-looks-16.png";
   string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,name);
@@ -134,6 +136,11 @@ internal sealed class PhotoAvatar : IDisposable {
  }
  double SourceX(int x){return 136+(x-MouthX)/Scale;}
  double SourceY(int y){return 160+(y-MouthY)/Scale;}
+ Rectangle MapRegion(Rectangle source){
+  int l=(int)Math.Floor(MouthX+(source.Left-136)*Scale),t=(int)Math.Floor(MouthY+(source.Top-160)*Scale);
+  int r=(int)Math.Ceiling(MouthX+(source.Right-136)*Scale),b=(int)Math.Ceiling(MouthY+(source.Bottom-160)*Scale);
+  return Rectangle.FromLTRB(l,t,r,b);
+ }
  void RegisterFace(Bitmap face){
   // Register the whole neutral face once, including the resting mouth. This avoids
   // switching between two different lip contours when speech begins or ends.
@@ -147,7 +154,8 @@ internal sealed class PhotoAvatar : IDisposable {
   // Keep the approved skin tone for every wardrobe look; hair around the face
   // must not brighten or tint the face when changing hairstyles.
   dr=Math.Max(-18,Math.Min(18,dr));dg=Math.Max(-18,Math.Min(18,dg));db=Math.Max(-18,Math.Min(18,db));
-  for(int y=(int)MouthY-105;y<(int)MouthY+43;y++)for(int x=364;x<475;x++){
+  Rectangle faceBounds=MapRegion(new Rectangle(76,46,116,160));
+  for(int y=faceBounds.Top;y<faceBounds.Bottom;y++)for(int x=faceBounds.Left;x<faceBounds.Right;x++){
    double sx=SourceX(x),sy=SourceY(y),u=(sx-134)/58,v=(sy-126)/80,q=Math.Sqrt(u*u+v*v);
    if(q>=1)continue;double a=Math.Min(1,(1-q)/.24);a=a*a*(3-2*a);
    Color c=FaceMotion.Sample(face,sx,sy);c=Color.FromArgb(Clamp(c.R+dr),Clamp(c.G+dg),Clamp(c.B+db));

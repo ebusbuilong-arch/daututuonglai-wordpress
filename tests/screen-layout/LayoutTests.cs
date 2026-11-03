@@ -69,6 +69,7 @@ class LayoutTests {
   for(int person=0;person<4;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
   for(int person=0;person<4;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
    if(rest.Width!=836||rest.Height!=470)throw new Exception("Approved studio frame dimensions");
+   if(photo.MouthRegion!=new Rectangle(388,165,65,51)||photo.EyeRegion!=new Rectangle(366,114,102,31))throw new Exception("Face regions do not follow corrected face scale");
    var expected=Color.FromArgb(40+color*35,60+person*30,120);
    if(rest.GetPixel(10,10).ToArgb()!=expected.ToArgb())throw new Exception("Look mapped to wrong atlas cell");
    rest.Save("apps/screen-layout/dist/photo-look-"+(person*4+color+1).ToString("00")+".png");
