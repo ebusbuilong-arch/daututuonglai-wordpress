@@ -109,7 +109,7 @@ internal sealed class BroadcastForm : Form {
   start.Location=new Point(150,462);stop.Location=new Point(270,462);status.Location=new Point(16,562);status.Width=680;Controls.AddRange(new Control[]{start,stop,status});status.Text="Chưa quay/phát. Chọn FFmpeg và màn hình nguồn. Khóa luồng chỉ giữ trong phiên này.";
   playVoice.Location=new Point(150,510);pauseVoice.Location=new Point(270,510);rewindVoice.Location=new Point(440,510);Controls.AddRange(new Control[]{playVoice,pauseVoice,rewindVoice});
   playVoice.Click+=delegate{if(narration!=null)narration.Play();};pauseVoice.Click+=delegate{if(narration!=null)narration.Pause();};rewindVoice.Click+=delegate{if(narration!=null)narration.Rewind();};
-  prepareSeconds.Items.AddRange(new object[]{"Không chờ","3 giây","5 giây"});prepareSeconds.SelectedIndex=1;prepareSeconds.SetBounds(150,640,130,26);Controls.Add(prepareSeconds);Controls.Add(new Label{Text="Chuẩn bị trước khi quay",Left=16,Top=644,Width=130});
+  prepareSeconds.Items.AddRange(new object[]{"Không chờ","3 giây","5 giây"});prepareSeconds.SelectedIndex=1;prepareSeconds.SetBounds(150,640,130,26);Controls.Add(prepareSeconds);Controls.Add(new Label{Text="Chờ trước khi quay",Left=16,Top=644,Width=130});
   Controls.Add(new Label{Text="Tự thu nhỏ bảng điều khiển khi đếm ngược.",Left=294,Top=644,Width=390});
   prepareTimer.Tick+=delegate{AdvancePreparation();};
   StyleButtons(this);

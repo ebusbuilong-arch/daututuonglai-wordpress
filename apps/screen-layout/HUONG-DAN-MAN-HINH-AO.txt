@@ -1,8 +1,8 @@
-﻿PHẦN MỀM LIVESTREAM MÀN HÌNH MIỄN PHÍ — DTTL v1.0.0
+﻿PHẦN MỀM LIVESTREAM MÀN HÌNH MIỄN PHÍ — DTTL v1.3.0
 Bản chính thức cho máy tính Windows • daututuonglai.vn
 
 1. CHUẨN BỊ VÀ MỞ APP
-Giải nén toàn bộ gói Phan-mem-livestream-man-hinh-v1.0.0.zip vào một thư mục riêng. Mở DTTL-Workspace.exe; đây là tên file chạy được giữ để tương thích. Không chạy ngay trong ZIP, không tách các DLL khỏi EXE. Đóng bản cũ trước khi mở bản mới.
+Giải nén toàn bộ gói DTTL-Livestream-v1.3.0-day-du.zip vào một thư mục riêng. Mở DTTL-Workspace.exe; đây là tên file chạy được giữ để tương thích. Không chạy ngay trong ZIP, không tách các DLL khỏi EXE. Đóng bản cũ trước khi mở bản mới.
 Dành cho Windows 10/11 trên PC Intel/AMD, cần .NET Framework 4.8. Không cần virtual display driver. Webcam dùng thư viện trong gói; quay/livestream cần chọn FFmpeg riêng.
 Tải FFmpeg bản Windows từ đường dẫn trên https://ffmpeg.org/download.html, giải nén và chọn bin/ffmpeg.exe tại Tùy chọn → Quay / Livestream → Chọn… Gói app không kèm FFmpeg.
 
@@ -27,7 +27,7 @@ Dừng phiên trước khi đổi file hoặc chế độ. Video AI thay camera 
 
 5. QUAY MÀN HÌNH RA MP4
 Chọn màn hình chứa cả vùng làm việc và ô phụ. Tích Lưu video MP4, bỏ tích các nền tảng nếu chỉ quay. Bấm Bắt đầu, chọn tên và nơi lưu file mới. Hộp chọn nơi lưu xuất hiện trước khi quay; không có nghĩa video đã quay xong.
-Thao tác trên máy rồi bấm Dừng để hoàn tất MP4. Mở file kiểm tra cả hình và tiếng trước khi quay dài. Bản v1.0.0 chọn nơi lưu lúc bắt đầu, không hỏi Lưu/Không lưu sau khi dừng. Không đóng cưỡng bức hoặc tắt máy khi đang ghi.
+Thao tác trên máy rồi bấm Dừng để hoàn tất MP4. Mở file kiểm tra cả hình và tiếng trước khi quay dài. Ứng dụng chọn nơi lưu lúc bắt đầu, không hỏi Lưu/Không lưu sau khi dừng. Không đóng cưỡng bức hoặc tắt máy khi đang ghi.
 App quay toàn bộ màn hình nguồn đã chọn, bao gồm cửa sổ, webcam/video AI và nét vẽ hiển thị trên màn hình đó. Không phải chế độ quay riêng một cửa sổ. Chất lượng thực tế còn phụ thuộc độ phân giải màn hình và hiệu năng máy.
 
 6. KẾT NỐI YOUTUBE, FACEBOOK, TIKTOK

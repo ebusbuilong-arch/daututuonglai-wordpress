@@ -153,7 +153,7 @@ uint restartMessage;
   bool haveOuter=Native.GetWindowRect(app.Handle,out outer);
   int dwm=Native.DwmGetWindowAttribute(app.Handle,9,out visible,Marshal.SizeOf(typeof(Native.Rect)));
   if(haveOuter&&dwm==0&&visible.R>visible.L&&visible.B>visible.T){l=Math.Max(0,Math.Min(32,visible.L-outer.L));t=Math.Max(0,Math.Min(32,visible.T-outer.T));r=Math.Max(0,Math.Min(32,outer.R-visible.R));b=Math.Max(0,Math.Min(32,outer.B-visible.B));}
-  lastFit="DTTL Livestream 1.0.0 • "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"\nÔ đích: "+wanted+"\nTrước ghim (Win32): "+BoundsText(outer)+"\nTrước ghim (DWM): "+BoundsText(visible)+"\nDWM result: "+dwm+"; bù viền: "+l+","+t+","+r+","+b;
+  lastFit="DTTL Livestream 1.3.0 • "+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"\nÔ đích: "+wanted+"\nTrước ghim (Win32): "+BoundsText(outer)+"\nTrước ghim (DWM): "+BoundsText(visible)+"\nDWM result: "+dwm+"; bù viền: "+l+","+t+","+r+","+b;
   bool ok=Native.SetWindowPos(app.Handle,new IntPtr(-1),wanted.X-l,wanted.Y-t,wanted.Width+l+r,wanted.Height+t+b,0x4010);
   int winError=ok?0:Marshal.GetLastWin32Error();lastFit+="\nSetWindowPos: "+ok+"; Windows error: "+winError;
   int generation=++fitGeneration;var expected=app;int polls=0;Native.Rect previous=new Native.Rect();int stable=0;
