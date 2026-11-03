@@ -1,12 +1,12 @@
-BẢN ĐẦY ĐỦ v1.4.0
+BẢN ĐẦY ĐỦ v1.5.0
 Ảnh nói + MP3: 3 kiểu tóc × 4 màu áo, dùng chung mặt và chuyển động đã duyệt từ v1.3.2. Tóc dài áo đen giữ nguyên mẫu đã duyệt. Các kiểu còn lại cùng mặt, chỉ thay tóc/áo.
 Giữ studio-approved.png, studio-wardrobe.png và face-transitions.png cạnh EXE. Chọn kiểu tóc và màu áo trước khi bắt đầu. Miệng theo âm lượng, chưa khớp từng âm vị.
 
-﻿PHẦN MỀM LIVESTREAM MÀN HÌNH MIỄN PHÍ — DTTL v1.4.0
+﻿PHẦN MỀM LIVESTREAM MÀN HÌNH MIỄN PHÍ — DTTL v1.5.0
 Bản chính thức cho máy tính Windows • daututuonglai.vn
 
 1. CHUẨN BỊ VÀ MỞ APP
-Giải nén toàn bộ gói DTTL-Livestream-v1.4.0-day-du.zip vào một thư mục riêng. Mở DTTL-Workspace.exe; đây là tên file chạy được giữ để tương thích. Không chạy ngay trong ZIP, không tách các DLL khỏi EXE. Đóng bản cũ trước khi mở bản mới.
+Giải nén toàn bộ gói DTTL-Livestream-v1.5.0-day-du.zip vào một thư mục riêng. Mở DTTL-Workspace.exe; đây là tên file chạy được giữ để tương thích. Không chạy ngay trong ZIP, không tách các DLL khỏi EXE. Đóng bản cũ trước khi mở bản mới.
 Dành cho Windows 10/11 trên PC Intel/AMD, cần .NET Framework 4.8. Không cần virtual display driver. Webcam dùng thư viện trong gói; quay/livestream cần chọn FFmpeg riêng.
 Tải FFmpeg bản Windows từ đường dẫn trên https://ffmpeg.org/download.html, giải nén và chọn bin/ffmpeg.exe tại Tùy chọn → Quay / Livestream → Chọn… Gói app không kèm FFmpeg.
 
@@ -66,7 +66,7 @@ BỔ SUNG v1.1.0 — MP4 CÓ LỜI
 - Nghe tiếng video trên máy chỉ bật/tắt nghe tại máy; không làm mất tiếng gửi lên live.
 - Các cấu hình và đường dẫn của hai chế độ cũ được giữ khi đổi chế độ trong cùng phiên.
 
-V1.4.0 — ẢNH NÓI + MP3
+V1.5.0 — ẢNH NÓI + MP3
 - Chọn 1 trong 3 nhân vật: tóc dài, tóc ngắn, tóc đuôi gà; áo Đen/Đỏ/Cam/Trắng.
 - Chọn MP3, bấm Bắt đầu. Sau khi đã quay/phát, mở lại bảng điều khiển và bấm Phát lời khi sẵn sàng.
 - Môi mở theo âm lượng lời, chưa nhận dạng từng âm tiết. Mắt chớp theo chu kỳ 4,6 giây; có các mức chuyển tiếp.
@@ -93,7 +93,7 @@ CÀI ĐẶT
 Mở DTTL-Workspace.exe. Chọn ffmpeg.exe của bản FFmpeg Windows đang dùng; gói không kèm FFmpeg.
 Windows 10/11 và .NET Framework 4.8. Không xóa các DLL hoặc thư mục licenses.
 
-SỬA v1.4.0 — GIỮ MÔI GỐC
+SỬA v1.5.0 — GIỮ MÔI GỐC
 Viền môi dùng chính ảnh nhân vật, mở–khép quanh đường môi hiện có. Không thay cả miệng bằng ảnh khuôn mặt khác. Giữ mắt, nhịp nói, 12 lựa chọn và thời gian chờ như v1.3.0.
 
 
