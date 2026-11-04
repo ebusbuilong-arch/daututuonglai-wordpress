@@ -1,4 +1,4 @@
-﻿PHẦN MỀM LIVESTREAM MÀN HÌNH — v1.7.0
+PHẦN MỀM LIVESTREAM MÀN HÌNH — v1.7.1
 
 Bản gộp 20 mẫu: 12 mẫu cũ (tóc dài, bob, đuôi ngựa; áo đen/đỏ/cam/trắng) và 8 mẫu mới (tóc dài/bob; áo đỏ đô/xanh ngọc/navy/kem, kèm bốn nền phòng).
 Chuyển động miệng/mắt dùng bộ đã duyệt. Riêng tóc đuôi ngựa sửa chân tóc và giữ vùng trán của ảnh nền khi ghép mặt.
@@ -17,3 +17,6 @@ Giữ các ảnh studio-approved.png, studio-wardrobe.png, studio-ponytail.png, 
 Miệng chuyển động theo âm lượng, chưa khớp từng âm vị; đầu và thân tĩnh.
 
 Kiểm tra Windows dùng ảnh tổng hợp; ảnh thật được đối chiếu trực quan và bằng mô phỏng công thức. Chưa kiểm tra trực tiếp trên máy và tài khoản live của anh.
+
+ĐÈN NỀN ẢNH NÓI
+Đèn sáng dịu theo chu kỳ 6 giây ở hai mép trên của nền; không đổi màu da, mắt, miệng, tóc hoặc tay. Bật/tắt tại Tùy chọn → Đèn nền ảnh nói. Nút dừng ảnh nói hiển thị “Tắt”.

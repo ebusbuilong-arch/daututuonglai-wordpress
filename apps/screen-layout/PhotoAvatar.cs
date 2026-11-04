@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Drawing.Drawing2D;
 using System.Diagnostics;
 using System.IO;
 
@@ -96,6 +97,7 @@ internal sealed class PhotoAvatar : IDisposable {
  readonly Bitmap portrait; readonly Bitmap[] mouths=new Bitmap[6],eyes=new Bitmap[4];
  readonly FaceMotion motion; readonly NarrationAudio voice; readonly Stopwatch clock=Stopwatch.StartNew();
  double lastFrame;readonly bool preserveHairline;
+ internal bool BackgroundGlow=true;
  internal readonly Rectangle MouthRegion,EyeRegion;
  const double Scale=.9, MouthX=420; readonly double MouthY;
  internal PhotoAvatar(int person,int color,NarrationAudio audio){
@@ -161,7 +163,26 @@ internal sealed class PhotoAvatar : IDisposable {
  static int Clamp(double n){return Math.Max(0,Math.Min(255,(int)Math.Round(n)));}
  internal static float Blink(double seconds){return FaceMotion.Blink(seconds);}
  internal float AdvanceMouth(float level,double dt){return motion.AdvanceMouth(level,dt);}
- internal Bitmap Take(){double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;return Render(AdvanceMouth(voice==null?0:voice.Level,dt),Blink(now));}
+ internal Bitmap Take(){double now=clock.Elapsed.TotalSeconds,dt=Math.Min(.1,Math.Max(0,now-lastFrame));lastFrame=now;var result=Render(AdvanceMouth(voice==null?0:voice.Level,dt),Blink(now));if(BackgroundGlow)ApplyBackgroundGlow(result,now);return result;}
  internal Bitmap Render(float amplitude,float blink){var result=(Bitmap)portrait.Clone();FaceMotion.BlendTrack(result,mouths,Math.Max(0,Math.Min(1,amplitude))*5,MouthRegion);FaceMotion.BlendTrack(result,eyes,Math.Max(0,Math.Min(1,blink))*3,EyeRegion);return result;}
+ // Slow, low-opacity light only in the upper outer background. The entire
+ // center (hair, face, body, hands) and desk stay untouched; no full-frame flash.
+ internal static void ApplyBackgroundGlow(Bitmap target,double seconds){
+  double wave=(1-Math.Cos(seconds*2*Math.PI/6.0))/2;
+  int alpha=3+(int)Math.Round(13*wave);
+  using(var g=Graphics.FromImage(target)){
+   PaintGlow(g,new Rectangle(-45,12,225,230),Color.FromArgb(alpha,255,197,112));
+   PaintGlow(g,new Rectangle(748,-20,165,190),Color.FromArgb(alpha,112,209,255));
+  }
+ }
+ static void PaintGlow(Graphics g,Rectangle area,Color color){
+  using(var path=new GraphicsPath()){
+   path.AddEllipse(area);
+   using(var brush=new PathGradientBrush(path)){
+    brush.CenterColor=color;brush.SurroundColors=new[]{Color.FromArgb(0,color.R,color.G,color.B)};
+    g.FillPath(brush,path);
+   }
+  }
+ }
  public void Dispose(){if(portrait!=null)portrait.Dispose();if(motion!=null)motion.Dispose();foreach(var b in mouths)if(b!=null)b.Dispose();foreach(var b in eyes)if(b!=null)b.Dispose();}
 }

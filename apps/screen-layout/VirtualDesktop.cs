@@ -37,7 +37,7 @@ internal sealed class VirtualDesktopDock : Form {
  readonly Timer cameraTimer=new Timer{Interval=66},settle=new Timer{Interval=250},maintenance=new Timer{Interval=750};
  readonly NotifyIcon tray=new NotifyIcon{Icon=SystemIcons.Application,Text="Phần mềm livestream màn hình • v1.5.3"};
  readonly ShellNative.WinEvent moveEvent;
- IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;WebcamFeed avatarFeed;PhotoAvatar photoAvatar;Bitmap webcamImage;BroadcastForm broadcast;
+ IntPtr hook,moving;DockedWindow app,beforeMove;NativeWebcam webcam;WebcamFeed avatarFeed;PhotoAvatar photoAvatar;Bitmap webcamImage;BroadcastForm broadcast;bool backgroundGlow=true;
  ScreenInk ink;
  string lastFit="Chưa ghim ứng dụng trong phiên này.";
  string webcamStatus="Webcam đang tắt",appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";
@@ -121,6 +121,7 @@ uint restartMessage;
   var show=m.Items.Add("Căn lại / Hiện ứng dụng",null,delegate{if(DesktopDock.Valid(app)){Native.ShowWindowAsync(app.Handle,9);settle.Start();}});show.Enabled=DesktopDock.Valid(app);
   var release=m.Items.Add("Trả ứng dụng về vị trí cũ",null,delegate{ReleaseApp(true);});release.Enabled=DesktopDock.Valid(app);
   m.Items.Add(new ToolStripSeparator());
+  var glow=new ToolStripMenuItem("Đèn nền ảnh nói"){Checked=backgroundGlow,CheckOnClick=true};glow.CheckedChanged+=delegate{backgroundGlow=glow.Checked;if(photoAvatar!=null)photoAvatar.BackgroundGlow=backgroundGlow;};m.Items.Add(glow);
   m.Items.Add("Bút vẽ / Hiệu ứng",null,delegate{if(ink!=null)ink.Show(MainArea(),DrawingArea());});
   m.Items.Add("Quay / Livestream…",null,delegate{BeginInvoke((Action)delegate{if(closing)return;if(broadcast==null||broadcast.IsDisposed)broadcast=new BroadcastForm{ShowAvatar=StartAvatar,StopAvatar=StopAvatar,ShowSpokenVideo=StartSpokenVideo,ShowPhoto=StartPhoto};if(!broadcast.Visible)broadcast.Show();broadcast.Activate();});});
   m.Items.Add("Hướng dẫn",null,delegate{BeginInvoke((Action)delegate{if(!closing)MessageBox.Show(this,"Không cần driver màn hình ảo.\n\nVùng phụ mặc định rộng 33%. Kéo mép trái để đổi chiều rộng. Tắt webcam: ứng dụng dùng hết chiều cao. Bật webcam: kéo vách ngăn ngang để chia lại hai ô.\nTùy chọn → Chọn Zalo / Telegram / Chrome, hoặc kéo thanh tiêu đề cửa sổ vào ô dưới. Chat, cuộn và gõ trực tiếp. Kéo ra ngoài để bỏ ghim.\n\nBật webcam tự nhận camera Windows, không cần FFmpeg. Cho phép ứng dụng desktop truy cập camera trong Windows Settings. Webcam chỉ xem tại máy cho đến khi anh chủ động quay/phát màn hình chứa nó.\n\nNếu ứng dụng không cho thu nhỏ đủ, app sẽ trả lại vị trí cũ và báo rõ. Kích thước vật lý 32 inch không quyết định số điểm ảnh; độ phân giải và Scale cũng ảnh hưởng.\n\nĐóng DTTL sẽ trả cửa sổ và vùng desktop. Driver đã cài trước đó không tự gỡ.",Text);});});
@@ -182,7 +183,7 @@ uint restartMessage;
  internal void ReleaseApp(bool restore){fitGeneration++;settle.Stop();var old=app;app=null;if(DesktopDock.Valid(old)){Native.SetWindowPos(old.Handle,new IntPtr(old.WasTopMost?-1:-2),0,0,0,0,0x13);if(restore){var p=old.Original;Native.SetWindowPlacement(old.Handle,ref p);}}appStatus="Tùy chọn → Chọn Zalo / Telegram / Chrome";Invalidate();}
  void StartAvatar(string exe,string path){StopWebcam();try{avatarFeed=new WebcamFeed();avatarFeed.StartVideo(exe,path);webcamButton.Text="Tắt video AI";webcamStatus="Đang mở video AI…";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
  void StartSpokenVideo(string exe,string path,NarrationAudio voice){StopWebcam();try{avatarFeed=new WebcamFeed();avatarFeed.StartSyncedVideo(exe,path,voice);webcamButton.Text="Tắt video AI";webcamStatus="MP4 có lời — chờ phát";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
- void StartPhoto(int character,int shirt,NarrationAudio voice){StopWebcam();try{photoAvatar=new PhotoAvatar(character,shirt,voice);cameraTimer.Interval=42;webcamButton.Text="Tắt ảnh nói";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
+ void StartPhoto(int character,int shirt,NarrationAudio voice){StopWebcam();try{photoAvatar=new PhotoAvatar(character,shirt,voice);photoAvatar.BackgroundGlow=backgroundGlow;cameraTimer.Interval=42;webcamButton.Text="Tắt";SetLayout(sidebarRatio,splitRatio,true);cameraTimer.Start();}catch{StopWebcam();throw;}}
  void StopAvatar(){if(avatarFeed!=null||photoAvatar!=null)StopWebcam();}
  void StopWebcam(){cameraGeneration++;cameraOpening=false;cameraTimer.Stop();cameraTimer.Interval=66;if(photoAvatar!=null){photoAvatar.Dispose();photoAvatar=null;}if(avatarFeed!=null){avatarFeed.Dispose();avatarFeed=null;}if(webcam!=null){webcam.Dispose();webcam=null;}if(webcamImage!=null){webcamImage.Dispose();webcamImage=null;}webcamButton.Text="Bật webcam";SetLayout(sidebarRatio,splitRatio,false);}
  void ToggleWebcam(){

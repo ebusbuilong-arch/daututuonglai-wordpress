@@ -37,7 +37,7 @@ jobs:
                   if p.is_file(): z.write(p,str(pathlib.Path('dttl-free-apps')/p.relative_to(root)))
       - uses: actions/upload-artifact@v4
         with:
-          name: DTTL-Livestream-v1.7.0
+          name: DTTL-Livestream-v1.7.1
           path: |
             apps/screen-layout/dist/DTTL-Chia-Man-Hinh-0.2.3-beta.zip
             apps/screen-layout/dist/dttl-free-apps.zip
@@ -51,5 +51,5 @@ jobs:
             apps/screen-layout/dist/broadcast-photo-preview.png
             apps/screen-layout/dist/photo-*.png
             apps/screen-layout/dist/workspace-icon.png
-            apps/screen-layout/dist/Phan-mem-livestream-man-hinh-v1.7.0.zip
+            apps/screen-layout/dist/Phan-mem-livestream-man-hinh-v1.7.1.zip
           retention-days: 30

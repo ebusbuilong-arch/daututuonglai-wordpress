@@ -94,6 +94,21 @@ class LayoutTests {
     if(photo.MouthRegion.Contains(pt)&&mouth.GetPixel(x,y)!=blink.GetPixel(x,y))throw new Exception("Full portrait blink changes mouth");
    }
   }
+  using(var baseFrame=new Bitmap(836,470))using(var low=new Bitmap(836,470))using(var high=new Bitmap(836,470)){
+   using(var g=Graphics.FromImage(baseFrame))g.Clear(Color.FromArgb(40,60,80));
+   using(var g=Graphics.FromImage(low))g.DrawImageUnscaled(baseFrame,0,0);
+   using(var g=Graphics.FromImage(high))g.DrawImageUnscaled(baseFrame,0,0);
+   PhotoAvatar.ApplyBackgroundGlow(low,0);PhotoAvatar.ApplyBackgroundGlow(high,3);
+   bool animated=false;
+   for(int y=0;y<470;y++)for(int x=0;x<836;x++){
+    Color a=baseFrame.GetPixel(x,y),b=high.GetPixel(x,y);
+    if((x>=180&&x<748)||y>=242)if(a.ToArgb()!=b.ToArgb())throw new Exception("Background light touched presenter or desk");
+    if(Math.Abs(a.R-b.R)>16||Math.Abs(a.G-b.G)>16||Math.Abs(a.B-b.B)>16)throw new Exception("Background light too bright");
+    if(low.GetPixel(x,y).ToArgb()!=b.ToArgb())animated=true;
+   }
+   if(!animated)throw new Exception("Background light does not animate");
+   high.Save("apps/screen-layout/dist/background-glow-preview.png");
+  }
   using(var delayed=new BroadcastForm()){
    delayed.Show();bool started=false;var timer=Stopwatch.StartNew();delayed.BeginPreparation(delegate{started=true;});Pump(500);
    if(started)throw new Exception("Capture started during preparation");delayed.StopAll();Pump(3100);if(started)throw new Exception("Cancelled preparation captured frames");
