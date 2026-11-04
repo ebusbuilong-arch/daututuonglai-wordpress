@@ -1,103 +1,19 @@
-BẢN ĐẦY ĐỦ v1.5.3
-Ảnh nói + MP3: 3 kiểu tóc × 4 màu áo, dùng chung mặt và chuyển động đã duyệt từ v1.3.2. Tóc dài áo đen giữ nguyên mẫu đã duyệt. Các kiểu còn lại cùng mặt, chỉ thay tóc/áo.
-Giữ studio-approved.png, studio-wardrobe.png và face-transitions.png cạnh EXE. Chọn kiểu tóc và màu áo trước khi bắt đầu. Miệng theo âm lượng, chưa khớp từng âm vị.
+﻿PHẦN MỀM LIVESTREAM MÀN HÌNH — v1.7.0
 
-﻿PHẦN MỀM LIVESTREAM MÀN HÌNH MIỄN PHÍ — DTTL v1.5.3
-Bản chính thức cho máy tính Windows • daututuonglai.vn
+Bản gộp 20 mẫu: 12 mẫu cũ (tóc dài, bob, đuôi ngựa; áo đen/đỏ/cam/trắng) và 8 mẫu mới (tóc dài/bob; áo đỏ đô/xanh ngọc/navy/kem, kèm bốn nền phòng).
+Chuyển động miệng/mắt dùng bộ đã duyệt. Riêng tóc đuôi ngựa sửa chân tóc và giữ vùng trán của ảnh nền khi ghép mặt.
 
-1. CHUẨN BỊ VÀ MỞ APP
-Giải nén toàn bộ gói DTTL-Livestream-v1.5.3-day-du.zip vào một thư mục riêng. Mở DTTL-Workspace.exe; đây là tên file chạy được giữ để tương thích. Không chạy ngay trong ZIP, không tách các DLL khỏi EXE. Đóng bản cũ trước khi mở bản mới.
-Dành cho Windows 10/11 trên PC Intel/AMD, cần .NET Framework 4.8. Không cần virtual display driver. Webcam dùng thư viện trong gói; quay/livestream cần chọn FFmpeg riêng.
-Tải FFmpeg bản Windows từ đường dẫn trên https://ffmpeg.org/download.html, giải nén và chọn bin/ffmpeg.exe tại Tùy chọn → Quay / Livestream → Chọn… Gói app không kèm FFmpeg.
+1. Đóng bản cũ. Giải nén toàn bộ ZIP vào thư mục mới, chạy DTTL-Workspace.exe.
+2. Tùy chọn > Quay / Livestream. Chọn FFmpeg.exe đang dùng.
+3. Chọn Ảnh nói + MP3 — 20 mẫu; chọn nhóm mẫu cũ/mới, kiểu tóc, màu áo/nền và file MP3.
+4. Bấm Bắt đầu. Bảng điều khiển tự thu nhỏ sau phần đếm ngược.
+5. Bấm ▶ trên thanh bút để phát / tiếp tục lời. Bấm Ⅱ để tạm dừng lời; video/live vẫn chạy. Hết MP3, bấm ▶ để phát lại từ đầu.
+6. Nút âm thanh chỉ bật khi phiên đã sẵn sàng và có lời MP3/MP4. Sau khi dừng phiên, chúng tự tắt.
+7. Muốn đổi mẫu hoặc MP3, mở lại Quay / Livestream, bấm Dừng rồi chọn lại. Không cần mở bảng này để phát hay tạm dừng lời.
+8. Chọn Lưu video MP4 nếu cần lưu. Nếu không cần thì bỏ tích. Để kết thúc phiên, dùng nút Dừng trong bảng điều khiển.
 
-2. CHIA KHÔNG GIAN LÀM VIỆC
-Vùng phụ bên phải mặc định rộng 33% màn hình. Kéo mép trái để điều chỉnh chiều rộng. Khi bật camera, kéo vách ngang giữa hai ô để đổi chiều cao; tắt camera để dành toàn bộ chiều cao cho ứng dụng.
-Mở Zalo, Telegram hoặc trình duyệt trước. Nếu cửa sổ đang phóng to, bấm nút Khôi phục xuống (hai ô vuông cạnh nút X) hoặc nhấp đúp thanh tiêu đề để về cửa sổ thường; KHÔNG bấm dấu trừ thu xuống taskbar.
-Sau đó chọn Tùy chọn → Chọn Zalo / Telegram / Chrome… và chọn cửa sổ, hoặc kéo thanh tiêu đề vào ô phụ rồi thả. Tương tác trực tiếp trong cửa sổ đã ghim. Mỗi lần ghim một cửa sổ; chọn cửa sổ khác sẽ trả cửa sổ trước về vị trí cũ.
-App sắp xếp cửa sổ thật, không thu nhỏ toàn bộ giao diện ứng dụng theo tỷ lệ 33%. Với ứng dụng có kích thước tối thiểu, mở rộng vùng phụ hoặc giảm ô camera. Nếu không vừa, app trả cửa sổ về vị trí cũ. Tùy chọn → Thông tin lần ghim gần nhất cung cấp chẩn đoán.
-Tùy chọn → Trả ứng dụng về vị trí cũ để tháo ghim. Thoát app cũng trả cửa sổ đã ghim. Không cần gỡ driver cũ để dùng app này.
+Giữ các ảnh studio-approved.png, studio-wardrobe.png, studio-ponytail.png, presenter-01.png đến presenter-08.png, face-transitions.png cùng EXE và các DLL. Gói không kèm FFmpeg.
+Ảnh dùng PNG. Các chế độ webcam/micro, video AI + MP3 và MP4 có lời vẫn dùng trong cùng ứng dụng.
+Miệng chuyển động theo âm lượng, chưa khớp từng âm vị; đầu và thân tĩnh.
 
-3. CHẾ ĐỘ THƯỜNG: WEBCAM, MICRO VÀ TIẾNG MÁY
-Bấm Bật webcam để xem camera. Nếu không có hình, kiểm tra kết nối và quyền Camera cho ứng dụng desktop trong Windows; đóng ứng dụng khác đang giữ camera.
-Trong Quay / Livestream, chọn chế độ thường, màn hình nguồn, độ nét 720p hoặc 1080p / 30 fps. Chọn Micro đúng tên thiết bị (micro webcam hoặc micro máy). Tích Thu tiếng máy để trộn âm thanh đang phát trên máy với micro; bỏ tích nếu chỉ cần giọng nói.
-Bật webcam không tự bật thu âm. Âm thanh được chọn riêng trong cửa sổ quay/phát.
-
-4. CHẾ ĐỘ AI: VIDEO LẶP VÀ LỜI MP3 TRỰC TIẾP
-Chọn chế độ AI — video và lời MP3; chọn file MP4 cho hình camera và MP3 cho lời đọc. Nên chuẩn bị video ngang 16:9 để hợp ô camera. App phát lặp video; không tạo video AI hoặc đồng bộ khẩu hình.
-Tích Nghe MP3 trên máy nếu muốn nghe lời qua loa/tai nghe. Bấm Bắt đầu để mở phiên quay/phát, sau đó bấm Phát lời khi sẵn sàng. Tạm dừng lời giữ vị trí; Về đầu dừng và đưa về đầu file; Phát lời để chạy lại. Khi MP3 hết, phiên live vẫn tiếp tục.
-Âm thanh MP3 được đưa trực tiếp vào bản quay/luồng phát. Chế độ AI không thu micro hoặc tiếng máy. Bạn vẫn nghe âm thanh khác trên máy nhưng chúng không được đưa vào luồng AI. Tùy chọn nghe MP3 chỉ điều khiển việc nghe tại máy.
-Nếu không nghe: kiểm tra đã bấm Phát lời, tích Nghe MP3 trên máy, âm lượng Windows và thiết bị phát. Nghe tại máy không thay thế việc kiểm tra âm thanh trong MP4/luồng thử.
-Dừng phiên trước khi đổi file hoặc chế độ. Video AI thay camera thật; muốn dùng camera thật, dừng video AI rồi bật webcam.
-
-5. QUAY MÀN HÌNH RA MP4
-Chọn màn hình chứa cả vùng làm việc và ô phụ. Tích Lưu video MP4, bỏ tích các nền tảng nếu chỉ quay. Bấm Bắt đầu, chọn tên và nơi lưu file mới. Hộp chọn nơi lưu xuất hiện trước khi quay; không có nghĩa video đã quay xong.
-Thao tác trên máy rồi bấm Dừng để hoàn tất MP4. Mở file kiểm tra cả hình và tiếng trước khi quay dài. Ứng dụng chọn nơi lưu lúc bắt đầu, không hỏi Lưu/Không lưu sau khi dừng. Không đóng cưỡng bức hoặc tắt máy khi đang ghi.
-App quay toàn bộ màn hình nguồn đã chọn, bao gồm cửa sổ, webcam/video AI và nét vẽ hiển thị trên màn hình đó. Không phải chế độ quay riêng một cửa sổ. Chất lượng thực tế còn phụ thuộc độ phân giải màn hình và hiệu năng máy.
-
-6. KẾT NỐI YOUTUBE, FACEBOOK, TIKTOK
-Tạo phiên live bằng phần mềm phát trên nền tảng. Tài khoản cần được nền tảng cấp quyền phát và cung cấp URL máy chủ cùng khóa luồng. App không tự mở quyền livestream.
-Trong app, tích nền tảng muốn phát; ô giữa nhập URL RTMP/RTMPS, ô bên phải nhập khóa luồng tương ứng. Có thể tích nhiều nơi, nhưng mỗi nơi dùng thêm tài nguyên mã hóa và băng thông upload.
-Thử một nền tảng trước, chọn chế độ riêng tư/không công khai nếu nền tảng hỗ trợ. Bấm Bắt đầu trong app; kiểm tra màn hình xem trước và mức âm thanh trong Studio của nền tảng. Bấm phát trực tiếp trên nền tảng nếu giao diện yêu cầu; một số cấu hình tự phát khi nhận luồng.
-Có thể ghim cửa sổ Studio vào ô phụ để đọc và trả lời bình luận. Tắt tiếng bản xem trước để tránh vọng khi thu tiếng máy. Khi quay toàn màn hình, nội dung Studio trong ô phụ cũng có thể xuất hiện trong bản phát; sắp xếp nội dung trước khi live.
-Kết thúc trên nền tảng và bấm Dừng trong app. Không chia sẻ khóa luồng hoặc để khóa lộ trong vùng đang quay. Khóa chỉ giữ trong phiên app. App chưa tự kết nối lại khi mất mạng; kiểm tra trạng thái trên nền tảng trước khi phát lại.
-
-7. BÚT VẼ VÀ HIỆU ỨNG
-Thanh công cụ ở góc dưới vùng chính có chuột, bút, đường thẳng, mũi tên, màu, độ dày nét, Xóa, trái tim, bông hoa và thu gọn.
-Chọn bút/đường/mũi tên rồi kéo chuột để vẽ. Chọn màu và độ dày nét. Bấm Xóa để dọn nét vẽ và hiệu ứng. Chọn biểu tượng chuột hoặc Esc để thao tác ứng dụng; trong chế độ vẽ, lớp vẽ nhận chuột.
-Bấm trái tim/bông hoa để thả hiệu ứng. Dấu — thu gọn thanh công cụ; mở lại tại Tùy chọn → Bút vẽ / Hiệu ứng.
-
-8. KIỂM TRA TRƯỚC BUỔI LIVE
-Quay thử 15–30 giây: kiểm tra cửa sổ phụ, camera/AI, tiếng và nét vẽ. Chọn 720p khi máy hoặc mạng chưa đáp ứng 1080p. Chỉ tăng số nền tảng sau khi một luồng chạy ổn.
-Nếu quay/phát dừng ngay: bấm Chi tiết lỗi, Ctrl+C để sao chép; kiểm tra đúng ffmpeg.exe, đường dẫn file và quyền ghi. Không gửi khóa luồng cùng thông tin lỗi.
-Nếu không ghim được cửa sổ: khôi phục cửa sổ từ trạng thái phóng to trước, rồi chọn lại; mở rộng ô nếu cần.
-Nếu MP4 thiếu ô phụ: chọn lại đúng màn hình nguồn, kiểm tra ô phụ đã có nội dung trước khi bắt đầu, quay thử lại.
-Nếu tiếng vọng: tắt tiếng Studio, tránh để micro thu lại tiếng loa; dùng tai nghe khi cần.
-
-9. PHẠM VI VÀ PHIÊN BẢN
-v1.0.0 là bản chính thức của dòng DTTL Workspace 0.6.8 đã được người dùng kiểm tra, đổi tên và bổ sung hướng dẫn. Không thêm chức năng tự động lên lịch hoặc tự tạo lời/video AI. Phần mềm tải miễn phí; dịch vụ tạo nội dung AI và điều kiện nền tảng là phần riêng.
-Các thư viện đi kèm và giấy phép nằm trong THIRD-PARTY.txt, thư mục licenses. SHA256-virtual.txt dùng kiểm tra EXE. Hỗ trợ và bản mới: https://daututuonglai.vn/
-
-
-BỔ SUNG v1.1.0 — MP4 CÓ LỜI
-- Giữ nguyên chế độ Thường và AI — video + MP3. MP4 trong chế độ AI luôn tắt tiếng gốc, chỉ phát MP3.
-- Chọn chế độ MP4 có lời, chọn video có âm thanh AAC. Hình hiển thị ở vùng camera, tiếng đưa trực tiếp vào bản quay/livestream; không thu micro/tiếng máy.
-- Bấm Bắt đầu để mở quay/phát, sau đó Phát video khi sẵn sàng. Tạm dừng video và Về đầu điều khiển cả hình lẫn tiếng.
-- Hết video giữ hình cuối và im tiếng; bấm Phát video để phát lại. Không tự lặp lời.
-- Nghe tiếng video trên máy chỉ bật/tắt nghe tại máy; không làm mất tiếng gửi lên live.
-- Các cấu hình và đường dẫn của hai chế độ cũ được giữ khi đổi chế độ trong cùng phiên.
-
-V1.5.3 — ẢNH NÓI + MP3
-- Chọn 1 trong 3 nhân vật: tóc dài, tóc ngắn, tóc đuôi gà; áo Đen/Đỏ/Cam/Trắng.
-- Chọn MP3, bấm Bắt đầu. Sau khi đã quay/phát, mở lại bảng điều khiển và bấm Phát lời khi sẵn sàng.
-- Môi mở theo âm lượng lời, chưa nhận dạng từng âm tiết. Mắt chớp theo chu kỳ 4,6 giây; có các mức chuyển tiếp.
-- 24 tổ hợp môi–mắt = 6 mức môi × 4 mức mí, không phải 24 biểu cảm toàn khuôn mặt khác nhau.
-- Tạm dừng hoặc hết lời: môi khép, mắt vẫn chớp. Không tạo MP4 trung gian.
-- Bỏ tích Lưu video MP4 nếu chỉ muốn live. Giữ avatars.jpg và face-transitions.png cạnh EXE, không thay bằng bộ ảnh khác.
-
-CHUẨN BỊ TRƯỚC KHI QUAY / LIVE
-- Mặc định chờ 3 giây; có thể chọn Không chờ hoặc 5 giây ở cuối bảng điều khiển.
-- Đếm ngược bắt đầu sau khi chọn nơi lưu và chuẩn bị nguồn hình. Bảng điều khiển tự thu nhỏ; lúc này chưa ghi hoặc gửi hình.
-- Hết thời gian chờ mới khởi động quay/gửi luồng. Mở lại bảng điều khiển từ thanh tác vụ nếu muốn Dừng hoặc Phát lời.
-- Bấm Dừng hoặc đóng bảng điều khiển trong lúc chờ sẽ hủy lượt quay. Không đóng bảng điều khiển nếu muốn tiếp tục quay.
-- Đây là bỏ khoảng chuẩn bị ở đầu nguồn phát, không cắt ngược video đã gửi và không thay đổi độ trễ của YouTube.
-
-CÁC CHẾ ĐỘ CŨ VẪN CÓ
-Thường: webcam + micro, tùy chọn thu tiếng máy.
-AI — video và lời MP3: video im tiếng; chỉ phát lời từ MP3.
-MP4 có lời: dùng hình và tiếng trong cùng MP4; không phát thêm MP3.
-Ảnh nói + MP3: nhân vật dựng trực tiếp trong app, âm thanh MP3 gửi thẳng lên live.
-Trong ba chế độ AI, không thu micro/tiếng máy; Nghe trên máy chỉ điều khiển nghe kiểm tra.
-
-CÀI ĐẶT
-Đóng app cũ. Giải nén nguyên gói vào thư mục mới ngoài OneDrive, ví dụ C:\DTTL-Live-1.3.
-Mở DTTL-Workspace.exe. Chọn ffmpeg.exe của bản FFmpeg Windows đang dùng; gói không kèm FFmpeg.
-Windows 10/11 và .NET Framework 4.8. Không xóa các DLL hoặc thư mục licenses.
-
-SỬA v1.5.3 — GIỮ MÔI GỐC
-Viền môi dùng chính ảnh nhân vật, mở–khép quanh đường môi hiện có. Không thay cả miệng bằng ảnh khuôn mặt khác. Giữ mắt, nhịp nói, 12 lựa chọn và thời gian chờ như v1.3.0.
-
-
-BẢN 1.5.3 — 16 MẪU ĐÃ ĐỒNG BỘ
-Trong Ảnh nói + MP3, chọn nhóm bối cảnh rồi chọn mẫu có số 01–16. Mỗi mẫu gắn sẵn tóc, màu áo và nền theo bảng duyệt. Không chọn màu áo tách rời. Không còn tóc đuôi gà.
-01–04 Phòng sách ấm; 05–08 Studio sáng; 09–12 Văn phòng thành phố; 13–16 Góc cây xanh.
-Giữ file studio-looks-16.png và face-transitions.png cạnh EXE. Miệng vẫn chạy theo âm lượng MP3, không phải khớp từng âm vị.
+Kiểm tra Windows dùng ảnh tổng hợp; ảnh thật được đối chiếu trực quan và bằng mô phỏng công thức. Chưa kiểm tra trực tiếp trên máy và tài khoản live của anh.

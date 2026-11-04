@@ -74,7 +74,7 @@ uint restartMessage;
     RaiseApp();
    });
   };
-  Shown+=delegate{restartMessage=ShellNative.RegisterWindowMessage("TaskbarCreated");RegisterBar();ink=new ScreenInk();ink.Show(MainArea(),DrawingArea());hook=ShellNative.SetWinEventHook(0xA,0xB,IntPtr.Zero,moveEvent,0,0,2);tray.Visible=true;tray.MouseClick+=delegate{Menu().Show(Cursor.Position);};maintenance.Start();};
+  Shown+=delegate{restartMessage=ShellNative.RegisterWindowMessage("TaskbarCreated");RegisterBar();ink=new ScreenInk();ink.SetMediaControls(delegate{if(broadcast!=null&&!broadcast.IsDisposed)broadcast.PlayNarration();},delegate{if(broadcast!=null&&!broadcast.IsDisposed)broadcast.PauseNarration();},delegate{return broadcast!=null&&broadcast.PlaybackReady;},delegate{return broadcast!=null&&broadcast.NarrationPlaying;});ink.Show(MainArea(),DrawingArea());hook=ShellNative.SetWinEventHook(0xA,0xB,IntPtr.Zero,moveEvent,0,0,2);tray.Visible=true;tray.MouseClick+=delegate{Menu().Show(Cursor.Position);};maintenance.Start();};
   Activated+=delegate{if(!closing&&DesktopDock.Valid(app))BeginInvoke((Action)delegate{RaiseApp();});};
   settle.Tick+=delegate{settle.Stop();FitApp();};
   maintenance.Tick+=delegate{if(moving!=IntPtr.Zero&&!DesktopDock.Valid(beforeMove)){moving=IntPtr.Zero;beforeMove=null;Native.SetWindowPos(Handle,new IntPtr(-1),0,0,0,0,0x13);}if(app!=null&&!DesktopDock.Valid(app)){app=null;Invalidate();}RaiseApp();};

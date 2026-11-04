@@ -39,15 +39,23 @@ $testAtlas.Save((Join-Path $out 'avatars.jpg'),[Drawing.Imaging.ImageFormat]::Jp
 $testAtlas.Save((Join-Path $out 'studio-approved.png'),[Drawing.Imaging.ImageFormat]::Png)
 $testAtlas.Save((Join-Path $out 'studio-wardrobe.png'),[Drawing.Imaging.ImageFormat]::Png)
 $g.Dispose(); $testAtlas.Dispose()
-for ($row=0;$row -lt 2;$row++) { for ($col=0;$col -lt 4;$col++) {
+$legacy = New-Object Drawing.Bitmap 3344,1410
+$legacyGraphics = [Drawing.Graphics]::FromImage($legacy)
+for ($row=0;$row -lt 5;$row++) { for ($col=0;$col -lt 4;$col++) {
  $look = New-Object Drawing.Bitmap 836,470
  $lg = [Drawing.Graphics]::FromImage($look)
  $lg.Clear([Drawing.Color]::FromArgb((40+$col*35),(60+$row*30),120))
  $lg.FillRectangle([Drawing.Brushes]::Magenta,16,16,16,16)
  $lg.FillRectangle([Drawing.Brushes]::Lime,804,438,16,16)
- $look.Save((Join-Path $out ('presenter-{0:D2}.png' -f ($row*4+$col+1))),[Drawing.Imaging.ImageFormat]::Png)
+ if ($row -lt 3) {
+  $legacyGraphics.DrawImageUnscaled($look,($col*836),($row*470))
+  if ($row -eq 0 -and $col -eq 0) { $look.Save((Join-Path $out 'studio-approved.png'),[Drawing.Imaging.ImageFormat]::Png) }
+ } else { $look.Save((Join-Path $out ('presenter-{0:D2}.png' -f (($row-3)*4+$col+1))),[Drawing.Imaging.ImageFormat]::Png) }
  $lg.Dispose(); $look.Dispose()
 } }
+$legacy.Save((Join-Path $out 'studio-wardrobe.png'),[Drawing.Imaging.ImageFormat]::Png)
+$legacy.Save((Join-Path $out 'studio-ponytail.png'),[Drawing.Imaging.ImageFormat]::Png)
+$legacyGraphics.Dispose();$legacy.Dispose()
 # Synthetic expression frames exercise the texture path without uploading private artwork.
 $expressions = New-Object Drawing.Bitmap 600,400
 $eg = [Drawing.Graphics]::FromImage($expressions)
@@ -69,7 +77,7 @@ Copy-Item "$root\HUONG-DAN-MAN-HINH-AO.txt" $out
 Get-FileHash "$out\DTTL-Workspace.exe" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLower())  DTTL-Workspace.exe" } | Set-Content "$out\SHA256-virtual.txt"
 Copy-Item "$root\licenses" $out -Recurse -Force
 Copy-Item "$root\THIRD-PARTY.txt" $out
-Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.6.0.zip" -Force
+Compress-Archive -Path "$out\DTTL-Workspace.exe","$out\DTTL-Workspace.ico","$out\AForge*.dll","$out\NAudio.dll","$out\licenses","$out\THIRD-PARTY.txt","$out\HUONG-DAN-MAN-HINH-AO.txt","$out\SHA256-virtual.txt" -DestinationPath "$out\Phan-mem-livestream-man-hinh-v1.7.0.zip" -Force
 
 & $csc @cameraRefs /nologo /target:exe /main:BroadcastTests /reference:System.Windows.Forms.dll /reference:System.Drawing.dll "/out:$out\BroadcastTests.exe" "$root\ScreenLayout.cs" "$root\ScreenBroadcast.cs" "$root\SystemAudio.cs" "$root\PhotoAvatar.cs" "$root\Webcam.cs" "$root\NativeWebcam.cs" "$root\..\..\tests\screen-layout\BroadcastTests.cs"
 if ($LASTEXITCODE -ne 0) { throw 'Broadcast test build failed' }

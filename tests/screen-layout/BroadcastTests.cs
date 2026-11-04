@@ -68,6 +68,21 @@ class BroadcastTests {
   foreach(string file in new[]{mp3,output,raw,avatar})if(File.Exists(file))File.Delete(file);
   RunEncoder(ff,"-v error -f lavfi -i sine=frequency=440:sample_rate=48000 -t 12 -c:a libmp3lame "+BroadcastSession.Quote(mp3));
   using(var voice=new NarrationAudio(mp3,false)){
+   using(var dialog=new BroadcastForm()){
+    var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+    var field=typeof(BroadcastForm).GetField("narration",flags);
+    var buttons=typeof(BroadcastForm).GetMethod("VoiceButtons",flags);
+    field.SetValue(dialog,voice);buttons.Invoke(dialog,new object[]{true});
+    dialog.Show();dialog.WindowState=FormWindowState.Minimized;Application.DoEvents();
+    if(!dialog.PlaybackReady)throw new Exception("Prepared narration not exposed to toolbar");
+    dialog.PlayNarration();Thread.Sleep(100);if(!voice.Playing||!dialog.NarrationPlaying||dialog.WindowState!=FormWindowState.Minimized)throw new Exception("Compact play opened the control panel or failed to play");
+    dialog.PauseNarration();if(voice.Playing||dialog.WindowState!=FormWindowState.Minimized)throw new Exception("Compact pause opened panel or failed");
+    field.SetValue(dialog,null);buttons.Invoke(dialog,new object[]{false});dialog.PlayNarration();dialog.PauseNarration();
+    if(dialog.PlaybackReady||dialog.NarrationPlaying)throw new Exception("Stale narration state after cleanup");
+    dialog.Close();voice.Rewind();
+   }
+   Console.WriteLine("PASS minimized-panel transport routes to the same narration and safely disables after cleanup");
+
    using(var source=voice.CreateSource()){
     double peak=0;source.DataAvailable+=delegate(object o,NAudio.Wave.WaveInEventArgs e){for(int i=0;i<e.BytesRecorded;i+=4)peak=Math.Max(peak,Math.Abs(BitConverter.ToSingle(e.Buffer,i)));};source.StartRecording();
     Thread.Sleep(150);if(peak!=0)throw new Exception("AI should wait silently");voice.Play();Thread.Sleep(300);if(peak<.02)throw new Exception("MP3 did not play");voice.Pause();Thread.Sleep(50);peak=0;Thread.Sleep(200);if(peak!=0)throw new Exception("Paused MP3 not silent");voice.Rewind();if(voice.Playing)throw new Exception("Rewind must pause");

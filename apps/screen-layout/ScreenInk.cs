@@ -21,23 +21,36 @@ internal sealed class ScreenInk : IDisposable {
  readonly Canvas canvas=new Canvas();readonly Shield shield=new Shield();readonly Form bar=new Form();
  readonly List<Stroke> strokes=new List<Stroke>();readonly List<Particle> particles=new List<Particle>();
  readonly Timer animation=new Timer{Interval=33};readonly ToolTip tips=new ToolTip();readonly Random random=new Random();
+ readonly Timer mediaPoll=new Timer{Interval=200};Button playMedia,pauseMedia;
+ Action playAction,pauseAction;Func<bool> canPlay,isPlaying;
  readonly List<Button> modes=new List<Button>();Stroke current;int tool;Color color=Color.Red;float width=3;bool disposed;Rectangle area,mainArea;
  internal int StrokeCount{get{return strokes.Count;}}internal int ParticleCount{get{return particles.Count;}}internal bool Drawing{get{return shield.Visible;}}
  internal ScreenInk(){
-  canvas.Ink=this;bar.FormBorderStyle=FormBorderStyle.None;bar.ShowInTaskbar=false;bar.StartPosition=FormStartPosition.Manual;bar.TopMost=true;bar.BackColor=Color.FromArgb(27,44,51);bar.ClientSize=new Size(444,42);bar.AutoScaleMode=AutoScaleMode.None;bar.Font=new Font("Segoe UI",9);bar.KeyPreview=true;
+  canvas.Ink=this;bar.FormBorderStyle=FormBorderStyle.None;bar.ShowInTaskbar=false;bar.StartPosition=FormStartPosition.Manual;bar.TopMost=true;bar.BackColor=Color.FromArgb(27,44,51);bar.ClientSize=new Size(508,42);bar.AutoScaleMode=AutoScaleMode.None;bar.Font=new Font("Segoe UI",9);bar.KeyPreview=true;
   string[] labels={"↖","Bút","／","→"};string[] help={"Dùng chuột bình thường (Esc)","Vẽ tự do","Đường thẳng","Mũi tên"};
   for(int i=0;i<4;i++){int mode=i;var b=Button(labels[i],i*44,44,help[i]);modes.Add(b);b.Click+=delegate{SelectTool(mode);};}
   var palette=Button("Màu",176,48,"Chọn màu nét");palette.ForeColor=color;palette.Click+=delegate{using(var d=new ColorDialog{Color=color,FullOpen=true}){if(d.ShowDialog(bar)==DialogResult.OK){color=d.Color;palette.ForeColor=color;}}};
   var size=Button("3 px",224,52,"Độ dày: 3 / 6 / 10 px");size.Click+=delegate{width=width==3?6:width==6?10:3;size.Text=width+" px";};
   Button("Xoá",276,48,"Xoá tất cả nét và hiệu ứng").Click+=delegate{Clear();};
   Button("♥",324,40,"Thả tim bay lên").Click+=delegate{Burst(true);};Button("✿",364,40,"Thả hoa bay lên").Click+=delegate{Burst(false);};
-  Button("—",404,40,"Ẩn thanh bút; mở lại trong Tùy chọn").Click+=delegate{SelectTool(0);bar.Hide();};
+  playMedia=Button("▶",404,32,"Phát / tiếp tục lời (không mở bảng điều khiển)");
+  pauseMedia=Button("Ⅱ",436,32,"Tạm dừng lời (vẫn tiếp tục live)");
+  playMedia.Click+=delegate{RefreshMedia();if(playMedia.Enabled&&playAction!=null)playAction();RefreshMedia();};
+  pauseMedia.Click+=delegate{RefreshMedia();if(pauseMedia.Enabled&&pauseAction!=null)pauseAction();RefreshMedia();};
+  playMedia.Enabled=pauseMedia.Enabled=false;
+  mediaPoll.Tick+=delegate{RefreshMedia();};mediaPoll.Start();
+  Button("—",468,40,"Ẩn thanh bút; mở lại trong Tùy chọn").Click+=delegate{SelectTool(0);bar.Hide();};
   shield.MouseDown+=delegate(object s,MouseEventArgs e){if(e.Button!=MouseButtons.Left)return;Begin(e.Location);shield.Capture=true;};
   shield.MouseMove+=delegate(object s,MouseEventArgs e){if(current!=null)Move(e.Location);};
   shield.MouseUp+=delegate{current=null;shield.Capture=false;};shield.MouseCaptureChanged+=delegate{if(!shield.Capture)current=null;};
   KeyEventHandler escape=delegate(object s,KeyEventArgs e){if(e.KeyCode==Keys.Escape){SelectTool(0);e.Handled=true;}};shield.KeyDown+=escape;bar.KeyDown+=escape;
   animation.Tick+=delegate{particles.RemoveAll(delegate(Particle p){return (DateTime.UtcNow-p.Born).TotalSeconds>4.2;});canvas.Invalidate();if(particles.Count==0)animation.Stop();};
  }
+ internal void SetMediaControls(Action play,Action pause,Func<bool> ready,Func<bool> playing){playAction=play;pauseAction=pause;canPlay=ready;isPlaying=playing;RefreshMedia();}
+ internal void RefreshMedia(){if(disposed)return;bool ready=canPlay!=null&&canPlay(),playing=ready&&isPlaying!=null&&isPlaying();playMedia.Enabled=ready&&!playing;pauseMedia.Enabled=ready&&playing;playMedia.BackColor=playing?Color.Teal:Color.FromArgb(36,60,68);}
+ internal Point PlayCenter{get{return new Point(bar.Left+420,bar.Top+21);}}
+ internal Point PauseCenter{get{return new Point(bar.Left+452,bar.Top+21);}}
+ internal bool PlayEnabled{get{return playMedia.Enabled;}}internal bool PauseEnabled{get{return pauseMedia.Enabled;}}
  Button Button(string text,int x,int w,string tip){var b=new Button{Text=text,Location=new Point(x+2,3),Size=new Size(w-4,36),FlatStyle=FlatStyle.Flat,ForeColor=Color.White,BackColor=Color.FromArgb(36,60,68),TabStop=false,TextAlign=ContentAlignment.MiddleCenter,Padding=Padding.Empty};b.FlatAppearance.BorderSize=0;bar.Controls.Add(b);tips.SetToolTip(b,tip);return b;}
  internal void Show(Rectangle bounds){Show(bounds,bounds);}
  internal void Show(Rectangle bounds,Rectangle drawingArea){SetArea(bounds,drawingArea);if(!canvas.Visible)canvas.Show();bar.Show();SelectTool(0);}
@@ -55,5 +68,5 @@ internal sealed class ScreenInk : IDisposable {
  void Paint(Graphics g){g.SmoothingMode=SmoothingMode.AntiAlias;foreach(var s in strokes){using(var pen=new Pen(s.Color,s.Width)){pen.StartCap=LineCap.Round;pen.EndCap=LineCap.Round;if(s.Tool==3){using(var cap=new AdjustableArrowCap(4,5,true)){pen.CustomEndCap=cap;g.DrawLine(pen,s.Points[0],s.Points[1]);}}else g.DrawLines(pen,s.Points.ToArray());}}
   foreach(var p in particles){float age=(float)(DateTime.UtcNow-p.Born).TotalSeconds;if(age<0)continue;float x=p.X+(float)Math.Sin(age*4)*18,y=p.Y-age*(p.Y+60)/4f;using(var font=new Font("Segoe UI Symbol",28)){using(var brush=new SolidBrush(p.Heart?Color.HotPink:Color.Gold)){g.DrawString(p.Heart?"♥":"✿",font,brush,x,y);}}}
  }
- public void Dispose(){if(disposed)return;disposed=true;animation.Stop();animation.Dispose();tips.Dispose();shield.Dispose();canvas.Dispose();bar.Dispose();strokes.Clear();particles.Clear();}
+ public void Dispose(){if(disposed)return;disposed=true;mediaPoll.Stop();mediaPoll.Dispose();animation.Stop();animation.Dispose();tips.Dispose();shield.Dispose();canvas.Dispose();bar.Dispose();strokes.Clear();particles.Clear();}
 }

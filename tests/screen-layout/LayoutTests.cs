@@ -39,6 +39,17 @@ class LayoutTests {
   Application.EnableVisualStyles();if(args.Length>0&&args[0]=="fixture"){Fixture(args[1]);return;}
   using(var under=new Form{StartPosition=FormStartPosition.Manual,Bounds=new Rectangle(60,60,600,440)})using(var ink=new ScreenInk()){
    int clicks=0;under.MouseDown+=delegate{clicks++;};under.Show();Pump(100);ink.Show(new Rectangle(60,60,600,440));Pump(100);
+   bool ready=false,playing=false;int playClicks=0,pauseClicks=0;
+   ink.SetMediaControls(delegate{playing=true;playClicks++;},delegate{playing=false;pauseClicks++;},delegate{return ready;},delegate{return playing;});
+   if(ink.PlayEnabled||ink.PauseEnabled)throw new Exception("Media enabled without a prepared narration");
+   ready=true;ink.RefreshMedia();if(!ink.PlayEnabled||ink.PauseEnabled)throw new Exception("Initial media state");
+   ink.SelectTool(1);var playPoint=ink.PlayCenter;SetCursorPos(playPoint.X,playPoint.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(250);
+   if(playClicks!=1||!playing||ink.PlayEnabled||!ink.PauseEnabled||ink.StrokeCount!=0)throw new Exception("Toolbar play blocked by pen shield");
+   var pausePoint=ink.PauseCenter;SetCursorPos(pausePoint.X,pausePoint.Y);mouse_event(2,0,0,0,UIntPtr.Zero);mouse_event(4,0,0,0,UIntPtr.Zero);Pump(250);
+   if(pauseClicks!=1||playing||!ink.PlayEnabled||ink.PauseEnabled)throw new Exception("Toolbar pause or state synchronization");
+   using(var shot=new Bitmap(600,440)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(new Point(60,60),Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/transport-toolbar-preview.png");}
+   ready=false;ink.RefreshMedia();if(ink.PlayEnabled||ink.PauseEnabled)throw new Exception("Media enabled after stop");
+   ink.SelectTool(0);
    foreach(int mode in new[]{1,2,3}){ink.SelectTool(mode);Pump(100);DragPoint(new Point(160,160+mode*30),new Point(360,180+mode*30));}
    if(ink.StrokeCount!=3||clicks!=0)throw new Exception("Ink did not intercept drawing gestures");
    using(var shot=new Bitmap(600,440)){using(var g=Graphics.FromImage(shot))g.CopyFromScreen(new Point(60,60),Point.Empty,shot.Size);shot.Save("apps/screen-layout/dist/ink-preview.png");}
@@ -62,15 +73,16 @@ class LayoutTests {
    mode.SelectedIndex=3;Pump(100);CheckButtonText(dialog);var photos=(Panel)typeof(BroadcastForm).GetField("photoSettings",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);if(!photos.Visible||ai.Visible||normal.Visible)throw new Exception("Photo mode controls");using(var shot=new Bitmap(dialog.Width,dialog.Height)){dialog.DrawToBitmap(shot,dialog.ClientRectangle);shot.Save("apps/screen-layout/dist/broadcast-photo-preview.png");}
    var group=(ComboBox)typeof(BroadcastForm).GetField("character",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);
    var look=(ComboBox)typeof(BroadcastForm).GetField("shirt",BindingFlags.Instance|BindingFlags.NonPublic).GetValue(dialog);
-   if(group.Items.Count!=2)throw new Exception("Missing background groups");
-   for(int row=0;row<2;row++){group.SelectedIndex=row;if(look.Items.Count!=4||look.SelectedIndex!=0)throw new Exception("Look list not synchronized");for(int col=0;col<4;col++){string label=look.Items[col].ToString();if(!label.StartsWith((row*4+col+1).ToString("00")))throw new Exception("Wrong numbered look");if(label.Contains("đuôi"))throw new Exception("Removed hairstyle still selectable");}}
+   if(group.Items.Count!=5)throw new Exception("Missing background groups");
+   for(int row=0;row<5;row++){group.SelectedIndex=row;if(look.Items.Count!=4||look.SelectedIndex!=0)throw new Exception("Look list not synchronized");for(int col=0;col<4;col++){string label=look.Items[col].ToString();if(!label.StartsWith((row*4+col+1).ToString("00")))throw new Exception("Wrong numbered look");}}
    mode.SelectedIndex=0;if(ai.Visible||!normal.Visible)throw new Exception("Normal mode controls not restored");dialog.Close();}
 
-  for(int person=0;person<2;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
-  for(int person=0;person<2;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
+  for(int person=0;person<5;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var still=photo.Render(0,0))using(var talking=photo.Render(1,1)){bool changed=false;for(int yy=0;yy<still.Height;yy++)for(int xx=0;xx<still.Width;xx++)if(still.GetPixel(xx,yy)!=talking.GetPixel(xx,yy))changed=true;if(!changed)throw new Exception("Photo animation unchanged");if(person==0&&color==0){still.Save("apps/screen-layout/dist/photo-rest.png");talking.Save("apps/screen-layout/dist/photo-talk-blink.png");}using(var quiet=photo.Take()){if(quiet.Size!=still.Size)throw new Exception("Photo size changed");}}
+  for(int person=0;person<5;person++)for(int color=0;color<4;color++)using(var photo=new PhotoAvatar(person,color,null))using(var rest=photo.Render(0,0))using(var mouth=photo.Render(.6f,0))using(var blink=photo.Render(.6f,1)){
    if(rest.Width!=836||rest.Height!=470)throw new Exception("Natural full-tile aspect ratio");
    if(rest.GetPixel(24,24).ToArgb()!=Color.Magenta.ToArgb()||rest.GetPixel(rest.Width-24,rest.Height-24).ToArgb()!=Color.Lime.ToArgb())throw new Exception("Source tile corners or hands were cropped");
    var expected=Color.FromArgb(40+color*35,60+person*30,120);
+   if(person==2&&rest.GetPixel(420,80).ToArgb()!=expected.ToArgb())throw new Exception("Ponytail forehead was overwritten by donor hair");
    if(rest.GetPixel(100,10).ToArgb()!=expected.ToArgb())throw new Exception("Look mapped to wrong atlas cell");
    rest.Save("apps/screen-layout/dist/photo-look-"+(person*4+color+1).ToString("00")+".png");
    using(var returned=photo.Render(0,0))for(int yy=0;yy<rest.Height;yy++)for(int xx=0;xx<rest.Width;xx++)
