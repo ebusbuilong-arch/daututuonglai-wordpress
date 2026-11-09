@@ -31,7 +31,7 @@ function dttl_extra_reading_section() {
         foreach($posts as $post) {
             $order=(int)get_post_meta($post->ID,'_dttl_extra_order',true);
             if($order < (($group-1)*10+1) || $order > $group*10) continue;
-            echo '<a class="lesson-row" href="'.esc_url(get_permalink($post->ID)).'"><span class="lesson-number">'.esc_html(str_pad($order,2,'0',STR_PAD_LEFT)).'</span><div><h3>'.esc_html($post->post_title).'</h3><p>'.esc_html($post->post_excerpt).'</p></div><span class="lesson-read">Đọc bài →</span></a>';
+            echo '<a class="lesson-row" href="'.esc_url(get_permalink($post->ID)).'"><span class="lesson-number">'.esc_html(dttl_live_lesson_number($post->post_name) ?: str_pad($order,2,'0',STR_PAD_LEFT)).'</span><div><h3>'.esc_html($post->post_title).'</h3><p>'.esc_html($post->post_excerpt).'</p></div><span class="lesson-read">Đọc bài →</span></a>';
         }
         echo '</div></div>';
     }

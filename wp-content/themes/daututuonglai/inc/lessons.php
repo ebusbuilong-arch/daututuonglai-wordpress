@@ -1,5 +1,6 @@
 <?php
 if (!defined('ABSPATH')) exit;
+require_once __DIR__ . '/live-lesson-numbers.php';
 function dttl_lessons() {
     static $lessons = null;
     if ($lessons === null) {
