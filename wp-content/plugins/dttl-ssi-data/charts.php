@@ -1,7 +1,7 @@
 <?php
 if (!defined('ABSPATH')) { exit; }
 final class DTTL_SSI_Charts {
-    const VERSION = '0.4.4';
+    const VERSION = '0.5.0';
     public static function boot() {
         add_action('rest_api_init', [__CLASS__, 'routes']);
         add_filter('rest_pre_serve_request', [__CLASS__, 'public_cors'], 100, 4);
@@ -65,21 +65,24 @@ if (!response.ok) throw new Error('API HTTP ' + response.status);
 const data = await response.json();
 console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         <p><code>bars[]</code>: <code>time</code> (Unix seconds), <code>date</code> (UTC+7), <code>open</code>, <code>high</code>, <code>low</code>, <code>close</code>, <code>volume</code>.<br><code>security</code>, <code>frame</code>, <code>fetchedAt</code>, <code>source</code>, <code>priceUnit</code>, <code>pollSeconds</code>.</p>
-        <p><?php echo $en?'Limits: 60 requests/minute/IP; at most 12 uncached history requests/minute/IP. Refresh no faster than pollSeconds (60 seconds intraday, 300 seconds daily). Shared upstream quotas may temporarily stop new loads. HTTP 429: wait at least 60 seconds; 503: retry later; 400/404: check parameters.':'Giới hạn: 60 yêu cầu/phút/IP; tối đa 12 yêu cầu lịch sử chưa có bộ nhớ đệm/phút/IP. Tải lại không nhanh hơn pollSeconds (60 giây với nến trong ngày, 300 giây với nến ngày). Hạn mức nguồn dùng chung có thể tạm dừng tải mới. HTTP 429: đợi tối thiểu 60 giây; 503: thử lại sau; 400/404: kiểm tra tham số.'; ?></p>
+        <p><?php echo $en?'Limits: 60 requests/minute/IP; at most 12 uncached history requests/minute/IP. Refresh no faster than pollSeconds (normally 60 seconds intraday, 300 seconds daily during trading hours; slower outside sessions). Shared upstream quotas may temporarily stop new loads. When stale is true, bars are the last saved data, not a live quote; fetchedAt and the last candle time remain unchanged. HTTP 429: honor retryAfterSeconds, or wait at least 60 seconds; 503: retry later; 400/404: check parameters.':'Giới hạn: 60 yêu cầu/phút/IP; tối đa 12 yêu cầu lịch sử chưa có bộ nhớ đệm/phút/IP. Tải lại không nhanh hơn pollSeconds (thường 60 giây với nến trong ngày, 300 giây với nến ngày trong phiên; chậm hơn ngoài phiên). Hạn mức nguồn dùng chung có thể tạm dừng tải mới. Khi stale là true, bars là dữ liệu lưu gần nhất, không phải giá trực tiếp; fetchedAt và thời điểm nến cuối được giữ nguyên. HTTP 429: đợi theo retryAfterSeconds hoặc tối thiểu 60 giây; 503: thử lại sau; 400/404: kiểm tra tham số.'; ?></p>
         <p><?php echo $en?'Source: SSI via Đầu Tư Tương Lai. Keep attribution, display the last candle time, and use the returned price units. This is not a tick feed or an order API; the current candle may be incomplete. Maximum 800 candles per response; no historical pagination is exposed.':'Nguồn: SSI qua Đầu Tư Tương Lai. Giữ thông tin nguồn, hiển thị thời điểm nến cuối và dùng đơn vị giá trả về. Đây không phải dữ liệu từng tick hay API đặt lệnh; nến hiện tại có thể chưa kết thúc. Mỗi phản hồi tối đa 800 nến; API chưa hỗ trợ phân trang lịch sử.'; ?></p>
         </section>
         <?php return ob_get_clean();
     }
-    private static function error($message, $status = 503) { return new WP_Error('ssi_unavailable', $message, ['status' => $status]); }
+    private static function error($message, $status = 503, $details = []) { return new WP_Error('ssi_unavailable', $message, array_merge(['status' => $status], $details)); }
     private static function namespace_key() { return substr(hash('sha256', (string) get_option(DTTL_SSI_Data::OPTION, '')), 0, 12); }
     private static function budget() {
-        if (get_transient('dttl_ssi_pause')) { return self::error('SSI đang giới hạn kết nối. Vui lòng thử lại sau ít phút.', 429); }
+        if (get_transient('dttl_ssi_pause')) { return self::error('SSI đang giới hạn kết nối. Vui lòng thử lại sau ít phút.', 429, ['limit' => 'upstream', 'retryAfterSeconds' => 60]); }
+        $counts = [];
         foreach (['minute' => [60, 60], 'day' => [1500, DAY_IN_SECONDS]] as $type => $config) {
             $key = 'dttl_ssi_budget_' . $type . '_' . floor(time() / $config[1]);
             $count = (int) get_transient($key);
-            if ($count >= $config[0]) { return self::error('Đã đạt giới hạn tải dữ liệu. Vui lòng thử lại sau.', 429); }
-            set_transient($key, $count + 1, $config[1]);
+            if ($count >= $config[0]) { return self::error($type === 'day' ? 'Đã đạt giới hạn tải dữ liệu trong ngày. Hạn mức mới bắt đầu lúc 07:00 giờ Việt Nam.' : 'Đã đạt giới hạn tải dữ liệu trong phút. Vui lòng thử lại sau một phút.', 429, ['limit' => $type, 'retryAfterSeconds' => $config[1] - (time() % $config[1])]); }
+            $counts[] = [$key, $count + 1, $config[1]];
         }
+        // A blocked request must not spend another bucket's allowance.
+        foreach ($counts as $entry) { set_transient($entry[0], $entry[1], $entry[2]); }
         return true;
     }
     private static function token() {
@@ -117,7 +120,7 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         if (is_wp_error($response)) { return self::error('Kết nối SSI tạm thời gián đoạn. Vui lòng thử lại.'); }
         $code = (int) wp_remote_retrieve_response_code($response);
         if ($code === 401 && $retry) { delete_transient('dttl_ssi_access_token'); return self::request($path, $query, false); }
-        if ($code === 429) { set_transient('dttl_ssi_pause', 1, 60); return self::error('SSI đang giới hạn tải dữ liệu. Vui lòng thử lại sau một phút.', 429); }
+        if ($code === 429) { set_transient('dttl_ssi_pause', 1, 60); return self::error('SSI đang giới hạn tải dữ liệu. Vui lòng thử lại sau một phút.', 429, ['limit' => 'upstream', 'retryAfterSeconds' => 60]); }
         if ($code !== 200) {
             $detail = json_decode(wp_remote_retrieve_body($response), true);
             $message = is_array($detail) ? ($detail['msg'] ?? $detail['message'] ?? '') : '';
@@ -182,71 +185,163 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         }
         ksort($bars, SORT_NUMERIC); return array_values($bars);
     }
-    public static function history_route($request) {
+    private static function refresh_window($now) {
+        if ((int) $now->format('N') > 5) { return false; }
+        $minute = (int) $now->format('H') * 60 + (int) $now->format('i');
+        // Allow a short settling period for the last bars of each session.
+        return ($minute >= 540 && $minute < 695) || ($minute >= 780 && $minute < 915);
+    }
+    private static function cache_seconds($now, $frame) {
+        if (self::refresh_window($now)) { return $frame === '1d' ? 300 : 60; }
+        for ($day = 0; $day < 8; $day++) {
+            $date = $now->modify('+' . $day . ' days');
+            if ((int) $date->format('N') > 5) { continue; }
+            foreach ([9, 13] as $hour) {
+                $next = $date->setTime($hour, 0, 0);
+                if ($next > $now) { return max(60, min(6 * HOUR_IN_SECONDS, $next->getTimestamp() - $now->getTimestamp())); }
+            }
+        }
+        return HOUR_IN_SECONDS;
+    }
+    private static function daily_history_seconds($now) {
+        if (!self::refresh_window($now)) { return self::cache_seconds($now, '1d'); }
+        $end = (int) $now->format('H') < 12 ? $now->setTime(11, 35, 0) : $now->setTime(15, 15, 0);
+        return max(1, min(HOUR_IN_SECONDS, $end->getTimestamp() - $now->getTimestamp()));
+    }
+    private static function last_good($key) {
+        $data = get_transient($key . '_lastgood');
+        return is_array($data) && !empty($data['bars']) && !empty($data['fetchedAt']) ? $data : null;
+    }
+    private static function fallback($key, $error, $candidate = null, $remember = true) {
+        $details = (array) $error->get_error_data();
+        $retry = max(60, min(DAY_IN_SECONDS, (int) ($details['retryAfterSeconds'] ?? 120)));
+        if ($remember) { set_transient($key . '_retry', ['message' => $error->get_error_message(), 'details' => $details, 'until' => time() + $retry], $retry); }
+        $data = self::last_good($key);
+        if (is_array($candidate) && !empty($candidate['bars']) && !empty($candidate['fetchedAt'])) {
+            $last = end($candidate['bars']);
+            $previous = $data ? end($data['bars']) : null;
+            $last_period = ($candidate['frame'] ?? '') === '1d' ? $last['date'] : $last['time'];
+            $previous_period = $previous ? (($candidate['frame'] ?? '') === '1d' ? $previous['date'] : $previous['time']) : null;
+            // A newly fetched daily bar is not necessarily newer than the
+            // already saved minute-derived bar for that same trading day.
+            if (!$previous || $last_period > $previous_period) {
+                $data = $candidate;
+                set_transient($key . '_lastgood', $candidate, 30 * DAY_IN_SECONDS);
+            }
+        }
+        if (!$data) { return $error; }
+        // Preserve the original fetch and candle timestamps. Never relabel old
+        // bars as freshly fetched, and never use this fallback for order quotes.
+        $data['stale'] = true;
+        $data['staleReason'] = ($details['status'] ?? 503) === 429 ? 'rate_limit' : 'upstream_unavailable';
+        $data['retryAfterSeconds'] = $retry;
+        $data['pollSeconds'] = $retry;
+        return rest_ensure_response($data);
+    }
+    private static function history_bars($symbol, $frame, $now, $days) {
+        $rows = []; $seen = [];
+        for ($page = 1; $page <= 4; $page++) {
+            $data = self::request('ohlc', ['symbol' => $symbol, 'timeFrame' => $frame, 'from' => $now->modify('-' . $days . ' days')->setTime(0,0)->format('Y/m/d H:i:s'), 'to' => $now->format('Y/m/d H:i:s'), 'pageIndex' => $page, 'pageSize' => 200]);
+            if (is_wp_error($data)) { return $data; }
+            $batch = $data['data'] ?? null;
+            if (!is_array($batch)) { return self::error('Dữ liệu nến SSI chưa đúng định dạng.'); }
+            $signature = md5(wp_json_encode($batch));
+            if (isset($seen[$signature])) { break; } $seen[$signature] = true;
+            $rows = array_merge($rows, $batch);
+            $size = !empty($data['pageSize']) ? (int) $data['pageSize'] : 200;
+            if (!$batch || count($batch) < $size) { break; }
+        }
+        $bars = self::normalize($rows, $frame);
+        if ($rows && !$bars) { return self::error('SSI đã trả dữ liệu nhưng định dạng nến cần được kiểm tra.'); }
+        return ['bars' => $bars, 'fetchedAt' => $now->format(DATE_ATOM)];
+    }
+    public static function history_route($request, ?DateTimeImmutable $now = null) {
         $symbol = strtoupper((string) $request->get_param('symbol'));
         $board = strtoupper((string) ($request->get_param('board') ?: 'HOSE'));
         $frame = (string) ($request->get_param('frame') ?: '1d');
         $days = ['1d' => 365, '1h' => 30, '15m' => 10, '5m' => 5, '1m' => 2];
         if (!preg_match('/^[A-Z0-9]{2,15}$/', $symbol) || !isset($days[$frame]) || !in_array($board, ['HOSE', 'HNX', 'UPCOM'], true)) { return self::error('Mã hoặc khung thời gian không hợp lệ.', 400); }
+        // Keep the previous key so a still-fresh pre-upgrade cache can seed the
+        // retained copy. Changing credentials still isolates every cache.
         $key = 'dttl_ssi_bars_031_' . self::namespace_key() . '_' . $board . '_' . $symbol . '_' . $frame;
-        $cached = get_transient($key); if (is_array($cached)) { return rest_ensure_response($cached); }
+        $cached = get_transient($key);
+        if (is_array($cached)) {
+            if (!empty($cached['bars']) && empty($cached['stale'])) { set_transient($key . '_lastgood', $cached, 30 * DAY_IN_SECONDS); }
+            return rest_ensure_response($cached);
+        }
+        $backoff = get_transient($key . '_retry');
+        if (is_array($backoff) && ($backoff['until'] ?? 0) > time()) {
+            $details = (array) ($backoff['details'] ?? []);
+            $details['retryAfterSeconds'] = max(60, $backoff['until'] - time());
+            return self::fallback($key, self::error($backoff['message'], $details['status'] ?? 503, $details), null, false);
+        }
         $ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $ipkey = 'dttl_ssi_ip_' . substr(hash_hmac('sha256', $ip, wp_salt('nonce')), 0, 24) . '_' . floor(time()/60);
-        $n = (int) get_transient($ipkey); if ($n >= 12) { return self::error('Anh/chị đang đổi mã quá nhanh. Vui lòng chờ một phút.', 429); }
+        $n = (int) get_transient($ipkey);
+        if ($n >= 12) { return self::fallback($key, self::error('Anh/chị đang đổi mã quá nhanh. Vui lòng chờ một phút.', 429, ['retryAfterSeconds' => 60]), null, false); }
         set_transient($ipkey, $n + 1, 60);
-        $symbols = self::symbols($board); if (is_wp_error($symbols)) { return $symbols; }
+        $symbols = self::symbols($board); if (is_wp_error($symbols)) { return self::fallback($key, $symbols); }
         $selected = null; foreach ($symbols as $item) { if ($item['symbol'] === $symbol) { $selected = $item; break; } }
         if (!$selected) { return self::error('Mã không có trong danh sách của sàn đã chọn.', 404); }
         $lock = $key . '_lock';
-        if (get_transient($lock)) { return self::error('Dữ liệu đang được cập nhật. Vui lòng thử lại sau vài giây.', 503); }
+        if (get_transient($lock)) { return self::fallback($key, self::error('Dữ liệu đang được cập nhật. Vui lòng thử lại sau vài giây.', 503, ['retryAfterSeconds' => 60]), null, false); }
         set_transient($lock, 1, 90);
         try {
-            $now = new DateTimeImmutable('now', new DateTimeZone('Asia/Ho_Chi_Minh'));
-            $format = 'Y/m/d H:i:s';
-            $rows = []; $seen = [];
-            for ($page = 1; $page <= 4; $page++) {
-                $data = self::request('ohlc', ['symbol' => $symbol, 'timeFrame' => $frame, 'from' => $now->modify('-' . $days[$frame] . ' days')->setTime(0,0)->format($format), 'to' => $now->format($format), 'pageIndex' => $page, 'pageSize' => 200]);
-                if (is_wp_error($data)) { return $data; }
-                $batch = $data['data'] ?? null;
-                if (!is_array($batch)) { return self::error('Dữ liệu nến SSI chưa đúng định dạng.'); }
-                $signature = md5(wp_json_encode($batch));
-                if (isset($seen[$signature])) { break; } $seen[$signature] = true;
-                $rows = array_merge($rows, $batch);
-                $size = !empty($data['pageSize']) ? (int) $data['pageSize'] : 200;
-                if (!$batch || count($batch) < $size) { break; }
+            $now = $now ?: new DateTimeImmutable('now', new DateTimeZone('Asia/Ho_Chi_Minh'));
+            $ttl = self::cache_seconds($now, $frame);
+            // Completed daily history changes slowly. Reuse it while updating
+            // the provisional candle rather than reloading a year every minute.
+            $history_key = $key . '_daily_history';
+            $history = $frame === '1d' ? get_transient($history_key) : false;
+            if (!is_array($history)) {
+                $history = self::history_bars($symbol, $frame, $now, $days[$frame]);
+                if (is_wp_error($history)) { return self::fallback($key, $history); }
+                if ($frame === '1d' && !empty($history['bars'])) { set_transient($history_key, $history, self::daily_history_seconds($now)); }
             }
-            $bars = self::normalize($rows, $frame);
-            if ($rows && !$bars) { return self::error('SSI đã trả dữ liệu nhưng định dạng nến cần được kiểm tra.'); }
-            $provisional = false;
-            // Daily history may contain completed sessions only. Build today's
-            // evolving candle from SSI minute bars; never invent a live quote.
-            if ($frame === '1d') {
+            $bars = $history['bars'];
+            $result = ['security' => $selected, 'frame' => $frame, 'bars' => $bars, 'fetchedAt' => $history['fetchedAt'], 'source' => 'SSI', 'priceUnit' => 'SSI', 'provisionalAt' => false, 'pollSeconds' => $ttl, 'stale' => false];
+            $today = $now->format('Y-m-d');
+            // Even SSI's current daily candle can lag the minute feed. At lunch
+            // and after close, refresh it once, then wait for the next session.
+            $need_today = $frame === '1d' && (int) $now->format('N') <= 5 && (int) $now->format('H') >= 9;
+            if ($need_today) {
                 $minute_request = new WP_REST_Request('GET');
                 $minute_request->set_param('symbol', $symbol);
                 $minute_request->set_param('board', $board);
                 $minute_request->set_param('frame', '1m');
-                $minute_response = self::history_route($minute_request);
-                if (!is_wp_error($minute_response)) {
-                    $minute_data = $minute_response->get_data();
-                    $today = $now->format('Y-m-d');
-                    $intraday = array_values(array_filter($minute_data['bars'] ?? [], function($b) use ($today) { return substr($b['date'], 0, 10) === $today; }));
-                    if ($intraday) {
-                        $first = reset($intraday); $last = end($intraday);
-                        $current = ['time' => $now->setTime(0,0)->getTimestamp(), 'date' => $today,
-                            'open' => $first['open'], 'high' => max(array_column($intraday,'high')),
-                            'low' => min(array_column($intraday,'low')), 'close' => $last['close'],
-                            'volume' => array_sum(array_column($intraday,'volume'))];
-                        $bars = array_values(array_filter($bars, function($b) use ($today) { return $b['date'] !== $today; }));
-                        $bars[] = $current;
-                        $provisional = $last['date'];
-                    }
+                $minute_response = self::history_route($minute_request, $now);
+                if (is_wp_error($minute_response)) { return self::fallback($key, $minute_response, $result); }
+                $minute_data = $minute_response->get_data();
+                if (!empty($minute_data['stale'])) { return self::fallback($key, self::error('Chưa cập nhật được nến trong ngày từ SSI.', 503, ['retryAfterSeconds' => $minute_data['retryAfterSeconds'] ?? 120]), $result); }
+                $intraday = array_values(array_filter($minute_data['bars'] ?? [], function($b) use ($today) { return substr($b['date'], 0, 10) === $today; }));
+                if ($intraday) {
+                    $first = reset($intraday); $last = end($intraday);
+                    $current = ['time' => $now->setTime(0,0)->getTimestamp(), 'date' => $today,
+                        'open' => $first['open'], 'high' => max(array_column($intraday,'high')),
+                        'low' => min(array_column($intraday,'low')), 'close' => $last['close'],
+                        'volume' => array_sum(array_column($intraday,'volume'))];
+                    $bars = array_values(array_filter($bars, function($b) use ($today) { return $b['date'] !== $today; }));
+                    $bars[] = $current;
+                    $result['bars'] = $bars;
+                    $result['provisionalAt'] = $last['date'];
+                    $result['fetchedAt'] = $minute_data['fetchedAt'];
+                } else {
+                    return self::fallback($key, self::error('SSI chưa trả nến trong ngày. Đang giữ dữ liệu gần nhất.'), $result);
                 }
             }
-            $result = ['security' => $selected, 'frame' => $frame, 'bars' => $bars, 'fetchedAt' => $now->format(DATE_ATOM), 'source' => 'SSI', 'priceUnit' => 'SSI', 'provisionalAt' => $provisional, 'pollSeconds' => 60];
-            set_transient($key, $result, 60);
+            if (!$bars && self::last_good($key)) { return self::fallback($key, self::error('SSI chưa trả dữ liệu mới trong khoảng thời gian này.'), null); }
+            $previous = self::last_good($key);
+            if ($bars && $previous) {
+                $last = end($bars); $old = end($previous['bars']);
+                if (($frame === '1d' ? $last['date'] < $old['date'] : $last['time'] < $old['time'])) { return self::fallback($key, self::error('Dữ liệu SSI trả về cũ hơn dữ liệu đã lưu.')); }
+            }
+            delete_transient($key . '_retry');
+            set_transient($key, $result, $ttl);
+            if ($bars) { set_transient($key . '_lastgood', $result, 30 * DAY_IN_SECONDS); }
             return rest_ensure_response($result);
         } finally { delete_transient($lock); }
     }
+
     public static function assets() {
         wp_enqueue_style('dttl-ssi-chart', plugins_url('assets/chart.css', __FILE__), [], self::VERSION);
         wp_enqueue_script('dttl-ssi-chart', plugins_url('assets/chart.js', __FILE__), [], self::VERSION, true);
@@ -272,7 +367,7 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
             <p class="dttl-stock-status" role="status" aria-live="polite"><?php echo $en ? 'Loading SSI data…' : 'Đang tải dữ liệu SSI…'; ?></p>
             <div class="dttl-stock-plot" tabindex="0" aria-label="<?php echo $en ? 'Candlestick and volume chart' : 'Biểu đồ nến và khối lượng'; ?>"><canvas></canvas><div class="dttl-stock-tooltip" hidden></div></div>
             <div class="dttl-stock-tools"><label><?php echo $en ? 'Visible candles' : 'Số nến hiển thị'; ?><select name="count"><option value="40">40</option><option value="80" selected>80</option><option value="160">160</option><option value="10000"><?php echo $en ? 'All' : 'Tất cả'; ?></option></select></label><label class="dttl-stock-pan"><?php echo $en ? 'History' : 'Xem lịch sử'; ?><input name="pan" type="range" min="0" max="0" value="0" aria-label="<?php echo $en ? 'Move through history' : 'Di chuyển qua lịch sử'; ?>"></label><button type="button" class="dttl-stock-refresh"><?php echo $en ? 'Refresh' : 'Làm mới'; ?></button></div>
-            <p class="dttl-stock-note"><?php echo $en ? 'Source: SSI · Vietnam time (UTC+7). Prices use SSI’s returned units. Change is versus the previous candle. Updates every 1–5 minutes; not a live tick feed.' : 'Nguồn: SSI · Giờ Việt Nam (UTC+7). Giá theo đơn vị SSI trả về. Tăng/giảm so với nến trước. Cập nhật mỗi 1–5 phút; nến hiện tại có thể chưa kết thúc.'; ?></p>
+            <p class="dttl-stock-note"><?php echo $en ? 'Source: SSI · Vietnam time (UTC+7). Prices use SSI’s returned units. Change is versus the previous candle. Updates every 1–5 minutes during sessions, less often outside sessions. Saved fallback data is labeled; not a live tick feed.' : 'Nguồn: SSI · Giờ Việt Nam (UTC+7). Giá theo đơn vị SSI trả về. Tăng/giảm so với nến trước. Cập nhật mỗi 1–5 phút trong phiên, chậm hơn ngoài phiên. Dữ liệu lưu được ghi rõ; nến hiện tại có thể chưa kết thúc.'; ?></p>
         </section>
         <h2><?php echo $en ? 'How to use the chart' : 'Cách xem biểu đồ'; ?></h2>
         <p><?php echo $en ? 'Choose an exchange, enter a stock symbol and select View chart. Change the timeframe to explore minute, hourly or daily candles. Tap or hover over a candle to see its opening, high, low and closing prices and trading volume.' : 'Chọn sàn, nhập mã chứng khoán rồi bấm Xem biểu đồ. Đổi khung nến để xem biến động theo phút, giờ hoặc ngày. Chạm hoặc đưa chuột lên nến để xem giá mở cửa, cao nhất, thấp nhất, đóng cửa và khối lượng.'; ?></p>
@@ -289,4 +384,5 @@ console.log(data.security, data.bars, data.fetchedAt);"); ?></code></pre>
         <?php echo self::api_guide($en); } return ob_get_clean();
     }
 }
+
 

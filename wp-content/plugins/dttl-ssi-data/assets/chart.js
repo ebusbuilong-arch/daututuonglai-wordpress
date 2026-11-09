@@ -74,7 +74,7 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
  async function get(path, params, signal) {
   const url = new URL(root.dataset.endpoint + path); Object.entries(params).forEach(([k,v]) => url.searchParams.set(k,v));
   const response = await fetch(url, {signal, credentials:'same-origin'}); const data = await response.json();
-  if (!response.ok) throw new Error(data.message || t('Chưa tải được dữ liệu.', 'Data unavailable.'));
+  if (!response.ok) { const error = new Error(data.message || t('Chưa tải được dữ liệu.', 'Data unavailable.')); error.retryAfterSeconds = Number(data.data?.retryAfterSeconds) || 120; throw error; }
   return data;
  }
  async function loadSymbols() {
@@ -103,10 +103,13 @@ document.querySelectorAll('.dttl-stock').forEach(root => {
    const last=bars.at(-1), previous=bars.at(-2);
    if(data.provisionalAt) text(status,t('Nến ngày đang hình thành từ dữ liệu phút','Daily candle derived from minute data'));
    if(last) { const change=previous ? (last.close-previous.close) : 0; const pct=previous && previous.close ? change/previous.close*100:0; text(price,`${nf.format(last.close)}${previous ? `  ${change>=0?'+':''}${nf.format(change)} (${pct>=0?'+':''}${nf.format(pct)}%)`:''}`); price.style.color=change>=0?'#087e63':'#d54454'; }
-   text(status,bars.length ? `${t('Nến cuối','Last candle')}: ${data.provisionalAt||last.date}${data.provisionalAt?t(' (nến ngày tạm tính)',' (provisional daily candle)'):''} · ${bars.length} ${t('nến','candles')} · ${t('Tải lúc','Fetched')} ${new Date(data.fetchedAt).toLocaleTimeString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'})}` : t('Chưa có dữ liệu trong khoảng thời gian này. Thử khung 1 ngày.','No data in this period. Try the daily timeframe.'));
+   const fetched = new Date(data.fetchedAt).toLocaleString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'});
+   const stale = data.stale ? t('Dữ liệu lưu gần nhất, chưa cập nhật được. ','Saved data, update currently unavailable. ') : '';
+   text(status,bars.length ? `${stale}${t('Nến cuối','Last candle')}: ${data.provisionalAt||last.date}${data.provisionalAt?t(' (nến ngày tạm tính)',' (provisional daily candle)'):''} · ${bars.length} ${t('nến','candles')} · ${t('Tải lúc','Fetched')} ${fetched} (UTC+7)` : t('Chưa có dữ liệu trong khoảng thời gian này. Thử khung 1 ngày.','No data in this period. Try the daily timeframe.'));
+   root.dataset.stale = data.stale ? 'true' : 'false';
    resetView(); if(same&&!wasLatest){pan.value=String(Math.min(oldPan,Number(pan.max)));draw();}
    timer=setTimeout(()=>load(true),Math.max(60,data.pollSeconds||300)*1000);
-  } catch(error) { if(error.name==='AbortError'||id!==serial)return; text(status,(same&&bars.length?t('Đang giữ dữ liệu cũ. ','Showing previous data. '):'')+error.message); timer=setTimeout(()=>load(true),120000); }
+  } catch(error) { if(error.name==='AbortError'||id!==serial)return; text(status,(same&&bars.length?t('Đang giữ dữ liệu cũ. ','Showing previous data. '):'')+error.message); root.dataset.stale = same&&bars.length?'true':'false'; timer=setTimeout(()=>load(true),Math.max(60,Math.min(86400,error.retryAfterSeconds||120))*1000); }
   finally { if(id===serial){busy=false;root.removeAttribute('aria-busy');} }
  }
  function draw() {
@@ -173,4 +176,5 @@ document.querySelectorAll('.dttl-fx').forEach(root=>{
  });
 });
 })();
+
 

@@ -1,0 +1,19 @@
+name: Validate SSI chart cache
+on:
+  push:
+    paths: ['wp-content/plugins/dttl-ssi-data/**', 'tests/ssi-cache.php', '.github/workflows/ssi-cache.yml']
+  pull_request:
+    paths: ['wp-content/plugins/dttl-ssi-data/**', 'tests/ssi-cache.php', '.github/workflows/ssi-cache.yml']
+permissions:
+  contents: read
+jobs:
+  ssi-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Validate PHP and JavaScript syntax
+        run: |
+          find wp-content/plugins/dttl-ssi-data -name '*.php' -print0 | xargs -0 -n1 php -l
+          node --check wp-content/plugins/dttl-ssi-data/assets/chart.js
+      - name: Run offline SSI cache regression tests
+        run: php tests/ssi-cache.php
