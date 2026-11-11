@@ -47,7 +47,47 @@ final class AIM_Stock_Feed {
 
 /** SSI data only: never sends an order to SSI. */
 final class AIM_VN_Stock_Feed {
- static function map(){return array('SHS'=>'HNX','PVS'=>'HNX','FPT'=>'HOSE','HPG'=>'HOSE','VCB'=>'HOSE','MBB'=>'HOSE','TCB'=>'HOSE','SSI'=>'HOSE','VNM'=>'HOSE','VIC'=>'HOSE','VHM'=>'HOSE','MWG'=>'HOSE','ACV'=>'UPCOM');}
+ static function catalog(){
+  return array(
+   'HOSE'=>array(
+    'FPT'=>'FPT','HPG'=>'Hòa Phát','VCB'=>'Vietcombank','MBB'=>'Ngân hàng Quân đội',
+    'TCB'=>'Techcombank','SSI'=>'Chứng khoán SSI','VNM'=>'Vinamilk','VIC'=>'Vingroup',
+    'VHM'=>'Vinhomes','MWG'=>'Thế Giới Di Động','ACB'=>'Ngân hàng Á Châu','BID'=>'BIDV',
+    'BSR'=>'Lọc hóa dầu Bình Sơn','CTG'=>'VietinBank','DCM'=>'Đạm Cà Mau','DGC'=>'Hóa chất Đức Giang',
+    'DMX'=>'Điện Máy Xanh','FRT'=>'FPT Retail','GAS'=>'PV GAS','GEX'=>'GELEX',
+    'GMD'=>'Gemadept','HDB'=>'HDBank','HSG'=>'Tập đoàn Hoa Sen','KBC'=>'Đô thị Kinh Bắc',
+    'KDH'=>'Nhà Khang Điền','LPB'=>'LPBank','MCH'=>'Masan Consumer','MSN'=>'Tập đoàn Masan',
+    'NVL'=>'Novaland','PLX'=>'Petrolimex','PNJ'=>'Vàng bạc Đá quý Phú Nhuận','POW'=>'PV Power',
+    'REE'=>'Cơ Điện Lạnh REE','SHB'=>'Ngân hàng Sài Gòn – Hà Nội','STB'=>'Sacombank',
+    'VPB'=>'VPBank','VIX'=>'Chứng khoán VIX',
+   ),
+   'HNX'=>array(
+    'SHS'=>'Chứng khoán Sài Gòn – Hà Nội','PVS'=>'Dịch vụ Kỹ thuật Dầu khí','CEO'=>'Tập đoàn CEO',
+    'IDC'=>'IDICO','MBS'=>'Chứng khoán MB','PVI'=>'PVI','TNG'=>'Đầu tư và Thương mại TNG',
+   ),
+   'UPCOM'=>array(
+    'ACV'=>'Tổng công ty Cảng hàng không Việt Nam','FOX'=>'FPT Telecom','OIL'=>'PVOIL',
+    'QNS'=>'Đường Quảng Ngãi','VEA'=>'Máy động lực và Máy nông nghiệp Việt Nam','VGI'=>'Viettel Global',
+   ),
+  );
+ }
+ static function map(){
+  static $map=null;
+  if($map===null){
+   $map=array();
+   foreach(self::catalog() as $board=>$stocks){
+    foreach($stocks as $symbol=>$name)$map[$symbol]=$board;
+   }
+  }
+  return $map;
+ }
+ static function instruments(){
+  $instruments=array();
+  foreach(self::catalog() as $board=>$stocks){
+   foreach($stocks as $symbol=>$name)$instruments[]=array($board.':'.$symbol,$symbol,$name,$board);
+  }
+  return $instruments;
+ }
  static function configured(){return class_exists('DTTL_SSI_Charts')&&method_exists('DTTL_SSI_Charts','market_data')&&(bool)get_option('dttl_ssi_credentials','');}
  static function session($now){$d=(new DateTimeImmutable('@'.(int)($now/1000)))->setTimezone(new DateTimeZone('Asia/Ho_Chi_Minh'));$hm=(int)$d->format('Hi');return (int)$d->format('N')<=5&&(($hm>=900&&$hm<1130)||($hm>=1300&&$hm<1500));}
  static function quote($symbol){
