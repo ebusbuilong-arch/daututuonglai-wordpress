@@ -79,11 +79,22 @@ final class AIM_Competition_Engine {
 final class AIM_Sim_Performance_Engine {
  const U=1000000;
  static function internal($kind){return in_array($kind,['futures_transfer_in','futures_transfer_out','forex_transfer_in','forex_transfer_out','cm_transfer_in','cm_transfer_out'],true);}
- static function trade($kind){return in_array($kind,['buy','sell','stock_buy','stock_sell'],true);}
+ static function trade($kind){return in_array($kind,['buy','sell','stock_buy','stock_sell','stock_margin_buy','stock_margin_sell'],true);}
  static function replay($ledger,$derivatives,$at){
-  $cash=0;$assets=[];$books=[];$flows=[];$traded=false;$last_trade=0;$fees=0;
+  $cash=0;$assets=[];$stockMargin=[];$books=[];$flows=[];$traded=false;$last_trade=0;$fees=0;
   foreach($ledger as $row){$time=(int)$row['at'];if($time>=$at)break;$kind=$row['kind'];$cash=(int)$row['cash_after'];
-   if(self::trade($kind)){
+   if($kind==='stock_margin_buy'||$kind==='stock_margin_sell'){
+    $event=json_decode($row['execution']??'',true);$position=$event['position']??null;$symbol=$row['symbol'];
+    if(!is_array($position)||($position['symbol']??null)!==$symbol)throw new RuntimeException('Thiếu chi tiết ký quỹ cổ phiếu.');
+    if($kind==='stock_margin_buy'){
+     if(isset($stockMargin[$symbol]))throw new RuntimeException('Trùng vị thế ký quỹ cổ phiếu.');
+     $stockMargin[$symbol]=$position;
+    }else{
+     if(($stockMargin[$symbol]['open_request_id']??null)!==$position['open_request_id'])throw new RuntimeException('Chưa đối soát được vị thế ký quỹ cổ phiếu.');
+     unset($stockMargin[$symbol]);
+    }
+    $traded=true;$last_trade=max($last_trade,$time);$fees+=(int)$row['fee'];
+   }elseif(self::trade($kind)){
     $stock=strpos($kind,'stock_')===0;$market=$stock?'stock':'spot';$key=$market.':'.$row['symbol'];$units=$stock?(float)$row['quantity']:(int)round((float)$row['quantity']*1e8);
     $sign=in_array($kind,['buy','stock_buy'],true)?1:-1;$assets[$key]=($assets[$key]??0)+$sign*$units;
     if($assets[$key]< -0.000001)throw new RuntimeException('Lịch sử tài sản không khớp; cần đối soát.');
@@ -114,13 +125,17 @@ final class AIM_Sim_Performance_Engine {
     }
    }$books[$market]=$book;
   }
-  return ['cash'=>$cash,'assets'=>$assets,'books'=>$books,'flows'=>$flows,'traded'=>$traded,'last_trade'=>$last_trade,'fees'=>$fees];
+  return ['cash'=>$cash,'assets'=>$assets,'stock_margin'=>$stockMargin,'books'=>$books,'flows'=>$flows,'traded'=>$traded,'last_trade'=>$last_trade,'fees'=>$fees];
  }
  static function equity($book,$at,$price){
   $equity=(float)$book['cash'];
   foreach($book['assets'] as $key=>$units){[$market,$symbol]=explode(':',$key,2);$mark=$price($market,$symbol,$at,'long');if(!is_numeric($mark)||!is_finite((float)$mark)||$mark<=0)throw new RuntimeException('Chưa có giá định giá hợp lệ.');
    if($market==='spot')$equity+=$units/1e8*$mark*self::U;
    else{$vn=isset(AIM_VN_Stock_Feed::map()[$symbol]);$equity+=$units*$mark*self::U/($vn?25000000:1000);}
+  }
+  foreach($book['stock_margin']??[] as $position){
+   $mark=$price('stock',$position['symbol'],$at,'long');
+   $equity+=AIM_Stock_Margin_Engine::mark($position,$mark,$at)['returned'];
   }
   foreach($book['books'] as $market=>$account){$equity+=(float)$account['cash']+array_sum($account['orders']);
    foreach($account['positions'] as $position){$mark=$price($market,$position['symbol'],$at,$position['side']);if(!is_numeric($mark)||!is_finite((float)$mark)||$mark<=0)throw new RuntimeException('Chưa có giá định giá vị thế.');
@@ -152,7 +167,7 @@ final class AIM_Sim_Performance {
    $rows=$wpdb->get_results('SELECT user_id,cash,positions FROM '.AIM_Trading::table('accounts').' WHERE user_id>0 ORDER BY user_id LIMIT 5001',ARRAY_A);
    if($wpdb->last_error||count($rows??[])>5000)throw new RuntimeException('Cần kiểm tra giới hạn tổng hợp tài khoản.');
    foreach($rows as $r){$uid=(int)$r['user_id'];$out[$uid]=['user_id'=>$uid,'stored'=>$r,'ledger'=>[],'events'=>['futures'=>[],'forex'=>[],'commodity'=>[]],'state'=>[],'stored_derivatives'=>[]];}
-   $rows=$wpdb->get_results('SELECT id,user_id,kind,symbol,quantity,fee,cash_delta,cash_after,created FROM '.AIM_Trading::table('ledger').' WHERE user_id>0 ORDER BY created,id LIMIT 100001',ARRAY_A);
+   $rows=$wpdb->get_results('SELECT id,user_id,kind,symbol,quantity,fee,cash_delta,cash_after,execution,created FROM '.AIM_Trading::table('ledger').' WHERE user_id>0 ORDER BY created,id LIMIT 100001',ARRAY_A);
    if($wpdb->last_error||count($rows??[])>100000)throw new RuntimeException('Sổ giao dịch cần phân trang trước khi tổng hợp.');
    foreach($rows as $r){$uid=(int)$r['user_id'];if(isset($out[$uid])){$r['at']=self::time($r['created']);$out[$uid]['ledger'][]=$r;}}
    foreach(['futures'=>'aimtr_futures_schema','forex'=>'aimtr_forex_schema','commodity'=>'aimtr_commodity_schema'] as $market=>$schema){
