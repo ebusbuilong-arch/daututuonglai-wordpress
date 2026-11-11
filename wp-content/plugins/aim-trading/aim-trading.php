@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AIM Trading
  * Description: Sàn thực hành AIM: dữ liệu crypto thị trường, biểu đồ và tài khoản giao dịch thử lưu trên máy chủ.
- * Version: 0.4.40
+ * Version: 0.4.41
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
@@ -19,11 +19,19 @@ require_once __DIR__.'/commodity-accounts.php';
 require_once __DIR__.'/market-launch.php';
 require_once __DIR__.'/oil-reference.php';
 final class AIM_Trading {
- const VERSION = '0.4.40';
+ const VERSION = '0.4.41';
  const UNIT = 1000000;
  const START = 100000000;
  const FEE = 0.001;
- static function symbols(){return array('BTCUSDT'=>'Bitcoin','ETHUSDT'=>'Ethereum','BNBUSDT'=>'BNB','SOLUSDT'=>'Solana','XRPUSDT'=>'XRP','ADAUSDT'=>'Cardano');}
+ static function symbols(){
+  return array(
+   'BTCUSDT'=>'Bitcoin','ETHUSDT'=>'Ethereum','BNBUSDT'=>'BNB','SOLUSDT'=>'Solana',
+   'XRPUSDT'=>'XRP','ADAUSDT'=>'Cardano','DOGEUSDT'=>'Dogecoin','TRXUSDT'=>'TRON',
+   'LINKUSDT'=>'Chainlink','AVAXUSDT'=>'Avalanche','DOTUSDT'=>'Polkadot','LTCUSDT'=>'Litecoin',
+   'BCHUSDT'=>'Bitcoin Cash','XLMUSDT'=>'Stellar','SUIUSDT'=>'Sui','NEARUSDT'=>'NEAR Protocol',
+   'UNIUSDT'=>'Uniswap','AAVEUSDT'=>'Aave','ETCUSDT'=>'Ethereum Classic',
+  );
+ }
  static function table($s){global $wpdb;return $wpdb->prefix.'aimtr_'.$s;}
  static function activate(){
   global $wpdb;require_once ABSPATH.'wp-admin/includes/upgrade.php';$collate=$wpdb->get_charset_collate();
@@ -66,10 +74,11 @@ final class AIM_Trading {
   $result=array('data'=>$data,'received_at'=>(int)round(microtime(true)*1000));set_transient($key,$result,$ttl);return $result;
  }
  static function market(){
-  $r=self::remote('ticker/24hr',array('symbols'=>wp_json_encode(array_keys(self::symbols()))),5);if(is_wp_error($r))return $r;
-  $rows=array();foreach($r['data'] as $v){if(!isset(self::symbols()[$v['symbol']??'']))continue;
-   $rows[]=array('symbol'=>$v['symbol'],'name'=>self::symbols()[$v['symbol']],'price'=>(float)$v['lastPrice'],'change'=>(float)$v['priceChangePercent'],'high'=>(float)$v['highPrice'],'low'=>(float)$v['lowPrice'],'volume'=>(float)$v['quoteVolume'],'close_time'=>(int)$v['closeTime']);}
-  if(count($rows)!==count(self::symbols()))return self::error('Bảng giá chưa đầy đủ.',503);
+  $symbols=self::symbols();
+  $r=self::remote('ticker/24hr',array('symbols'=>wp_json_encode(array_keys($symbols))),5);if(is_wp_error($r))return $r;
+  $rows=array();foreach($r['data'] as $v){if(!isset($symbols[$v['symbol']??'']))continue;
+   $rows[]=array('symbol'=>$v['symbol'],'name'=>$symbols[$v['symbol']],'price'=>(float)$v['lastPrice'],'change'=>(float)$v['priceChangePercent'],'high'=>(float)$v['highPrice'],'low'=>(float)$v['lowPrice'],'volume'=>(float)$v['quoteVolume'],'close_time'=>(int)$v['closeTime']);}
+  if(!$rows)return self::error('Bảng giá chưa đầy đủ.',503);
   return array('markets'=>$rows,'received_at'=>$r['received_at'],'server_at'=>(int)round(microtime(true)*1000),'source'=>'Binance Spot','interval_seconds'=>5);
  }
  static function quote($symbol){
@@ -231,7 +240,11 @@ final class AIM_Trading {
   if($mode==='workshop'&&($_GET['view']??'')==='sponsors'){AIM_Competitions::sponsors_page($config);exit;}
   if($mode==='workshop'&&($_GET['view']??'')==='season'){include __DIR__.'/workshop-terminal.php';exit;}
   if($mode==='funding'||(!self::permission()&&$mode==='workshop')){include __DIR__.'/funding-terminal.php';exit;}
-  if(in_array($mode,array('stock','forex','commodity'),true)){$config['market']=$mode;include __DIR__.'/exchange-terminal.php';exit;}
+  if(in_array($mode,array('stock','forex','commodity'),true)){
+   $config['market']=$mode;
+   if($mode==='stock')$config['vnStocks']=AIM_VN_Stock_Feed::instruments();
+   include __DIR__.'/exchange-terminal.php';exit;
+  }
   if($mode==='workshop'&&isset($_GET['market'])&&is_string($_GET['market'])&&in_array($_GET['market'],array('stock','forex','commodity'),true)){$config['market']=$_GET['market'];include __DIR__.'/markets-terminal.php';exit;}
   if(isset($_GET['mode'])&&$_GET['mode']==='workshop'){include __DIR__.'/workshop-terminal.php';exit;}
   if(isset($_GET['mode'])&&$_GET['mode']==='futures')include __DIR__.'/futures-terminal.php';else include __DIR__.'/terminal.php';exit;
