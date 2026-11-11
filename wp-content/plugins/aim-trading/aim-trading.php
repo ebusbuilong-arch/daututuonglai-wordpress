@@ -213,6 +213,12 @@ final class AIM_Trading {
  }
  static function page(){
   if(!is_page('aim-trading'))return;
+  if(($_GET['mode']??'')==='workshop'&&in_array($_GET['view']??'',array('','lessons'),true)){
+   nocache_headers();
+   $dttl_casework=true;
+   include __DIR__.'/workshop-terminal.php';
+   exit;
+  }
   require_once __DIR__.'/i18n.php';
   ob_start('aimtr_language_output');
   ob_start(function($html){
