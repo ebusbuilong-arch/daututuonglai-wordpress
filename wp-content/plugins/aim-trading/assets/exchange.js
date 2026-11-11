@@ -1,5 +1,10 @@
 /* Reference widgets only. No order submission, DOM scraping or balance mutations. */
-(()=>{'use strict';const c=window.AIMTradingConfig,$=id=>document.getElementById(id),all=c.exchange.instruments;
+(()=>{'use strict';const c=window.AIMTradingConfig,$=id=>document.getElementById(id);
+const vnBoards=['HOSE','HNX','UPCOM'];
+const instruments=c.exchange.instruments;
+const all=c.market==='stock'&&Array.isArray(c.vnStocks)&&c.vnStocks.length
+ ? [...instruments.filter(x=>!vnBoards.includes(x[3])),...c.vnStocks]
+ : instruments;
 const storageKey='aim-exchange-'+c.user_id+'-'+c.market;let saved={};try{saved=JSON.parse(localStorage.getItem(storageKey)||'{}')||{};}catch{}
 let selected=all.find(x=>x[0]===saved.symbol)||all[0],interval=['15','60','240','D','W'].includes(saved.interval)?saved.interval:'D',theme=saved.theme==='light'?'light':'dark',favorites=Array.isArray(saved.favorites)?saved.favorites.filter(s=>all.some(x=>x[0]===s)):[],onlyFavorites=false;
 let recent=Array.isArray(saved.recent)?[...new Set(saved.recent)].filter(s=>all.some(x=>x[0]===s)).slice(0,8):[];
