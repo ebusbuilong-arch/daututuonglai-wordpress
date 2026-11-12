@@ -5,8 +5,12 @@ try{if(c.logged)pending=JSON.parse(localStorage.getItem(key)||'null');if(pending
 const node=(tag,value)=>{const el=document.createElement(tag);el.textContent=value;return el;};
 const forex=c.market==='forex',positionsPanel=$('ex-panel-positions');
 const positionStatus=forex?node('p',''):null;
+const closeRetry=forex?node('button','Đối chiếu lệnh đóng'):null;
 let closeNotice='',closeReceipt=null;
 if(positionStatus)positionStatus.setAttribute('role','status');
+if(closeRetry){
+ closeRetry.type='button';closeRetry.className='start';closeRetry.hidden=true;closeRetry.onclick=perform;
+}
 function renderPositionStatus(){
  if(!positionStatus)return;
  let status=closeNotice;
@@ -20,6 +24,7 @@ function renderPositionStatus(){
  positionStatus.hidden=!status;
  if(positionStatus.textContent!==status)positionStatus.textContent=status;
  if(positionStatus.parentNode!==positionsPanel)positionsPanel.prepend(positionStatus);
+ if(closeRetry.parentNode!==positionsPanel)positionStatus.after(closeRetry);
 }
 function setCloseNotice(status){closeNotice=status;closeReceipt=null;renderPositionStatus();}
 function removeConfirmedFullClose(receipt,replayed){
@@ -30,7 +35,7 @@ function removeConfirmedFullClose(receipt,replayed){
  row.remove();
  if(!positionsPanel.querySelector('[data-position-id]'))positionsPanel.append(node('p','Chưa có vị thế.'));
 }
-function controls(){const locked=!c.logged||busy||refreshing||!!pending||!storageOK||!account?.storage_ready;$('fx-pilot-open-submit').disabled=locked||!account?.pilot_enabled||!account?.feed_configured||!account?.worker?.online||!quoteFresh();$('fx-pilot-transfer-submit').disabled=locked||($('fx-pilot-direction').value==='transfer_in'&&!account?.pilot_enabled);$('fx-pilot-retry').hidden=!pending;$('fx-pilot-retry').disabled=busy||refreshing;$('fx-pilot-refresh').disabled=busy||refreshing;document.querySelectorAll('[data-fx-mutation]').forEach(b=>b.disabled=locked);$('fx-pilot-open-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':$('fx-pilot-side').value==='long'?'Mở Long':'Mở Short';}
+function controls(){const locked=!c.logged||busy||refreshing||!!pending||!storageOK||!account?.storage_ready;$('fx-pilot-open-submit').disabled=locked||!account?.pilot_enabled||!account?.feed_configured||!account?.worker?.online||!quoteFresh();$('fx-pilot-transfer-submit').disabled=locked||($('fx-pilot-direction').value==='transfer_in'&&!account?.pilot_enabled);$('fx-pilot-retry').hidden=!pending;$('fx-pilot-retry').disabled=busy||refreshing;$('fx-pilot-refresh').disabled=busy||refreshing;document.querySelectorAll('[data-fx-mutation]').forEach(b=>b.disabled=locked);if(closeRetry){closeRetry.hidden=pending?.type!=='close';closeRetry.disabled=busy||refreshing;}$('fx-pilot-open-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':$('fx-pilot-side').value==='long'?'Mở Long':'Mở Short';}
 async function api(path,body,spot=false){if(!c.logged)throw Error('Đăng nhập để giao dịch.');const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),15000);try{const r=await fetch(c.api+(spot?'':c.market+'/')+path,{cache:'no-store',method:body?'POST':'GET',headers:{'X-WP-Nonce':c.nonce,'Content-Type':'application/json'},credentials:'same-origin',signal:ctrl.signal,...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok){const e=Error(d.message||'Chưa xử lý được yêu cầu Forex.');e.status=r.status;throw e;}return d;}finally{clearTimeout(timer);}}
 function table(headers){const t=document.createElement('table'),h=document.createElement('tr');headers.forEach(v=>h.append(node('th',v)));t.append(h);return t;}
 function draw(){const s=account.state||{cash:0,positions:{},realized:0,fees:0},positions=Object.values(s.positions);$('fx-pilot-readiness').textContent=(account.storage_ready?'✓ Dữ liệu tài khoản sẵn sàng':'Chưa nâng cấp dữ liệu')+' · '+(account.pilot_enabled?'Đã bật giao dịch AIM':'Đang chờ kích hoạt')+' · '+(account.feed_configured?'Đã cấu hình nguồn':'Chưa cấu hình nguồn giá')+' · '+account.worker.message;$('ex-account-status').textContent=account.pilot_enabled?'Giao dịch AIM · theo nguồn giá':'Chờ kích hoạt';$('ex-panel-orders').textContent='Market xử lý ngay; TP/SL gắn theo từng vị thế. Chưa hỗ trợ lệnh Limit chờ.';
@@ -85,7 +90,7 @@ async function perform(){
  }catch(e){
   if([400,403,409].includes(e.status)){localStorage.removeItem(key);pending=null;}
   resultMessage=e.name==='AbortError'?'Chưa rõ kết quả. Bấm kiểm tra lại yêu cầu trước; không đặt lại bằng mã mới.':e.message;
-  if(closing)setCloseNotice('Vị thế #'+request.id+' · '+resultMessage+(pending?' Dùng nút Đối chiếu yêu cầu trước.':''));
+  if(closing)setCloseNotice('Vị thế #'+request.id+' · '+resultMessage+(pending?' Dùng nút Đối chiếu lệnh đóng.':''));
  }finally{
   const updated=await refresh();busy=false;controls();
   message(resultMessage+(succeeded?(updated?' Số dư, vị thế và lịch sử đã cập nhật.':' Giao dịch đã ghi nhận nhưng chưa tải đủ số dư mới. Bấm Làm mới tài khoản; không gửi lại lệnh.'):''));
@@ -128,6 +133,10 @@ function estimate(){
 async function loadQuote(){
  clearTimeout(quoteTimer);const serial=++quoteSerial;liveQuote=null;liveSpec=null;controls();estimate();
  if(!c.logged){$('mt-price').textContent='Đăng nhập để xem báo giá đặt lệnh.';return;}
+ if(forex&&(document.hidden||pending?.type==='close')){
+  if(!document.hidden)$('mt-price').textContent='Đang chờ đối chiếu lệnh đóng vị thế.';
+  quoteTimer=setTimeout(loadQuote,60000);return;
+ }
  const symbol=$('fx-pilot-symbol').value;$('mt-price').textContent='Đang lấy báo giá '+symbol+'…';
  try{const r=await fetch(c.api+'market-launch/quote?symbol='+encodeURIComponent(symbol),{headers:{'X-WP-Nonce':c.nonce},credentials:'same-origin'});const d=await r.json();if(serial!==quoteSerial)return;if(!r.ok)throw Error(d.message||'Chưa có nguồn giá.');liveQuote=d.quote;liveSpec=d.spec;
  $('mt-price').textContent='Mua '+Number(liveQuote.ask.toFixed(5))+' / Bán '+Number(liveQuote.bid.toFixed(5))+' USD · '+new Date(liveQuote.time).toLocaleTimeString((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'))+' · '+(liveQuote.time_basis==='provider_response'?'Thời điểm phản hồi nguồn · phiên mô phỏng':(liveQuote.open?'Trong phiên':'Đóng phiên'))+' · '+liveQuote.source;
@@ -139,6 +148,7 @@ for(const id of ['fx-pilot-lots','fx-pilot-leverage'])$(id).addEventListener('in
 for(const id of ['fx-pilot-tp','fx-pilot-sl'])$(id).addEventListener('input',()=>{if(dismissConfirmation)dismissConfirmation();});
 $('fx-pilot-symbol').value=mapped($('ex-symbol').textContent);
 const freshnessTimer=setInterval(()=>{controls();estimate();},1000);
+if(forex)document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!quoteFresh())void loadQuote();});
 const positionTimer=forex&&c.logged?setInterval(()=>{
  if(document.hidden||busy||refreshing||pending||positionsPanel.closest('[hidden]')||positionsPanel.contains(document.activeElement))return;
  if(!account||Object.keys(account.state?.positions??{}).length)void refresh(true);
@@ -146,5 +156,10 @@ const positionTimer=forex&&c.logged?setInterval(()=>{
 window.addEventListener('pagehide',()=>{clearTimeout(quoteTimer);clearInterval(freshnessTimer);clearInterval(positionTimer);quoteSerial++;});
 loadQuote();
 
-$('fx-pilot-direction').onchange=controls;$('fx-pilot-refresh').onclick=()=>refresh();$('fx-pilot-retry').onclick=perform;if(pending)message('Có yêu cầu chưa đối chiếu từ lần trước. Bấm kiểm tra lại để tránh ghi trùng.');refresh();
+$('fx-pilot-direction').onchange=controls;$('fx-pilot-refresh').onclick=()=>refresh();$('fx-pilot-retry').onclick=perform;
+if(pending){
+ message('Có yêu cầu chưa đối chiếu từ lần trước. Bấm kiểm tra lại để tránh ghi trùng.');
+ if(forex&&pending.type==='close')setCloseNotice('Vị thế #'+pending.id+' · Đang chờ đối chiếu lệnh đóng trước.');
+}
+refresh();
 })();
