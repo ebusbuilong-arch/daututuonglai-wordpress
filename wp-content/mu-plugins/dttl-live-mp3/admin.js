@@ -116,6 +116,25 @@
                 link.className = 'button';
                 link.textContent = 'Tải ' + number + '.mp3';
                 cell.append(link);
+            } else if (job.can_recheck) {
+                const recheck = document.createElement('button');
+                recheck.type = 'button';
+                recheck.className = 'button';
+                recheck.textContent = 'Lấy lại kết quả';
+                recheck.addEventListener('click', () => {
+                    recheck.disabled = true;
+                    clearTimeout(timer);
+                    refresh(job.lesson);
+                });
+                cell.append(recheck);
+                if (job.progress >= 99 || job.state === 'uncertain') {
+                    const history = document.createElement('a');
+                    history.href = 'https://everai.vn/history?source=api';
+                    history.target = '_blank';
+                    history.rel = 'noopener noreferrer';
+                    history.textContent = 'Mở lịch sử EverAI';
+                    cell.append(document.createElement('br'), history);
+                }
             } else if (job.state === 'failed' || job.state === 'expired') {
                 const retry = document.createElement('button');
                 retry.type = 'button';
@@ -149,12 +168,17 @@
 
     let timer;
     let refreshing = false;
-    async function refresh() {
-        if (refreshing) return;
+    let pendingRecheck;
+    async function refresh(lesson) {
+        if (refreshing) {
+            if (lesson) pendingRecheck = lesson;
+            return;
+        }
         refreshing = true;
         let next = 30000;
+        if (lesson) status.textContent = 'Đang kiểm tra kết quả bài ' + lessonName(lesson) + ' trên EverAI…';
         try {
-            const data = await request('dttl_live_mp3_tick');
+            const data = await request('dttl_live_mp3_tick', lesson ? { recheck_lesson: lesson } : {});
             render(data.rows);
             const pending = data.rows.filter((job) => ['queued', 'sending', 'processing'].includes(job.state)).length;
             const ready = data.rows.filter((job) => job.state === 'ready').length;
@@ -169,7 +193,9 @@
             status.textContent = 'Chưa cập nhật được hàng đợi. ' + error.message;
         } finally {
             refreshing = false;
-            timer = setTimeout(refresh, next);
+            const lessonToRecheck = pendingRecheck;
+            pendingRecheck = undefined;
+            timer = setTimeout(() => refresh(lessonToRecheck), lessonToRecheck ? 0 : next);
         }
     }
     refresh();
