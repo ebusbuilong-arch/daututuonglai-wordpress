@@ -13,6 +13,7 @@ final class DTTL_Live_MP3 {
     const API = 'https://www.everai.vn/api/v1/tts';
     const MAX_CHARS = 25000;
     const MAX_BATCH = 10;
+    const CLAIM_SECONDS = 60;
 
     static function boot() {
         add_action('admin_menu', function () {
@@ -25,7 +26,7 @@ final class DTTL_Live_MP3 {
             }
             $url = plugin_dir_url(__FILE__) . 'dttl-live-mp3/';
             wp_enqueue_style(self::PAGE, $url . 'admin.css', [], '1.0.1');
-            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.1', true);
+            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.2', true);
             wp_localize_script(self::PAGE, 'dttlLiveMp3', ['nonce' => wp_create_nonce(self::PAGE)]);
         });
         add_action('admin_post_dttl_live_mp3_settings', [self::class, 'save_settings']);
@@ -256,7 +257,7 @@ final class DTTL_Live_MP3 {
         $sending = $row->state === 'queued';
         $now = time();
         $where = ['lesson' => $row->lesson, 'state' => $row->state, 'next_check' => $row->next_check];
-        $changes = ['state' => $sending ? 'sending' : 'processing', 'touched' => $now, 'next_check' => $now + 60];
+        $changes = ['state' => $sending ? 'sending' : 'processing', 'touched' => $now, 'next_check' => $now + self::CLAIM_SECONDS];
         if ($sending && $row->voice === '') {
             foreach (['voice', 'model', 'speed'] as $field) {
                 $row->$field = $changes[$field] = $settings[$field];
@@ -267,7 +268,7 @@ final class DTTL_Live_MP3 {
             return;
         }
         $where['state'] = $sending ? 'sending' : 'processing';
-        $where['next_check'] = $now + 60;
+        $where['next_check'] = $changes['next_check'];
         $args = [
             'timeout' => 20, 'redirection' => 0, 'limit_response_size' => 262144,
             'headers' => ['Authorization' => 'Bearer ' . self::key(), 'Content-Type' => 'application/json'],
@@ -326,7 +327,7 @@ final class DTTL_Live_MP3 {
         }
         $progress = min(100, max(0, (int) ($result['progress'] ?? 0)));
         return ['state' => 'processing', 'progress' => $progress,
-            'detail' => $progress >= 99 ? 'Đang chờ EverAI trả đường dẫn tải MP3.' : '',
+            'detail' => $progress >= 99 ? 'WordPress đang chờ đường dẫn tải MP3 từ API EverAI.' : '',
             'next_check' => time() + 20];
     }
 
@@ -344,10 +345,14 @@ final class DTTL_Live_MP3 {
         }
         global $wpdb;
         $rows = $wpdb->get_results($wpdb->prepare(
-            'SELECT lesson,title,state,detail,progress FROM ' . self::table() . ' ORDER BY lesson DESC LIMIT 30 OFFSET %d',
+            'SELECT lesson,title,state,detail,progress,(request_id <> \'\') AS has_request FROM ' . self::table()
+            . ' ORDER BY lesson DESC LIMIT 30 OFFSET %d',
             ($page - 1) * 30
         )) ?: [];
         foreach ($rows as $row) {
+            $row->can_recheck = (bool) $row->has_request
+                && in_array($row->state, ['processing', 'uncertain'], true);
+            unset($row->has_request);
             if ($row->state === 'ready') {
                 $row->download_nonce = wp_create_nonce('dttl_live_mp3_download_' . $row->lesson);
             }
@@ -358,9 +363,29 @@ final class DTTL_Live_MP3 {
     static function tick() {
         self::require_admin();
         check_ajax_referer(self::PAGE, 'nonce');
-        self::run_queue();
+        $lesson = absint($_POST['recheck_lesson'] ?? 0);
+        if ($lesson) {
+            self::recheck($lesson);
+        } else {
+            self::run_queue();
+        }
         $page = max(1, min(4000, absint($_POST['page'] ?? 1)));
         wp_send_json_success(['rows' => self::jobs($page), 'configured' => (bool) (self::key() && self::settings()['voice'])]);
+    }
+
+    static function recheck($lesson) {
+        if (get_option('dttl_live_mp3_schema') !== '1' || !self::key()) {
+            return;
+        }
+        global $wpdb;
+        $row = $wpdb->get_row($wpdb->prepare(
+            "SELECT * FROM " . self::table() . " WHERE lesson=%d AND request_id<>''
+             AND state IN ('processing','uncertain') AND (next_check <> touched + %d OR next_check <= %d)",
+            $lesson, self::CLAIM_SECONDS, time()
+        ));
+        if ($row) {
+            self::process($row, self::settings());
+        }
     }
 
     static function retry() {
