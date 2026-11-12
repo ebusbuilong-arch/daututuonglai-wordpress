@@ -21,7 +21,8 @@ def digest(data):
 
 
 def allowed(name):
-    return (name.startswith(PREFIXES) and not any(p.startswith('.') or p == '..'
+    live_mp3 = name == 'wp-content/mu-plugins/dttl-live-mp3.php' or name.startswith('wp-content/mu-plugins/dttl-live-mp3/')
+    return ((live_mp3 or name.startswith(PREFIXES)) and not any(p.startswith('.') or p == '..'
             for p in PurePosixPath(name).parts) and
             PurePosixPath(name).suffix.lower() in {'.php', '.js', '.css', '.html', '.json', '.svg', '.png', '.jpg', '.webp', '.woff', '.woff2'})
 
