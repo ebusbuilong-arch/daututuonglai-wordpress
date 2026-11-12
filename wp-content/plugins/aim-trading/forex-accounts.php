@@ -39,9 +39,30 @@ final class AIM_Forex_Accounts {
   if($type==='open'&&!in_array($p['symbol']??null,AIM_Forex_Feed::symbols(),true))return AIM_Trading::error('Mã Forex không hỗ trợ.');
   $before=self::state($uid);if(is_wp_error($before))return $before;$s=json_decode($before['state'],true);
   if(!is_array($s)||($s['policy']??'')!==AIM_Forex_Engine::POLICY||!isset($s['cash'],$s['positions']))return AIM_Trading::error('Dữ liệu Forex cần đối soát.',503);
-  // Isolated free-cash transfers do not require quotes or touch collateral.
-  $transfer=in_array($type,array('transfer_in','transfer_out'),true);$needs_quotes=!$transfer&&($type==='open'||count($s['positions'])>0);
-  $snapshot=$needs_quotes?AIM_Forex_Feed::snapshot(array_values(array_unique(array_merge(array_column($s['positions'],'symbol'),$type==='open'?array($p['symbol']):array())))):array('quotes'=>array(),'specs'=>array());if(is_wp_error($snapshot))return $snapshot;
+  // A manual close needs a quote for only the position being closed.
+  $transfer=in_array($type,array('transfer_in','transfer_out'),true);
+  $snapshot=array('quotes'=>array(),'specs'=>array());
+  if($type==='close'){
+   $id=$p['id']??null;
+   if(!is_int($id)||!isset($s['positions'][$id]))return AIM_Trading::error('Vị thế không tồn tại hoặc đã đóng.',409);
+   $symbol=$s['positions'][$id]['symbol'];
+   if(AIM_Reference_Feed::selected()){
+    $quote=AIM_Reference_Feed::quote($symbol);
+    if(is_wp_error($quote))return AIM_Trading::error($symbol.' · '.$quote->get_error_message(),503);
+    $snapshot['quotes'][$symbol]=$quote;
+   }else{
+    $snapshot=AIM_Forex_Feed::snapshot(array($symbol));
+    if(is_wp_error($snapshot))return AIM_Trading::error($symbol.' · '.$snapshot->get_error_message(),503);
+   }
+   $quote=$snapshot['quotes'][$symbol]??null;
+   if(!is_array($quote)||($quote['symbol']??null)!==$symbol)return AIM_Trading::error($symbol.' · Nguồn chưa trả báo giá đúng cặp tiền.',503);
+   if(empty($quote['tradeable']))return AIM_Trading::error($symbol.' · Báo giá hiện chưa cho phép đóng vị thế.',503);
+  }elseif(!$transfer&&($type==='open'||count($s['positions'])>0)){
+   $symbols=array_column($s['positions'],'symbol');
+   if($type==='open')$symbols[]=$p['symbol'];
+   $snapshot=AIM_Forex_Feed::snapshot(array_values(array_unique($symbols)));
+   if(is_wp_error($snapshot))return $snapshot;
+  }
   if($wpdb->query('START TRANSACTION')===false)return AIM_Trading::error('Chưa mở được giao dịch dữ liệu Forex.',503);
   $pool=$wpdb->get_row("SELECT * FROM $a WHERE user_id=0 FOR UPDATE",ARRAY_A);if($wpdb->last_error)return self::fail('Chưa khóa được quỹ.',503);
   $spot=$wpdb->get_row($wpdb->prepare("SELECT * FROM $a WHERE user_id=%d FOR UPDATE",$uid),ARRAY_A);if($wpdb->last_error)return self::fail('Chưa khóa được tài khoản.',503);
