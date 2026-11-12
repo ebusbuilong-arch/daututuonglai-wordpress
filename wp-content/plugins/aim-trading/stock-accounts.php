@@ -2,6 +2,7 @@
 defined('ABSPATH') || exit;
 require_once __DIR__.'/stock-feed.php';
 require_once __DIR__.'/stock-margin-engine.php';
+require_once __DIR__.'/settlement-calendar.php';
 final class AIM_Stock_Accounts {
  static function enabled(){return (defined('AIM_STOCK_TRADING_ENABLED')&&AIM_STOCK_TRADING_ENABLED===true)||(class_exists('AIM_Market_Launch')&&AIM_Market_Launch::enabled('stock'));}
  static function allowed($symbol=''){if(isset(AIM_VN_Stock_Feed::map()[$symbol]))return AIM_VN_Stock_Feed::configured();return self::enabled()&&(current_user_can('manage_options')||(class_exists('AIM_Market_Launch')&&AIM_Market_Launch::enabled('stock'))||(defined('AIM_STOCK_PUBLIC_DATA_ALLOWED')&&AIM_STOCK_PUBLIC_DATA_ALLOWED===true));}
@@ -17,7 +18,7 @@ final class AIM_Stock_Accounts {
   $out=array('ready'=>self::ready(),'configured'=>(bool)(AIM_Stock_Feed::configured()||AIM_VN_Stock_Feed::configured()),'enabled'=>(self::allowed()||AIM_VN_Stock_Feed::configured()),'vn_configured'=>AIM_VN_Stock_Feed::configured(),'margin_enabled'=>get_option('aimtr_stock_margin_enabled','0')==='1','margin_annual_bps'=>(int)get_option('aimtr_stock_margin_annual_bps',1200),'vnd_per_aim'=>AIM_Stock_Engine::VND_PER_AIM,'source'=>AIM_Reference_Feed::selected()?AIM_Reference_Feed::SOURCE:'Alpaca '.strtoupper(AIM_Stock_Feed::feed()),'usd_per_aim'=>1000,'fee_rate'=>0.001,'state'=>AIM_Stock_Engine::blank(),'history'=>array());
   if(!self::ready())return $out;global $wpdb;$uid=get_current_user_id();
   $r=$wpdb->get_row($wpdb->prepare('SELECT state FROM '.AIM_Trading::table('stocks').' WHERE user_id=%d',$uid),ARRAY_A);if($wpdb->last_error)return AIM_Trading::error('Chưa đọc được danh mục cổ phiếu.',503);
-  if($r){$s=json_decode($r['state'],true);if(!is_array($s)||($s['policy']??'')!==AIM_Stock_Engine::POLICY)return AIM_Trading::error('Danh mục cần đối soát.',503);$out['state']=$s;}
+  if($r){$s=json_decode($r['state'],true);if(!is_array($s)||($s['policy']??'')!==AIM_Stock_Engine::POLICY)return AIM_Trading::error('Danh mục cần đối soát.',503);$out['state']=self::display_settlement($s,(int)round(microtime(true)*1000));}
   $h=$wpdb->get_results($wpdb->prepare('SELECT event,created FROM '.AIM_Trading::table('stock_events').' WHERE user_id=%d ORDER BY id DESC LIMIT 50',$uid),ARRAY_A);if($wpdb->last_error)return AIM_Trading::error('Chưa đọc được lịch sử cổ phiếu.',503);
   foreach($h as $r)$out['history'][]=array('event'=>json_decode($r['event'],true),'created'=>$r['created']);return $out;
  }
@@ -52,7 +53,7 @@ final class AIM_Stock_Accounts {
    $s=$row?json_decode($row['state'],true):AIM_Stock_Engine::blank();
    $available=(int)$spot['cash']-$reserved['cash'];$now=(int)round(microtime(true)*1000);
    AIM_Stock_Engine::need(!$margin||$side!=='buy'||get_option('aimtr_stock_margin_enabled','0')==='1','Chưa mở vị thế margin mới.');
-   $fill=$margin?self::margin_fill($s,$available,$p,$q,$now,$admin_id):AIM_Stock_Engine::fill($s,$available,$p['symbol'],$side,$p['quantity']??null,$q,$now,$p['bound']??null);
+   $fill=$margin?self::margin_fill($s,$available,$p,$q,$now,$admin_id):self::cash_fill($s,$available,$p,$q,$now);
    AIM_Stock_Engine::need((int)$pool['cash']+$fill['pool_delta']>=0,'Quỹ đối ứng chưa đủ AIM thanh toán.');
    $ev=$fill['event'];$ev['order_type']=$p['order_type'];$ev['request_id']=$req;$ev['cash_after']=(int)$spot['cash']+$fill['cash_delta'];
   }catch(Throwable $x){return self::fail($x->getMessage());}
@@ -66,6 +67,35 @@ final class AIM_Stock_Accounts {
   if($wpdb->query('COMMIT')===false)return AIM_Trading::error('Chưa rõ kết quả. Gửi lại đúng mã yêu cầu để đối chiếu.',503);
   return array('event'=>$ev,'replayed'=>false);
  }
+ static function display_settlement($state,$now){
+  foreach($state['positions'] as $symbol=>&$position){
+   if(!empty($position['settlement_lots']))$position['settlement_schedule']=AIM_VN_Stock_Settlement::public_schedule($position,$now);
+   unset($position['settlement_lots']);
+  }
+  unset($position);
+  foreach($state['margin_positions']??array() as $symbol=>$position){
+   if(isset($position['settlement_day']))$state['margin_positions'][$symbol]['sellable_at']=AIM_VN_Stock_Settlement::sellable_at($position['settlement_day']);
+  }
+  return $state;
+ }
+ static function cash_fill($state,$available,$p,$quote,$now){
+  $symbol=$p['symbol'];$side=$p['side']??null;$quantity=$p['quantity']??null;
+  $vn=($quote['currency']??null)==='VND';
+  $position=$state['positions'][$symbol]??array();
+  $pending=$vn?AIM_VN_Stock_Settlement::pending($position,$now):array();
+  if($pending&&$side==='sell'&&is_int($quantity)){
+   $sellable=$position['quantity']-array_sum($pending);
+   AIM_Stock_Engine::need($quantity<=$sellable,sprintf('Chỉ có %d CP %s có thể bán. Lô T+2 tiếp theo về lúc %s (giờ Việt Nam).',$sellable,$symbol,AIM_VN_Stock_Settlement::format_time(AIM_VN_Stock_Settlement::sellable_at(array_key_first($pending)))));
+  }
+  $fill=AIM_Stock_Engine::fill($state,$available,$symbol,$side,$quantity,$quote,$now,$p['bound']??null);
+  if(!$vn||!isset($fill['state']['positions'][$symbol]))return $fill;
+  if($side==='buy'){
+   $day=AIM_VN_Stock_Settlement::trade_day($now);
+   $pending[$day]=($pending[$day]??0)+$quantity;
+  }
+  $fill['state']['positions'][$symbol]['settlement_lots']=$pending;
+  return $fill;
+ }
  static function margin_fill($state,$available,$p,$quote,$now,$admin_id){
   AIM_Stock_Engine::need(($state['policy']??null)===AIM_Stock_Engine::POLICY,'Danh mục cần đối soát.');
   $symbol=$p['symbol'];$side=$p['side']??null;$bound=$p['bound']??null;
@@ -75,11 +105,15 @@ final class AIM_Stock_Accounts {
    AIM_Stock_Engine::need(!$position,'Hãy chốt vị thế margin đang mở của mã này trước.');
    $fill=AIM_Stock_Margin_Engine::open($symbol,$p['quantity']??null,$quote,$now,$bound,(int)get_option('aimtr_stock_margin_annual_bps',1200));
    AIM_Stock_Engine::need($available>=-$fill['cash_delta'],'Không đủ AIM khả dụng để ký quỹ và trả phí.');
-   $position=$fill['position'];$position['open_request_id']=$p['request_id'];
+   $position=$fill['position'];$position['open_request_id']=$p['request_id'];$position['settlement_day']=AIM_VN_Stock_Settlement::trade_day($now);
    $state['margin_positions'][$symbol]=$position;
    $event+=array('quantity'=>$position['quantity'],'price'=>$position['entry_price'],'fee'=>$position['entry_fee'],'realized'=>0,'position'=>$position);
   }else{
    AIM_Stock_Engine::need($side==='sell'&&$position&&($p['open_request_id']??null)===$position['open_request_id']&&($p['quantity']??null)===$position['quantity'],'Vị thế margin đã đổi. Tải lại danh mục để chốt đúng vị thế.');
+   if(isset($position['settlement_day'])){
+    $sellable_at=AIM_VN_Stock_Settlement::sellable_at($position['settlement_day']);
+    AIM_Stock_Engine::need($now>=$sellable_at,'Vị thế margin đang chờ T+2. Có thể chốt từ '.AIM_VN_Stock_Settlement::format_time($sellable_at).' (giờ Việt Nam).');
+   }
    $fill=AIM_Stock_Margin_Engine::close($position,$quote,$now,$bound);
    unset($state['margin_positions'][$symbol]);
    $event+=array('quantity'=>$position['quantity'],'price'=>(float)$quote['bid'],'fee'=>$fill['settlement']['exit_fee'],'realized'=>$fill['settlement']['realized'],'position'=>$position,'settlement'=>$fill['settlement']);
