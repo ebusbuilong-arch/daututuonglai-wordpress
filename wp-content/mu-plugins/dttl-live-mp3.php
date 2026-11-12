@@ -24,8 +24,8 @@ final class DTTL_Live_MP3 {
                 return;
             }
             $url = plugin_dir_url(__FILE__) . 'dttl-live-mp3/';
-            wp_enqueue_style(self::PAGE, $url . 'admin.css', [], '1.0.0');
-            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.0', true);
+            wp_enqueue_style(self::PAGE, $url . 'admin.css', [], '1.0.1');
+            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.1', true);
             wp_localize_script(self::PAGE, 'dttlLiveMp3', ['nonce' => wp_create_nonce(self::PAGE)]);
         });
         add_action('admin_post_dttl_live_mp3_settings', [self::class, 'save_settings']);
@@ -134,6 +134,7 @@ final class DTTL_Live_MP3 {
         $settings['model'] = $model;
         $settings['speed'] = round($speed, 1);
         update_option(self::OPTION, $settings, false);
+        self::schedule();
         self::notice('Đã lưu cấu hình EverAI.');
     }
 
@@ -173,9 +174,6 @@ final class DTTL_Live_MP3 {
             self::notice('Chưa tạo được bảng lưu hàng đợi MP3.', true);
         }
         $settings = self::settings();
-        if (!self::key() || !$settings['voice']) {
-            self::notice('Lưu khóa API và mã giọng EverAI trước khi tạo MP3.', true);
-        }
         $json = wp_unslash((string) ($_POST['batch'] ?? ''));
         if (strlen($json) > 1250000) {
             self::notice('Gói văn bản vượt dung lượng cho phép.', true);
@@ -218,7 +216,8 @@ final class DTTL_Live_MP3 {
     }
 
     static function run_queue() {
-        if (get_option('dttl_live_mp3_schema') !== '1' || !self::key()) {
+        $settings = self::settings();
+        if (get_option('dttl_live_mp3_schema') !== '1' || !self::key() || !$settings['voice']) {
             return;
         }
         global $wpdb;
@@ -233,22 +232,26 @@ final class DTTL_Live_MP3 {
              ORDER BY CASE WHEN state='queued' THEN 0 ELSE 1 END, next_check, lesson LIMIT 1", $now
         ));
         if ($row) {
-            self::process($row);
+            self::process($row, $settings);
         }
         if ($wpdb->get_var("SELECT lesson FROM $table WHERE state IN ('queued','processing','sending') LIMIT 1")) {
             self::schedule();
         }
     }
 
-    static function process($row) {
+    static function process($row, $settings) {
         global $wpdb;
         $table = self::table();
         $sending = $row->state === 'queued';
         $now = time();
         $where = ['lesson' => $row->lesson, 'state' => $row->state, 'next_check' => $row->next_check];
-        $claimed = $wpdb->update($table, [
-            'state' => $sending ? 'sending' : 'processing', 'touched' => $now, 'next_check' => $now + 60,
-        ], $where);
+        $changes = ['state' => $sending ? 'sending' : 'processing', 'touched' => $now, 'next_check' => $now + 60];
+        if ($sending && $row->voice === '') {
+            foreach (['voice', 'model', 'speed'] as $field) {
+                $row->$field = $changes[$field] = $settings[$field];
+            }
+        }
+        $claimed = $wpdb->update($table, $changes, $where);
         if ($claimed !== 1) {
             return;
         }
@@ -344,7 +347,7 @@ final class DTTL_Live_MP3 {
         check_ajax_referer(self::PAGE, 'nonce');
         self::run_queue();
         $page = max(1, min(4000, absint($_POST['page'] ?? 1)));
-        wp_send_json_success(['rows' => self::jobs($page)]);
+        wp_send_json_success(['rows' => self::jobs($page), 'configured' => (bool) (self::key() && self::settings()['voice'])]);
     }
 
     static function retry() {

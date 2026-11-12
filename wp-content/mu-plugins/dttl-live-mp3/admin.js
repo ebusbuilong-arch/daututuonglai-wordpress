@@ -160,7 +160,11 @@
             const ready = data.rows.filter((job) => job.state === 'ready').length;
             status.textContent = pending ? pending + ' bài đang chờ hoặc đang xử lý · ' + ready + ' bài có MP3.'
                 : ready ? ready + ' bài có MP3 trên trang này.' : 'Chưa có MP3 trên trang này.';
-            if (pending) next = 5000;
+            if (!data.configured) {
+                status.textContent += ' Cần lưu khóa API và mã giọng để chạy hàng đợi.';
+            } else if (pending) {
+                next = 5000;
+            }
         } catch (error) {
             status.textContent = 'Chưa cập nhật được hàng đợi. ' + error.message;
         } finally {

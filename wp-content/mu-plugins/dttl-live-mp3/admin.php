@@ -28,7 +28,7 @@ $download_base = add_query_arg('action', 'dttl_live_mp3_download', $post_url);
                 <label for="dttl-mp3-batch">Nội dung gói JSON</label>
                 <textarea id="dttl-mp3-batch" name="batch" rows="6" spellcheck="false" placeholder='[{"lesson":63,"title":"Lợi nhuận thực","text":"Kịch bản đọc"}]' required></textarea>
                 <p id="dttl-mp3-preview" aria-live="polite">Tối đa 25.000 ký tự mỗi bài.</p>
-                <button class="button button-primary" type="submit" <?php disabled(!$has_key || !$settings['voice']); ?>>Nhập và tạo MP3</button>
+                <button class="button button-primary" type="submit"><?php echo $has_key && $settings['voice'] ? 'Nhập và tạo MP3' : 'Nhập kịch bản'; ?></button>
                 <p class="description">EverAI tính credit khi tạo audio. Các số bài đã có trong hàng đợi sẽ được giữ lại.</p>
             </form>
         </section>
