@@ -115,10 +115,32 @@ async function submitMargin(close){
  }catch(e){marginResult.textContent=e.message;}finally{busy=false;render();}
 }
 marginOpen.onclick=()=>submitMargin(false);marginClose.onclick=()=>submitMargin(true);
+const sellHolding=node('p','');
+sellHolding.id='st-sell-holding';
+sellHolding.hidden=true;
+$('st-quantity').closest('label').insertAdjacentElement('afterend',sellHolding);
+const holdings=sym=>account?.state?.positions?.[sym]?.quantity??0;
+function setOrderQuantity(){
+ const qty=side==='sell'?holdings(symbol):(isVN(symbol)?100:1);
+ $('st-quantity').value=qty?String(qty):'';
+}
+function renderSellHolding(){
+ const selling=side==='sell';
+ const qty=holdings(symbol);
+ const input=$('st-quantity');
+ sellHolding.hidden=!selling||!account;
+ if(selling&&account){
+  sellHolding.textContent='Có thể bán '+num(qty)+' CP '+symbol+'.';
+  if(account.state?.margin_positions?.[symbol])sellHolding.textContent+=' Vị thế ký quỹ dùng nút Chốt vị thế margin.';
+ }
+ input.max=String(selling&&account?qty:1000000);
+ return selling&&!!account&&qty===0;
+}
 function render(){
  renderMargin();
+ const noShares=renderSellHolding();
  const vn=isVN(symbol),cur=currency(symbol);$('st-conversion').textContent=vn?'1 AIM = 25.000.000 VND sức mua mô phỏng':'1 AIM = 1.000 USD sức mua';$('st-settlement').textContent=vn?'Quy ước cố định · Lô 100 CP · Thanh toán ngay trong mô phỏng':'Cổ phiếu quốc tế · Thanh toán ngay trong mô phỏng';$('st-quote-label').textContent=(vn?'Giá bán / mua mô phỏng · ':'Bid / Ask · ')+cur;$('st-limit-title').textContent='Giá giới hạn · '+cur;$('st-quantity').min=vn?'100':'1';$('st-quantity').step=vn?'100':'1';$('st-execution-note').textContent=vn?'Khớp theo giá đóng nến SSI 1 phút, cộng/trừ 0,05% để tạo spread mô phỏng 0,1%; phí mỗi chiều 0,1%. Giờ mô phỏng 09:00–11:30 và 13:00–15:00 (giờ Việt Nam, thứ Hai–thứ Sáu); giá quá 180 giây sẽ khóa lệnh. Không phải Bid/Ask sổ lệnh SSI; chưa mô phỏng T+2, cổ tức và chia tách.':'Admin đối ứng theo Bid/Ask nguồn; không mô phỏng sổ lệnh thật. Lệnh IOC không đạt giá sẽ hủy ngay. Chưa có lệnh chờ GTC, bán khống hoặc xử lý cổ tức/chia tách.';
- const valid=c.logged&&account?.ready&&account.enabled&&account.configured&&supported.has(symbol)&&quote&&quote.symbol===symbol&&quote.open&&Date.now()-quote.time<=180000&&Date.now()-quote.received<=(isVN(symbol)?30000:90000);$('st-mode').textContent=!c.logged?'CHẾ ĐỘ XEM':valid?'SẴN SÀNG':'CHỜ NGUỒN';$('ex-submit').disabled=!valid||busy||!!pending;$('ex-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':valid?(side==='buy'?'Mua':'Bán')+' '+symbol:'Chưa thể đặt lệnh';$('ex-submit').className='action '+side;$('st-refresh').disabled=!account?.configured||!supported.has(symbol)||busy;$('st-type').disabled=busy;$('st-quantity').disabled=busy;$('st-limit').disabled=busy;$('st-limit-label').hidden=$('st-type').value!=='limit_ioc';$('st-retry').hidden=!pending;$('st-retry').disabled=!c.logged||busy;
+ const valid=c.logged&&account?.ready&&account.enabled&&account.configured&&supported.has(symbol)&&quote&&quote.symbol===symbol&&quote.open&&Date.now()-quote.time<=180000&&Date.now()-quote.received<=(isVN(symbol)?30000:90000);$('st-mode').textContent=!c.logged?'CHẾ ĐỘ XEM':valid?'SẴN SÀNG':'CHỜ NGUỒN';$('ex-submit').disabled=!valid||busy||!!pending||noShares;$('ex-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':noShares?'Không có '+symbol+' để bán':valid?(side==='buy'?'Mua':'Bán')+' '+symbol:'Chưa thể đặt lệnh';$('ex-submit').className='action '+side;$('st-refresh').disabled=!account?.configured||!supported.has(symbol)||busy;$('st-type').disabled=busy;$('st-quantity').disabled=busy;$('st-limit').disabled=busy;$('st-limit-label').hidden=$('st-type').value!=='limit_ioc';$('st-retry').hidden=!pending;$('st-retry').disabled=!c.logged||busy;
  if(quote){$('st-quote').textContent=num(quote.bid)+' / '+num(quote.ask);const qty=Number($('st-quantity').value),value=Math.round(qty*quote[side==='buy'?'ask':'bid']*1e6/scale(symbol)),fee=Math.max(1,Math.ceil(value*.001));const ok=Number.isSafeInteger(qty)&&qty>=1&&qty<=1e6&&(!isVN(symbol)||qty%100===0); $('st-value').textContent=ok?money(value):'— AIM';$('st-fee').textContent=ok?money(fee):'— AIM';$('st-total').textContent=ok?money(side==='buy'?value+fee:value-fee):'— AIM';}else{['st-value','st-fee','st-total'].forEach(id=>$(id).textContent='— AIM');$('st-quote').textContent='— / —';}}
 async function refreshQuote(){const g=++generation,s=symbol;quote=null;render();if(!c.logged){$('st-status').textContent='Đăng nhập để giao dịch; bạn vẫn có thể xem biểu đồ và lựa chọn mã.';return;}if(!supported.has(s)){$('st-status').textContent='Mã này chưa hỗ trợ giao dịch mô phỏng.';return;}if(!account?.configured){$('st-status').textContent='Chưa cấu hình nguồn Bid/Ask cổ phiếu trên máy chủ.';return;}$('st-status').textContent='Đang lấy báo giá…';try{const q=await api('quote?symbol='+encodeURIComponent(s));if(g!==generation)return;quote=q;$('st-status').textContent='Báo giá lúc '+new Date(q.time).toLocaleTimeString((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'))+' · '+q.source;$('st-source').textContent=isVN(s)?'SSI · Giá nến 1 phút + spread mô phỏng 0,1% · VND':'Phiên chính · USD · Nguồn đặt lệnh có thể khác biểu đồ TradingView.';renderAccount();}catch(e){if(g===generation)$('st-status').textContent=e.message;}finally{if(g===generation)render();}}
 async function refreshAccount(){if(!c.logged){$('st-status').textContent='Đăng nhập để giao dịch; anh/chị vẫn có thể xem biểu đồ và lựa chọn mã.';render();$('ex-submit').textContent='Đăng nhập để giao dịch';return;}try{account=await api('account');renderAccount();render();void refreshPortfolio();}catch(e){$('st-status').textContent=e.message;}}
@@ -129,8 +151,11 @@ function confirmStock(p,detail){return new Promise(resolve=>{
  const actions=node('div',''),cancel=node('button','Hủy / Cancel'),ok=node('button','Xác nhận / Confirm');actions.className='mt-confirm-actions';cancel.type=ok.type='button';ok.className='mt-confirm-accept';actions.append(cancel,ok);box.append(actions);const finish=v=>{box.remove();resolve(v);};cancel.onclick=()=>finish(false);ok.onclick=()=>finish(true);box.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();finish(false);}});$('ex-submit').insertAdjacentElement('afterend',box);cancel.focus();
  });}
 $('st-form').onsubmit=async e=>{e.preventDefault();if(!c.logged||busy||pending||!account?.enabled)return;busy=true;render();const sym=symbol,orderSide=side,qty=Number($('st-quantity').value),type=$('st-type').value,limit=Number($('st-limit').value);try{if(!Number.isSafeInteger(qty)||qty<1||qty>1e6||(isVN(sym)&&qty%100!==0))throw Error('Nhập số lượng hợp lệ; mã Việt Nam dùng bội số 100 cổ phiếu.');const q=await api('quote?symbol='+encodeURIComponent(sym));const bound=type==='limit_ioc'?limit:q[orderSide==='buy'?'ask':'bid']*(orderSide==='buy'?1.005:.995);if(!Number.isFinite(bound)||bound<=0)throw Error('Nhập giá giới hạn hợp lệ.');const p={request_id:crypto.randomUUID(),symbol:sym,side:orderSide,quantity:qty,bound,order_type:type};if(!await confirmStock(p))return;pendingSave(p);await send(p);}catch(e){$('st-result').textContent=e.message;}finally{busy=false;render();}};
-$('st-retry').onclick=()=>{if(pending&&!busy)send(pending);};$('st-refresh').onclick=refreshQuote;['st-type','st-quantity','st-limit'].forEach(id=>$(id).addEventListener('input',render));['buy','sell'].forEach(s=>$('ex-'+s).addEventListener('click',()=>{side=s;render();}));
+$('st-retry').onclick=()=>{if(pending&&!busy)send(pending);};$('st-refresh').onclick=refreshQuote;['st-type','st-quantity','st-limit'].forEach(id=>$(id).addEventListener('input',render));['buy','sell'].forEach(s=>$('ex-'+s).addEventListener('click',()=>{
+ if(side!==s){side=s;setOrderQuantity();$('st-result').textContent='';}
+ render();
+}));
 const portfolioRefresh=setInterval(()=>{if(!document.hidden&&!busy&&!pending)void refreshPortfolio();},60000);
 const quoteGuard=setInterval(render,1000),vnRefresh=setInterval(()=>{if(isVN(symbol)&&!document.hidden&&!busy&&!pending)refreshQuote();},20000);window.addEventListener('pagehide',()=>{clearInterval(portfolioRefresh);clearInterval(quoteGuard);clearInterval(vnRefresh);});
-document.addEventListener('aim-symbol-change',e=>{symbol=e.detail.symbol;marginResult.textContent='';$('st-quantity').value=isVN(symbol)?'100':'1';refreshQuote();});pendingSave(pending);if(isVN(symbol))$('st-quantity').value='100';refreshAccount().then(refreshQuote);
+document.addEventListener('aim-symbol-change',e=>{symbol=e.detail.symbol;marginResult.textContent='';$('st-result').textContent='';setOrderQuantity();refreshQuote();});pendingSave(pending);if(isVN(symbol))$('st-quantity').value='100';refreshAccount().then(refreshQuote);
 })();
