@@ -6,12 +6,8 @@
 
 defined('ABSPATH') || exit;
 
-add_filter('the_content', static function ($content) {
-    if (is_admin() || !is_singular('post') || !in_the_loop() || !is_main_query()) {
-        return $content;
-    }
-
-    $recordings = [
+function dttl_lesson_recording_map() {
+    return [
         'doc-bao-cao-quy-truoc-khi-tich-luy' => ['4Cc3qLimAho', '061'],
         'tai-can-bang-bang-tien-gop-moi' => ['8zpjRxDd4sw', '062'],
         'loi-nhuan-thuc-sau-lam-phat-dai-han' => ['cphO8ylOMXU', '063'],
@@ -23,7 +19,36 @@ add_filter('the_content', static function ($content) {
         'danh-gia-giao-dich-thu-khong-chon-ket-qua-dep' => ['ykpmtDam6zw', '069'],
         'crypto-la-gi-nguoi-moi' => ['WN6AVfcxu4E', '070'],
     ];
+}
 
+add_action('wp_loaded', static function () {
+    $option = 'dttl_replay_cache_refreshed_061_070';
+    if (!function_exists('rocket_clean_files') || get_option($option)) {
+        return;
+    }
+
+    $urls = [];
+    foreach (array_keys(dttl_lesson_recording_map()) as $slug) {
+        $post = get_page_by_path($slug, OBJECT, 'post');
+        if ($post && $post->post_status === 'publish') {
+            $url = get_permalink($post);
+            if ($url) {
+                $urls[] = $url;
+            }
+        }
+    }
+    if (count($urls) === count(dttl_lesson_recording_map())) {
+        rocket_clean_files($urls);
+        update_option($option, 1, false);
+    }
+}, 20);
+
+add_filter('the_content', static function ($content) {
+    if (is_admin() || !is_singular('post') || !in_the_loop() || !is_main_query()) {
+        return $content;
+    }
+
+    $recordings = dttl_lesson_recording_map();
     $slug = get_post_field('post_name', get_the_ID());
     if (!isset($recordings[$slug])) {
         return $content;
