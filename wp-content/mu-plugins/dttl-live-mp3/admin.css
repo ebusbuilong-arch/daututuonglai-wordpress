@@ -1,0 +1,14 @@
+.dttl-live-mp3 { max-width: 1150px; }
+.dttl-live-mp3 .dttl-mp3-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 18px; margin-top: 18px; }
+.dttl-live-mp3 .dttl-mp3-card { padding: 22px; border: 1px solid #dcdcde; border-radius: 10px; background: #fff; }
+.dttl-live-mp3 h2 { margin: 0 0 16px; }
+.dttl-live-mp3 label { display: block; margin: 12px 0 5px; font-weight: 600; }
+.dttl-live-mp3 input[type="text"], .dttl-live-mp3 input[type="password"], .dttl-live-mp3 textarea { width: 100%; }
+.dttl-live-mp3 .dttl-mp3-voice-settings { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 12px; }
+.dttl-live-mp3 .dttl-mp3-voice-settings input, .dttl-live-mp3 .dttl-mp3-voice-settings select { display: block; margin-top: 5px; }
+.dttl-live-mp3 .dttl-mp3-voice-settings input { width: 75px; }
+.dttl-live-mp3 .dttl-mp3-history { margin-top: 18px; }
+.dttl-live-mp3 .dttl-mp3-scroll { overflow-x: auto; }
+.dttl-live-mp3 td small { display: block; margin-top: 4px; }
+.dttl-live-mp3 .dttl-mp3-pages { display: flex; gap: 8px; margin-top: 12px; }
+@media (max-width: 850px) { .dttl-live-mp3 .dttl-mp3-grid { grid-template-columns: 1fr; } }
