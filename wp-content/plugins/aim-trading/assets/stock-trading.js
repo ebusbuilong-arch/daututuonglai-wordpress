@@ -10,6 +10,10 @@ const vnStocks=Array.isArray(c.vnStocks)&&c.vnStocks.length?c.vnStocks:instrumen
 const vnSymbols=new Set(vnStocks.map(x=>x[1]));
 const supported=new Set([...instruments.map(x=>x[1]),...vnSymbols]);
 const isVN=s=>vnSymbols.has(s),currency=s=>isVN(s)?'VND':'USD',scale=s=>isVN(s)?25000000:1000;
+const vndFormatter=new Intl.NumberFormat(en?'en-US':'vi-VN',{maximumFractionDigits:0});
+const vnd=value=>vndFormatter.format(value)+(en?' VND':' VNĐ');
+const priceText=(price,cur)=>cur==='VND'?vnd(price):num(price)+' '+cur;
+const amountText=(amount,cur)=>cur==='VND'?vnd(amount*25000000/1e6):money(amount);
 
 function valuationCell(sym,p){
  const box=node('div',''),q=valuations.get(sym);
@@ -17,7 +21,7 @@ function valuationCell(sym,p){
   const value=Math.round(p.quantity*q.bid*1e6/scale(sym)),pnl=value-Math.max(1,Math.ceil(value*.001))-p.cost;
   const percentage=Number.isFinite(p.cost)&&p.cost>0?pnl/p.cost*100:null;
   const percentText=percentage===null?'—':new Intl.NumberFormat(en?'en-US':'vi-VN',{minimumFractionDigits:2,maximumFractionDigits:2,signDisplay:'exceptZero'}).format(Math.abs(percentage)<0.005?0:percentage)+'%';
-  const result=node('strong',money(pnl)+' ('+percentText+')');
+  const result=node('strong',amountText(pnl,currency(sym))+' ('+percentText+')');
   result.title=en?'Return on cost paid, after estimated selling fee':'Tỷ suất trên vốn đã trả, sau phí bán dự kiến';result.style.color=pnl<0?'#ef9a9a':pnl>0?'#66d4b5':'inherit';
   const at=node('small',(en?'Reference price · ':'Giá tham khảo · ')+new Date(q.time).toLocaleString(en?'en-GB':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'})+' (VN)');
   at.style.display='block';box.append(result,at);
@@ -42,8 +46,20 @@ async function refreshPortfolio(){
  for(const sym of Object.keys(account?.state?.positions||{}))await refreshValuation(sym);
 }
 
-function renderAccount(){const s=account.state;table($('ex-panel-positions'),['Mã','Cổ phiếu','Giá vốn / CP','Vốn đã trả','Lãi/lỗ tạm tính sau phí bán'],Object.entries(s.positions).map(([sym,p])=>{return [sym,num(p.quantity),num(p.cost*scale(sym)/1e6/p.quantity)+' '+currency(sym),money(p.cost),valuationCell(sym,p)];}));if(!Object.keys(s.positions).length)$('ex-panel-positions').append(node('p','Chưa có cổ phiếu trong danh mục.'));
- table($('ex-panel-history'),['Thời gian UTC','Lệnh','Mã','Số CP','Giá','Phí','Lãi/lỗ đã chốt'],account.history.map(x=>{const e=x.event;return [x.created,e.side==='buy'?'Mua':'Bán',e.symbol,num(e.quantity),num(e.price)+' '+(e.currency||'USD'),money(e.fee),money(e.realized)];}));$('ex-panel-orders').replaceChildren(node('p','Market và Limit IOC được xử lý ngay, không có lệnh chờ qua phiên.'));
+function renderAccount(){
+ const s=account.state,positions=Object.entries(s.positions);
+ table($('ex-panel-positions'),['Mã','Cổ phiếu','Giá vốn / CP','Vốn đã trả','Giá trị tài sản','Lãi/lỗ tạm tính sau phí bán'],positions.map(([sym,p])=>{
+  const cur=currency(sym),quote=valuations.get(sym);
+  const marketValue=quote?p.quantity*quote.bid:null;
+  const valueText=marketValue===null?'—':cur==='VND'?vnd(marketValue):money(Math.round(marketValue*1e6/scale(sym)));
+  return [sym,num(p.quantity),priceText(p.cost*scale(sym)/1e6/p.quantity,cur),amountText(p.cost,cur),valueText,valuationCell(sym,p)];
+ }));
+ if(!positions.length)$('ex-panel-positions').append(node('p','Chưa có cổ phiếu trong danh mục.'));
+ table($('ex-panel-history'),['Thời gian UTC','Lệnh','Mã','Số CP','Giá','Phí','Lãi/lỗ đã chốt'],account.history.map(({created,event})=>{
+  const cur=event.currency||currency(event.symbol);
+  return [created,event.side==='buy'?'Mua':'Bán',event.symbol,num(event.quantity),priceText(event.price,cur),amountText(event.fee,cur),amountText(event.realized,cur)];
+ }));
+ $('ex-panel-orders').replaceChildren(node('p','Market và Limit IOC được xử lý ngay, không có lệnh chờ qua phiên.'));
  $('ex-account-status').textContent=account.enabled&&account.configured?'Đã bật · chỉ khớp khi có giá hợp lệ':'Chờ kết nối / kích hoạt nguồn';
  const specs=$('ex-panel-specs');if(!document.getElementById('st-policy')){const p=node('p','Quy ước mô phỏng: 1 AIM = 1.000 USD hoặc 25.000.000 VND (cố định, không phải tỷ giá thị trường); phí mỗi chiều 0,1%; mua nguyên cổ phiếu, không đòn bẩy; mô phỏng thanh toán ngay. Giá vốn bao gồm phí mua.');p.id='st-policy';specs.prepend(p);}}
 const marginSection=node('section','');
