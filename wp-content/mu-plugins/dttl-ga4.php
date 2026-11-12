@@ -11,12 +11,11 @@ add_action('wp_head', static function () {
         return;
     }
     ?>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VV4TX709T9"></script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=G-VV4TX709T9"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){window.dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-VV4TX709T9');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 </script>
     <?php
 }, 1);
