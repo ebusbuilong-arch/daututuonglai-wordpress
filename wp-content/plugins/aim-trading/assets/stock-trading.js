@@ -48,11 +48,15 @@ async function refreshPortfolio(){
 
 function renderAccount(){
  const s=account.state,positions=Object.entries(s.positions);
- table($('ex-panel-positions'),['Mã','Cổ phiếu','Giá vốn / CP','Vốn đã trả','Giá trị tài sản','Lãi/lỗ tạm tính sau phí bán'],positions.map(([sym,p])=>{
+ table($('ex-panel-positions'),['Mã','Thao tác','Cổ phiếu','Giá vốn / CP','Vốn đã trả','Giá trị tài sản','Lãi/lỗ tạm tính sau phí bán'],positions.map(([sym,p])=>{
   const cur=currency(sym),quote=valuations.get(sym);
   const marketValue=quote?p.quantity*quote.bid:null;
   const valueText=marketValue===null?'—':cur==='VND'?vnd(marketValue):money(Math.round(marketValue*1e6/scale(sym)));
-  return [sym,num(p.quantity),priceText(p.cost*scale(sym)/1e6/p.quantity,cur),amountText(p.cost,cur),valueText,valuationCell(sym,p)];
+  const sell=node('button',en?'Sell':'Bán');
+  sell.type='button';
+  sell.setAttribute('aria-label',(en?'Sell ':'Bán ')+sym);
+  sell.addEventListener('click',()=>openPortfolioSell(sym));
+  return [sym,sell,num(p.quantity),priceText(p.cost*scale(sym)/1e6/p.quantity,cur),amountText(p.cost,cur),valueText,valuationCell(sym,p)];
  }));
  if(!positions.length)$('ex-panel-positions').append(node('p','Chưa có cổ phiếu trong danh mục.'));
  table($('ex-panel-history'),['Thời gian UTC','Lệnh','Mã','Số CP','Giá','Phí','Lãi/lỗ đã chốt'],account.history.map(({created,event})=>{
@@ -123,6 +127,21 @@ const holdings=sym=>account?.state?.positions?.[sym]?.quantity??0;
 function setOrderQuantity(){
  const qty=side==='sell'?holdings(symbol):(isVN(symbol)?100:1);
  $('st-quantity').value=qty?String(qty):'';
+}
+function openPortfolioSell(sym){
+ if(busy)return;
+ if(pending){$('st-retry').focus();return;}
+ $('st-type').value='market';
+ $('st-limit').value='';
+ $('ex-sell').click();
+ const changed=symbol!==sym;
+ if(changed)document.dispatchEvent(new CustomEvent('aim-select-stock',{detail:{symbol:sym}}));
+ if(symbol!==sym)return;
+ setOrderQuantity();
+ $('st-result').textContent='';
+ if(!changed)refreshQuote();
+ $('st-quantity').focus({preventScroll:true});
+ $('st-form').scrollIntoView({block:'start'});
 }
 function renderSellHolding(){
  const selling=side==='sell';

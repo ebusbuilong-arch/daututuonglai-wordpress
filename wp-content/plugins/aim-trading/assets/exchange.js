@@ -18,6 +18,10 @@ function rememberSymbol(id){
 function pickSymbol(x){
  selected=x;rememberSymbol(x[0]);save();renderList();chart();
 }
+if(c.market==='stock')document.addEventListener('aim-select-stock',event=>{
+ const instrument=all.find(item=>item[1]===event.detail?.symbol);
+ if(instrument&&instrument!==selected)pickSymbol(instrument);
+});
 function renderRecent(){
  let host=$('ex-recent');
  if(!host){
