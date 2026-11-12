@@ -62,7 +62,53 @@ $('ex-search').oninput=()=>{renderList();clearTimeout(searchTimer);searchTimer=s
 $('ex-search').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();clearTimeout(searchTimer);rememberExactSearch();}});
 $('ex-search').addEventListener('blur',rememberExactSearch);$('ex-favorites').onclick=()=>{onlyFavorites=!onlyFavorites;$('ex-favorites').setAttribute('aria-pressed',String(onlyFavorites));renderList();};$('ex-theme').onclick=()=>{theme=theme==='dark'?'light':'dark';save();chart();};$('ex-chart-reload').onclick=chart;document.querySelectorAll('[data-ex-interval]').forEach(b=>b.onclick=()=>{interval=b.dataset.exInterval;save();chart();});
 ['buy','sell'].forEach(side=>$('ex-'+side).onclick=()=>{['buy','sell'].forEach(s=>{$('ex-'+s).classList.toggle('selected',s===side);$('ex-'+s).setAttribute('aria-pressed',String(s===side));});$('ex-submit').className='action '+side;});
-const tabs=[...document.querySelectorAll('[data-ex-tab]')];function tabSelect(b,focus=false){tabs.forEach(x=>{const chosen=x===b;x.setAttribute('aria-selected',String(chosen));x.tabIndex=chosen?0:-1;$('ex-panel-'+x.dataset.exTab).hidden=!chosen;});if(focus)b.focus();}tabs.forEach((b,i)=>{b.onclick=()=>tabSelect(b);b.onkeydown=e=>{let j;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();tabSelect(tabs[j],true);};});
+function setupForexHistory(){
+ const positions=$('ex-panel-positions'),history=$('ex-panel-history');
+ const historyTab=$('ex-tab-history'),positionsTab=$('ex-tab-positions');
+ const positionsAnchor=document.createComment('Forex positions panel');
+ positions.before(positionsAnchor);
+ const panel=text('div',''),openPositions=text('section','');
+ const heading=text('h3',c.lang==='en'?'Open positions':'Vị thế đang mở');
+ panel.id='ex-forex-history';
+ heading.id='ex-forex-history-positions-title';
+ panel.setAttribute('role','tabpanel');
+ panel.setAttribute('aria-labelledby',historyTab.id);
+ panel.hidden=history.hidden;
+ openPositions.setAttribute('aria-labelledby',heading.id);
+ openPositions.append(heading);
+ history.before(panel);
+ panel.append(openPositions,history);
+ history.hidden=false;
+ history.removeAttribute('role');
+ history.removeAttribute('aria-labelledby');
+ historyTab.setAttribute('aria-controls',panel.id);
+ return tab=>{
+  // Keep the existing forms and their handlers. The history renderer owns only its table.
+  if(tab===historyTab){
+   openPositions.append(positions);
+   positions.removeAttribute('role');
+   positions.removeAttribute('aria-labelledby');
+   positions.hidden=false;
+  }else if(positions.parentNode===openPositions){
+   positionsAnchor.after(positions);
+   positions.setAttribute('role','tabpanel');
+   positions.setAttribute('aria-labelledby',positionsTab.id);
+  }
+ };
+}
+const tabs=[...document.querySelectorAll('[data-ex-tab]')];
+const updateForexHistory=c.market==='forex'&&$('fx-pilot')?setupForexHistory():null;
+function tabSelect(b,focus=false){
+ tabs.forEach(x=>{
+  const chosen=x===b;
+  x.setAttribute('aria-selected',String(chosen));
+  x.tabIndex=chosen?0:-1;
+  $(x.getAttribute('aria-controls')).hidden=!chosen;
+ });
+ if(updateForexHistory)updateForexHistory(b);
+ if(focus)b.focus();
+}
+tabs.forEach((b,i)=>{b.onclick=()=>tabSelect(b);b.onkeydown=e=>{let j;if(e.key==='ArrowRight')j=(i+1)%tabs.length;else if(e.key==='ArrowLeft')j=(i+tabs.length-1)%tabs.length;else if(e.key==='Home')j=0;else if(e.key==='End')j=tabs.length-1;else return;e.preventDefault();tabSelect(tabs[j],true);};});
 function clock(){$('ex-clock').textContent=new Intl.DateTimeFormat((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'),{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date())+' · Giờ Việt Nam';}clock();setInterval(clock,1000);renderRecent();renderList();chart();
 if(c.market==='forex'&&c.is_admin){
  async function feedApi(path,body){const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),15000);try{const r=await fetch(c.api+'forex-feed/'+path,{method:body?'POST':'GET',headers:{'X-WP-Nonce':c.nonce,'Content-Type':'application/json'},credentials:'same-origin',signal:ctrl.signal,...(body?{body:JSON.stringify(body)}:{})});const data=await r.json();if(!r.ok)throw Error(data.message||'Chưa đọc được nguồn Forex.');return data;}finally{clearTimeout(timer);}}
