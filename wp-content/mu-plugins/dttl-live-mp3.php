@@ -227,6 +227,17 @@ final class DTTL_Live_MP3 {
             "UPDATE $table SET state='uncertain', detail=%s WHERE state='sending' AND touched < %d",
             'Chưa xác minh được EverAI đã nhận yêu cầu. Kiểm tra lịch sử EverAI.', $now - 120
         ));
+        // Recheck requests whose download link was rejected by the old host rules.
+        if (get_option('dttl_live_mp3_result_sync') !== '1') {
+            $updated = $wpdb->query($wpdb->prepare(
+                "UPDATE $table SET state='processing', next_check=0, detail='' WHERE state='uncertain'
+                 AND request_id<>'' AND detail=%s",
+                'EverAI đã xử lý nhưng chưa trả link MP3 hợp lệ. Kiểm tra lịch sử EverAI.'
+            ));
+            if ($updated !== false) {
+                update_option('dttl_live_mp3_result_sync', '1', false);
+            }
+        }
         $row = $wpdb->get_row($wpdb->prepare(
             "SELECT * FROM $table WHERE state IN ('queued','processing') AND next_check <= %d
              ORDER BY CASE WHEN state='queued' THEN 0 ELSE 1 END, next_check, lesson LIMIT 1", $now
@@ -299,22 +310,24 @@ final class DTTL_Live_MP3 {
             return $sending ? ['state' => 'failed', 'detail' => $detail]
                 : ['state' => 'processing', 'detail' => $detail, 'next_check' => time() + 90];
         }
-        $status = strtolower((string) ($result['status'] ?? ''));
-        if (!empty($result['audio_expired'])) {
+        $status = strtolower(trim((string) ($result['status'] ?? '')));
+        if (filter_var($result['audio_expired'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
             return ['state' => 'expired', 'detail' => 'Link tải EverAI đã hết hạn.'];
         }
         if (in_array($status, ['failure', 'failed', 'error', 'cancelled', 'canceled'], true)) {
             return ['state' => 'failed', 'detail' => 'EverAI báo tạo audio thất bại.'];
         }
-        $audio_url = (string) ($result['audio_link'] ?? '');
-        if (in_array($status, ['done', 'success', 'completed'], true) && self::valid_audio_url($audio_url)) {
+        $audio_url = is_string($result['audio_link'] ?? null) ? trim($result['audio_link']) : '';
+        if (self::valid_audio_url($audio_url)) {
             return ['state' => 'ready', 'progress' => 100, 'detail' => '', 'audio_url' => $audio_url];
         }
-        if (in_array($status, ['done', 'success', 'completed'], true)) {
-            return ['state' => 'uncertain', 'detail' => 'EverAI đã xử lý nhưng chưa trả link MP3 hợp lệ. Kiểm tra lịch sử EverAI.'];
+        if ($audio_url !== '' && in_array($status, ['done', 'success', 'completed'], true)) {
+            return ['state' => 'uncertain', 'detail' => 'Link MP3 do EverAI trả về chưa được hỗ trợ. Anh có thể tải trong Lịch sử EverAI.'];
         }
-        return ['state' => 'processing', 'progress' => min(99, max(0, (int) ($result['progress'] ?? 0))),
-            'detail' => '', 'next_check' => time() + 20];
+        $progress = min(100, max(0, (int) ($result['progress'] ?? 0)));
+        return ['state' => 'processing', 'progress' => $progress,
+            'detail' => $progress >= 99 ? 'Đang chờ EverAI trả đường dẫn tải MP3.' : '',
+            'next_check' => time() + 20];
     }
 
     static function valid_audio_url($url) {
@@ -322,7 +335,7 @@ final class DTTL_Live_MP3 {
             return false;
         }
         $host = strtolower((string) wp_parse_url($url, PHP_URL_HOST));
-        return $host === 'everai.vn' || str_ends_with($host, '.everai.vn');
+        return $host === 'everai.vn' || str_ends_with($host, '.everai.vn') || $host === 'media.everaicdn.com';
     }
 
     static function jobs($page = 1) {
