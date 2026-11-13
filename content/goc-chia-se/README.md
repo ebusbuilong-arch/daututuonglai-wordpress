@@ -12,7 +12,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 01 | Benjamin Graham; Adam Smith; Mark Zuckerberg; Elon Musk; John Bogle | Đã đăng 5 bài VI+EN ngày 13/11/2026; kiểm tra chuyển ngôn ngữ đạt |
 | 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 chân dung; Đặng Phong và Đoàn Vĩnh Bình dùng minh họa AI tham chiếu |
 | 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh |
-| 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 ảnh thật và nguồn |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -76,3 +76,17 @@ Từ gói 03, mỗi gói gồm 5 chủ đề, soạn và đăng VI cùng EN; ki�
 Cập nhật trạng thái các ghi chú cũ: Đặng Phong và Đoàn Vĩnh Bình đã có ảnh AI tham chiếu, thay cho trạng thái chờ ảnh. Chú thích AI có cả VI/EN. Đã kiểm tra ảnh công khai của cả hai bài. Alt mới sử dụng tên riêng và nhãn song ngữ AI.
 
 Đã bổ sung CSS trên WordPress Additional CSS để ba ảnh dọc Lý Gia Thành, Bill Gates, Ha-Joon Chang dùng object-fit: contain, tránh cắt mặt ở danh mục. Không thay theme.
+
+## Gói 04 đã xuất bản — 13/11/2026
+
+- [milton-friedman](https://daututuonglai.vn/2026/11/13/milton-friedman-tien-te-va-suc-mua/) · [EN](https://daututuonglai.vn/en/2026/11/13/milton-friedman-tien-te-va-suc-mua/)
+- [jeff-bezos](https://daututuonglai.vn/2026/11/13/jeff-bezos-khach-hang-va-tu-duy-dai-han/) · [EN](https://daututuonglai.vn/en/2026/11/13/jeff-bezos-khach-hang-va-tu-duy-dai-han/)
+- [jensen-huang](https://daututuonglai.vn/2026/11/13/jensen-huang-tu-chip-den-he-sinh-thai/) · [EN](https://daututuonglai.vn/en/2026/11/13/jensen-huang-tu-chip-den-he-sinh-thai/)
+- [john-maynard-keynes](https://daututuonglai.vn/2026/11/13/john-maynard-keynes-tong-cau-va-viec-lam/) · [EN](https://daututuonglai.vn/en/2026/11/13/john-maynard-keynes-tong-cau-va-viec-lam/)
+- [friedrich-hayek](https://daututuonglai.vn/2026/11/13/friedrich-hayek-tri-thuc-phan-tan-va-gia-ca/) · [EN](https://daututuonglai.vn/en/2026/11/13/friedrich-hayek-tri-thuc-phan-tan-va-gia-ca/)
+
+Bản lưu: [package-04-bilingual.json](./package-04-bilingual.json). Đã nhập 90 chuỗi EN, kiểm tra toàn bộ đoạn nội dung và tiêu đề cả VI/EN, 5 mô tả ngắn EN trên danh mục, ảnh tải được và alt đúng người. Năm ảnh thật tối ưu WebP; giấy phép CC0, CC BY 2.0, CC BY-SA 3.0 và ảnh tư liệu IMF thuộc phạm vi công cộng. Keynes ở bên phải Harry Dexter White trong ảnh ngày 8/3/1946. Nguồn, tác giả và giấy phép ghi trong từng bài.
+
+Bài Jensen Huang cập nhật vai trò theo thông báo NVIDIA ngày 12/11/2026 và hồ sơ 8-K; không gọi là CEO đương nhiệm. Không suy diễn kết quả các vấn đề đang được xem xét.
+
+Additional CSS trên WordPress dùng object-fit: contain cho năm tệp chân dung của gói 04 để không cắt khuôn mặt ở danh mục. Chưa thay theme.
