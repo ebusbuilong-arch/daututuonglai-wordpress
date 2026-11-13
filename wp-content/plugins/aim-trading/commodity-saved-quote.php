@@ -31,20 +31,25 @@ final class AIM_Commodity_Saved_Quote {
    }finally{$wpdb->get_var($wpdb->prepare('SELECT RELEASE_LOCK(%s)',$lock));}
   }
  }
+ static function saved($symbol){
+  $entry=get_option(self::key($symbol));
+  $quote=$entry['quote']??null;$spec=$entry['spec']??null;
+  // Validate against the original server receive time.
+  $received=$quote['received']??0;
+  if(!is_int($received)||$received<=0||$received>self::now()+2000||!self::valid($symbol,$quote,$spec,$received))return null;
+  return $entry;
+ }
  static function order($snapshot,$symbol,$position=null){
   $now=self::now();$quote=is_wp_error($snapshot)?null:($snapshot['quotes'][$symbol]??null);
   $spec=is_wp_error($snapshot)?null:($snapshot['specs'][$symbol]??null);
   $saved=false;
   if(!self::valid($symbol,$quote,$spec,$now)){
-   $entry=get_option(self::key($symbol));
-   $quote=$entry['quote']??null;$spec=$entry['spec']??null;
-   // Validate against the original server receive time. Never refresh saved timestamps.
-   $received=$quote['received']??0;
-   if(!is_int($received)||$received<=0||$received>$now+2000||!self::valid($symbol,$quote,$spec,$received)){
+   $entry=self::saved($symbol);
+   if($entry===null){
     $reason=is_wp_error($snapshot)?$snapshot->get_error_message():'';
     return AIM_Trading::error(trim($reason.' Chưa có báo giá giao dịch hợp lệ đã lưu cho mã này.'),409);
    }
-   $saved=true;
+   $quote=$entry['quote'];$spec=$entry['spec'];$saved=true;
   }
   if($position!==null&&(($position['source']??'OANDA Practice')!==$quote['source']||$quote['time']<$position['last_quote'])){
    return AIM_Trading::error('Chưa có báo giá cùng nguồn và đủ mới so với vị thế này.',409);
