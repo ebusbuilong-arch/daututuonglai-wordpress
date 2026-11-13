@@ -151,17 +151,22 @@ function estimate(){
  const lots=Number($('fx-pilot-lots').value),lev=Number($('fx-pilot-leverage').value),price=liveQuote[$('fx-pilot-side').value==='long'?'ask':'bid'],value=lots*liveSpec.lot_units*price/1000;
  $('mt-estimate').textContent=lots>0&&Number.isFinite(value)?'Giá trị '+money(Math.round(value*1e6))+' AIM · Ký quỹ ước tính '+money(Math.ceil(value/lev*1e6))+' AIM, chưa gồm phí.':'Nhập khối lượng hợp lệ.';
 }
-async function loadQuote(){
+async function loadQuote(preview=null){
  clearTimeout(quoteTimer);const serial=++quoteSerial;liveQuote=null;liveSpec=null;savedOrderQuote=false;orderQuoteToken=null;controls();estimate();
  if(!c.logged){$('mt-price').textContent='Đăng nhập để xem báo giá đặt lệnh.';return;}
  if(forex&&(document.hidden||pending?.type==='close')){
   if(!document.hidden)$('mt-price').textContent='Đang chờ đối chiếu lệnh đóng vị thế.';
   quoteTimer=setTimeout(loadQuote,60000);return;
  }
- const symbol=$('fx-pilot-symbol').value;$('mt-price').textContent='Đang lấy báo giá '+symbol+'…';
+ const symbol=$('fx-pilot-symbol').value;
+ if(commodity&&!(c.commoditySymbols??[]).includes(symbol)){
+  $('mt-price').textContent='Chưa có mã hàng hóa có báo giá dùng được.';
+  return;
+ }
+ $('mt-price').textContent='Đang lấy báo giá '+symbol+'…';
  try{
  if(commodity){
-  const data=await api('order-quote?symbol='+encodeURIComponent(symbol));
+  const data=preview?.quote?.symbol===symbol?preview:await api('order-quote?symbol='+encodeURIComponent(symbol));
   if(serial!==quoteSerial)return;
   liveQuote=data.quote;liveSpec=data.spec;savedOrderQuote=data.saved;orderQuoteToken=data.token;
   $('mt-price').textContent='Mua '+Number(liveQuote.ask.toFixed(5))+' / Bán '+Number(liveQuote.bid.toFixed(5))+' USD · '+quoteLabel(liveQuote,savedOrderQuote);
@@ -172,11 +177,11 @@ const r=await fetch(c.api+'market-launch/quote?symbol='+encodeURIComponent(symbo
  }
  }catch(e){if(serial===quoteSerial)$('mt-price').textContent=e.message;}finally{if(serial===quoteSerial){controls();estimate();quoteTimer=setTimeout(loadQuote,60000);}}
 }
-document.addEventListener('aim-symbol-change',e=>{if(dismissConfirmation)dismissConfirmation();$('fx-pilot-symbol').value=mapped(e.detail.symbol);loadQuote();});
+document.addEventListener('aim-symbol-change',e=>{if(dismissConfirmation)dismissConfirmation();$('fx-pilot-symbol').value=mapped(e.detail.symbol);loadQuote(e.detail.commodityQuote);});
 for(const side of ['buy','sell'])$('ex-'+side).addEventListener('click',()=>{if(dismissConfirmation)dismissConfirmation();$('fx-pilot-side').value=side==='buy'?'long':'short';$('fx-pilot-open-submit').className='action '+side;controls();estimate();});
 for(const id of ['fx-pilot-lots','fx-pilot-leverage'])$(id).addEventListener('input',()=>{if(dismissConfirmation)dismissConfirmation();estimate();});
 for(const id of ['fx-pilot-tp','fx-pilot-sl'])$(id).addEventListener('input',()=>{if(dismissConfirmation)dismissConfirmation();});
-$('fx-pilot-symbol').value=mapped($('ex-symbol').textContent);
+$('fx-pilot-symbol').value=commodity&&!(c.commoditySymbols??[]).includes(mapped($('ex-symbol').textContent))?'':mapped($('ex-symbol').textContent);
 const freshnessTimer=setInterval(()=>{controls();estimate();},1000);
 if(forex)document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!quoteFresh())void loadQuote();});
 const positionTimer=forex&&c.logged?setInterval(()=>{
