@@ -35,7 +35,7 @@ function removeConfirmedFullClose(receipt,replayed){
  row.remove();
  if(!positionsPanel.querySelector('[data-position-id]'))positionsPanel.append(node('p','Chưa có vị thế.'));
 }
-function controls(){const locked=!c.logged||busy||refreshing||!!pending||!storageOK||!account?.storage_ready;$('fx-pilot-open-submit').disabled=locked||!account?.pilot_enabled||(!savedOrderQuote&&(!account?.feed_configured||!account?.worker?.online))||!quoteUsable();$('fx-pilot-transfer-submit').disabled=locked||($('fx-pilot-direction').value==='transfer_in'&&!account?.pilot_enabled);$('fx-pilot-retry').hidden=!pending;$('fx-pilot-retry').disabled=busy||refreshing;$('fx-pilot-refresh').disabled=busy||refreshing;document.querySelectorAll('[data-fx-mutation]').forEach(b=>b.disabled=locked);if(closeRetry){closeRetry.hidden=pending?.type!=='close';closeRetry.disabled=busy||refreshing;}$('fx-pilot-open-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':$('fx-pilot-side').value==='long'?'Mở Long':'Mở Short';}
+function controls(){const locked=!c.logged||busy||refreshing||!!pending||!storageOK||!account?.storage_ready;$('fx-pilot-open-submit').disabled=locked||!account?.pilot_enabled||(!savedOrderQuote&&!liveQuote?.manual_only&&(!account?.feed_configured||!account?.worker?.online))||!quoteUsable();$('fx-pilot-transfer-submit').disabled=locked||($('fx-pilot-direction').value==='transfer_in'&&!account?.pilot_enabled);$('fx-pilot-retry').hidden=!pending;$('fx-pilot-retry').disabled=busy||refreshing;$('fx-pilot-refresh').disabled=busy||refreshing;document.querySelectorAll('[data-fx-mutation]').forEach(b=>b.disabled=locked);if(closeRetry){closeRetry.hidden=pending?.type!=='close';closeRetry.disabled=busy||refreshing;}$('fx-pilot-open-submit').textContent=!c.logged?'Đăng nhập để giao dịch':busy?'Đang xử lý…':$('fx-pilot-side').value==='long'?'Mở Long':'Mở Short';}
 async function api(path,body,spot=false){if(!c.logged)throw Error('Đăng nhập để giao dịch.');const ctrl=new AbortController(),timer=setTimeout(()=>ctrl.abort(),15000);try{const r=await fetch(c.api+(spot?'':c.market+'/')+path,{cache:'no-store',method:body?'POST':'GET',headers:{'X-WP-Nonce':c.nonce,'Content-Type':'application/json'},credentials:'same-origin',signal:ctrl.signal,...(body?{body:JSON.stringify(body)}:{})});const d=await r.json();if(!r.ok){const e=Error(d.message||'Chưa xử lý được yêu cầu Forex.');e.status=r.status;throw e;}return d;}finally{clearTimeout(timer);}}
 function table(headers){const t=document.createElement('table'),h=document.createElement('tr');headers.forEach(v=>h.append(node('th',v)));t.append(h);return t;}
 function draw(){if(dismissConfirmation&&commodity)dismissConfirmation();const s=account.state||{cash:0,positions:{},realized:0,fees:0},positions=Object.values(s.positions);$('fx-pilot-readiness').textContent=(account.storage_ready?'✓ Dữ liệu tài khoản sẵn sàng':'Chưa nâng cấp dữ liệu')+' · '+(account.pilot_enabled?'Đã bật giao dịch AIM':'Đang chờ kích hoạt')+' · '+(account.feed_configured?'Đã cấu hình nguồn':'Chưa cấu hình nguồn giá')+' · '+account.worker.message;$('ex-account-status').textContent=account.pilot_enabled?'Giao dịch AIM · theo nguồn giá':'Chờ kích hoạt';$('ex-panel-orders').textContent='Market xử lý ngay; TP/SL gắn theo từng vị thế. Chưa hỗ trợ lệnh Limit chờ.';
@@ -52,13 +52,15 @@ function draw(){if(dismissConfirmation&&commodity)dismissConfirmation();const s=
    if(!button.isConnected||busy||refreshing||pending)return;
    setCloseNotice('');
    const price=data.quote[p.side==='long'?'bid':'ask'];
-   if(await confirmOrder(order,button,['#'+p.id+' · '+p.symbol.replace('_','/')+' · '+order.units+' đơn vị','Giá '+price+' USD',quoteLabel(data.quote,data.saved)])){
+   if(await confirmOrder(order,button,['#'+p.id+' · '+p.symbol.replace('_','/')+' · '+order.units+' đơn vị','Giá '+price+' USD',quoteLabel(data.quote,data.saved),...(data.quote.source!==(p.source??'OANDA Practice')?['Vị thế mở theo '+(p.source??'OANDA Practice')+'. Lãi/lỗ khi đóng tính theo nguồn hiển thị ở trên.']:[])])){
     await send({...order,quote_token:data.token});
    }
   }catch(error){message(error.message);setCloseNotice('Vị thế #'+p.id+' · '+error.message);}
   finally{controls();}};wrap.append(closeForm);
- const protect=document.createElement('form'),tp=document.createElement('input'),sl=document.createElement('input'),save=node('button','Lưu TP/SL');tp.value=p.tp===null?'':String(p.tp);sl.value=p.sl===null?'':String(p.sl);tp.placeholder='TP';sl.placeholder='SL';tp.setAttribute('aria-label','Chốt lời vị thế '+p.id);sl.setAttribute('aria-label','Cắt lỗ vị thế '+p.id);save.dataset.fxMutation='1';save.className='start';protect.append(tp,sl,save);protect.onsubmit=e=>{e.preventDefault();send({type:'protect',id:p.id,tp:tp.value.trim()||null,sl:sl.value.trim()||null});};wrap.append(protect);$('ex-panel-positions').append(wrap);});
- const t=table(['UTC','Nghiệp vụ','Vị thế','Lãi/lỗ trước phí','Phí','Đối ứng quỹ']);for(const h of account.history||[]){for(const ev of h.events){const row=document.createElement('tr');[h.created,ev.kind+(ev.reason?' · '+ev.reason:'')+(ev.saved_quote?' · Báo giá lưu '+quoteDate(ev.quote_time):''),ev.id??'—',money(ev.pnl||0),money(ev.fee||0),money(ev.pool_delta||0)].forEach(v=>row.append(node('td',String(v))));t.append(row);}}$('ex-panel-history').replaceChildren(t);controls();}
+ const protect=document.createElement('form'),tp=document.createElement('input'),sl=document.createElement('input'),save=node('button','Lưu TP/SL');tp.value=p.tp===null?'':String(p.tp);sl.value=p.sl===null?'':String(p.sl);tp.placeholder='TP';sl.placeholder='SL';tp.setAttribute('aria-label','Chốt lời vị thế '+p.id);sl.setAttribute('aria-label','Cắt lỗ vị thế '+p.id);save.dataset.fxMutation='1';save.className='start';protect.append(tp,sl,save);
+ if(commodity&&publicSource(p.source)){protect.hidden=true;wrap.append(node('small','Giá tham chiếu · Chỉ đóng thủ công.'));}
+protect.onsubmit=e=>{e.preventDefault();send({type:'protect',id:p.id,tp:tp.value.trim()||null,sl:sl.value.trim()||null});};wrap.append(protect);$('ex-panel-positions').append(wrap);});
+ const t=table(['UTC','Nghiệp vụ','Vị thế','Lãi/lỗ trước phí','Phí','Đối ứng quỹ']);for(const h of account.history||[]){for(const ev of h.events){const row=document.createElement('tr');[h.created,ev.kind+(ev.reason?' · '+ev.reason:'')+(ev.quote_source?' · '+ev.quote_source:'')+(ev.observation_date?' · '+dayLabel(ev.observation_date):ev.saved_quote?' · Báo giá lưu '+quoteDate(ev.quote_time):''),ev.id??'—',money(ev.pnl||0),money(ev.fee||0),money(ev.pool_delta||0)].forEach(v=>row.append(node('td',String(v))));t.append(row);}}$('ex-panel-history').replaceChildren(t);controls();}
 function message(v){$('fx-pilot-message').textContent=v;}
 async function refresh(silent=false){
  if(refreshing)return false;
@@ -142,14 +144,28 @@ $('fx-pilot-transfer').onsubmit=e=>{e.preventDefault();const raw=$('fx-pilot-amo
 
 let liveQuote=null,liveSpec=null,savedOrderQuote=false,orderQuoteToken=null,quoteSerial=0,quoteTimer=null;
 function quoteDate(time){return new Date(time).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh'});}
-function quoteLabel(quote,saved){return (saved?'Báo giá đã lưu':'Báo giá hiện tại')+' · '+(quote.time_basis==='provider_response'?'Nguồn phản hồi lúc ':'Mốc giá ')+quoteDate(quote.time)+' (giờ Việt Nam) · '+quote.source;}
-function quoteUsable(){return commodity&&savedOrderQuote?liveQuote?.symbol===$('fx-pilot-symbol').value:quoteFresh();}
-function mapped(v){return ({'WTI':'WTICO_USD','BRENT':'BCO_USD'})[v]||v.replace('/','_');}
+function publicSource(source){return source==='EIA'||source==='Gold API';}
+function dayLabel(day){return day.split('-').reverse().join('/');}
+function quoteLabel(quote,saved){
+ if(quote.manual_only){
+  const date=quote.observation_date?dayLabel(quote.observation_date):quoteDate(quote.time)+' (giờ Việt Nam)';
+  return (saved?'Giá tham chiếu đã lưu':'Giá tham chiếu')+' · '+quote.source+' · '+date+(quote.published_date?' · Công bố '+dayLabel(quote.published_date):'')+' · Chênh lệch mua/bán mô phỏng 0,1%';
+ }
+ return (saved?'Báo giá đã lưu':'Báo giá hiện tại')+' · '+(quote.time_basis==='provider_response'?'Nguồn phản hồi lúc ':'Mốc giá ')+quoteDate(quote.time)+' (giờ Việt Nam) · '+quote.source;
+}
+function quoteUsable(){
+ if(commodity&&(savedOrderQuote||liveQuote?.manual_only)){
+  if(liveQuote?.symbol!==$('fx-pilot-symbol').value)return false;
+  if(savedOrderQuote)return true;
+  return liveQuote.time_basis==='daily'?Date.now()-liveQuote.received<=900000:quoteFresh();
+ }
+ return quoteFresh();
+}
 function quoteFresh(){return !!liveQuote&&liveQuote.open&&liveQuote.symbol===$('fx-pilot-symbol').value&&Date.now()-liveQuote.time<=(liveQuote.time_basis==='provider_response'?120000:180000)&&Date.now()-liveQuote.received<=90000;}
 function estimate(){
  if(!quoteUsable()){$('mt-estimate').textContent=commodity?'Chưa có báo giá giao dịch cho mã này.':'Chưa có giá mới trong phiên; tạm khóa mở lệnh.';return;}
  const lots=Number($('fx-pilot-lots').value),lev=Number($('fx-pilot-leverage').value),price=liveQuote[$('fx-pilot-side').value==='long'?'ask':'bid'],value=lots*liveSpec.lot_units*price/1000;
- $('mt-estimate').textContent=lots>0&&Number.isFinite(value)?'Giá trị '+money(Math.round(value*1e6))+' AIM · Ký quỹ ước tính '+money(Math.ceil(value/lev*1e6))+' AIM, chưa gồm phí.':'Nhập khối lượng hợp lệ.';
+ $('mt-estimate').textContent=lots>0&&Number.isFinite(value)?'Giá trị '+money(Math.round(value*1e6))+' AIM · Ký quỹ ước tính '+money(Math.ceil(value/lev*1e6))+' AIM, chưa gồm phí.'+(liveQuote.manual_only?' · Chỉ mở/đóng thủ công.':''):'Nhập khối lượng hợp lệ.';
 }
 async function loadQuote(preview=null){
  clearTimeout(quoteTimer);const serial=++quoteSerial;liveQuote=null;liveSpec=null;savedOrderQuote=false;orderQuoteToken=null;controls();estimate();
@@ -169,6 +185,10 @@ async function loadQuote(preview=null){
   const data=preview?.quote?.symbol===symbol?preview:await api('order-quote?symbol='+encodeURIComponent(symbol));
   if(serial!==quoteSerial)return;
   liveQuote=data.quote;liveSpec=data.spec;savedOrderQuote=data.saved;orderQuoteToken=data.token;
+  for(const id of ['fx-pilot-tp','fx-pilot-sl']){
+   const field=$(id);field.disabled=!!liveQuote.manual_only;
+   if(field.disabled)field.value='';
+  }
   $('mt-price').textContent='Mua '+Number(liveQuote.ask.toFixed(5))+' / Bán '+Number(liveQuote.bid.toFixed(5))+' USD · '+quoteLabel(liveQuote,savedOrderQuote);
  }else{
 const r=await fetch(c.api+'market-launch/quote?symbol='+encodeURIComponent(symbol),{headers:{'X-WP-Nonce':c.nonce},credentials:'same-origin'});const d=await r.json();if(serial!==quoteSerial)return;if(!r.ok)throw Error(d.message||'Chưa có nguồn giá.');liveQuote=d.quote;liveSpec=d.spec;
@@ -190,6 +210,10 @@ const positionTimer=forex&&c.logged?setInterval(()=>{
 },20000):null;
 window.addEventListener('pagehide',()=>{clearTimeout(quoteTimer);clearInterval(freshnessTimer);clearInterval(positionTimer);quoteSerial++;});
 loadQuote();
+if(commodity){
+ const note=$('fx-pilot').querySelector('p.ex-small');
+ if(note)note.textContent='1 AIM = 1.000 USD sức mua mô phỏng. Vàng và bạc lấy giá tham chiếu từ Gold API, WTI và Brent lấy giá giao ngay theo ngày từ EIA. Lệnh theo giá tham chiếu mở và đóng thủ công với chênh lệch mua/bán mô phỏng 0,1%.';
+}
 
 $('fx-pilot-direction').onchange=controls;$('fx-pilot-refresh').onclick=()=>refresh();$('fx-pilot-retry').onclick=perform;
 if(pending){
