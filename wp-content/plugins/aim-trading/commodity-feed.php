@@ -2,6 +2,7 @@
 /** OANDA practice data adapter. GET-only, admin-only diagnostics; never sends broker orders. */
 defined('ABSPATH') || exit;
 require_once __DIR__.'/reference-feed.php';
+require_once __DIR__.'/commodity-public-quote.php';
 final class AIM_Commodity_Feed {
  const MAX_AGE=15000;
  static function symbols(){return array('XAU_USD','XAG_USD','WTICO_USD','BCO_USD');}
@@ -47,10 +48,13 @@ final class AIM_Commodity_Feed {
   $out['bid']=$out['bids'][0]['price'];$out['ask']=$out['asks'][0]['price'];self::need($out['ask']>=$out['bid'],'Bid/Ask bị đảo.');
   return $out;
  }
+ static function fresh($quote,$now){
+  return !empty($quote['manual_only'])?AIM_Commodity_Public_Quote::valid_clock($quote,$now):AIM_Reference_Feed::fresh($quote,$now);
+ }
  static function execution($q,$spec,$side,$lots,$leverage,$now,$limit=null){
   self::need(in_array($side,array('long','short'),true)&&is_int($leverage)&&$leverage>=1&&$leverage<=20,'Chiều/đòn bẩy không hợp lệ.');
   self::need(($q['symbol']??'')===($spec['symbol']??null)&&!empty($q['tradeable']),'Thị trường chưa cho giao dịch.');
-  self::need(AIM_Reference_Feed::fresh($q,$now),'Báo giá hết hiệu lực.');
+  self::need(self::fresh($q,$now),'Báo giá hết hiệu lực.');
   self::need(is_string($lots)&&preg_match('/^\d{1,3}(?:\.\d{1,5})?$/D',$lots),'Khối lượng lot không hợp lệ.');$units=(float)$lots*$spec['lot_units'];
   self::need($units>=$spec['min_units']&&$units<=$spec['max_units']&&abs($units*pow(10,$spec['unit_precision'])-round($units*pow(10,$spec['unit_precision'])))<0.00001,'Khối lượng không đúng bước hoặc vượt giới hạn.');
   if($limit!==null)self::need(is_string($limit)&&preg_match('/^\d{1,6}(?:\.\d{1,8})?$/D',$limit)&&(float)$limit>0,'Giá giới hạn không hợp lệ.');

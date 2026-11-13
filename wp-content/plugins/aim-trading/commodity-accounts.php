@@ -13,6 +13,20 @@ final class AIM_Commodity_Accounts {
   foreach(array($t,$e) as $table)if(strtoupper((string)$wpdb->get_var($wpdb->prepare('SELECT ENGINE FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME=%s',$table)))!=='INNODB')return;
   update_option('aimtr_commodity_schema','1',false);
  }
+ static function order_symbols(){return self::enabled()?AIM_Commodity_Feed::symbols():array();}
+ static function order_price($symbol,$position=null){
+  if($position!==null&&!AIM_Commodity_Public_Quote::is_public($position['source']??null)){
+   $snapshot=AIM_Commodity_Feed::snapshot(array($symbol));
+   AIM_Commodity_Saved_Quote::remember($snapshot);
+   $legacy=AIM_Commodity_Saved_Quote::order($snapshot,$symbol,$position);
+   if(!is_wp_error($legacy))return $legacy;
+  }
+  $quote=AIM_Commodity_Public_Quote::quote($symbol);
+  $snapshot=is_wp_error($quote)?$quote:array(
+   'quotes'=>array($symbol=>$quote),'specs'=>array($symbol=>AIM_Commodity_Public_Quote::spec($symbol)));
+  AIM_Commodity_Saved_Quote::remember($snapshot);
+  return AIM_Commodity_Saved_Quote::order($snapshot,$symbol,$position,true);
+ }
  static function state($uid){global $wpdb;$r=$wpdb->get_row($wpdb->prepare('SELECT * FROM '.AIM_Trading::table('commodity').' WHERE user_id=%d',$uid),ARRAY_A);if($wpdb->last_error)return AIM_Trading::error('Chưa đọc được tài khoản hàng hóa.',503);return $r?:array('user_id'=>$uid,'state'=>wp_json_encode(AIM_Commodity_Engine::blank()),'revision'=>0);}
  static function worker(){ $h=get_option('aimtr_commodity_worker',array());$at=(int)($h['at']??0);return array('online'=>$at>0&&time()>=$at&&time()-$at<90,'message'=>$h['message']??'Chưa có nhịp xử lý hàng hóa'); }
  static function account(){
@@ -38,7 +52,7 @@ final class AIM_Commodity_Accounts {
   $confirmed=in_array($type,array('open','close'),true)&&array_key_exists('quote_token',$p);
   if($confirmed&&(!is_string($p['quote_token'])||!preg_match('/^[0-9a-f]{64}$/D',$p['quote_token'])))return AIM_Trading::error('Mã báo giá không hợp lệ.');
   if($type==='open'&&!$confirmed&&(!AIM_Commodity_Feed::configured()||!self::worker()['online']))return AIM_Trading::error('Cần nguồn giá và bộ xử lý hàng hóa đang hoạt động.',503);
-  if($type==='open'&&class_exists('AIM_Market_Launch')&&AIM_Market_Launch::active()&&!AIM_Market_Launch::allowed($p['symbol']??''))return AIM_Trading::error('Mã này chưa được kích hoạt nguồn giá.',503);
+  if($type==='open'&&!$confirmed&&class_exists('AIM_Market_Launch')&&AIM_Market_Launch::active()&&!AIM_Market_Launch::allowed($p['symbol']??''))return AIM_Trading::error('Mã này chưa được kích hoạt nguồn giá.',503);
   if($type==='open'&&!in_array($p['symbol']??null,AIM_Commodity_Feed::symbols(),true))return AIM_Trading::error('Mã hàng hóa không hỗ trợ.');
   $before=self::state($uid);if(is_wp_error($before))return $before;$s=json_decode($before['state'],true);
   if(!is_array($s)||($s['policy']??'')!==AIM_Commodity_Engine::POLICY||!isset($s['cash'],$s['positions']))return AIM_Trading::error('Dữ liệu hàng hóa cần đối soát.',503);
@@ -47,20 +61,19 @@ final class AIM_Commodity_Accounts {
   $position=$type==='close'&&is_int($p['id']??null)?($s['positions'][$p['id']]??null):null;
   if($type==='close'&&!$position)return AIM_Trading::error('Vị thế không tồn tại.',409);
   $target=$type==='open'?$p['symbol']:($position['symbol']??null);
-  $symbols=$type==='close'||$confirmed?array($target):array_values(array_unique(array_merge(
-   array_column($s['positions'],'symbol'),$type==='open'?array($target):array())));
-  $snapshot=$needs_quotes?AIM_Commodity_Feed::snapshot($symbols):array('quotes'=>array(),'specs'=>array());
-  AIM_Commodity_Saved_Quote::remember($snapshot);
-  $manual=null;
+  $manual=null;$snapshot=array('quotes'=>array(),'specs'=>array());
   if($confirmed){
-   $manual=AIM_Commodity_Saved_Quote::order($snapshot,$target,$position);
+   $manual=self::order_price($target,$position);
    if(is_wp_error($manual))return $manual;
    if(!hash_equals($manual['token'],$p['quote_token']))return AIM_Trading::error('Báo giá đã thay đổi. Vui lòng xem và xác nhận lại.',409);
-   if($type==='open'&&!$manual['saved']&&!self::worker()['online'])return AIM_Trading::error('Bộ xử lý hàng hóa chưa hoạt động.',409);
-  }
-  if(is_wp_error($snapshot)){
-   if(!$manual)return $snapshot;
-   $snapshot=array('quotes'=>array(),'specs'=>array());
+  }elseif($needs_quotes){
+   $live_positions=array_filter($s['positions'],static function($p){return !AIM_Commodity_Public_Quote::is_public($p['source']??null);});
+   $symbols=$type==='close'?array($target):array_values(array_unique(array_merge(
+    array_column($live_positions,'symbol'),$type==='open'?array($target):array())));
+   if($type==='tick'&&!$symbols)return array('events'=>array(),'revision'=>(int)$before['revision']);
+   if($symbols)$snapshot=AIM_Commodity_Feed::snapshot($symbols);
+   if(is_wp_error($snapshot))return $snapshot;
+   AIM_Commodity_Saved_Quote::remember($snapshot);
   }
   if($wpdb->query('START TRANSACTION')===false)return AIM_Trading::error('Chưa mở được giao dịch dữ liệu hàng hóa.',503);
   $pool=$wpdb->get_row("SELECT * FROM $a WHERE user_id=0 FOR UPDATE",ARRAY_A);if($wpdb->last_error)return self::fail('Chưa khóa được quỹ.',503);
@@ -80,8 +93,7 @@ final class AIM_Commodity_Accounts {
    }elseif($type==='tick'){$r=AIM_Commodity_Engine::evaluate($s,$snapshot['quotes'],$now);$next=$r['state'];$events=$r['events'];}
    elseif($type==='open'){
     // Automatic exits only use fresh books. Saved manual execution does not evaluate triggers.
-    $can_evaluate=!$manual||(!$manual['saved']&&self::fresh_positions($s,$snapshot['quotes'],$now));
-    if($can_evaluate){
+    if(!$manual){
      $r=AIM_Commodity_Engine::evaluate($s,$snapshot['quotes'],$now);$next=$r['state'];$events=$r['events'];
     }
     if(!$events){
@@ -124,13 +136,6 @@ final class AIM_Commodity_Accounts {
   }catch(Throwable $x){update_option('aimtr_commodity_worker',array('at'=>0,'message'=>'Bộ xử lý hàng hóa cần kiểm tra.'),false);}
   finally{$wpdb->get_var($wpdb->prepare('SELECT RELEASE_LOCK(%s)',$key));}
  }
- static function fresh_positions($state,$quotes,$now){
-  foreach($state['positions'] as $position){
-   $quote=$quotes[$position['symbol']]??null;
-   if(empty($quote['tradeable'])||!AIM_Reference_Feed::fresh($quote,$now))return false;
-  }
-  return true;
- }
  static function order_quote($request){
   $symbol=$request->get_param('symbol');$id=$request->get_param('position');
   if(!in_array($symbol,AIM_Commodity_Feed::symbols(),true))return AIM_Trading::error('Mã này chưa hỗ trợ mở vị thế.',409);
@@ -140,12 +145,10 @@ final class AIM_Commodity_Accounts {
    $row=self::state(get_current_user_id());if(is_wp_error($row))return $row;
    $position=json_decode($row['state'],true)['positions'][(int)$id]??null;
    if(($position['symbol']??null)!==$symbol)return AIM_Trading::error('Vị thế không tồn tại.',409);
-  }elseif(!self::enabled()||(AIM_Market_Launch::active()&&!AIM_Market_Launch::allowed($symbol))){
+  }elseif(!in_array($symbol,self::order_symbols(),true)){
    return AIM_Trading::error('Mã này chưa được kích hoạt nguồn giá.',409);
   }
-  $snapshot=AIM_Commodity_Feed::snapshot(array($symbol));
-  AIM_Commodity_Saved_Quote::remember($snapshot);
-  return AIM_Commodity_Saved_Quote::order($snapshot,$symbol,$position);
+  return self::order_price($symbol,$position);
  }
  static function routes(){
   foreach(array('account'=>array('GET','account'),'action'=>array('POST','mutate'),'order-quote'=>array('GET','order_quote')) as $name=>$r){

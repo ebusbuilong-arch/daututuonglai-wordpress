@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AIM Trading
  * Description: Sàn thực hành AIM: dữ liệu crypto thị trường, biểu đồ và tài khoản giao dịch thử lưu trên máy chủ.
- * Version: 0.4.53
+ * Version: 0.4.54
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
@@ -19,7 +19,7 @@ require_once __DIR__.'/commodity-accounts.php';
 require_once __DIR__.'/market-launch.php';
 require_once __DIR__.'/oil-reference.php';
 final class AIM_Trading {
- const VERSION = '0.4.53';
+ const VERSION = '0.4.54';
  const UNIT = 1000000;
  const START = 100000000;
  const FEE = 0.001;
@@ -245,11 +245,10 @@ final class AIM_Trading {
    $config['market']=$mode;
    if($mode==='stock')$config['vnStocks']=AIM_VN_Stock_Feed::instruments();
    if($mode==='commodity'){
-    $symbols=AIM_Commodity_Accounts::enabled()?AIM_Commodity_Feed::symbols():array();
-    if(AIM_Market_Launch::active())$symbols=array_values(array_intersect($symbols,AIM_Market_Launch::symbols()));
+    $symbols=AIM_Commodity_Accounts::order_symbols();
     $config['commoditySymbols']=$symbols;
     $config['commoditySavedSymbols']=array_values(array_filter($symbols,static function($symbol){
-     return AIM_Commodity_Saved_Quote::saved($symbol)!==null;
+     return AIM_Commodity_Saved_Quote::saved($symbol,AIM_Commodity_Public_Quote::source($symbol))!==null;
     }));
    }
    include __DIR__.'/exchange-terminal.php';exit;
