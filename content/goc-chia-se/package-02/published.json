@@ -1,0 +1,35 @@
+{
+  "status": "published_vi",
+  "english_status": "pending",
+  "portrait_pending": [
+    "dang-phong",
+    "doan-vinh-binh"
+  ],
+  "posts": [
+    {
+      "key": "warren-buffett",
+      "url": "https://daututuonglai.vn/2026/11/13/warren-buffett-phan-bo-von/",
+      "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1708&action=edit"
+    },
+    {
+      "key": "charlie-munger",
+      "url": "https://daututuonglai.vn/2026/11/13/charlie-munger-tu-duy-da-nganh/",
+      "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1711&action=edit"
+    },
+    {
+      "key": "dang-phong",
+      "url": "https://daututuonglai.vn/2026/11/13/dang-phong-lich-su-kinh-te-viet-nam/",
+      "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1714&action=edit"
+    },
+    {
+      "key": "amartya-sen",
+      "url": "https://daututuonglai.vn/2026/11/13/amartya-sen-tieu-su-tu-tuong-phat-trien/",
+      "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1716&action=edit"
+    },
+    {
+      "key": "doan-vinh-binh",
+      "url": "https://daututuonglai.vn/2026/11/13/doan-vinh-binh-mo-hinh-kinh-doanh/",
+      "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1719&action=edit"
+    }
+  ]
+}
