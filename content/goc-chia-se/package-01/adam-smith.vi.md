@@ -1,4 +1,5 @@
 ---
+published_url: https://daututuonglai.vn/2026/11/13/adam-smith-tieu-su-tu-tuong-kinh-te/
 title: "Adam Smith: Sự giàu có bắt đầu từ cách con người hợp tác"
 slug: adam-smith-tieu-su-tu-tuong-kinh-te
 category: goc-chia-se
@@ -6,10 +7,10 @@ series: Thế giới qua tư tưởng các nhà kinh tế
 country_context: "Scotland, Vương quốc Anh"
 package: "01"
 language: vi
-status: draft
-publication_status: not_published
-duplicate_check: pending_live_access
-portrait_status: source_and_public_domain_verified_download_pending
+status: published_vi
+publication_status: published
+duplicate_check: verified_in_wordpress
+portrait_status: uploaded_and_attributed
 english_status: pending
 description: "Cuộc đời Adam Smith, tư tưởng phân công lao động và mối liên hệ giữa sự giàu có, cạnh tranh với đời sống đạo đức."
 ---
@@ -74,14 +75,11 @@ Một bài tập đơn giản là chọn một sản phẩm dùng mỗi ngày, v
 
 [5] Tài liệu giới thiệu Adam Smith lưu tại Stanford: https://web.stanford.edu/~johntayl/bio1-Adam%20Smith.pdf
 
-## Hồ sơ chân dung — dành cho biên tập
 
-- Loại: tranh chân dung lịch sử, không phải ảnh chụp.
-- Tác phẩm: The Muir portrait, tác giả khuyết danh, khoảng năm 1800.
-- Trang tệp đã kiểm tra: https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg
-- Nguồn bảo tàng được trang tệp ghi: https://www.nationalgalleries.org/art-and-artists/3787/adam-smith-1723-1790-political-economist
-- Quyền sử dụng theo trang Wikimedia Commons: public domain; bản tái tạo trung thực tác phẩm hai chiều thuộc phạm vi công cộng (PD-Art).
-- Chú thích đề xuất: “Chân dung thường được xác định là Adam Smith, gọi là Muir portrait; họa sĩ khuyết danh, khoảng năm 1800. Nguồn: Wikimedia Commons / National Galleries of Scotland, public domain.”
-- Lưu ý tư liệu: tranh có thể được vẽ sau khi Smith mất; trang nguồn ghi nhận việc nhận diện không có bằng chứng xác nhận tuyệt đối. Không mô tả là ảnh chân dung chụp lúc sinh thời.
-- Alt: “Tranh chân dung lịch sử thường được xác định là Adam Smith”.
-- Chưa tải ảnh, chuyển WebP hoặc gắn media WordPress. Không đánh dấu hoàn tất hình ảnh trước khi thực hiện các bước này.
+## Ghi công chân dung
+
+Muir portrait, họa sĩ khuyết danh, khoảng năm 1800. Tranh thường được xác định là Adam Smith, có thể được vẽ sau khi ông mất. Wikimedia Commons / National Galleries of Scotland, public domain. Thu nhỏ và chuyển WebP.
+
+Nguồn: https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg
+
+Giấy phép: Xem trang nguồn
