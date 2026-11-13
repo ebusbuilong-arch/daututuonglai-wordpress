@@ -13,7 +13,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 chân dung; Đặng Phong và Đoàn Vĩnh Bình dùng minh họa AI tham chiếu |
 | 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh |
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 ảnh thật và nguồn |
-| 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh, 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -90,3 +90,17 @@ Bản lưu: [package-04-bilingual.json](./package-04-bilingual.json). Đã nhậ
 Bài Jensen Huang cập nhật vai trò theo thông báo NVIDIA ngày 12/11/2026 và hồ sơ 8-K; không gọi là CEO đương nhiệm. Không suy diễn kết quả các vấn đề đang được xem xét.
 
 Additional CSS trên WordPress dùng object-fit: contain cho năm tệp chân dung của gói 04 để không cắt khuôn mặt ở danh mục. Chưa thay theme.
+
+## Gói 05 và chuẩn hóa chú thích — 13/11/2026
+
+- [Satya Nadella](https://daututuonglai.vn/2026/11/13/satya-nadella-van-hoa-hoc-hoi/) · [EN](https://daututuonglai.vn/en/2026/11/13/satya-nadella-van-hoa-hoc-hoi/)
+- [Sundar Pichai](https://daututuonglai.vn/2026/11/13/sundar-pichai-san-pham-huu-ich/) · [EN](https://daututuonglai.vn/en/2026/11/13/sundar-pichai-san-pham-huu-ich/)
+- [Daniel Kahneman](https://daututuonglai.vn/2026/11/13/daniel-kahneman-tam-ly-quyet-dinh/) · [EN](https://daututuonglai.vn/en/2026/11/13/daniel-kahneman-tam-ly-quyet-dinh/)
+- [Mahbub ul Haq](https://daututuonglai.vn/2026/11/13/mahbub-ul-haq-phat-trien-con-nguoi/) · [EN](https://daututuonglai.vn/en/2026/11/13/mahbub-ul-haq-phat-trien-con-nguoi/)
+- [Tim Cook](https://daututuonglai.vn/2026/11/13/tim-cook-ky-luat-van-hanh/) · [EN](https://daututuonglai.vn/en/2026/11/13/tim-cook-ky-luat-van-hanh/)
+
+Bản lưu: [package-05-bilingual.json](./package-05-bilingual.json). Đã nhập 106 chuỗi EN, gồm nội dung gói 05 và các chú thích ảnh được rút gọn. Kiểm tra cả 10 lượt trang VI/EN: đầy đủ từng đoạn, tiêu đề, nguồn ảnh; cả 5 ảnh tải được, alt đúng nhân vật. Năm mô tả ngắn EN trên danh mục đã kiểm tra. Kahneman được giới thiệu đúng là nhà tâm lý học có đóng góp cho kinh tế học. Tim Cook được ghi là Executive Chair theo thông báo chuyển giao Apple có hiệu lực 1/9/2026.
+
+Bốn ảnh thật: Nadella và Pichai (CC BY 2.0), Kahneman và Cook (CC BY-SA 2.0). Mahbub ul Haq dùng minh họa AI tham chiếu ảnh lưu trữ World Bank, có nhãn rõ VI/EN. Additional CSS giữ trọn khuôn mặt bằng object-fit: contain cho 5 ảnh mới.
+
+Theo yêu cầu chủ website, đã bỏ các câu mô tả thao tác thu nhỏ/chuyển WebP khỏi chú thích hiển thị và Image Caption của 17 bài ở gói 01–04; bản EN và bản lưu song ngữ cũng được cập nhật. Gói 05 không đưa câu này vào chú thích. Tiếp tục tối ưu tệp ảnh nội bộ nhưng phần hiển thị chỉ ghi nhân vật, nguồn, giấy phép và nhận diện AI khi áp dụng. Các khác biệt nội dung ảnh cần thiết để ghi công như tác giả bản cắt vẫn được giữ.
