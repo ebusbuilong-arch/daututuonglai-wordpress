@@ -1,0 +1,54 @@
+{
+  "published": [
+    {
+      "key": "benjamin-graham",
+      "url": "https://daututuonglai.vn/2026/11/13/benjamin-graham-cuoc-doi-triet-ly-dau-tu/"
+    },
+    {
+      "key": "adam-smith",
+      "url": "https://daututuonglai.vn/2026/11/13/adam-smith-tieu-su-tu-tuong-kinh-te/"
+    },
+    {
+      "key": "mark-zuckerberg",
+      "url": "https://daututuonglai.vn/2026/11/13/mark-zuckerberg-tieu-su-triet-ly-kinh-doanh/"
+    },
+    {
+      "key": "elon-musk",
+      "url": "https://daututuonglai.vn/2026/11/13/elon-musk-tesla-spacex-triet-ly-kinh-doanh/"
+    },
+    {
+      "key": "john-bogle",
+      "url": "https://daututuonglai.vn/2026/11/13/john-bogle-tieu-su-triet-ly-dau-tu/"
+    }
+  ],
+  "credits": [
+    {
+      "alt": "Benjamin Graham, chân dung năm 1950",
+      "text": "Benjamin Graham (1950). Tác giả khuyết danh; Wikimedia Commons ghi public domain tại Hoa Kỳ do không gia hạn bản quyền. Chuyển định dạng WebP.",
+      "url": "https://commons.wikimedia.org/wiki/File:Benjamin_Graham_(1894-1976)_portrait_on_23_March_1950.jpg"
+    },
+    {
+      "alt": "Tranh chân dung thường được xác định là Adam Smith",
+      "text": "Muir portrait, họa sĩ khuyết danh, khoảng năm 1800. Tranh thường được xác định là Adam Smith, có thể được vẽ sau khi ông mất. Wikimedia Commons / National Galleries of Scotland, public domain. Thu nhỏ và chuyển WebP.",
+      "url": "https://commons.wikimedia.org/wiki/File:Adam_Smith_The_Muir_portrait.jpg"
+    },
+    {
+      "alt": "Mark Zuckerberg tại hội nghị F8 năm 2019",
+      "text": "Mark Zuckerberg tại F8, 30/4/2019. Ảnh Anthony Quintano, CC BY 2.0. Thu nhỏ và chuyển WebP.",
+      "url": "https://commons.wikimedia.org/wiki/File:Mark_Zuckerberg_F8_2019_Keynote_(47721889752).jpg",
+      "license": "https://creativecommons.org/licenses/by/2.0/"
+    },
+    {
+      "alt": "Elon Musk tại Royal Society năm 2018",
+      "text": "Elon Musk (2018). Ghi công The Royal Society; tệp Wikimedia Commons do Duncan.Hull cung cấp, bản crop1. CC BY-SA 3.0; bản chuyển WebP giữ cùng giấy phép.",
+      "url": "https://commons.wikimedia.org/wiki/File:Elon_Musk_Royal_Society_(crop1).jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/3.0/"
+    },
+    {
+      "alt": "John C. Bogle, người sáng lập Vanguard, năm 2007",
+      "text": "John C. Bogle (2007). Ảnh Bill Cramer / Wonderful Machine, CC BY-SA 4.0. Chuyển WebP; ảnh giữ cùng giấy phép.",
+      "url": "https://commons.wikimedia.org/wiki/File:Photo_of_a_John_C._Bogle_By_Bill_Cramer.jpg",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+}
