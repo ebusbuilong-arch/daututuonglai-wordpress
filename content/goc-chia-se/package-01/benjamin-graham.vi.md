@@ -1,14 +1,15 @@
 ---
+published_url: https://daututuonglai.vn/2026/11/13/benjamin-graham-cuoc-doi-triet-ly-dau-tu/
 title: "Benjamin Graham: Đầu tư bắt đầu từ việc biết mình có thể sai"
 slug: benjamin-graham-cuoc-doi-triet-ly-dau-tu
 category: goc-chia-se
 series: Cuộc đời và triết lý kinh doanh
 package: "01"
 language: vi
-status: draft
-publication_status: not_published
-duplicate_check: pending_live_access
-portrait_status: pending_license_verification
+status: published_vi
+publication_status: published
+duplicate_check: verified_in_wordpress
+portrait_status: uploaded_and_attributed
 english_status: pending
 description: "Tìm hiểu Benjamin Graham, nền tảng đầu tư giá trị, biên an toàn và cách giữ độc lập trước biến động của thị trường."
 ---
@@ -69,8 +70,11 @@ Với người mới tại Việt Nam, bài tập phù hợp là chọn một do
 
 [4] Robert F. Bierig — The Evolution of the Idea of Value Investing, tài liệu lưu tại Duke University: https://sites.duke.edu/djepapers/files/2016/08/bierig.pdf
 
-## Hồ sơ ảnh — dành cho biên tập, không đưa vào thân bài
 
-Chưa chọn được tệp chân dung với quyền sử dụng được xác minh. Trang tra cứu ban đầu: https://commons.wikimedia.org/wiki/Category:Benjamin_Graham
-Không dùng ảnh “John Benjamin Graham”: đây là tên một người khác, không phải căn cứ nhận diện nhà đầu tư Benjamin Graham.
-Trước khi xuất bản cần chọn đúng người, lưu trang nguồn, tác giả, giấy phép và tải bản tối ưu vào WordPress. Không tự lấy ảnh từ Columbia/Ivey khi chưa kiểm tra quyền sử dụng.
+## Ghi công chân dung
+
+Benjamin Graham (1950). Tác giả khuyết danh; Wikimedia Commons ghi public domain tại Hoa Kỳ do không gia hạn bản quyền. Chuyển định dạng WebP.
+
+Nguồn: https://commons.wikimedia.org/wiki/File:Benjamin_Graham_(1894-1976)_portrait_on_23_March_1950.jpg
+
+Giấy phép: Xem trang nguồn
