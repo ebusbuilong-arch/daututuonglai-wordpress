@@ -1,0 +1,560 @@
+[
+  {
+    "key": "satya-nadella",
+    "slug": "satya-nadella-van-hoa-hoc-hoi",
+    "title": "Satya Nadella: Thay đổi doanh nghiệp bắt đầu từ cách học hỏi",
+    "title_en": "Satya Nadella: Changing a business starts with how it learns",
+    "excerpt": "Từ Hyderabad đến Microsoft, Satya Nadella và bài học về văn hóa học hỏi, hợp tác và thay đổi cách phục vụ khách hàng.",
+    "excerpt_en": "From Hyderabad to Microsoft: Satya Nadella on learning, collaboration and changing how a business serves its customers.",
+    "credit": "Ảnh Satya Nadella tại LeWeb 2013: OFFICIAL LEWEB PHOTOS / KMERON, CC BY 2.0.",
+    "credit_en": "Satya Nadella at LeWeb 2013: OFFICIAL LEWEB PHOTOS / KMERON, CC BY 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Satya_Nadella.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Microsoft — Satya Nadella",
+        "url": "https://news.microsoft.com/source/exec/satya-nadella/"
+      },
+      {
+        "label": "Microsoft — Digitally transforming Microsoft: Our IT journey",
+        "url": "https://www.microsoft.com/insidetrack/blog/digitally-transforming-microsoft-our-it-journey/"
+      },
+      {
+        "label": "Microsoft — Introducing our new CEO, 2014",
+        "url": "https://blogs.microsoft.com/blog/2014/02/04/introducing-microsofts-new-ceo-satya-nadella/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp từng thành công rất dễ xem cách làm cũ là đáp án cho mọi vấn đề. Khó khăn xuất hiện khi khách hàng thay đổi nhanh hơn tổ chức. Câu chuyện Satya Nadella gợi ra một câu hỏi gần gũi: người lãnh đạo phải làm gì để nhân viên nhận ra điều chưa biết và cùng sửa cách làm?",
+        "en": "A successful business can start treating its old methods as the answer to every problem. Trouble begins when customers change faster than the organization. Satya Nadella's story raises a practical question: how can a leader help people recognize what they do not know and improve their work together?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ kỹ thuật đến điều hành Microsoft",
+        "en": "From engineering to leading Microsoft"
+      },
+      {
+        "tag": "p",
+        "vi": "Nadella xuất thân từ Hyderabad, Ấn Độ. Ông học kỹ thuật điện, sau đó học khoa học máy tính và quản trị kinh doanh tại Mỹ. Gia nhập Microsoft năm 1992, ông trải qua nhiều vị trí trước khi trở thành CEO vào tháng 2/2014. Hồ sơ lãnh đạo hiện tại của Microsoft ghi ông là Chủ tịch kiêm CEO. [1]",
+        "en": "Nadella comes from Hyderabad, India. He studied electrical engineering, then computer science and business administration in the United States. He joined Microsoft in 1992 and held several roles before becoming CEO in February 2014. Microsoft's current leadership profile lists him as Chairman and CEO. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Trước khi đứng đầu công ty, Nadella phụ trách nhóm Cloud and Enterprise. [1] Chi tiết này giúp hiểu con đường của ông: kinh nghiệm được tích lũy qua những hệ thống phải hoạt động ổn định cho khách hàng doanh nghiệp. Đó là môi trường mà một lời hứa hấp dẫn chưa đủ; dịch vụ còn phải đáng tin cậy trong quá trình sử dụng.",
+        "en": "Before leading the company, Nadella headed its Cloud and Enterprise group. [1] This helps explain his path: he gained experience with systems that enterprise customers depended on. In that setting, an attractive promise is insufficient; a service must remain reliable in everyday use."
+      },
+      {
+        "tag": "h2",
+        "vi": "Văn hóa học hỏi phải đi vào cách làm việc",
+        "en": "A learning culture must change daily work"
+      },
+      {
+        "tag": "p",
+        "vi": "Microsoft mô tả quá trình chuyển đổi văn hóa dưới thời Nadella bằng việc đề cao tinh thần học hỏi thay cho thái độ cho rằng mình đã biết hết. Tài liệu của công ty cũng nói đến việc ghi nhận đóng góp cho thành công của người khác. [2] Đây là mô tả từ chính Microsoft, không phải bằng chứng rằng mọi nhóm đều thực hiện hoàn hảo.",
+        "en": "Microsoft describes its cultural shift under Nadella as emphasizing learning instead of assuming one already knows everything. Its account also discusses recognizing contributions to other people's success. [2] This is Microsoft's own description, not proof that every team implements it perfectly."
+      },
+      {
+        "tag": "p",
+        "vi": "Từ đó có thể rút ra một ứng dụng quản trị: nếu chỉ thưởng cho kết quả riêng, nhân viên có thể giữ thông tin hoặc tránh hỗ trợ bộ phận khác. Nếu đánh giá cả chất lượng bàn giao và khả năng phối hợp, người làm tốt có thêm lý do để giúp công việc chung tiến lên. Cơ chế khuyến khích cần phù hợp với điều lãnh đạo mong đợi.",
+        "en": "One management application follows: rewarding only individual results can encourage people to withhold information or avoid helping other teams. Assessing handover quality and collaboration gives capable employees another reason to support shared work. Incentives should match what leaders say they value."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một ví dụ giả định, bộ phận bán hàng nhận đơn nhanh nhưng không hỏi đủ quy cách. Xưởng phải sửa mẫu, còn người bán vẫn được tính thành tích theo doanh số. Vấn đề không chỉ nằm ở thái độ cá nhân. Biểu mẫu nhận đơn và cách ghi nhận kết quả đang khiến một bộ phận có lợi trong khi bộ phận khác chịu phần việc phát sinh.",
+        "en": "Consider a hypothetical sales team that accepts orders quickly without confirming specifications. The workshop must revise samples, while sales staff receive credit solely for revenue. The problem is not just individual attitude: the order form and performance measures benefit one team while another absorbs the extra work."
+      },
+      {
+        "tag": "h2",
+        "vi": "Học từ sai sót mà vẫn giữ trách nhiệm",
+        "en": "Learning from mistakes while retaining accountability"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ trên là phân tích của ban biên tập, không phải tình huống tại Microsoft. Cách sửa có thể bắt đầu bằng ba câu hỏi: thông tin nào đã thiếu, ai cần nhận thông tin đó và bước kiểm tra nào ngăn lỗi lặp lại? Cuộc họp có ích khi kết thúc bằng một thay đổi cụ thể, người phụ trách và thời điểm kiểm tra lại.",
+        "en": "This is an editorial example, not an incident at Microsoft. Improvement could start with three questions: what information was missing, who needed it, and what check would prevent recurrence? A useful meeting ends with a specific change, an owner and a review date."
+      },
+      {
+        "tag": "p",
+        "vi": "Học hỏi cũng không đồng nghĩa chấp nhận mọi sai sót vô thời hạn. Một thử nghiệm có phạm vi nhỏ, giới hạn chi phí và ghi nhận kết quả khác với việc bỏ qua quy trình đã biết. Người quản lý cần phân biệt sai sót do khám phá điều mới với lỗi lặp lại vì không thực hiện trách nhiệm cơ bản.",
+        "en": "Learning does not mean accepting every mistake indefinitely. A small experiment with a spending limit and recorded results differs from ignoring an established procedure. Managers need to distinguish uncertainty in exploration from repeated failures to meet basic responsibilities."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thay đổi công nghệ phải tạo ra giá trị sử dụng",
+        "en": "Technology changes must deliver practical value"
+      },
+      {
+        "tag": "p",
+        "vi": "Lịch sử chuyển đổi nội bộ của Microsoft nối hoạt động hạ tầng tại chỗ với điện toán đám mây, kỹ thuật hiện đại và AI. [2] Với doanh nghiệp nhỏ, bài học không phải mua cùng công nghệ. Điều đáng hỏi là công việc nào đang chậm, người dùng đang vướng ở đâu và kết quả nào chứng minh giải pháp mới thực sự hữu ích.",
+        "en": "Microsoft's internal transformation history connects on-premises infrastructure with cloud computing, modern engineering and AI. [2] A small business need not buy the same technology. It should ask which tasks are slow, where users struggle, and what evidence would show that a new solution is useful."
+      },
+      {
+        "tag": "p",
+        "vi": "Chẳng hạn, phần mềm theo dõi đơn hàng chỉ tạo giá trị khi dữ liệu được nhập đủ và người giao việc có thể sử dụng ngay. Nếu mỗi nhân viên ghi một kiểu, màn hình đẹp vẫn không giúp giảm nhầm lẫn. Nên thử trên một nhóm đơn hàng, so sánh số lần phải hỏi lại và thời gian xử lý trước khi mở rộng.",
+        "en": "For example, order-tracking software adds value only when records are complete and the person assigning work can use them immediately. If everyone records information differently, an attractive interface will not prevent confusion. Test it on a limited group of orders and compare clarification requests and processing time before expanding."
+      },
+      {
+        "tag": "p",
+        "vi": "Thành quả của một tập đoàn còn phụ thuộc đội ngũ, tài sản tích lũy, thị trường và nhiều quyết định qua thời gian. Không nên quy toàn bộ kết quả cho một khẩu hiệu của CEO. Giá trị thực tế khi đọc về Nadella là xây dựng tổ chức biết tiếp nhận phản hồi, thử có kiểm soát và điều chỉnh dựa trên những gì khách hàng thực sự cần.",
+        "en": "A corporation's results also depend on its people, accumulated assets, markets and decisions over time. They should not all be attributed to a CEO's slogan. The practical value of studying Nadella is in building an organization that accepts feedback, experiments within limits and responds to what customers actually need."
+      }
+    ],
+    "html": "<p><em>Ảnh Satya Nadella tại LeWeb 2013: OFFICIAL LEWEB PHOTOS / KMERON, CC BY 2.0.</em></p>\n<p>Một doanh nghiệp từng thành công rất dễ xem cách làm cũ là đáp án cho mọi vấn đề. Khó khăn xuất hiện khi khách hàng thay đổi nhanh hơn tổ chức. Câu chuyện Satya Nadella gợi ra một câu hỏi gần gũi: người lãnh đạo phải làm gì để nhân viên nhận ra điều chưa biết và cùng sửa cách làm?</p>\n<h2>Từ kỹ thuật đến điều hành Microsoft</h2>\n<p>Nadella xuất thân từ Hyderabad, Ấn Độ. Ông học kỹ thuật điện, sau đó học khoa học máy tính và quản trị kinh doanh tại Mỹ. Gia nhập Microsoft năm 1992, ông trải qua nhiều vị trí trước khi trở thành CEO vào tháng 2/2014. Hồ sơ lãnh đạo hiện tại của Microsoft ghi ông là Chủ tịch kiêm CEO. [1]</p>\n<p>Trước khi đứng đầu công ty, Nadella phụ trách nhóm Cloud and Enterprise. [1] Chi tiết này giúp hiểu con đường của ông: kinh nghiệm được tích lũy qua những hệ thống phải hoạt động ổn định cho khách hàng doanh nghiệp. Đó là môi trường mà một lời hứa hấp dẫn chưa đủ; dịch vụ còn phải đáng tin cậy trong quá trình sử dụng.</p>\n<h2>Văn hóa học hỏi phải đi vào cách làm việc</h2>\n<p>Microsoft mô tả quá trình chuyển đổi văn hóa dưới thời Nadella bằng việc đề cao tinh thần học hỏi thay cho thái độ cho rằng mình đã biết hết. Tài liệu của công ty cũng nói đến việc ghi nhận đóng góp cho thành công của người khác. [2] Đây là mô tả từ chính Microsoft, không phải bằng chứng rằng mọi nhóm đều thực hiện hoàn hảo.</p>\n<p>Từ đó có thể rút ra một ứng dụng quản trị: nếu chỉ thưởng cho kết quả riêng, nhân viên có thể giữ thông tin hoặc tránh hỗ trợ bộ phận khác. Nếu đánh giá cả chất lượng bàn giao và khả năng phối hợp, người làm tốt có thêm lý do để giúp công việc chung tiến lên. Cơ chế khuyến khích cần phù hợp với điều lãnh đạo mong đợi.</p>\n<p>Trong một ví dụ giả định, bộ phận bán hàng nhận đơn nhanh nhưng không hỏi đủ quy cách. Xưởng phải sửa mẫu, còn người bán vẫn được tính thành tích theo doanh số. Vấn đề không chỉ nằm ở thái độ cá nhân. Biểu mẫu nhận đơn và cách ghi nhận kết quả đang khiến một bộ phận có lợi trong khi bộ phận khác chịu phần việc phát sinh.</p>\n<h2>Học từ sai sót mà vẫn giữ trách nhiệm</h2>\n<p>Ví dụ trên là phân tích của ban biên tập, không phải tình huống tại Microsoft. Cách sửa có thể bắt đầu bằng ba câu hỏi: thông tin nào đã thiếu, ai cần nhận thông tin đó và bước kiểm tra nào ngăn lỗi lặp lại? Cuộc họp có ích khi kết thúc bằng một thay đổi cụ thể, người phụ trách và thời điểm kiểm tra lại.</p>\n<p>Học hỏi cũng không đồng nghĩa chấp nhận mọi sai sót vô thời hạn. Một thử nghiệm có phạm vi nhỏ, giới hạn chi phí và ghi nhận kết quả khác với việc bỏ qua quy trình đã biết. Người quản lý cần phân biệt sai sót do khám phá điều mới với lỗi lặp lại vì không thực hiện trách nhiệm cơ bản.</p>\n<h2>Thay đổi công nghệ phải tạo ra giá trị sử dụng</h2>\n<p>Lịch sử chuyển đổi nội bộ của Microsoft nối hoạt động hạ tầng tại chỗ với điện toán đám mây, kỹ thuật hiện đại và AI. [2] Với doanh nghiệp nhỏ, bài học không phải mua cùng công nghệ. Điều đáng hỏi là công việc nào đang chậm, người dùng đang vướng ở đâu và kết quả nào chứng minh giải pháp mới thực sự hữu ích.</p>\n<p>Chẳng hạn, phần mềm theo dõi đơn hàng chỉ tạo giá trị khi dữ liệu được nhập đủ và người giao việc có thể sử dụng ngay. Nếu mỗi nhân viên ghi một kiểu, màn hình đẹp vẫn không giúp giảm nhầm lẫn. Nên thử trên một nhóm đơn hàng, so sánh số lần phải hỏi lại và thời gian xử lý trước khi mở rộng.</p>\n<p>Thành quả của một tập đoàn còn phụ thuộc đội ngũ, tài sản tích lũy, thị trường và nhiều quyết định qua thời gian. Không nên quy toàn bộ kết quả cho một khẩu hiệu của CEO. Giá trị thực tế khi đọc về Nadella là xây dựng tổ chức biết tiếp nhận phản hồi, thử có kiểm soát và điều chỉnh dựa trên những gì khách hàng thực sự cần.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://news.microsoft.com/source/exec/satya-nadella/\">Microsoft — Satya Nadella</a></li><li><a href=\"https://www.microsoft.com/insidetrack/blog/digitally-transforming-microsoft-our-it-journey/\">Microsoft — Digitally transforming Microsoft: Our IT journey</a></li><li><a href=\"https://blogs.microsoft.com/blog/2014/02/04/introducing-microsofts-new-ceo-satya-nadella/\">Microsoft — Introducing our new CEO, 2014</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Satya_Nadella.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/satya-nadella.webp",
+    "url": "https://daututuonglai.vn/2026/11/13/satya-nadella-van-hoa-hoc-hoi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1764&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/satya-nadella-van-hoa-hoc-hoi/"
+  },
+  {
+    "key": "sundar-pichai",
+    "slug": "sundar-pichai-san-pham-huu-ich",
+    "title": "Sundar Pichai: Sản phẩm lớn lên từ những nhu cầu nhỏ hằng ngày",
+    "title_en": "Sundar Pichai: Building products around everyday needs",
+    "excerpt": "Hành trình Sundar Pichai tại Google và Alphabet, cùng bài học về tính hữu ích, khả năng tiếp cận và trách nhiệm của nền tảng.",
+    "excerpt_en": "Sundar Pichai at Google and Alphabet: usefulness, accessibility and the responsibilities of a large platform.",
+    "credit": "Ảnh Sundar Pichai năm 2014: Maurizio Pesce, CC BY 2.0.",
+    "credit_en": "Sundar Pichai in 2014: Maurizio Pesce, CC BY 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Sundar_Pichai.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Alphabet — Management change, 2019",
+        "url": "https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx"
+      },
+      {
+        "label": "Alphabet — 2015 Founders’ Letter, Sundar Pichai",
+        "url": "https://abc.xyz/investor/founders-letters/2015/default.aspx"
+      },
+      {
+        "label": "Alphabet — Q3 2026 earnings call",
+        "url": "https://abc.xyz/investor/events/event-details/2026/2026-Q3-Earnings-Call-2026-Ujou16CTw9/default.aspx"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một sản phẩm công nghệ có thể rất phức tạp ở bên trong nhưng chỉ được người dùng nhớ vì một việc đơn giản: tìm đúng thông tin, mở trang nhanh hoặc chỉ đường thuận tiện. Hành trình Sundar Pichai cho thấy vì sao công việc biến năng lực kỹ thuật thành tiện ích thường ngày có thể đưa một nhà quản lý đến vị trí lãnh đạo tập đoàn.",
+        "en": "A technology product may be complex internally yet remembered for one simple task: finding information, opening a page quickly or giving useful directions. Sundar Pichai's career illustrates how turning engineering capabilities into everyday utility can become a path to corporate leadership."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Chennai đến Google và Alphabet",
+        "en": "From Chennai to Google and Alphabet"
+      },
+      {
+        "tag": "p",
+        "vi": "Pichai lớn lên tại Chennai, Ấn Độ, học kỹ thuật tại IIT, sau đó học ở Stanford và Wharton. Ông gia nhập Google năm 2004, tham gia lãnh đạo phát triển Toolbar rồi Chrome. Pichai trở thành CEO Google năm 2015 và nhận thêm vai trò CEO Alphabet năm 2019. [1] Tài liệu kết quả kinh doanh quý III/2026 vẫn ghi nhận ông ở cả hai vị trí. [3]",
+        "en": "Pichai grew up in Chennai, India, studied engineering at IIT, and later attended Stanford and Wharton. He joined Google in 2004 and helped lead Toolbar and then Chrome development. He became Google's CEO in 2015 and Alphabet's CEO in 2019. [1] The Q3 2026 earnings materials continue to identify him in both roles. [3]"
+      },
+      {
+        "tag": "p",
+        "vi": "Ông không phải người sáng lập Google. Điều đáng chú ý là quá trình đi từ sản phẩm đến trách nhiệm điều hành rộng hơn. Khi công ty lớn lên, người lãnh đạo phải kết nối kỹ thuật, nhu cầu khách hàng và việc phân bổ nguồn lực. Khả năng hiểu một sản phẩm quan trọng, nhưng chưa tự động bảo đảm điều hành tốt toàn bộ doanh nghiệp.",
+        "en": "He did not found Google. What stands out is the progression from product work to broader management responsibility. As a company grows, leaders must connect engineering, customer needs and resource allocation. Understanding a product matters, but does not automatically ensure effective management of the entire business."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tính hữu ích bắt đầu từ hoàn cảnh sử dụng",
+        "en": "Usefulness starts with the user's situation"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong phần viết của mình ở thư nhà sáng lập năm 2015, Pichai nhấn mạnh việc giúp người dùng tiếp cận thông tin và nhận hỗ trợ phù hợp hoàn cảnh. Ông mô tả những nhu cầu khác nhau khi tìm kiếm, xem bản đồ hoặc quản lý ảnh. [2] Đó là định hướng sản phẩm được công bố, không phải lời bảo đảm rằng mọi dịch vụ luôn đáp ứng tốt.",
+        "en": "In his contribution to the 2015 founders' letter, Pichai emphasizes access to information and assistance suited to a user's circumstances. He discusses different needs in search, maps and photo management. [2] This is a published product direction, not a guarantee that every service always performs well."
+      },
+      {
+        "tag": "p",
+        "vi": "Một người đang đi đường cần câu trả lời ngắn và dễ thao tác; người nghiên cứu một chủ đề lại cần nguồn và chiều sâu. Nếu thiết kế chỉ dựa vào danh sách tính năng, cả hai có thể phải làm quá nhiều bước. Hiểu hoàn cảnh sử dụng giúp nhóm phát triển xác định điều gì nên nổi bật, điều gì nên đặt ở phần mở rộng.",
+        "en": "Someone on the road needs a short answer and simple controls; someone researching a subject needs sources and depth. Designing only around a feature list can burden both users with unnecessary steps. Understanding context helps a team decide what should be prominent and what belongs in an expanded view."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đo việc hoàn thành thay vì chỉ đếm lượt vào",
+        "en": "Measure task completion, not just visits"
+      },
+      {
+        "tag": "p",
+        "vi": "Giả sử một website có công cụ tính chi phí, nhưng người dùng phải đăng ký dài trước khi xem kết quả. Quảng cáo kéo nhiều người vào mà rất ít người hoàn thành. Trong tình huống giả định này, thêm quảng cáo chưa chắc giải quyết được vấn đề. Cần xem người dùng dừng ở bước nào và liệu các thông tin yêu cầu có thực sự cần thiết.",
+        "en": "Suppose a website offers a cost calculator but requires a lengthy registration before showing results. Advertising attracts visitors, yet few finish. In this hypothetical situation, more advertising may not solve the problem. The team should examine where people stop and whether the requested information is actually necessary."
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể thử biểu mẫu ngắn hơn, giải thích cách tính và cho xem kết quả ngay khi đủ dữ liệu. Sau đó so sánh tỷ lệ hoàn thành, số lỗi và phản hồi về mức dễ hiểu. Đây là gợi ý biên tập để vận dụng tư duy sản phẩm, không phải quy trình được trích từ Google hay công thức bảo đảm tăng doanh thu.",
+        "en": "A team could test a shorter form, explain the calculation and show results once enough data is available. It could then compare completion rates, errors and feedback on clarity. This is an editorial application of product thinking, not a Google procedure or a guaranteed revenue formula."
+      },
+      {
+        "tag": "p",
+        "vi": "Tỷ lệ quay lại cũng cần đặt trong mục đích sử dụng. Công cụ làm một việc hiếm gặp không nhất thiết phải được mở hằng ngày. Ngược lại, một ứng dụng được mở nhiều vì liên tục báo lỗi không thể xem là thành công. Chỉ số có ý nghĩa khi phản ánh việc người dùng muốn hoàn thành và chất lượng kết quả họ nhận được.",
+        "en": "Return visits also need context. A tool for an infrequent task does not necessarily need daily use. Conversely, frequent opening caused by recurring errors is not success. A metric matters when it reflects the task users want to complete and the quality of the result they receive."
+      },
+      {
+        "tag": "h2",
+        "vi": "Quy mô càng lớn, trách nhiệm càng rộng",
+        "en": "Greater scale brings broader responsibilities"
+      },
+      {
+        "tag": "p",
+        "vi": "Pichai cũng đề cập bảo vệ dữ liệu và quyền riêng tư khi nói về dịch vụ hiểu hoàn cảnh người dùng. [2] Hai mục tiêu này cần được cân nhắc cùng nhau. Thu thập thêm dữ liệu có thể giúp cá nhân hóa, nhưng cũng đặt ra câu hỏi về mục đích sử dụng, thời gian lưu trữ và khả năng kiểm soát của người dùng.",
+        "en": "Pichai also discusses privacy and data protection when describing context-aware services. [2] These goals must be considered together. Additional data may support personalization, but raises questions about purpose, retention and users' control over their information."
+      },
+      {
+        "tag": "p",
+        "vi": "Với một doanh nghiệp nhỏ, trách nhiệm có thể bắt đầu bằng việc chỉ hỏi dữ liệu cần dùng, giải thích rõ kết quả và cho khách sửa thông tin sai. Khi đưa AI vào sản phẩm, câu trả lời nhanh vẫn cần cơ chế kiểm tra và phản hồi. Trải nghiệm thuận tiện không nên khiến người dùng hiểu nhầm một ước tính là kết quả chắc chắn.",
+        "en": "A small business can start by requesting only necessary data, explaining results and letting customers correct inaccurate information. Adding AI still requires checking and feedback mechanisms. A convenient interface should not lead users to mistake an estimate for a certain result."
+      },
+      {
+        "tag": "p",
+        "vi": "Đọc về Pichai vì vậy không chỉ là đọc câu chuyện thăng tiến. Đây còn là dịp nhìn lại sản phẩm của mình: khách đến để làm việc gì, bước nào gây khó và bằng chứng nào cho thấy họ đã được giúp đỡ? Khi những câu hỏi ấy được trả lời cụ thể, quyết định về tính năng và nguồn lực thường trở nên rõ ràng hơn.",
+        "en": "Reading about Pichai is therefore more than following a career story. It is an opportunity to examine a product: what are customers trying to do, which steps cause difficulty, and what evidence shows they have been helped? Concrete answers make feature and resource decisions clearer."
+      }
+    ],
+    "html": "<p><em>Ảnh Sundar Pichai năm 2014: Maurizio Pesce, CC BY 2.0.</em></p>\n<p>Một sản phẩm công nghệ có thể rất phức tạp ở bên trong nhưng chỉ được người dùng nhớ vì một việc đơn giản: tìm đúng thông tin, mở trang nhanh hoặc chỉ đường thuận tiện. Hành trình Sundar Pichai cho thấy vì sao công việc biến năng lực kỹ thuật thành tiện ích thường ngày có thể đưa một nhà quản lý đến vị trí lãnh đạo tập đoàn.</p>\n<h2>Từ Chennai đến Google và Alphabet</h2>\n<p>Pichai lớn lên tại Chennai, Ấn Độ, học kỹ thuật tại IIT, sau đó học ở Stanford và Wharton. Ông gia nhập Google năm 2004, tham gia lãnh đạo phát triển Toolbar rồi Chrome. Pichai trở thành CEO Google năm 2015 và nhận thêm vai trò CEO Alphabet năm 2019. [1] Tài liệu kết quả kinh doanh quý III/2026 vẫn ghi nhận ông ở cả hai vị trí. [3]</p>\n<p>Ông không phải người sáng lập Google. Điều đáng chú ý là quá trình đi từ sản phẩm đến trách nhiệm điều hành rộng hơn. Khi công ty lớn lên, người lãnh đạo phải kết nối kỹ thuật, nhu cầu khách hàng và việc phân bổ nguồn lực. Khả năng hiểu một sản phẩm quan trọng, nhưng chưa tự động bảo đảm điều hành tốt toàn bộ doanh nghiệp.</p>\n<h2>Tính hữu ích bắt đầu từ hoàn cảnh sử dụng</h2>\n<p>Trong phần viết của mình ở thư nhà sáng lập năm 2015, Pichai nhấn mạnh việc giúp người dùng tiếp cận thông tin và nhận hỗ trợ phù hợp hoàn cảnh. Ông mô tả những nhu cầu khác nhau khi tìm kiếm, xem bản đồ hoặc quản lý ảnh. [2] Đó là định hướng sản phẩm được công bố, không phải lời bảo đảm rằng mọi dịch vụ luôn đáp ứng tốt.</p>\n<p>Một người đang đi đường cần câu trả lời ngắn và dễ thao tác; người nghiên cứu một chủ đề lại cần nguồn và chiều sâu. Nếu thiết kế chỉ dựa vào danh sách tính năng, cả hai có thể phải làm quá nhiều bước. Hiểu hoàn cảnh sử dụng giúp nhóm phát triển xác định điều gì nên nổi bật, điều gì nên đặt ở phần mở rộng.</p>\n<h2>Đo việc hoàn thành thay vì chỉ đếm lượt vào</h2>\n<p>Giả sử một website có công cụ tính chi phí, nhưng người dùng phải đăng ký dài trước khi xem kết quả. Quảng cáo kéo nhiều người vào mà rất ít người hoàn thành. Trong tình huống giả định này, thêm quảng cáo chưa chắc giải quyết được vấn đề. Cần xem người dùng dừng ở bước nào và liệu các thông tin yêu cầu có thực sự cần thiết.</p>\n<p>Có thể thử biểu mẫu ngắn hơn, giải thích cách tính và cho xem kết quả ngay khi đủ dữ liệu. Sau đó so sánh tỷ lệ hoàn thành, số lỗi và phản hồi về mức dễ hiểu. Đây là gợi ý biên tập để vận dụng tư duy sản phẩm, không phải quy trình được trích từ Google hay công thức bảo đảm tăng doanh thu.</p>\n<p>Tỷ lệ quay lại cũng cần đặt trong mục đích sử dụng. Công cụ làm một việc hiếm gặp không nhất thiết phải được mở hằng ngày. Ngược lại, một ứng dụng được mở nhiều vì liên tục báo lỗi không thể xem là thành công. Chỉ số có ý nghĩa khi phản ánh việc người dùng muốn hoàn thành và chất lượng kết quả họ nhận được.</p>\n<h2>Quy mô càng lớn, trách nhiệm càng rộng</h2>\n<p>Pichai cũng đề cập bảo vệ dữ liệu và quyền riêng tư khi nói về dịch vụ hiểu hoàn cảnh người dùng. [2] Hai mục tiêu này cần được cân nhắc cùng nhau. Thu thập thêm dữ liệu có thể giúp cá nhân hóa, nhưng cũng đặt ra câu hỏi về mục đích sử dụng, thời gian lưu trữ và khả năng kiểm soát của người dùng.</p>\n<p>Với một doanh nghiệp nhỏ, trách nhiệm có thể bắt đầu bằng việc chỉ hỏi dữ liệu cần dùng, giải thích rõ kết quả và cho khách sửa thông tin sai. Khi đưa AI vào sản phẩm, câu trả lời nhanh vẫn cần cơ chế kiểm tra và phản hồi. Trải nghiệm thuận tiện không nên khiến người dùng hiểu nhầm một ước tính là kết quả chắc chắn.</p>\n<p>Đọc về Pichai vì vậy không chỉ là đọc câu chuyện thăng tiến. Đây còn là dịp nhìn lại sản phẩm của mình: khách đến để làm việc gì, bước nào gây khó và bằng chứng nào cho thấy họ đã được giúp đỡ? Khi những câu hỏi ấy được trả lời cụ thể, quyết định về tính năng và nguồn lực thường trở nên rõ ràng hơn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://abc.xyz/investor/news/news-details/2019/Alphabet-management-change-12-03-2019/default.aspx\">Alphabet — Management change, 2019</a></li><li><a href=\"https://abc.xyz/investor/founders-letters/2015/default.aspx\">Alphabet — 2015 Founders’ Letter, Sundar Pichai</a></li><li><a href=\"https://abc.xyz/investor/events/event-details/2026/2026-Q3-Earnings-Call-2026-Ujou16CTw9/default.aspx\">Alphabet — Q3 2026 earnings call</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Sundar_Pichai.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/sundar-pichai.webp",
+    "url": "https://daututuonglai.vn/2026/11/13/sundar-pichai-san-pham-huu-ich/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1767&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/sundar-pichai-san-pham-huu-ich/"
+  },
+  {
+    "key": "daniel-kahneman",
+    "slug": "daniel-kahneman-tam-ly-quyet-dinh",
+    "title": "Daniel Kahneman: Vì sao hiểu biết vẫn chưa đủ để quyết định đúng?",
+    "title_en": "Daniel Kahneman: Why knowledge alone does not ensure good decisions",
+    "excerpt": "Nhà tâm lý học Daniel Kahneman, lý thuyết triển vọng và cách xây dựng quy trình quyết định bớt phụ thuộc vào cảm giác.",
+    "excerpt_en": "Psychologist Daniel Kahneman, prospect theory and a decision process that depends less on intuition alone.",
+    "credit": "Ảnh Daniel Kahneman năm 2009: nrkbeta; bản cắt của Wabbuh, CC BY-SA 2.0.",
+    "credit_en": "Daniel Kahneman in 2009: nrkbeta; crop by Wabbuh, CC BY-SA 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3x4_cropped).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "sources": [
+      {
+        "label": "Princeton — Daniel Kahneman, biography",
+        "url": "https://kahneman.scholar.princeton.edu/"
+      },
+      {
+        "label": "Princeton — Remembering Daniel Kahneman, 2024",
+        "url": "https://www.princeton.edu/news/2024/03/28/daniel-kahneman-pioneering-behavioral-psychologist-nobel-laureate-and-giant-field"
+      },
+      {
+        "label": "Kahneman and Tversky — Prospect Theory, 1979",
+        "url": "https://kahneman.scholar.princeton.edu/sites/g/files/toruqf3831/files/kahneman/files/prospect_theory.pdf"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Có những quyết định nhìn lại rất dễ thấy sai, nhưng lúc thực hiện ta lại hoàn toàn tự tin. Daniel Kahneman dành phần lớn sự nghiệp để nghiên cứu khoảng cách ấy. Với người học kinh tế và đầu tư, đóng góp của ông nằm ở việc đưa cách con người thực sự phán đoán vào cuộc thảo luận về lựa chọn dưới sự bất định.",
+        "en": "Some decisions look obviously mistaken in hindsight, even though we felt completely confident when making them. Daniel Kahneman devoted much of his career to studying that gap. For students of economics and investing, his contribution was to bring actual human judgment into the study of choices under uncertainty."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhà tâm lý học có ảnh hưởng lớn đến kinh tế học",
+        "en": "A psychologist who reshaped economic thinking"
+      },
+      {
+        "tag": "p",
+        "vi": "Kahneman sống từ năm 1934 đến 2024, mang quốc tịch Israel và Mỹ. Ông được đào tạo về tâm lý học, làm việc tại nhiều đại học và gắn bó lâu dài với Princeton. Năm 2002, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel. Gọi ông là nhà tâm lý học có đóng góp cho kinh tế học sẽ chính xác hơn xem ông là người được đào tạo ban đầu như một nhà kinh tế. [1][2]",
+        "en": "Kahneman lived from 1934 to 2024 and held Israeli and American citizenship. Trained in psychology, he worked at several universities and had a long association with Princeton. In 2002 he received the economics prize in memory of Alfred Nobel. He is best described as a psychologist who contributed to economics, rather than someone originally trained as an economist. [1][2]"
+      },
+      {
+        "tag": "p",
+        "vi": "Amos Tversky là cộng sự quan trọng trong các nghiên cứu của ông. Cuốn Thinking, Fast and Slow ra mắt năm 2011 giúp đưa nhiều ý tưởng về trực giác và suy xét đến độc giả rộng rãi. [2] Khi kể câu chuyện Kahneman, cần giữ vai trò của cộng tác nghiên cứu thay vì biến toàn bộ lĩnh vực thành thành tựu của một cá nhân.",
+        "en": "Amos Tversky was a crucial collaborator. Kahneman's 2011 book Thinking, Fast and Slow brought ideas about intuition and deliberation to a broad audience. [2] His story should retain the role of collaboration rather than present an entire field as one person's achievement."
+      },
+      {
+        "tag": "h2",
+        "vi": "Lãi và lỗ thường được nhìn qua một điểm tham chiếu",
+        "en": "Gains and losses are often viewed from a reference point"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài nghiên cứu năm 1979, Kahneman và Tversky phát triển lý thuyết triển vọng. Mô hình xem cách con người đánh giá thay đổi thành lãi hoặc lỗ, thay vì chỉ nhìn tổng tài sản cuối cùng. Nó cũng mô tả việc cảm nhận xác suất và mức độ nhạy với mất mát có thể ảnh hưởng lựa chọn. [3]",
+        "en": "In their 1979 paper, Kahneman and Tversky developed prospect theory. The model examines how people evaluate changes as gains or losses rather than only considering final wealth. It also describes how probability weighting and sensitivity to losses can affect choices. [3]"
+      },
+      {
+        "tag": "p",
+        "vi": "Điều này không có nghĩa mọi người luôn sợ rủi ro. Cách đóng khung một tình huống thành khoản lãi chắc chắn hay khoản lỗ chắc chắn có thể làm lựa chọn thay đổi. Lý thuyết là công cụ giải thích những khuynh hướng, không phải chiếc máy đoán chính xác hành động của từng cá nhân trong mọi hoàn cảnh.",
+        "en": "This does not mean everyone always avoids risk. Framing a situation as a sure gain or a sure loss can alter choices. The theory helps explain patterns; it is not a machine that predicts each individual's behavior in every situation."
+      },
+      {
+        "tag": "p",
+        "vi": "Hãy xét một ví dụ giả định: một cửa hàng mua lô hàng với giá cao, sau đó nhu cầu suy giảm. Chủ cửa hàng chỉ muốn bán khi thu lại đủ tiền đã bỏ ra. Giá mua trở thành mốc tâm lý mạnh, dù quyết định hôm nay còn phải xét khả năng bán, chi phí giữ hàng và giá trị của phương án khác.",
+        "en": "Consider a hypothetical shop that bought stock at a high price before demand weakened. Its owner wants to sell only after recovering the original outlay. The purchase price becomes a powerful psychological reference, although today's decision also depends on demand, storage costs and alternative uses of the resources."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tách cảm giác tiếc nuối khỏi thông tin cần dùng",
+        "en": "Separate regret from decision-relevant information"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ trên do ban biên tập đặt ra, không phải kết luận rằng cứ hàng giảm giá là phải bán. Nếu nhu cầu có cơ sở phục hồi và chi phí lưu kho thấp, tiếp tục giữ có thể hợp lý. Điểm cần kiểm tra là lý do đang dựa trên thông tin mới hay chỉ là mong muốn xóa cảm giác đã quyết định sai.",
+        "en": "This is an editorial example, not a claim that falling prices always require a sale. Holding stock may be reasonable if demand has credible prospects of recovery and storage costs are low. The question is whether the rationale rests on new information or merely on a desire to erase the feeling of having been wrong."
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách thực hành là viết quyết định trước khi hành động: mục tiêu, dữ kiện đang có, giả định quan trọng và điều kiện khiến mình đổi ý. Sau đó nhờ một người khác tìm điểm yếu của lập luận. Việc này không loại bỏ thiên kiến, nhưng tạo ra tài liệu để đối chiếu thay vì chỉ nhớ phần thuận lợi sau khi biết kết quả.",
+        "en": "One practice is to write down the decision before acting: the goal, available evidence, key assumptions and conditions that would change your mind. Ask someone else to challenge the reasoning. This does not eliminate bias, but creates a record for review instead of relying on selective recollection after the outcome is known."
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể ghi thêm những trường hợp tương tự đã xảy ra, kể cả trường hợp thất bại. Một câu chuyện thành công nổi bật thường dễ nhớ hơn hàng chục trường hợp bình thường. So sánh có hệ thống giúp câu hỏi chuyển từ cảm giác việc này rất hứa hẹn sang bằng chứng nào cho thấy điều kiện của mình thực sự khác.",
+        "en": "Record comparable cases, including failures. A striking success story is often easier to remember than many ordinary outcomes. Systematic comparison shifts the question from whether something feels promising to what evidence shows that your circumstances are meaningfully different."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đánh giá quy trình, không chỉ kết quả một lần",
+        "en": "Evaluate the process, not just one outcome"
+      },
+      {
+        "tag": "p",
+        "vi": "Một quyết định thiếu căn cứ vẫn có thể gặp may; một quyết định thận trọng vẫn có thể gặp biến cố bất lợi. Vì vậy, nhìn một kết quả rồi kết luận người ra quyết định giỏi hay dở là chưa đủ. Cần xem họ biết gì tại thời điểm đó, đã cân nhắc phương án nào và có tuân thủ giới hạn đã đặt ra hay không.",
+        "en": "A poorly grounded decision can get lucky, while a careful one can encounter an adverse event. One outcome alone is therefore insufficient to judge the decision-maker. Examine what was known at the time, which alternatives were considered, and whether the agreed limits were respected."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản của Kahneman không phải lời khuyên nghi ngờ mọi suy nghĩ của bản thân. Giá trị của nó là sự khiêm tốn trước khả năng sai và nhu cầu xây dựng cách kiểm tra. Khi quyết định quan trọng, dành thời gian ghi lại lý do, tìm bằng chứng trái chiều và xem lại kết quả có thể hữu ích hơn việc cố tỏ ra chắc chắn.",
+        "en": "Kahneman's legacy is not an instruction to distrust every thought. It encourages humility about error and the construction of checks. For important decisions, recording reasons, seeking contrary evidence and reviewing outcomes can be more useful than trying to appear certain."
+      }
+    ],
+    "html": "<p><em>Ảnh Daniel Kahneman năm 2009: nrkbeta; bản cắt của Wabbuh, CC BY-SA 2.0.</em></p>\n<p>Có những quyết định nhìn lại rất dễ thấy sai, nhưng lúc thực hiện ta lại hoàn toàn tự tin. Daniel Kahneman dành phần lớn sự nghiệp để nghiên cứu khoảng cách ấy. Với người học kinh tế và đầu tư, đóng góp của ông nằm ở việc đưa cách con người thực sự phán đoán vào cuộc thảo luận về lựa chọn dưới sự bất định.</p>\n<h2>Nhà tâm lý học có ảnh hưởng lớn đến kinh tế học</h2>\n<p>Kahneman sống từ năm 1934 đến 2024, mang quốc tịch Israel và Mỹ. Ông được đào tạo về tâm lý học, làm việc tại nhiều đại học và gắn bó lâu dài với Princeton. Năm 2002, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel. Gọi ông là nhà tâm lý học có đóng góp cho kinh tế học sẽ chính xác hơn xem ông là người được đào tạo ban đầu như một nhà kinh tế. [1][2]</p>\n<p>Amos Tversky là cộng sự quan trọng trong các nghiên cứu của ông. Cuốn Thinking, Fast and Slow ra mắt năm 2011 giúp đưa nhiều ý tưởng về trực giác và suy xét đến độc giả rộng rãi. [2] Khi kể câu chuyện Kahneman, cần giữ vai trò của cộng tác nghiên cứu thay vì biến toàn bộ lĩnh vực thành thành tựu của một cá nhân.</p>\n<h2>Lãi và lỗ thường được nhìn qua một điểm tham chiếu</h2>\n<p>Trong bài nghiên cứu năm 1979, Kahneman và Tversky phát triển lý thuyết triển vọng. Mô hình xem cách con người đánh giá thay đổi thành lãi hoặc lỗ, thay vì chỉ nhìn tổng tài sản cuối cùng. Nó cũng mô tả việc cảm nhận xác suất và mức độ nhạy với mất mát có thể ảnh hưởng lựa chọn. [3]</p>\n<p>Điều này không có nghĩa mọi người luôn sợ rủi ro. Cách đóng khung một tình huống thành khoản lãi chắc chắn hay khoản lỗ chắc chắn có thể làm lựa chọn thay đổi. Lý thuyết là công cụ giải thích những khuynh hướng, không phải chiếc máy đoán chính xác hành động của từng cá nhân trong mọi hoàn cảnh.</p>\n<p>Hãy xét một ví dụ giả định: một cửa hàng mua lô hàng với giá cao, sau đó nhu cầu suy giảm. Chủ cửa hàng chỉ muốn bán khi thu lại đủ tiền đã bỏ ra. Giá mua trở thành mốc tâm lý mạnh, dù quyết định hôm nay còn phải xét khả năng bán, chi phí giữ hàng và giá trị của phương án khác.</p>\n<h2>Tách cảm giác tiếc nuối khỏi thông tin cần dùng</h2>\n<p>Ví dụ trên do ban biên tập đặt ra, không phải kết luận rằng cứ hàng giảm giá là phải bán. Nếu nhu cầu có cơ sở phục hồi và chi phí lưu kho thấp, tiếp tục giữ có thể hợp lý. Điểm cần kiểm tra là lý do đang dựa trên thông tin mới hay chỉ là mong muốn xóa cảm giác đã quyết định sai.</p>\n<p>Một cách thực hành là viết quyết định trước khi hành động: mục tiêu, dữ kiện đang có, giả định quan trọng và điều kiện khiến mình đổi ý. Sau đó nhờ một người khác tìm điểm yếu của lập luận. Việc này không loại bỏ thiên kiến, nhưng tạo ra tài liệu để đối chiếu thay vì chỉ nhớ phần thuận lợi sau khi biết kết quả.</p>\n<p>Có thể ghi thêm những trường hợp tương tự đã xảy ra, kể cả trường hợp thất bại. Một câu chuyện thành công nổi bật thường dễ nhớ hơn hàng chục trường hợp bình thường. So sánh có hệ thống giúp câu hỏi chuyển từ cảm giác việc này rất hứa hẹn sang bằng chứng nào cho thấy điều kiện của mình thực sự khác.</p>\n<h2>Đánh giá quy trình, không chỉ kết quả một lần</h2>\n<p>Một quyết định thiếu căn cứ vẫn có thể gặp may; một quyết định thận trọng vẫn có thể gặp biến cố bất lợi. Vì vậy, nhìn một kết quả rồi kết luận người ra quyết định giỏi hay dở là chưa đủ. Cần xem họ biết gì tại thời điểm đó, đã cân nhắc phương án nào và có tuân thủ giới hạn đã đặt ra hay không.</p>\n<p>Di sản của Kahneman không phải lời khuyên nghi ngờ mọi suy nghĩ của bản thân. Giá trị của nó là sự khiêm tốn trước khả năng sai và nhu cầu xây dựng cách kiểm tra. Khi quyết định quan trọng, dành thời gian ghi lại lý do, tìm bằng chứng trái chiều và xem lại kết quả có thể hữu ích hơn việc cố tỏ ra chắc chắn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://kahneman.scholar.princeton.edu/\">Princeton — Daniel Kahneman, biography</a></li><li><a href=\"https://www.princeton.edu/news/2024/03/28/daniel-kahneman-pioneering-behavioral-psychologist-nobel-laureate-and-giant-field\">Princeton — Remembering Daniel Kahneman, 2024</a></li><li><a href=\"https://kahneman.scholar.princeton.edu/sites/g/files/toruqf3831/files/kahneman/files/prospect_theory.pdf\">Kahneman and Tversky — Prospect Theory, 1979</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3x4_cropped).jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">Image license</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/daniel-kahneman.webp",
+    "url": "https://daututuonglai.vn/2026/11/13/daniel-kahneman-tam-ly-quyet-dinh/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1770&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/daniel-kahneman-tam-ly-quyet-dinh/"
+  },
+  {
+    "key": "mahbub-ul-haq",
+    "slug": "mahbub-ul-haq-phat-trien-con-nguoi",
+    "title": "Mahbub ul Haq: Đo phát triển bằng cơ hội sống của con người",
+    "title_en": "Mahbub ul Haq: Measuring development through human opportunity",
+    "excerpt": "Nhà kinh tế Pakistan Mahbub ul Haq và đóng góp đưa sức khỏe, giáo dục, mức sống vào cách nhìn về phát triển.",
+    "excerpt_en": "Pakistani economist Mahbub ul Haq and a view of development centered on health, education and living standards.",
+    "credit": "Chân dung Mahbub ul Haq do AI minh họa, tham chiếu ảnh lưu trữ World Bank; không phải ảnh chụp.",
+    "credit_en": "AI-illustrated portrait of Mahbub ul Haq, referencing a World Bank archival photograph; not a photograph.",
+    "photo_source": "https://oralhistory.worldbank.org/en/archive/oralhistory/persondetail/ul-haq-mahbub",
+    "license": "",
+    "sources": [
+      {
+        "label": "World Bank Archives — Mahbub ul Haq",
+        "url": "https://oralhistory.worldbank.org/en/archive/oralhistory/persondetail/ul-haq-mahbub"
+      },
+      {
+        "label": "UNDP — Human development",
+        "url": "https://hdr.undp.org/about/human-development"
+      },
+      {
+        "label": "UNDP — Human Development Index",
+        "url": "https://hdr.undp.org/data-center/human-development-index"
+      },
+      {
+        "label": "UNDP — Mahbub ul Haq Award",
+        "url": "https://hdr.undp.org/human-development-awards"
+      },
+      {
+        "label": "Oxford University Press — Mahbub ul Haq, by Khadija Haq",
+        "url": "https://blog.oup.com/2017/09/mahbub-ul-haq-philosophy-economics/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một nền kinh tế sản xuất nhiều hơn chưa chắc mọi người đều có cuộc sống tốt hơn. Có người vẫn khó đi học, khó tiếp cận y tế hoặc không có cơ hội sử dụng kỹ năng của mình. Mahbub ul Haq góp phần đưa những câu hỏi ấy vào trung tâm cách thế giới thảo luận về phát triển.",
+        "en": "Producing more does not necessarily give everyone a better life. Some people may still struggle to obtain education, access healthcare or use their skills. Mahbub ul Haq helped place these questions at the center of global development discussions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhà kinh tế Pakistan giữa nghiên cứu và chính sách",
+        "en": "A Pakistani economist bridging research and policy"
+      },
+      {
+        "tag": "p",
+        "vi": "Mahbub ul Haq sống từ năm 1934 đến 1998. Ông là nhà kinh tế Pakistan gắn với tư tưởng phát triển lấy con người làm trọng tâm. Hồ sơ World Bank ghi nhận nhiều vai trò của ông, trong đó có Giám đốc bộ phận hoạch định chính sách và rà soát chương trình giai đoạn 1972–1982. [1][4][5]",
+        "en": "Mahbub ul Haq lived from 1934 to 1998. He was a Pakistani economist associated with people-centered development. World Bank archives record several roles, including Director of Policy Planning and Program Review from 1972 to 1982. [1][4][5]"
+      },
+      {
+        "tag": "p",
+        "vi": "UNDP ghi nhận ông là người tiên phong của cách tiếp cận phát triển con người và người sáng lập Báo cáo Phát triển Con người toàn cầu. Báo cáo đầu tiên xuất hiện năm 1990. [2][4] Ý nghĩa của công việc này nằm ở việc đưa một câu hỏi rộng thành công cụ để các quốc gia cùng quan sát và tranh luận về kết quả phát triển.",
+        "en": "UNDP recognizes him as a pioneer of the human development approach and founder of the global Human Development Report. The first report appeared in 1990. [2][4] This work helped turn a broad question into tools through which countries could examine and debate development outcomes."
+      },
+      {
+        "tag": "p",
+        "vi": "Cách tiếp cận ấy có liên hệ chặt với nghiên cứu của Amartya Sen về năng lực và quyền tự do lựa chọn. [2] Vai trò của Haq không nên tách khỏi cộng tác học thuật và thể chế. Một chỉ số được sử dụng rộng rãi cần cả tư tưởng, dữ liệu, phương pháp và công việc bền bỉ để người làm chính sách chú ý đến nó.",
+        "en": "The approach is closely connected with Amartya Sen's work on capabilities and freedom of choice. [2] Haq's contribution should not be separated from academic and institutional collaboration. A widely used indicator requires ideas, data, methods and sustained work to gain policymakers' attention."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thu nhập là phương tiện, cơ hội sống là điều cần xét",
+        "en": "Income is a means; opportunities in life matter too"
+      },
+      {
+        "tag": "p",
+        "vi": "UNDP giải thích phát triển con người là mở rộng cơ hội và lựa chọn, không giả định tăng trưởng tự động cải thiện đời sống cho tất cả. [2] Cách nhìn này không phủ nhận vai trò thu nhập. Nó yêu cầu xem nguồn lực kinh tế được chuyển thành sức khỏe, kiến thức và khả năng tham gia đời sống như thế nào.",
+        "en": "UNDP explains human development as expanding opportunities and choices, without assuming that growth automatically improves everyone's life. [2] This does not dismiss income. It asks how economic resources become health, knowledge and the ability to participate in society."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một ví dụ giả định, hai địa phương có thu nhập bình quân gần nhau nhưng khác biệt lớn về đường đến trường và thời gian tới bệnh viện. Người dân có thể có mức chi tiêu tương tự, song cơ hội học tập và chăm sóc sức khỏe không giống nhau. Chỉ nhìn một con số thu nhập sẽ bỏ qua những khác biệt quan trọng ấy.",
+        "en": "Imagine two areas with similar average income but very different journeys to school and access times to hospitals. Residents may have comparable spending power yet unequal educational and healthcare opportunities. Looking at income alone would miss those important differences."
+      },
+      {
+        "tag": "p",
+        "vi": "Đây là ví dụ biên tập, không phải số liệu so sánh hai địa phương có thật. Nó gợi ra cách đọc một dự án: ngoài mức chi và sản lượng, cần hỏi ai được tiếp cận, họ dùng được dịch vụ hay không và nhóm nào vẫn bị bỏ lại. Một công trình hoàn thành chưa đồng nghĩa mục tiêu phục vụ đã đạt được.",
+        "en": "This is an editorial example, not a comparison of real locations. It suggests questions for evaluating a project beyond expenditure and output: who can access it, can they actually use the service, and who remains excluded? Completing a facility is not the same as achieving its service goal."
+      },
+      {
+        "tag": "h2",
+        "vi": "HDI cho biết gì và bỏ sót điều gì?",
+        "en": "What does the HDI show, and what does it omit?"
+      },
+      {
+        "tag": "p",
+        "vi": "Theo phương pháp hiện hành của UNDP, HDI tổng hợp ba chiều: sức khỏe, giáo dục và mức sống. Các thước đo gồm tuổi thọ khi sinh, số năm đi học trung bình và kỳ vọng, cùng thu nhập quốc dân bình quân đầu người. [3] HDI vì vậy không chỉ là bảng xếp hạng GDP, cũng không phải thước đo toàn bộ giá trị của một quốc gia.",
+        "en": "Under UNDP's current methodology, the HDI combines health, education and living standards. Its measures include life expectancy at birth, mean and expected years of schooling, and gross national income per capita. [3] It is therefore not simply a GDP ranking, nor a measure of a country's total worth."
+      },
+      {
+        "tag": "p",
+        "vi": "Một chỉ số trung bình vẫn có thể che khuất khác biệt giữa các nhóm dân cư. UNDP nêu rõ HDI chỉ phản ánh một phần phát triển con người và cần đọc cùng thông tin khác, trong đó có bất bình đẳng và nghèo đói. [3] Khi một thứ hạng tăng, câu hỏi tiếp theo nên là nhóm nào tiến bộ và sự cải thiện có bền vững không.",
+        "en": "An average indicator can still conceal differences between population groups. UNDP explicitly states that the HDI captures only part of human development and must be read alongside other information, including inequality and poverty. [3] When a ranking improves, ask which groups benefited and whether the improvement is durable."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một cách nhìn hữu ích cho tổ chức nhỏ",
+        "en": "A useful perspective for smaller organizations"
+      },
+      {
+        "tag": "p",
+        "vi": "Liên hệ với doanh nghiệp là phần diễn giải của ban biên tập, không phải công thức quản trị do Haq đề xuất. Doanh thu cho biết một khía cạnh hoạt động; chất lượng việc làm, an toàn, kỹ năng và khả năng giữ người cho biết các khía cạnh khác. Không nên lấy một chỉ số tài chính thay cho toàn bộ đánh giá về sức khỏe tổ chức.",
+        "en": "The business application here is editorial interpretation, not a management formula proposed by Haq. Revenue captures one aspect of performance; job quality, safety, skills and retention capture others. One financial indicator should not stand in for the organization's entire condition."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ, mở lớp đào tạo chỉ mới tạo ra một đầu vào. Muốn biết có hiệu quả hay không, cần xem người học có thực hiện được công việc mới, giảm lỗi hoặc nhận thêm trách nhiệm phù hợp không. Theo dõi kết quả này giúp tránh tình trạng báo cáo đẹp về số buổi học nhưng kỹ năng thực tế không thay đổi.",
+        "en": "For example, arranging training creates an input. To assess its effectiveness, examine whether participants can perform new tasks, reduce errors or take on suitable responsibilities. Tracking these outcomes helps avoid impressive reports about session counts without actual skill improvements."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản của Haq nhắc người đọc nhìn xuyên qua những con số để trở lại mục đích của chúng. Khi nói phát triển, hãy chỉ rõ cuộc sống của ai đang tốt hơn, cơ hội nào được mở ra và bằng chứng nào chứng minh điều đó. Câu hỏi đơn giản ấy khiến việc đánh giá đòi hỏi nhiều hơn, nhưng cũng gần đời sống hơn.",
+        "en": "Haq's legacy encourages readers to look through the numbers to their purpose. When discussing development, identify whose lives are improving, which opportunities are expanding and what evidence supports the claim. That simple question makes evaluation more demanding, but also more connected to real life."
+      }
+    ],
+    "html": "<p><em>Chân dung Mahbub ul Haq do AI minh họa, tham chiếu ảnh lưu trữ World Bank; không phải ảnh chụp.</em></p>\n<p>Một nền kinh tế sản xuất nhiều hơn chưa chắc mọi người đều có cuộc sống tốt hơn. Có người vẫn khó đi học, khó tiếp cận y tế hoặc không có cơ hội sử dụng kỹ năng của mình. Mahbub ul Haq góp phần đưa những câu hỏi ấy vào trung tâm cách thế giới thảo luận về phát triển.</p>\n<h2>Nhà kinh tế Pakistan giữa nghiên cứu và chính sách</h2>\n<p>Mahbub ul Haq sống từ năm 1934 đến 1998. Ông là nhà kinh tế Pakistan gắn với tư tưởng phát triển lấy con người làm trọng tâm. Hồ sơ World Bank ghi nhận nhiều vai trò của ông, trong đó có Giám đốc bộ phận hoạch định chính sách và rà soát chương trình giai đoạn 1972–1982. [1][4][5]</p>\n<p>UNDP ghi nhận ông là người tiên phong của cách tiếp cận phát triển con người và người sáng lập Báo cáo Phát triển Con người toàn cầu. Báo cáo đầu tiên xuất hiện năm 1990. [2][4] Ý nghĩa của công việc này nằm ở việc đưa một câu hỏi rộng thành công cụ để các quốc gia cùng quan sát và tranh luận về kết quả phát triển.</p>\n<p>Cách tiếp cận ấy có liên hệ chặt với nghiên cứu của Amartya Sen về năng lực và quyền tự do lựa chọn. [2] Vai trò của Haq không nên tách khỏi cộng tác học thuật và thể chế. Một chỉ số được sử dụng rộng rãi cần cả tư tưởng, dữ liệu, phương pháp và công việc bền bỉ để người làm chính sách chú ý đến nó.</p>\n<h2>Thu nhập là phương tiện, cơ hội sống là điều cần xét</h2>\n<p>UNDP giải thích phát triển con người là mở rộng cơ hội và lựa chọn, không giả định tăng trưởng tự động cải thiện đời sống cho tất cả. [2] Cách nhìn này không phủ nhận vai trò thu nhập. Nó yêu cầu xem nguồn lực kinh tế được chuyển thành sức khỏe, kiến thức và khả năng tham gia đời sống như thế nào.</p>\n<p>Trong một ví dụ giả định, hai địa phương có thu nhập bình quân gần nhau nhưng khác biệt lớn về đường đến trường và thời gian tới bệnh viện. Người dân có thể có mức chi tiêu tương tự, song cơ hội học tập và chăm sóc sức khỏe không giống nhau. Chỉ nhìn một con số thu nhập sẽ bỏ qua những khác biệt quan trọng ấy.</p>\n<p>Đây là ví dụ biên tập, không phải số liệu so sánh hai địa phương có thật. Nó gợi ra cách đọc một dự án: ngoài mức chi và sản lượng, cần hỏi ai được tiếp cận, họ dùng được dịch vụ hay không và nhóm nào vẫn bị bỏ lại. Một công trình hoàn thành chưa đồng nghĩa mục tiêu phục vụ đã đạt được.</p>\n<h2>HDI cho biết gì và bỏ sót điều gì?</h2>\n<p>Theo phương pháp hiện hành của UNDP, HDI tổng hợp ba chiều: sức khỏe, giáo dục và mức sống. Các thước đo gồm tuổi thọ khi sinh, số năm đi học trung bình và kỳ vọng, cùng thu nhập quốc dân bình quân đầu người. [3] HDI vì vậy không chỉ là bảng xếp hạng GDP, cũng không phải thước đo toàn bộ giá trị của một quốc gia.</p>\n<p>Một chỉ số trung bình vẫn có thể che khuất khác biệt giữa các nhóm dân cư. UNDP nêu rõ HDI chỉ phản ánh một phần phát triển con người và cần đọc cùng thông tin khác, trong đó có bất bình đẳng và nghèo đói. [3] Khi một thứ hạng tăng, câu hỏi tiếp theo nên là nhóm nào tiến bộ và sự cải thiện có bền vững không.</p>\n<h2>Một cách nhìn hữu ích cho tổ chức nhỏ</h2>\n<p>Liên hệ với doanh nghiệp là phần diễn giải của ban biên tập, không phải công thức quản trị do Haq đề xuất. Doanh thu cho biết một khía cạnh hoạt động; chất lượng việc làm, an toàn, kỹ năng và khả năng giữ người cho biết các khía cạnh khác. Không nên lấy một chỉ số tài chính thay cho toàn bộ đánh giá về sức khỏe tổ chức.</p>\n<p>Ví dụ, mở lớp đào tạo chỉ mới tạo ra một đầu vào. Muốn biết có hiệu quả hay không, cần xem người học có thực hiện được công việc mới, giảm lỗi hoặc nhận thêm trách nhiệm phù hợp không. Theo dõi kết quả này giúp tránh tình trạng báo cáo đẹp về số buổi học nhưng kỹ năng thực tế không thay đổi.</p>\n<p>Di sản của Haq nhắc người đọc nhìn xuyên qua những con số để trở lại mục đích của chúng. Khi nói phát triển, hãy chỉ rõ cuộc sống của ai đang tốt hơn, cơ hội nào được mở ra và bằng chứng nào chứng minh điều đó. Câu hỏi đơn giản ấy khiến việc đánh giá đòi hỏi nhiều hơn, nhưng cũng gần đời sống hơn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://oralhistory.worldbank.org/en/archive/oralhistory/persondetail/ul-haq-mahbub\">World Bank Archives — Mahbub ul Haq</a></li><li><a href=\"https://hdr.undp.org/about/human-development\">UNDP — Human development</a></li><li><a href=\"https://hdr.undp.org/data-center/human-development-index\">UNDP — Human Development Index</a></li><li><a href=\"https://hdr.undp.org/human-development-awards\">UNDP — Mahbub ul Haq Award</a></li><li><a href=\"https://blog.oup.com/2017/09/mahbub-ul-haq-philosophy-economics/\">Oxford University Press — Mahbub ul Haq, by Khadija Haq</a></li></ol><p><a href=\"https://oralhistory.worldbank.org/en/archive/oralhistory/persondetail/ul-haq-mahbub\">Portrait source</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/mahbub-ul-haq.webp",
+    "url": "https://daututuonglai.vn/2026/11/13/mahbub-ul-haq-phat-trien-con-nguoi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1773&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/mahbub-ul-haq-phat-trien-con-nguoi/"
+  },
+  {
+    "key": "tim-cook",
+    "slug": "tim-cook-ky-luat-van-hanh",
+    "title": "Tim Cook: Giá trị của kỷ luật vận hành phía sau sản phẩm",
+    "title_en": "Tim Cook: The value of operational discipline behind a product",
+    "excerpt": "Hành trình Tim Cook tại Apple và bài học về chuỗi cung ứng, chất lượng, khả năng phục hồi và chuyển giao lãnh đạo.",
+    "excerpt_en": "Tim Cook at Apple: supply chains, quality, resilience and leadership succession.",
+    "credit": "Ảnh Tim Cook năm 2009: Valery Marchive (LeMagIT); bản chỉnh sửa của RanZag, CC BY-SA 2.0.",
+    "credit_en": "Tim Cook in 2009: Valery Marchive (LeMagIT); derivative by RanZag, CC BY-SA 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Tim_Cook_2009_cropped.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "sources": [
+      {
+        "label": "Apple — Tim Cook leadership profile",
+        "url": "https://www.apple.com/leadership/tim-cook/"
+      },
+      {
+        "label": "Apple — Leadership transition announcement, April 2026",
+        "url": "https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/"
+      },
+      {
+        "label": "Apple — Privacy",
+        "url": "https://www.apple.com/privacy/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Khách hàng thường nhìn thấy sản phẩm hoàn thiện, nhưng phía sau là hàng loạt quyết định về linh kiện, năng lực sản xuất, giao hàng và hỗ trợ. Tim Cook là một nhân vật thích hợp để tìm hiểu phần ít xuất hiện trên sân khấu ấy. Một ý tưởng tốt chỉ trở thành hoạt động kinh doanh bền vững khi tổ chức có thể thực hiện lời hứa nhiều lần.",
+        "en": "Customers see the finished product, while decisions about components, production capacity, delivery and support sit behind it. Tim Cook offers a useful perspective on this less visible work. A good idea becomes a sustainable business only when an organization can repeatedly deliver on its promise."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ chuyên môn vận hành đến lãnh đạo Apple",
+        "en": "From operations expertise to leading Apple"
+      },
+      {
+        "tag": "p",
+        "vi": "Cook học kỹ thuật công nghiệp tại Auburn và MBA tại Duke, gia nhập Apple năm 1998. Trước khi làm CEO, ông là giám đốc vận hành, phụ trách chuỗi cung ứng cùng các hoạt động bán hàng, dịch vụ và hỗ trợ trên toàn cầu. Ông giữ chức CEO giai đoạn 2011–2026. [1]",
+        "en": "Cook studied industrial engineering at Auburn and earned an MBA at Duke. He joined Apple in 1998. Before becoming CEO, he was chief operating officer, responsible for its supply chain and worldwide sales, service and support operations. He served as CEO from 2011 to 2026. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Cập nhật đến tháng 11/2026, Cook là Chủ tịch điều hành hội đồng quản trị Apple. John Ternus tiếp nhận vị trí CEO từ ngày 1/9/2026 theo thông báo chuyển giao của công ty. [1][2] Vì vậy, bài viết này nhìn lại kinh nghiệm lãnh đạo và vận hành của Cook, thay vì giới thiệu ông bằng chức danh CEO hiện tại.",
+        "en": "As of November 2026, Cook is Executive Chair of Apple's board. John Ternus became CEO on September 1, 2026, following the company's succession announcement. [1][2] This article therefore examines Cook's leadership and operations experience rather than presenting him as the current CEO."
+      },
+      {
+        "tag": "h2",
+        "vi": "Sản phẩm là một lời hứa cần được thực hiện",
+        "en": "A product is a promise that must be fulfilled"
+      },
+      {
+        "tag": "p",
+        "vi": "Từ kinh nghiệm vận hành ấy, có thể rút ra một góc nhìn quản trị: chất lượng không chỉ nằm ở bản thiết kế. Nó còn nằm ở khả năng sản xuất đúng, giao đúng và xử lý khi có vấn đề. Phần liên hệ dưới đây là phân tích của ban biên tập, không phải các phát biểu nguyên văn hay quy trình nội bộ của Apple.",
+        "en": "His operations background suggests a management perspective: quality does not reside only in the design. It also depends on making the product correctly, delivering it as promised and responding when something goes wrong. The applications below are editorial analysis, not direct quotations or Apple's internal procedures."
+      },
+      {
+        "tag": "p",
+        "vi": "Giả sử một cơ sở nhận đơn hàng có ngày giao cố định. Mẫu đẹp và giá cạnh tranh giúp nhận đơn, nhưng kết quả còn phụ thuộc nguyên liệu đến đúng lúc, các công đoạn bàn giao rõ và sản phẩm lỗi được phát hiện sớm. Nếu chỉ tối ưu khâu bán hàng, doanh nghiệp có thể tăng số đơn nhanh hơn khả năng thực hiện.",
+        "en": "Suppose a business accepts an order with a fixed delivery date. A good sample and competitive price win the order, but success also requires materials arriving on time, clear handovers and early detection of defects. Optimizing sales alone can grow orders faster than the ability to fulfill them."
+      },
+      {
+        "tag": "p",
+        "vi": "Một bảng theo dõi đơn giản có thể ghi ngày cần nguyên liệu, công đoạn đang chờ và người chịu trách nhiệm xử lý. Điều quan trọng không phải tạo thêm báo cáo, mà để vấn đề được nhìn thấy đủ sớm. Khi hạn giao đã sát, một thông tin đúng nhưng đến muộn có thể không còn giúp sửa kết quả.",
+        "en": "A simple tracker can show when materials are needed, which stage is waiting and who is responsible for resolving the delay. Its purpose is not more reporting, but earlier visibility. Accurate information arriving just before the deadline may come too late to change the outcome."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chi phí thấp cần đi cùng khả năng phục hồi",
+        "en": "Lower costs must be considered alongside resilience"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong ví dụ giả định khác, nhà cung cấp rẻ nhất cũng là nguồn duy nhất cho một linh kiện quan trọng. Bình thường, lựa chọn ấy có vẻ rất hiệu quả. Khi nguồn hàng gián đoạn, phần tiết kiệm có thể nhỏ hơn chi phí ngừng sản xuất. Đánh giá nhà cung cấp vì thế cần xem cả chất lượng, thời gian đáp ứng và phương án thay thế.",
+        "en": "In another hypothetical example, the cheapest supplier is also the sole source of a critical component. Under normal conditions this may look efficient. During a disruption, the savings may be smaller than the cost of stopping production. Supplier assessment should therefore include quality, response time and alternatives."
+      },
+      {
+        "tag": "p",
+        "vi": "Dự phòng cũng có giá của nó: tồn kho làm vốn bị giữ lại, còn duy trì nhiều nguồn có thể tăng chi phí kiểm soát. Không có một mức dự phòng đúng cho mọi sản phẩm. Cần phân biệt vật tư dễ mua với vật tư có thời gian chờ dài, rồi tính tác động của việc thiếu từng loại đến toàn bộ đơn hàng.",
+        "en": "Reserves also have costs: inventory ties up capital, while multiple suppliers can increase oversight expenses. There is no single correct buffer for every product. Distinguish readily available materials from those with long lead times and assess how shortages affect the entire order."
+      },
+      {
+        "tag": "h2",
+        "vi": "Vận hành bao gồm cả niềm tin và chuyển giao",
+        "en": "Operations also involve trust and succession"
+      },
+      {
+        "tag": "p",
+        "vi": "Apple giới thiệu quyền riêng tư là một giá trị cốt lõi trong sản phẩm và dịch vụ. [3] Đây là cách công ty trình bày cam kết của mình. Khi đánh giá độc lập, người đọc vẫn cần xem trải nghiệm sử dụng, chi phí và các đánh đổi thực tế, thay vì dùng thông điệp thương hiệu làm kết luận cuối cùng.",
+        "en": "Apple presents privacy as a core value in its products and services. [3] This is the company’s description of its commitment. An independent assessment still requires examining user experience, costs and practical trade-offs rather than treating brand statements as final conclusions."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với tổ chức nhỏ, giữ niềm tin có thể rất cụ thể: báo sớm khi trễ, không tự đổi quy cách và có người chịu trách nhiệm sau giao hàng. Khách hàng không cần biết mọi chi tiết kỹ thuật, nhưng cần biết điều gì đã được cam kết và cách vấn đề sẽ được xử lý. Sự nhất quán qua nhiều lần giao dịch mới tạo nền tảng bền.",
+        "en": "For a small organization, maintaining trust can be concrete: flag delays early, do not change agreed specifications unilaterally, and assign responsibility after delivery. Customers need not know every technical detail, but should understand the promise and how problems will be addressed. Consistency across transactions builds a durable foundation."
+      },
+      {
+        "tag": "p",
+        "vi": "Apple mô tả việc chuyển giao năm 2026 là kết quả của kế hoạch kế nhiệm dài hạn được hội đồng quản trị thông qua. [2] Liên hệ ở quy mô nhỏ là câu hỏi liệu công việc có tiếp tục khi một người chủ chốt vắng mặt. Hướng dẫn rõ, quyền hạn phù hợp và người thay thế được chuẩn bị giúp giảm phụ thuộc vào trí nhớ của một cá nhân.",
+        "en": "Apple describes its 2026 transition as the result of long-term succession planning approved by the board. [2] At a smaller scale, ask whether work can continue when a key person is absent. Clear instructions, appropriate authority and prepared substitutes reduce dependence on one person's memory."
+      },
+      {
+        "tag": "p",
+        "vi": "Câu chuyện Cook bổ sung cho góc nhìn về sáng tạo sản phẩm: doanh nghiệp cần cả ý tưởng lẫn năng lực thực hiện có thể lặp lại. Khi đọc về một lãnh đạo nổi tiếng, bài học hữu ích không phải sao chép quy mô của họ, mà là nhận ra mắt xích nào trong công việc của mình đang cần được làm chắc hơn.",
+        "en": "Cook's story complements product creativity with the ability to execute repeatedly. The useful lesson from a prominent leader is not to copy the scale of their business, but to identify which link in your own work needs strengthening."
+      }
+    ],
+    "html": "<p><em>Ảnh Tim Cook năm 2009: Valery Marchive (LeMagIT); bản chỉnh sửa của RanZag, CC BY-SA 2.0.</em></p>\n<p>Khách hàng thường nhìn thấy sản phẩm hoàn thiện, nhưng phía sau là hàng loạt quyết định về linh kiện, năng lực sản xuất, giao hàng và hỗ trợ. Tim Cook là một nhân vật thích hợp để tìm hiểu phần ít xuất hiện trên sân khấu ấy. Một ý tưởng tốt chỉ trở thành hoạt động kinh doanh bền vững khi tổ chức có thể thực hiện lời hứa nhiều lần.</p>\n<h2>Từ chuyên môn vận hành đến lãnh đạo Apple</h2>\n<p>Cook học kỹ thuật công nghiệp tại Auburn và MBA tại Duke, gia nhập Apple năm 1998. Trước khi làm CEO, ông là giám đốc vận hành, phụ trách chuỗi cung ứng cùng các hoạt động bán hàng, dịch vụ và hỗ trợ trên toàn cầu. Ông giữ chức CEO giai đoạn 2011–2026. [1]</p>\n<p>Cập nhật đến tháng 11/2026, Cook là Chủ tịch điều hành hội đồng quản trị Apple. John Ternus tiếp nhận vị trí CEO từ ngày 1/9/2026 theo thông báo chuyển giao của công ty. [1][2] Vì vậy, bài viết này nhìn lại kinh nghiệm lãnh đạo và vận hành của Cook, thay vì giới thiệu ông bằng chức danh CEO hiện tại.</p>\n<h2>Sản phẩm là một lời hứa cần được thực hiện</h2>\n<p>Từ kinh nghiệm vận hành ấy, có thể rút ra một góc nhìn quản trị: chất lượng không chỉ nằm ở bản thiết kế. Nó còn nằm ở khả năng sản xuất đúng, giao đúng và xử lý khi có vấn đề. Phần liên hệ dưới đây là phân tích của ban biên tập, không phải các phát biểu nguyên văn hay quy trình nội bộ của Apple.</p>\n<p>Giả sử một cơ sở nhận đơn hàng có ngày giao cố định. Mẫu đẹp và giá cạnh tranh giúp nhận đơn, nhưng kết quả còn phụ thuộc nguyên liệu đến đúng lúc, các công đoạn bàn giao rõ và sản phẩm lỗi được phát hiện sớm. Nếu chỉ tối ưu khâu bán hàng, doanh nghiệp có thể tăng số đơn nhanh hơn khả năng thực hiện.</p>\n<p>Một bảng theo dõi đơn giản có thể ghi ngày cần nguyên liệu, công đoạn đang chờ và người chịu trách nhiệm xử lý. Điều quan trọng không phải tạo thêm báo cáo, mà để vấn đề được nhìn thấy đủ sớm. Khi hạn giao đã sát, một thông tin đúng nhưng đến muộn có thể không còn giúp sửa kết quả.</p>\n<h2>Chi phí thấp cần đi cùng khả năng phục hồi</h2>\n<p>Trong ví dụ giả định khác, nhà cung cấp rẻ nhất cũng là nguồn duy nhất cho một linh kiện quan trọng. Bình thường, lựa chọn ấy có vẻ rất hiệu quả. Khi nguồn hàng gián đoạn, phần tiết kiệm có thể nhỏ hơn chi phí ngừng sản xuất. Đánh giá nhà cung cấp vì thế cần xem cả chất lượng, thời gian đáp ứng và phương án thay thế.</p>\n<p>Dự phòng cũng có giá của nó: tồn kho làm vốn bị giữ lại, còn duy trì nhiều nguồn có thể tăng chi phí kiểm soát. Không có một mức dự phòng đúng cho mọi sản phẩm. Cần phân biệt vật tư dễ mua với vật tư có thời gian chờ dài, rồi tính tác động của việc thiếu từng loại đến toàn bộ đơn hàng.</p>\n<h2>Vận hành bao gồm cả niềm tin và chuyển giao</h2>\n<p>Apple giới thiệu quyền riêng tư là một giá trị cốt lõi trong sản phẩm và dịch vụ. [3] Đây là cách công ty trình bày cam kết của mình. Khi đánh giá độc lập, người đọc vẫn cần xem trải nghiệm sử dụng, chi phí và các đánh đổi thực tế, thay vì dùng thông điệp thương hiệu làm kết luận cuối cùng.</p>\n<p>Đối với tổ chức nhỏ, giữ niềm tin có thể rất cụ thể: báo sớm khi trễ, không tự đổi quy cách và có người chịu trách nhiệm sau giao hàng. Khách hàng không cần biết mọi chi tiết kỹ thuật, nhưng cần biết điều gì đã được cam kết và cách vấn đề sẽ được xử lý. Sự nhất quán qua nhiều lần giao dịch mới tạo nền tảng bền.</p>\n<p>Apple mô tả việc chuyển giao năm 2026 là kết quả của kế hoạch kế nhiệm dài hạn được hội đồng quản trị thông qua. [2] Liên hệ ở quy mô nhỏ là câu hỏi liệu công việc có tiếp tục khi một người chủ chốt vắng mặt. Hướng dẫn rõ, quyền hạn phù hợp và người thay thế được chuẩn bị giúp giảm phụ thuộc vào trí nhớ của một cá nhân.</p>\n<p>Câu chuyện Cook bổ sung cho góc nhìn về sáng tạo sản phẩm: doanh nghiệp cần cả ý tưởng lẫn năng lực thực hiện có thể lặp lại. Khi đọc về một lãnh đạo nổi tiếng, bài học hữu ích không phải sao chép quy mô của họ, mà là nhận ra mắt xích nào trong công việc của mình đang cần được làm chắc hơn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.apple.com/leadership/tim-cook/\">Apple — Tim Cook leadership profile</a></li><li><a href=\"https://www.apple.com/newsroom/2026/04/tim-cook-to-become-apple-executive-chairman-john-ternus-to-become-apple-ceo/\">Apple — Leadership transition announcement, April 2026</a></li><li><a href=\"https://www.apple.com/privacy/\">Apple — Privacy</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Tim_Cook_2009_cropped.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">Image license</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/tim-cook.webp",
+    "url": "https://daututuonglai.vn/2026/11/13/tim-cook-ky-luat-van-hanh/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1776&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/tim-cook-ky-luat-van-hanh/"
+  }
+]
