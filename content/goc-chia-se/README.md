@@ -10,7 +10,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | Gói | 5 nhân vật | Trạng thái |
 |---|---|---|
 | 01 | Benjamin Graham; Adam Smith; Mark Zuckerberg; Elon Musk; John Bogle | Đã đăng 5 bài VI ngày 13/11/2026; EN chưa soạn |
-| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI ngày 13/11/2026; 3 chân dung; 2 chờ xác minh quyền ảnh; EN chưa soạn |
 | 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -50,3 +50,13 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 Đã kiểm tra trang công khai: đủ nội dung, ảnh tải được, nguồn chân dung và nguồn tham khảo. Ảnh WebP có alt và ghi công. Bản tiếng Anh chưa soạn.
 
 Đối chiếu admin: Buffett đã có 3 bài, Đoàn Vĩnh Bình đã có bài; khi đến lượt phải chọn góc mới hoặc cập nhật. Gói đầu chọn Bogle thay Buffett. Nội dung trong repository là bản lưu biên tập; xuất bản thực hiện trực tiếp bằng WordPress, không thay theme.
+
+## Gói 02 đã xuất bản
+
+- [warren-buffett](https://daututuonglai.vn/2026/11/13/warren-buffett-phan-bo-von/)
+- [charlie-munger](https://daututuonglai.vn/2026/11/13/charlie-munger-tu-duy-da-nganh/)
+- [dang-phong](https://daututuonglai.vn/2026/11/13/dang-phong-lich-su-kinh-te-viet-nam/)
+- [amartya-sen](https://daututuonglai.vn/2026/11/13/amartya-sen-tieu-su-tu-tuong-phat-trien/)
+- [doan-vinh-binh](https://daututuonglai.vn/2026/11/13/doan-vinh-binh-mo-hinh-kinh-doanh/)
+
+Đã kiểm tra nội dung công khai, chuyên mục và 3 chân dung tải được. Đặng Phong và Đoàn Vĩnh Bình chưa có ảnh vì chưa xác minh quyền sử dụng. Các bài đã liên kết đọc tiếp. Chưa soạn EN.
