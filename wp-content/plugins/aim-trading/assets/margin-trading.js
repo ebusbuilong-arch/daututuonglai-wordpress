@@ -161,6 +161,7 @@ function quoteUsable(){
  }
  return quoteFresh();
 }
+function mapped(v){return ({'WTI':'WTICO_USD','BRENT':'BCO_USD'})[v]||v.replace('/','_');}
 function quoteFresh(){return !!liveQuote&&liveQuote.open&&liveQuote.symbol===$('fx-pilot-symbol').value&&Date.now()-liveQuote.time<=(liveQuote.time_basis==='provider_response'?120000:180000)&&Date.now()-liveQuote.received<=90000;}
 function estimate(){
  if(!quoteUsable()){$('mt-estimate').textContent=commodity?'Chưa có báo giá giao dịch cho mã này.':'Chưa có giá mới trong phiên; tạm khóa mở lệnh.';return;}
