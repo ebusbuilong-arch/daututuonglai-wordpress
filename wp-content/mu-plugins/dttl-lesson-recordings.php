@@ -18,17 +18,28 @@ function dttl_lesson_recording_map() {
         'sut-giam-von-va-muc-hoi-phuc' => ['4ckX28hwGrE', '068'],
         'danh-gia-giao-dich-thu-khong-chon-ket-qua-dep' => ['ykpmtDam6zw', '069'],
         'crypto-la-gi-nguoi-moi' => ['WN6AVfcxu4E', '070'],
+        'crypto-bao-mat-vi' => ['3UdD7JL7qYY', '071'],
+        'crypto-doc-gia-va-bien-dong' => ['3aUXlmMDgqo', '072'],
+        'crypto-bitcoin-ethereum-va-cac-nhom-token' => ['zl5oYA5vi8Q', '073'],
+        'crypto-tu-luu-ky-va-vi-luu-ky' => ['jw4TQlxxvY8', '074'],
+        'crypto-chuyen-tai-san-mang-dia-chi-phi' => ['5MixN5RTOQ8', '075'],
+        'crypto-stablecoin-mat-neo-va-du-tru' => ['ltb-xwQ4GWE', '076'],
+        'crypto-nhan-dien-lua-dao-va-quyen-ky' => ['4ykQEq5Ga2U', '077'],
+        'hang-hoa-vat-chat-va-phai-sinh' => ['_Qk_Z9DTc4M', '078'],
+        'hang-hoa-doc-bang-gia' => ['4Hf7V5jyOA8', '079'],
+        'hang-hoa-nhat-ky-quan-sat' => ['OeCGvgLyOkY', '080'],
     ];
 }
 
 add_action('wp_loaded', static function () {
-    $option = 'dttl_replay_cache_refreshed_061_070';
+    $option = 'dttl_replay_cache_refreshed_071_080';
     if (!function_exists('rocket_clean_files') || get_option($option)) {
         return;
     }
 
     $urls = [];
-    foreach (array_keys(dttl_lesson_recording_map()) as $slug) {
+    $recordings = array_slice(dttl_lesson_recording_map(), -10, null, true);
+    foreach (array_keys($recordings) as $slug) {
         $post = get_page_by_path($slug, OBJECT, 'post');
         if ($post && $post->post_status === 'publish') {
             $url = get_permalink($post);
@@ -37,7 +48,7 @@ add_action('wp_loaded', static function () {
             }
         }
     }
-    if (count($urls) === count(dttl_lesson_recording_map())) {
+    if (count($urls) === count($recordings)) {
         rocket_clean_files($urls);
         update_option($option, 1, false);
     }
