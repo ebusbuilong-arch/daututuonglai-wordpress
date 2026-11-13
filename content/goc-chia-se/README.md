@@ -9,8 +9,8 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 ## Tiến độ và thứ tự
 | Gói | 5 nhân vật | Trạng thái |
 |---|---|---|
-| 01 | Benjamin Graham; Adam Smith; Mark Zuckerberg; Elon Musk; John Bogle | Đã đăng 5 bài VI ngày 13/11/2026; EN chưa soạn |
-| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI ngày 13/11/2026; 3 chân dung; 2 chờ xác minh quyền ảnh; EN chưa soạn |
+| 01 | Benjamin Graham; Adam Smith; Mark Zuckerberg; Elon Musk; John Bogle | Đã đăng 5 bài VI+EN ngày 13/11/2026; kiểm tra chuyển ngôn ngữ đạt |
+| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI+EN ngày 13/11/2026; 3 chân dung; 2 chờ xác minh quyền ảnh |
 | 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -47,7 +47,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 - [elon-musk](https://daututuonglai.vn/2026/11/13/elon-musk-tesla-spacex-triet-ly-kinh-doanh/)
 - [john-bogle](https://daututuonglai.vn/2026/11/13/john-bogle-tieu-su-triet-ly-dau-tu/)
 
-Đã kiểm tra trang công khai: đủ nội dung, ảnh tải được, nguồn chân dung và nguồn tham khảo. Ảnh WebP có alt và ghi công. Bản tiếng Anh chưa soạn.
+Đã kiểm tra trang công khai: đủ nội dung, ảnh tải được, nguồn chân dung và nguồn tham khảo. Ảnh WebP có alt và ghi công. Bản tiếng Anh đã đăng và kiểm tra ngày 13/11/2026.
 
 Đối chiếu admin: Buffett đã có 3 bài, Đoàn Vĩnh Bình đã có bài; khi đến lượt phải chọn góc mới hoặc cập nhật. Gói đầu chọn Bogle thay Buffett. Nội dung trong repository là bản lưu biên tập; xuất bản thực hiện trực tiếp bằng WordPress, không thay theme.
 
@@ -59,4 +59,12 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 - [amartya-sen](https://daututuonglai.vn/2026/11/13/amartya-sen-tieu-su-tu-tuong-phat-trien/)
 - [doan-vinh-binh](https://daututuonglai.vn/2026/11/13/doan-vinh-binh-mo-hinh-kinh-doanh/)
 
-Đã kiểm tra nội dung công khai, chuyên mục và 3 chân dung tải được. Đặng Phong và Đoàn Vĩnh Bình chưa có ảnh vì chưa xác minh quyền sử dụng. Các bài đã liên kết đọc tiếp. Chưa soạn EN.
+Đã kiểm tra nội dung công khai, chuyên mục và 3 chân dung tải được. Đặng Phong và Đoàn Vĩnh Bình chưa có ảnh vì chưa xác minh quyền sử dụng. Các bài đã liên kết đọc tiếp. Bản EN đã đăng và kiểm tra ngày 13/11/2026.
+
+## Bổ sung song ngữ gói 01–02 — 13/11/2026
+
+Đã xuất bản 287 chuỗi EN gồm tiêu đề, nội dung, đề mục, nguồn, chú thích chân dung và 10 mô tả ngắn ngoài danh mục. Các bài dùng URL TranslatePress hiện có, không tạo bài đăng trùng. Đã kiểm tra nội dung cả 10 trang EN, bản VI và liên kết VI/EN hai chiều. Bản lưu và kết quả kiểm tra: [bilingual-packages-01-02.json](./bilingual-packages-01-02.json).
+
+Giới hạn còn lại: alt của 8 ảnh vẫn là tiếng Việt. Trình dịch ảnh hiện cài chỉ hiển thị ô nguồn ảnh, không có ô alt; các bản dịch alt đề xuất được ghi riêng là chưa đăng trong JSON. Hai bài Đặng Phong/Đoàn Vĩnh Bình vẫn chờ quyền dùng chân dung. Không đánh dấu các hạng mục này đã hoàn tất.
+
+Từ gói 03, mỗi gói gồm 5 chủ đề, soạn và đăng VI cùng EN; kiểm tra cả phần tóm tắt danh mục trước khi báo hoàn thành.
