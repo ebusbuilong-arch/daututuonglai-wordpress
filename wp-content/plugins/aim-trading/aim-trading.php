@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AIM Trading
  * Description: Sàn thực hành AIM: dữ liệu crypto thị trường, biểu đồ và tài khoản giao dịch thử lưu trên máy chủ.
- * Version: 0.4.50
+ * Version: 0.4.51
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
@@ -19,7 +19,7 @@ require_once __DIR__.'/commodity-accounts.php';
 require_once __DIR__.'/market-launch.php';
 require_once __DIR__.'/oil-reference.php';
 final class AIM_Trading {
- const VERSION = '0.4.50';
+ const VERSION = '0.4.51';
  const UNIT = 1000000;
  const START = 100000000;
  const FEE = 0.001;
@@ -227,6 +227,7 @@ final class AIM_Trading {
    $link.='<a id="aim-ranking-nav" href="'.esc_url(home_url('/aim-trading/?mode=workshop&view=season')).'">'.($en?'Rankings':'Xếp hạng').'</a>';
    $link.='<a id="aim-sponsors-nav" href="'.esc_url(home_url('/aim-trading/?mode=workshop&view=sponsors')).'">'.($en?'Sponsors':'Nhà tài trợ').'</a>';
    $html=str_replace('BẢN THỬ','MÔ PHỎNG',$html);
+   $html=str_replace('/aim-trading/assets/terminal.js?v=', '/aim-trading/assets/terminal-net.js?v=', $html);
    $html=preg_replace_callback('/(<header\b[^>]*>.*?<nav\b[^>]*>)(.*?)(<\/nav>)/s',function($m)use($link){return $m[1].$m[2].$link.$m[3];},$html,1);
    $mobile='<style id="aim-mobile-navigation">@media(max-width:767px){header.top nav{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important;gap:4px!important;width:100%!important;min-width:0!important;max-width:100%!important;overflow:visible!important;white-space:normal!important;height:auto!important}header.top nav>a{grid-column:span 2;min-width:0!important;margin:0!important;padding:10px 4px!important;text-align:center;white-space:normal!important;font-size:13px!important}header.top nav #aim-ranking-nav{display:block!important;color:var(--accent,#5cc6a6);font-weight:700}}</style>';
    return str_replace('</head>',$mobile.'</head>',$html);
