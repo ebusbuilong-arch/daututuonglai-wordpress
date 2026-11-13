@@ -1,0 +1,554 @@
+[
+  {
+    "key": "milton-friedman",
+    "slug": "milton-friedman-tien-te-va-suc-mua",
+    "title": "Milton Friedman: Nhìn tiền tệ qua sức mua và lịch sử khủng hoảng",
+    "title_en": "Milton Friedman: Understanding money through purchasing power and crises",
+    "excerpt": "Tiểu sử Milton Friedman, vai trò của tiền tệ và cách phân biệt doanh thu danh nghĩa với sức mua thực tế.",
+    "excerpt_en": "Milton Friedman, the role of money, and the difference between nominal revenue and real purchasing power.",
+    "credit": "Chân dung Milton Friedman. Nguồn: The Friedman Foundation for Educational Choice; bản chỉnh sửa của Berganus, CC0. Thu nhỏ và chuyển WebP.",
+    "credit_en": "Portrait of Milton Friedman. Source: The Friedman Foundation for Educational Choice; derivative by Berganus, CC0. Resized and converted to WebP.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Milton_Friedman.jpg",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sources": [
+      {
+        "label": "Library of Congress — Milton Friedman",
+        "url": "https://guides.loc.gov/milton-friedman"
+      },
+      {
+        "label": "NBER — A Monetary History of the United States",
+        "url": "https://www.nber.org/books-and-chapters/monetary-history-united-states-1867-1960"
+      },
+      {
+        "label": "Federal Reserve — Monetary Aggregates and Monetary Policy, 2006",
+        "url": "https://www.federalreserve.gov/newsevents/speech/bernanke20061110a.htm"
+      },
+      {
+        "label": "Federal Reserve — Historical Approaches to Monetary Policy",
+        "url": "https://www.federalreserve.gov/monetarypolicy/historical-approaches-to-monetary-policy.htm"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Doanh thu tăng nhưng tiền mua được ít nguyên liệu hơn: đó là tình huống khiến một người kinh doanh bắt đầu quan tâm đến tiền tệ. Milton Friedman giúp đưa câu hỏi về lượng tiền, sức mua và cách điều hành kinh tế vào trung tâm tranh luận. Đọc ông hữu ích nhất khi ta phân biệt lập luận nghiên cứu với khẩu hiệu được truyền lại.",
+        "en": "Revenue can rise while the money buys fewer materials. That is often when a business owner starts paying attention to monetary economics. Milton Friedman helped place money, purchasing power and economic policy at the center of public debate. Reading him is most useful when we distinguish research arguments from the slogans attached to them."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà kinh tế Mỹ trong thế kỷ nhiều biến động",
+        "en": "An American economist in a turbulent century"
+      },
+      {
+        "tag": "p",
+        "vi": "Friedman sống từ năm 1912 đến 2006. Ông gắn bó lâu dài với Đại học Chicago và trở thành một tiếng nói nổi bật trong kinh tế học Mỹ. Giải thưởng kinh tế năm 1976 ghi nhận nghiên cứu của ông về tiêu dùng, lịch sử và lý thuyết tiền tệ, cùng tính phức tạp của chính sách ổn định kinh tế. Phạm vi đó rộng hơn hình ảnh một người chỉ tranh luận về lạm phát. [1]",
+        "en": "Friedman lived from 1912 to 2006. He was closely associated with the University of Chicago and became a prominent voice in American economics. The 1976 economics prize recognized his work on consumption, monetary history and theory, and the complexity of stabilization policy. His research therefore extended beyond the inflation debates for which he is often remembered. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Cuốn A Monetary History of the United States, 1867–1960, xuất bản năm 1963, là công trình chung của Friedman và Anna J. Schwartz. [2] Cần nhắc đúng vai trò đồng tác giả: lịch sử tư tưởng không chỉ gồm vài cá nhân nổi tiếng, mà còn có công việc thu thập dữ liệu, đối chiếu tài liệu và cộng tác bền bỉ phía sau.",
+        "en": "A Monetary History of the United States, 1867–1960, published in 1963, was a joint work by Friedman and Anna J. Schwartz. [2] Recognizing the coauthor matters: intellectual history includes painstaking data collection, documentary research and sustained collaboration, not just a few famous individuals."
+      },
+      {
+        "tag": "h2",
+        "vi": "Vì sao tiền tệ không chỉ là con số trong ví?",
+        "en": "Why money is more than the balance in a wallet"
+      },
+      {
+        "tag": "p",
+        "vi": "Friedman và Schwartz cho rằng những sai lầm trong điều hành tiền tệ góp phần làm Đại suy thoái trở nên nghiêm trọng. Bài phát biểu của Ben Bernanke năm 2006 nhìn lại ảnh hưởng của lập luận này. [3] Điều cần giữ lại là vai trò của hệ thống tiền tệ và ngân hàng; không nên rút gọn mọi khủng hoảng thành một nguyên nhân duy nhất.",
+        "en": "Friedman and Schwartz argued that monetary policy failures contributed to the severity of the Great Depression. Ben Bernanke revisited the influence of this argument in a 2006 speech. [3] The important point is the role of money and banking; it should not be turned into a claim that every crisis has a single cause."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một ví dụ giả định, xưởng có máy móc, công nhân và khách muốn mua, nhưng ngân hàng thu hẹp tín dụng, khách trả chậm và nhà cung cấp đòi tiền ngay. Năng lực sản xuất vẫn còn, song việc phối hợp các khoản thanh toán bị gián đoạn. Câu chuyện cho thấy vì sao quan sát riêng số lượng máy hoặc đơn đặt hàng chưa đủ để hiểu hoạt động kinh tế.",
+        "en": "Consider a hypothetical workshop with machinery, workers and interested customers. Banks restrict credit, customers pay late and suppliers demand immediate payment. Productive capacity still exists, but the coordination of payments breaks down. Looking only at machinery or orders would miss an important part of the economic situation."
+      },
+      {
+        "tag": "p",
+        "vi": "Đây là ví dụ biên tập để giải thích cơ chế, không phải tình huống do Friedman kể. Nó cũng không chứng minh rằng cứ mở rộng tín dụng là giải quyết được vấn đề. Nếu người vay không có khả năng hoàn trả hoặc đơn hàng không có lợi nhuận, thêm khoản vay có thể chỉ kéo dài khó khăn.",
+        "en": "This is an editorial example, not an anecdote told by Friedman. It also does not prove that expanding credit always solves the problem. If borrowers cannot repay or orders are unprofitable, another loan may simply prolong the difficulty."
+      },
+      {
+        "tag": "h2",
+        "vi": "Doanh thu danh nghĩa và kết quả thực",
+        "en": "Nominal revenue and real results"
+      },
+      {
+        "tag": "p",
+        "vi": "Giả sử năm trước một cửa hàng bán 1.000 sản phẩm với giá 100.000 đồng, đạt 100 triệu đồng doanh thu. Năm sau vẫn bán 1.000 sản phẩm nhưng giá tăng lên 110.000 đồng: doanh thu đạt 110 triệu. Doanh thu danh nghĩa tăng 10%, trong khi số lượng bán chưa tăng. Muốn biết kinh doanh tốt hơn hay không, còn phải xem chi phí, chất lượng và lợi nhuận.",
+        "en": "Suppose a shop sold 1,000 products at VND 100,000 each last year, generating VND 100 million. This year it sells the same number at VND 110,000, generating VND 110 million. Nominal revenue rises by 10%, but sales volume does not. Costs, quality and profit are still needed to judge whether the business improved."
+      },
+      {
+        "tag": "p",
+        "vi": "Nếu toàn bộ nguyên liệu và tiền công cùng tăng, phần tăng doanh thu có thể chỉ bù cho đầu vào đắt hơn. Ngược lại, nếu năng suất tăng đủ mạnh, doanh nghiệp có thể cải thiện lợi nhuận dù không tăng giá. Bởi vậy, một bảng theo dõi nên tách giá bán, sản lượng, chi phí trên đơn vị và số tiền thực thu.",
+        "en": "If materials and wages also increase, the extra revenue may merely cover more expensive inputs. Conversely, sufficient productivity gains can improve profit without a price increase. A useful dashboard therefore separates selling prices, volume, unit costs and cash actually collected."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chính sách có giới hạn, mô hình cũng vậy",
+        "en": "Policy has limits, and so do models"
+      },
+      {
+        "tag": "p",
+        "vi": "Ảnh hưởng của Friedman không đồng nghĩa mọi ngân hàng trung ương ngày nay đều điều hành bằng một tốc độ tăng cung tiền cố định. Fed mô tả sự thay đổi trong cách tiếp cận chính sách, bao gồm những khó khăn khi quan hệ giữa các chỉ tiêu tiền tệ và nền kinh tế biến động. [4] Một ý tưởng có sức ảnh hưởng vẫn có thể cần điều chỉnh khi môi trường thay đổi.",
+        "en": "Friedman's influence does not mean that all central banks now operate with a fixed money-growth target. The Federal Reserve describes changes in policy approaches, including difficulties caused by shifting relationships between monetary measures and the economy. [4] An influential idea can still require adaptation as conditions change."
+      },
+      {
+        "tag": "p",
+        "vi": "Khi một mặt hàng tăng giá do mất mùa hoặc đứt nguồn cung, ta cũng không nên lập tức gọi đó là toàn bộ câu chuyện lạm phát. Cần xem phạm vi tăng giá, mức kéo dài và phản ứng của thu nhập, tín dụng, nhu cầu. Phân biệt biến động giá tương đối với xu hướng giá chung giúp tránh suy luận quá nhanh từ một hóa đơn.",
+        "en": "When one product becomes more expensive after a poor harvest or supply disruption, that is not automatically the whole inflation story. The breadth and persistence of price increases, and the responses of income, credit and demand, all matter. Distinguishing relative price changes from general inflation prevents sweeping conclusions from a single bill."
+      },
+      {
+        "tag": "p",
+        "vi": "Giá trị thực hành của việc đọc Friedman là thói quen hỏi: số tiền đang tăng hay sức mua đang tăng, cơ chế nào đứng giữa chính sách và kết quả, dữ liệu nào có thể bác bỏ nhận định của mình? Những câu hỏi ấy hữu ích hơn việc biến tên một nhà kinh tế thành câu trả lời có sẵn cho mọi hoàn cảnh.",
+        "en": "A practical benefit of reading Friedman is learning to ask whether money amounts or purchasing power are rising, what mechanism connects a policy to its result, and what evidence could disprove our view. These questions are more useful than making an economist's name a ready-made answer to every situation."
+      }
+    ],
+    "html": "<p><em>Chân dung Milton Friedman. Nguồn: The Friedman Foundation for Educational Choice; bản chỉnh sửa của Berganus, CC0. Thu nhỏ và chuyển WebP.</em></p>\n<p>Doanh thu tăng nhưng tiền mua được ít nguyên liệu hơn: đó là tình huống khiến một người kinh doanh bắt đầu quan tâm đến tiền tệ. Milton Friedman giúp đưa câu hỏi về lượng tiền, sức mua và cách điều hành kinh tế vào trung tâm tranh luận. Đọc ông hữu ích nhất khi ta phân biệt lập luận nghiên cứu với khẩu hiệu được truyền lại.</p>\n<h2>Một nhà kinh tế Mỹ trong thế kỷ nhiều biến động</h2>\n<p>Friedman sống từ năm 1912 đến 2006. Ông gắn bó lâu dài với Đại học Chicago và trở thành một tiếng nói nổi bật trong kinh tế học Mỹ. Giải thưởng kinh tế năm 1976 ghi nhận nghiên cứu của ông về tiêu dùng, lịch sử và lý thuyết tiền tệ, cùng tính phức tạp của chính sách ổn định kinh tế. Phạm vi đó rộng hơn hình ảnh một người chỉ tranh luận về lạm phát. [1]</p>\n<p>Cuốn A Monetary History of the United States, 1867–1960, xuất bản năm 1963, là công trình chung của Friedman và Anna J. Schwartz. [2] Cần nhắc đúng vai trò đồng tác giả: lịch sử tư tưởng không chỉ gồm vài cá nhân nổi tiếng, mà còn có công việc thu thập dữ liệu, đối chiếu tài liệu và cộng tác bền bỉ phía sau.</p>\n<h2>Vì sao tiền tệ không chỉ là con số trong ví?</h2>\n<p>Friedman và Schwartz cho rằng những sai lầm trong điều hành tiền tệ góp phần làm Đại suy thoái trở nên nghiêm trọng. Bài phát biểu của Ben Bernanke năm 2006 nhìn lại ảnh hưởng của lập luận này. [3] Điều cần giữ lại là vai trò của hệ thống tiền tệ và ngân hàng; không nên rút gọn mọi khủng hoảng thành một nguyên nhân duy nhất.</p>\n<p>Trong một ví dụ giả định, xưởng có máy móc, công nhân và khách muốn mua, nhưng ngân hàng thu hẹp tín dụng, khách trả chậm và nhà cung cấp đòi tiền ngay. Năng lực sản xuất vẫn còn, song việc phối hợp các khoản thanh toán bị gián đoạn. Câu chuyện cho thấy vì sao quan sát riêng số lượng máy hoặc đơn đặt hàng chưa đủ để hiểu hoạt động kinh tế.</p>\n<p>Đây là ví dụ biên tập để giải thích cơ chế, không phải tình huống do Friedman kể. Nó cũng không chứng minh rằng cứ mở rộng tín dụng là giải quyết được vấn đề. Nếu người vay không có khả năng hoàn trả hoặc đơn hàng không có lợi nhuận, thêm khoản vay có thể chỉ kéo dài khó khăn.</p>\n<h2>Doanh thu danh nghĩa và kết quả thực</h2>\n<p>Giả sử năm trước một cửa hàng bán 1.000 sản phẩm với giá 100.000 đồng, đạt 100 triệu đồng doanh thu. Năm sau vẫn bán 1.000 sản phẩm nhưng giá tăng lên 110.000 đồng: doanh thu đạt 110 triệu. Doanh thu danh nghĩa tăng 10%, trong khi số lượng bán chưa tăng. Muốn biết kinh doanh tốt hơn hay không, còn phải xem chi phí, chất lượng và lợi nhuận.</p>\n<p>Nếu toàn bộ nguyên liệu và tiền công cùng tăng, phần tăng doanh thu có thể chỉ bù cho đầu vào đắt hơn. Ngược lại, nếu năng suất tăng đủ mạnh, doanh nghiệp có thể cải thiện lợi nhuận dù không tăng giá. Bởi vậy, một bảng theo dõi nên tách giá bán, sản lượng, chi phí trên đơn vị và số tiền thực thu.</p>\n<h2>Chính sách có giới hạn, mô hình cũng vậy</h2>\n<p>Ảnh hưởng của Friedman không đồng nghĩa mọi ngân hàng trung ương ngày nay đều điều hành bằng một tốc độ tăng cung tiền cố định. Fed mô tả sự thay đổi trong cách tiếp cận chính sách, bao gồm những khó khăn khi quan hệ giữa các chỉ tiêu tiền tệ và nền kinh tế biến động. [4] Một ý tưởng có sức ảnh hưởng vẫn có thể cần điều chỉnh khi môi trường thay đổi.</p>\n<p>Khi một mặt hàng tăng giá do mất mùa hoặc đứt nguồn cung, ta cũng không nên lập tức gọi đó là toàn bộ câu chuyện lạm phát. Cần xem phạm vi tăng giá, mức kéo dài và phản ứng của thu nhập, tín dụng, nhu cầu. Phân biệt biến động giá tương đối với xu hướng giá chung giúp tránh suy luận quá nhanh từ một hóa đơn.</p>\n<p>Giá trị thực hành của việc đọc Friedman là thói quen hỏi: số tiền đang tăng hay sức mua đang tăng, cơ chế nào đứng giữa chính sách và kết quả, dữ liệu nào có thể bác bỏ nhận định của mình? Những câu hỏi ấy hữu ích hơn việc biến tên một nhà kinh tế thành câu trả lời có sẵn cho mọi hoàn cảnh.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://guides.loc.gov/milton-friedman\">Library of Congress — Milton Friedman</a></li><li><a href=\"https://www.nber.org/books-and-chapters/monetary-history-united-states-1867-1960\">NBER — A Monetary History of the United States</a></li><li><a href=\"https://www.federalreserve.gov/newsevents/speech/bernanke20061110a.htm\">Federal Reserve — Monetary Aggregates and Monetary Policy, 2006</a></li><li><a href=\"https://www.federalreserve.gov/monetarypolicy/historical-approaches-to-monetary-policy.htm\">Federal Reserve — Historical Approaches to Monetary Policy</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Milton_Friedman.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">Image license</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/13/milton-friedman-tien-te-va-suc-mua/",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/milton-friedman-tien-te-va-suc-mua/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1747&action=edit",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/milton-friedman-641x800.webp"
+  },
+  {
+    "key": "jeff-bezos",
+    "slug": "jeff-bezos-khach-hang-va-tu-duy-dai-han",
+    "title": "Jeff Bezos: Tư duy dài hạn bắt đầu từ việc khách hàng quay lại",
+    "title_en": "Jeff Bezos: Long-term thinking starts with customers returning",
+    "excerpt": "Đọc thư cổ đông của Jeff Bezos để hiểu khách hàng, đầu tư dài hạn và giới hạn của việc chạy theo tăng trưởng.",
+    "excerpt_en": "Reading Jeff Bezos’s shareholder letters to understand customers, long-term investment and the limits of growth.",
+    "credit": "Jeff Bezos năm 2018. Ảnh: Seattle City Council, CC BY 2.0, bản cắt từ Wikimedia Commons. Thu nhỏ và chuyển WebP.",
+    "credit_en": "Jeff Bezos in 2018. Photo: Seattle City Council, CC BY 2.0, cropped version from Wikimedia Commons. Resized and converted to WebP.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_(39074799225)_(cropped).jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Amazon — 2025 Annual Report",
+        "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm"
+      },
+      {
+        "label": "Jeff Bezos — 1997 Letter to Shareholders",
+        "url": "https://www.aboutamazon.com/news/company-news/amazons-original-1997-letter-to-shareholders"
+      },
+      {
+        "label": "Jeff Bezos — 2016 Letter to Shareholders",
+        "url": "https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một đơn hàng có thể đến nhờ quảng cáo hoặc giảm giá. Đơn hàng tiếp theo cho biết nhiều hơn về trải nghiệm mà doanh nghiệp đã tạo ra. Đây là một cách gần gũi để đọc triết lý kinh doanh của Jeff Bezos: nhìn việc phục vụ khách hàng như công việc tích lũy lâu dài, thay vì chỉ là chiến dịch bán hàng trong tháng.",
+        "en": "Advertising or a discount can bring in an order. The next order often says more about the experience the business created. This is a practical way to read Jeff Bezos's business philosophy: serving customers as a cumulative, long-term effort rather than a monthly sales campaign."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ doanh nghiệp năm 1994 đến một cách đo thành công",
+        "en": "From a business founded in 1994 to a way of measuring success"
+      },
+      {
+        "tag": "p",
+        "vi": "Bezos thành lập Amazon năm 1994. Hồ sơ doanh nghiệp ghi ông chuyển sang vai trò Executive Chair từ tháng 7/2021, sau thời gian điều hành với tư cách CEO. [1] Vì vậy, khi giới thiệu tiểu sử, cần phân biệt người sáng lập và cựu CEO với người trực tiếp giữ chức CEO ở từng thời điểm.",
+        "en": "Bezos founded Amazon in 1994. The company's filings record his transition to Executive Chair in July 2021 after serving as CEO. [1] A biographical profile should therefore distinguish the founder and former CEO from whoever holds the chief executive role at a particular time."
+      },
+      {
+        "tag": "p",
+        "vi": "Bức thư cổ đông năm 1997 là một tài liệu quan trọng để hiểu định hướng của ông. Bezos đặt trọng tâm vào khách hàng và giá trị dài hạn, đồng thời nói đến việc đo hiệu quả, bỏ chương trình không đạt yêu cầu và tăng đầu tư cho hoạt động có kết quả. [2] Dài hạn ở đây vẫn đi cùng đánh giá, chứ không phải miễn kiểm tra.",
+        "en": "The 1997 shareholder letter is an important document for understanding his approach. Bezos emphasized customers and long-term value while also discussing measurement, abandoning ineffective programs and investing more in successful ones. [2] Long-term thinking still involved evaluation; it was not exemption from scrutiny."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khách hàng quay lại vì điều gì?",
+        "en": "Why would a customer return?"
+      },
+      {
+        "tag": "p",
+        "vi": "Phần liên hệ sau là phân tích của ban biên tập, không phải trích lời Bezos. Giả định một cơ sở đồng phục muốn tăng khách hàng cũ. Họ có thể gửi thêm tin khuyến mại, nhưng trước hết cần biết khách từng gặp vấn đề gì: duyệt mẫu chậm, sai kích thước, khó đặt bổ sung hay không biết bao giờ nhận hàng.",
+        "en": "The following application is editorial analysis, not a quotation from Bezos. Imagine a uniform supplier trying to increase repeat business. It could send more promotions, but first it needs to understand past difficulties: slow sample approval, incorrect sizing, awkward reordering or uncertainty about delivery."
+      },
+      {
+        "tag": "p",
+        "vi": "Nếu mỗi đơn đều phải hỏi lại màu vải, vị trí logo và bảng size, khách tốn công dù sản phẩm cuối cùng đạt yêu cầu. Lưu hồ sơ đã duyệt và cho khách xác nhận lại có thể tạo giá trị rõ hơn một lời quảng cáo chung chung. Tuy nhiên, dữ liệu phải chính xác và khách vẫn cần được xác nhận những thay đổi của lần đặt mới.",
+        "en": "If every order requires customers to repeat fabric colors, logo placement and sizing, the process is costly even when the final product is acceptable. Keeping approved specifications and asking customers to reconfirm them may create more value than a generic promotion. Records must remain accurate, and changes for a new order still require confirmation."
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể theo dõi tỷ lệ khách quay lại, tỷ lệ giao đúng hẹn và số lần sửa lỗi. Nhưng không nên chọn một chỉ số rồi bỏ qua phần còn lại. Giao nhanh bằng cách bỏ bước kiểm tra có thể làm tỷ lệ hoàn hàng tăng; giảm giá để tăng số đơn có thể khiến mỗi đơn không đủ bù chi phí phục vụ.",
+        "en": "Repeat-purchase rates, on-time delivery and rework are useful measures. None should be isolated from the others. Skipping quality checks to ship faster can increase returns; discounting to raise order counts can leave each order unable to cover the cost of serving it."
+      },
+      {
+        "tag": "h2",
+        "vi": "Quy trình phải phục vụ kết quả",
+        "en": "Processes must serve outcomes"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong thư năm 2016, Bezos cảnh báo việc dùng quy trình hoặc số liệu khảo sát thay cho việc hiểu khách hàng. Ông cũng bàn về thử nghiệm và tốc độ ra quyết định. [3] Một quy trình có thể được tuân thủ đầy đủ mà khách vẫn nhận kết quả không tốt; chính khoảng cách ấy cần được điều tra và sửa chữa.",
+        "en": "In the 2016 letter, Bezos warned about treating processes or survey measures as substitutes for understanding customers. He also discussed experimentation and decision speed. [3] A process can be followed perfectly while producing a poor customer outcome; that gap is what needs investigation and improvement."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ, bộ phận bán hàng đánh dấu đã gửi báo giá nhưng khách không biết giá có gồm in và vận chuyển hay chưa. Trên hệ thống, bước gửi đã hoàn tất. Trong trải nghiệm thật, việc mua hàng vẫn bị tắc. Cách sửa không nhất thiết là thêm một biểu mẫu, mà có thể là làm báo giá rõ hơn và kiểm tra khách đã hiểu đúng.",
+        "en": "For example, sales staff may mark a quotation as sent while the customer still does not know whether printing and delivery are included. The system says the task is complete, but the purchase remains blocked. The answer may be a clearer quotation and confirmation of understanding rather than another form."
+      },
+      {
+        "tag": "h2",
+        "vi": "Kiên nhẫn không phải tiếp tục mọi dự án",
+        "en": "Patience does not mean continuing every project"
+      },
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp nhỏ không có cùng khả năng tài trợ như một tập đoàn lớn. Trước khi thử dịch vụ mới, cần ghi rõ thời gian thử, ngân sách có thể mất và dấu hiệu cho thấy khách thực sự cần nó. Tăng trưởng doanh thu chưa đủ nếu tiền thu quá chậm hoặc chi phí hỗ trợ tăng nhanh hơn phần lợi nhuận tạo ra.",
+        "en": "A small business does not have the financing capacity of a large corporation. Before testing a new service, it should define the trial period, affordable loss and evidence of genuine customer demand. Revenue growth is insufficient if cash arrives too slowly or support costs outpace the profit generated."
+      },
+      {
+        "tag": "p",
+        "vi": "Một thử nghiệm đặt hàng trực tuyến có thể bắt đầu với một nhóm khách và vài loại sản phẩm. Sau mỗi vòng, ghi lại số khách hoàn thành đơn, nơi họ bỏ cuộc và thời gian nhân viên phải hỗ trợ. Kết quả xấu có thể yêu cầu thay cách làm, thu hẹp phạm vi hoặc dừng; không phải lúc nào cũng cần chi thêm để giữ câu chuyện tăng trưởng.",
+        "en": "An online ordering experiment can begin with a small customer group and a limited product range. Each round should record completed orders, abandonment points and staff support time. Poor results may call for redesign, a narrower scope or closure; spending more to preserve a growth narrative is not always justified."
+      },
+      {
+        "tag": "p",
+        "vi": "Đọc Bezos cũng cần giữ khoảng cách với câu chuyện thành công: lợi ích của khách hàng không tự giải quyết mọi vấn đề về nhân viên, nhà cung cấp hay cạnh tranh. Bài học có thể mang về là cách đặt câu hỏi, kiểm tra kết quả và tích lũy năng lực phục vụ. Quy mô của Amazon không phải điều kiện để bắt đầu làm ba việc đó.",
+        "en": "Reading Bezos also requires distance from the success story: customer benefits do not automatically settle questions about workers, suppliers or competition. The transferable lesson is to ask better questions, test outcomes and build the ability to serve. None of these requires Amazon's scale."
+      }
+    ],
+    "html": "<p><em>Jeff Bezos năm 2018. Ảnh: Seattle City Council, CC BY 2.0, bản cắt từ Wikimedia Commons. Thu nhỏ và chuyển WebP.</em></p>\n<p>Một đơn hàng có thể đến nhờ quảng cáo hoặc giảm giá. Đơn hàng tiếp theo cho biết nhiều hơn về trải nghiệm mà doanh nghiệp đã tạo ra. Đây là một cách gần gũi để đọc triết lý kinh doanh của Jeff Bezos: nhìn việc phục vụ khách hàng như công việc tích lũy lâu dài, thay vì chỉ là chiến dịch bán hàng trong tháng.</p>\n<h2>Từ doanh nghiệp năm 1994 đến một cách đo thành công</h2>\n<p>Bezos thành lập Amazon năm 1994. Hồ sơ doanh nghiệp ghi ông chuyển sang vai trò Executive Chair từ tháng 7/2021, sau thời gian điều hành với tư cách CEO. [1] Vì vậy, khi giới thiệu tiểu sử, cần phân biệt người sáng lập và cựu CEO với người trực tiếp giữ chức CEO ở từng thời điểm.</p>\n<p>Bức thư cổ đông năm 1997 là một tài liệu quan trọng để hiểu định hướng của ông. Bezos đặt trọng tâm vào khách hàng và giá trị dài hạn, đồng thời nói đến việc đo hiệu quả, bỏ chương trình không đạt yêu cầu và tăng đầu tư cho hoạt động có kết quả. [2] Dài hạn ở đây vẫn đi cùng đánh giá, chứ không phải miễn kiểm tra.</p>\n<h2>Khách hàng quay lại vì điều gì?</h2>\n<p>Phần liên hệ sau là phân tích của ban biên tập, không phải trích lời Bezos. Giả định một cơ sở đồng phục muốn tăng khách hàng cũ. Họ có thể gửi thêm tin khuyến mại, nhưng trước hết cần biết khách từng gặp vấn đề gì: duyệt mẫu chậm, sai kích thước, khó đặt bổ sung hay không biết bao giờ nhận hàng.</p>\n<p>Nếu mỗi đơn đều phải hỏi lại màu vải, vị trí logo và bảng size, khách tốn công dù sản phẩm cuối cùng đạt yêu cầu. Lưu hồ sơ đã duyệt và cho khách xác nhận lại có thể tạo giá trị rõ hơn một lời quảng cáo chung chung. Tuy nhiên, dữ liệu phải chính xác và khách vẫn cần được xác nhận những thay đổi của lần đặt mới.</p>\n<p>Có thể theo dõi tỷ lệ khách quay lại, tỷ lệ giao đúng hẹn và số lần sửa lỗi. Nhưng không nên chọn một chỉ số rồi bỏ qua phần còn lại. Giao nhanh bằng cách bỏ bước kiểm tra có thể làm tỷ lệ hoàn hàng tăng; giảm giá để tăng số đơn có thể khiến mỗi đơn không đủ bù chi phí phục vụ.</p>\n<h2>Quy trình phải phục vụ kết quả</h2>\n<p>Trong thư năm 2016, Bezos cảnh báo việc dùng quy trình hoặc số liệu khảo sát thay cho việc hiểu khách hàng. Ông cũng bàn về thử nghiệm và tốc độ ra quyết định. [3] Một quy trình có thể được tuân thủ đầy đủ mà khách vẫn nhận kết quả không tốt; chính khoảng cách ấy cần được điều tra và sửa chữa.</p>\n<p>Ví dụ, bộ phận bán hàng đánh dấu đã gửi báo giá nhưng khách không biết giá có gồm in và vận chuyển hay chưa. Trên hệ thống, bước gửi đã hoàn tất. Trong trải nghiệm thật, việc mua hàng vẫn bị tắc. Cách sửa không nhất thiết là thêm một biểu mẫu, mà có thể là làm báo giá rõ hơn và kiểm tra khách đã hiểu đúng.</p>\n<h2>Kiên nhẫn không phải tiếp tục mọi dự án</h2>\n<p>Một doanh nghiệp nhỏ không có cùng khả năng tài trợ như một tập đoàn lớn. Trước khi thử dịch vụ mới, cần ghi rõ thời gian thử, ngân sách có thể mất và dấu hiệu cho thấy khách thực sự cần nó. Tăng trưởng doanh thu chưa đủ nếu tiền thu quá chậm hoặc chi phí hỗ trợ tăng nhanh hơn phần lợi nhuận tạo ra.</p>\n<p>Một thử nghiệm đặt hàng trực tuyến có thể bắt đầu với một nhóm khách và vài loại sản phẩm. Sau mỗi vòng, ghi lại số khách hoàn thành đơn, nơi họ bỏ cuộc và thời gian nhân viên phải hỗ trợ. Kết quả xấu có thể yêu cầu thay cách làm, thu hẹp phạm vi hoặc dừng; không phải lúc nào cũng cần chi thêm để giữ câu chuyện tăng trưởng.</p>\n<p>Đọc Bezos cũng cần giữ khoảng cách với câu chuyện thành công: lợi ích của khách hàng không tự giải quyết mọi vấn đề về nhân viên, nhà cung cấp hay cạnh tranh. Bài học có thể mang về là cách đặt câu hỏi, kiểm tra kết quả và tích lũy năng lực phục vụ. Quy mô của Amazon không phải điều kiện để bắt đầu làm ba việc đó.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.sec.gov/Archives/edgar/data/1018724/000101872426000004/amzn-20251231.htm\">Amazon — 2025 Annual Report</a></li><li><a href=\"https://www.aboutamazon.com/news/company-news/amazons-original-1997-letter-to-shareholders\">Jeff Bezos — 1997 Letter to Shareholders</a></li><li><a href=\"https://www.aboutamazon.com/news/company-news/2016-letter-to-shareholders\">Jeff Bezos — 2016 Letter to Shareholders</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_(39074799225)_(cropped).jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/13/jeff-bezos-khach-hang-va-tu-duy-dai-han/",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/jeff-bezos-khach-hang-va-tu-duy-dai-han/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1750&action=edit",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/jeff-bezos-550x800.webp"
+  },
+  {
+    "key": "jensen-huang",
+    "slug": "jensen-huang-tu-chip-den-he-sinh-thai",
+    "title": "Jensen Huang: Từ con chip đến hệ sinh thái người sử dụng",
+    "title_en": "Jensen Huang: From a chip to an ecosystem of users",
+    "excerpt": "Hành trình đồng sáng lập NVIDIA và bài học về phần cứng, công cụ phần mềm, người phát triển và giới hạn của câu chuyện thành công.",
+    "excerpt_en": "NVIDIA’s cofounding story and lessons about hardware, software tools, developers and the limits of a success narrative.",
+    "credit": "Jensen Huang ngày 9/11/2023. Ảnh: 總統府 (Presidential Office), CC BY 2.0. Thu nhỏ và chuyển WebP.",
+    "credit_en": "Jensen Huang on 9 November 2023. Photo: 總統府 (Presidential Office), CC BY 2.0. Resized and converted to WebP.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Jensen_Huang_20231109.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "NVIDIA — Corporate Timeline",
+        "url": "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+      },
+      {
+        "label": "NVIDIA — Jensen Huang biography",
+        "url": "https://nvidianews.nvidia.com/bios/jensen-huang"
+      },
+      {
+        "label": "NVIDIA — CEO Transition, 12 November 2026",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+      },
+      {
+        "label": "NVIDIA — Form 8-K, filed 12 November 2026",
+        "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một sản phẩm mạnh chưa chắc trở thành nền tảng được nhiều người sử dụng. Người mua còn cần công cụ, tài liệu, kỹ năng và khả năng đưa sản phẩm vào công việc. Hành trình của Jensen Huang cùng NVIDIA gợi ra một câu hỏi kinh doanh đáng chú ý: doanh nghiệp đang bán một bộ phận riêng lẻ hay giúp khách hoàn thành cả một việc?",
+        "en": "A powerful product does not automatically become a widely used platform. Buyers also need tools, documentation, skills and a way to integrate it into their work. Jensen Huang's journey with NVIDIA raises a useful business question: is a company selling an isolated component or helping customers complete a task?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Những mốc cần đặt đúng trong tiểu sử",
+        "en": "Putting biographical milestones in their proper context"
+      },
+      {
+        "tag": "p",
+        "vi": "NVIDIA được Jensen Huang, Chris Malachowsky và Curtis Priem thành lập năm 1993, ban đầu hướng tới đồ họa 3D. Lịch sử do công ty công bố ghi mốc CUDA năm 2006 và việc GPU hỗ trợ bước tiến của AlexNet năm 2012. [1] Chuỗi mốc này cho thấy một quá trình phát triển qua nhiều giai đoạn, không phải doanh nghiệp xuất hiện cùng lúc với làn sóng AI tạo sinh.",
+        "en": "Jensen Huang, Chris Malachowsky and Curtis Priem founded NVIDIA in 1993, initially focusing on 3D graphics. The company's timeline marks CUDA in 2006 and GPU support for the AlexNet breakthrough in 2012. [1] These milestones describe development across several stages, not a business that appeared with the generative AI boom."
+      },
+      {
+        "tag": "p",
+        "vi": "Trước khi đồng sáng lập NVIDIA, Huang làm việc tại LSI Logic và AMD. [2] Đây là một chi tiết hữu ích khi đọc câu chuyện khởi nghiệp: kinh nghiệm kỹ thuật và hiểu biết ngành có thể được tích lũy trước ngày thành lập công ty. Không nên chỉ nhìn vào hình ảnh người sáng lập trên sân khấu rồi bỏ qua quá trình học nghề.",
+        "en": "Before cofounding NVIDIA, Huang worked at LSI Logic and AMD. [2] This is useful context for a founding story: technical experience and industry knowledge can accumulate before incorporation. The public image of a founder onstage should not erase that earlier learning process."
+      },
+      {
+        "tag": "p",
+        "vi": "Cập nhật chức danh theo thông báo NVIDIA công bố ngày 12/11/2026: Huang đã rời các chức vụ President, CEO và thành viên hội đồng quản trị; Colette Kress được bổ nhiệm làm CEO tạm quyền. [3][4] Bài này phân tích lịch sử xây dựng doanh nghiệp, không gọi ông là CEO đương nhiệm và không suy diễn kết quả của những vấn đề đang được xem xét.",
+        "en": "Role update based on NVIDIA's announcement published on 12 November 2026: Huang left his positions as President, CEO and board member; Colette Kress was appointed interim CEO. [3][4] This article examines the history of building the business, does not describe him as the current CEO, and does not speculate about unresolved matters."
+      },
+      {
+        "tag": "h2",
+        "vi": "Vì sao công cụ đi cùng sản phẩm quan trọng?",
+        "en": "Why the tools around a product matter"
+      },
+      {
+        "tag": "p",
+        "vi": "Phần phân tích sau là liên hệ biên tập. Với một công nghệ mới, khách hàng không chỉ cân nhắc thông số. Họ còn hỏi nhân viên có sử dụng được không, dữ liệu có chuyển sang được không, lỗi sẽ do ai xử lý và kết quả có lặp lại ổn định không. Một bộ phận tốt có thể mất nhiều giá trị nếu các phần còn lại không kết nối được.",
+        "en": "The following discussion is editorial analysis. Customers evaluating new technology consider more than specifications. Can their staff use it? Can data be transferred? Who handles failures? Can results be reproduced reliably? A good component can lose much of its value when the surrounding pieces do not work together."
+      },
+      {
+        "tag": "p",
+        "vi": "Giả định một xưởng mua máy in mới. Máy có tốc độ cao nhưng phần mềm khó dùng, tệp thiết kế thường lỗi và mỗi lần đổi vật liệu phải thử lại nhiều lần. Năng suất trên tờ giới thiệu chưa biến thành năng suất thật. Tài liệu hướng dẫn, quy trình kiểm tra màu và người hỗ trợ kỹ thuật trở thành một phần của giá trị sản phẩm.",
+        "en": "Imagine a workshop buying a new printing machine. It is fast, but the software is difficult, design files often fail and material changes require repeated trials. Advertised productivity has not become actual productivity. Instructions, color-checking procedures and technical support become part of the product's value."
+      },
+      {
+        "tag": "p",
+        "vi": "Ngược lại, nếu doanh nghiệp có mẫu tệp chuẩn, hướng dẫn dễ tìm và quy trình đào tạo ngắn, khách có thể đưa máy vào hoạt động sớm hơn. Giá trị lúc này không chỉ nằm ở việc bán máy. Nó nằm cả ở thời gian khách tiết kiệm được và số công việc họ làm thành công sau khi mua.",
+        "en": "Standard file templates, accessible guidance and a short training process can help customers put the machine to work sooner. Value then extends beyond the machine sale to the time saved and the tasks successfully completed after purchase."
+      },
+      {
+        "tag": "h2",
+        "vi": "Hệ sinh thái cần người khác cùng tạo giá trị",
+        "en": "An ecosystem needs others to create value"
+      },
+      {
+        "tag": "p",
+        "vi": "Một nền tảng không thể tự làm mọi ứng dụng. Nó cần người phát triển, đối tác và người sử dụng bổ sung kiến thức của họ. Bài học có thể áp dụng ở quy mô nhỏ: một công cụ thiết kế áo hữu ích hơn khi có mẫu chuẩn, hướng dẫn xuất tệp, thông số in và đường chuyển sang sản xuất, thay vì chỉ có nhiều nút bấm.",
+        "en": "A platform cannot build every application itself. Developers, partners and users contribute their own knowledge. At a smaller scale, a shirt-design tool becomes more useful when it includes templates, export guidance, printing specifications and a route into production, rather than simply offering many buttons."
+      },
+      {
+        "tag": "p",
+        "vi": "Tuy nhiên, sự phụ thuộc vào một hệ thống cũng tạo chi phí chuyển đổi. Người mua cần cân nhắc khả năng mang dữ liệu đi, phương án thay thế và tổng chi phí vận hành. Đối với nhà cung cấp, giữ khách bằng giá trị thực tế bền vững hơn việc chỉ khiến họ khó rời đi. Hai góc nhìn này nên được đặt cạnh nhau.",
+        "en": "Dependence on one system also creates switching costs. Buyers need to consider data portability, alternatives and total operating costs. For suppliers, retaining customers through practical value is more sustainable than merely making departure difficult. Both perspectives belong in the analysis."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tầm nhìn dài hạn vẫn cần phép thử",
+        "en": "A long-term vision still needs tests"
+      },
+      {
+        "tag": "p",
+        "vi": "Khi kể một thành công công nghệ, ta dễ nhìn ngược và coi kết quả là tất yếu. Người ra quyết định ở thời điểm ban đầu không biết chắc tương lai ấy. Với một dự án mới, nên xác định năng lực cần tích lũy, khách hàng thử đầu tiên, khoản chi có thể chịu được và dấu hiệu đủ mạnh để tiếp tục đầu tư.",
+        "en": "Technology success stories encourage hindsight: the eventual outcome can look inevitable. Decision-makers at the beginning did not know that future. A new project should identify the capabilities to build, initial test customers, affordable expenditure and evidence strong enough to justify further investment."
+      },
+      {
+        "tag": "p",
+        "vi": "Câu hỏi cuối cùng không phải doanh nghiệp nhỏ có thể trở thành NVIDIA hay không. Câu hỏi gần hơn là khách đang vướng ở đâu giữa lúc mua và lúc nhận được kết quả. Giải quyết được khoảng cách đó giúp biến một sản phẩm thành công cụ có ích, đồng thời nhắc ta rằng thành tựu kinh doanh và chất lượng quản trị phải được đánh giá riêng, bằng bằng chứng.",
+        "en": "The immediate question is not whether a small company can become NVIDIA. It is where customers get stuck between buying and obtaining a result. Closing that gap turns a product into a useful tool, while reminding us to assess business achievements and governance separately, using evidence."
+      }
+    ],
+    "html": "<p><em>Jensen Huang ngày 9/11/2023. Ảnh: 總統府 (Presidential Office), CC BY 2.0. Thu nhỏ và chuyển WebP.</em></p>\n<p>Một sản phẩm mạnh chưa chắc trở thành nền tảng được nhiều người sử dụng. Người mua còn cần công cụ, tài liệu, kỹ năng và khả năng đưa sản phẩm vào công việc. Hành trình của Jensen Huang cùng NVIDIA gợi ra một câu hỏi kinh doanh đáng chú ý: doanh nghiệp đang bán một bộ phận riêng lẻ hay giúp khách hoàn thành cả một việc?</p>\n<h2>Những mốc cần đặt đúng trong tiểu sử</h2>\n<p>NVIDIA được Jensen Huang, Chris Malachowsky và Curtis Priem thành lập năm 1993, ban đầu hướng tới đồ họa 3D. Lịch sử do công ty công bố ghi mốc CUDA năm 2006 và việc GPU hỗ trợ bước tiến của AlexNet năm 2012. [1] Chuỗi mốc này cho thấy một quá trình phát triển qua nhiều giai đoạn, không phải doanh nghiệp xuất hiện cùng lúc với làn sóng AI tạo sinh.</p>\n<p>Trước khi đồng sáng lập NVIDIA, Huang làm việc tại LSI Logic và AMD. [2] Đây là một chi tiết hữu ích khi đọc câu chuyện khởi nghiệp: kinh nghiệm kỹ thuật và hiểu biết ngành có thể được tích lũy trước ngày thành lập công ty. Không nên chỉ nhìn vào hình ảnh người sáng lập trên sân khấu rồi bỏ qua quá trình học nghề.</p>\n<p>Cập nhật chức danh theo thông báo NVIDIA công bố ngày 12/11/2026: Huang đã rời các chức vụ President, CEO và thành viên hội đồng quản trị; Colette Kress được bổ nhiệm làm CEO tạm quyền. [3][4] Bài này phân tích lịch sử xây dựng doanh nghiệp, không gọi ông là CEO đương nhiệm và không suy diễn kết quả của những vấn đề đang được xem xét.</p>\n<h2>Vì sao công cụ đi cùng sản phẩm quan trọng?</h2>\n<p>Phần phân tích sau là liên hệ biên tập. Với một công nghệ mới, khách hàng không chỉ cân nhắc thông số. Họ còn hỏi nhân viên có sử dụng được không, dữ liệu có chuyển sang được không, lỗi sẽ do ai xử lý và kết quả có lặp lại ổn định không. Một bộ phận tốt có thể mất nhiều giá trị nếu các phần còn lại không kết nối được.</p>\n<p>Giả định một xưởng mua máy in mới. Máy có tốc độ cao nhưng phần mềm khó dùng, tệp thiết kế thường lỗi và mỗi lần đổi vật liệu phải thử lại nhiều lần. Năng suất trên tờ giới thiệu chưa biến thành năng suất thật. Tài liệu hướng dẫn, quy trình kiểm tra màu và người hỗ trợ kỹ thuật trở thành một phần của giá trị sản phẩm.</p>\n<p>Ngược lại, nếu doanh nghiệp có mẫu tệp chuẩn, hướng dẫn dễ tìm và quy trình đào tạo ngắn, khách có thể đưa máy vào hoạt động sớm hơn. Giá trị lúc này không chỉ nằm ở việc bán máy. Nó nằm cả ở thời gian khách tiết kiệm được và số công việc họ làm thành công sau khi mua.</p>\n<h2>Hệ sinh thái cần người khác cùng tạo giá trị</h2>\n<p>Một nền tảng không thể tự làm mọi ứng dụng. Nó cần người phát triển, đối tác và người sử dụng bổ sung kiến thức của họ. Bài học có thể áp dụng ở quy mô nhỏ: một công cụ thiết kế áo hữu ích hơn khi có mẫu chuẩn, hướng dẫn xuất tệp, thông số in và đường chuyển sang sản xuất, thay vì chỉ có nhiều nút bấm.</p>\n<p>Tuy nhiên, sự phụ thuộc vào một hệ thống cũng tạo chi phí chuyển đổi. Người mua cần cân nhắc khả năng mang dữ liệu đi, phương án thay thế và tổng chi phí vận hành. Đối với nhà cung cấp, giữ khách bằng giá trị thực tế bền vững hơn việc chỉ khiến họ khó rời đi. Hai góc nhìn này nên được đặt cạnh nhau.</p>\n<h2>Tầm nhìn dài hạn vẫn cần phép thử</h2>\n<p>Khi kể một thành công công nghệ, ta dễ nhìn ngược và coi kết quả là tất yếu. Người ra quyết định ở thời điểm ban đầu không biết chắc tương lai ấy. Với một dự án mới, nên xác định năng lực cần tích lũy, khách hàng thử đầu tiên, khoản chi có thể chịu được và dấu hiệu đủ mạnh để tiếp tục đầu tư.</p>\n<p>Câu hỏi cuối cùng không phải doanh nghiệp nhỏ có thể trở thành NVIDIA hay không. Câu hỏi gần hơn là khách đang vướng ở đâu giữa lúc mua và lúc nhận được kết quả. Giải quyết được khoảng cách đó giúp biến một sản phẩm thành công cụ có ích, đồng thời nhắc ta rằng thành tựu kinh doanh và chất lượng quản trị phải được đánh giá riêng, bằng bằng chứng.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/\">NVIDIA — Corporate Timeline</a></li><li><a href=\"https://nvidianews.nvidia.com/bios/jensen-huang\">NVIDIA — Jensen Huang biography</a></li><li><a href=\"https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition\">NVIDIA — CEO Transition, 12 November 2026</a></li><li><a href=\"https://www.sec.gov/Archives/edgar/data/1045810/000104581026000082/nvda-20261111.htm\">NVIDIA — Form 8-K, filed 12 November 2026</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Jensen_Huang_20231109.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/13/jensen-huang-tu-chip-den-he-sinh-thai/",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/jensen-huang-tu-chip-den-he-sinh-thai/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1753&action=edit",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/jensen-huang-738x800.webp"
+  },
+  {
+    "key": "john-maynard-keynes",
+    "slug": "john-maynard-keynes-tong-cau-va-viec-lam",
+    "title": "John Maynard Keynes: Khi thiếu đơn hàng trở thành vấn đề của cả nền kinh tế",
+    "title_en": "John Maynard Keynes: When weak orders become an economy-wide problem",
+    "excerpt": "Tiểu sử Keynes và cách hiểu tổng cầu, việc làm, tiết kiệm cùng giới hạn của chính sách kích thích kinh tế.",
+    "excerpt_en": "Keynes’s life and an introduction to demand, employment, saving and the limits of economic stimulus.",
+    "credit": "John Maynard Keynes ở bên phải, Harry Dexter White ở bên trái, Savannah ngày 8/3/1946. Ảnh IMF, thuộc phạm vi công cộng. Chuyển WebP.",
+    "credit_en": "John Maynard Keynes on the right and Harry Dexter White on the left, Savannah, 8 March 1946. IMF photograph, public domain. Converted to WebP.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:WhiteandKeynes.jpg",
+    "license": "https://commons.wikimedia.org/wiki/File:WhiteandKeynes.jpg",
+    "sources": [
+      {
+        "label": "King’s College Cambridge — Biographies",
+        "url": "https://www.kings.cam.ac.uk/biographies"
+      },
+      {
+        "label": "University of Cambridge — Keynes comes home to Cambridge",
+        "url": "https://www.cam.ac.uk/research/news/keynes-comes-home-to-cambridge"
+      },
+      {
+        "label": "IMF — What Is Keynesian Economics?",
+        "url": "https://www.imf.org/external/pubs/ft/fandd/2014/09/basics.htm"
+      },
+      {
+        "label": "OpenStax — The Building Blocks of Keynesian Analysis",
+        "url": "https://openstax.org/books/principles-economics-3e/pages/25-2-the-building-blocks-of-keynesian-analysis"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một xưởng ít đơn hàng có thể do bán hàng chưa tốt. Nhưng nếu nhiều xưởng cùng thiếu đơn, cửa hàng cùng vắng khách và người lao động cùng giảm chi tiêu, vấn đề có thể vượt khỏi từng doanh nghiệp. John Maynard Keynes nổi tiếng vì đặt những hiện tượng như vậy vào một khung phân tích về toàn bộ nền kinh tế.",
+        "en": "A workshop may lack orders because it sells poorly. But when many workshops lack orders, shops lose customers and workers cut spending together, the problem can extend beyond individual businesses. John Maynard Keynes became influential for placing such phenomena within an economy-wide framework."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhà kinh tế Anh đi từ toán học đến chính sách",
+        "en": "A British economist moving from mathematics to policy"
+      },
+      {
+        "tag": "p",
+        "vi": "Keynes sống từ năm 1883 đến 1946 và gắn bó sâu sắc với Cambridge. Ông đến King's College học toán năm 1902, sau đó hoạt động trong nghiên cứu và chính sách kinh tế. [1] Tác phẩm The General Theory of Employment, Interest and Money xuất bản năm 1936 trở thành một dấu mốc lớn trong lịch sử tư tưởng kinh tế. [2]",
+        "en": "Keynes lived from 1883 to 1946 and was closely associated with Cambridge. He entered King's College to study mathematics in 1902, later working in economic research and policy. [1] The General Theory of Employment, Interest and Money, published in 1936, became a major milestone in the history of economic thought. [2]"
+      },
+      {
+        "tag": "p",
+        "vi": "Đọc tiểu sử Keynes cần chú ý hoàn cảnh khủng hoảng và thất nghiệp của thời đại ông. Những câu hỏi của ông không chỉ là doanh nghiệp nên tổ chức sản xuất ra sao, mà còn là vì sao người muốn làm việc và năng lực sản xuất sẵn có vẫn có thể không gặp nhau trong hoạt động thực tế.",
+        "en": "Keynes's biography belongs in the context of the crises and unemployment of his time. His questions concerned not only how businesses organize production, but also why willing workers and available productive capacity might fail to come together in actual economic activity."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tổng cầu là gì?",
+        "en": "What is aggregate demand?"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách diễn giải nhập môn là nhìn tổng chi tiêu dự kiến cho hàng hóa và dịch vụ trong nền kinh tế: tiêu dùng, đầu tư, chi tiêu chính phủ và xuất khẩu ròng. Cách tiếp cận Keynes nhấn mạnh rằng cầu yếu có thể kéo sản lượng và việc làm xuống trong ngắn hạn, nhất là khi giá và tiền lương không điều chỉnh ngay. [3][4]",
+        "en": "An introductory definition is planned spending on goods and services across the economy: consumption, investment, government spending and net exports. Keynesian analysis emphasizes that weak demand can reduce output and employment in the short run, especially when prices and wages do not adjust immediately. [3][4]"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một khu vực có nhiều doanh nghiệp cùng hoãn mua sắm vì lo doanh thu giảm. Nhà cung cấp mất đơn nên giảm giờ làm. Người lao động có thu nhập thấp hơn lại bớt chi tiêu tại cửa hàng. Mỗi quyết định có thể hợp lý với từng người, nhưng khi xảy ra đồng thời, chúng tác động ngược trở lại doanh thu của nhau.",
+        "en": "Consider a hypothetical area where many businesses postpone purchases because they fear falling sales. Suppliers lose orders and reduce working hours. Workers with lower incomes spend less in local shops. Each decision may be reasonable individually, yet together they feed back into one another's revenue."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ này minh họa một cơ chế, không phải mô tả đầy đủ mọi cuộc suy thoái. Một nền kinh tế còn có giới hạn về năng lượng, kỹ năng, nguyên liệu và khả năng tổ chức sản xuất. Nếu vấn đề chính nằm ở những giới hạn ấy, tăng chi tiêu đơn thuần có thể không tạo ra lượng hàng mong muốn.",
+        "en": "This example illustrates a mechanism rather than a complete account of every recession. Economies also face constraints involving energy, skills, materials and production organization. If those are the main bottlenecks, additional spending alone may not produce the desired quantity of goods."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tiết kiệm của một người và thu nhập của người khác",
+        "en": "One person's saving and another person's income"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong gia đình, giữ khoản dự phòng là cần thiết. Nhưng khi nhiều người cùng đột ngột giảm chi tiêu, doanh thu của người bán có thể giảm và ảnh hưởng đến thu nhập chung. Đây là cách bắt đầu hiểu vì sao kết quả ở cấp cá nhân không luôn giống kết quả ở cấp toàn nền kinh tế. Không thể từ đó kết luận rằng tiết kiệm luôn xấu hoặc mọi người nên tiêu hết tiền.",
+        "en": "Maintaining a household reserve is important. Yet when many people suddenly reduce spending together, sellers can lose revenue and aggregate income can fall. This helps explain why individual and economy-wide outcomes are not always the same. It does not mean saving is inherently bad or that everyone should spend all their money."
+      },
+      {
+        "tag": "p",
+        "vi": "Để phân tích một tình huống, cần hỏi khoản tiết kiệm có đi vào đầu tư hữu ích không, doanh nghiệp có muốn mở rộng không và hệ thống tài chính có chuyển vốn đến nơi cần hay không. Cùng một hành vi giữ tiền có thể có ý nghĩa khác nhau trong lúc kinh tế thiếu cầu và lúc hoạt động đã gần giới hạn năng lực.",
+        "en": "Analysis should ask whether savings finance useful investment, whether firms want to expand and whether the financial system channels funds to productive uses. Holding money can have different implications when demand is weak and when activity is already close to capacity."
+      },
+      {
+        "tag": "h2",
+        "vi": "Can thiệp cần đúng hoàn cảnh và đúng cách",
+        "en": "Intervention depends on circumstances and implementation"
+      },
+      {
+        "tag": "p",
+        "vi": "Kinh tế học Keynes thường được liên hệ với chính sách hỗ trợ tổng cầu trong suy thoái. Tuy nhiên, từ một nguyên lý đến một chương trình thực tế còn nhiều bước: chọn đối tượng, thiết kế dự án, thời điểm thực hiện và khả năng tài trợ. Một công trình chậm nhiều năm có thể không giúp được giai đoạn khó khăn mà nó được lập ra để xử lý.",
+        "en": "Keynesian economics is often associated with supporting demand during recessions. Moving from a principle to a practical program involves targeting, project design, timing and financing. A project delayed for years may fail to address the downturn it was intended to relieve."
+      },
+      {
+        "tag": "p",
+        "vi": "Chi tiêu công cũng có chi phí cơ hội. Nguồn lực dành cho dự án này không thể đồng thời dùng cho mọi mục tiêu khác. Khi lao động, nguyên liệu hoặc công suất đã khan hiếm, thêm cầu có thể gây áp lực lên giá. Đánh giá chính sách vì thế cần cả hiệu quả trước mắt, chất lượng tài sản tạo ra và nghĩa vụ tài chính về sau.",
+        "en": "Public spending has opportunity costs. Resources allocated to one project cannot serve every other purpose at the same time. When workers, materials or capacity are scarce, additional demand can put pressure on prices. Policy evaluation therefore needs short-term effects, the quality of assets created and future financial obligations."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người kinh doanh, đọc Keynes giúp tách khó khăn riêng của mình khỏi biến động chung. Có thể theo dõi nhóm khách nào đang giảm mua, vì thiếu tiền hay thay đổi nhu cầu, và liệu tình trạng có lan rộng. Khung phân tích hỗ trợ đặt câu hỏi; nó không dự báo chắc doanh số tháng tới hoặc thay thế việc quản lý tiền mặt của doanh nghiệp.",
+        "en": "For a business owner, reading Keynes helps separate firm-specific difficulties from broader fluctuations. Which customers are buying less? Is the cause financial pressure or changing preferences? Is the pattern spreading? The framework supports better questions, not certain forecasts of next month's sales or a substitute for cash management."
+      }
+    ],
+    "html": "<p><em>John Maynard Keynes ở bên phải, Harry Dexter White ở bên trái, Savannah ngày 8/3/1946. Ảnh IMF, thuộc phạm vi công cộng. Chuyển WebP.</em></p>\n<p>Một xưởng ít đơn hàng có thể do bán hàng chưa tốt. Nhưng nếu nhiều xưởng cùng thiếu đơn, cửa hàng cùng vắng khách và người lao động cùng giảm chi tiêu, vấn đề có thể vượt khỏi từng doanh nghiệp. John Maynard Keynes nổi tiếng vì đặt những hiện tượng như vậy vào một khung phân tích về toàn bộ nền kinh tế.</p>\n<h2>Nhà kinh tế Anh đi từ toán học đến chính sách</h2>\n<p>Keynes sống từ năm 1883 đến 1946 và gắn bó sâu sắc với Cambridge. Ông đến King&#x27;s College học toán năm 1902, sau đó hoạt động trong nghiên cứu và chính sách kinh tế. [1] Tác phẩm The General Theory of Employment, Interest and Money xuất bản năm 1936 trở thành một dấu mốc lớn trong lịch sử tư tưởng kinh tế. [2]</p>\n<p>Đọc tiểu sử Keynes cần chú ý hoàn cảnh khủng hoảng và thất nghiệp của thời đại ông. Những câu hỏi của ông không chỉ là doanh nghiệp nên tổ chức sản xuất ra sao, mà còn là vì sao người muốn làm việc và năng lực sản xuất sẵn có vẫn có thể không gặp nhau trong hoạt động thực tế.</p>\n<h2>Tổng cầu là gì?</h2>\n<p>Một cách diễn giải nhập môn là nhìn tổng chi tiêu dự kiến cho hàng hóa và dịch vụ trong nền kinh tế: tiêu dùng, đầu tư, chi tiêu chính phủ và xuất khẩu ròng. Cách tiếp cận Keynes nhấn mạnh rằng cầu yếu có thể kéo sản lượng và việc làm xuống trong ngắn hạn, nhất là khi giá và tiền lương không điều chỉnh ngay. [3][4]</p>\n<p>Ví dụ giả định: một khu vực có nhiều doanh nghiệp cùng hoãn mua sắm vì lo doanh thu giảm. Nhà cung cấp mất đơn nên giảm giờ làm. Người lao động có thu nhập thấp hơn lại bớt chi tiêu tại cửa hàng. Mỗi quyết định có thể hợp lý với từng người, nhưng khi xảy ra đồng thời, chúng tác động ngược trở lại doanh thu của nhau.</p>\n<p>Ví dụ này minh họa một cơ chế, không phải mô tả đầy đủ mọi cuộc suy thoái. Một nền kinh tế còn có giới hạn về năng lượng, kỹ năng, nguyên liệu và khả năng tổ chức sản xuất. Nếu vấn đề chính nằm ở những giới hạn ấy, tăng chi tiêu đơn thuần có thể không tạo ra lượng hàng mong muốn.</p>\n<h2>Tiết kiệm của một người và thu nhập của người khác</h2>\n<p>Trong gia đình, giữ khoản dự phòng là cần thiết. Nhưng khi nhiều người cùng đột ngột giảm chi tiêu, doanh thu của người bán có thể giảm và ảnh hưởng đến thu nhập chung. Đây là cách bắt đầu hiểu vì sao kết quả ở cấp cá nhân không luôn giống kết quả ở cấp toàn nền kinh tế. Không thể từ đó kết luận rằng tiết kiệm luôn xấu hoặc mọi người nên tiêu hết tiền.</p>\n<p>Để phân tích một tình huống, cần hỏi khoản tiết kiệm có đi vào đầu tư hữu ích không, doanh nghiệp có muốn mở rộng không và hệ thống tài chính có chuyển vốn đến nơi cần hay không. Cùng một hành vi giữ tiền có thể có ý nghĩa khác nhau trong lúc kinh tế thiếu cầu và lúc hoạt động đã gần giới hạn năng lực.</p>\n<h2>Can thiệp cần đúng hoàn cảnh và đúng cách</h2>\n<p>Kinh tế học Keynes thường được liên hệ với chính sách hỗ trợ tổng cầu trong suy thoái. Tuy nhiên, từ một nguyên lý đến một chương trình thực tế còn nhiều bước: chọn đối tượng, thiết kế dự án, thời điểm thực hiện và khả năng tài trợ. Một công trình chậm nhiều năm có thể không giúp được giai đoạn khó khăn mà nó được lập ra để xử lý.</p>\n<p>Chi tiêu công cũng có chi phí cơ hội. Nguồn lực dành cho dự án này không thể đồng thời dùng cho mọi mục tiêu khác. Khi lao động, nguyên liệu hoặc công suất đã khan hiếm, thêm cầu có thể gây áp lực lên giá. Đánh giá chính sách vì thế cần cả hiệu quả trước mắt, chất lượng tài sản tạo ra và nghĩa vụ tài chính về sau.</p>\n<p>Với người kinh doanh, đọc Keynes giúp tách khó khăn riêng của mình khỏi biến động chung. Có thể theo dõi nhóm khách nào đang giảm mua, vì thiếu tiền hay thay đổi nhu cầu, và liệu tình trạng có lan rộng. Khung phân tích hỗ trợ đặt câu hỏi; nó không dự báo chắc doanh số tháng tới hoặc thay thế việc quản lý tiền mặt của doanh nghiệp.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.kings.cam.ac.uk/biographies\">King’s College Cambridge — Biographies</a></li><li><a href=\"https://www.cam.ac.uk/research/news/keynes-comes-home-to-cambridge\">University of Cambridge — Keynes comes home to Cambridge</a></li><li><a href=\"https://www.imf.org/external/pubs/ft/fandd/2014/09/basics.htm\">IMF — What Is Keynesian Economics?</a></li><li><a href=\"https://openstax.org/books/principles-economics-3e/pages/25-2-the-building-blocks-of-keynesian-analysis\">OpenStax — The Building Blocks of Keynesian Analysis</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:WhiteandKeynes.jpg\">Portrait source</a> · <a href=\"https://commons.wikimedia.org/wiki/File:WhiteandKeynes.jpg\">Image license</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/13/john-maynard-keynes-tong-cau-va-viec-lam/",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/john-maynard-keynes-tong-cau-va-viec-lam/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1756&action=edit",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/john-maynard-keynes.webp"
+  },
+  {
+    "key": "friedrich-hayek",
+    "slug": "friedrich-hayek-tri-thuc-phan-tan-va-gia-ca",
+    "title": "Friedrich Hayek: Vì sao không ai nắm hết thông tin của nền kinh tế?",
+    "title_en": "Friedrich Hayek: Why no one holds all the economy’s knowledge",
+    "excerpt": "Tiểu sử Hayek và tư tưởng về tri thức phân tán, tín hiệu giá, cạnh tranh cùng giới hạn của việc quản lý từ một trung tâm.",
+    "excerpt_en": "Hayek’s life and ideas about dispersed knowledge, price signals, competition and the limits of centralized decision-making.",
+    "credit": "Chân dung Friedrich Hayek do Mises Institute phát hành; người tải gốc DickClarkMises. CC BY-SA 3.0. Chuyển WebP, giữ cùng giấy phép.",
+    "credit_en": "Portrait of Friedrich Hayek released by the Mises Institute; original uploader DickClarkMises. CC BY-SA 3.0. Converted to WebP under the same license.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Friedrich_Hayek_portrait.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "University of Freiburg — Friedrich von Hayek",
+        "url": "https://uni-freiburg.de/en/university/outstanding-achievements/research-prizes/friedrich-von-hayek/"
+      },
+      {
+        "label": "F. A. Hayek — The Use of Knowledge in Society, 1945",
+        "url": "https://www.econlib.org/library/Essays/hykKnw.html"
+      },
+      {
+        "label": "Nobel Prize — Economic Sciences 1974",
+        "url": "https://www.nobelprize.org/prizes/economic-sciences/1974/summary/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Người bán hàng biết khách đang do dự vì màu sắc. Người trong xưởng biết một loại vải hôm nay khó may hơn. Chủ doanh nghiệp có báo cáo doanh thu nhưng không tự biết hết những chi tiết ấy. Friedrich Hayek đặt vấn đề tương tự ở quy mô rộng hơn: kiến thức cần để vận hành nền kinh tế nằm rải rác ở rất nhiều người.",
+        "en": "A salesperson knows a customer is hesitating over color. A workshop employee knows today's fabric is harder to sew. The owner has revenue reports but does not automatically know all these details. Friedrich Hayek posed a related question on a much larger scale: the knowledge required to coordinate an economy is dispersed across many people."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Vienna đến các trung tâm học thuật",
+        "en": "From Vienna to several academic centers"
+      },
+      {
+        "tag": "p",
+        "vi": "Hayek sinh tại Vienna năm 1899 và qua đời năm 1992. Ông học tại Đại học Vienna, sau đó làm việc ở London School of Economics, Chicago và Freiburg. [1] Ông thường được giới thiệu là nhà kinh tế gốc Áo, đồng thời có sự nghiệp gắn bó với nhiều quốc gia. Cách phân nhóm theo quốc gia không nên làm mất tính xuyên biên giới của hành trình ấy.",
+        "en": "Hayek was born in Vienna in 1899 and died in 1992. He studied at the University of Vienna and later worked at the London School of Economics, Chicago and Freiburg. [1] Commonly described as an Austrian-born economist, he built a career across several countries. Organizing biographies by country should not obscure that international trajectory."
+      },
+      {
+        "tag": "p",
+        "vi": "Năm 1974, ông cùng Gunnar Myrdal nhận giải thưởng kinh tế. Sự ghi nhận liên quan đến tiền tệ, biến động kinh tế và mối quan hệ giữa các hiện tượng kinh tế, xã hội, thể chế. [3] Việc hai nhà tư tưởng khác nhau cùng nhận giải cũng nhắc người đọc rằng đóng góp học thuật không đồng nghĩa với một bộ quan điểm duy nhất được công nhận tuyệt đối.",
+        "en": "In 1974, he shared the economics prize with Gunnar Myrdal. The recognition concerned monetary theory, economic fluctuations and relationships among economic, social and institutional phenomena. [3] The award to two different thinkers also reminds readers that academic contribution does not imply universal endorsement of one complete worldview."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tri thức không nằm hết trong báo cáo",
+        "en": "Knowledge does not all fit into a report"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong The Use of Knowledge in Society năm 1945, Hayek phân tích vấn đề sử dụng những hiểu biết phân tán, đặc biệt là thông tin gắn với hoàn cảnh và thời điểm cụ thể. Ông giải thích vai trò của giá trong việc giúp nhiều người điều chỉnh quyết định mà không cần mỗi người biết toàn bộ nguyên nhân phía sau. [2]",
+        "en": "In The Use of Knowledge in Society, published in 1945, Hayek examined how to use dispersed knowledge, especially information tied to particular circumstances and times. He explained how prices can help people adjust decisions without each person knowing every underlying cause. [2]"
+      },
+      {
+        "tag": "p",
+        "vi": "Một ví dụ biên tập: nguồn cung một loại vải giảm, làm giá tăng. Một số cơ sở tìm vật liệu thay thế; số khác giữ loại vải ấy cho những đơn thật sự cần. Những thay đổi có thể xảy ra ở nhiều nơi mà không cần một người trực tiếp phân công từng đơn hàng. Giá truyền một tín hiệu về sự khan hiếm, dù không kể hết câu chuyện nguồn cung.",
+        "en": "Consider an editorial example: a fabric shortage pushes up its price. Some producers seek substitutes; others reserve it for orders that genuinely require it. Adjustments can occur in many places without one person assigning every order. The price conveys scarcity even though it does not tell the full supply story."
+      },
+      {
+        "tag": "p",
+        "vi": "Tuy nhiên, tín hiệu giá cần được hiểu cùng chất lượng, điều kiện giao hàng và độ tin cậy. Hai cuộn vải cùng giá chưa chắc thay thế được nhau. Một quyết định mua chỉ dựa vào giá thấp nhất có thể bỏ qua lỗi vật liệu hoặc chi phí giao chậm. Tri thức tại chỗ vẫn cần người có kinh nghiệm đánh giá.",
+        "en": "Price signals still need to be read alongside quality, delivery terms and reliability. Two equally priced rolls of fabric may not be interchangeable. Buying solely at the lowest price can overlook material defects or delay costs. Local knowledge still needs experienced judgment."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phân quyền không có nghĩa thiếu trách nhiệm",
+        "en": "Delegation does not mean an absence of accountability"
+      },
+      {
+        "tag": "p",
+        "vi": "Phần liên hệ quản trị dưới đây là phân tích của ban biên tập, không phải công thức do Hayek viết cho doanh nghiệp. Nếu mọi quyết định nhỏ đều phải chờ chủ cơ sở, thông tin có thể đến quá muộn. Nhưng nếu ai cũng tự thay đổi mà không ghi nhận, khách hàng lại nhận những kết quả không thống nhất.",
+        "en": "The following management application is editorial analysis, not a business formula written by Hayek. If every small decision must wait for the owner, information may arrive too late. But if everyone makes unrecorded changes independently, customers can receive inconsistent outcomes."
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách xử lý là xác định ranh giới: nhân viên được tự giải quyết việc gì, mức chi nào cần xin duyệt và trường hợp nào phải báo ngay. Ví dụ, tổ trưởng có thể điều chỉnh thứ tự công việc trong ca nhưng không tự đổi chất liệu đã được khách chấp thuận. Phân quyền tốt cần thông tin, quyền hạn và trách nhiệm đi cùng nhau.",
+        "en": "One response is to define boundaries: which issues staff may resolve, which spending requires approval and which situations must be reported immediately. A team leader might reorder tasks within a shift but cannot independently change a customer-approved material. Effective delegation aligns information, authority and accountability."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thị trường cũng có những giới hạn cần nhìn thấy",
+        "en": "Markets also have limits that need to be recognized"
+      },
+      {
+        "tag": "p",
+        "vi": "Giá không tự phản ánh mọi chi phí mà xã hội gánh chịu. Nếu hoạt động sản xuất gây ô nhiễm nhưng người gây ra không trả đầy đủ chi phí, mức giá giao dịch có thể bỏ sót thiệt hại cho người khác. Người mua cũng có thể thiếu thông tin về chất lượng, còn một thị trường ít đối thủ có thể làm suy yếu áp lực cạnh tranh.",
+        "en": "Prices do not automatically include every cost borne by society. If production causes pollution and the producer does not bear its full cost, transaction prices can omit harm to others. Buyers may lack quality information, and markets with few competitors may weaken competitive pressure."
+      },
+      {
+        "tag": "p",
+        "vi": "Vì vậy, đọc Hayek không nên biến thành kết luận rằng mọi quy định đều có hại hoặc mọi mức giá đều đúng. Một câu hỏi có ích hơn là quy tắc nào giúp thông tin đáng tin, quyền lợi được bảo vệ và người tham gia có thể sửa sai. Minh bạch, trách nhiệm và khả năng cạnh tranh là những phần cần phân tích cùng cơ chế giá.",
+        "en": "Reading Hayek should not become a claim that every rule is harmful or every price is correct. A more useful question is which rules support reliable information, protected rights and the ability to correct mistakes. Transparency, accountability and contestability belong alongside the price mechanism in the analysis."
+      },
+      {
+        "tag": "p",
+        "vi": "Đặt Hayek cạnh Keynes tạo ra hai câu hỏi bổ sung: nguồn lực được phối hợp bằng thông tin nào, và điều gì xảy ra khi tổng chi tiêu suy yếu? Không cần chọn tên một người rồi áp dụng cho mọi vấn đề. Với mỗi tình huống, hãy xác định cơ chế, giả định và dữ liệu trước khi chọn cách giải thích.",
+        "en": "Reading Hayek alongside Keynes raises complementary questions: what information coordinates resources, and what happens when aggregate spending weakens? There is no need to choose one name as the answer to every problem. Identify the mechanism, assumptions and evidence before choosing an explanation."
+      }
+    ],
+    "html": "<p><em>Chân dung Friedrich Hayek do Mises Institute phát hành; người tải gốc DickClarkMises. CC BY-SA 3.0. Chuyển WebP, giữ cùng giấy phép.</em></p>\n<p>Người bán hàng biết khách đang do dự vì màu sắc. Người trong xưởng biết một loại vải hôm nay khó may hơn. Chủ doanh nghiệp có báo cáo doanh thu nhưng không tự biết hết những chi tiết ấy. Friedrich Hayek đặt vấn đề tương tự ở quy mô rộng hơn: kiến thức cần để vận hành nền kinh tế nằm rải rác ở rất nhiều người.</p>\n<h2>Từ Vienna đến các trung tâm học thuật</h2>\n<p>Hayek sinh tại Vienna năm 1899 và qua đời năm 1992. Ông học tại Đại học Vienna, sau đó làm việc ở London School of Economics, Chicago và Freiburg. [1] Ông thường được giới thiệu là nhà kinh tế gốc Áo, đồng thời có sự nghiệp gắn bó với nhiều quốc gia. Cách phân nhóm theo quốc gia không nên làm mất tính xuyên biên giới của hành trình ấy.</p>\n<p>Năm 1974, ông cùng Gunnar Myrdal nhận giải thưởng kinh tế. Sự ghi nhận liên quan đến tiền tệ, biến động kinh tế và mối quan hệ giữa các hiện tượng kinh tế, xã hội, thể chế. [3] Việc hai nhà tư tưởng khác nhau cùng nhận giải cũng nhắc người đọc rằng đóng góp học thuật không đồng nghĩa với một bộ quan điểm duy nhất được công nhận tuyệt đối.</p>\n<h2>Tri thức không nằm hết trong báo cáo</h2>\n<p>Trong The Use of Knowledge in Society năm 1945, Hayek phân tích vấn đề sử dụng những hiểu biết phân tán, đặc biệt là thông tin gắn với hoàn cảnh và thời điểm cụ thể. Ông giải thích vai trò của giá trong việc giúp nhiều người điều chỉnh quyết định mà không cần mỗi người biết toàn bộ nguyên nhân phía sau. [2]</p>\n<p>Một ví dụ biên tập: nguồn cung một loại vải giảm, làm giá tăng. Một số cơ sở tìm vật liệu thay thế; số khác giữ loại vải ấy cho những đơn thật sự cần. Những thay đổi có thể xảy ra ở nhiều nơi mà không cần một người trực tiếp phân công từng đơn hàng. Giá truyền một tín hiệu về sự khan hiếm, dù không kể hết câu chuyện nguồn cung.</p>\n<p>Tuy nhiên, tín hiệu giá cần được hiểu cùng chất lượng, điều kiện giao hàng và độ tin cậy. Hai cuộn vải cùng giá chưa chắc thay thế được nhau. Một quyết định mua chỉ dựa vào giá thấp nhất có thể bỏ qua lỗi vật liệu hoặc chi phí giao chậm. Tri thức tại chỗ vẫn cần người có kinh nghiệm đánh giá.</p>\n<h2>Phân quyền không có nghĩa thiếu trách nhiệm</h2>\n<p>Phần liên hệ quản trị dưới đây là phân tích của ban biên tập, không phải công thức do Hayek viết cho doanh nghiệp. Nếu mọi quyết định nhỏ đều phải chờ chủ cơ sở, thông tin có thể đến quá muộn. Nhưng nếu ai cũng tự thay đổi mà không ghi nhận, khách hàng lại nhận những kết quả không thống nhất.</p>\n<p>Một cách xử lý là xác định ranh giới: nhân viên được tự giải quyết việc gì, mức chi nào cần xin duyệt và trường hợp nào phải báo ngay. Ví dụ, tổ trưởng có thể điều chỉnh thứ tự công việc trong ca nhưng không tự đổi chất liệu đã được khách chấp thuận. Phân quyền tốt cần thông tin, quyền hạn và trách nhiệm đi cùng nhau.</p>\n<h2>Thị trường cũng có những giới hạn cần nhìn thấy</h2>\n<p>Giá không tự phản ánh mọi chi phí mà xã hội gánh chịu. Nếu hoạt động sản xuất gây ô nhiễm nhưng người gây ra không trả đầy đủ chi phí, mức giá giao dịch có thể bỏ sót thiệt hại cho người khác. Người mua cũng có thể thiếu thông tin về chất lượng, còn một thị trường ít đối thủ có thể làm suy yếu áp lực cạnh tranh.</p>\n<p>Vì vậy, đọc Hayek không nên biến thành kết luận rằng mọi quy định đều có hại hoặc mọi mức giá đều đúng. Một câu hỏi có ích hơn là quy tắc nào giúp thông tin đáng tin, quyền lợi được bảo vệ và người tham gia có thể sửa sai. Minh bạch, trách nhiệm và khả năng cạnh tranh là những phần cần phân tích cùng cơ chế giá.</p>\n<p>Đặt Hayek cạnh Keynes tạo ra hai câu hỏi bổ sung: nguồn lực được phối hợp bằng thông tin nào, và điều gì xảy ra khi tổng chi tiêu suy yếu? Không cần chọn tên một người rồi áp dụng cho mọi vấn đề. Với mỗi tình huống, hãy xác định cơ chế, giả định và dữ liệu trước khi chọn cách giải thích.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://uni-freiburg.de/en/university/outstanding-achievements/research-prizes/friedrich-von-hayek/\">University of Freiburg — Friedrich von Hayek</a></li><li><a href=\"https://www.econlib.org/library/Essays/hykKnw.html\">F. A. Hayek — The Use of Knowledge in Society, 1945</a></li><li><a href=\"https://www.nobelprize.org/prizes/economic-sciences/1974/summary/\">Nobel Prize — Economic Sciences 1974</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Friedrich_Hayek_portrait.jpg\">Portrait source</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/13/friedrich-hayek-tri-thuc-phan-tan-va-gia-ca/",
+    "url_en": "https://daututuonglai.vn/en/2026/11/13/friedrich-hayek-tri-thuc-phan-tan-va-gia-ca/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1759&action=edit",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/friedrich-hayek.webp"
+  }
+]
