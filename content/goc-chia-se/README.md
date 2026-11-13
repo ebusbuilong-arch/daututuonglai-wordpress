@@ -10,8 +10,8 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | Gói | 5 nhân vật | Trạng thái |
 |---|---|---|
 | 01 | Benjamin Graham; Adam Smith; Mark Zuckerberg; Elon Musk; John Bogle | Đã đăng 5 bài VI+EN ngày 13/11/2026; kiểm tra chuyển ngôn ngữ đạt |
-| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI+EN ngày 13/11/2026; 3 chân dung; 2 chờ xác minh quyền ảnh |
-| 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 02 | Warren Buffett; Charlie Munger; Đặng Phong; Amartya Sen; Đoàn Vĩnh Bình | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 chân dung; Đặng Phong và Đoàn Vĩnh Bình dùng minh họa AI tham chiếu |
+| 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh |
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -32,9 +32,9 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 - Không dựng lời nói, hội thoại, số lợi nhuận hoặc giai thoại. Ví dụ do biên tập đặt phải ghi rõ giả định.
 - Ít nhất 2 nguồn đáng tin; ưu tiên tác phẩm gốc, đại học, thư cổ đông, tài liệu doanh nghiệp. Kiểm tra lại vai trò hiện tại trước ngày xuất bản.
 - Có bản EN trước khi đánh dấu hoàn thiện song ngữ; bản VI riêng chỉ ghi là bản VI.
-- Ảnh chân dung đúng người, có URL trang nguồn, tác giả, giấy phép và chú thích. Ưu tiên public domain/CC phù hợp. Không lấy ảnh AI giả chân dung.
+- Ảnh chân dung đúng người, có URL trang nguồn, tác giả, giấy phép và chú thích. Ưu tiên public domain/CC phù hợp. Nếu chưa có ảnh thật phù hợp, được dùng minh họa AI tham chiếu đúng người theo yêu cầu chủ website ngày 13/11/2026; ghi rõ là AI, không trình bày như ảnh chụp/tư liệu.
 - Với người trước thời nhiếp ảnh, dùng tranh chân dung lịch sử và ghi rõ là tranh, không gọi là ảnh chụp.
-- Nếu chưa xác minh được quyền dùng ảnh, giữ trạng thái chờ ảnh; không tự suy ra ảnh trên báo hoặc website là miễn phí.
+- Không tự suy ra ảnh trên báo hoặc website là miễn phí. Ưu tiên ảnh thật có quyền sử dụng rõ ràng; trường hợp thiếu dùng minh họa tham chiếu như trên.
 - Khi đưa lên website, tải ảnh về thư viện media, tối ưu WebP, giữ khuôn mặt trọn vẹn; không kéo méo ảnh chân dung để ép tỷ lệ.
 - Kiểm tra trùng theo tên, biến thể tên, slug và nội dung; bài cũ thì cập nhật hoặc chọn góc khác, không tạo bản sao.
 - Mỗi bài liên kết sang bài cùng tuyến và kiến thức liên quan sau khi xác nhận URL đích.
@@ -68,3 +68,11 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 Giới hạn còn lại: alt của 8 ảnh vẫn là tiếng Việt. Trình dịch ảnh hiện cài chỉ hiển thị ô nguồn ảnh, không có ô alt; các bản dịch alt đề xuất được ghi riêng là chưa đăng trong JSON. Hai bài Đặng Phong/Đoàn Vĩnh Bình vẫn chờ quyền dùng chân dung. Không đánh dấu các hạng mục này đã hoàn tất.
 
 Từ gói 03, mỗi gói gồm 5 chủ đề, soạn và đăng VI cùng EN; kiểm tra cả phần tóm tắt danh mục trước khi báo hoàn thành.
+
+## Hoàn tất gói 03 và bổ sung chân dung — 13/11/2026
+
+Đã đăng 5 bài song ngữ, nhập thành công 95 chuỗi tiếng Anh. Bản lưu: [package-03-bilingual.json](./package-03-bilingual.json). Bốn ảnh thật: Lý Gia Thành (CC BY 2.0), Bill Gates (CC BY 4.0), Steve Jobs và Ha-Joon Chang (CC BY-SA 3.0). Peter Lynch dùng minh họa AI tham chiếu ảnh Museum of American Finance. Đã kiểm tra tiêu đề EN và các ảnh đại diện tải được.
+
+Cập nhật trạng thái các ghi chú cũ: Đặng Phong và Đoàn Vĩnh Bình đã có ảnh AI tham chiếu, thay cho trạng thái chờ ảnh. Chú thích AI có cả VI/EN. Đã kiểm tra ảnh công khai của cả hai bài. Alt mới sử dụng tên riêng và nhãn song ngữ AI.
+
+Đã bổ sung CSS trên WordPress Additional CSS để ba ảnh dọc Lý Gia Thành, Bill Gates, Ha-Joon Chang dùng object-fit: contain, tránh cắt mặt ở danh mục. Không thay theme.
