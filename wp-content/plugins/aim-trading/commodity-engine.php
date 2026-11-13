@@ -33,16 +33,17 @@ final class AIM_Commodity_Engine {
    self::need($above?$v>$reference:$v<$reference,'TP/SL nằm sai phía hoặc đã bị vượt.');$out[$key]=$v;
   }return $out;
  }
- static function open($state,$q,$spec,$side,$lots,$leverage,$now,$tp=null,$sl=null){
+ static function open($state,$q,$spec,$side,$lots,$leverage,$now,$tp=null,$sl=null,$saved=false){
   self::need(($state['policy']??'')===self::POLICY&&count($state['positions'])<20,'Không đúng chính sách hoặc đã đủ 20 vị thế.');
   foreach($state['positions'] as $p)self::need(empty($p['exit_pending']),'Còn vị thế chờ đóng; chưa thể mở thêm.');
-  self::quote($q,$spec['symbol'],$now);$fill=AIM_Commodity_Feed::execution($q,$spec,$side,$lots,$leverage,$now);
+  $quote_clock=$saved?$q['received']:$now;
+  self::quote($q,$spec['symbol'],$quote_clock);$fill=AIM_Commodity_Feed::execution($q,$spec,$side,$lots,$leverage,$quote_clock);
   $bracket=self::bracket($side,$q[$side==='long'?'bid':'ask'],$spec,$tp,$sl);$fee=self::fee($fill['units'],$fill['price']);
   self::need($state['cash']>=$fill['margin']+$fee,'Không đủ AIM khả dụng cho ký quỹ và phí.');
   $id=++$state['sequence'];$p=array('id'=>$id,'source'=>$q['source']??'OANDA Practice','symbol'=>$q['symbol'],'side'=>$side,'units'=>$fill['units'],'entry'=>$fill['price'],'margin'=>$fill['margin'],'opened'=>$now,'last_quote'=>$q['time'],'effective_leverage'=>$fill['effective_leverage'],'spec'=>$spec,'tp'=>$bracket['tp'],'sl'=>$bracket['sl'],'exit_pending'=>null);
-  self::need(!self::risk($p,$q,$now)['liquidatable'],'Spread quá lớn so với ký quỹ ban đầu.');
+  self::need(!self::risk($p,$q,$quote_clock)['liquidatable'],'Spread quá lớn so với ký quỹ ban đầu.');
   $state['cash']-=$p['margin']+$fee;$state['fees']+=$fee;$state['pool_delta']+=$fee;$state['positions'][$id]=$p;
-  return array('state'=>$state,'events'=>array(array('kind'=>'open','id'=>$id,'symbol'=>$p['symbol'],'side'=>$side,'price'=>$p['entry'],'units'=>$p['units'],'margin'=>$p['margin'],'fee'=>$fee,'pool_delta'=>$fee,'fills'=>$fill['fills'],'quote_time'=>$q['time'])));
+  return array('state'=>$state,'events'=>array(array('kind'=>'open','id'=>$id,'symbol'=>$p['symbol'],'side'=>$side,'price'=>$p['entry'],'units'=>$p['units'],'margin'=>$p['margin'],'fee'=>$fee,'pool_delta'=>$fee,'fills'=>$fill['fills'],'quote_time'=>$q['time'],'saved_quote'=>$saved)));
  }
  static function risk($p,$q,$now){
   self::quote($q,$p['symbol'],$now);self::need(($p['source']??'OANDA Practice')===($q['source']??'OANDA Practice'),'Nguồn giá vị thế khác cấu hình; cần đối soát trước khi đổi nguồn.');self::need($q['time']>=$p['last_quote'],'Báo giá đến sai thứ tự.');$price=$q[$p['side']==='long'?'bid':'ask'];$pnl=self::pnl($p,$price);$fee=self::fee($p['units'],$price);
@@ -75,10 +76,12 @@ final class AIM_Commodity_Engine {
   if($remaining<1e-7)unset($state['positions'][$id]);else{$state['positions'][$id]['units']=$remaining;$state['positions'][$id]['margin']-=$margin;$state['positions'][$id]['last_quote']=$q['time'];}
   $events[]=array('kind'=>'close','id'=>$id,'symbol'=>$p['symbol'],'reason'=>$reason,'price'=>$fill['price'],'units'=>$units,'released_margin'=>$margin,'pnl'=>$pnl,'fee'=>$fee,'returned'=>$returned,'subsidy'=>$subsidy,'pool_delta'=>$pool,'fills'=>$fill['fills'],'quote_time'=>$q['time']);
  }
- static function close($state,$id,$units,$q,$now){
-  $p=$state['positions'][$id]??null;self::need(is_array($p),'Vị thế không tồn tại.');$reason=self::triggers($p,$q,$now);
+ static function close($state,$id,$units,$q,$now,$saved=false){
+  $p=$state['positions'][$id]??null;self::need(is_array($p),'Vị thế không tồn tại.');$quote_clock=$saved?$q['received']:$now;
+  if($saved)self::risk($p,$q,$quote_clock);
+  $reason=$saved?($p['exit_pending']??null):self::triggers($p,$q,$now);
   self::need($reason===null||abs($units-$p['units'])<1e-7,'Vị thế đã chạm ngưỡng phải đóng toàn bộ.');$events=array();
-  self::close_into($state,$id,$units,$q,$now,$reason??'manual',$events);return array('state'=>$state,'events'=>$events);
+  self::close_into($state,$id,$units,$q,$quote_clock,$saved?'manual':($reason??'manual'),$events);$events[0]['saved_quote']=$saved;return array('state'=>$state,'events'=>$events);
  }
  static function amend($state,$id,$q,$now,$tp=null,$sl=null){
   $p=$state['positions'][$id]??null;self::need(is_array($p),'Vị thế không tồn tại.');self::need(self::triggers($p,$q,$now)===null,'Vị thế đã chạm ngưỡng đóng; không thể sửa TP/SL.');
