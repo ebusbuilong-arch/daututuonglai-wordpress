@@ -121,8 +121,8 @@ $('#history thead tr').append(historyHeader);
 const holdingNote=document.createElement('p');
 holdingNote.className='order-note';
 holdingNote.textContent=label(
- 'Chọn mã để lấy sổ giá. Lãi/lỗ nếu bán tính theo độ sâu bên mua và phí bán 0,1%; giá khớp có thể đổi.',
- 'Select a symbol for its order book. Estimated sale P/L uses bid depth and a 0.1% sale fee; the fill price may change.');
+ 'Lãi/lỗ ước tính đã trừ phí bán 0,1%. Dấu ~ chỉ giá tham chiếu gần nhất. Phiếu bán tính theo độ sâu sổ giá.',
+ 'Estimated P/L includes the 0.1% sale fee. ~ indicates the latest reference price. The sale ticket uses order book depth.');
 $('#holdings').append(holdingNote);
 function renderHoldings(){
  const account=state.account, body=$('#holdings-body');
@@ -134,7 +134,7 @@ function renderHoldings(){
  body.replaceChildren();
  $('#holdings-empty').hidden=entries.length>0;
  if(!account?.active)return;
- let holdingValue=0,netPnl=0,complete=now()-state.marketAt<15000,netComplete=true;
+ let holdingValue=0,netPnl=0,complete=now()-state.marketAt<15000,netComplete=true,netUsesReference=false;
  for(const [symbol,position] of entries){
   const market=state.markets.find(item=>item.symbol===symbol);
   const value=market&&now()-state.marketAt<15000?position.units/1e8*market.price*U:null;
@@ -144,9 +144,12 @@ function renderHoldings(){
   const age=book?now()-book.received_at:Infinity;
   const quote=age>=-3000&&age<=5000?book:null;
   const fill=quote?M.depth(quote,position.units,'sell'):null;
-  const pnl=fill?salePnl(position,position.units,fill.total):null;
+  const bid=Number(market?.bid);
+  const reference=bid>0?bid:Number(market?.price);
+  const estimate=fill||(!Number.isFinite(reference)||reference<=0?null:M.amounts(position.units,reference,'sell'));
+  const pnl=estimate?salePnl(position,position.units,estimate.total):null;
   if(pnl===null)netComplete=false;
-  else netPnl+=pnl;
+  else {netPnl+=pnl;netUsesReference=netUsesReference||!fill;}
   const tr=document.createElement('tr');
   tr.dataset.symbol=symbol;
   const coin=cell(tr,''), choose=document.createElement('button');
@@ -157,7 +160,10 @@ function renderHoldings(){
   cell(tr,N(position.units/1e8,8));
   cell(tr,P(position.cost/U/(position.units/1e8)));
   cell(tr,value===null?'—':N(value/U));
-  cell(tr,pnl===null?(quote?label('Thiếu độ sâu','Insufficient depth'):symbol===state.symbol?label('Chờ sổ giá','Awaiting order book'):label('Chọn mã','Select symbol')):pnlText(pnl),pnlStyle(pnl));
+  const pnlCell=cell(tr,pnl===null?'—':(fill?'':'~ ')+pnlText(pnl),pnlStyle(pnl));
+  if(pnl===null)pnlCell.title=label('Chưa có báo giá','Price unavailable');
+  else if(!fill)pnlCell.title=label('Giá tham chiếu lúc ','Reference price as of ')+
+   new Date(state.marketAt).toLocaleString(C.lang==='en'?'en-US':'vi-VN',{timeZone:'Asia/Ho_Chi_Minh'});
   const td=cell(tr,''), sell=document.createElement('button'), protect=document.createElement('button');
   sell.textContent='Bán';
   sell.onclick=()=>openHolding(symbol);
@@ -169,7 +175,7 @@ function renderHoldings(){
   if(focusedSymbol===symbol&&focusedIndex>=0)tr.querySelectorAll('button')[focusedIndex]?.focus({preventScroll:true});
  }
  val('#equity',!entries.length?A(account.cash):complete?A(account.cash+holdingValue):'Chờ giá mới');
- val('#unrealized',netComplete?(entries.length?pnlText(netPnl)+' AIM':A(0)):'— AIM');
+ val('#unrealized',netComplete?(entries.length?(netUsesReference?'~ ':'')+pnlText(netPnl)+' AIM':A(0)):'— AIM');
  cls('#unrealized',netComplete?netPnl:0);
 }
 function renderAccount(){const a=state.account;renderHoldings();$('#history-body').replaceChildren();$('#ledger-body').replaceChildren();if(state.amend&&!amendOrder()){$('#dialog').close();state.confirm=null;state.amend=null;$('#quantity').value='';message('Lệnh đang sửa đã đổi trạng thái. Không gửi lệnh mới; kiểm tra lịch sử.',true);}if(!a?.active){['#cash','#equity','#unrealized','#realized'].forEach(s=>val(s,'— AIM'));cls('#unrealized',0);cls('#realized',0);preview();return;}val('#cash',A(a.available_cash??a.cash));val('#reserved-cash',A(a.reserved_cash||0));renderOrders();let realized=0;for(const h of a.ledger){const time=new Date(h.created.replace(' ','T')+'Z').toLocaleString((window.AIMTradingConfig?.lang==='en'?'en-US':'vi-VN'),{timeZone:'Asia/Ho_Chi_Minh'});const r=document.createElement('tr');cell(r,time);cell(r,({credit:'Vốn thử ban đầu',learning_reward:'Thưởng học tập',learning_refund:'Hoàn AIM mở khóa',competition_reward:'Thưởng xếp hạng',futures_transfer_in:'Chuyển sang Futures',futures_transfer_out:'Nhận từ Futures',learning_purchase:'Đổi tiện ích',learning_revoke:'Thu hồi thưởng bài viết'})[h.kind]||(h.kind==='buy'?'Mua ':'Bán ')+h.symbol.replace('USDT',''));cell(r,(Number(h.cash_delta)>0?'+':'')+N(Number(h.cash_delta)/U,6),Number(h.cash_delta)>0?'up':'down');cell(r,N(Number(h.cash_after)/U,6));$('#ledger-body').append(r);if(!['buy','sell'].includes(h.kind))continue;realized+=Number(h.realized);const tr=document.createElement('tr');cell(tr,time);cell(tr,'#'+h.id);cell(tr,h.symbol.replace('USDT',''));cell(tr,h.kind==='buy'?'Mua':'Bán',h.kind==='buy'?'up':'down');cell(tr,P(h.price));cell(tr,N(h.quantity,8));cell(tr,N(Number(h.fee)/U,6));let ex=null;try{ex=JSON.parse(h.execution||'null');}catch{}cell(tr,ex?ex.fills.length+' mức · '+N(ex.slippage_bps,2)+' bps':'Giá đầu bảng (bản cũ)');const fillPnl=h.kind==='sell'?Number(h.realized):null;cell(tr,fillPnl===null?'—':pnlText(fillPnl),pnlStyle(fillPnl));$('#history-body').append(tr);}const cumulative=Number(a.realized_total??realized);val('#realized',pnlText(cumulative)+' AIM');cls('#realized',cumulative);draw();preview();}

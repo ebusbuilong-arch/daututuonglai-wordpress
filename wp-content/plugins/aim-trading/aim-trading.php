@@ -2,7 +2,7 @@
 /**
  * Plugin Name: AIM Trading
  * Description: Sàn thực hành AIM: dữ liệu crypto thị trường, biểu đồ và tài khoản giao dịch thử lưu trên máy chủ.
- * Version: 0.4.55
+ * Version: 0.4.56
  * Requires PHP: 7.4
  */
 defined('ABSPATH') || exit;
@@ -19,7 +19,7 @@ require_once __DIR__.'/commodity-accounts.php';
 require_once __DIR__.'/market-launch.php';
 require_once __DIR__.'/oil-reference.php';
 final class AIM_Trading {
- const VERSION = '0.4.55';
+ const VERSION = '0.4.56';
  const UNIT = 1000000;
  const START = 100000000;
  const FEE = 0.001;
@@ -77,7 +77,7 @@ final class AIM_Trading {
   $symbols=self::symbols();
   $r=self::remote('ticker/24hr',array('symbols'=>wp_json_encode(array_keys($symbols))),5);if(is_wp_error($r))return $r;
   $rows=array();foreach($r['data'] as $v){if(!isset($symbols[$v['symbol']??'']))continue;
-   $rows[]=array('symbol'=>$v['symbol'],'name'=>$symbols[$v['symbol']],'price'=>(float)$v['lastPrice'],'change'=>(float)$v['priceChangePercent'],'high'=>(float)$v['highPrice'],'low'=>(float)$v['lowPrice'],'volume'=>(float)$v['quoteVolume'],'close_time'=>(int)$v['closeTime']);}
+   $rows[]=array('symbol'=>$v['symbol'],'name'=>$symbols[$v['symbol']],'price'=>(float)$v['lastPrice'],'bid'=>(float)($v['bidPrice']??0),'change'=>(float)$v['priceChangePercent'],'high'=>(float)$v['highPrice'],'low'=>(float)$v['lowPrice'],'volume'=>(float)$v['quoteVolume'],'close_time'=>(int)$v['closeTime']);}
   if(!$rows)return self::error('Bảng giá chưa đầy đủ.',503);
   return array('markets'=>$rows,'received_at'=>$r['received_at'],'server_at'=>(int)round(microtime(true)*1000),'source'=>'Binance Spot','interval_seconds'=>5);
  }
