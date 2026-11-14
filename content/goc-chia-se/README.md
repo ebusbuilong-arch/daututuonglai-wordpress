@@ -19,7 +19,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 chân dung tư liệu có nguồn |
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Đã đăng 5 bài VI+EN ngày 14/11/2026; 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Đã xuất bản VI/EN ngày 14/11/2026 |
-| 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 14 | A. W. Phillips; Michio Morishima; Lâm Nghị Phu; Lim Chong Yah; Widjojo Nitisastro | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -159,3 +159,14 @@ Bản lưu: [package-09-bilingual.json](./package-09-bilingual.json). Đã nhậ
 - [Léon Walras](https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/) · [EN](https://daututuonglai.vn/en/2026/11/14/leon-walras-cac-thi-truong-lien-ket/)
 
 Bản lưu: [package-10-bilingual.json](./package-10-bilingual.json). Đã nhập 91 chuỗi EN; kiểm tra đủ từng đoạn, tiêu đề, chú thích và năm mô tả ngắn EN. Ba chân dung tư liệu: Sara Blakely (David Shankbone, CC BY 3.0), Karl Marx (John Jabez Edwin Mayall, phạm vi công cộng), Léon Walras (tác giả không rõ, phạm vi công cộng). Hai chân dung Nguyễn Duy Hưng và Nguyễn Thị Phương Thảo là minh họa AI tham chiếu ảnh, có nhãn VI/EN. Đã sửa lỗi gắn nhầm ảnh trong quá trình đăng, xác nhận cuối cùng năm ảnh đúng người, tải được và object-fit: contain. Tệp WebP cạnh dài tối đa 800px; không ghi thao tác chuyển đổi trong chú thích. Gói 11–16 tiếp tục trong cùng yêu cầu hoàn tất toàn bộ.
+
+
+## Gói 11 đã xuất bản — 14/11/2026
+
+- [Gunnar Myrdal](https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/) · [EN](https://daututuonglai.vn/en/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/)
+- [Ragnar Frisch](https://daututuonglai.vn/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/) · [EN](https://daututuonglai.vn/en/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/)
+- [Ester Boserup](https://daututuonglai.vn/2026/11/14/ester-boserup-dan-so-doi-moi-va-phu-nu/) · [EN](https://daututuonglai.vn/en/2026/11/14/ester-boserup-dan-so-doi-moi-va-phu-nu/)
+- [Bengt Holmström](https://daututuonglai.vn/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/) · [EN](https://daututuonglai.vn/en/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/)
+- [Jan Tinbergen](https://daututuonglai.vn/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/) · [EN](https://daututuonglai.vn/en/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/)
+
+Bản lưu: [package-11-bilingual.json](./package-11-bilingual.json). Đã nhập 95 chuỗi EN và kiểm tra đầy đủ từng đoạn, tiêu đề, chú thích, năm mô tả ngắn EN. Bốn ảnh tư liệu có nguồn và giấy phép; Ester Boserup dùng minh họa AI tham chiếu với nhãn VI/EN. Năm ảnh WebP tải được, đúng người và object-fit: contain trên danh mục. Không thay theme.
