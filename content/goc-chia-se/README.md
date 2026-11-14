@@ -17,7 +17,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ ảnh, 3 ảnh thật và 2 minh họa AI tham chiếu |
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 ảnh tư liệu có nguồn |
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 chân dung tư liệu có nguồn |
-| 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Đã đăng 5 bài VI+EN ngày 14/11/2026; 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -137,3 +137,14 @@ Bản lưu: [package-07-bilingual.json](./package-07-bilingual.json). Đã nhậ
 - [Lý Lục](https://daututuonglai.vn/2026/11/14/ly-luc-tu-duy-so-huu-doanh-nghiep/) · [EN](https://daututuonglai.vn/en/2026/11/14/ly-luc-tu-duy-so-huu-doanh-nghiep/)
 
 Bản lưu: [package-08-bilingual.json](./package-08-bilingual.json). Đã nhập 92 chuỗi EN; kiểm tra đủ tiêu đề, từng đoạn, chú thích ảnh và cả năm mô tả ngắn EN trên danh mục. Năm chân dung tư liệu: Mayer Amschel Rothschild (tranh trong sách Elbert Hubbard/Project Gutenberg, họa sĩ chưa rõ, phạm vi công cộng tại Mỹ); John D. Rockefeller (Oscar White, bản tư liệu Commons CC BY-SA 4.0); Andrew Carnegie (Library of Congress, 1896, phạm vi công cộng tại Mỹ); Hetty Green (National Magazine, 1905, phạm vi công cộng tại Mỹ); Lý Lục (Joichi Ito, 2007, CC BY 3.0). Tệp WebP cạnh dài tối đa 800 px, chú thích không chứa thao tác chuyển đổi. Đã kiểm tra năm ảnh tải được và object-fit: contain trên danh mục. Không thay theme.
+
+
+## Gói 09 đã xuất bản — 14/11/2026
+
+- [Rakesh Jhunjhunwala](https://daututuonglai.vn/2026/11/14/rakesh-jhunjhunwala-niem-tin-va-kiem-chung/) · [EN](https://daututuonglai.vn/en/2026/11/14/rakesh-jhunjhunwala-niem-tin-va-kiem-chung/)
+- [Masayoshi Son](https://daututuonglai.vn/2026/11/14/masayoshi-son-tam-nhin-va-ky-luat-von/) · [EN](https://daututuonglai.vn/en/2026/11/14/masayoshi-son-tam-nhin-va-ky-luat-von/)
+- [Ingvar Kamprad](https://daututuonglai.vn/2026/11/14/ingvar-kamprad-gia-thap-va-thiet-ke-he-thong/) · [EN](https://daututuonglai.vn/en/2026/11/14/ingvar-kamprad-gia-thap-va-thiet-ke-he-thong/)
+- [Amancio Ortega](https://daututuonglai.vn/2026/11/14/amancio-ortega-lang-nghe-va-phan-hoi/) · [EN](https://daututuonglai.vn/en/2026/11/14/amancio-ortega-lang-nghe-va-phan-hoi/)
+- [Bernard Arnault](https://daututuonglai.vn/2026/11/14/bernard-arnault-thuong-hieu-va-ban-sac/) · [EN](https://daututuonglai.vn/en/2026/11/14/bernard-arnault-thuong-hieu-va-ban-sac/)
+
+Bản lưu: [package-09-bilingual.json](./package-09-bilingual.json). Đã nhập 96 chuỗi EN, kiểm tra đủ tiêu đề, từng đoạn, chú thích và cả năm mô tả ngắn trên danh mục. Bốn ảnh thật: Rakesh Jhunjhunwala (Sagar Karkhanis, tác giả hiến tặng vào phạm vi công cộng); Masayoshi Son (nobihaya, CC BY 2.0); Ingvar Kamprad (Hasse Karlsson, bản cắt Theresa Sillketrucker, nguồn cho phép sử dụng tự do); Bernard Arnault (Jérémy Barande / École polytechnique Université Paris-Saclay, bản cắt Titlutin, CC BY-SA 2.0). Ortega dùng minh họa AI tham chiếu chân dung Fundación Amancio Ortega, có nhãn rõ VI/EN. Ảnh WebP cạnh dài tối đa 800 px, không ghi thao tác chuyển đổi trong chú thích. Đã thêm liên kết đọc tiếp sang hồ sơ liên quan và lộ trình học; kiểm tra ảnh tải được và object-fit: contain trên danh mục. Vai trò Son và Arnault được đối chiếu với hồ sơ chính thức; tầm nhìn ASI được trình bày là mục tiêu, không phải kết quả đã đạt. Không thay theme.
