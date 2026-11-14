@@ -1,0 +1,587 @@
+[
+  {
+    "key": "jose-encarnacion",
+    "slug": "jose-encarnacion-thu-tu-uu-tien",
+    "title": "José Encarnación Jr.: Khi quyết định có thứ tự ưu tiên",
+    "title_en": "José Encarnación Jr.: When decisions have ranked priorities",
+    "excerpt": "Nhà kinh tế Philippines và câu hỏi vì sao con người không luôn đánh đổi mọi mục tiêu trên cùng một thang điểm.",
+    "excerpt_en": "The Filipino economist and why people do not always trade every objective on a single scale.",
+    "credit": "José Encarnación Jr. Ảnh: National Academy of Science and Technology, Philippines; phạm vi công cộng.",
+    "credit_en": "José Encarnación Jr. Photo: National Academy of Science and Technology, Philippines; public domain.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Jose_Encarnacion_Jr._NAST.jpg",
+    "license": "https://commons.wikimedia.org/wiki/File:Jose_Encarnacion_Jr._NAST.jpg#Licensing",
+    "sources": [
+      {
+        "label": "Richard Hooley — In Memoriam José Encarnación Jr.",
+        "url": "https://www.pre.econ.upd.edu.ph/index.php/pre/article/download/70/519"
+      },
+      {
+        "label": "Encarnación — Price Decisions and Employment Equilibrium",
+        "url": "https://pre.econ.upd.edu.ph/index.php/pre/article/view/292"
+      },
+      {
+        "label": "UP School of Economics — Remembering Pepe Encarnación",
+        "url": "https://econ.upd.edu.ph/news-announcements/remembering-pepe-encarnacion/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Khi mua một món hàng, có người so giá trước rồi mới xem mẫu mã; người khác đặt an toàn lên đầu và chỉ so giá giữa những lựa chọn đạt yêu cầu. Hai cách quyết định ấy không giống nhau. José Encarnación Jr. là nhà kinh tế Philippines nghiên cứu sâu về lựa chọn và thứ tự ưu tiên. Câu chuyện của ông giúp mở rộng hình dung về con người kinh tế: không phải lúc nào mọi mục tiêu cũng được quy đổi thành một điểm số duy nhất.",
+        "en": "Some buyers compare price first; others require safety before considering cost. José Encarnación Jr., a Filipino economist, studied choice and ranked priorities. His work broadens the idea of economic decision-making beyond a single score that trades off every objective."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà lý thuyết gắn bó với đại học Philippines",
+        "en": "A theorist rooted in the Philippines"
+      },
+      {
+        "tag": "p",
+        "vi": "Encarnación sinh tại Manila năm 1928 và mất năm 1998. Sau khi lấy bằng tiến sĩ tại Princeton, ông trở về giảng dạy và nghiên cứu tại University of the Philippines. Ông cũng có thời gian dài lãnh đạo School of Economics. [1] Chân dung này cho thấy đóng góp học thuật quốc tế có thể được xây dựng từ một cơ sở nghiên cứu trong nước, thông qua công bố, đào tạo và duy trì môi trường trao đổi ý tưởng.",
+        "en": "Born in Manila in 1928, Encarnación died in 1998. After doctoral study at Princeton, he returned to the University of the Philippines, where he taught, researched and led the School of Economics for many years. [1] His career linked international scholarship with domestic institution-building."
+      },
+      {
+        "tag": "p",
+        "vi": "Bài tưởng niệm của Richard Hooley nhấn mạnh nghiên cứu của ông về sở thích theo thứ tự từ điển và cách hình thức hóa quyết định có nhiều ưu tiên. [1] Tên gọi này bắt nguồn từ cách xếp từ: xét chữ đầu trước, rồi mới tới chữ tiếp theo khi cần. Trong lựa chọn kinh tế, ý tưởng tương tự đặt câu hỏi điều gì được ưu tiên trước và khi nào người quyết định chuyển sang xem mục tiêu phía sau.",
+        "en": "Richard Hooley’s memorial emphasizes his work on lexicographic preferences and formalizing multiple priorities. [1] Like dictionary ordering, the idea asks which criterion is considered first and when later criteria become relevant."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không phải mọi tiêu chí đều được bù trừ dễ dàng",
+        "en": "Not every criterion is readily compensable"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một bảng chấm điểm thông thường, điểm cao ở tiêu chí này có thể bù cho điểm thấp ở tiêu chí khác. Nhưng một số quyết định không vận hành như vậy. Người mua có thể loại sản phẩm không đáp ứng yêu cầu thiết yếu, dù giá rẻ đến đâu trong phạm vi đang xét. Phân biệt cách xếp hạng với cách cộng điểm giúp người phân tích đặt giả định sát hơn với hành vi mà mình muốn giải thích.",
+        "en": "A weighted score lets strength on one criterion offset weakness on another. Some decisions instead exclude options that fail an essential requirement. Distinguishing ranking from aggregation helps align assumptions with the behavior being studied."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần tránh gọi mọi giới hạn là sở thích từ điển nghiêm ngặt. Một ngưỡng chất lượng tối thiểu, một ràng buộc ngân sách và một thứ tự ưu tiên tuyệt đối là những cấu trúc khác nhau. Ví dụ đời thường dưới đây chỉ giúp trực giác, không thay cho định nghĩa toán học trong các công trình của Encarnación. Việc nói rõ mức độ đơn giản hóa là cần thiết để một khái niệm khó không bị biến thành nhãn dán cho mọi hành vi.",
+        "en": "A quality threshold, a budget constraint and strictly lexicographic preferences are not identical. Everyday examples below provide intuition rather than substitute for mathematical definitions. Explicit simplification prevents the concept from becoming a label for all behavior."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một ví dụ về chọn nhà cung cấp",
+        "en": "A supplier-selection example"
+      },
+      {
+        "tag": "p",
+        "vi": "Giả sử một trường học chọn đơn vị may đồng phục. Trước hết, đơn vị phải đáp ứng yêu cầu an toàn vật liệu và giao đúng hạn; sau đó trường mới so giá, kiểu dáng và dịch vụ. Nếu nhà cung cấp chỉ tập trung giảm giá nhưng bỏ qua điều kiện đầu tiên, họ có thể không hiểu vì sao mình vẫn bị loại. Đây là ví dụ giả định của chuyên mục, không phải một nghiên cứu thực địa của Encarnación.",
+        "en": "Imagine a school requiring safe materials and reliable delivery before comparing uniform prices and designs. A supplier cutting prices while missing the initial requirements may misunderstand rejection. This is an editorial hypothetical, not Encarnación field research."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với bên mua, cách làm này đòi hỏi xác định ngưỡng rõ và có bằng chứng kiểm tra. Nếu tiêu chí thay đổi sau khi xem báo giá, quy trình dễ trở nên tùy tiện. Đối với bên bán, cần tìm hiểu vấn đề thật sự của khách hàng trước khi tối ưu một chỉ tiêu mà khách hàng không coi là quan trọng nhất. Phân tích thứ tự ưu tiên vì vậy có thể giúp cả hai phía trao đổi cụ thể hơn.",
+        "en": "Buyers need clear thresholds and evidence, otherwise criteria can shift arbitrarily. Sellers should identify customers’ actual priorities before optimizing a less important metric. Explicit priority structures improve communication on both sides."
+      },
+      {
+        "tag": "h2",
+        "vi": "An toàn trước và giới hạn của mô hình",
+        "en": "Safety first and model boundaries"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài Price Decisions and Employment Equilibrium năm 1988, Encarnación nghiên cứu một mô hình doanh nghiệp với mục tiêu an toàn trước, thay vì chỉ tối đa hóa lợi nhuận kỳ vọng. [2] Đây là lựa chọn giả định để khám phá hệ quả lý thuyết, không phải khẳng định mọi doanh nghiệp đều hành xử giống nhau. Khi đọc nghiên cứu, cần xem tác giả đang mô tả phổ quát hay đang thử một cơ chế có khả năng giải thích một số hiện tượng.",
+        "en": "His 1988 Price Decisions and Employment Equilibrium uses a safety-first objective rather than expected-profit maximization. [2] It explores a theoretical mechanism, not universal firm behavior. Readers should distinguish a model assumption from a claim about all businesses."
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách liên hệ là người quản lý có thể ưu tiên sống sót qua giai đoạn thiếu tiền trước khi tìm phương án lợi nhuận cao hơn. Tuy nhiên, an toàn cũng cần được định nghĩa: giữ tiền mặt, giảm nguy cơ mất khách hay bảo vệ chất lượng là những việc khác nhau. Nếu không làm rõ, hai người cùng nói thận trọng vẫn có thể chọn hai phương án trái ngược. Đây là lý do cần tách mục tiêu, ràng buộc và cách đo kết quả.",
+        "en": "Managers may prioritize surviving a cash shortage before pursuing higher returns. But safety can mean cash reserves, customer retention or product quality. Different definitions lead to different choices, so objectives, constraints and measures must be separated."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản còn nằm ở việc đào tạo người đặt câu hỏi",
+        "en": "A legacy of training people to ask questions"
+      },
+      {
+        "tag": "p",
+        "vi": "Năm 2023, UP School of Economics tổ chức tưởng nhớ Encarnación nhân dịp 95 năm ngày sinh của ông. [3] Sự tưởng nhớ của một trường đại học cho thấy ảnh hưởng của học giả không chỉ được đo bằng một ý tưởng nổi tiếng. Người thầy còn giúp sinh viên biết phân biệt khái niệm, tìm lỗi trong lập luận và trình bày vấn đề có trật tự. Đó là nền tảng để những nghiên cứu tiếp theo có thể tiến xa hơn.",
+        "en": "UP School of Economics commemorated his 95th birthday in 2023. [3] Academic influence extends beyond a signature idea to teaching conceptual distinctions, disciplined reasoning and clear problem formulation."
+      },
+      {
+        "tag": "p",
+        "vi": "Với độc giả Việt Nam, câu hỏi thực hành là trước một quyết định nhiều mục tiêu, điều nào là điều kiện bắt buộc, điều nào có thể thương lượng và điều nào chỉ nên so sau. Viết rõ ba nhóm này có thể giúp tránh tranh luận vòng quanh một điểm số tổng hợp. Bài học từ Encarnación không phải luôn chọn một thứ tự cứng, mà là biết mình đang dùng cách quyết định nào và kiểm tra xem cách ấy có phù hợp tình huống hay không.",
+        "en": "Vietnamese readers can ask which requirements are mandatory, which are negotiable and which are considered later. The lesson is not to impose rigid rankings everywhere, but to identify the decision structure and test whether it suits the situation."
+      }
+    ],
+    "html": "<p><em>José Encarnación Jr. Ảnh: National Academy of Science and Technology, Philippines; phạm vi công cộng.</em></p>\n<p>Khi mua một món hàng, có người so giá trước rồi mới xem mẫu mã; người khác đặt an toàn lên đầu và chỉ so giá giữa những lựa chọn đạt yêu cầu. Hai cách quyết định ấy không giống nhau. José Encarnación Jr. là nhà kinh tế Philippines nghiên cứu sâu về lựa chọn và thứ tự ưu tiên. Câu chuyện của ông giúp mở rộng hình dung về con người kinh tế: không phải lúc nào mọi mục tiêu cũng được quy đổi thành một điểm số duy nhất.</p>\n<h2>Một nhà lý thuyết gắn bó với đại học Philippines</h2>\n<p>Encarnación sinh tại Manila năm 1928 và mất năm 1998. Sau khi lấy bằng tiến sĩ tại Princeton, ông trở về giảng dạy và nghiên cứu tại University of the Philippines. Ông cũng có thời gian dài lãnh đạo School of Economics. [1] Chân dung này cho thấy đóng góp học thuật quốc tế có thể được xây dựng từ một cơ sở nghiên cứu trong nước, thông qua công bố, đào tạo và duy trì môi trường trao đổi ý tưởng.</p>\n<p>Bài tưởng niệm của Richard Hooley nhấn mạnh nghiên cứu của ông về sở thích theo thứ tự từ điển và cách hình thức hóa quyết định có nhiều ưu tiên. [1] Tên gọi này bắt nguồn từ cách xếp từ: xét chữ đầu trước, rồi mới tới chữ tiếp theo khi cần. Trong lựa chọn kinh tế, ý tưởng tương tự đặt câu hỏi điều gì được ưu tiên trước và khi nào người quyết định chuyển sang xem mục tiêu phía sau.</p>\n<h2>Không phải mọi tiêu chí đều được bù trừ dễ dàng</h2>\n<p>Trong một bảng chấm điểm thông thường, điểm cao ở tiêu chí này có thể bù cho điểm thấp ở tiêu chí khác. Nhưng một số quyết định không vận hành như vậy. Người mua có thể loại sản phẩm không đáp ứng yêu cầu thiết yếu, dù giá rẻ đến đâu trong phạm vi đang xét. Phân biệt cách xếp hạng với cách cộng điểm giúp người phân tích đặt giả định sát hơn với hành vi mà mình muốn giải thích.</p>\n<p>Cũng cần tránh gọi mọi giới hạn là sở thích từ điển nghiêm ngặt. Một ngưỡng chất lượng tối thiểu, một ràng buộc ngân sách và một thứ tự ưu tiên tuyệt đối là những cấu trúc khác nhau. Ví dụ đời thường dưới đây chỉ giúp trực giác, không thay cho định nghĩa toán học trong các công trình của Encarnación. Việc nói rõ mức độ đơn giản hóa là cần thiết để một khái niệm khó không bị biến thành nhãn dán cho mọi hành vi.</p>\n<h2>Một ví dụ về chọn nhà cung cấp</h2>\n<p>Giả sử một trường học chọn đơn vị may đồng phục. Trước hết, đơn vị phải đáp ứng yêu cầu an toàn vật liệu và giao đúng hạn; sau đó trường mới so giá, kiểu dáng và dịch vụ. Nếu nhà cung cấp chỉ tập trung giảm giá nhưng bỏ qua điều kiện đầu tiên, họ có thể không hiểu vì sao mình vẫn bị loại. Đây là ví dụ giả định của chuyên mục, không phải một nghiên cứu thực địa của Encarnación.</p>\n<p>Đối với bên mua, cách làm này đòi hỏi xác định ngưỡng rõ và có bằng chứng kiểm tra. Nếu tiêu chí thay đổi sau khi xem báo giá, quy trình dễ trở nên tùy tiện. Đối với bên bán, cần tìm hiểu vấn đề thật sự của khách hàng trước khi tối ưu một chỉ tiêu mà khách hàng không coi là quan trọng nhất. Phân tích thứ tự ưu tiên vì vậy có thể giúp cả hai phía trao đổi cụ thể hơn.</p>\n<h2>An toàn trước và giới hạn của mô hình</h2>\n<p>Trong bài Price Decisions and Employment Equilibrium năm 1988, Encarnación nghiên cứu một mô hình doanh nghiệp với mục tiêu an toàn trước, thay vì chỉ tối đa hóa lợi nhuận kỳ vọng. [2] Đây là lựa chọn giả định để khám phá hệ quả lý thuyết, không phải khẳng định mọi doanh nghiệp đều hành xử giống nhau. Khi đọc nghiên cứu, cần xem tác giả đang mô tả phổ quát hay đang thử một cơ chế có khả năng giải thích một số hiện tượng.</p>\n<p>Một cách liên hệ là người quản lý có thể ưu tiên sống sót qua giai đoạn thiếu tiền trước khi tìm phương án lợi nhuận cao hơn. Tuy nhiên, an toàn cũng cần được định nghĩa: giữ tiền mặt, giảm nguy cơ mất khách hay bảo vệ chất lượng là những việc khác nhau. Nếu không làm rõ, hai người cùng nói thận trọng vẫn có thể chọn hai phương án trái ngược. Đây là lý do cần tách mục tiêu, ràng buộc và cách đo kết quả.</p>\n<h2>Di sản còn nằm ở việc đào tạo người đặt câu hỏi</h2>\n<p>Năm 2023, UP School of Economics tổ chức tưởng nhớ Encarnación nhân dịp 95 năm ngày sinh của ông. [3] Sự tưởng nhớ của một trường đại học cho thấy ảnh hưởng của học giả không chỉ được đo bằng một ý tưởng nổi tiếng. Người thầy còn giúp sinh viên biết phân biệt khái niệm, tìm lỗi trong lập luận và trình bày vấn đề có trật tự. Đó là nền tảng để những nghiên cứu tiếp theo có thể tiến xa hơn.</p>\n<p>Với độc giả Việt Nam, câu hỏi thực hành là trước một quyết định nhiều mục tiêu, điều nào là điều kiện bắt buộc, điều nào có thể thương lượng và điều nào chỉ nên so sau. Viết rõ ba nhóm này có thể giúp tránh tranh luận vòng quanh một điểm số tổng hợp. Bài học từ Encarnación không phải luôn chọn một thứ tự cứng, mà là biết mình đang dùng cách quyết định nào và kiểm tra xem cách ấy có phù hợp tình huống hay không.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.pre.econ.upd.edu.ph/index.php/pre/article/download/70/519\">Richard Hooley — In Memoriam José Encarnación Jr.</a></li><li><a href=\"https://pre.econ.upd.edu.ph/index.php/pre/article/view/292\">Encarnación — Price Decisions and Employment Equilibrium</a></li><li><a href=\"https://econ.upd.edu.ph/news-announcements/remembering-pepe-encarnacion/\">UP School of Economics — Remembering Pepe Encarnación</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/aw-phillips-lam-phat-va-viec-lam/\">A. W. Phillips: Từ máy nước đến câu hỏi về tiền lương</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Jose_Encarnacion_Jr._NAST.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Jose_Encarnacion_Jr._NAST.jpg#Licensing\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/aw-phillips-lam-phat-va-viec-lam/",
+      "title": "A. W. Phillips: Từ máy nước đến câu hỏi về tiền lương",
+      "title_en": "A. W. Phillips: From a water machine to the wage question"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/jose-encarnacion-thu-tu-uu-tien/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1963&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/jose-encarnacion-thu-tu-uu-tien/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/jose-encarnacion.webp"
+  },
+  {
+    "key": "muhammad-yunus",
+    "slug": "muhammad-yunus-tin-dung-va-co-hoi",
+    "title": "Muhammad Yunus: Mở cửa tín dụng và kiểm chứng tác động",
+    "title_en": "Muhammad Yunus: Opening credit access and testing its impact",
+    "excerpt": "Nhà kinh tế Bangladesh, Grameen Bank và những điều cần phân biệt giữa tiếp cận vốn với thoát nghèo bền vững.",
+    "excerpt_en": "The Bangladeshi economist, Grameen Bank and the distinction between credit access and lasting poverty reduction.",
+    "credit": "Muhammad Yunus, 2013. Ảnh: University of Salford Press Office; CC BY 2.0.",
+    "credit_en": "Muhammad Yunus, 2013. Photo: University of Salford Press Office; CC BY 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Muhammad_Yunus_-_2013_(portrait).jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Nobel Peace Prize — Muhammad Yunus and Grameen Bank, 2006",
+        "url": "https://www.nobelpeaceprize.org/laureates/2006"
+      },
+      {
+        "label": "Nobel Committee — 2006 Press Release",
+        "url": "https://www.nobelprize.org/prizes/peace/2006/press-release/"
+      },
+      {
+        "label": "J-PAL — Microcredit: Impacts and promising innovations",
+        "url": "https://www.povertyactionlab.org/policy-insight/microcredit-impacts-and-promising-innovations"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một người có kỹ năng và ý định làm ăn nhưng không có tài sản thế chấp có nhất thiết phải đứng ngoài hệ thống tín dụng? Muhammad Yunus đưa câu hỏi ấy thành một chương trình hành động có ảnh hưởng quốc tế. Nhưng câu chuyện không kết thúc ở việc cho vay. Nó tiếp tục bằng câu hỏi khó hơn: vốn mới có thực sự cải thiện đời sống người vay hay không, với ai, trong điều kiện nào và bằng cách đo lường nào?",
+        "en": "Must a capable person without collateral remain outside credit markets? Muhammad Yunus turned that question into an influential practical program. The next question is harder: does access improve borrowers’ lives, for whom, under what conditions and by which measures?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ giảng đường đến tài chính vi mô",
+        "en": "From teaching to microfinance"
+      },
+      {
+        "tag": "p",
+        "vi": "Yunus sinh năm 1940 tại Bangladesh. Sau thời gian học ở Bangladesh và Hoa Kỳ, ông trở thành giáo sư kinh tế tại University of Chittagong năm 1972. Nạn đói năm 1974 thúc đẩy ông tìm cách làm việc trực tiếp với người nghèo thay vì chỉ giảng dạy lý thuyết. [1] Bài viết này tập trung vào đóng góp của ông trong tài chính vi mô, không dùng các vai trò chính trị về sau để thay thế việc đánh giá mô hình kinh tế.",
+        "en": "Born in 1940, Yunus studied in Bangladesh and the United States and became an economics professor at Chittagong in 1972. The 1974 famine prompted practical work with poor communities. [1] This profile focuses on microfinance rather than using later political roles to evaluate the model."
+      },
+      {
+        "tag": "p",
+        "vi": "Grameen Bank được thành lập năm 1983. Năm 2006, Yunus và ngân hàng cùng nhận Nobel Hòa bình, không phải giải kinh tế. [1][2] Sự phân biệt này quan trọng vì giải thưởng ghi nhận nỗ lực phát triển kinh tế và xã hội từ cộng đồng. Nó không phải chứng nhận rằng mọi khoản vay nhỏ đều tạo lợi nhuận, hay mọi mô hình mang tên tài chính vi mô đều có cùng hiệu quả và điều kiện hoạt động.",
+        "en": "Grameen Bank was established in 1983. Yunus and the bank jointly received the 2006 Nobel Peace Prize, not the economics prize. [1][2] That recognition does not certify every small loan or microfinance product as effective."
+      },
+      {
+        "tag": "h2",
+        "vi": "Vốn là một rào cản, nhưng có thể không phải rào cản duy nhất",
+        "en": "Credit is one constraint, not necessarily the only one"
+      },
+      {
+        "tag": "p",
+        "vi": "Ý tưởng mở rộng tín dụng cho người không có tài sản bảo đảm giúp thách thức một giả định phổ biến về khả năng phục vụ người nghèo. [2] Tuy nhiên, một hoạt động kinh doanh còn cần khách hàng, kỹ năng, thời gian và khả năng chịu rủi ro. Nếu điểm nghẽn chính nằm ở đầu ra hoặc sức khỏe, thêm nợ có thể không giải quyết đúng vấn đề. Vì thế, tiếp cận vốn và kết quả phát triển cần được xem là hai câu hỏi liên quan nhưng khác nhau.",
+        "en": "Extending credit without conventional collateral challenged assumptions about serving poor households. [2] Businesses also need customers, skills, time and resilience. If demand or health is the main constraint, more debt may not solve it. Access and development outcomes are related but distinct questions."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một người bán hàng đã có khách ổn định nhưng thiếu tiền mua nguyên liệu theo lô có thể dùng vốn mới để giảm chi phí. Người khác chưa biết bán cho ai có thể mua thêm hàng rồi tồn kho. Hai người cùng nhận một khoản vay nhưng cơ hội sinh lời rất khác nhau. Ví dụ này không dự báo khả năng trả nợ của một cá nhân cụ thể; nó chỉ chỉ ra vì sao thiết kế sản phẩm phải hiểu hoàn cảnh người dùng.",
+        "en": "Imagine an established seller using credit to buy inputs efficiently, while another buys stock without knowing the market. Identical loans can produce different outcomes. This hypothetical illustrates product design rather than predicting any individual’s repayment ability."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bằng chứng thực nghiệm bổ sung điều gì?",
+        "en": "What does empirical evidence add?"
+      },
+      {
+        "tag": "p",
+        "vi": "Tổng hợp nghiên cứu của J-PAL cho thấy tín dụng vi mô truyền thống không tạo bước chuyển lớn về thu nhập hay tiêu dùng cho người vay trung bình trong nhiều bối cảnh được đánh giá. Một số nhóm có kinh nghiệm kinh doanh hoặc tiềm năng cao lại hưởng lợi đáng kể hơn. [3] Kết quả này không có nghĩa mọi khoản vay đều vô ích; nó bác bỏ cách kỳ vọng một công cụ duy nhất sẽ tự động biến đổi đời sống của tất cả người nhận.",
+        "en": "J-PAL’s synthesis finds that traditional microcredit often did not transform average income or consumption, while some experienced or high-potential entrepreneurs benefited more. [3] This challenges universal expectations without implying that all loans are useless."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng theo J-PAL, những thay đổi như linh hoạt lịch trả nợ hoặc lựa chọn sản phẩm phù hợp có thể cải thiện kết quả trong các nghiên cứu cụ thể. [3] Điều cần giữ là sự gắn kết giữa thiết kế và bằng chứng. Không nên lấy một kết quả tốt ở nơi này để cam kết hiệu quả ở mọi nơi, cũng không nên dùng kết quả trung bình để bỏ qua nhóm thực sự được hưởng lợi. Cần xem đối tượng, thời gian và cách triển khai.",
+        "en": "J-PAL also identifies promising changes such as flexible repayment and better targeting in particular studies. [3] Results depend on design, population, time and implementation; neither positive cases nor averages should be generalized indiscriminately."
+      },
+      {
+        "tag": "h2",
+        "vi": "Trả được nợ chưa nói hết chất lượng đời sống",
+        "en": "Repayment is not a complete welfare measure"
+      },
+      {
+        "tag": "p",
+        "vi": "Một chương trình có tỷ lệ trả nợ cao vẫn cần biết người vay đã trả bằng nguồn nào. Lợi nhuận kinh doanh, giảm chi tiêu thiết yếu hay vay khoản khác là những cơ chế rất khác nhau. Vì vậy, đánh giá nên nhìn cả thu nhập, sự ổn định, thời gian lao động và quyền quyết định của người vay. Đây là câu hỏi phương pháp của chuyên mục, không phải cáo buộc một tổ chức cụ thể đã áp dụng cách thu hồi nợ gây hại.",
+        "en": "High repayment still leaves the question of how borrowers paid: business earnings, reduced essentials or other borrowing imply different outcomes. Evaluation should examine income, stability, work time and agency. This is a methodological question, not an allegation against a particular institution."
+      },
+      {
+        "tag": "p",
+        "vi": "Tương tự, việc khoản vay đứng tên phụ nữ chưa đủ để kết luận người phụ nữ kiểm soát nguồn tiền hoặc được hưởng lợi nhiều hơn. Cần tìm hiểu ai quyết định sử dụng vốn, ai chịu trách nhiệm trả nợ và thời gian chăm sóc gia đình có thay đổi không. Đặt các câu hỏi này giúp mục tiêu hỗ trợ con người không bị thay bằng việc chỉ đếm số hợp đồng. Kết quả xã hội cần được đo bằng đời sống, không chỉ bằng quy mô giải ngân.",
+        "en": "A loan in a woman’s name does not by itself establish control over funds or benefits. Ask who decides, repays and bears care burdens. Social outcomes require more than counting contracts or disbursements."
+      },
+      {
+        "tag": "h2",
+        "vi": "Điều hữu ích cho người học tại Việt Nam",
+        "en": "A useful perspective for Vietnamese readers"
+      },
+      {
+        "tag": "p",
+        "vi": "Khi xem một sáng kiến hỗ trợ vốn, nên hỏi người dùng đang thiếu gì, sản phẩm có phù hợp dòng tiền không và có cơ chế bảo vệ trước cú sốc không. Những câu hỏi ấy giúp đánh giá thiết kế, không thay thế tư vấn vay vốn cá nhân. Với người đang kinh doanh, tính toán dòng tiền và khả năng trả nợ vẫn phải dựa trên điều kiện thực tế, thay vì tin rằng một khoản vay nhỏ đương nhiên an toàn vì có mục tiêu tốt.",
+        "en": "Evaluate what users lack, whether terms fit cash flow and how shocks are handled. These questions assess design, not personal borrowing suitability. A small loan is not automatically safe because its purpose is socially beneficial."
+      },
+      {
+        "tag": "p",
+        "vi": "Đóng góp của Yunus là mở rộng trí tưởng tượng về những người có thể được phục vụ bằng tài chính. Bước tiếp theo của tư duy ấy là tiếp tục kiểm chứng, sửa sản phẩm và chấp nhận rằng vốn chỉ là một phần của phát triển. Trân trọng một sáng kiến và kiểm tra giới hạn của nó có thể đi cùng nhau. Đó là cách học giúp câu chuyện nhân vật trở thành hiểu biết hữu ích, thay vì một lời hứa thoát nghèo dễ dàng.",
+        "en": "Yunus expanded the imagination of whom finance could serve. Continuing that inquiry means testing outcomes, improving products and recognizing that credit is only one part of development. Appreciation and critical evaluation can coexist."
+      }
+    ],
+    "html": "<p><em>Muhammad Yunus, 2013. Ảnh: University of Salford Press Office; CC BY 2.0.</em></p>\n<p>Một người có kỹ năng và ý định làm ăn nhưng không có tài sản thế chấp có nhất thiết phải đứng ngoài hệ thống tín dụng? Muhammad Yunus đưa câu hỏi ấy thành một chương trình hành động có ảnh hưởng quốc tế. Nhưng câu chuyện không kết thúc ở việc cho vay. Nó tiếp tục bằng câu hỏi khó hơn: vốn mới có thực sự cải thiện đời sống người vay hay không, với ai, trong điều kiện nào và bằng cách đo lường nào?</p>\n<h2>Từ giảng đường đến tài chính vi mô</h2>\n<p>Yunus sinh năm 1940 tại Bangladesh. Sau thời gian học ở Bangladesh và Hoa Kỳ, ông trở thành giáo sư kinh tế tại University of Chittagong năm 1972. Nạn đói năm 1974 thúc đẩy ông tìm cách làm việc trực tiếp với người nghèo thay vì chỉ giảng dạy lý thuyết. [1] Bài viết này tập trung vào đóng góp của ông trong tài chính vi mô, không dùng các vai trò chính trị về sau để thay thế việc đánh giá mô hình kinh tế.</p>\n<p>Grameen Bank được thành lập năm 1983. Năm 2006, Yunus và ngân hàng cùng nhận Nobel Hòa bình, không phải giải kinh tế. [1][2] Sự phân biệt này quan trọng vì giải thưởng ghi nhận nỗ lực phát triển kinh tế và xã hội từ cộng đồng. Nó không phải chứng nhận rằng mọi khoản vay nhỏ đều tạo lợi nhuận, hay mọi mô hình mang tên tài chính vi mô đều có cùng hiệu quả và điều kiện hoạt động.</p>\n<h2>Vốn là một rào cản, nhưng có thể không phải rào cản duy nhất</h2>\n<p>Ý tưởng mở rộng tín dụng cho người không có tài sản bảo đảm giúp thách thức một giả định phổ biến về khả năng phục vụ người nghèo. [2] Tuy nhiên, một hoạt động kinh doanh còn cần khách hàng, kỹ năng, thời gian và khả năng chịu rủi ro. Nếu điểm nghẽn chính nằm ở đầu ra hoặc sức khỏe, thêm nợ có thể không giải quyết đúng vấn đề. Vì thế, tiếp cận vốn và kết quả phát triển cần được xem là hai câu hỏi liên quan nhưng khác nhau.</p>\n<p>Ví dụ giả định, một người bán hàng đã có khách ổn định nhưng thiếu tiền mua nguyên liệu theo lô có thể dùng vốn mới để giảm chi phí. Người khác chưa biết bán cho ai có thể mua thêm hàng rồi tồn kho. Hai người cùng nhận một khoản vay nhưng cơ hội sinh lời rất khác nhau. Ví dụ này không dự báo khả năng trả nợ của một cá nhân cụ thể; nó chỉ chỉ ra vì sao thiết kế sản phẩm phải hiểu hoàn cảnh người dùng.</p>\n<h2>Bằng chứng thực nghiệm bổ sung điều gì?</h2>\n<p>Tổng hợp nghiên cứu của J-PAL cho thấy tín dụng vi mô truyền thống không tạo bước chuyển lớn về thu nhập hay tiêu dùng cho người vay trung bình trong nhiều bối cảnh được đánh giá. Một số nhóm có kinh nghiệm kinh doanh hoặc tiềm năng cao lại hưởng lợi đáng kể hơn. [3] Kết quả này không có nghĩa mọi khoản vay đều vô ích; nó bác bỏ cách kỳ vọng một công cụ duy nhất sẽ tự động biến đổi đời sống của tất cả người nhận.</p>\n<p>Cũng theo J-PAL, những thay đổi như linh hoạt lịch trả nợ hoặc lựa chọn sản phẩm phù hợp có thể cải thiện kết quả trong các nghiên cứu cụ thể. [3] Điều cần giữ là sự gắn kết giữa thiết kế và bằng chứng. Không nên lấy một kết quả tốt ở nơi này để cam kết hiệu quả ở mọi nơi, cũng không nên dùng kết quả trung bình để bỏ qua nhóm thực sự được hưởng lợi. Cần xem đối tượng, thời gian và cách triển khai.</p>\n<h2>Trả được nợ chưa nói hết chất lượng đời sống</h2>\n<p>Một chương trình có tỷ lệ trả nợ cao vẫn cần biết người vay đã trả bằng nguồn nào. Lợi nhuận kinh doanh, giảm chi tiêu thiết yếu hay vay khoản khác là những cơ chế rất khác nhau. Vì vậy, đánh giá nên nhìn cả thu nhập, sự ổn định, thời gian lao động và quyền quyết định của người vay. Đây là câu hỏi phương pháp của chuyên mục, không phải cáo buộc một tổ chức cụ thể đã áp dụng cách thu hồi nợ gây hại.</p>\n<p>Tương tự, việc khoản vay đứng tên phụ nữ chưa đủ để kết luận người phụ nữ kiểm soát nguồn tiền hoặc được hưởng lợi nhiều hơn. Cần tìm hiểu ai quyết định sử dụng vốn, ai chịu trách nhiệm trả nợ và thời gian chăm sóc gia đình có thay đổi không. Đặt các câu hỏi này giúp mục tiêu hỗ trợ con người không bị thay bằng việc chỉ đếm số hợp đồng. Kết quả xã hội cần được đo bằng đời sống, không chỉ bằng quy mô giải ngân.</p>\n<h2>Điều hữu ích cho người học tại Việt Nam</h2>\n<p>Khi xem một sáng kiến hỗ trợ vốn, nên hỏi người dùng đang thiếu gì, sản phẩm có phù hợp dòng tiền không và có cơ chế bảo vệ trước cú sốc không. Những câu hỏi ấy giúp đánh giá thiết kế, không thay thế tư vấn vay vốn cá nhân. Với người đang kinh doanh, tính toán dòng tiền và khả năng trả nợ vẫn phải dựa trên điều kiện thực tế, thay vì tin rằng một khoản vay nhỏ đương nhiên an toàn vì có mục tiêu tốt.</p>\n<p>Đóng góp của Yunus là mở rộng trí tưởng tượng về những người có thể được phục vụ bằng tài chính. Bước tiếp theo của tư duy ấy là tiếp tục kiểm chứng, sửa sản phẩm và chấp nhận rằng vốn chỉ là một phần của phát triển. Trân trọng một sáng kiến và kiểm tra giới hạn của nó có thể đi cùng nhau. Đó là cách học giúp câu chuyện nhân vật trở thành hiểu biết hữu ích, thay vì một lời hứa thoát nghèo dễ dàng.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.nobelpeaceprize.org/laureates/2006\">Nobel Peace Prize — Muhammad Yunus and Grameen Bank, 2006</a></li><li><a href=\"https://www.nobelprize.org/prizes/peace/2006/press-release/\">Nobel Committee — 2006 Press Release</a></li><li><a href=\"https://www.povertyactionlab.org/policy-insight/microcredit-impacts-and-promising-innovations\">J-PAL — Microcredit: Impacts and promising innovations</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/michio-morishima-toan-hoc-va-lich-su/\">Michio Morishima: Khi toán học gặp lịch sử kinh tế</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Muhammad_Yunus_-_2013_(portrait).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/michio-morishima-toan-hoc-va-lich-su/",
+      "title": "Michio Morishima: Khi toán học gặp lịch sử kinh tế",
+      "title_en": "Michio Morishima: Where mathematics meets economic history"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/muhammad-yunus-tin-dung-va-co-hoi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1965&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/muhammad-yunus-tin-dung-va-co-hoi/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/muhammad-yunus.webp"
+  },
+  {
+    "key": "saman-kelegama",
+    "slug": "saman-kelegama-thuong-mai-va-nang-luc",
+    "title": "Saman Kelegama: Hội nhập cần năng lực thực hiện",
+    "title_en": "Saman Kelegama: Integration requires practical capabilities",
+    "excerpt": "Nhà kinh tế Sri Lanka nghiên cứu thương mại, công nghiệp và khoảng cách giữa mở cửa thị trường với khả năng tận dụng cơ hội.",
+    "excerpt_en": "The Sri Lankan economist on trade, industry and the gap between market access and usable opportunity.",
+    "credit": "Chân dung Saman Kelegama — minh họa AI, tham chiếu ảnh của Institute of Policy Studies of Sri Lanka.",
+    "credit_en": "Portrait of Saman Kelegama — AI illustration, based on a reference photograph from the Institute of Policy Studies of Sri Lanka.",
+    "photo_source": "https://www.ips.lk/people/saman-kelegama/",
+    "license": "",
+    "sources": [
+      {
+        "label": "IPS — Saman Kelegama biography",
+        "url": "https://www.ips.lk/people/saman-kelegama/"
+      },
+      {
+        "label": "Kelegama — Liberalization and Industrialization, 1992",
+        "url": "https://www.ips.lk/ips-publication/liberalization-and-industrialization-the-sri-lankan-experience-of-the-1980s/"
+      },
+      {
+        "label": "IPS — A Visionary, whose Legacy was Built on Humility and Humanity",
+        "url": "https://www.ips.lk/a-visionary-whose-legacy-was-built-on-humility-and-humanity/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một hiệp định mở thêm thị trường chưa chắc làm doanh nghiệp bán được hàng ngay. Giữa quyền tiếp cận và đơn hàng thực tế còn có chất lượng, vận chuyển, thông tin và khả năng đáp ứng tiêu chuẩn. Đây là góc nhìn hữu ích để tiếp cận công việc của Saman Kelegama, nhà kinh tế Sri Lanka nghiên cứu thương mại và phát triển. Câu chuyện của ông giúp chuyển thảo luận từ khẩu hiệu mở cửa sang những điều kiện cụ thể để hội nhập tạo ra cơ hội.",
+        "en": "A trade agreement does not automatically generate sales. Quality, transport, information and standards stand between access and actual orders. Saman Kelegama’s work on Sri Lankan trade and development helps shift attention from openness as a slogan to the conditions that make opportunity usable."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ toán học đến nghiên cứu chính sách",
+        "en": "From mathematics to policy research"
+      },
+      {
+        "tag": "p",
+        "vi": "Kelegama học toán tại Indian Institute of Technology ở Kanpur, sau đó học kinh tế và hoàn thành tiến sĩ tại Oxford năm 1990. Ông lãnh đạo Institute of Policy Studies of Sri Lanka từ năm 1995 đến khi qua đời năm 2017. [1] Sự kết hợp giữa nền tảng định lượng và nghiên cứu chính sách giúp hình dung công việc của một nhà kinh tế: không chỉ tính toán, mà còn chọn câu hỏi có ý nghĩa đối với nền kinh tế mình đang sống.",
+        "en": "Kelegama studied mathematics at IIT Kanpur and completed an economics doctorate at Oxford in 1990. He led Sri Lanka’s Institute of Policy Studies from 1995 until his death in 2017. [1] His career combined quantitative training with locally relevant policy questions."
+      },
+      {
+        "tag": "p",
+        "vi": "Các nghiên cứu của ông bao gồm thương mại quốc tế, hội nhập khu vực và công nghiệp. [1] Công trình Liberalization and Industrialization: The Sri Lankan Experience of the 1980s được công bố năm 1992. [2] Chỉ riêng việc đặt mở cửa và công nghiệp hóa cạnh nhau đã gợi một câu hỏi quan trọng: thay đổi quy tắc thương mại tác động tới quá trình học hỏi, sản xuất và tổ chức doanh nghiệp như thế nào, thay vì chỉ làm kim ngạch thay đổi bao nhiêu.",
+        "en": "His research covered trade, regional integration and industry. [1] The 1992 Liberalization and Industrialization examined Sri Lanka’s 1980s experience. [2] Connecting these subjects raises questions about learning and productive organization beyond changes in trade totals."
+      },
+      {
+        "tag": "h2",
+        "vi": "Cơ hội trên giấy và năng lực ngoài thị trường",
+        "en": "Formal opportunity and market capability"
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể phân biệt được phép bán với có thể bán một cách cạnh tranh. Một doanh nghiệp có quyền xuất khẩu nhưng chưa đạt độ ổn định chất lượng vẫn khó giữ khách. Một sản phẩm tốt nhưng giao chậm hoặc thiếu thông tin truy xuất cũng có thể mất cơ hội. Đây là liên hệ phân tích của chuyên mục từ chủ đề thương mại, không phải kết luận rằng mọi nghiên cứu của Kelegama đều đưa ra một mô hình duy nhất về năng lực doanh nghiệp.",
+        "en": "Permission to export differs from competitive capability. Inconsistent quality, late delivery or poor traceability can block opportunities despite market access. This is an editorial application of trade questions, not a claim that all Kelegama’s work used one firm-capability model."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một cơ sở may nhận được yêu cầu từ khách nước ngoài nhờ thuế quan thuận lợi hơn. Nhưng để thực hiện đơn, cơ sở phải thống nhất thông số, kiểm soát sai số và chứng minh nguồn nguyên liệu. Nếu những khâu này chưa sẵn sàng, ưu đãi thuế có thể không chuyển thành doanh thu. Trình tự phân tích nên đi từ yêu cầu khách hàng đến điểm nghẽn trong quy trình, rồi mới ước tính lợi ích của điều kiện thương mại mới.",
+        "en": "Imagine a garment producer attracting a foreign buyer after tariff changes. Specifications, tolerances and material records still need to be reliable. Favorable tariffs may produce no sales if those capabilities are missing. Analysis should connect customer requirements with operational bottlenecks."
+      },
+      {
+        "tag": "h2",
+        "vi": "Hội nhập khu vực cần nhiều hơn giảm thuế",
+        "en": "Regional integration requires more than lower tariffs"
+      },
+      {
+        "tag": "p",
+        "vi": "Thương mại qua biên giới còn phụ thuộc kết nối giao thông, thanh toán, thời gian xử lý giấy tờ và khả năng giải quyết tranh chấp. Những chi phí ấy có thể lớn đối với doanh nghiệp nhỏ dù mức thuế thấp. Vì vậy, đánh giá cơ hội nên nhìn tổng chi phí đưa hàng đến người mua, không chỉ một tỷ lệ dễ thấy. Cần kiểm tra cụ thể từng thị trường và thời điểm; bài tiểu sử không thay thế hướng dẫn thủ tục xuất nhập khẩu hiện hành.",
+        "en": "Cross-border trade also depends on transport, payments, paperwork and dispute resolution. These costs can burden small firms even with low tariffs. Assess total delivery costs, while checking current procedures separately for each market."
+      },
+      {
+        "tag": "p",
+        "vi": "Khi nhiều doanh nghiệp gặp cùng một khó khăn, giải pháp dùng chung có thể quan trọng hơn hỗ trợ riêng lẻ. Chẳng hạn, thông tin tiêu chuẩn dễ tiếp cận hoặc dịch vụ kiểm định đáng tin giúp nhiều nhà sản xuất cùng cải thiện. Tuy nhiên, không phải mọi rào cản đều có thể giải quyết bằng đầu tư công; một phần nằm trong quản trị và quyết định của doanh nghiệp. Phân biệt trách nhiệm giúp tránh đổ tất cả lỗi cho bên ngoài hoặc đòi doanh nghiệp tự xử lý mọi vấn đề.",
+        "en": "Shared standards information or reliable testing can help many producers. Yet some constraints lie within firms’ management rather than public infrastructure. Distinguishing responsibilities avoids blaming either government or businesses for everything."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đừng chỉ đếm tổng kim ngạch",
+        "en": "Look beyond aggregate trade values"
+      },
+      {
+        "tag": "p",
+        "vi": "Xuất khẩu tăng có thể đi cùng những thay đổi rất khác nhau về giá trị gia tăng, việc làm và mức độ phụ thuộc đầu vào nhập khẩu. Một ngành bán nhiều hơn chưa chắc đã học được công nghệ hoặc có vị thế thương lượng tốt hơn. Người đọc nên hỏi phần giá trị nào được giữ lại, kỹ năng nào được hình thành và rủi ro tập trung khách hàng có tăng không. Những câu hỏi này giúp phân tích sâu hơn một con số tổng cộng.",
+        "en": "Export growth can imply different outcomes for domestic value added, jobs and imported-input dependence. More sales do not automatically mean technological learning or bargaining power. Ask what value and skills remain and whether customer concentration rises."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng không nên mặc định mở cửa chỉ có người thắng. Doanh nghiệp và người lao động có thể đối mặt cạnh tranh mới, trong khi khả năng chuyển nghề hoặc đổi sản phẩm không đồng đều. Một đánh giá đầy đủ cần xem cả cơ hội và chi phí điều chỉnh. Đây là vấn đề thiết kế và theo dõi chính sách, không phải lý do để kết luận trước rằng mọi mở cửa đều tốt hoặc mọi cạnh tranh quốc tế đều gây hại.",
+        "en": "Openness creates adjustment costs as well as opportunities. Firms and workers differ in their ability to change products or jobs. Evaluation should track both sides instead of assuming all openness is beneficial or all international competition harmful."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản của một tổ chức nghiên cứu",
+        "en": "Building a research institution"
+      },
+      {
+        "tag": "p",
+        "vi": "Bài tưởng niệm của IPS nhấn mạnh vai trò của Kelegama trong xây dựng viện và hỗ trợ công việc nghiên cứu qua nhiều năm. [3] Một tổ chức như vậy có giá trị khi duy trì dữ liệu, đào tạo người phân tích và tạo không gian tranh luận. Chính sách cần nhiều vòng kiểm tra, không chỉ một ý tưởng được công bố một lần. Chân dung học giả vì thế cũng là câu chuyện về cách tích lũy năng lực chung cho một cộng đồng.",
+        "en": "IPS’s memorial highlights Kelegama’s institution-building and support for research. [3] Such institutions maintain data, train analysts and sustain debate, enabling repeated scrutiny rather than one-off ideas."
+      },
+      {
+        "tag": "p",
+        "vi": "Với độc giả Việt Nam, cách học từ Kelegama là đặt câu hỏi sát hơn với quá trình tạo ra sản phẩm và đưa sản phẩm ra thị trường. Cơ hội hội nhập có thể lớn, nhưng cần chuyển thành nhiệm vụ cụ thể về chất lượng, kỹ năng và phối hợp. Khi đọc một thông báo thương mại, hãy hỏi ai có thể tận dụng ngay, ai cần hỗ trợ và bằng chứng nào sẽ cho biết năng lực đã thực sự được nâng lên.",
+        "en": "Vietnamese readers can connect integration with concrete work on products, quality, skills and coordination. Ask who can use a new opportunity now, who needs support and what evidence would demonstrate genuine capability improvement."
+      }
+    ],
+    "html": "<p><em>Chân dung Saman Kelegama — minh họa AI, tham chiếu ảnh của Institute of Policy Studies of Sri Lanka.</em></p>\n<p>Một hiệp định mở thêm thị trường chưa chắc làm doanh nghiệp bán được hàng ngay. Giữa quyền tiếp cận và đơn hàng thực tế còn có chất lượng, vận chuyển, thông tin và khả năng đáp ứng tiêu chuẩn. Đây là góc nhìn hữu ích để tiếp cận công việc của Saman Kelegama, nhà kinh tế Sri Lanka nghiên cứu thương mại và phát triển. Câu chuyện của ông giúp chuyển thảo luận từ khẩu hiệu mở cửa sang những điều kiện cụ thể để hội nhập tạo ra cơ hội.</p>\n<h2>Từ toán học đến nghiên cứu chính sách</h2>\n<p>Kelegama học toán tại Indian Institute of Technology ở Kanpur, sau đó học kinh tế và hoàn thành tiến sĩ tại Oxford năm 1990. Ông lãnh đạo Institute of Policy Studies of Sri Lanka từ năm 1995 đến khi qua đời năm 2017. [1] Sự kết hợp giữa nền tảng định lượng và nghiên cứu chính sách giúp hình dung công việc của một nhà kinh tế: không chỉ tính toán, mà còn chọn câu hỏi có ý nghĩa đối với nền kinh tế mình đang sống.</p>\n<p>Các nghiên cứu của ông bao gồm thương mại quốc tế, hội nhập khu vực và công nghiệp. [1] Công trình Liberalization and Industrialization: The Sri Lankan Experience of the 1980s được công bố năm 1992. [2] Chỉ riêng việc đặt mở cửa và công nghiệp hóa cạnh nhau đã gợi một câu hỏi quan trọng: thay đổi quy tắc thương mại tác động tới quá trình học hỏi, sản xuất và tổ chức doanh nghiệp như thế nào, thay vì chỉ làm kim ngạch thay đổi bao nhiêu.</p>\n<h2>Cơ hội trên giấy và năng lực ngoài thị trường</h2>\n<p>Có thể phân biệt được phép bán với có thể bán một cách cạnh tranh. Một doanh nghiệp có quyền xuất khẩu nhưng chưa đạt độ ổn định chất lượng vẫn khó giữ khách. Một sản phẩm tốt nhưng giao chậm hoặc thiếu thông tin truy xuất cũng có thể mất cơ hội. Đây là liên hệ phân tích của chuyên mục từ chủ đề thương mại, không phải kết luận rằng mọi nghiên cứu của Kelegama đều đưa ra một mô hình duy nhất về năng lực doanh nghiệp.</p>\n<p>Ví dụ giả định, một cơ sở may nhận được yêu cầu từ khách nước ngoài nhờ thuế quan thuận lợi hơn. Nhưng để thực hiện đơn, cơ sở phải thống nhất thông số, kiểm soát sai số và chứng minh nguồn nguyên liệu. Nếu những khâu này chưa sẵn sàng, ưu đãi thuế có thể không chuyển thành doanh thu. Trình tự phân tích nên đi từ yêu cầu khách hàng đến điểm nghẽn trong quy trình, rồi mới ước tính lợi ích của điều kiện thương mại mới.</p>\n<h2>Hội nhập khu vực cần nhiều hơn giảm thuế</h2>\n<p>Thương mại qua biên giới còn phụ thuộc kết nối giao thông, thanh toán, thời gian xử lý giấy tờ và khả năng giải quyết tranh chấp. Những chi phí ấy có thể lớn đối với doanh nghiệp nhỏ dù mức thuế thấp. Vì vậy, đánh giá cơ hội nên nhìn tổng chi phí đưa hàng đến người mua, không chỉ một tỷ lệ dễ thấy. Cần kiểm tra cụ thể từng thị trường và thời điểm; bài tiểu sử không thay thế hướng dẫn thủ tục xuất nhập khẩu hiện hành.</p>\n<p>Khi nhiều doanh nghiệp gặp cùng một khó khăn, giải pháp dùng chung có thể quan trọng hơn hỗ trợ riêng lẻ. Chẳng hạn, thông tin tiêu chuẩn dễ tiếp cận hoặc dịch vụ kiểm định đáng tin giúp nhiều nhà sản xuất cùng cải thiện. Tuy nhiên, không phải mọi rào cản đều có thể giải quyết bằng đầu tư công; một phần nằm trong quản trị và quyết định của doanh nghiệp. Phân biệt trách nhiệm giúp tránh đổ tất cả lỗi cho bên ngoài hoặc đòi doanh nghiệp tự xử lý mọi vấn đề.</p>\n<h2>Đừng chỉ đếm tổng kim ngạch</h2>\n<p>Xuất khẩu tăng có thể đi cùng những thay đổi rất khác nhau về giá trị gia tăng, việc làm và mức độ phụ thuộc đầu vào nhập khẩu. Một ngành bán nhiều hơn chưa chắc đã học được công nghệ hoặc có vị thế thương lượng tốt hơn. Người đọc nên hỏi phần giá trị nào được giữ lại, kỹ năng nào được hình thành và rủi ro tập trung khách hàng có tăng không. Những câu hỏi này giúp phân tích sâu hơn một con số tổng cộng.</p>\n<p>Cũng không nên mặc định mở cửa chỉ có người thắng. Doanh nghiệp và người lao động có thể đối mặt cạnh tranh mới, trong khi khả năng chuyển nghề hoặc đổi sản phẩm không đồng đều. Một đánh giá đầy đủ cần xem cả cơ hội và chi phí điều chỉnh. Đây là vấn đề thiết kế và theo dõi chính sách, không phải lý do để kết luận trước rằng mọi mở cửa đều tốt hoặc mọi cạnh tranh quốc tế đều gây hại.</p>\n<h2>Di sản của một tổ chức nghiên cứu</h2>\n<p>Bài tưởng niệm của IPS nhấn mạnh vai trò của Kelegama trong xây dựng viện và hỗ trợ công việc nghiên cứu qua nhiều năm. [3] Một tổ chức như vậy có giá trị khi duy trì dữ liệu, đào tạo người phân tích và tạo không gian tranh luận. Chính sách cần nhiều vòng kiểm tra, không chỉ một ý tưởng được công bố một lần. Chân dung học giả vì thế cũng là câu chuyện về cách tích lũy năng lực chung cho một cộng đồng.</p>\n<p>Với độc giả Việt Nam, cách học từ Kelegama là đặt câu hỏi sát hơn với quá trình tạo ra sản phẩm và đưa sản phẩm ra thị trường. Cơ hội hội nhập có thể lớn, nhưng cần chuyển thành nhiệm vụ cụ thể về chất lượng, kỹ năng và phối hợp. Khi đọc một thông báo thương mại, hãy hỏi ai có thể tận dụng ngay, ai cần hỗ trợ và bằng chứng nào sẽ cho biết năng lực đã thực sự được nâng lên.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.ips.lk/people/saman-kelegama/\">IPS — Saman Kelegama biography</a></li><li><a href=\"https://www.ips.lk/ips-publication/liberalization-and-industrialization-the-sri-lankan-experience-of-the-1980s/\">Kelegama — Liberalization and Industrialization, 1992</a></li><li><a href=\"https://www.ips.lk/a-visionary-whose-legacy-was-built-on-humility-and-humanity/\">IPS — A Visionary, whose Legacy was Built on Humility and Humanity</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/\">Lâm Nghị Phu: Phát triển từ năng lực đang có</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://www.ips.lk/people/saman-kelegama/\">Portrait reference / Nguồn ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/",
+      "title": "Lâm Nghị Phu: Phát triển từ năng lực đang có",
+      "title_en": "Justin Yifu Lin: Development from existing capabilities"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/saman-kelegama-thuong-mai-va-nang-luc/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1967&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/saman-kelegama-thuong-mai-va-nang-luc/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/saman-kelegama.webp"
+  },
+  {
+    "key": "dani-rodrik",
+    "slug": "dani-rodrik-toan-cau-hoa-va-lua-chon",
+    "title": "Dani Rodrik: Toàn cầu hóa cần chỗ cho lựa chọn xã hội",
+    "title_en": "Dani Rodrik: Globalization needs room for social choices",
+    "excerpt": "Nhà kinh tế gốc Thổ Nhĩ Kỳ và những đánh đổi giữa hội nhập sâu, dân chủ và quyền tự quyết quốc gia.",
+    "excerpt_en": "The Turkish-born economist on trade-offs among deep integration, democracy and national self-determination.",
+    "credit": "Dani Rodrik, 2012. Ảnh: Andrzej Barabasz; CC BY-SA 3.0.",
+    "credit_en": "Dani Rodrik, 2012. Photo: Andrzej Barabasz; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Dani_Rodrik_AB.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "Harvard Kennedy School — Dani Rodrik",
+        "url": "https://www.hks.harvard.edu/faculty/dani-rodrik"
+      },
+      {
+        "label": "Harvard Kennedy School — Balance of trade",
+        "url": "https://www.hks.harvard.edu/research-insights/policy-topics/development-economic-growth/balance-trade"
+      },
+      {
+        "label": "Rodrik — The Globalization Paradox",
+        "url": "https://www.hks.harvard.edu/publications/globalization-paradox"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Nếu thương mại làm tổng của cải tăng, vì sao tranh luận về toàn cầu hóa vẫn gay gắt? Dani Rodrik giúp đặt thêm câu hỏi về phân phối lợi ích, quyền lựa chọn và cách các quy tắc quốc tế tương tác với đời sống trong nước. Một kết quả tổng thể tích cực có thể cùng tồn tại với thiệt hại tập trung ở một nhóm hoặc địa phương. Hiểu cả hai mặt là bước đầu để thảo luận chính sách mà không biến nó thành cuộc chọn phe đơn giản.",
+        "en": "If trade raises aggregate wealth, why is globalization so contentious? Dani Rodrik draws attention to distribution, choice and the interaction of international rules with domestic life. Overall gains can coexist with concentrated losses, making simple pro- or anti-globalization labels inadequate."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà kinh tế nghiên cứu những điều kiện của phát triển",
+        "en": "An economist of development’s conditions"
+      },
+      {
+        "tag": "p",
+        "vi": "Rodrik sinh tại Istanbul và có sự nghiệp học thuật quốc tế gắn với Harvard. [2] Hồ sơ Harvard Kennedy School giới thiệu ông là giáo sư kinh tế chính trị quốc tế, nghiên cứu toàn cầu hóa, tăng trưởng và phát triển. [1] Các chủ đề ấy gặp nhau ở câu hỏi vì sao cùng một cải cách có thể đem lại kết quả khác nhau giữa các quốc gia. Bối cảnh không phải phần phụ; nó giúp xác định cơ chế nào đang thực sự hoạt động.",
+        "en": "Born in Istanbul, Rodrik built an international academic career associated with Harvard. [2] Harvard Kennedy School identifies him as a professor of international political economy studying globalization, growth and development. [1] Context helps explain why similar reforms yield different outcomes."
+      },
+      {
+        "tag": "p",
+        "vi": "Những cuốn sách như One Economics, Many Recipes năm 2007 và Economics Rules năm 2015 thể hiện sự quan tâm của ông tới cách sử dụng lý thuyết và lựa chọn mô hình. [1] Với người mới học, điểm đáng chú ý là kinh tế học có nhiều công cụ để phân tích, nhưng không phải công cụ nào cũng phù hợp mọi tình huống. Chọn mô hình cần dựa vào vấn đề, bằng chứng và những đặc điểm không thể bỏ qua của bối cảnh.",
+        "en": "One Economics, Many Recipes (2007) and Economics Rules (2015) examine how theory and models are used. [1] Economics offers multiple tools; choosing among them requires attention to the problem, evidence and relevant conditions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bộ ba đánh đổi trong toàn cầu hóa",
+        "en": "A trilemma of globalization"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong The Globalization Paradox, Rodrik trình bày sự căng thẳng giữa hội nhập kinh tế rất sâu, dân chủ và quyền tự quyết quốc gia. [3] Lập luận không nói rằng mọi giao dịch quốc tế đều xung đột với dân chủ. Nó đặt vấn đề ở mức độ hội nhập và phạm vi lựa chọn mà các quy tắc chung cho phép. Khi quy tắc bên ngoài ràng buộc càng nhiều quyết định trong nước, khả năng đáp ứng ưu tiên khác nhau của xã hội có thể bị thu hẹp.",
+        "en": "The Globalization Paradox examines tensions among deep economic integration, democracy and national self-determination. [3] It does not claim that every international transaction conflicts with democracy. The issue concerns the depth of integration and the domestic choices common rules constrain."
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể hiểu đây là một khung để nhận diện đánh đổi, không phải chiếc máy dự đoán mọi sự kiện. Những hình thức hợp tác khác nhau có mức ràng buộc khác nhau, và các quốc gia cũng có thể xây dựng thể chế chung để xử lý vấn đề vượt biên giới. Cần xem nội dung cụ thể của quy tắc và cơ chế đại diện, thay vì chỉ nghe từ toàn cầu hóa rồi suy ra một kết luận chính trị hoặc kinh tế duy nhất.",
+        "en": "The trilemma identifies trade-offs rather than predicting every event. Cooperation varies in depth, and shared institutions can address cross-border problems. Specific rules and representation matter more than a single label."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tổng lợi ích và trải nghiệm của từng người",
+        "en": "Aggregate gains and individual experience"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, hàng nhập khẩu rẻ hơn giúp nhiều gia đình tiết kiệm, nhưng một địa phương phụ thuộc vào ngành đang bị cạnh tranh có thể mất việc tập trung. Hai nhận xét này có thể cùng đúng. Nếu chỉ nói tổng lợi ích, người chịu thiệt sẽ thấy trải nghiệm của mình bị phủ nhận; nếu chỉ nhìn nơi mất việc, phân tích có thể bỏ qua lợi ích rộng hơn. Câu hỏi chính sách là cách xử lý phân phối và chuyển đổi, không chỉ cách cộng hai phía.",
+        "en": "Imagine cheaper imports helping many households while job losses concentrate in one industry-dependent town. Both effects can be real. Policy must address distribution and adjustment rather than merely assert an aggregate balance."
+      },
+      {
+        "tag": "p",
+        "vi": "Một chương trình đào tạo lại cũng cần được đánh giá thực tế: nghề mới có việc không, người lao động có thể di chuyển không và thu nhập trong thời gian học được bảo đảm bằng cách nào. Chỉ ghi có hỗ trợ trên văn bản chưa đủ. Đây là liên hệ biên tập từ vấn đề điều chỉnh, không phải một chương trình cụ thể của Rodrik. Nó cho thấy thiết kế chi tiết quyết định liệu một cam kết có trở thành cơ hội dùng được hay không.",
+        "en": "Retraining needs actual jobs, feasible mobility and support during learning. A formal promise alone is insufficient. This editorial example illustrates why implementation determines whether assistance becomes usable opportunity."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không biến phản biện thành phủ nhận thương mại",
+        "en": "Criticism need not reject trade"
+      },
+      {
+        "tag": "p",
+        "vi": "Rodrik thường được đọc như người phê bình hội nhập quá mức, nhưng việc đặt câu hỏi về thiết kế không đồng nghĩa chủ trương chấm dứt trao đổi quốc tế. Khung của ông cho phép thảo luận một hình thức hội nhập có không gian cho lựa chọn trong nước. [3] Điều quan trọng là chỉ rõ mục tiêu đang bảo vệ và cái giá của biện pháp. Bất kỳ chính sách hạn chế nào cũng cần được đánh giá về người hưởng lợi, người chịu chi phí và khả năng bị lợi dụng.",
+        "en": "Critiquing excessive integration does not mean ending international exchange. Rodrik’s framework considers integration that preserves domestic policy space. [3] Any restriction still needs scrutiny of objectives, costs, beneficiaries and potential misuse."
+      },
+      {
+        "tag": "p",
+        "vi": "Tương tự, không nên lấy lợi ích tổng thể để bỏ qua tiêu chuẩn lao động, môi trường hoặc trách nhiệm giải trình. Các mục tiêu có thể hỗ trợ hoặc mâu thuẫn nhau tùy thiết kế. Một cuộc thảo luận tốt cần nói rõ những mục tiêu ấy, thay vì giả định rằng thị trường quốc tế tự giải quyết mọi vấn đề xã hội. Cũng cần tránh hứa rằng chỉ cần tăng quyền tự chủ là mọi quyết định trong nước sẽ đúng; chất lượng thể chế vẫn quan trọng.",
+        "en": "Aggregate gains should not erase labor, environmental or accountability concerns. Goals interact differently under different designs. International markets do not automatically solve every social problem, and domestic autonomy does not guarantee good decisions either."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với một nền kinh tế mở như Việt Nam",
+        "en": "Questions for an open economy such as Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Người đọc Việt Nam có thể dùng cách đặt vấn đề này khi xem một ngành tham gia chuỗi cung ứng quốc tế: năng lực nào được học, lợi ích thuộc về ai và rủi ro tập trung nằm ở đâu. Với doanh nghiệp, cần nhìn cả cơ hội tiếp cận thị trường lẫn yêu cầu tuân thủ và khả năng thương lượng. Bài viết không đề xuất một chính sách thương mại cụ thể; nó cung cấp câu hỏi để đọc chính sách kỹ hơn.",
+        "en": "Vietnamese readers can examine supply chains through learning, distribution and concentration risks. Firms should assess market access alongside compliance and bargaining power. These are analytical questions rather than a recommendation for a particular trade policy."
+      },
+      {
+        "tag": "p",
+        "vi": "Điều có thể giữ lại từ Rodrik là sự thận trọng với một đáp án dùng cho tất cả. Kinh tế học hữu ích khi làm rõ cơ chế và đánh đổi, rồi giúp xã hội lựa chọn có thông tin hơn. Khi một kết luận được đưa ra, hãy hỏi nó dựa trên mô hình nào, ai được tính trong lợi ích và điều kiện nào khiến kết luận thay đổi. Cách đọc ấy đưa tranh luận về gần thực tế hơn những nhãn gọi đối lập.",
+        "en": "Rodrik encourages caution toward universal answers. Economics helps clarify mechanisms and trade-offs so societies can choose with better information. Ask which model supports a conclusion, whose welfare is counted and what conditions could change it."
+      }
+    ],
+    "html": "<p><em>Dani Rodrik, 2012. Ảnh: Andrzej Barabasz; CC BY-SA 3.0.</em></p>\n<p>Nếu thương mại làm tổng của cải tăng, vì sao tranh luận về toàn cầu hóa vẫn gay gắt? Dani Rodrik giúp đặt thêm câu hỏi về phân phối lợi ích, quyền lựa chọn và cách các quy tắc quốc tế tương tác với đời sống trong nước. Một kết quả tổng thể tích cực có thể cùng tồn tại với thiệt hại tập trung ở một nhóm hoặc địa phương. Hiểu cả hai mặt là bước đầu để thảo luận chính sách mà không biến nó thành cuộc chọn phe đơn giản.</p>\n<h2>Một nhà kinh tế nghiên cứu những điều kiện của phát triển</h2>\n<p>Rodrik sinh tại Istanbul và có sự nghiệp học thuật quốc tế gắn với Harvard. [2] Hồ sơ Harvard Kennedy School giới thiệu ông là giáo sư kinh tế chính trị quốc tế, nghiên cứu toàn cầu hóa, tăng trưởng và phát triển. [1] Các chủ đề ấy gặp nhau ở câu hỏi vì sao cùng một cải cách có thể đem lại kết quả khác nhau giữa các quốc gia. Bối cảnh không phải phần phụ; nó giúp xác định cơ chế nào đang thực sự hoạt động.</p>\n<p>Những cuốn sách như One Economics, Many Recipes năm 2007 và Economics Rules năm 2015 thể hiện sự quan tâm của ông tới cách sử dụng lý thuyết và lựa chọn mô hình. [1] Với người mới học, điểm đáng chú ý là kinh tế học có nhiều công cụ để phân tích, nhưng không phải công cụ nào cũng phù hợp mọi tình huống. Chọn mô hình cần dựa vào vấn đề, bằng chứng và những đặc điểm không thể bỏ qua của bối cảnh.</p>\n<h2>Bộ ba đánh đổi trong toàn cầu hóa</h2>\n<p>Trong The Globalization Paradox, Rodrik trình bày sự căng thẳng giữa hội nhập kinh tế rất sâu, dân chủ và quyền tự quyết quốc gia. [3] Lập luận không nói rằng mọi giao dịch quốc tế đều xung đột với dân chủ. Nó đặt vấn đề ở mức độ hội nhập và phạm vi lựa chọn mà các quy tắc chung cho phép. Khi quy tắc bên ngoài ràng buộc càng nhiều quyết định trong nước, khả năng đáp ứng ưu tiên khác nhau của xã hội có thể bị thu hẹp.</p>\n<p>Có thể hiểu đây là một khung để nhận diện đánh đổi, không phải chiếc máy dự đoán mọi sự kiện. Những hình thức hợp tác khác nhau có mức ràng buộc khác nhau, và các quốc gia cũng có thể xây dựng thể chế chung để xử lý vấn đề vượt biên giới. Cần xem nội dung cụ thể của quy tắc và cơ chế đại diện, thay vì chỉ nghe từ toàn cầu hóa rồi suy ra một kết luận chính trị hoặc kinh tế duy nhất.</p>\n<h2>Tổng lợi ích và trải nghiệm của từng người</h2>\n<p>Ví dụ giả định, hàng nhập khẩu rẻ hơn giúp nhiều gia đình tiết kiệm, nhưng một địa phương phụ thuộc vào ngành đang bị cạnh tranh có thể mất việc tập trung. Hai nhận xét này có thể cùng đúng. Nếu chỉ nói tổng lợi ích, người chịu thiệt sẽ thấy trải nghiệm của mình bị phủ nhận; nếu chỉ nhìn nơi mất việc, phân tích có thể bỏ qua lợi ích rộng hơn. Câu hỏi chính sách là cách xử lý phân phối và chuyển đổi, không chỉ cách cộng hai phía.</p>\n<p>Một chương trình đào tạo lại cũng cần được đánh giá thực tế: nghề mới có việc không, người lao động có thể di chuyển không và thu nhập trong thời gian học được bảo đảm bằng cách nào. Chỉ ghi có hỗ trợ trên văn bản chưa đủ. Đây là liên hệ biên tập từ vấn đề điều chỉnh, không phải một chương trình cụ thể của Rodrik. Nó cho thấy thiết kế chi tiết quyết định liệu một cam kết có trở thành cơ hội dùng được hay không.</p>\n<h2>Không biến phản biện thành phủ nhận thương mại</h2>\n<p>Rodrik thường được đọc như người phê bình hội nhập quá mức, nhưng việc đặt câu hỏi về thiết kế không đồng nghĩa chủ trương chấm dứt trao đổi quốc tế. Khung của ông cho phép thảo luận một hình thức hội nhập có không gian cho lựa chọn trong nước. [3] Điều quan trọng là chỉ rõ mục tiêu đang bảo vệ và cái giá của biện pháp. Bất kỳ chính sách hạn chế nào cũng cần được đánh giá về người hưởng lợi, người chịu chi phí và khả năng bị lợi dụng.</p>\n<p>Tương tự, không nên lấy lợi ích tổng thể để bỏ qua tiêu chuẩn lao động, môi trường hoặc trách nhiệm giải trình. Các mục tiêu có thể hỗ trợ hoặc mâu thuẫn nhau tùy thiết kế. Một cuộc thảo luận tốt cần nói rõ những mục tiêu ấy, thay vì giả định rằng thị trường quốc tế tự giải quyết mọi vấn đề xã hội. Cũng cần tránh hứa rằng chỉ cần tăng quyền tự chủ là mọi quyết định trong nước sẽ đúng; chất lượng thể chế vẫn quan trọng.</p>\n<h2>Liên hệ với một nền kinh tế mở như Việt Nam</h2>\n<p>Người đọc Việt Nam có thể dùng cách đặt vấn đề này khi xem một ngành tham gia chuỗi cung ứng quốc tế: năng lực nào được học, lợi ích thuộc về ai và rủi ro tập trung nằm ở đâu. Với doanh nghiệp, cần nhìn cả cơ hội tiếp cận thị trường lẫn yêu cầu tuân thủ và khả năng thương lượng. Bài viết không đề xuất một chính sách thương mại cụ thể; nó cung cấp câu hỏi để đọc chính sách kỹ hơn.</p>\n<p>Điều có thể giữ lại từ Rodrik là sự thận trọng với một đáp án dùng cho tất cả. Kinh tế học hữu ích khi làm rõ cơ chế và đánh đổi, rồi giúp xã hội lựa chọn có thông tin hơn. Khi một kết luận được đưa ra, hãy hỏi nó dựa trên mô hình nào, ai được tính trong lợi ích và điều kiện nào khiến kết luận thay đổi. Cách đọc ấy đưa tranh luận về gần thực tế hơn những nhãn gọi đối lập.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.hks.harvard.edu/faculty/dani-rodrik\">Harvard Kennedy School — Dani Rodrik</a></li><li><a href=\"https://www.hks.harvard.edu/research-insights/policy-topics/development-economic-growth/balance-trade\">Harvard Kennedy School — Balance of trade</a></li><li><a href=\"https://www.hks.harvard.edu/publications/globalization-paradox\">Rodrik — The Globalization Paradox</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/\">Lim Chong Yah: Tiền lương, năng suất và sự đồng thuận</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Dani_Rodrik_AB.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/",
+      "title": "Lim Chong Yah: Tiền lương, năng suất và sự đồng thuận",
+      "title_en": "Lim Chong Yah: Wages, productivity and consensus"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/dani-rodrik-toan-cau-hoa-va-lua-chon/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1969&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/dani-rodrik-toan-cau-hoa-va-lua-chon/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/dani-rodrik.webp"
+  },
+  {
+    "key": "raul-prebisch",
+    "slug": "raul-prebisch-co-cau-va-thuong-mai",
+    "title": "Raúl Prebisch: Vị trí trong thương mại định hình phát triển",
+    "title_en": "Raúl Prebisch: How trade structure shapes development",
+    "excerpt": "Nhà kinh tế Argentina, tư duy trung tâm–ngoại vi và câu hỏi giữ lại giá trị trong quá trình phát triển.",
+    "excerpt_en": "The Argentine economist, center–periphery analysis and retaining value through development.",
+    "credit": "Raúl Prebisch, 1954. Nguồn: Public domain / Arquivo Nacional Collection.",
+    "credit_en": "Raúl Prebisch, 1954. Source: Public domain / Arquivo Nacional Collection.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Raul_Prebisch_(1954)_(cropped).tif",
+    "license": "https://commons.wikimedia.org/wiki/File:Raul_Prebisch_(1954)_(cropped).tif#Licensing",
+    "sources": [
+      {
+        "label": "ECLAC — Raúl Prebisch biography",
+        "url": "https://www.cepal.org/en/staff/raul-prebisch"
+      },
+      {
+        "label": "ECLAC Library — Prebisch and ECLAC",
+        "url": "https://biblioguias.cepal.org/prebisch_en/prebisch-and-eclac"
+      },
+      {
+        "label": "ECLAC — The centre-periphery model: past and present",
+        "url": "https://www.cepal.org/en/publications/81705-centre-periphery-model-and-political-economy-economic-commission-latin-america"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Hai nền kinh tế cùng tham gia thương mại nhưng không nhất thiết nhận phần lợi ích giống nhau. Bán nguyên liệu, sản xuất máy móc hay nắm công nghệ có thể tạo ra những quan hệ khác nhau về thu nhập và khả năng chống chịu. Raúl Prebisch là nhà kinh tế Argentina giúp đưa câu hỏi cơ cấu ấy vào trung tâm tranh luận phát triển Mỹ Latinh. Ông quan tâm không chỉ có giao thương hay không, mà còn nền kinh tế tham gia bằng vai trò nào.",
+        "en": "Economies can trade internationally yet capture different benefits. Selling raw materials, making machinery or controlling technology creates different income and resilience patterns. Argentine economist Raúl Prebisch placed this structural question at the center of Latin American development debates."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Argentina đến các tổ chức quốc tế",
+        "en": "From Argentina to international institutions"
+      },
+      {
+        "tag": "p",
+        "vi": "Prebisch sinh năm 1901 tại Tucumán và mất năm 1986 tại Santiago. Ông từng giảng dạy, làm việc trong các cơ quan kinh tế Argentina và tham gia thành lập ngân hàng trung ương nước này năm 1935. Về sau, ông lãnh đạo ECLAC rồi đảm nhiệm vai trò tại UNCTAD. [1] Sự nghiệp ấy nối kinh nghiệm điều hành trong nước với quan sát rộng hơn về vị trí của các nền kinh tế đang phát triển trong hệ thống quốc tế.",
+        "en": "Born in Tucumán in 1901, Prebisch died in Santiago in 1986. He taught, served in Argentine economic institutions and helped establish its central bank in 1935, later leading ECLAC and working at UNCTAD. [1] His career connected domestic policy with international development."
+      },
+      {
+        "tag": "p",
+        "vi": "Báo cáo năm 1949, The Economic Development of Latin America and Its Principal Problems, trở thành một văn bản nền tảng của tư duy ECLAC. [2] Điểm đáng chú ý là cách xuất phát từ vấn đề cụ thể của khu vực, thay vì xem con đường của các nước công nghiệp hóa trước là bản mẫu tự động cho mọi nơi. Điều này mở không gian tranh luận về cấu trúc sản xuất, công nghệ và quan hệ thương mại.",
+        "en": "His 1949 The Economic Development of Latin America and Its Principal Problems became a foundational ECLAC text. [2] It started from regional conditions rather than assuming that earlier industrializers provided an automatic template for all countries."
+      },
+      {
+        "tag": "h2",
+        "vi": "Trung tâm và ngoại vi là một cách nhìn quan hệ",
+        "en": "Center and periphery as relational concepts"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong truyền thống gắn với Prebisch, trung tâm–ngoại vi giúp phân tích những khác biệt về cơ cấu và cách lợi ích của tiến bộ kỹ thuật được phân bố. [2][3] Không nên hiểu đây là nhãn cố định về phẩm chất con người hoặc bản chất của một quốc gia. Điều cần xem là sản xuất gì, phụ thuộc nguồn thu nào, tiếp cận công nghệ ra sao và có khả năng thay đổi vị trí trong quan hệ kinh tế hay không.",
+        "en": "Center–periphery analysis examines structural differences and the distribution of technological gains. [2][3] These are not permanent judgments about people or countries. Relevant questions concern production, revenue dependence, technology and opportunities to change position."
+      },
+      {
+        "tag": "p",
+        "vi": "Một nền kinh tế dựa mạnh vào vài mặt hàng có thể chịu tác động lớn khi giá hoặc nhu cầu của chúng thay đổi. Tuy nhiên, điều đó không có nghĩa hàng hóa cơ bản luôn giảm giá, hoặc sản xuất nguyên liệu không thể tạo giá trị cao. Cần phân biệt biến động ngắn hạn, xu hướng dài hạn và khả năng nâng cấp trong từng ngành. Dùng khái niệm để đặt câu hỏi sẽ hữu ích hơn dùng nó để dự báo giá một cách máy móc.",
+        "en": "Dependence on a few products can amplify price and demand shocks. That does not mean commodity prices always fall or primary production cannot create high value. Short-run fluctuations, long-run trends and industry upgrading need separate analysis."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tăng sản lượng chưa chắc tăng quyền chủ động",
+        "en": "More output need not mean more control"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một vùng bán nhiều nông sản hơn nhưng vẫn phụ thuộc một người mua và không có bảo quản. Khi mùa vụ trùng nhau, người bán có thể phải chấp nhận điều kiện bất lợi dù tổng sản lượng cao. Đầu tư vào chất lượng, thông tin, chế biến hoặc tổ chức tiêu thụ có thể thay đổi một phần quan hệ đó. Đây là ví dụ của chuyên mục, không phải một tình huống lịch sử được trích từ Prebisch.",
+        "en": "Imagine a region producing more crops but relying on one buyer and lacking storage. Higher output may not improve bargaining power. Quality, information, processing and marketing organization could change the relationship. This is an editorial hypothetical, not a historical Prebisch case."
+      },
+      {
+        "tag": "p",
+        "vi": "Từ ví dụ ấy, câu hỏi phát triển không chỉ là làm thêm bao nhiêu, mà còn giữ lại giá trị bằng cách nào. Chế biến sâu có thể hữu ích nhưng cũng cần thị trường, kỹ thuật và chi phí phù hợp. Nếu chỉ xây nhà máy mà không kiểm tra những điều kiện đó, một dự án nâng cấp có thể trở thành gánh nặng. Không có bước đi nào được bảo đảm chỉ vì nó mang tên công nghiệp hóa hoặc giá trị gia tăng.",
+        "en": "Development asks how value is retained as well as how much is produced. Processing may help, but requires markets, technology and viable costs. A factory does not guarantee upgrading simply because the project is labeled industrialization."
+      },
+      {
+        "tag": "h2",
+        "vi": "Công nghiệp hóa cần được đánh giá qua kết quả",
+        "en": "Industrialization must be judged by outcomes"
+      },
+      {
+        "tag": "p",
+        "vi": "Truyền thống ECLAC về sau đã xem xét lại mô hình thay thế nhập khẩu và tiếp tục tranh luận về các ràng buộc phát triển. [3] Điều này nhắc rằng một trường phái không phải tập hợp kết luận bất biến. Bảo hộ có thể tạo thời gian học hỏi trong một thiết kế, nhưng cũng có thể duy trì doanh nghiệp yếu nếu thiếu cạnh tranh và điều kiện kết thúc. Cần đánh giá cơ chế cụ thể thay vì chỉ gọi tên chính sách rồi kết luận.",
+        "en": "ECLAC researchers later critically reassessed import substitution while continuing to study development constraints. [3] Protection may support learning under some designs or preserve inefficiency without competition and exit conditions. Specific mechanisms matter more than policy labels."
+      },
+      {
+        "tag": "p",
+        "vi": "Người tiêu dùng và ngành dùng đầu vào cũng phải được tính đến. Một biện pháp giúp nhà sản xuất này có thể làm chi phí của nhà sản xuất khác tăng. Tương tự, ưu tiên một dự án lớn có thể lấy nguồn lực khỏi đào tạo hoặc hạ tầng dùng chung. Phân tích cơ cấu cần theo dõi những liên kết ấy, không dừng ở lợi ích trực tiếp của đối tượng được hỗ trợ. Chi phí cơ hội là phần không thể bỏ qua khi lựa chọn con đường phát triển.",
+        "en": "Consumers and input-using industries must be included. Support for one producer can raise another’s costs, while a large project may displace training or shared infrastructure. Structural analysis should trace these links and opportunity costs."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với Việt Nam và doanh nghiệp nhỏ",
+        "en": "Relevance to Vietnam and smaller firms"
+      },
+      {
+        "tag": "p",
+        "vi": "Với doanh nghiệp Việt Nam, có thể thu nhỏ câu hỏi của Prebisch thành bản đồ chuỗi giá trị: ai sở hữu thiết kế, ai tiếp cận khách hàng cuối, ai chịu tồn kho và ai có khả năng đổi nhà cung cấp. Từ đó mới chọn bước nâng cấp khả thi. Không phải doanh nghiệp nào cũng cần tự làm mọi khâu; điều quan trọng là hiểu vị trí của mình và những năng lực giúp tăng lựa chọn khi môi trường thay đổi.",
+        "en": "Vietnamese firms can map who owns designs, reaches final customers, carries inventory and can switch suppliers. Not every firm should perform every activity; understanding its position helps identify feasible capabilities and alternatives."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản của Prebisch là thúc đẩy người đọc nhìn phát triển như quá trình thay đổi cơ cấu và quan hệ, thay vì chỉ cộng thêm sản lượng. Cách nhìn này cần đi cùng bằng chứng và khả năng sửa sai. Một kết luận tốt nên chỉ rõ ràng buộc nào đang quan trọng, biện pháp tác động qua kênh nào và kết quả nào sẽ khiến ta xem lại. Đó là cách tiếp tục cuộc tranh luận lịch sử bằng những câu hỏi có ích trong hiện tại.",
+        "en": "Prebisch encouraged viewing development as structural and relational change, not merely more output. This perspective needs evidence and revision: identify the binding constraint, the proposed mechanism and results that would challenge the conclusion."
+      }
+    ],
+    "html": "<p><em>Raúl Prebisch, 1954. Nguồn: Public domain / Arquivo Nacional Collection.</em></p>\n<p>Hai nền kinh tế cùng tham gia thương mại nhưng không nhất thiết nhận phần lợi ích giống nhau. Bán nguyên liệu, sản xuất máy móc hay nắm công nghệ có thể tạo ra những quan hệ khác nhau về thu nhập và khả năng chống chịu. Raúl Prebisch là nhà kinh tế Argentina giúp đưa câu hỏi cơ cấu ấy vào trung tâm tranh luận phát triển Mỹ Latinh. Ông quan tâm không chỉ có giao thương hay không, mà còn nền kinh tế tham gia bằng vai trò nào.</p>\n<h2>Từ Argentina đến các tổ chức quốc tế</h2>\n<p>Prebisch sinh năm 1901 tại Tucumán và mất năm 1986 tại Santiago. Ông từng giảng dạy, làm việc trong các cơ quan kinh tế Argentina và tham gia thành lập ngân hàng trung ương nước này năm 1935. Về sau, ông lãnh đạo ECLAC rồi đảm nhiệm vai trò tại UNCTAD. [1] Sự nghiệp ấy nối kinh nghiệm điều hành trong nước với quan sát rộng hơn về vị trí của các nền kinh tế đang phát triển trong hệ thống quốc tế.</p>\n<p>Báo cáo năm 1949, The Economic Development of Latin America and Its Principal Problems, trở thành một văn bản nền tảng của tư duy ECLAC. [2] Điểm đáng chú ý là cách xuất phát từ vấn đề cụ thể của khu vực, thay vì xem con đường của các nước công nghiệp hóa trước là bản mẫu tự động cho mọi nơi. Điều này mở không gian tranh luận về cấu trúc sản xuất, công nghệ và quan hệ thương mại.</p>\n<h2>Trung tâm và ngoại vi là một cách nhìn quan hệ</h2>\n<p>Trong truyền thống gắn với Prebisch, trung tâm–ngoại vi giúp phân tích những khác biệt về cơ cấu và cách lợi ích của tiến bộ kỹ thuật được phân bố. [2][3] Không nên hiểu đây là nhãn cố định về phẩm chất con người hoặc bản chất của một quốc gia. Điều cần xem là sản xuất gì, phụ thuộc nguồn thu nào, tiếp cận công nghệ ra sao và có khả năng thay đổi vị trí trong quan hệ kinh tế hay không.</p>\n<p>Một nền kinh tế dựa mạnh vào vài mặt hàng có thể chịu tác động lớn khi giá hoặc nhu cầu của chúng thay đổi. Tuy nhiên, điều đó không có nghĩa hàng hóa cơ bản luôn giảm giá, hoặc sản xuất nguyên liệu không thể tạo giá trị cao. Cần phân biệt biến động ngắn hạn, xu hướng dài hạn và khả năng nâng cấp trong từng ngành. Dùng khái niệm để đặt câu hỏi sẽ hữu ích hơn dùng nó để dự báo giá một cách máy móc.</p>\n<h2>Tăng sản lượng chưa chắc tăng quyền chủ động</h2>\n<p>Ví dụ giả định, một vùng bán nhiều nông sản hơn nhưng vẫn phụ thuộc một người mua và không có bảo quản. Khi mùa vụ trùng nhau, người bán có thể phải chấp nhận điều kiện bất lợi dù tổng sản lượng cao. Đầu tư vào chất lượng, thông tin, chế biến hoặc tổ chức tiêu thụ có thể thay đổi một phần quan hệ đó. Đây là ví dụ của chuyên mục, không phải một tình huống lịch sử được trích từ Prebisch.</p>\n<p>Từ ví dụ ấy, câu hỏi phát triển không chỉ là làm thêm bao nhiêu, mà còn giữ lại giá trị bằng cách nào. Chế biến sâu có thể hữu ích nhưng cũng cần thị trường, kỹ thuật và chi phí phù hợp. Nếu chỉ xây nhà máy mà không kiểm tra những điều kiện đó, một dự án nâng cấp có thể trở thành gánh nặng. Không có bước đi nào được bảo đảm chỉ vì nó mang tên công nghiệp hóa hoặc giá trị gia tăng.</p>\n<h2>Công nghiệp hóa cần được đánh giá qua kết quả</h2>\n<p>Truyền thống ECLAC về sau đã xem xét lại mô hình thay thế nhập khẩu và tiếp tục tranh luận về các ràng buộc phát triển. [3] Điều này nhắc rằng một trường phái không phải tập hợp kết luận bất biến. Bảo hộ có thể tạo thời gian học hỏi trong một thiết kế, nhưng cũng có thể duy trì doanh nghiệp yếu nếu thiếu cạnh tranh và điều kiện kết thúc. Cần đánh giá cơ chế cụ thể thay vì chỉ gọi tên chính sách rồi kết luận.</p>\n<p>Người tiêu dùng và ngành dùng đầu vào cũng phải được tính đến. Một biện pháp giúp nhà sản xuất này có thể làm chi phí của nhà sản xuất khác tăng. Tương tự, ưu tiên một dự án lớn có thể lấy nguồn lực khỏi đào tạo hoặc hạ tầng dùng chung. Phân tích cơ cấu cần theo dõi những liên kết ấy, không dừng ở lợi ích trực tiếp của đối tượng được hỗ trợ. Chi phí cơ hội là phần không thể bỏ qua khi lựa chọn con đường phát triển.</p>\n<h2>Liên hệ với Việt Nam và doanh nghiệp nhỏ</h2>\n<p>Với doanh nghiệp Việt Nam, có thể thu nhỏ câu hỏi của Prebisch thành bản đồ chuỗi giá trị: ai sở hữu thiết kế, ai tiếp cận khách hàng cuối, ai chịu tồn kho và ai có khả năng đổi nhà cung cấp. Từ đó mới chọn bước nâng cấp khả thi. Không phải doanh nghiệp nào cũng cần tự làm mọi khâu; điều quan trọng là hiểu vị trí của mình và những năng lực giúp tăng lựa chọn khi môi trường thay đổi.</p>\n<p>Di sản của Prebisch là thúc đẩy người đọc nhìn phát triển như quá trình thay đổi cơ cấu và quan hệ, thay vì chỉ cộng thêm sản lượng. Cách nhìn này cần đi cùng bằng chứng và khả năng sửa sai. Một kết luận tốt nên chỉ rõ ràng buộc nào đang quan trọng, biện pháp tác động qua kênh nào và kết quả nào sẽ khiến ta xem lại. Đó là cách tiếp tục cuộc tranh luận lịch sử bằng những câu hỏi có ích trong hiện tại.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.cepal.org/en/staff/raul-prebisch\">ECLAC — Raúl Prebisch biography</a></li><li><a href=\"https://biblioguias.cepal.org/prebisch_en/prebisch-and-eclac\">ECLAC Library — Prebisch and ECLAC</a></li><li><a href=\"https://www.cepal.org/en/publications/81705-centre-periphery-model-and-political-economy-economic-commission-latin-america\">ECLAC — The centre-periphery model: past and present</a></li></ol><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Raul_Prebisch_(1954)_(cropped).tif\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Raul_Prebisch_(1954)_(cropped).tif#Licensing\">Image license / Giấy phép ảnh</a></p>",
+    "url": "https://daututuonglai.vn/2026/11/14/raul-prebisch-co-cau-va-thuong-mai/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1971&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/raul-prebisch-co-cau-va-thuong-mai/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/raul-prebisch.webp"
+  }
+]
