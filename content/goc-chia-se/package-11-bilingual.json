@@ -1,0 +1,608 @@
+[
+  {
+    "key": "gunnar-myrdal",
+    "slug": "gunnar-myrdal-phat-trien-va-vong-lap",
+    "title": "Gunnar Myrdal: Phát triển kinh tế và những vòng lặp bất bình đẳng",
+    "title_en": "Gunnar Myrdal: Development and self-reinforcing inequality",
+    "excerpt": "Nhà kinh tế Thụy Điển và cách nhìn phát triển qua sự tương tác giữa thu nhập, giáo dục, thể chế và cơ hội.",
+    "excerpt_en": "The Swedish economist and development as an interaction between income, education, institutions and opportunity.",
+    "credit": "Gunnar Myrdal tại Uppsala năm 1964. Ảnh: Uppsala-Bild / Upplandsmuseet; phạm vi công cộng theo nguồn Wikimedia Commons.",
+    "credit_en": "Gunnar Myrdal in Uppsala, 1964. Photograph: Uppsala-Bild / Upplandsmuseet; public domain according to Wikimedia Commons.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Gunnar_Myrdal_1964_002.jpg",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sources": [
+      {
+        "label": "UNECE — Gunnar Myrdal",
+        "url": "https://unece.org/DAM/press/execsec/former_execsec/GunnarMyrdal.htm"
+      },
+      {
+        "label": "Nobel Prize — The Equality Issue in World Development",
+        "url": "https://www.nobelprize.org/prizes/economic-sciences/1974/myrdal/lecture/"
+      },
+      {
+        "label": "Stockholm School of Economics — Poverty and circular, cumulative causation",
+        "url": "https://research.hhs.se/esploro/outputs/bookChapter/Poverty-and-circular-cumulative-causation-The/991001480592306056"
+      },
+      {
+        "label": "Oxford University Press — Rethinking Asian Drama",
+        "url": "https://academic.oup.com/book/37380/chapter/331371308"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Vì sao một nơi đã thuận lợi lại thường tiếp tục thu hút thêm cơ hội, còn một nơi khó khăn phải vượt qua nhiều trở ngại cùng lúc? Gunnar Myrdal giúp người học tiếp cận câu hỏi này bằng cách nhìn kinh tế, xã hội và thể chế trong mối liên hệ qua lại. Phát triển, trong góc nhìn ấy, không chỉ là thêm vốn hoặc thêm máy móc mà còn là thay đổi những điều kiện khiến con người có thể sử dụng nguồn lực hiệu quả.",
+        "en": "Why do advantaged places often attract further opportunities while disadvantaged places face several obstacles at once? Gunnar Myrdal approached development through interactions among economics, society and institutions. This perspective goes beyond adding capital or machines to changing the conditions under which people can use resources effectively."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Thụy Điển đến công việc quốc tế",
+        "en": "From Sweden to international work"
+      },
+      {
+        "tag": "p",
+        "vi": "Myrdal sinh năm 1898 tại Thụy Điển. Ông hoạt động trong nghiên cứu, chính sách và hợp tác quốc tế, từng là người đứng đầu Ủy ban Kinh tế Liên Hợp Quốc về châu Âu từ năm 1947 đến 1957. [1] Năm 1974, ông cùng Friedrich Hayek nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel. Hai người có nhiều khác biệt về quan điểm; việc cùng nhận giải không có nghĩa họ cùng đề xuất một chương trình chính sách.",
+        "en": "Born in Sweden in 1898, Myrdal worked across research, policy and international cooperation, leading the UN Economic Commission for Europe from 1947 to 1957. [1] He shared the 1974 economics memorial prize with Friedrich Hayek. Their joint award did not imply a shared policy programme."
+      },
+      {
+        "tag": "p",
+        "vi": "Những công trình của Myrdal trải từ vấn đề chủng tộc tại Mỹ trong An American Dilemma năm 1944 đến phát triển châu Á trong Asian Drama năm 1968. [4] Ông không chỉ nghiên cứu các chỉ tiêu thị trường riêng lẻ. Điều thu hút ông là cách những quan hệ xã hội, tổ chức và điều kiện lịch sử cùng tác động tới đời sống kinh tế, đôi khi làm kết quả khác xa dự đoán của một mô hình đơn giản.",
+        "en": "His work ranged from race relations in An American Dilemma in 1944 to Asian development in Asian Drama in 1968. [4] Rather than study isolated market indicators alone, he examined how social relationships, organization and history shape economic outcomes."
+      },
+      {
+        "tag": "h2",
+        "vi": "Quan hệ nhân quả có thể quay trở lại điểm xuất phát",
+        "en": "Causation can feed back into its starting point"
+      },
+      {
+        "tag": "p",
+        "vi": "Khái niệm nhân quả vòng tròn và tích lũy gắn với cách Myrdal nghiên cứu nghèo đói và bất bình đẳng. Một yếu tố ảnh hưởng tới yếu tố khác, rồi tác động quay trở lại, làm thay đổi ban đầu mạnh thêm hoặc kéo dài hơn. [3] Khi đó, không thể mặc nhiên cho rằng mọi khoảng cách đều tự thu hẹp theo thời gian. Tuy nhiên, một vòng lặp phải được xác định bằng bằng chứng, không phải bằng cách nối tùy ý các mũi tên.",
+        "en": "Circular and cumulative causation is associated with Myrdal’s analysis of poverty and inequality. One factor affects another, which feeds back and can strengthen or prolong the original change. [3] Gaps therefore need not automatically close over time. But a feedback loop requires evidence, not arbitrary arrows."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định của chuyên mục: một địa phương có ít việc làm ổn định khiến nhiều người có kỹ năng rời đi. Nguồn nhân lực thu hẹp lại làm doanh nghiệp ngần ngại đầu tư, khiến cơ hội việc làm tiếp tục ít. Đó là một cơ chế có thể xảy ra, không phải lời kết luận về mọi địa phương. Muốn kiểm tra cần số liệu di cư, tuyển dụng, đầu tư và cả những nguyên nhân khác như hạ tầng hoặc vị trí thị trường.",
+        "en": "In a hypothetical locality, scarce stable jobs encourage skilled people to leave. A smaller talent pool then discourages investment, further limiting jobs. This is a possible mechanism, not a claim about every locality. Testing it requires migration, hiring and investment data alongside infrastructure and market-access explanations."
+      },
+      {
+        "tag": "h2",
+        "vi": "Can thiệp cần đúng chỗ và đúng điều kiện",
+        "en": "Intervention needs the right target and conditions"
+      },
+      {
+        "tag": "p",
+        "vi": "Nếu nhiều trở ngại bổ sung cho nhau, chỉ xử lý một mặt có thể chưa đủ. Mở lớp đào tạo nhưng thiếu doanh nghiệp tuyển dụng có thể khiến người học tiếp tục rời địa phương. Xây nhà xưởng nhưng không có giao thông hoặc năng lực quản lý cũng không tự tạo ra sản xuất hiệu quả. Bài học biên tập ở đây là tìm điều kiện đi kèm, không chỉ đếm số công trình hoặc số người hoàn thành khóa học.",
+        "en": "When obstacles reinforce each other, addressing one may be insufficient. Training without employers can still lead graduates to leave; factories without transport or management do not automatically become productive. The editorial lesson is to identify complementary conditions, not merely count buildings or course completions."
+      },
+      {
+        "tag": "p",
+        "vi": "Điều đó không dẫn tới kết luận phải làm tất cả cùng lúc. Nguồn lực luôn có giới hạn, nên cần xác định nút thắt quan trọng, thử cách giải quyết và theo dõi phản ứng của hệ thống. Một dự án nhỏ có tiêu chí đánh giá rõ có thể cung cấp thông tin tốt hơn một chương trình lớn chỉ báo cáo mức chi. Câu hỏi quan trọng là sau can thiệp, cơ hội thực tế của người dân có thay đổi không.",
+        "en": "This does not mean doing everything simultaneously. Limited resources require identifying key constraints, testing responses and observing effects. A small project with clear evaluation can teach more than a large programme reporting only spending. The question is whether people’s actual opportunities changed."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phân biệt dữ kiện với lựa chọn giá trị",
+        "en": "Separate evidence from value judgments"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài giảng Nobel năm 1975 về bình đẳng trong phát triển thế giới, Myrdal bàn trực tiếp tới yếu tố đạo đức, chính trị và thể chế trong cách nhìn vấn đề. [2] Điều này nhắc rằng lựa chọn mục tiêu không hoàn toàn do một phương trình quyết định. Ưu tiên tăng tổng thu nhập, giảm chênh lệch hay bảo vệ nhóm dễ tổn thương có thể dẫn tới các tiêu chí đánh giá khác nhau.",
+        "en": "In his 1975 Nobel lecture on equality in world development, Myrdal explicitly discussed moral, political and institutional dimensions. [2] An equation alone cannot choose society’s goals. Maximizing income, reducing gaps and protecting vulnerable groups may imply different evaluation criteria."
+      },
+      {
+        "tag": "p",
+        "vi": "Minh bạch về mục tiêu giúp tranh luận rõ hơn. Hai người có thể đồng ý về số liệu nhưng khác nhau về mức đánh đổi chấp nhận được. Ngược lại, cùng muốn giảm nghèo không có nghĩa mọi biện pháp đều hiệu quả như nhau. Cần giữ riêng câu hỏi “mong muốn điều gì” với câu hỏi “biện pháp nào có bằng chứng sẽ đưa tới điều đó”.",
+        "en": "Explicit goals clarify disagreement. People may agree on the data but differ over acceptable trade-offs. Conversely, sharing a poverty-reduction goal does not make all methods equally effective. Keep “what is desirable” distinct from “what evidence suggests will achieve it.”"
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản và giới hạn",
+        "en": "Legacy and limitations"
+      },
+      {
+        "tag": "p",
+        "vi": "Các nghiên cứu nhìn lại Asian Drama lưu ý rằng nhận định bi quan của Myrdal về triển vọng châu Á đã không phản ánh đầy đủ những chuyển biến kinh tế về sau. [4] Đây là lý do đọc các học giả lớn cùng sự phản biện, không coi danh tiếng là bảo đảm dự báo. Một khung phân tích có thể hữu ích ngay cả khi một số đánh giá lịch sử của tác giả cần sửa lại.",
+        "en": "Retrospective studies note that Myrdal’s pessimism in Asian Drama did not fully anticipate Asia’s later transformation. [4] Major thinkers should be read critically; prestige does not guarantee forecasts. A framework may remain useful even when some historical judgments require revision."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người đọc hôm nay, bài tập đơn giản là chọn một vấn đề rồi xác định các mối quan hệ có thể tự củng cố. Tiếp theo, ghi rõ dữ liệu nào xác nhận từng mối quan hệ và điều gì có thể làm vòng lặp đổi hướng. Đọc Myrdal theo cách này giúp thay những lời giải thích một nguyên nhân bằng câu hỏi cụ thể về hệ thống, đồng thời tránh biến sự phức tạp thành lý do không kiểm chứng được gì.",
+        "en": "A practical exercise is to identify potentially reinforcing relationships in a problem, then specify evidence for each link and what could reverse it. This replaces single-cause stories with testable systems questions without turning complexity into an excuse for unverifiable claims."
+      }
+    ],
+    "html": "<p><em>Gunnar Myrdal tại Uppsala năm 1964. Ảnh: Uppsala-Bild / Upplandsmuseet; phạm vi công cộng theo nguồn Wikimedia Commons.</em></p>\n<p>Vì sao một nơi đã thuận lợi lại thường tiếp tục thu hút thêm cơ hội, còn một nơi khó khăn phải vượt qua nhiều trở ngại cùng lúc? Gunnar Myrdal giúp người học tiếp cận câu hỏi này bằng cách nhìn kinh tế, xã hội và thể chế trong mối liên hệ qua lại. Phát triển, trong góc nhìn ấy, không chỉ là thêm vốn hoặc thêm máy móc mà còn là thay đổi những điều kiện khiến con người có thể sử dụng nguồn lực hiệu quả.</p>\n<h2>Từ Thụy Điển đến công việc quốc tế</h2>\n<p>Myrdal sinh năm 1898 tại Thụy Điển. Ông hoạt động trong nghiên cứu, chính sách và hợp tác quốc tế, từng là người đứng đầu Ủy ban Kinh tế Liên Hợp Quốc về châu Âu từ năm 1947 đến 1957. [1] Năm 1974, ông cùng Friedrich Hayek nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel. Hai người có nhiều khác biệt về quan điểm; việc cùng nhận giải không có nghĩa họ cùng đề xuất một chương trình chính sách.</p>\n<p>Những công trình của Myrdal trải từ vấn đề chủng tộc tại Mỹ trong An American Dilemma năm 1944 đến phát triển châu Á trong Asian Drama năm 1968. [4] Ông không chỉ nghiên cứu các chỉ tiêu thị trường riêng lẻ. Điều thu hút ông là cách những quan hệ xã hội, tổ chức và điều kiện lịch sử cùng tác động tới đời sống kinh tế, đôi khi làm kết quả khác xa dự đoán của một mô hình đơn giản.</p>\n<h2>Quan hệ nhân quả có thể quay trở lại điểm xuất phát</h2>\n<p>Khái niệm nhân quả vòng tròn và tích lũy gắn với cách Myrdal nghiên cứu nghèo đói và bất bình đẳng. Một yếu tố ảnh hưởng tới yếu tố khác, rồi tác động quay trở lại, làm thay đổi ban đầu mạnh thêm hoặc kéo dài hơn. [3] Khi đó, không thể mặc nhiên cho rằng mọi khoảng cách đều tự thu hẹp theo thời gian. Tuy nhiên, một vòng lặp phải được xác định bằng bằng chứng, không phải bằng cách nối tùy ý các mũi tên.</p>\n<p>Ví dụ giả định của chuyên mục: một địa phương có ít việc làm ổn định khiến nhiều người có kỹ năng rời đi. Nguồn nhân lực thu hẹp lại làm doanh nghiệp ngần ngại đầu tư, khiến cơ hội việc làm tiếp tục ít. Đó là một cơ chế có thể xảy ra, không phải lời kết luận về mọi địa phương. Muốn kiểm tra cần số liệu di cư, tuyển dụng, đầu tư và cả những nguyên nhân khác như hạ tầng hoặc vị trí thị trường.</p>\n<h2>Can thiệp cần đúng chỗ và đúng điều kiện</h2>\n<p>Nếu nhiều trở ngại bổ sung cho nhau, chỉ xử lý một mặt có thể chưa đủ. Mở lớp đào tạo nhưng thiếu doanh nghiệp tuyển dụng có thể khiến người học tiếp tục rời địa phương. Xây nhà xưởng nhưng không có giao thông hoặc năng lực quản lý cũng không tự tạo ra sản xuất hiệu quả. Bài học biên tập ở đây là tìm điều kiện đi kèm, không chỉ đếm số công trình hoặc số người hoàn thành khóa học.</p>\n<p>Điều đó không dẫn tới kết luận phải làm tất cả cùng lúc. Nguồn lực luôn có giới hạn, nên cần xác định nút thắt quan trọng, thử cách giải quyết và theo dõi phản ứng của hệ thống. Một dự án nhỏ có tiêu chí đánh giá rõ có thể cung cấp thông tin tốt hơn một chương trình lớn chỉ báo cáo mức chi. Câu hỏi quan trọng là sau can thiệp, cơ hội thực tế của người dân có thay đổi không.</p>\n<h2>Phân biệt dữ kiện với lựa chọn giá trị</h2>\n<p>Trong bài giảng Nobel năm 1975 về bình đẳng trong phát triển thế giới, Myrdal bàn trực tiếp tới yếu tố đạo đức, chính trị và thể chế trong cách nhìn vấn đề. [2] Điều này nhắc rằng lựa chọn mục tiêu không hoàn toàn do một phương trình quyết định. Ưu tiên tăng tổng thu nhập, giảm chênh lệch hay bảo vệ nhóm dễ tổn thương có thể dẫn tới các tiêu chí đánh giá khác nhau.</p>\n<p>Minh bạch về mục tiêu giúp tranh luận rõ hơn. Hai người có thể đồng ý về số liệu nhưng khác nhau về mức đánh đổi chấp nhận được. Ngược lại, cùng muốn giảm nghèo không có nghĩa mọi biện pháp đều hiệu quả như nhau. Cần giữ riêng câu hỏi “mong muốn điều gì” với câu hỏi “biện pháp nào có bằng chứng sẽ đưa tới điều đó”.</p>\n<h2>Di sản và giới hạn</h2>\n<p>Các nghiên cứu nhìn lại Asian Drama lưu ý rằng nhận định bi quan của Myrdal về triển vọng châu Á đã không phản ánh đầy đủ những chuyển biến kinh tế về sau. [4] Đây là lý do đọc các học giả lớn cùng sự phản biện, không coi danh tiếng là bảo đảm dự báo. Một khung phân tích có thể hữu ích ngay cả khi một số đánh giá lịch sử của tác giả cần sửa lại.</p>\n<p>Với người đọc hôm nay, bài tập đơn giản là chọn một vấn đề rồi xác định các mối quan hệ có thể tự củng cố. Tiếp theo, ghi rõ dữ liệu nào xác nhận từng mối quan hệ và điều gì có thể làm vòng lặp đổi hướng. Đọc Myrdal theo cách này giúp thay những lời giải thích một nguyên nhân bằng câu hỏi cụ thể về hệ thống, đồng thời tránh biến sự phức tạp thành lý do không kiểm chứng được gì.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://unece.org/DAM/press/execsec/former_execsec/GunnarMyrdal.htm\">UNECE — Gunnar Myrdal</a></li><li><a href=\"https://www.nobelprize.org/prizes/economic-sciences/1974/myrdal/lecture/\">Nobel Prize — The Equality Issue in World Development</a></li><li><a href=\"https://research.hhs.se/esploro/outputs/bookChapter/Poverty-and-circular-cumulative-causation-The/991001480592306056\">Stockholm School of Economics — Poverty and circular, cumulative causation</a></li><li><a href=\"https://academic.oup.com/book/37380/chapter/331371308\">Oxford University Press — Rethinking Asian Drama</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Gunnar_Myrdal_1964_002.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/mark/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/\">Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/",
+      "title": "Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ",
+      "title_en": "Léon Walras: Why markets cannot be viewed in isolation"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/gunnar-myrdal.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1900&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/"
+  },
+  {
+    "key": "ragnar-frisch",
+    "slug": "ragnar-frisch-kinh-te-luong-va-kiem-chung",
+    "title": "Ragnar Frisch: Đưa lý thuyết kinh tế đến với phép đo",
+    "title_en": "Ragnar Frisch: Bringing economic theory to measurement",
+    "excerpt": "Nhà kinh tế Na Uy, sự hình thành kinh tế lượng và bài học phân biệt mối liên hệ trong dữ liệu với quan hệ nhân quả.",
+    "excerpt_en": "The Norwegian economist, the development of econometrics and the distinction between data relationships and causation.",
+    "credit": "Ragnar Frisch. Ảnh: Borgens Atelier; bản cắt JB Hoang Tam 2; phạm vi công cộng theo Wikimedia Commons.",
+    "credit_en": "Ragnar Frisch. Photograph: Borgens Atelier; crop by JB Hoang Tam 2; public domain according to Wikimedia Commons.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Ragnar_Frisch_close-up_(cropped).jpg",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sources": [
+      {
+        "label": "Store norske leksikon / Olav Bjerkholt — Ragnar Frisch",
+        "url": "https://snl.no/Ragnar_Frisch"
+      },
+      {
+        "label": "Nobel Prize — Economic Sciences 1969–2007, methods of analysis",
+        "url": "https://www.nobelprize.org/prizes/uncategorized/the-sveriges-riksbank-prize-in-economic-sciences-in-memory-of-alfred-nobel-1969-2007/"
+      },
+      {
+        "label": "Ragnar Frisch — Autobiography, RePEc record",
+        "url": "https://ideas.repec.org/p/ris/nobelp/1969_003.html"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một nhận định kinh tế có thể nghe rất hợp lý mà vẫn sai khi đối chiếu dữ liệu. Nhưng dữ liệu nhiều cũng chưa chắc tạo ra hiểu biết nếu không có câu hỏi và cách giải thích phù hợp. Ragnar Frisch, nhà kinh tế Na Uy, có vị trí quan trọng trong việc kết nối lý thuyết, toán học và thống kê. Câu chuyện của ông giúp người mới hiểu vì sao đo lường cần đi cùng tư duy phản biện.",
+        "en": "An economic claim can sound persuasive yet fail against data. Abundant data also mean little without a question and an explanatory framework. Norwegian economist Ragnar Frisch helped connect theory, mathematics and statistics. His story shows why measurement needs critical thinking."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ nghề kim hoàn đến nghiên cứu kinh tế",
+        "en": "From goldsmithing to economics"
+      },
+      {
+        "tag": "p",
+        "vi": "Frisch sinh tại Oslo năm 1895, trong gia đình làm nghề kim hoàn. Tự thuật của ông nhắc tới ảnh hưởng quan trọng của cha mẹ trong cuộc đời. [3] Ông vừa học kinh tế vừa học nghề, sau đó nhận bằng tiến sĩ năm 1926, trở thành giáo sư năm 1931 và góp phần xây dựng Viện Kinh tế tại Đại học Oslo năm 1932. [1] Con đường ấy cho thấy một sự nghiệp học thuật có thể hình thành qua nhiều ngả, không nhất thiết bắt đầu bằng một kế hoạch hoàn chỉnh.",
+        "en": "Born in Oslo in 1895 into a goldsmith’s family, Frisch emphasized his parents’ influence in his autobiography. [3] He combined economic studies and craft training, earned a doctorate in 1926, became professor in 1931 and helped establish Oslo’s economics institute in 1932. [1] His academic path developed through several routes."
+      },
+      {
+        "tag": "p",
+        "vi": "Năm 1969, Frisch và Jan Tinbergen cùng nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel đầu tiên, nhờ đóng góp về mô hình động để phân tích các quá trình kinh tế. Tổng quan của Nobel phân biệt vai trò phát triển phương pháp của Frisch với những ứng dụng thực nghiệm tiên phong của Tinbergen. [2] Hai hướng bổ sung nhau: công cụ cần có cơ sở, và cơ sở ấy cần được đưa ra đối diện thực tế.",
+        "en": "In 1969, Frisch and Jan Tinbergen received the first economics memorial prize for dynamic economic modelling. Nobel’s overview distinguishes Frisch’s methodological contributions from Tinbergen’s pioneering empirical applications. [2] The two approaches complement each other: methods need foundations and confrontation with reality."
+      },
+      {
+        "tag": "h2",
+        "vi": "Kinh tế lượng không chỉ là tính toán",
+        "en": "Econometrics is more than calculation"
+      },
+      {
+        "tag": "p",
+        "vi": "Kinh tế lượng tìm cách lượng hóa và kiểm tra các quan hệ kinh tế bằng dữ liệu, dựa trên một cấu trúc lý thuyết. Frisch đóng vai trò nền tảng trong sự hình thành lĩnh vực này, trong đó có các vấn đề về đo lường và xác định quan hệ giữa các biến. [1] Vì vậy, việc phần mềm tạo ra một hệ số hay đồ thị chưa phải kết thúc phân tích; người dùng vẫn phải hiểu số đó đang trả lời câu hỏi nào.",
+        "en": "Econometrics quantifies and tests economic relationships using data within a theoretical structure. Frisch helped establish the field, including work on measurement and identifying relationships among variables. [1] A coefficient or chart produced by software is not the end: users must understand the question it answers."
+      },
+      {
+        "tag": "p",
+        "vi": "Phần minh họa dưới đây là diễn giải của chuyên mục. Nếu một cửa hàng tăng quảng cáo vào đúng dịp nhu cầu mùa vụ lên cao, doanh thu và chi quảng cáo có thể cùng tăng. Tuy nhiên, không thể lấy toàn bộ phần tăng doanh thu làm tác động của quảng cáo. Mùa vụ, giá, số ngày mở cửa và nguồn hàng cũng có thể góp phần tạo ra kết quả.",
+        "en": "In an editorial example, a shop increases advertising during a seasonal demand peak. Advertising and sales rise together, but the entire sales increase cannot be attributed to advertising. Seasonality, prices, opening days and stock availability may also contribute."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phải xác định đang so sánh điều gì",
+        "en": "Define the comparison"
+      },
+      {
+        "tag": "p",
+        "vi": "Một phép so sánh hữu ích cần làm rõ kết quả thực tế đang được đối chiếu với tình huống nào. So với tháng trước, cùng kỳ năm trước hay một nhóm tương tự không thay đổi quảng cáo? Mỗi lựa chọn trả lời một câu hỏi khác nhau và có điểm yếu riêng. Chỉ đổi đường cơ sở đã có thể làm một chiến dịch trông thành công hơn hoặc kém hơn dù số liệu gốc không thay đổi.",
+        "en": "A useful comparison specifies the alternative: last month, the same period last year or a similar group without the advertising change? Each answers a different question and has limitations. Changing the baseline alone can make a campaign appear stronger or weaker without changing the underlying data."
+      },
+      {
+        "tag": "p",
+        "vi": "Do đó, trước khi nhìn kết quả, nên ghi sẵn mục tiêu, cách đo và những yếu tố cần theo dõi. Cách làm này giúp giảm xu hướng chỉ lựa chọn con số thuận lợi sau khi sự việc đã xảy ra. Nếu dữ liệu quá ít hoặc điều kiện thay đổi mạnh, kết luận phù hợp có thể là chưa đủ bằng chứng, chứ không phải cố tìm một tỷ lệ đẹp để báo cáo.",
+        "en": "Record the objective, measurement method and relevant factors before seeing results. This reduces selective reporting afterwards. If data are scarce or conditions change sharply, “insufficient evidence” may be the appropriate conclusion rather than a convenient percentage."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nền kinh tế có thời gian và phản ứng chậm",
+        "en": "Economic processes unfold over time"
+      },
+      {
+        "tag": "p",
+        "vi": "Mô hình động quan tâm tới cách hệ thống thay đổi qua thời gian, thay vì chỉ so hai bức ảnh tĩnh. Trong một doanh nghiệp, quyết định tuyển dụng hôm nay có thể mất nhiều tháng mới ảnh hưởng sản lượng; đơn hàng tăng cũng có thể kéo theo nhu cầu nguyên liệu và vốn lưu động trước khi tiền bán hàng về. Góc nhìn động giúp người phân tích tránh gán mọi thay đổi cùng ngày cho một nguyên nhân duy nhất.",
+        "en": "Dynamic models study change over time rather than compare only static snapshots. Hiring may take months to affect output, while more orders can require materials and working capital before receipts arrive. This perspective discourages assigning simultaneous changes to a single cause."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, quảng cáo tạo thêm đơn nhưng khách thanh toán chậm, khiến doanh nghiệp phải ứng tiền cho nguyên liệu. Lợi ích doanh thu và áp lực tiền mặt xuất hiện ở các thời điểm khác nhau. Một bảng theo dõi theo tuần có thể hữu ích hơn một con số tổng cuối quý, vì nó cho thấy quá trình hình thành kết quả và những lúc hệ thống bị căng thẳng.",
+        "en": "Suppose advertising generates orders but customers pay slowly, requiring the business to finance materials. Revenue benefits and cash pressure occur at different times. Weekly tracking may reveal the process and pressure points more clearly than a single quarterly total."
+      },
+      {
+        "tag": "h2",
+        "vi": "Giới hạn của phương pháp cũng là điều cần học",
+        "en": "The method’s limits also matter"
+      },
+      {
+        "tag": "p",
+        "vi": "Mô hình có thể sai vì dữ liệu đo chưa đúng, bỏ sót biến quan trọng hoặc quan hệ trong quá khứ không còn phù hợp. Tăng số chữ số sau dấu phẩy không khắc phục được các vấn đề đó. Người đọc cần phân biệt độ chính xác của phép tính với độ tin cậy của giả định. Một kết quả tính rất chuẩn vẫn có thể trả lời sai câu hỏi mà người ra quyết định thực sự cần.",
+        "en": "Models can fail through poor measurement, omitted factors or relationships that no longer hold. More decimal places do not solve these problems. Computational precision differs from reliable assumptions; an accurately calculated result may answer the wrong practical question."
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học từ Frisch là biến nhận định thành câu hỏi có thể kiểm tra. Hãy bắt đầu bằng một vấn đề nhỏ, chọn dữ liệu phù hợp, ghi rõ giới hạn và sẵn sàng sửa cách giải thích. Thói quen ấy có ích cho người nghiên cứu kinh tế, chủ doanh nghiệp và người học đầu tư. Nó không bảo đảm đoán đúng mọi lần, nhưng giúp nhận ra sớm khi bằng chứng không còn ủng hộ điều mình tin.",
+        "en": "Frisch’s lesson is to turn claims into testable questions. Start small, choose appropriate evidence, state limitations and revise explanations. This helps researchers, business owners and investment learners. It does not guarantee predictions, but makes it easier to notice when evidence no longer supports a belief."
+      }
+    ],
+    "html": "<p><em>Ragnar Frisch. Ảnh: Borgens Atelier; bản cắt JB Hoang Tam 2; phạm vi công cộng theo Wikimedia Commons.</em></p>\n<p>Một nhận định kinh tế có thể nghe rất hợp lý mà vẫn sai khi đối chiếu dữ liệu. Nhưng dữ liệu nhiều cũng chưa chắc tạo ra hiểu biết nếu không có câu hỏi và cách giải thích phù hợp. Ragnar Frisch, nhà kinh tế Na Uy, có vị trí quan trọng trong việc kết nối lý thuyết, toán học và thống kê. Câu chuyện của ông giúp người mới hiểu vì sao đo lường cần đi cùng tư duy phản biện.</p>\n<h2>Từ nghề kim hoàn đến nghiên cứu kinh tế</h2>\n<p>Frisch sinh tại Oslo năm 1895, trong gia đình làm nghề kim hoàn. Tự thuật của ông nhắc tới ảnh hưởng quan trọng của cha mẹ trong cuộc đời. [3] Ông vừa học kinh tế vừa học nghề, sau đó nhận bằng tiến sĩ năm 1926, trở thành giáo sư năm 1931 và góp phần xây dựng Viện Kinh tế tại Đại học Oslo năm 1932. [1] Con đường ấy cho thấy một sự nghiệp học thuật có thể hình thành qua nhiều ngả, không nhất thiết bắt đầu bằng một kế hoạch hoàn chỉnh.</p>\n<p>Năm 1969, Frisch và Jan Tinbergen cùng nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel đầu tiên, nhờ đóng góp về mô hình động để phân tích các quá trình kinh tế. Tổng quan của Nobel phân biệt vai trò phát triển phương pháp của Frisch với những ứng dụng thực nghiệm tiên phong của Tinbergen. [2] Hai hướng bổ sung nhau: công cụ cần có cơ sở, và cơ sở ấy cần được đưa ra đối diện thực tế.</p>\n<h2>Kinh tế lượng không chỉ là tính toán</h2>\n<p>Kinh tế lượng tìm cách lượng hóa và kiểm tra các quan hệ kinh tế bằng dữ liệu, dựa trên một cấu trúc lý thuyết. Frisch đóng vai trò nền tảng trong sự hình thành lĩnh vực này, trong đó có các vấn đề về đo lường và xác định quan hệ giữa các biến. [1] Vì vậy, việc phần mềm tạo ra một hệ số hay đồ thị chưa phải kết thúc phân tích; người dùng vẫn phải hiểu số đó đang trả lời câu hỏi nào.</p>\n<p>Phần minh họa dưới đây là diễn giải của chuyên mục. Nếu một cửa hàng tăng quảng cáo vào đúng dịp nhu cầu mùa vụ lên cao, doanh thu và chi quảng cáo có thể cùng tăng. Tuy nhiên, không thể lấy toàn bộ phần tăng doanh thu làm tác động của quảng cáo. Mùa vụ, giá, số ngày mở cửa và nguồn hàng cũng có thể góp phần tạo ra kết quả.</p>\n<h2>Phải xác định đang so sánh điều gì</h2>\n<p>Một phép so sánh hữu ích cần làm rõ kết quả thực tế đang được đối chiếu với tình huống nào. So với tháng trước, cùng kỳ năm trước hay một nhóm tương tự không thay đổi quảng cáo? Mỗi lựa chọn trả lời một câu hỏi khác nhau và có điểm yếu riêng. Chỉ đổi đường cơ sở đã có thể làm một chiến dịch trông thành công hơn hoặc kém hơn dù số liệu gốc không thay đổi.</p>\n<p>Do đó, trước khi nhìn kết quả, nên ghi sẵn mục tiêu, cách đo và những yếu tố cần theo dõi. Cách làm này giúp giảm xu hướng chỉ lựa chọn con số thuận lợi sau khi sự việc đã xảy ra. Nếu dữ liệu quá ít hoặc điều kiện thay đổi mạnh, kết luận phù hợp có thể là chưa đủ bằng chứng, chứ không phải cố tìm một tỷ lệ đẹp để báo cáo.</p>\n<h2>Nền kinh tế có thời gian và phản ứng chậm</h2>\n<p>Mô hình động quan tâm tới cách hệ thống thay đổi qua thời gian, thay vì chỉ so hai bức ảnh tĩnh. Trong một doanh nghiệp, quyết định tuyển dụng hôm nay có thể mất nhiều tháng mới ảnh hưởng sản lượng; đơn hàng tăng cũng có thể kéo theo nhu cầu nguyên liệu và vốn lưu động trước khi tiền bán hàng về. Góc nhìn động giúp người phân tích tránh gán mọi thay đổi cùng ngày cho một nguyên nhân duy nhất.</p>\n<p>Ví dụ giả định, quảng cáo tạo thêm đơn nhưng khách thanh toán chậm, khiến doanh nghiệp phải ứng tiền cho nguyên liệu. Lợi ích doanh thu và áp lực tiền mặt xuất hiện ở các thời điểm khác nhau. Một bảng theo dõi theo tuần có thể hữu ích hơn một con số tổng cuối quý, vì nó cho thấy quá trình hình thành kết quả và những lúc hệ thống bị căng thẳng.</p>\n<h2>Giới hạn của phương pháp cũng là điều cần học</h2>\n<p>Mô hình có thể sai vì dữ liệu đo chưa đúng, bỏ sót biến quan trọng hoặc quan hệ trong quá khứ không còn phù hợp. Tăng số chữ số sau dấu phẩy không khắc phục được các vấn đề đó. Người đọc cần phân biệt độ chính xác của phép tính với độ tin cậy của giả định. Một kết quả tính rất chuẩn vẫn có thể trả lời sai câu hỏi mà người ra quyết định thực sự cần.</p>\n<p>Bài học từ Frisch là biến nhận định thành câu hỏi có thể kiểm tra. Hãy bắt đầu bằng một vấn đề nhỏ, chọn dữ liệu phù hợp, ghi rõ giới hạn và sẵn sàng sửa cách giải thích. Thói quen ấy có ích cho người nghiên cứu kinh tế, chủ doanh nghiệp và người học đầu tư. Nó không bảo đảm đoán đúng mọi lần, nhưng giúp nhận ra sớm khi bằng chứng không còn ủng hộ điều mình tin.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://snl.no/Ragnar_Frisch\">Store norske leksikon / Olav Bjerkholt — Ragnar Frisch</a></li><li><a href=\"https://www.nobelprize.org/prizes/uncategorized/the-sveriges-riksbank-prize-in-economic-sciences-in-memory-of-alfred-nobel-1969-2007/\">Nobel Prize — Economic Sciences 1969–2007, methods of analysis</a></li><li><a href=\"https://ideas.repec.org/p/ris/nobelp/1969_003.html\">Ragnar Frisch — Autobiography, RePEc record</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Ragnar_Frisch_close-up_(cropped).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/mark/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/\">Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/",
+      "title": "Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ",
+      "title_en": "Léon Walras: Why markets cannot be viewed in isolation"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/ragnar-frisch.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1903&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/"
+  },
+  {
+    "key": "ester-boserup",
+    "slug": "ester-boserup-dan-so-doi-moi-va-phu-nu",
+    "title": "Ester Boserup: Áp lực dân số, đổi mới và phần việc bị bỏ quên",
+    "title_en": "Ester Boserup: Population pressure, innovation and overlooked work",
+    "excerpt": "Nhà kinh tế Đan Mạch và hai hướng nghiên cứu về thay đổi nông nghiệp, vai trò của phụ nữ trong phát triển kinh tế.",
+    "excerpt_en": "The Danish economist’s work on agricultural change and women’s role in economic development.",
+    "credit": "Chân dung Ester Boserup — minh họa AI dựa trên ảnh tham chiếu, không phải ảnh chụp.",
+    "credit_en": "Ester Boserup — AI illustration based on a portrait reference, not a photograph.",
+    "photo_source": "https://www.ecoint.org/post/profile-of-ester-boserup-1910-1999",
+    "license": "",
+    "sources": [
+      {
+        "label": "ECOINT / Sabine Selchow — Profile of Ester Boserup",
+        "url": "https://www.ecoint.org/post/profile-of-ester-boserup-1910-1999"
+      },
+      {
+        "label": "PNAS — Ester Boserup: An interdisciplinary visionary relevant for sustainability",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3009765/"
+      },
+      {
+        "label": "Routledge — Woman’s Role in Economic Development",
+        "url": "https://www.routledge.com/Womans-Role-in-Economic-Development/Boserup-Tan-Toulmin/p/book/9781315065892"
+      },
+      {
+        "label": "University of Copenhagen — Ester Boserup research prize",
+        "url": "https://www.ku.dk/ifro/en/about-the-department/events"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Nếu dân số tăng mà diện tích đất không tăng tương ứng, điều gì sẽ xảy ra? Một cách nhìn chỉ tập trung vào sự thiếu hụt. Ester Boserup đặt thêm câu hỏi về phản ứng của con người: họ có thay đổi kỹ thuật, cường độ canh tác và cách tổ chức sản xuất hay không? Bà cũng khiến giới nghiên cứu chú ý hơn tới một khoảng trống khác: phần việc của phụ nữ thường không hiện rõ trong những câu chuyện phát triển.",
+        "en": "What happens when population grows faster than available land? One perspective emphasizes scarcity. Ester Boserup also asked how people respond through techniques, cultivation intensity and organization. She drew attention to another gap: women’s work often remained obscured in accounts of development."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một sự nghiệp vượt qua ranh giới chuyên môn",
+        "en": "A career across disciplinary boundaries"
+      },
+      {
+        "tag": "p",
+        "vi": "Boserup là nhà kinh tế Đan Mạch, sống từ năm 1910 đến 1999. Bà tốt nghiệp Đại học Copenhagen năm 1935, làm việc trong cơ quan nhà nước rồi chuyển tới UNECE năm 1947. Sau năm 1957, bà tham gia nghiên cứu tại châu Á và làm tư vấn cho các tổ chức quốc tế. [1] Kinh nghiệm đó giúp hình thành cách tiếp cận chú ý tới những điều quan sát được trong đời sống, không chỉ những quan hệ đã có sẵn trong sách.",
+        "en": "Danish economist Boserup lived from 1910 to 1999. She graduated from Copenhagen in 1935, entered public administration and joined UNECE in 1947. After 1957 she researched Asian development and consulted for international organizations. [1] This supported an approach grounded in observation across disciplines."
+      },
+      {
+        "tag": "p",
+        "vi": "Hai cuốn sách nổi bật là The Conditions of Agricultural Growth năm 1965 và Woman’s Role in Economic Development năm 1970. Công trình năm 1981 tiếp tục nghiên cứu dân số và thay đổi công nghệ. [2] Các chủ đề tưởng khác nhau cùng hướng tới câu hỏi con người điều chỉnh hoạt động kinh tế như thế nào khi điều kiện sống và cấu trúc xã hội thay đổi.",
+        "en": "Major books include The Conditions of Agricultural Growth in 1965 and Woman’s Role in Economic Development in 1970, followed by a 1981 study of population and technological change. [2] These subjects share a concern with how economic activity adapts to changing conditions and social structures."
+      },
+      {
+        "tag": "h2",
+        "vi": "Áp lực có thể tạo động lực thay đổi",
+        "en": "Pressure can encourage change"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong nghiên cứu nông nghiệp, Boserup xem xét khả năng áp lực dân số thúc đẩy thâm canh và thay đổi phương thức sản xuất. [4] Ý tưởng này mở rộng câu hỏi từ “nguồn lực có đủ không” sang “con người có thể sử dụng nguồn lực khác đi không”. Tuy nhiên, đó không phải lời bảo đảm rằng tăng dân số luôn có lợi hoặc mọi giới hạn tài nguyên đều tự biến mất nhờ sáng tạo.",
+        "en": "Boserup examined how population pressure can encourage agricultural intensification and changes in production. [4] This broadens the question from resource availability to adaptation. It does not guarantee that population growth is always beneficial or that innovation automatically removes resource limits."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định của chuyên mục, một nhóm hộ có thể chuyển từ canh tác ít vụ sang nhiều vụ, đầu tư thủy lợi hoặc phối hợp sử dụng thiết bị. Nhưng mỗi phương án cần lao động, kỹ năng, nước và vốn. Sản lượng trên một đơn vị đất có thể tăng trong khi công sức trên một đơn vị sản phẩm không giảm. Vì vậy, không nên coi tăng năng suất đất đồng nghĩa với mọi mặt của đời sống đều tốt hơn.",
+        "en": "In a hypothetical farming community, households may add crop cycles, invest in irrigation or share equipment. Each option requires labour, skills, water and capital. Output per unit of land can rise without labour per unit of output falling. Land productivity is not identical to overall wellbeing."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đổi mới cần những điều kiện đi kèm",
+        "en": "Innovation requires enabling conditions"
+      },
+      {
+        "tag": "p",
+        "vi": "Một nhu cầu bức thiết chỉ trở thành giải pháp khi có khả năng thử và áp dụng. Người sản xuất có thể biết công nghệ tốt hơn nhưng thiếu quyền sử dụng đất ổn định, vốn hoặc dịch vụ sửa chữa. Những ràng buộc ấy giải thích vì sao cùng chịu áp lực, các cộng đồng vẫn có kết quả khác nhau. Đây là phần phân tích biên tập để vận dụng câu hỏi của Boserup, không phải kết luận về một quốc gia cụ thể.",
+        "en": "Urgent need becomes a solution only when people can test and adopt it. Producers may know better technology but lack secure land use, finance or repairs. Such constraints help explain different outcomes under similar pressure. This is editorial application, not a claim about a particular country."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với doanh nghiệp nhỏ, cũng có thể gặp tình huống đơn hàng tăng nhưng mặt bằng không đổi. Phản ứng có thể là sắp xếp lại dây chuyền, giảm thời gian chờ hoặc thuê thêm nguồn lực. Trước khi gọi đó là thành công về năng suất, cần kiểm tra chất lượng, số giờ làm, chi phí bảo trì và sức khỏe của tổ chức. Nếu chỉ chuyển gánh nặng sang người làm việc, kết quả chưa chắc bền vững.",
+        "en": "A small firm may receive more orders without more space. It can reorganize workflow, reduce waiting or rent capacity. Before calling this a productivity success, assess quality, hours and maintenance. Simply shifting the burden onto workers may not be sustainable."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhìn thấy công việc của phụ nữ",
+        "en": "Making women’s work visible"
+      },
+      {
+        "tag": "p",
+        "vi": "Woman’s Role in Economic Development đưa vai trò kinh tế của phụ nữ vào trung tâm phân tích, từ nông nghiệp đến việc làm đô thị. [3] Điều cần chú ý không chỉ là có bao nhiêu người tham gia, mà còn là họ thực hiện việc gì, được tiếp cận đào tạo và tài sản ra sao, và có quyền quyết định đối với thành quả hay không. Một con số lao động tổng hợp có thể che đi những khác biệt quan trọng ấy.",
+        "en": "Woman’s Role in Economic Development places women’s economic contributions at the centre, from farming to urban employment. [3] Participation counts alone miss tasks, access to training and assets, and control over returns. Aggregate labour figures can conceal these differences."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ, nếu một chương trình đào tạo chỉ gửi lời mời tới người đứng tên hộ kinh doanh, người thực sự làm phần lớn công việc có thể không được học. Khi đánh giá hiệu quả, nên tìm hiểu ai đang làm, ai được tiếp cận công cụ mới và ai phải gánh thêm thời gian chăm sóc gia đình. Đó là cách đặt câu hỏi đầy đủ hơn, không phải giả định rằng mọi gia đình đều phân công giống nhau.",
+        "en": "If training invitations go only to a business’s registered owner, the person doing much of the work may miss out. Evaluation should ask who performs tasks, accesses new tools and absorbs additional care responsibilities, without assuming every household divides work identically."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đọc Boserup với tinh thần kiểm chứng",
+        "en": "Read Boserup critically"
+      },
+      {
+        "tag": "p",
+        "vi": "Các nghiên cứu tiếp nối cũng tranh luận về giới hạn trong cách Boserup mô tả phát triển và phân công lao động. [1] Không nên lấy một khung khái quát áp cho mọi nền văn hóa hoặc mọi thời kỳ. Sự khác biệt về thể chế, môi trường và quyền lực trong hộ gia đình có thể làm kết quả thay đổi. Cần kiểm tra các nhóm khác nhau thay vì chỉ báo cáo một giá trị trung bình.",
+        "en": "Later scholarship debates limits in Boserup’s treatment of development and labour allocation. [1] A broad framework should not be imposed on every culture or period. Institutions, environments and household power can alter outcomes; examine different groups rather than only averages."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản đáng học của bà là thói quen tìm những phản ứng và đóng góp đang bị bỏ sót. Khi một báo cáo nói nguồn lực khan hiếm, hãy hỏi con người có thể thay đổi cách làm ra sao và cần điều kiện gì. Khi báo cáo nói kinh tế tăng trưởng, hãy hỏi ai đã tạo ra kết quả và ai thực sự hưởng lợi. Hai câu hỏi ấy giúp nối sản xuất với đời sống cụ thể của con người.",
+        "en": "Her useful legacy is to look for overlooked responses and contributions. When resources are scarce, ask how practices might change and what enables adaptation. When growth is reported, ask who produced it and who benefits. These questions connect production to people’s lives."
+      }
+    ],
+    "html": "<p><em>Chân dung Ester Boserup — minh họa AI dựa trên ảnh tham chiếu, không phải ảnh chụp.</em></p>\n<p>Nếu dân số tăng mà diện tích đất không tăng tương ứng, điều gì sẽ xảy ra? Một cách nhìn chỉ tập trung vào sự thiếu hụt. Ester Boserup đặt thêm câu hỏi về phản ứng của con người: họ có thay đổi kỹ thuật, cường độ canh tác và cách tổ chức sản xuất hay không? Bà cũng khiến giới nghiên cứu chú ý hơn tới một khoảng trống khác: phần việc của phụ nữ thường không hiện rõ trong những câu chuyện phát triển.</p>\n<h2>Một sự nghiệp vượt qua ranh giới chuyên môn</h2>\n<p>Boserup là nhà kinh tế Đan Mạch, sống từ năm 1910 đến 1999. Bà tốt nghiệp Đại học Copenhagen năm 1935, làm việc trong cơ quan nhà nước rồi chuyển tới UNECE năm 1947. Sau năm 1957, bà tham gia nghiên cứu tại châu Á và làm tư vấn cho các tổ chức quốc tế. [1] Kinh nghiệm đó giúp hình thành cách tiếp cận chú ý tới những điều quan sát được trong đời sống, không chỉ những quan hệ đã có sẵn trong sách.</p>\n<p>Hai cuốn sách nổi bật là The Conditions of Agricultural Growth năm 1965 và Woman’s Role in Economic Development năm 1970. Công trình năm 1981 tiếp tục nghiên cứu dân số và thay đổi công nghệ. [2] Các chủ đề tưởng khác nhau cùng hướng tới câu hỏi con người điều chỉnh hoạt động kinh tế như thế nào khi điều kiện sống và cấu trúc xã hội thay đổi.</p>\n<h2>Áp lực có thể tạo động lực thay đổi</h2>\n<p>Trong nghiên cứu nông nghiệp, Boserup xem xét khả năng áp lực dân số thúc đẩy thâm canh và thay đổi phương thức sản xuất. [4] Ý tưởng này mở rộng câu hỏi từ “nguồn lực có đủ không” sang “con người có thể sử dụng nguồn lực khác đi không”. Tuy nhiên, đó không phải lời bảo đảm rằng tăng dân số luôn có lợi hoặc mọi giới hạn tài nguyên đều tự biến mất nhờ sáng tạo.</p>\n<p>Ví dụ giả định của chuyên mục, một nhóm hộ có thể chuyển từ canh tác ít vụ sang nhiều vụ, đầu tư thủy lợi hoặc phối hợp sử dụng thiết bị. Nhưng mỗi phương án cần lao động, kỹ năng, nước và vốn. Sản lượng trên một đơn vị đất có thể tăng trong khi công sức trên một đơn vị sản phẩm không giảm. Vì vậy, không nên coi tăng năng suất đất đồng nghĩa với mọi mặt của đời sống đều tốt hơn.</p>\n<h2>Đổi mới cần những điều kiện đi kèm</h2>\n<p>Một nhu cầu bức thiết chỉ trở thành giải pháp khi có khả năng thử và áp dụng. Người sản xuất có thể biết công nghệ tốt hơn nhưng thiếu quyền sử dụng đất ổn định, vốn hoặc dịch vụ sửa chữa. Những ràng buộc ấy giải thích vì sao cùng chịu áp lực, các cộng đồng vẫn có kết quả khác nhau. Đây là phần phân tích biên tập để vận dụng câu hỏi của Boserup, không phải kết luận về một quốc gia cụ thể.</p>\n<p>Đối với doanh nghiệp nhỏ, cũng có thể gặp tình huống đơn hàng tăng nhưng mặt bằng không đổi. Phản ứng có thể là sắp xếp lại dây chuyền, giảm thời gian chờ hoặc thuê thêm nguồn lực. Trước khi gọi đó là thành công về năng suất, cần kiểm tra chất lượng, số giờ làm, chi phí bảo trì và sức khỏe của tổ chức. Nếu chỉ chuyển gánh nặng sang người làm việc, kết quả chưa chắc bền vững.</p>\n<h2>Nhìn thấy công việc của phụ nữ</h2>\n<p>Woman’s Role in Economic Development đưa vai trò kinh tế của phụ nữ vào trung tâm phân tích, từ nông nghiệp đến việc làm đô thị. [3] Điều cần chú ý không chỉ là có bao nhiêu người tham gia, mà còn là họ thực hiện việc gì, được tiếp cận đào tạo và tài sản ra sao, và có quyền quyết định đối với thành quả hay không. Một con số lao động tổng hợp có thể che đi những khác biệt quan trọng ấy.</p>\n<p>Ví dụ, nếu một chương trình đào tạo chỉ gửi lời mời tới người đứng tên hộ kinh doanh, người thực sự làm phần lớn công việc có thể không được học. Khi đánh giá hiệu quả, nên tìm hiểu ai đang làm, ai được tiếp cận công cụ mới và ai phải gánh thêm thời gian chăm sóc gia đình. Đó là cách đặt câu hỏi đầy đủ hơn, không phải giả định rằng mọi gia đình đều phân công giống nhau.</p>\n<h2>Đọc Boserup với tinh thần kiểm chứng</h2>\n<p>Các nghiên cứu tiếp nối cũng tranh luận về giới hạn trong cách Boserup mô tả phát triển và phân công lao động. [1] Không nên lấy một khung khái quát áp cho mọi nền văn hóa hoặc mọi thời kỳ. Sự khác biệt về thể chế, môi trường và quyền lực trong hộ gia đình có thể làm kết quả thay đổi. Cần kiểm tra các nhóm khác nhau thay vì chỉ báo cáo một giá trị trung bình.</p>\n<p>Di sản đáng học của bà là thói quen tìm những phản ứng và đóng góp đang bị bỏ sót. Khi một báo cáo nói nguồn lực khan hiếm, hãy hỏi con người có thể thay đổi cách làm ra sao và cần điều kiện gì. Khi báo cáo nói kinh tế tăng trưởng, hãy hỏi ai đã tạo ra kết quả và ai thực sự hưởng lợi. Hai câu hỏi ấy giúp nối sản xuất với đời sống cụ thể của con người.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.ecoint.org/post/profile-of-ester-boserup-1910-1999\">ECOINT / Sabine Selchow — Profile of Ester Boserup</a></li><li><a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC3009765/\">PNAS — Ester Boserup: An interdisciplinary visionary relevant for sustainability</a></li><li><a href=\"https://www.routledge.com/Womans-Role-in-Economic-Development/Boserup-Tan-Toulmin/p/book/9781315065892\">Routledge — Woman’s Role in Economic Development</a></li><li><a href=\"https://www.ku.dk/ifro/en/about-the-department/events\">University of Copenhagen — Ester Boserup research prize</a></li></ol><p><a href=\"https://www.ecoint.org/post/profile-of-ester-boserup-1910-1999\">Portrait reference / Nguồn ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/karl-marx-lao-dong-tu-ban-va-phan-phoi/\">Karl Marx: Lao động, tư bản và câu hỏi ai hưởng thành quả tăng trưởng</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/karl-marx-lao-dong-tu-ban-va-phan-phoi/",
+      "title": "Karl Marx: Lao động, tư bản và câu hỏi ai hưởng thành quả tăng trưởng",
+      "title_en": "Karl Marx: Labour, capital and who benefits from growth"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/ester-boserup.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/ester-boserup-dan-so-doi-moi-va-phu-nu/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1906&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/ester-boserup-dan-so-doi-moi-va-phu-nu/"
+  },
+  {
+    "key": "bengt-holmstrom",
+    "slug": "bengt-holmstrom-do-luong-va-dong-luc",
+    "title": "Bengt Holmström: Đo điều gì, con người sẽ tập trung vào điều đó",
+    "title_en": "Bengt Holmström: What you measure shapes effort",
+    "excerpt": "Nhà kinh tế Phần Lan và lý thuyết hợp đồng: vì sao thưởng mạnh cho một chỉ tiêu có thể làm lệch mục tiêu chung.",
+    "excerpt_en": "The Finnish economist and contract theory: why strong rewards for one metric can distort the broader objective.",
+    "credit": "Bengt Holmström tại SuomiAreena năm 2013. Ảnh: Soppakanuuna, CC BY-SA 4.0.",
+    "credit_en": "Bengt Holmström at SuomiAreena in 2013. Photograph: Soppakanuuna, CC BY-SA 4.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Bengt_Holmström.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sources": [
+      {
+        "label": "MIT Economics — Bengt Holmström, Short Biography",
+        "url": "https://economics.mit.edu/people/faculty/bengt-holmstrom/short-biography"
+      },
+      {
+        "label": "MIT Sloan — Lessons for managing employee incentives",
+        "url": "https://mitsloan.mit.edu/ideas-made-to-matter/nobel-prize-lecture-lessons-managing-employee-incentives"
+      },
+      {
+        "label": "Nobel Prize — Popular information, Economic Sciences 2016",
+        "url": "https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2016-1.pdf"
+      },
+      {
+        "label": "MIT News — Bengt Holmström wins Nobel Prize",
+        "url": "https://news.mit.edu/2016/economist-bengt-holmstrom-nobel-prize-1010"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp thưởng nhân viên theo số lượng bán ra rồi ngạc nhiên khi khiếu nại tăng. Một nhóm được đánh giá theo tốc độ hoàn thành nhưng bỏ bớt việc kiểm tra. Những tình huống ấy dẫn tới câu hỏi cốt lõi: cơ chế thưởng đang khuyến khích công việc thật sự cần làm, hay chỉ khuyến khích con số dễ đếm? Nghiên cứu của Bengt Holmström giúp hiểu vì sao thiết kế động lực không thể chỉ bắt đầu bằng tăng tiền thưởng.",
+        "en": "A firm rewards sales volume and is surprised by more complaints. A team assessed on speed neglects checks. Such cases raise a central question: does the reward encourage the work that matters or merely the easiest number to count? Bengt Holmström’s research explains why incentive design goes beyond larger bonuses."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhà kinh tế Phần Lan nghiên cứu tổ chức và hợp đồng",
+        "en": "A Finnish economist studying organizations and contracts"
+      },
+      {
+        "tag": "p",
+        "vi": "Holmström là nhà kinh tế Phần Lan, nhận bằng tiến sĩ tại Stanford năm 1978. Ông giảng dạy tại Northwestern và Yale trước khi đến MIT năm 1994. Năm 2016, ông cùng Oliver Hart nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho đóng góp về lý thuyết hợp đồng. [1] Lĩnh vực này nghiên cứu cách các bên hợp tác khi mục tiêu có thể khác nhau và thông tin hoặc hành động không được quan sát đầy đủ.",
+        "en": "Finnish economist Holmström earned his Stanford doctorate in 1978, taught at Northwestern and Yale and joined MIT in 1994. He shared the 2016 economics memorial prize with Oliver Hart for contract theory. [1] The field studies cooperation when objectives differ and information or actions are imperfectly observed."
+      },
+      {
+        "tag": "p",
+        "vi": "Các nghiên cứu của ông liên quan tới doanh nghiệp, quản trị và động lực. Công trình năm 1991 cùng Paul Milgrom về người lao động thực hiện nhiều nhiệm vụ là một đóng góp có ảnh hưởng lớn. [4] Điểm hấp dẫn của câu chuyện này là những vấn đề rất quen thuộc trong công việc hằng ngày có thể được phân tích bằng mô hình chặt chẽ, thay vì chỉ dựa vào phán xét người làm có chăm chỉ hay không.",
+        "en": "His work covers firms, governance and incentives. A major contribution is the 1991 paper with Paul Milgrom on workers carrying out multiple tasks. [4] Familiar workplace problems can therefore be analysed systematically rather than reduced to judgments about whether someone works hard."
+      },
+      {
+        "tag": "h2",
+        "vi": "Kết quả không chỉ đến từ nỗ lực",
+        "en": "Outcomes reflect more than effort"
+      },
+      {
+        "tag": "p",
+        "vi": "Một nội dung quan trọng trong nghiên cứu Holmström là cách sử dụng thông tin về kết quả để tạo động lực, đồng thời cân nhắc rủi ro mà người thực hiện phải chịu. MIT Sloan minh họa rằng giá cổ phiếu còn chịu tác động của yếu tố ngoài quyền kiểm soát của nhà quản lý. [2] Nếu thưởng phạt chỉ theo một kết quả thô, có thể thưởng cho may mắn hoặc phạt vì hoàn cảnh bất lợi.",
+        "en": "Holmström examined how performance information can create incentives while accounting for risk borne by the worker. MIT Sloan illustrates that share prices reflect factors outside a manager’s control. [2] Rewarding only a raw outcome can reward luck or punish adverse circumstances."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, hai nhân viên bán hàng phụ trách hai khu vực có nhu cầu rất khác nhau. Chỉ so doanh thu có thể khiến người được giao khu vực thuận lợi nhận phần thưởng lớn hơn dù nỗ lực không cao hơn. Cần xem mục tiêu ban đầu, nguồn khách được giao, mức cạnh tranh và những điều nhân viên thực sự có thể tác động. Điều đó không có nghĩa phải loại bỏ mọi trách nhiệm về kết quả.",
+        "en": "Imagine two salespeople in territories with very different demand. Revenue alone may reward the better territory rather than greater effort. Consider starting targets, assigned leads, competition and what each person can influence. This does not mean eliminating responsibility for outcomes."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bài toán nhiều nhiệm vụ",
+        "en": "The multiple-task problem"
+      },
+      {
+        "tag": "p",
+        "vi": "Tài liệu Nobel mô tả cách Holmström và Milgrom mở rộng phân tích sang công việc gồm nhiều nhiệm vụ, trong đó có phần khó đo và khó thưởng. [3] Khi phần dễ đo được thưởng quá mạnh, người làm có thể chuyển công sức khỏi phần quan trọng nhưng ít được ghi nhận. Đây là vấn đề thiết kế hệ thống, không nhất thiết xuất phát từ ý định gian dối của người lao động.",
+        "en": "Nobel’s explanatory material describes Holmström and Milgrom’s analysis of jobs containing several tasks, some difficult to measure and reward. [3] Strong rewards for measurable tasks can divert effort from important unmeasured work. This can be a system-design problem without dishonest intentions."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong ví dụ một xưởng may, thưởng hoàn toàn theo số áo có thể làm người thợ ưu tiên tốc độ, còn người kiểm hàng phải xử lý thêm lỗi. Nếu chỉ chuyển sang thưởng theo tỷ lệ lỗi thấp, người làm có thể ngại nhận mẫu khó. Một chỉ số riêng lẻ khó thể hiện trọn vẹn đóng góp. Cần xem chất lượng, độ khó, phối hợp và khả năng duy trì kết quả theo thời gian.",
+        "en": "In a hypothetical garment workshop, piece-rate rewards may prioritize speed while inspection absorbs more defects. Rewarding only low defect rates may discourage difficult designs. One metric rarely captures the entire contribution; quality, complexity, coordination and durability matter."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thiết kế công việc trước khi chọn công thức thưởng",
+        "en": "Design the job before the bonus formula"
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học ứng dụng của chuyên mục là bắt đầu từ kết quả thật sự mong muốn, rồi liệt kê những việc tạo ra kết quả đó. Việc nào quan sát được, việc nào chỉ thể hiện sau nhiều tháng và việc nào đòi hỏi phối hợp? Khi đã hiểu cấu trúc công việc, mới lựa chọn chỉ tiêu và mức thưởng. Làm ngược lại dễ biến bảng đánh giá thành mục tiêu tự thân, khiến người làm tối ưu bảng điểm thay vì phục vụ khách hàng.",
+        "en": "The editorial application is to start with the desired outcome and the tasks that produce it. Which are observable, which emerge months later and which require cooperation? Select metrics and rewards after understanding the work. Otherwise, the scorecard can become an objective in itself."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần giữ chỗ cho phản hồi và phán đoán có trách nhiệm. Không phải yếu tố quan trọng nào cũng có thể chuyển thành một con số công bằng. Tuy nhiên, đánh giá định tính cũng có thể thiên lệch, nên cần tiêu chí rõ và cơ chế giải thích. Mục tiêu là kết hợp nhiều loại thông tin phù hợp, không thay một cực đoan bằng cực đoan khác.",
+        "en": "Leave room for feedback and accountable judgment. Not everything important can become a fair number, but qualitative assessment can also be biased. Clear criteria and explanations help combine appropriate information rather than replace one extreme with another."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không có một cơ chế đúng cho mọi tổ chức",
+        "en": "No single scheme fits every organization"
+      },
+      {
+        "tag": "p",
+        "vi": "Một công thức phù hợp với công việc độc lập, lặp lại có thể gây lệch động lực trong công việc sáng tạo hoặc cần hỗ trợ đồng đội. Thay đổi cách thưởng còn có thể làm hành vi thay đổi theo những cách khó đoán trước. Vì thế, nên theo dõi cả tác dụng ngoài dự kiến, hỏi người trực tiếp làm việc và điều chỉnh khi có bằng chứng. Đây là quá trình quản trị, không phải một lần điền xong bảng tính.",
+        "en": "A formula suited to independent repetitive work may distort creative or cooperative work. Pay changes can alter behaviour unexpectedly. Monitor unintended effects, consult people doing the work and revise with evidence. This is an ongoing management process, not a one-off spreadsheet exercise."
+      },
+      {
+        "tag": "p",
+        "vi": "Đọc Holmström giúp chuyển câu hỏi từ “thưởng bao nhiêu để làm tốt hơn” sang “cơ chế này đang làm việc gì trở nên hấp dẫn hơn”. Với chủ doanh nghiệp và người học đầu tư, đó là một cách nhìn hữu ích về chất lượng tổ chức. Những chỉ tiêu đẹp chỉ có ý nghĩa khi chúng phản ánh điều doanh nghiệp thật sự cần đạt, thay vì che đi phần việc quan trọng đang bị bỏ quên.",
+        "en": "Holmström shifts the question from how large a reward should be to which activities the scheme makes attractive. For business owners and investment learners, this offers a useful view of organizational quality. Good-looking metrics matter only if they reflect genuine objectives rather than conceal neglected work."
+      }
+    ],
+    "html": "<p><em>Bengt Holmström tại SuomiAreena năm 2013. Ảnh: Soppakanuuna, CC BY-SA 4.0.</em></p>\n<p>Một doanh nghiệp thưởng nhân viên theo số lượng bán ra rồi ngạc nhiên khi khiếu nại tăng. Một nhóm được đánh giá theo tốc độ hoàn thành nhưng bỏ bớt việc kiểm tra. Những tình huống ấy dẫn tới câu hỏi cốt lõi: cơ chế thưởng đang khuyến khích công việc thật sự cần làm, hay chỉ khuyến khích con số dễ đếm? Nghiên cứu của Bengt Holmström giúp hiểu vì sao thiết kế động lực không thể chỉ bắt đầu bằng tăng tiền thưởng.</p>\n<h2>Nhà kinh tế Phần Lan nghiên cứu tổ chức và hợp đồng</h2>\n<p>Holmström là nhà kinh tế Phần Lan, nhận bằng tiến sĩ tại Stanford năm 1978. Ông giảng dạy tại Northwestern và Yale trước khi đến MIT năm 1994. Năm 2016, ông cùng Oliver Hart nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho đóng góp về lý thuyết hợp đồng. [1] Lĩnh vực này nghiên cứu cách các bên hợp tác khi mục tiêu có thể khác nhau và thông tin hoặc hành động không được quan sát đầy đủ.</p>\n<p>Các nghiên cứu của ông liên quan tới doanh nghiệp, quản trị và động lực. Công trình năm 1991 cùng Paul Milgrom về người lao động thực hiện nhiều nhiệm vụ là một đóng góp có ảnh hưởng lớn. [4] Điểm hấp dẫn của câu chuyện này là những vấn đề rất quen thuộc trong công việc hằng ngày có thể được phân tích bằng mô hình chặt chẽ, thay vì chỉ dựa vào phán xét người làm có chăm chỉ hay không.</p>\n<h2>Kết quả không chỉ đến từ nỗ lực</h2>\n<p>Một nội dung quan trọng trong nghiên cứu Holmström là cách sử dụng thông tin về kết quả để tạo động lực, đồng thời cân nhắc rủi ro mà người thực hiện phải chịu. MIT Sloan minh họa rằng giá cổ phiếu còn chịu tác động của yếu tố ngoài quyền kiểm soát của nhà quản lý. [2] Nếu thưởng phạt chỉ theo một kết quả thô, có thể thưởng cho may mắn hoặc phạt vì hoàn cảnh bất lợi.</p>\n<p>Ví dụ giả định, hai nhân viên bán hàng phụ trách hai khu vực có nhu cầu rất khác nhau. Chỉ so doanh thu có thể khiến người được giao khu vực thuận lợi nhận phần thưởng lớn hơn dù nỗ lực không cao hơn. Cần xem mục tiêu ban đầu, nguồn khách được giao, mức cạnh tranh và những điều nhân viên thực sự có thể tác động. Điều đó không có nghĩa phải loại bỏ mọi trách nhiệm về kết quả.</p>\n<h2>Bài toán nhiều nhiệm vụ</h2>\n<p>Tài liệu Nobel mô tả cách Holmström và Milgrom mở rộng phân tích sang công việc gồm nhiều nhiệm vụ, trong đó có phần khó đo và khó thưởng. [3] Khi phần dễ đo được thưởng quá mạnh, người làm có thể chuyển công sức khỏi phần quan trọng nhưng ít được ghi nhận. Đây là vấn đề thiết kế hệ thống, không nhất thiết xuất phát từ ý định gian dối của người lao động.</p>\n<p>Trong ví dụ một xưởng may, thưởng hoàn toàn theo số áo có thể làm người thợ ưu tiên tốc độ, còn người kiểm hàng phải xử lý thêm lỗi. Nếu chỉ chuyển sang thưởng theo tỷ lệ lỗi thấp, người làm có thể ngại nhận mẫu khó. Một chỉ số riêng lẻ khó thể hiện trọn vẹn đóng góp. Cần xem chất lượng, độ khó, phối hợp và khả năng duy trì kết quả theo thời gian.</p>\n<h2>Thiết kế công việc trước khi chọn công thức thưởng</h2>\n<p>Bài học ứng dụng của chuyên mục là bắt đầu từ kết quả thật sự mong muốn, rồi liệt kê những việc tạo ra kết quả đó. Việc nào quan sát được, việc nào chỉ thể hiện sau nhiều tháng và việc nào đòi hỏi phối hợp? Khi đã hiểu cấu trúc công việc, mới lựa chọn chỉ tiêu và mức thưởng. Làm ngược lại dễ biến bảng đánh giá thành mục tiêu tự thân, khiến người làm tối ưu bảng điểm thay vì phục vụ khách hàng.</p>\n<p>Cũng cần giữ chỗ cho phản hồi và phán đoán có trách nhiệm. Không phải yếu tố quan trọng nào cũng có thể chuyển thành một con số công bằng. Tuy nhiên, đánh giá định tính cũng có thể thiên lệch, nên cần tiêu chí rõ và cơ chế giải thích. Mục tiêu là kết hợp nhiều loại thông tin phù hợp, không thay một cực đoan bằng cực đoan khác.</p>\n<h2>Không có một cơ chế đúng cho mọi tổ chức</h2>\n<p>Một công thức phù hợp với công việc độc lập, lặp lại có thể gây lệch động lực trong công việc sáng tạo hoặc cần hỗ trợ đồng đội. Thay đổi cách thưởng còn có thể làm hành vi thay đổi theo những cách khó đoán trước. Vì thế, nên theo dõi cả tác dụng ngoài dự kiến, hỏi người trực tiếp làm việc và điều chỉnh khi có bằng chứng. Đây là quá trình quản trị, không phải một lần điền xong bảng tính.</p>\n<p>Đọc Holmström giúp chuyển câu hỏi từ “thưởng bao nhiêu để làm tốt hơn” sang “cơ chế này đang làm việc gì trở nên hấp dẫn hơn”. Với chủ doanh nghiệp và người học đầu tư, đó là một cách nhìn hữu ích về chất lượng tổ chức. Những chỉ tiêu đẹp chỉ có ý nghĩa khi chúng phản ánh điều doanh nghiệp thật sự cần đạt, thay vì che đi phần việc quan trọng đang bị bỏ quên.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://economics.mit.edu/people/faculty/bengt-holmstrom/short-biography\">MIT Economics — Bengt Holmström, Short Biography</a></li><li><a href=\"https://mitsloan.mit.edu/ideas-made-to-matter/nobel-prize-lecture-lessons-managing-employee-incentives\">MIT Sloan — Lessons for managing employee incentives</a></li><li><a href=\"https://www.nobelprize.org/uploads/2018/06/popular-economicsciences2016-1.pdf\">Nobel Prize — Popular information, Economic Sciences 2016</a></li><li><a href=\"https://news.mit.edu/2016/economist-bengt-holmstrom-nobel-prize-1010\">MIT News — Bengt Holmström wins Nobel Prize</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Bengt_Holmström.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/nguyen-duy-hung-niem-tin-va-thi-truong-von/\">Nguyễn Duy Hưng: Xây doanh nghiệp cùng sự trưởng thành của thị trường vốn</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/nguyen-duy-hung-niem-tin-va-thi-truong-von/",
+      "title": "Nguyễn Duy Hưng: Xây doanh nghiệp cùng sự trưởng thành của thị trường vốn",
+      "title_en": "Nguyễn Duy Hưng: Building a business alongside the capital market"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/bengt-holmstrom.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1909&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/"
+  },
+  {
+    "key": "jan-tinbergen",
+    "slug": "jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh",
+    "title": "Jan Tinbergen: Muốn đạt mục tiêu cần chọn đúng công cụ",
+    "title_en": "Jan Tinbergen: Matching objectives with effective instruments",
+    "excerpt": "Nhà kinh tế Hà Lan và cách dùng mô hình để nối mục tiêu, công cụ, dữ liệu cùng những đánh đổi trong chính sách.",
+    "excerpt_en": "The Dutch economist and models linking objectives, instruments, evidence and policy trade-offs.",
+    "credit": "Jan Tinbergen năm 1986. Ảnh: Rob Croes / Anefo, Nationaal Archief; CC0.",
+    "credit_en": "Jan Tinbergen in 1986. Photograph: Rob Croes / Anefo, Nationaal Archief; CC0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Jan_Tinbergen_1986.jpg",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sources": [
+      {
+        "label": "Tinbergen Institute — Nobel Prize Laureate Jan Tinbergen",
+        "url": "https://tinbergen.nl/professor-jan-tinbergen"
+      },
+      {
+        "label": "Jan Tinbergen — The Use of Models: Experience and Prospects, Nobel lecture",
+        "url": "https://www.nobelprize.org/prizes/economic-sciences/1969/tinbergen/lecture/"
+      },
+      {
+        "label": "Nobel Prize — Economic Sciences 1969–2007",
+        "url": "https://www.nobelprize.org/prizes/uncategorized/the-sveriges-riksbank-prize-in-economic-sciences-in-memory-of-alfred-nobel-1969-2007/"
+      },
+      {
+        "label": "University of St Andrews — Jan Tinbergen",
+        "url": "https://mathshistory.st-andrews.ac.uk/Biographies//Tinbergen/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một kế hoạch có thể đặt ra nhiều điều mong muốn: tăng sản lượng, giữ giá thấp, tạo việc làm và bảo vệ ngân sách. Nhưng mong muốn chưa phải công cụ thực hiện. Jan Tinbergen, nhà kinh tế Hà Lan, giúp người đọc nhìn rõ khoảng cách giữa mục tiêu và khả năng tác động của chính sách. Công trình của ông cũng nhắc rằng mô hình có ích khi buộc ta nói rõ giả định và đối chiếu với thực tế.",
+        "en": "A plan may seek more output, low prices, employment and a protected budget. Desirable goals are not instruments for achieving them. Dutch economist Jan Tinbergen helps clarify the gap between objectives and effective policy levers. Models are useful when they make assumptions explicit and confront them with evidence."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ vật lý đến những vấn đề xã hội",
+        "en": "From physics to social problems"
+      },
+      {
+        "tag": "p",
+        "vi": "Tinbergen sinh tại The Hague năm 1903, học vật lý toán và nhận bằng tiến sĩ tại Leiden năm 1929. Ông chuyển trọng tâm sang kinh tế vì quan tâm tới nghèo đói và những vấn đề xã hội. [1] Nền tảng định lượng giúp ông xây dựng công cụ phân tích, nhưng điều thúc đẩy công việc không chỉ là vẻ đẹp của phương trình. Ông muốn nghiên cứu góp phần giải quyết những khó khăn thực tế của thời đại.",
+        "en": "Born in The Hague in 1903, Tinbergen studied mathematical physics and earned his Leiden doctorate in 1929. Concern about poverty and social problems drew him to economics. [1] Quantitative training supplied tools, while practical social questions motivated their use."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông bắt đầu nghiên cứu tại cơ quan thống kê Hà Lan, trình bày mô hình kinh tế vĩ mô động cho Hà Lan năm 1936 và tiếp tục nghiên cứu dữ liệu Mỹ theo công việc với Hội Quốc Liên. [1] Năm 1969, Tinbergen cùng Ragnar Frisch nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel đầu tiên. [3] Giải thưởng ghi nhận đóng góp phát triển và ứng dụng mô hình động, không phải khả năng dự đoán hoàn hảo mọi biến động.",
+        "en": "He began work at the Dutch statistics bureau, presented a dynamic macroeconomic model of the Netherlands in 1936 and later studied US data for the League of Nations. [1] He shared the first economics memorial prize with Ragnar Frisch in 1969. [3] The award recognized modelling contributions, not flawless forecasting."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mô hình phải nói rõ quan hệ được giả định",
+        "en": "A model should make its relationships explicit"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài giảng Nobel năm 1969, Tinbergen mô tả việc xây dựng mô hình qua lựa chọn biến, xác định quan hệ và kiểm tra mức phù hợp bằng quan sát. Kết quả kiểm tra có thể buộc người nghiên cứu sửa lại cả biến lẫn quan hệ đã chọn. [2] Đây là điểm quan trọng: mô hình không chỉ là hình thức trang trí để làm một quan điểm có vẻ khoa học, mà phải có khả năng bị thực tế thách thức.",
+        "en": "In his 1969 Nobel lecture, Tinbergen described selecting variables, specifying relationships and testing them against observations. Testing may require revising both variables and relationships. [2] A model should be challengeable by reality, not merely decorate an opinion with scientific-looking notation."
+      },
+      {
+        "tag": "p",
+        "vi": "Chẳng hạn, nếu giả định doanh thu tăng khi giảm giá, cần nói rõ trong khoảng giá nào, với nhóm khách nào và khi các điều kiện khác ra sao. Quan hệ tìm thấy trong một giai đoạn có thể không giữ nguyên khi đối thủ thay đổi hoặc sản phẩm bước sang vòng đời khác. Ghi rõ điều kiện áp dụng giúp người dùng mô hình biết khi nào cần xem xét lại kết luận.",
+        "en": "A claim that lower prices raise revenue needs a price range, customer group and surrounding conditions. A relationship from one period may change with competitors or a product’s life cycle. Explicit conditions tell model users when conclusions need reconsideration."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mục tiêu và công cụ không phải cùng một thứ",
+        "en": "Objectives and instruments are different"
+      },
+      {
+        "tag": "p",
+        "vi": "Một đóng góp gắn với Tinbergen là phân tích quan hệ giữa công cụ chính sách và mục tiêu. Tổng quan Nobel nhấn mạnh việc ông và Frisch đưa vấn đề này vào khuôn khổ có thể lượng hóa và kiểm tra. [3] Một công cụ ảnh hưởng tới nhiều mục tiêu, còn một mục tiêu có thể chịu tác động của nhiều công cụ. Vì vậy, không thể chỉ đặt tên một biện pháp rồi mặc nhiên cho rằng nó sẽ đạt mọi điều mong muốn.",
+        "en": "Tinbergen contributed to analysing relationships between policy instruments and targets. Nobel’s overview notes that he and Frisch made this framework suitable for quantification and testing. [3] One instrument can affect several targets, and one target can depend on several instruments. Naming a measure does not establish that it achieves every objective."
+      },
+      {
+        "tag": "p",
+        "vi": "Nguyên tắc thường được gắn với Tinbergen nói rằng để đạt nhiều mục tiêu độc lập một cách chính xác, cần có đủ công cụ độc lập và hữu hiệu, trong các điều kiện của mô hình. Chỉ đếm số công cụ là chưa đủ: chúng có thể cùng tác động theo một hướng, quá yếu hoặc bị ràng buộc. Đây là cách kiểm tra tính khả thi, không phải công thức bảo đảm thành công cho mọi chương trình.",
+        "en": "The principle associated with Tinbergen requires enough independent, effective instruments to achieve independent targets exactly under the model’s conditions. Counting instruments is insufficient if they are redundant, weak or constrained. It is a feasibility test, not a universal guarantee."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một ví dụ ở quy mô doanh nghiệp",
+        "en": "An example at business scale"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định của chuyên mục: một xưởng muốn tăng số đơn và nâng tỷ lệ lợi nhuận, nhưng chỉ sử dụng giảm giá. Biện pháp đó có thể kéo thêm khách mà đồng thời làm biên lợi nhuận thấp đi. Muốn cải thiện cả hai, xưởng có thể phải xem lại cơ cấu sản phẩm, hao hụt, năng suất hoặc cách chọn khách. Từng công cụ cần được kiểm tra bằng dữ liệu, không chỉ thêm vào danh sách cho đủ số lượng.",
+        "en": "Suppose a workshop wants more orders and a higher profit margin but uses only discounts. More customers may come with lower margins. Improving both may require product mix, waste reduction, productivity or customer selection. Each instrument needs evidence, not merely a place on a list."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần phân biệt mục tiêu cuối với chỉ tiêu trung gian. Tăng lượt hỏi giá không phải lúc nào cũng tăng số đơn phù hợp; tăng số đơn chưa chắc tăng tiền thực thu. Nếu dùng chỉ tiêu trung gian làm mục tiêu chính, doanh nghiệp có thể bận hơn mà không khỏe hơn. Một kế hoạch rõ cần giải thích chuỗi quan hệ từ hành động tới kết quả cuối cùng và vị trí có thể đứt gãy.",
+        "en": "Distinguish final goals from intermediate indicators. More inquiries need not mean suitable orders, and more orders need not mean more collected cash. Optimizing an intermediate metric can make a business busier without improving it. Explain the chain from action to outcome and where it may break."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khi công cụ không đủ, cần nói rõ đánh đổi",
+        "en": "When instruments are insufficient, state the trade-offs"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong thực tế, quyền hạn, ngân sách và thời gian đều giới hạn. Một tổ chức có thể không đạt đồng thời tất cả mục tiêu ở mức mong muốn. Khi đó cần xác định ưu tiên, mức chấp nhận được và điều kiện để điều chỉnh. Việc trình bày đánh đổi rõ ràng hữu ích hơn hứa rằng một thay đổi nhỏ sẽ giải quyết mọi vấn đề mà không ai chịu chi phí.",
+        "en": "Authority, budgets and time are limited. Organizations may not achieve every objective at the desired level. They should state priorities, acceptable outcomes and conditions for adjustment. Explicit trade-offs are more useful than promising a small change that solves everything at no cost."
+      },
+      {
+        "tag": "p",
+        "vi": "Tinbergen mất năm 1994. [4] Di sản đáng học của ông không chỉ nằm trong mô hình lớn ở cấp quốc gia. Nó còn nằm ở một thói quen thực tế: xác định đúng điều muốn đạt, kiểm tra công cụ thật sự có trong tay, ghi rõ mối quan hệ dự kiến và đối chiếu kết quả. Một kế hoạch tốt không cần giả vờ biết trước tương lai; nó cần chỉ ra cách học và sửa khi tương lai diễn ra khác dự tính.",
+        "en": "Tinbergen died in 1994. [4] His useful legacy extends beyond national models: define goals, assess available instruments, state expected relationships and compare outcomes. A good plan need not pretend to know the future; it should explain how to learn and revise when events differ."
+      }
+    ],
+    "html": "<p><em>Jan Tinbergen năm 1986. Ảnh: Rob Croes / Anefo, Nationaal Archief; CC0.</em></p>\n<p>Một kế hoạch có thể đặt ra nhiều điều mong muốn: tăng sản lượng, giữ giá thấp, tạo việc làm và bảo vệ ngân sách. Nhưng mong muốn chưa phải công cụ thực hiện. Jan Tinbergen, nhà kinh tế Hà Lan, giúp người đọc nhìn rõ khoảng cách giữa mục tiêu và khả năng tác động của chính sách. Công trình của ông cũng nhắc rằng mô hình có ích khi buộc ta nói rõ giả định và đối chiếu với thực tế.</p>\n<h2>Từ vật lý đến những vấn đề xã hội</h2>\n<p>Tinbergen sinh tại The Hague năm 1903, học vật lý toán và nhận bằng tiến sĩ tại Leiden năm 1929. Ông chuyển trọng tâm sang kinh tế vì quan tâm tới nghèo đói và những vấn đề xã hội. [1] Nền tảng định lượng giúp ông xây dựng công cụ phân tích, nhưng điều thúc đẩy công việc không chỉ là vẻ đẹp của phương trình. Ông muốn nghiên cứu góp phần giải quyết những khó khăn thực tế của thời đại.</p>\n<p>Ông bắt đầu nghiên cứu tại cơ quan thống kê Hà Lan, trình bày mô hình kinh tế vĩ mô động cho Hà Lan năm 1936 và tiếp tục nghiên cứu dữ liệu Mỹ theo công việc với Hội Quốc Liên. [1] Năm 1969, Tinbergen cùng Ragnar Frisch nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel đầu tiên. [3] Giải thưởng ghi nhận đóng góp phát triển và ứng dụng mô hình động, không phải khả năng dự đoán hoàn hảo mọi biến động.</p>\n<h2>Mô hình phải nói rõ quan hệ được giả định</h2>\n<p>Trong bài giảng Nobel năm 1969, Tinbergen mô tả việc xây dựng mô hình qua lựa chọn biến, xác định quan hệ và kiểm tra mức phù hợp bằng quan sát. Kết quả kiểm tra có thể buộc người nghiên cứu sửa lại cả biến lẫn quan hệ đã chọn. [2] Đây là điểm quan trọng: mô hình không chỉ là hình thức trang trí để làm một quan điểm có vẻ khoa học, mà phải có khả năng bị thực tế thách thức.</p>\n<p>Chẳng hạn, nếu giả định doanh thu tăng khi giảm giá, cần nói rõ trong khoảng giá nào, với nhóm khách nào và khi các điều kiện khác ra sao. Quan hệ tìm thấy trong một giai đoạn có thể không giữ nguyên khi đối thủ thay đổi hoặc sản phẩm bước sang vòng đời khác. Ghi rõ điều kiện áp dụng giúp người dùng mô hình biết khi nào cần xem xét lại kết luận.</p>\n<h2>Mục tiêu và công cụ không phải cùng một thứ</h2>\n<p>Một đóng góp gắn với Tinbergen là phân tích quan hệ giữa công cụ chính sách và mục tiêu. Tổng quan Nobel nhấn mạnh việc ông và Frisch đưa vấn đề này vào khuôn khổ có thể lượng hóa và kiểm tra. [3] Một công cụ ảnh hưởng tới nhiều mục tiêu, còn một mục tiêu có thể chịu tác động của nhiều công cụ. Vì vậy, không thể chỉ đặt tên một biện pháp rồi mặc nhiên cho rằng nó sẽ đạt mọi điều mong muốn.</p>\n<p>Nguyên tắc thường được gắn với Tinbergen nói rằng để đạt nhiều mục tiêu độc lập một cách chính xác, cần có đủ công cụ độc lập và hữu hiệu, trong các điều kiện của mô hình. Chỉ đếm số công cụ là chưa đủ: chúng có thể cùng tác động theo một hướng, quá yếu hoặc bị ràng buộc. Đây là cách kiểm tra tính khả thi, không phải công thức bảo đảm thành công cho mọi chương trình.</p>\n<h2>Một ví dụ ở quy mô doanh nghiệp</h2>\n<p>Ví dụ giả định của chuyên mục: một xưởng muốn tăng số đơn và nâng tỷ lệ lợi nhuận, nhưng chỉ sử dụng giảm giá. Biện pháp đó có thể kéo thêm khách mà đồng thời làm biên lợi nhuận thấp đi. Muốn cải thiện cả hai, xưởng có thể phải xem lại cơ cấu sản phẩm, hao hụt, năng suất hoặc cách chọn khách. Từng công cụ cần được kiểm tra bằng dữ liệu, không chỉ thêm vào danh sách cho đủ số lượng.</p>\n<p>Cũng cần phân biệt mục tiêu cuối với chỉ tiêu trung gian. Tăng lượt hỏi giá không phải lúc nào cũng tăng số đơn phù hợp; tăng số đơn chưa chắc tăng tiền thực thu. Nếu dùng chỉ tiêu trung gian làm mục tiêu chính, doanh nghiệp có thể bận hơn mà không khỏe hơn. Một kế hoạch rõ cần giải thích chuỗi quan hệ từ hành động tới kết quả cuối cùng và vị trí có thể đứt gãy.</p>\n<h2>Khi công cụ không đủ, cần nói rõ đánh đổi</h2>\n<p>Trong thực tế, quyền hạn, ngân sách và thời gian đều giới hạn. Một tổ chức có thể không đạt đồng thời tất cả mục tiêu ở mức mong muốn. Khi đó cần xác định ưu tiên, mức chấp nhận được và điều kiện để điều chỉnh. Việc trình bày đánh đổi rõ ràng hữu ích hơn hứa rằng một thay đổi nhỏ sẽ giải quyết mọi vấn đề mà không ai chịu chi phí.</p>\n<p>Tinbergen mất năm 1994. [4] Di sản đáng học của ông không chỉ nằm trong mô hình lớn ở cấp quốc gia. Nó còn nằm ở một thói quen thực tế: xác định đúng điều muốn đạt, kiểm tra công cụ thật sự có trong tay, ghi rõ mối quan hệ dự kiến và đối chiếu kết quả. Một kế hoạch tốt không cần giả vờ biết trước tương lai; nó cần chỉ ra cách học và sửa khi tương lai diễn ra khác dự tính.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://tinbergen.nl/professor-jan-tinbergen\">Tinbergen Institute — Nobel Prize Laureate Jan Tinbergen</a></li><li><a href=\"https://www.nobelprize.org/prizes/economic-sciences/1969/tinbergen/lecture/\">Jan Tinbergen — The Use of Models: Experience and Prospects, Nobel lecture</a></li><li><a href=\"https://www.nobelprize.org/prizes/uncategorized/the-sveriges-riksbank-prize-in-economic-sciences-in-memory-of-alfred-nobel-1969-2007/\">Nobel Prize — Economic Sciences 1969–2007</a></li><li><a href=\"https://mathshistory.st-andrews.ac.uk/Biographies//Tinbergen/\">University of St Andrews — Jan Tinbergen</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Jan_Tinbergen_1986.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/zero/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/\">Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/",
+      "title": "Léon Walras: Vì sao không thể nhìn từng thị trường riêng lẻ",
+      "title_en": "Léon Walras: Why markets cannot be viewed in isolation"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/jan-tinbergen.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1912&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/"
+  }
+]
