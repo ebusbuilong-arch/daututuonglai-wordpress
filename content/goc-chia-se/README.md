@@ -1,6 +1,6 @@
 # Góc chia sẻ — kế hoạch chân dung nhân vật
 Ngày lập: 2026-11-13. Đích: daututuonglai.vn/category/goc-chia-se/.
-Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tập, không phải xác nhận 80 bài đã viết hoặc xuất bản.
+Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đã hoàn tất 80 bài VI+EN và ảnh chân dung theo kế hoạch ngày 14/11/2026.
 
 ## Hai tuyến nội dung
 1. Cuộc đời và triết lý kinh doanh: nhà đầu tư, ngân hàng, doanh nhân, nhà sáng lập và CEO. Phân biệt các vai trò, ghi mốc thời gian khi mô tả chức danh.
@@ -22,9 +22,9 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Đã xuất bản VI/EN ngày 14/11/2026 |
-| 14 | A. W. Phillips; Michio Morishima; Lâm Nghị Phu; Lim Chong Yah; Widjojo Nitisastro | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
-| 15 | José Encarnación Jr.; Muhammad Yunus; Saman Kelegama; Dani Rodrik; Raúl Prebisch | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
-| 16 | Celso Furtado; Manfred Max-Neef; Hernando de Soto; Santiago Levy; Samir Amin | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 14 | A. W. Phillips; Michio Morishima; Lâm Nghị Phu; Lim Chong Yah; Widjojo Nitisastro | Đã xuất bản VI/EN và đủ ảnh ngày 14/11/2026 |
+| 15 | José Encarnación Jr.; Muhammad Yunus; Saman Kelegama; Dani Rodrik; Raúl Prebisch | Đã xuất bản VI/EN và đủ ảnh ngày 14/11/2026 |
+| 16 | Celso Furtado; Manfred Max-Neef; Hernando de Soto; Santiago Levy; Samir Amin | Đã xuất bản VI/EN và đủ ảnh ngày 14/11/2026 |
 
 ## Tiêu chuẩn từng bài
 - Tiêu đề, slug riêng, mô tả tìm kiếm, giới thiệu ngắn; khoảng 800–1.200 từ tiếng Việt khi hoàn thiện.
@@ -192,3 +192,40 @@ Bản lưu: [package-12-bilingual.json](./package-12-bilingual.json). Nhập 89 
 - [Max Corden](https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/) · [EN](https://daututuonglai.vn/en/2026/11/14/max-corden-thuong-mai-va-chi-phi/)
 
 Bản lưu: [package-13-bilingual.json](./package-13-bilingual.json). Đã nhập 89 chuỗi EN; kiểm tra đủ từng đoạn, tiêu đề, chú thích và năm mô tả ngắn EN. Bốn chân dung tư liệu có ghi nguồn, tác giả và giấy phép; Max Corden dùng minh họa AI tham chiếu, ghi nhãn VI/EN. Năm ảnh WebP tải được, object-fit: contain trên danh mục. Không thay theme.
+
+
+## Gói 14 đã xuất bản — 14/11/2026
+
+- [A. W. Phillips](https://daututuonglai.vn/2026/11/14/aw-phillips-lam-phat-va-viec-lam/) · [EN](https://daututuonglai.vn/en/2026/11/14/aw-phillips-lam-phat-va-viec-lam/)
+- [Michio Morishima](https://daututuonglai.vn/2026/11/14/michio-morishima-toan-hoc-va-lich-su/) · [EN](https://daututuonglai.vn/en/2026/11/14/michio-morishima-toan-hoc-va-lich-su/)
+- [Lâm Nghị Phu](https://daututuonglai.vn/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/) · [EN](https://daututuonglai.vn/en/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/)
+- [Lim Chong Yah](https://daututuonglai.vn/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/) · [EN](https://daututuonglai.vn/en/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/)
+- [Widjojo Nitisastro](https://daututuonglai.vn/2026/11/14/widjojo-nitisastro-on-dinh-va-phat-trien/) · [EN](https://daututuonglai.vn/en/2026/11/14/widjojo-nitisastro-on-dinh-va-phat-trien/)
+
+Bản lưu: [package-14-bilingual.json](./package-14-bilingual.json). Đã kiểm tra toàn bộ nội dung, tiêu đề, chú thích VI/EN, năm mô tả EN trên danh mục và năm ảnh tải được. Ảnh WebP tối đa 800 px, object-fit: contain; không chứa câu mô tả thao tác chuyển đổi trong chú thích. Bốn ảnh tư liệu có nguồn; Lim Chong Yah dùng minh họa AI tham chiếu NTU, có nhãn VI/EN.
+
+
+## Gói 15 đã xuất bản — 14/11/2026
+
+- [José Encarnación Jr.](https://daututuonglai.vn/2026/11/14/jose-encarnacion-thu-tu-uu-tien/) · [EN](https://daututuonglai.vn/en/2026/11/14/jose-encarnacion-thu-tu-uu-tien/)
+- [Muhammad Yunus](https://daututuonglai.vn/2026/11/14/muhammad-yunus-tin-dung-va-co-hoi/) · [EN](https://daututuonglai.vn/en/2026/11/14/muhammad-yunus-tin-dung-va-co-hoi/)
+- [Saman Kelegama](https://daututuonglai.vn/2026/11/14/saman-kelegama-thuong-mai-va-nang-luc/) · [EN](https://daututuonglai.vn/en/2026/11/14/saman-kelegama-thuong-mai-va-nang-luc/)
+- [Dani Rodrik](https://daututuonglai.vn/2026/11/14/dani-rodrik-toan-cau-hoa-va-lua-chon/) · [EN](https://daututuonglai.vn/en/2026/11/14/dani-rodrik-toan-cau-hoa-va-lua-chon/)
+- [Raúl Prebisch](https://daututuonglai.vn/2026/11/14/raul-prebisch-co-cau-va-thuong-mai/) · [EN](https://daututuonglai.vn/en/2026/11/14/raul-prebisch-co-cau-va-thuong-mai/)
+
+Bản lưu: [package-15-bilingual.json](./package-15-bilingual.json). Đã kiểm tra toàn bộ nội dung, tiêu đề, chú thích VI/EN, năm mô tả EN trên danh mục và năm ảnh tải được. Ảnh WebP tối đa 800 px, object-fit: contain; không chứa câu mô tả thao tác chuyển đổi trong chú thích. Bốn ảnh tư liệu có nguồn; Saman Kelegama dùng minh họa AI tham chiếu IPS Sri Lanka, có nhãn VI/EN.
+
+
+## Gói 16 đã xuất bản — 14/11/2026
+
+- [Celso Furtado](https://daututuonglai.vn/2026/11/14/celso-furtado-phat-trien-va-lich-su/) · [EN](https://daututuonglai.vn/en/2026/11/14/celso-furtado-phat-trien-va-lich-su/)
+- [Manfred Max-Neef](https://daututuonglai.vn/2026/11/14/manfred-max-neef-nhu-cau-con-nguoi/) · [EN](https://daututuonglai.vn/en/2026/11/14/manfred-max-neef-nhu-cau-con-nguoi/)
+- [Hernando de Soto](https://daututuonglai.vn/2026/11/14/hernando-de-soto-tai-san-va-the-che/) · [EN](https://daututuonglai.vn/en/2026/11/14/hernando-de-soto-tai-san-va-the-che/)
+- [Santiago Levy](https://daututuonglai.vn/2026/11/14/santiago-levy-chinh-sach-va-dong-co/) · [EN](https://daututuonglai.vn/en/2026/11/14/santiago-levy-chinh-sach-va-dong-co/)
+- [Samir Amin](https://daututuonglai.vn/2026/11/14/samir-amin-phat-trien-va-tu-chu/) · [EN](https://daututuonglai.vn/en/2026/11/14/samir-amin-phat-trien-va-tu-chu/)
+
+Bản lưu: [package-16-bilingual.json](./package-16-bilingual.json). Đã kiểm tra toàn bộ nội dung, tiêu đề, chú thích VI/EN, năm mô tả EN trên danh mục và năm ảnh tải được. Ảnh WebP tối đa 800 px, object-fit: contain; không chứa câu mô tả thao tác chuyển đổi trong chú thích. Năm ảnh tư liệu có nguồn, tác giả và giấy phép trong từng bài.
+
+## Hoàn tất kế hoạch 80 nhân vật
+
+Đủ 16/16 gói, mỗi gói 5 bài song ngữ. Theo yêu cầu ưu tiên nội dung ngày 14/11/2026, gói 14–16 được xuất bản nội dung trước rồi bổ sung ảnh. Đã nhập 273 chuỗi nội dung EN và 10 chú thích EN bổ sung cho ba gói cuối; kiểm tra từng đoạn trên trang công khai và mô tả ngoài danh mục. Không thay theme. Các ghi chú chờ ảnh ở phần lịch sử đã được cập nhật bằng các mục hoàn tất tương ứng bên trên.
