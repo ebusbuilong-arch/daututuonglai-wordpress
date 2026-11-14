@@ -14,7 +14,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 03 | Lý Gia Thành; Peter Lynch; Bill Gates; Steve Jobs; Ha-Joon Chang | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh |
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 ảnh thật và nguồn |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh, 4 ảnh thật và 1 minh họa AI tham chiếu |
-| 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ ảnh, 3 ảnh thật và 2 minh họa AI tham chiếu |
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -104,3 +104,14 @@ Bản lưu: [package-05-bilingual.json](./package-05-bilingual.json). Đã nhậ
 Bốn ảnh thật: Nadella và Pichai (CC BY 2.0), Kahneman và Cook (CC BY-SA 2.0). Mahbub ul Haq dùng minh họa AI tham chiếu ảnh lưu trữ World Bank, có nhãn rõ VI/EN. Additional CSS giữ trọn khuôn mặt bằng object-fit: contain cho 5 ảnh mới.
 
 Theo yêu cầu chủ website, đã bỏ các câu mô tả thao tác thu nhỏ/chuyển WebP khỏi chú thích hiển thị và Image Caption của 17 bài ở gói 01–04; bản EN và bản lưu song ngữ cũng được cập nhật. Gói 05 không đưa câu này vào chú thích. Tiếp tục tối ưu tệp ảnh nội bộ nhưng phần hiển thị chỉ ghi nhân vật, nguồn, giấy phép và nhận diện AI khi áp dụng. Các khác biệt nội dung ảnh cần thiết để ghi công như tác giả bản cắt vẫn được giữ.
+
+
+## Gói 06 đã xuất bản — 14/11/2026
+
+- [Sam Altman](https://daututuonglai.vn/2026/11/14/sam-altman-san-pham-va-tang-truong/) · [EN](https://daututuonglai.vn/en/2026/11/14/sam-altman-san-pham-va-tang-truong/)
+- [Philip Fisher](https://daututuonglai.vn/2026/11/14/philip-fisher-chat-luong-tang-truong/) · [EN](https://daututuonglai.vn/en/2026/11/14/philip-fisher-chat-luong-tang-truong/)
+- [John Templeton](https://daututuonglai.vn/2026/11/14/john-templeton-tu-duy-dau-tu-toan-cau/) · [EN](https://daututuonglai.vn/en/2026/11/14/john-templeton-tu-duy-dau-tu-toan-cau/)
+- [George Soros](https://daututuonglai.vn/2026/11/14/george-soros-phan-hoi-va-bat-dinh/) · [EN](https://daututuonglai.vn/en/2026/11/14/george-soros-phan-hoi-va-bat-dinh/)
+- [Ray Dalio](https://daututuonglai.vn/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/) · [EN](https://daututuonglai.vn/en/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/)
+
+Bản lưu: [package-06-bilingual.json](./package-06-bilingual.json). Đã nhập 87 chuỗi tiếng Anh; kiểm tra đủ từng đoạn, đề mục, tiêu đề, chú thích và năm mô tả ngắn trên danh mục. Ba ảnh thật: Altman (Village Global, CC BY 2.0), Soros (Frank Plitt, CC BY 3.0), Dalio (Grameen America, CC BY 3.0). Fisher và Templeton thời trẻ dùng minh họa AI tham chiếu ảnh tư liệu, ghi nhãn rõ bằng VI/EN. Tệp WebP khoảng 33–56 KB, cạnh dài tối đa 800 px; chú thích không chứa mô tả thao tác chuyển đổi. Đã kiểm tra ảnh tải được và Additional CSS giữ nguyên khuôn mặt với object-fit: contain. Dalio được ghi đúng là nhà sáng lập đã chuyển giao các vai trò điều hành. Không thay theme.
