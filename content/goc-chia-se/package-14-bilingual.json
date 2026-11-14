@@ -1,0 +1,582 @@
+[
+  {
+    "key": "aw-phillips",
+    "slug": "aw-phillips-lam-phat-va-viec-lam",
+    "title": "A. W. Phillips: Từ máy nước đến câu hỏi về tiền lương",
+    "title_en": "A. W. Phillips: From a water machine to the wage question",
+    "excerpt": "Nhà kinh tế New Zealand, mô hình MONIAC và lý do không nên đọc đường Phillips như một quy luật bất biến.",
+    "excerpt_en": "The New Zealand economist, MONIAC and why the Phillips curve is not an unchanging rule.",
+    "credit": "A. W. H. Phillips. Nguồn: LSE Library / Flickr Commons; không có hạn chế bản quyền được biết đến.",
+    "credit_en": "A. W. H. Phillips. Source: LSE Library / Flickr Commons; no known copyright restrictions.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Professor_A.W.H_(Bill)_Phillips.jpg",
+    "license": "https://www.flickr.com/commons/usage/",
+    "sources": [
+      {
+        "label": "LSE — Bill Phillips and the Phillips Machine",
+        "url": "https://blogs.lse.ac.uk/lsehistory/2014/11/18/nicholas-barr-remembers-bill-phillips/"
+      },
+      {
+        "label": "Phillips — The Relation Between Unemployment and Money Wage Rates, 1958",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1468-0335.1958.tb00003.x"
+      },
+      {
+        "label": "Federal Reserve Bank of St. Louis — The Phillips Curve",
+        "url": "https://www.stlouisfed.org/open-vault/2020/january/what-is-phillips-curve-why-flattened"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Nếu muốn nhìn nền kinh tế chuyển động, liệu có thể dùng nước thay cho tiền? A. W. Phillips từng biến câu hỏi ấy thành một thiết bị có thật. Câu chuyện của ông cho thấy kinh tế học không chỉ bắt đầu từ công thức: nó cũng có thể bắt đầu từ một người thích quan sát máy móc, tìm quan hệ giữa các bộ phận rồi thử làm cho quan hệ đó trở nên nhìn thấy được.",
+        "en": "Could water represent money so that an economy’s movements become visible? A. W. Phillips built a real machine around that idea. His story shows how economic inquiry can begin with practical curiosity about connected components, not just equations."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một lối vào học thuật không thẳng tắp",
+        "en": "An unconventional route into academia"
+      },
+      {
+        "tag": "p",
+        "vi": "Alban William Housego Phillips, thường được gọi là Bill Phillips, sinh năm 1914 tại New Zealand và mất năm 1975. Ông có nền tảng kỹ thuật điện, trải qua chiến tranh và thời gian bị giam giữ trước khi học ở London School of Economics. [1] Hành trình ấy khác hình dung quen thuộc về một học giả đi thẳng từ trường đại học đến phòng nghiên cứu. Kinh nghiệm thực hành là một phần đáng chú ý trong cách ông đặt vấn đề.",
+        "en": "Alban William Housego “Bill” Phillips lived from 1914 to 1975. Born in New Zealand, he trained in electrical work and experienced wartime captivity before studying at the London School of Economics. [1] Practical experience helped shape his unusual academic path."
+      },
+      {
+        "tag": "p",
+        "vi": "Năm 1949, ông trình diễn một mô hình thủy lực mô phỏng các luồng của nền kinh tế, về sau thường được biết đến với tên MONIAC. Thiết bị dùng bể chứa, ống dẫn và dòng nước để biểu diễn quan hệ giữa thu nhập, chi tiêu cùng các dòng tiền khác. [1] Điều đáng học không phải là thay mọi phân tích bằng một chiếc máy, mà là nỗ lực làm rõ điều gì đi vào, đi ra và phản hồi tới hệ thống.",
+        "en": "In 1949 he demonstrated a hydraulic economic model, later widely known as MONIAC. Tanks, pipes and water flows represented income, spending and related flows. [1] Its value lay in making connections and feedback visible rather than replacing all analysis with a machine."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đường cong ban đầu nói về tiền lương",
+        "en": "The original curve concerned wages"
+      },
+      {
+        "tag": "p",
+        "vi": "Bài nghiên cứu năm 1958 của Phillips xem xét thất nghiệp và tốc độ thay đổi tiền lương danh nghĩa tại Anh trong giai đoạn 1861–1957. [2] Đây là chi tiết cần giữ đúng: biến ban đầu là tiền lương, không trực tiếp là chỉ số giá tiêu dùng. Mối quan hệ sau đó được mở rộng trong các thảo luận về lạm phát giá cả. [3] Nếu bỏ qua bước chuyển này, người đọc dễ gộp những khái niệm khác nhau thành một đường đơn giản.",
+        "en": "Phillips’s 1958 paper examined unemployment and the rate of change of money wages in Britain from 1861 to 1957. [2] The original variable was wages, not consumer prices. Subsequent discussions extended the relationship to price inflation. [3] That distinction matters."
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách diễn giải trực giác là khi lao động khó tuyển hơn, doanh nghiệp có thể phải trả lương cao hơn để thu hút người. Tuy nhiên, chi phí lao động còn phụ thuộc năng suất, còn giá bán chịu ảnh hưởng của nhiều đầu vào và điều kiện cạnh tranh. Vì vậy, từ một quan sát về thị trường lao động đến dự báo giá cả cần thêm giả định. Không thể chỉ nhìn thất nghiệp giảm rồi khẳng định mọi loại giá sẽ tăng cùng một mức.",
+        "en": "Scarcer workers may prompt firms to offer higher wages. But labor costs also depend on productivity, while prices reflect other inputs and competition. Moving from a labor-market observation to a price forecast therefore requires additional assumptions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không có nút bấm đổi lạm phát lấy việc làm mãi mãi",
+        "en": "No permanent button exchanging inflation for jobs"
+      },
+      {
+        "tag": "p",
+        "vi": "Tài liệu giải thích của St. Louis Fed cho thấy quan hệ quan sát được thay đổi qua các thời kỳ và có giai đoạn trở nên kém rõ. [3] Điều này nhắc người đọc phân biệt một quan hệ thống kê trong mẫu với một lựa chọn chính sách cố định. Kỳ vọng, cơ cấu thị trường và các cú sốc có thể thay đổi bối cảnh. Một đường vẽ đẹp không tự bảo đảm rằng điều chỉnh một biến sẽ tạo ra kết quả mong muốn ở biến kia.",
+        "en": "The St. Louis Fed explains that the observed relationship changes across periods and can become less clear. [3] A statistical pattern is not a fixed policy menu: expectations, market structure and shocks can alter the setting."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một xưởng may khó tuyển thợ nên tăng lương, đồng thời đổi quy trình để giảm sản phẩm lỗi. Lương mỗi người tăng nhưng chi phí lao động trên một sản phẩm tốt chưa chắc tăng tương ứng. Ở tình huống khác, giá nguyên liệu nhập khẩu tăng dù đơn hàng yếu, khiến giá thành chịu sức ép mà không có thị trường lao động quá nóng. Hai tình huống minh họa vì sao cần xác định cơ chế trước khi dùng một quan hệ tổng quát.",
+        "en": "Imagine a garment workshop raising wages while reducing defects through better processes. Labor cost per good unit need not rise proportionally. Alternatively, imported inputs may become more expensive despite weak orders. These hypothetical cases illustrate different mechanisms behind price pressure."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đọc dữ liệu phải xem định nghĩa và thời gian",
+        "en": "Definitions and time horizons matter"
+      },
+      {
+        "tag": "p",
+        "vi": "Với người mới học kinh tế, nên hỏi tỷ lệ thất nghiệp được đo thế nào, tiền lương là danh nghĩa hay thực, giá tăng theo tháng hay theo năm. Một chuỗi số liệu của cả nước cũng có thể che khuất khác biệt giữa ngành và địa phương. Thay vì tìm một con số giải thích mọi thứ, hãy đặt các chỉ tiêu cạnh nhau, ghi thời điểm và xem chúng phản ánh cùng một nhóm người hay những nhóm rất khác nhau.",
+        "en": "Ask how unemployment is measured, whether wages are nominal or real, and whether inflation is monthly or annual. National averages can hide sectoral and regional differences. Indicators should be compared with consistent dates and populations."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong quản trị doanh nghiệp, liên hệ hữu ích là phân biệt chi phí trả cho lao động với năng lực tạo giá trị của lao động. Giữ lương thấp bằng mọi cách có thể làm mất người có kỹ năng; tăng lương thiếu cải thiện tổ chức cũng có thể tạo sức ép tài chính. Đây là liên hệ biên tập từ vấn đề tiền lương, không phải lời khuyên nhân sự của Phillips. Quyết định cụ thể cần dữ liệu về sản lượng, chất lượng và khả năng giữ người.",
+        "en": "An editorial management application is to distinguish wages paid from workers’ capacity to create value. Low pay may lose skilled staff, while higher pay without organizational improvement may strain finances. Decisions require evidence on output, quality and retention; this is not a personnel rule attributed to Phillips."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản của một người thích làm rõ cơ chế",
+        "en": "A legacy of making mechanisms visible"
+      },
+      {
+        "tag": "p",
+        "vi": "Phillips đáng nhớ không chỉ vì tên ông được đặt cho một đường cong. Chiếc máy nước và nghiên cứu tiền lương cùng thể hiện nỗ lực nối các biến với nhau bằng một cấu trúc có thể quan sát hoặc kiểm tra. Với độc giả Việt Nam, cách học phù hợp là hiểu câu hỏi gốc, biết giới hạn của mô hình và tiếp tục đối chiếu thực tế. Mô hình giúp suy nghĩ có trật tự, nhưng luôn cần được đặt lại vào bối cảnh đang phân tích.",
+        "en": "Phillips is remembered for more than a named curve. His machine and wage research sought observable, testable connections. Vietnamese readers can learn by recovering the original question, understanding model limits and checking the context rather than treating a model as a timeless answer."
+      }
+    ],
+    "html": "<p><em>A. W. H. Phillips. Nguồn: LSE Library / Flickr Commons; không có hạn chế bản quyền được biết đến.</em></p>\n<p>Nếu muốn nhìn nền kinh tế chuyển động, liệu có thể dùng nước thay cho tiền? A. W. Phillips từng biến câu hỏi ấy thành một thiết bị có thật. Câu chuyện của ông cho thấy kinh tế học không chỉ bắt đầu từ công thức: nó cũng có thể bắt đầu từ một người thích quan sát máy móc, tìm quan hệ giữa các bộ phận rồi thử làm cho quan hệ đó trở nên nhìn thấy được.</p>\n<h2>Một lối vào học thuật không thẳng tắp</h2>\n<p>Alban William Housego Phillips, thường được gọi là Bill Phillips, sinh năm 1914 tại New Zealand và mất năm 1975. Ông có nền tảng kỹ thuật điện, trải qua chiến tranh và thời gian bị giam giữ trước khi học ở London School of Economics. [1] Hành trình ấy khác hình dung quen thuộc về một học giả đi thẳng từ trường đại học đến phòng nghiên cứu. Kinh nghiệm thực hành là một phần đáng chú ý trong cách ông đặt vấn đề.</p>\n<p>Năm 1949, ông trình diễn một mô hình thủy lực mô phỏng các luồng của nền kinh tế, về sau thường được biết đến với tên MONIAC. Thiết bị dùng bể chứa, ống dẫn và dòng nước để biểu diễn quan hệ giữa thu nhập, chi tiêu cùng các dòng tiền khác. [1] Điều đáng học không phải là thay mọi phân tích bằng một chiếc máy, mà là nỗ lực làm rõ điều gì đi vào, đi ra và phản hồi tới hệ thống.</p>\n<h2>Đường cong ban đầu nói về tiền lương</h2>\n<p>Bài nghiên cứu năm 1958 của Phillips xem xét thất nghiệp và tốc độ thay đổi tiền lương danh nghĩa tại Anh trong giai đoạn 1861–1957. [2] Đây là chi tiết cần giữ đúng: biến ban đầu là tiền lương, không trực tiếp là chỉ số giá tiêu dùng. Mối quan hệ sau đó được mở rộng trong các thảo luận về lạm phát giá cả. [3] Nếu bỏ qua bước chuyển này, người đọc dễ gộp những khái niệm khác nhau thành một đường đơn giản.</p>\n<p>Một cách diễn giải trực giác là khi lao động khó tuyển hơn, doanh nghiệp có thể phải trả lương cao hơn để thu hút người. Tuy nhiên, chi phí lao động còn phụ thuộc năng suất, còn giá bán chịu ảnh hưởng của nhiều đầu vào và điều kiện cạnh tranh. Vì vậy, từ một quan sát về thị trường lao động đến dự báo giá cả cần thêm giả định. Không thể chỉ nhìn thất nghiệp giảm rồi khẳng định mọi loại giá sẽ tăng cùng một mức.</p>\n<h2>Không có nút bấm đổi lạm phát lấy việc làm mãi mãi</h2>\n<p>Tài liệu giải thích của St. Louis Fed cho thấy quan hệ quan sát được thay đổi qua các thời kỳ và có giai đoạn trở nên kém rõ. [3] Điều này nhắc người đọc phân biệt một quan hệ thống kê trong mẫu với một lựa chọn chính sách cố định. Kỳ vọng, cơ cấu thị trường và các cú sốc có thể thay đổi bối cảnh. Một đường vẽ đẹp không tự bảo đảm rằng điều chỉnh một biến sẽ tạo ra kết quả mong muốn ở biến kia.</p>\n<p>Ví dụ giả định, một xưởng may khó tuyển thợ nên tăng lương, đồng thời đổi quy trình để giảm sản phẩm lỗi. Lương mỗi người tăng nhưng chi phí lao động trên một sản phẩm tốt chưa chắc tăng tương ứng. Ở tình huống khác, giá nguyên liệu nhập khẩu tăng dù đơn hàng yếu, khiến giá thành chịu sức ép mà không có thị trường lao động quá nóng. Hai tình huống minh họa vì sao cần xác định cơ chế trước khi dùng một quan hệ tổng quát.</p>\n<h2>Đọc dữ liệu phải xem định nghĩa và thời gian</h2>\n<p>Với người mới học kinh tế, nên hỏi tỷ lệ thất nghiệp được đo thế nào, tiền lương là danh nghĩa hay thực, giá tăng theo tháng hay theo năm. Một chuỗi số liệu của cả nước cũng có thể che khuất khác biệt giữa ngành và địa phương. Thay vì tìm một con số giải thích mọi thứ, hãy đặt các chỉ tiêu cạnh nhau, ghi thời điểm và xem chúng phản ánh cùng một nhóm người hay những nhóm rất khác nhau.</p>\n<p>Trong quản trị doanh nghiệp, liên hệ hữu ích là phân biệt chi phí trả cho lao động với năng lực tạo giá trị của lao động. Giữ lương thấp bằng mọi cách có thể làm mất người có kỹ năng; tăng lương thiếu cải thiện tổ chức cũng có thể tạo sức ép tài chính. Đây là liên hệ biên tập từ vấn đề tiền lương, không phải lời khuyên nhân sự của Phillips. Quyết định cụ thể cần dữ liệu về sản lượng, chất lượng và khả năng giữ người.</p>\n<h2>Di sản của một người thích làm rõ cơ chế</h2>\n<p>Phillips đáng nhớ không chỉ vì tên ông được đặt cho một đường cong. Chiếc máy nước và nghiên cứu tiền lương cùng thể hiện nỗ lực nối các biến với nhau bằng một cấu trúc có thể quan sát hoặc kiểm tra. Với độc giả Việt Nam, cách học phù hợp là hiểu câu hỏi gốc, biết giới hạn của mô hình và tiếp tục đối chiếu thực tế. Mô hình giúp suy nghĩ có trật tự, nhưng luôn cần được đặt lại vào bối cảnh đang phân tích.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://blogs.lse.ac.uk/lsehistory/2014/11/18/nicholas-barr-remembers-bill-phillips/\">LSE — Bill Phillips and the Phillips Machine</a></li><li><a href=\"https://onlinelibrary.wiley.com/doi/10.1111/j.1468-0335.1958.tb00003.x\">Phillips — The Relation Between Unemployment and Money Wage Rates, 1958</a></li><li><a href=\"https://www.stlouisfed.org/open-vault/2020/january/what-is-phillips-curve-why-flattened\">Federal Reserve Bank of St. Louis — The Phillips Curve</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Professor_A.W.H_(Bill)_Phillips.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://www.flickr.com/commons/usage/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/\">János Kornai: Khi kỳ vọng được cứu làm thay đổi quyết định</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/",
+      "title": "János Kornai: Khi kỳ vọng được cứu làm thay đổi quyết định",
+      "title_en": "János Kornai: How expected rescue changes decisions"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/aw-phillips-lam-phat-va-viec-lam/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1953&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/aw-phillips-lam-phat-va-viec-lam/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/aw-phillips.webp"
+  },
+  {
+    "key": "michio-morishima",
+    "slug": "michio-morishima-toan-hoc-va-lich-su",
+    "title": "Michio Morishima: Khi toán học gặp lịch sử kinh tế",
+    "title_en": "Michio Morishima: Where mathematics meets economic history",
+    "excerpt": "Nhà kinh tế Nhật Bản tìm cách nối lý thuyết chặt chẽ với bối cảnh văn hóa, lịch sử và thể chế.",
+    "excerpt_en": "A Japanese economist connecting rigorous theory with culture, history and institutions.",
+    "credit": "Michio Morishima, khoảng năm 1980. Nguồn: LSE Library / Flickr Commons; không có hạn chế bản quyền được biết đến.",
+    "credit_en": "Michio Morishima, circa 1980. Source: LSE Library / Flickr Commons; no known copyright restrictions.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Michio_Morishima.jpg",
+    "license": "https://www.flickr.com/commons/usage/",
+    "sources": [
+      {
+        "label": "LSE — Michio Morishima, economics and LSE",
+        "url": "https://blogs.lse.ac.uk/lsehistory/2026/02/04/michio-morishima-economics-and-lse/"
+      },
+      {
+        "label": "Janet Hunter — Michio Morishima: An Economist Made in Japan",
+        "url": "https://www.cambridge.org/core/books/abs/britain-japan-biographical-portraits-vol-ix/michio-morishima-19232004-an-economist-made-in-japan/5CBC1E410492C816257EBCF19C3BA127"
+      },
+      {
+        "label": "Morishima — Why Has Japan Succeeded?, 1982",
+        "url": "https://www.cambridge.org/core/books/why-has-japan-succeeded/96A7021D1FFF9C77DDCED38FE3A49AC4"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một mô hình có thể đúng về logic nhưng vẫn chưa đủ để giải thích vì sao một quốc gia phát triển theo con đường riêng. Michio Morishima là một nhân vật thú vị để bắt đầu câu hỏi này. Ông làm việc với lý thuyết kinh tế và toán học, đồng thời quan tâm đến lịch sử cùng môi trường xã hội. Hai hướng tiếp cận không nhất thiết loại trừ nhau: chúng giúp kiểm tra những phần khác nhau của một lời giải thích.",
+        "en": "A model may be logically sound yet insufficient to explain a country’s particular development path. Michio Morishima combined mathematical economics with interest in history and society. These approaches can test different parts of an explanation rather than exclude each other."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Nhật Bản đến môi trường học thuật quốc tế",
+        "en": "From Japan to international scholarship"
+      },
+      {
+        "tag": "p",
+        "vi": "Morishima sống từ năm 1923 đến 2004. Sự nghiệp của ông gắn với các đại học Nhật Bản rồi mở rộng ra nước ngoài; ông đến LSE năm 1970. Hồ sơ của LSE ghi nhận những đóng góp về lý thuyết cân bằng tổng quát, phân tích hoạt động và nền kinh tế tư bản. [1] Những lĩnh vực này đòi hỏi xác định rõ quan hệ giữa sản xuất, nguồn lực, giá cả và quyết định của các chủ thể.",
+        "en": "Morishima lived from 1923 to 2004 and joined LSE in 1970 after an academic career spanning Japan and other countries. LSE highlights his contributions to general equilibrium, activity analysis and capitalist economic theory. [1] These fields examine production, resources, prices and decisions."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông cũng đóng vai trò quan trọng trong việc hình thành STICERD tại LSE năm 1978. [1] Câu chuyện này bổ sung một mặt khác của nghề nghiên cứu: tạo môi trường để những người có chuyên môn khác nhau làm việc cùng nhau. Một học giả không chỉ để lại sách hay phương trình, mà còn có thể để lại tổ chức, quan hệ hợp tác và cơ hội cho thế hệ sau tiếp tục đặt những câu hỏi mới.",
+        "en": "He played a central role in founding STICERD at LSE in 1978. [1] Research involves building institutions and opportunities for collaboration as well as producing books and equations."
+      },
+      {
+        "tag": "h2",
+        "vi": "Toán học giúp nhìn rõ điều đang giả định",
+        "en": "Mathematics clarifies assumptions"
+      },
+      {
+        "tag": "p",
+        "vi": "Giá trị của mô hình hóa không nằm ở việc làm cho vấn đề khó đọc hơn. Khi được dùng tốt, nó buộc người nghiên cứu nói rõ đầu vào, điều kiện và kết luận. Nếu thay một giả định mà kết quả đổi mạnh, đó là thông tin quan trọng. Người đọc không cần giải hết mọi phương trình mới có thể hỏi mô hình đang bỏ qua yếu tố nào, và giả định nào làm phần lớn công việc trong lập luận.",
+        "en": "Modeling is useful when it makes inputs, conditions and conclusions explicit. A result that changes sharply with an assumption reveals something important. Readers can ask what is omitted and which assumptions drive the argument without solving every equation."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, hai cơ sở dùng cùng một loại máy nhưng có tỷ lệ hàng lỗi khác nhau. Một mô hình chỉ ghi số máy và số giờ lao động có thể dự báo sản lượng gần giống nhau, trong khi thực tế khác biệt do đào tạo và tổ chức. Mô hình chưa chắc sai về phép tính; có thể câu hỏi ban đầu đã chọn quá ít yếu tố. Phân biệt lỗi logic với thiếu bối cảnh giúp sửa phân tích đúng chỗ.",
+        "en": "Imagine two factories using identical machines but producing different defect rates. A model using only machines and labor hours may miss training and organization. Its arithmetic may be valid while its framing is incomplete; those are different problems."
+      },
+      {
+        "tag": "h2",
+        "vi": "Vì sao Nhật Bản thành công là một câu hỏi lịch sử",
+        "en": "Japan’s development as a historical question"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong Why Has Japan Succeeded? xuất bản năm 1982, Morishima xem xét quan hệ giữa công nghệ phương Tây và những truyền thống xã hội được biến đổi trong điều kiện Nhật Bản. [3] Đây là một cách giải thích lịch sử, không phải bảng điểm xác nhận mọi đặc điểm của một quốc gia đều tốt. Việc đặt thành công trong dấu hỏi cũng thích hợp với thái độ học thuật: cần xem thành công được định nghĩa bằng gì và trong giai đoạn nào.",
+        "en": "In the 1982 book Why Has Japan Succeeded?, Morishima examined Western technology alongside social traditions transformed in Japanese conditions. [3] This is a historical interpretation, not an endorsement of every national characteristic. Success itself needs a definition and a time frame."
+      },
+      {
+        "tag": "p",
+        "vi": "Từ đây có thể rút ra một liên hệ biên tập: mua được công nghệ không đồng nghĩa lập tức có năng lực sử dụng công nghệ. Kỹ năng, thói quen phối hợp và cách xử lý sai sót đều ảnh hưởng kết quả. Tuy nhiên, cũng không nên lấy văn hóa làm lời giải thích cho tất cả, vì cách nói ấy dễ trở nên mơ hồ và không kiểm chứng được. Cần chỉ rõ hành vi hoặc tổ chức nào tạo ra tác động đang được bàn.",
+        "en": "An editorial application is that acquiring technology is not the same as mastering it. Skills, coordination and responses to mistakes matter. Yet culture should not become an untestable explanation for everything; the relevant behavior or institution must be specified."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không biến bối cảnh thành định kiến về con người",
+        "en": "Context should not become a stereotype"
+      },
+      {
+        "tag": "p",
+        "vi": "Một quốc gia luôn có nhiều nhóm, doanh nghiệp và kinh nghiệm khác nhau. Gán một tính cách duy nhất cho toàn bộ dân cư sẽ làm mất chính những khác biệt cần nghiên cứu. Khi đọc tác phẩm về lịch sử phát triển, nên phân biệt nhận xét về một thời kỳ với tuyên bố về bản chất cố định của một dân tộc. Thể chế và hành vi có thể thay đổi, và những điều từng hữu ích cũng có thể trở thành trở ngại trong hoàn cảnh mới.",
+        "en": "Countries contain diverse groups, firms and experiences. A historical observation should not become a claim about an unchanging national character. Institutions and behavior change, and arrangements once useful may become obstacles in a new setting."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với doanh nghiệp Việt Nam, cách tiếp cận này gợi ý xem cả thiết bị lẫn tổ chức khi đầu tư nâng năng suất. Một dự án nên hỏi ai vận hành, ai bảo trì, ai có quyền dừng khi phát hiện lỗi và dữ liệu có quay lại người quyết định hay không. Đó là các câu hỏi cụ thể, có thể quan sát, tốt hơn việc giải thích thất bại bằng những khẩu hiệu chung về văn hóa làm việc.",
+        "en": "Vietnamese businesses can assess organization alongside equipment when investing in productivity: who operates and maintains it, who can halt defective production, and whether information reaches decision makers. These are observable questions rather than vague claims about work culture."
+      },
+      {
+        "tag": "h2",
+        "vi": "Học cách nối các cách nhìn",
+        "en": "Connecting different ways of seeing"
+      },
+      {
+        "tag": "p",
+        "vi": "Một bài học từ Morishima là không cần chọn giữa sự chặt chẽ và sự nhạy cảm với lịch sử. Ta có thể dùng mô hình để kiểm tra lập luận, rồi dùng tư liệu để xem các giả định có phù hợp không. Khi kết quả không khớp, cần sửa câu hỏi hoặc mô hình, thay vì ép thực tế vào kết luận có sẵn. Tinh thần ấy hữu ích cho người học kinh tế, nhà quản lý và người đang tìm hiểu con đường phát triển của Việt Nam.",
+        "en": "Morishima’s work suggests combining rigor with historical awareness: use models to test reasoning and evidence to assess assumptions. When they do not fit, revise the question or model rather than force reality into a predetermined conclusion."
+      }
+    ],
+    "html": "<p><em>Michio Morishima, khoảng năm 1980. Nguồn: LSE Library / Flickr Commons; không có hạn chế bản quyền được biết đến.</em></p>\n<p>Một mô hình có thể đúng về logic nhưng vẫn chưa đủ để giải thích vì sao một quốc gia phát triển theo con đường riêng. Michio Morishima là một nhân vật thú vị để bắt đầu câu hỏi này. Ông làm việc với lý thuyết kinh tế và toán học, đồng thời quan tâm đến lịch sử cùng môi trường xã hội. Hai hướng tiếp cận không nhất thiết loại trừ nhau: chúng giúp kiểm tra những phần khác nhau của một lời giải thích.</p>\n<h2>Từ Nhật Bản đến môi trường học thuật quốc tế</h2>\n<p>Morishima sống từ năm 1923 đến 2004. Sự nghiệp của ông gắn với các đại học Nhật Bản rồi mở rộng ra nước ngoài; ông đến LSE năm 1970. Hồ sơ của LSE ghi nhận những đóng góp về lý thuyết cân bằng tổng quát, phân tích hoạt động và nền kinh tế tư bản. [1] Những lĩnh vực này đòi hỏi xác định rõ quan hệ giữa sản xuất, nguồn lực, giá cả và quyết định của các chủ thể.</p>\n<p>Ông cũng đóng vai trò quan trọng trong việc hình thành STICERD tại LSE năm 1978. [1] Câu chuyện này bổ sung một mặt khác của nghề nghiên cứu: tạo môi trường để những người có chuyên môn khác nhau làm việc cùng nhau. Một học giả không chỉ để lại sách hay phương trình, mà còn có thể để lại tổ chức, quan hệ hợp tác và cơ hội cho thế hệ sau tiếp tục đặt những câu hỏi mới.</p>\n<h2>Toán học giúp nhìn rõ điều đang giả định</h2>\n<p>Giá trị của mô hình hóa không nằm ở việc làm cho vấn đề khó đọc hơn. Khi được dùng tốt, nó buộc người nghiên cứu nói rõ đầu vào, điều kiện và kết luận. Nếu thay một giả định mà kết quả đổi mạnh, đó là thông tin quan trọng. Người đọc không cần giải hết mọi phương trình mới có thể hỏi mô hình đang bỏ qua yếu tố nào, và giả định nào làm phần lớn công việc trong lập luận.</p>\n<p>Ví dụ giả định, hai cơ sở dùng cùng một loại máy nhưng có tỷ lệ hàng lỗi khác nhau. Một mô hình chỉ ghi số máy và số giờ lao động có thể dự báo sản lượng gần giống nhau, trong khi thực tế khác biệt do đào tạo và tổ chức. Mô hình chưa chắc sai về phép tính; có thể câu hỏi ban đầu đã chọn quá ít yếu tố. Phân biệt lỗi logic với thiếu bối cảnh giúp sửa phân tích đúng chỗ.</p>\n<h2>Vì sao Nhật Bản thành công là một câu hỏi lịch sử</h2>\n<p>Trong Why Has Japan Succeeded? xuất bản năm 1982, Morishima xem xét quan hệ giữa công nghệ phương Tây và những truyền thống xã hội được biến đổi trong điều kiện Nhật Bản. [3] Đây là một cách giải thích lịch sử, không phải bảng điểm xác nhận mọi đặc điểm của một quốc gia đều tốt. Việc đặt thành công trong dấu hỏi cũng thích hợp với thái độ học thuật: cần xem thành công được định nghĩa bằng gì và trong giai đoạn nào.</p>\n<p>Từ đây có thể rút ra một liên hệ biên tập: mua được công nghệ không đồng nghĩa lập tức có năng lực sử dụng công nghệ. Kỹ năng, thói quen phối hợp và cách xử lý sai sót đều ảnh hưởng kết quả. Tuy nhiên, cũng không nên lấy văn hóa làm lời giải thích cho tất cả, vì cách nói ấy dễ trở nên mơ hồ và không kiểm chứng được. Cần chỉ rõ hành vi hoặc tổ chức nào tạo ra tác động đang được bàn.</p>\n<h2>Không biến bối cảnh thành định kiến về con người</h2>\n<p>Một quốc gia luôn có nhiều nhóm, doanh nghiệp và kinh nghiệm khác nhau. Gán một tính cách duy nhất cho toàn bộ dân cư sẽ làm mất chính những khác biệt cần nghiên cứu. Khi đọc tác phẩm về lịch sử phát triển, nên phân biệt nhận xét về một thời kỳ với tuyên bố về bản chất cố định của một dân tộc. Thể chế và hành vi có thể thay đổi, và những điều từng hữu ích cũng có thể trở thành trở ngại trong hoàn cảnh mới.</p>\n<p>Đối với doanh nghiệp Việt Nam, cách tiếp cận này gợi ý xem cả thiết bị lẫn tổ chức khi đầu tư nâng năng suất. Một dự án nên hỏi ai vận hành, ai bảo trì, ai có quyền dừng khi phát hiện lỗi và dữ liệu có quay lại người quyết định hay không. Đó là các câu hỏi cụ thể, có thể quan sát, tốt hơn việc giải thích thất bại bằng những khẩu hiệu chung về văn hóa làm việc.</p>\n<h2>Học cách nối các cách nhìn</h2>\n<p>Một bài học từ Morishima là không cần chọn giữa sự chặt chẽ và sự nhạy cảm với lịch sử. Ta có thể dùng mô hình để kiểm tra lập luận, rồi dùng tư liệu để xem các giả định có phù hợp không. Khi kết quả không khớp, cần sửa câu hỏi hoặc mô hình, thay vì ép thực tế vào kết luận có sẵn. Tinh thần ấy hữu ích cho người học kinh tế, nhà quản lý và người đang tìm hiểu con đường phát triển của Việt Nam.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://blogs.lse.ac.uk/lsehistory/2026/02/04/michio-morishima-economics-and-lse/\">LSE — Michio Morishima, economics and LSE</a></li><li><a href=\"https://www.cambridge.org/core/books/abs/britain-japan-biographical-portraits-vol-ix/michio-morishima-19232004-an-economist-made-in-japan/5CBC1E410492C816257EBCF19C3BA127\">Janet Hunter — Michio Morishima: An Economist Made in Japan</a></li><li><a href=\"https://www.cambridge.org/core/books/why-has-japan-succeeded/96A7021D1FFF9C77DDCED38FE3A49AC4\">Morishima — Why Has Japan Succeeded?, 1982</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Michio_Morishima.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://www.flickr.com/commons/usage/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/\">Wassily Leontief: Một ngành thay đổi, cả mạng lưới chuyển động</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/",
+      "title": "Wassily Leontief: Một ngành thay đổi, cả mạng lưới chuyển động",
+      "title_en": "Wassily Leontief: How one industry connects to the wider economy"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/michio-morishima-toan-hoc-va-lich-su/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1955&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/michio-morishima-toan-hoc-va-lich-su/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/michio-morishima.webp"
+  },
+  {
+    "key": "justin-yifu-lin",
+    "slug": "lam-nghi-phu-nang-luc-va-chuyen-doi",
+    "title": "Lâm Nghị Phu: Phát triển từ năng lực đang có",
+    "title_en": "Justin Yifu Lin: Development from existing capabilities",
+    "excerpt": "Kinh tế học cơ cấu mới và câu hỏi chọn ngành phù hợp, tháo gỡ điểm nghẽn để nâng cấp năng lực sản xuất.",
+    "excerpt_en": "New structural economics, suitable industries and removing barriers to productive upgrading.",
+    "credit": "Lâm Nghị Phu tại Hội sách Frankfurt năm 2009. Ảnh: Bdwgast; CC BY-SA 3.0.",
+    "credit_en": "Justin Yifu Lin at the Frankfurt Book Fair in 2009. Photograph: Bdwgast; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:JustinYifuLin_Portrait.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "World Bank — Justin Yifu Lin",
+        "url": "https://live.worldbank.org/en/experts/j/justin-yifu-lin"
+      },
+      {
+        "label": "Lin — New Structural Economics, 2011",
+        "url": "https://doi.org/10.1093/wbro/lkr007"
+      },
+      {
+        "label": "Lin — Final post as World Bank Chief Economist",
+        "url": "https://blogs.worldbank.org/en/developmenttalk/let-s-be-pragmatic-my-final-post-as-world-bank-chief-economist"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một nền kinh tế nên bắt đầu công nghiệp hóa từ ngành hiện đại nhất thế giới, hay từ những việc mình có khả năng làm tốt hơn ngay lúc này? Câu hỏi này nằm gần trung tâm cách tiếp cận của Lâm Nghị Phu, thường được biết đến quốc tế với tên Justin Yifu Lin. Nó cũng quen thuộc với doanh nghiệp nhỏ: muốn đi xa cần có tham vọng, nhưng tham vọng phải nối được với kỹ năng, vốn và thị trường thực tế.",
+        "en": "Should industrialization start with the world’s most advanced industries or with activities a country can perform competitively today? This question is central to Justin Yifu Lin, known in Vietnamese as Lâm Nghị Phu. It also matters to small firms connecting ambition with skills, capital and markets."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ nghiên cứu Trung Quốc đến Ngân hàng Thế giới",
+        "en": "From research on China to the World Bank"
+      },
+      {
+        "tag": "p",
+        "vi": "Lin từng là Phó chủ tịch cấp cao kiêm Kinh tế trưởng Ngân hàng Thế giới trong giai đoạn 2008–2012. Trước đó, ông là giám đốc sáng lập Trung tâm Nghiên cứu Kinh tế Trung Quốc tại Đại học Bắc Kinh. [1] Những vai trò này đặt ông vào giao điểm giữa nghiên cứu quá trình chuyển đổi của Trung Quốc và các tranh luận phát triển ở nhiều nền kinh tế có điều kiện xuất phát rất khác nhau.",
+        "en": "Lin served as World Bank Senior Vice President and Chief Economist from 2008 to 2012, after founding and directing Peking University’s China Centre for Economic Research. [1] His work connects China’s transformation with broader development debates."
+      },
+      {
+        "tag": "p",
+        "vi": "Giai đoạn làm việc tại Ngân hàng Thế giới trùng với khủng hoảng tài chính toàn cầu và những tranh luận lớn về tăng trưởng. Trong bài viết kết thúc nhiệm kỳ, ông nhấn mạnh thái độ thực dụng trong suy nghĩ về phát triển. [3] Điều này không có nghĩa bỏ lý thuyết, mà là xem lý thuyết như công cụ để xử lý vấn đề cụ thể. Một chính sách cần được đánh giá bằng điều kiện áp dụng và kết quả, không chỉ bằng tên trường phái.",
+        "en": "His World Bank tenure coincided with the global financial crisis and major growth debates. His concluding post emphasized pragmatism in development thinking. [3] Theory should help address concrete problems, with policies judged by conditions and outcomes rather than labels."
+      },
+      {
+        "tag": "h2",
+        "vi": "Lợi thế so sánh không phải bản án đứng yên",
+        "en": "Comparative advantage need not mean standing still"
+      },
+      {
+        "tag": "p",
+        "vi": "Kinh tế học cơ cấu mới của Lin coi phát triển là quá trình thay đổi công nghệ và cơ cấu sản xuất. Cơ cấu nguồn lực hiện có ảnh hưởng ngành nào có khả năng cạnh tranh; khi vốn, kỹ năng và hạ tầng thay đổi, khả năng đó cũng dịch chuyển. [2] Vì vậy, xuất phát từ năng lực hiện tại không đồng nghĩa chấp nhận mãi những công việc giá trị thấp. Vấn đề là tạo một con đường nâng cấp có thể thực hiện được.",
+        "en": "Lin’s new structural economics views development as technological and structural transformation. Existing endowments shape competitive possibilities, which change as capital, skills and infrastructure evolve. [2] Starting from present capabilities does not mean remaining permanently in low-value activities."
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể phân biệt hai ý: chọn một bước đi đủ gần để làm được và chuẩn bị điều kiện cho bước tiếp theo. Nếu chỉ nhìn hiện tại, doanh nghiệp có thể bỏ lỡ cơ hội học hỏi. Nếu chỉ nhìn đích rất xa, doanh nghiệp có thể đầu tư vượt quá năng lực vận hành. Cân bằng hai việc đòi hỏi thử nghiệm, thông tin từ khách hàng và khả năng dừng hoặc điều chỉnh khi giả định ban đầu không đúng.",
+        "en": "A feasible next step should be paired with preparation for later upgrading. Focusing only on today can miss learning opportunities; focusing only on a distant goal can exceed operating capacity. Experiments, customer feedback and adjustment are essential."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thị trường và vai trò tháo gỡ điểm nghẽn",
+        "en": "Markets and the removal of bottlenecks"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong khuôn khổ của Lin, thị trường giữ vai trò phân bổ nguồn lực, còn nhà nước có thể hỗ trợ thay đổi cơ cấu bằng hạ tầng và giải quyết trở ngại phối hợp. [2] Cần phân biệt tạo điều kiện với bảo đảm thành công cho một doanh nghiệp được chọn. Hạ tầng dùng chung, đào tạo và thông tin có thể giúp nhiều bên; hỗ trợ kéo dài mà không có tiêu chí lại có nguy cơ duy trì hoạt động kém hiệu quả.",
+        "en": "Lin combines market allocation with a facilitating state addressing infrastructure and coordination problems. [2] Enabling activity differs from guaranteeing a selected firm’s success. Shared infrastructure and training can help broadly, while support without performance criteria may sustain inefficiency."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một cụm doanh nghiệp thực phẩm đã có nguồn nguyên liệu và khách hàng nhưng thường mất hàng vì thiếu chuỗi lạnh. Xây được hệ thống bảo quản đáng tin có thể mở ra thị trường mới. Ngược lại, dựng một nhà máy rất lớn khi chưa có người vận hành, nguồn cung ổn định hay người mua không tự tạo ra năng lực cạnh tranh. Ví dụ này chỉ minh họa cách đặt câu hỏi, không phải một trường hợp được Lin nghiên cứu.",
+        "en": "Imagine food processors with suppliers and buyers but unreliable cold storage. Better logistics could unlock markets. A giant factory without skills, stable supply or customers would not automatically become competitive. This is an editorial hypothetical, not a case study by Lin."
+      },
+      {
+        "tag": "h2",
+        "vi": "Điểm khó nằm ở việc nhận diện đúng cơ hội",
+        "en": "Identifying opportunities is difficult"
+      },
+      {
+        "tag": "p",
+        "vi": "Ai biết ngành nào thực sự có tiềm năng, và ai chịu trách nhiệm nếu dự báo sai? Đây là câu hỏi cần đặt với mọi chương trình hỗ trợ phát triển. Người làm chính sách có thể thiếu thông tin, còn doanh nghiệp có động cơ trình bày dự án theo hướng có lợi cho mình. Vì thế, mục tiêu, thời hạn, chi phí và kết quả cần được công khai đủ để đánh giá. Thừa nhận khả năng sai là một phần của thiết kế tốt.",
+        "en": "Who identifies genuine opportunities, and who bears the cost of mistakes? Officials lack perfect information and firms may present self-serving proposals. Transparent objectives, time limits, costs and results make evaluation possible; admitting uncertainty is part of good design."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần xem những người chịu chi phí trong quá trình chuyển đổi. Một ngành tăng năng suất có thể cần ít lao động hơn ở một số công đoạn, trong khi kỹ năng mới chưa sẵn có. Nếu chỉ nhìn sản lượng, phân tích sẽ bỏ qua đào tạo lại và dịch chuyển việc làm. Tăng trưởng bền vững cần quan tâm khả năng tham gia của người lao động, chứ không chỉ hình ảnh hiện đại của công trình hoặc thiết bị.",
+        "en": "Structural change also creates transition costs. Higher productivity may reduce labor needs before new skills are available. Output measures alone miss retraining and employment adjustment; participation matters alongside modern-looking facilities."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với quá trình nâng cấp tại Việt Nam",
+        "en": "Applying the questions in Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp Việt Nam có thể bắt đầu bằng bản đồ năng lực: đang làm tốt khâu nào, khách hàng trả tiền cho điều gì, lỗi lớn nằm ở đâu và bước nâng cấp nào mở thêm thị trường. Từ đó mới cân nhắc máy móc, phần mềm hay tuyển dụng. Đây là cách vận dụng câu hỏi phát triển vào quản trị, không phải công thức cam kết lợi nhuận. Năng lực cạnh tranh phải được kiểm chứng qua sản phẩm, chi phí và khách hàng thực.",
+        "en": "Vietnamese firms can map their strengths, what customers value, major defects and upgrades that open markets before buying equipment or software. This is a management application, not a profit formula; competitiveness needs validation through products, costs and real customers."
+      },
+      {
+        "tag": "p",
+        "vi": "Đóng góp đáng chú ý của Lin là đưa cuộc thảo luận về gần mối quan hệ giữa nguồn lực, cơ cấu ngành và điều kiện hỗ trợ. Cách tiếp cận ấy cần được tranh luận và kiểm tra như mọi lý thuyết khác. Với người học, điều hữu ích không phải chọn một phe tuyệt đối, mà là học cách hỏi một bước chuyển đổi cần gì, vì sao chưa xảy ra và bằng chứng nào cho thấy hỗ trợ đã tạo ra năng lực mới.",
+        "en": "Lin brings attention to the links between endowments, industrial structure and enabling conditions. His framework should be debated and tested. The useful questions concern what an upgrade requires, why it has not happened and whether support creates lasting capabilities."
+      }
+    ],
+    "html": "<p><em>Lâm Nghị Phu tại Hội sách Frankfurt năm 2009. Ảnh: Bdwgast; CC BY-SA 3.0.</em></p>\n<p>Một nền kinh tế nên bắt đầu công nghiệp hóa từ ngành hiện đại nhất thế giới, hay từ những việc mình có khả năng làm tốt hơn ngay lúc này? Câu hỏi này nằm gần trung tâm cách tiếp cận của Lâm Nghị Phu, thường được biết đến quốc tế với tên Justin Yifu Lin. Nó cũng quen thuộc với doanh nghiệp nhỏ: muốn đi xa cần có tham vọng, nhưng tham vọng phải nối được với kỹ năng, vốn và thị trường thực tế.</p>\n<h2>Từ nghiên cứu Trung Quốc đến Ngân hàng Thế giới</h2>\n<p>Lin từng là Phó chủ tịch cấp cao kiêm Kinh tế trưởng Ngân hàng Thế giới trong giai đoạn 2008–2012. Trước đó, ông là giám đốc sáng lập Trung tâm Nghiên cứu Kinh tế Trung Quốc tại Đại học Bắc Kinh. [1] Những vai trò này đặt ông vào giao điểm giữa nghiên cứu quá trình chuyển đổi của Trung Quốc và các tranh luận phát triển ở nhiều nền kinh tế có điều kiện xuất phát rất khác nhau.</p>\n<p>Giai đoạn làm việc tại Ngân hàng Thế giới trùng với khủng hoảng tài chính toàn cầu và những tranh luận lớn về tăng trưởng. Trong bài viết kết thúc nhiệm kỳ, ông nhấn mạnh thái độ thực dụng trong suy nghĩ về phát triển. [3] Điều này không có nghĩa bỏ lý thuyết, mà là xem lý thuyết như công cụ để xử lý vấn đề cụ thể. Một chính sách cần được đánh giá bằng điều kiện áp dụng và kết quả, không chỉ bằng tên trường phái.</p>\n<h2>Lợi thế so sánh không phải bản án đứng yên</h2>\n<p>Kinh tế học cơ cấu mới của Lin coi phát triển là quá trình thay đổi công nghệ và cơ cấu sản xuất. Cơ cấu nguồn lực hiện có ảnh hưởng ngành nào có khả năng cạnh tranh; khi vốn, kỹ năng và hạ tầng thay đổi, khả năng đó cũng dịch chuyển. [2] Vì vậy, xuất phát từ năng lực hiện tại không đồng nghĩa chấp nhận mãi những công việc giá trị thấp. Vấn đề là tạo một con đường nâng cấp có thể thực hiện được.</p>\n<p>Có thể phân biệt hai ý: chọn một bước đi đủ gần để làm được và chuẩn bị điều kiện cho bước tiếp theo. Nếu chỉ nhìn hiện tại, doanh nghiệp có thể bỏ lỡ cơ hội học hỏi. Nếu chỉ nhìn đích rất xa, doanh nghiệp có thể đầu tư vượt quá năng lực vận hành. Cân bằng hai việc đòi hỏi thử nghiệm, thông tin từ khách hàng và khả năng dừng hoặc điều chỉnh khi giả định ban đầu không đúng.</p>\n<h2>Thị trường và vai trò tháo gỡ điểm nghẽn</h2>\n<p>Trong khuôn khổ của Lin, thị trường giữ vai trò phân bổ nguồn lực, còn nhà nước có thể hỗ trợ thay đổi cơ cấu bằng hạ tầng và giải quyết trở ngại phối hợp. [2] Cần phân biệt tạo điều kiện với bảo đảm thành công cho một doanh nghiệp được chọn. Hạ tầng dùng chung, đào tạo và thông tin có thể giúp nhiều bên; hỗ trợ kéo dài mà không có tiêu chí lại có nguy cơ duy trì hoạt động kém hiệu quả.</p>\n<p>Ví dụ giả định, một cụm doanh nghiệp thực phẩm đã có nguồn nguyên liệu và khách hàng nhưng thường mất hàng vì thiếu chuỗi lạnh. Xây được hệ thống bảo quản đáng tin có thể mở ra thị trường mới. Ngược lại, dựng một nhà máy rất lớn khi chưa có người vận hành, nguồn cung ổn định hay người mua không tự tạo ra năng lực cạnh tranh. Ví dụ này chỉ minh họa cách đặt câu hỏi, không phải một trường hợp được Lin nghiên cứu.</p>\n<h2>Điểm khó nằm ở việc nhận diện đúng cơ hội</h2>\n<p>Ai biết ngành nào thực sự có tiềm năng, và ai chịu trách nhiệm nếu dự báo sai? Đây là câu hỏi cần đặt với mọi chương trình hỗ trợ phát triển. Người làm chính sách có thể thiếu thông tin, còn doanh nghiệp có động cơ trình bày dự án theo hướng có lợi cho mình. Vì thế, mục tiêu, thời hạn, chi phí và kết quả cần được công khai đủ để đánh giá. Thừa nhận khả năng sai là một phần của thiết kế tốt.</p>\n<p>Cũng cần xem những người chịu chi phí trong quá trình chuyển đổi. Một ngành tăng năng suất có thể cần ít lao động hơn ở một số công đoạn, trong khi kỹ năng mới chưa sẵn có. Nếu chỉ nhìn sản lượng, phân tích sẽ bỏ qua đào tạo lại và dịch chuyển việc làm. Tăng trưởng bền vững cần quan tâm khả năng tham gia của người lao động, chứ không chỉ hình ảnh hiện đại của công trình hoặc thiết bị.</p>\n<h2>Liên hệ với quá trình nâng cấp tại Việt Nam</h2>\n<p>Một doanh nghiệp Việt Nam có thể bắt đầu bằng bản đồ năng lực: đang làm tốt khâu nào, khách hàng trả tiền cho điều gì, lỗi lớn nằm ở đâu và bước nâng cấp nào mở thêm thị trường. Từ đó mới cân nhắc máy móc, phần mềm hay tuyển dụng. Đây là cách vận dụng câu hỏi phát triển vào quản trị, không phải công thức cam kết lợi nhuận. Năng lực cạnh tranh phải được kiểm chứng qua sản phẩm, chi phí và khách hàng thực.</p>\n<p>Đóng góp đáng chú ý của Lin là đưa cuộc thảo luận về gần mối quan hệ giữa nguồn lực, cơ cấu ngành và điều kiện hỗ trợ. Cách tiếp cận ấy cần được tranh luận và kiểm tra như mọi lý thuyết khác. Với người học, điều hữu ích không phải chọn một phe tuyệt đối, mà là học cách hỏi một bước chuyển đổi cần gì, vì sao chưa xảy ra và bằng chứng nào cho thấy hỗ trợ đã tạo ra năng lực mới.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://live.worldbank.org/en/experts/j/justin-yifu-lin\">World Bank — Justin Yifu Lin</a></li><li><a href=\"https://doi.org/10.1093/wbro/lkr007\">Lin — New Structural Economics, 2011</a></li><li><a href=\"https://blogs.worldbank.org/en/developmenttalk/let-s-be-pragmatic-my-final-post-as-world-bank-chief-economist\">Lin — Final post as World Bank Chief Economist</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:JustinYifuLin_Portrait.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/\">Mikhail Tugan-Baranovsky: Chu kỳ kinh tế và sự lệch nhịp giữa các ngành</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/",
+      "title": "Mikhail Tugan-Baranovsky: Chu kỳ kinh tế và sự lệch nhịp giữa các ngành",
+      "title_en": "Mikhail Tugan-Baranovsky: Cycles and mismatches between industries"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1957&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/lam-nghi-phu-nang-luc-va-chuyen-doi/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/justin-yifu-lin.webp"
+  },
+  {
+    "key": "lim-chong-yah",
+    "slug": "lim-chong-yah-tien-luong-va-dong-thuan",
+    "title": "Lim Chong Yah: Tiền lương, năng suất và sự đồng thuận",
+    "title_en": "Lim Chong Yah: Wages, productivity and consensus",
+    "excerpt": "Nhà kinh tế Singapore và câu chuyện xây dựng cơ chế đối thoại giữa người lao động, doanh nghiệp và nhà nước.",
+    "excerpt_en": "The Singapore economist and institutions for dialogue among workers, employers and government.",
+    "credit": "Lim Chong Yah — minh họa AI tham chiếu chân dung do NTU công bố; không phải ảnh tư liệu.",
+    "credit_en": "Lim Chong Yah — AI illustration based on an NTU portrait reference; not a documentary photograph.",
+    "photo_source": "https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/tribute-to-emeritus-professor-lim-chong-yah",
+    "license": "",
+    "sources": [
+      {
+        "label": "NTU — Tribute to Emeritus Professor Lim Chong Yah",
+        "url": "https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/tribute-to-emeritus-professor-lim-chong-yah"
+      },
+      {
+        "label": "Singapore Ministry of Manpower — National Wages Council tribute",
+        "url": "https://www.mom.gov.sg/newsroom/press-releases/2023/0709-national-wages-council-statement-on-the-passing-of-emeritus-professor-lim-chong-yah"
+      },
+      {
+        "label": "NUS — In Memoriam Lim Chong Yah",
+        "url": "https://fass.nus.edu.sg/news/2023/07/13/in-memoriam-professor-emeritus-lim-chong-yah-eminent-economist-and-educator-founding-chairman-of-the-national-wages-council/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Tiền lương vừa là thu nhập của người lao động, vừa là chi phí của doanh nghiệp. Nếu chỉ nhìn từ một phía, cuộc thảo luận rất dễ thành đối đầu. Lim Chong Yah giúp người đọc nhìn thêm một vấn đề: làm thế nào xây dựng nơi các bên có thể trao đổi thông tin, thương lượng và chấp nhận một hướng đi chung. Câu chuyện của ông gắn với quá trình phát triển các thể chế đối thoại tại Singapore.",
+        "en": "Wages are workers’ income and employers’ costs. Looking from only one side can turn discussion into confrontation. Lim Chong Yah’s story highlights institutions where parties exchange information, negotiate and agree on a direction, particularly in Singapore."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một học giả gắn nghiên cứu với đời sống lao động",
+        "en": "Scholarship connected to working life"
+      },
+      {
+        "tag": "p",
+        "vi": "Lim qua đời năm 2023 ở tuổi 91. Ông có sự nghiệp học thuật tại National University of Singapore và Nanyang Technological University, được cả hai trường trao danh hiệu giáo sư danh dự. [1][3] Bên cạnh nghiên cứu và giảng dạy, ông tham gia xây dựng những cơ chế liên quan trực tiếp đến thu nhập và kỹ năng. Điều này khiến chân dung của ông nằm giữa đại học, quản lý công và đời sống của người làm việc.",
+        "en": "Lim died in 2023 aged 91. He was an emeritus professor at both the National University of Singapore and Nanyang Technological University. [1][3] His academic career intersected with institutions affecting wages and skills."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông là chủ tịch sáng lập National Wages Council, giữ vai trò này từ năm 1972 đến 2001, và từng đứng đầu hội đồng tư vấn Quỹ Phát triển Kỹ năng giai đoạn 1979–1982. [1] Những mốc ấy cho thấy sự gắn kết lâu dài giữa vấn đề tiền lương và năng lực lao động. Đánh giá di sản này cần nhìn vào cách tổ chức đối thoại, thay vì quy toàn bộ thành quả kinh tế của Singapore cho một cá nhân.",
+        "en": "He chaired the National Wages Council from its founding in 1972 until 2001 and chaired the Skills Development Fund Advisory Council from 1979 to 1982. [1] These roles connect wages with capabilities, without making him solely responsible for Singapore’s economic performance."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đồng thuận là một cơ chế, không chỉ một khẩu hiệu",
+        "en": "Consensus as an institutional mechanism"
+      },
+      {
+        "tag": "p",
+        "vi": "Theo Bộ Nhân lực Singapore, Lim xây dựng nguyên tắc các quyết định quan trọng của NWC cần sự nhất trí giữa những bên tham gia. [2] Nguyên tắc này có thể khiến quá trình đi đến quyết định khó hơn, nhưng cũng buộc các bên tìm phương án cùng chấp nhận được. Điểm cần hiểu là sự đồng thuận có quy trình và chủ thể đại diện, không đơn giản là yêu cầu mọi người im lặng hoặc bỏ qua khác biệt lợi ích.",
+        "en": "Singapore’s Ministry of Manpower credits Lim with establishing unanimity for key NWC decisions. [2] This can complicate agreement but encourages mutually acceptable solutions. Consensus requires procedures and representation; it should not mean silencing differences."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một cuộc thương lượng, dữ liệu về năng suất, thị trường và khả năng chi trả có thể được hiểu rất khác nhau. Một bên quan tâm chi phí sinh hoạt, bên kia lo đơn hàng và dòng tiền. Cơ chế đối thoại hữu ích khi làm cho những ràng buộc ấy trở nên rõ hơn, đồng thời cho phép chất vấn. Niềm tin không chỉ đến từ thiện chí cá nhân mà còn từ việc thông tin và cách ra quyết định có thể được kiểm tra.",
+        "en": "Negotiators may interpret productivity, demand and affordability differently. Workers face living costs while firms face orders and cash flow. Useful dialogue makes constraints visible and open to challenge; trust depends on verifiable information and procedures."
+      },
+      {
+        "tag": "h2",
+        "vi": "Năng suất và tiền lương cần được đọc cùng nhau",
+        "en": "Reading productivity and wages together"
+      },
+      {
+        "tag": "p",
+        "vi": "NWC đưa ra các hướng dẫn tiền lương thường niên, có tính đến năng suất và kết quả kinh tế. [2] Tuy nhiên, năng suất không có nghĩa đơn giản là làm nhiều giờ hơn. Nó còn liên quan kỹ năng, thiết bị, quản lý và chất lượng sản phẩm. Nếu tăng sản lượng bằng kéo dài giờ làm mà không tính sức khỏe hoặc lỗi sản phẩm, một con số đẹp có thể che chi phí đang chuyển sang người lao động hoặc khách hàng.",
+        "en": "NWC’s annual wage guidelines considered productivity and economic performance. [2] Productivity is not simply longer hours: skills, equipment, management and quality matter. Output growth alone may hide costs shifted to workers or customers."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một xưởng giảm được hàng lỗi nhờ đào tạo và bố trí chuyền hợp lý. Giá trị tạo ra trên mỗi giờ tăng, mở khả năng cải thiện tiền lương mà không làm chi phí mỗi sản phẩm tốt tăng tương ứng. Nhưng cần xem lợi ích ấy được phân chia thế nào và có duy trì được không. Đây là ví dụ của chuyên mục để minh họa câu hỏi phân phối, không phải một dự án cụ thể do Lim thực hiện.",
+        "en": "Imagine training and better workflow reducing defects. Value per hour rises, potentially supporting better wages without proportional unit-cost increases. The distribution and durability of the gains still need examination. This is an editorial hypothetical, not a project attributed to Lim."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khi khó khăn xuất hiện, ai chịu phần điều chỉnh?",
+        "en": "Who bears adjustment during difficult periods?"
+      },
+      {
+        "tag": "p",
+        "vi": "Lịch sử NWC đi qua các cú sốc dầu mỏ, suy thoái giữa thập niên 1980 và khủng hoảng châu Á cuối thập niên 1990. [2] Các bối cảnh khác nhau làm rõ rằng một quy tắc cố định về mức tăng lương khó phù hợp mọi thời điểm. Nhưng linh hoạt không nên chỉ có nghĩa chuyển toàn bộ rủi ro xuống người lao động. Cần xem bảo vệ thu nhập, khả năng giữ việc và trách nhiệm của doanh nghiệp được cân đối ra sao.",
+        "en": "NWC operated through oil shocks, the mid-1980s recession and the late-1990s Asian crisis. [2] A single wage-growth rule cannot fit every period. Flexibility should still be examined alongside income protection, employment and firms’ responsibilities."
+      },
+      {
+        "tag": "p",
+        "vi": "Một hạn chế khi học từ Singapore là không thể sao chép tên tổ chức rồi mong có kết quả giống nhau. Quy mô nền kinh tế, quan hệ lao động, năng lực thực thi và mức độ đại diện đều quan trọng. Bài học có thể chuyển giao là những câu hỏi về thông tin và phối hợp; thiết kế cụ thể cần phù hợp hoàn cảnh. Việc thừa nhận khác biệt giúp học hỏi thực chất hơn là biến một kinh nghiệm thành khuôn mẫu duy nhất.",
+        "en": "Copying an institution’s name will not reproduce Singapore’s outcomes. Economic scale, labor relations, enforcement and representation differ. Questions about information and coordination travel more readily than a ready-made institutional design."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với doanh nghiệp Việt Nam",
+        "en": "Questions for Vietnamese businesses"
+      },
+      {
+        "tag": "p",
+        "vi": "Ở cấp doanh nghiệp, có thể bắt đầu bằng cách giải thích rõ tiêu chí đánh giá, trao đổi định kỳ về chất lượng và lắng nghe đề xuất từ người trực tiếp làm việc. Khi thay đổi quy trình, nên nói rõ mục tiêu, cách đo kết quả và nguyên tắc chia sẻ lợi ích. Đây là liên hệ quản trị của chuyên mục, không phải hướng dẫn pháp lý về tiền lương. Quy định lao động hiện hành vẫn cần được kiểm tra riêng khi áp dụng.",
+        "en": "Firms can clarify evaluation criteria, discuss quality regularly and listen to frontline workers. Process changes should specify goals, measurement and benefit sharing. This is a management reflection, not legal wage guidance; applicable labor rules need separate checking."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản của Lim Chong Yah gợi nhắc rằng năng suất và đời sống người lao động không nên bị tách thành hai cuộc thảo luận độc lập. Một nền kinh tế cần tạo thêm giá trị và xây dựng cơ chế phân chia, điều chỉnh có thể được tin cậy. Với người học, câu hỏi đáng giữ lại là một quyết định được hình thành bằng thông tin nào, ai có tiếng nói và ai sẽ chịu tác động khi dự báo không diễn ra như mong đợi.",
+        "en": "Lim’s legacy connects productive capacity with workers’ lives. An economy needs both value creation and credible arrangements for sharing gains and handling adjustment. Ask what information guides decisions, who has a voice and who bears unexpected outcomes."
+      }
+    ],
+    "html": "<p><em>Lim Chong Yah — minh họa AI tham chiếu chân dung do NTU công bố; không phải ảnh tư liệu.</em></p>\n<p>Tiền lương vừa là thu nhập của người lao động, vừa là chi phí của doanh nghiệp. Nếu chỉ nhìn từ một phía, cuộc thảo luận rất dễ thành đối đầu. Lim Chong Yah giúp người đọc nhìn thêm một vấn đề: làm thế nào xây dựng nơi các bên có thể trao đổi thông tin, thương lượng và chấp nhận một hướng đi chung. Câu chuyện của ông gắn với quá trình phát triển các thể chế đối thoại tại Singapore.</p>\n<h2>Một học giả gắn nghiên cứu với đời sống lao động</h2>\n<p>Lim qua đời năm 2023 ở tuổi 91. Ông có sự nghiệp học thuật tại National University of Singapore và Nanyang Technological University, được cả hai trường trao danh hiệu giáo sư danh dự. [1][3] Bên cạnh nghiên cứu và giảng dạy, ông tham gia xây dựng những cơ chế liên quan trực tiếp đến thu nhập và kỹ năng. Điều này khiến chân dung của ông nằm giữa đại học, quản lý công và đời sống của người làm việc.</p>\n<p>Ông là chủ tịch sáng lập National Wages Council, giữ vai trò này từ năm 1972 đến 2001, và từng đứng đầu hội đồng tư vấn Quỹ Phát triển Kỹ năng giai đoạn 1979–1982. [1] Những mốc ấy cho thấy sự gắn kết lâu dài giữa vấn đề tiền lương và năng lực lao động. Đánh giá di sản này cần nhìn vào cách tổ chức đối thoại, thay vì quy toàn bộ thành quả kinh tế của Singapore cho một cá nhân.</p>\n<h2>Đồng thuận là một cơ chế, không chỉ một khẩu hiệu</h2>\n<p>Theo Bộ Nhân lực Singapore, Lim xây dựng nguyên tắc các quyết định quan trọng của NWC cần sự nhất trí giữa những bên tham gia. [2] Nguyên tắc này có thể khiến quá trình đi đến quyết định khó hơn, nhưng cũng buộc các bên tìm phương án cùng chấp nhận được. Điểm cần hiểu là sự đồng thuận có quy trình và chủ thể đại diện, không đơn giản là yêu cầu mọi người im lặng hoặc bỏ qua khác biệt lợi ích.</p>\n<p>Trong một cuộc thương lượng, dữ liệu về năng suất, thị trường và khả năng chi trả có thể được hiểu rất khác nhau. Một bên quan tâm chi phí sinh hoạt, bên kia lo đơn hàng và dòng tiền. Cơ chế đối thoại hữu ích khi làm cho những ràng buộc ấy trở nên rõ hơn, đồng thời cho phép chất vấn. Niềm tin không chỉ đến từ thiện chí cá nhân mà còn từ việc thông tin và cách ra quyết định có thể được kiểm tra.</p>\n<h2>Năng suất và tiền lương cần được đọc cùng nhau</h2>\n<p>NWC đưa ra các hướng dẫn tiền lương thường niên, có tính đến năng suất và kết quả kinh tế. [2] Tuy nhiên, năng suất không có nghĩa đơn giản là làm nhiều giờ hơn. Nó còn liên quan kỹ năng, thiết bị, quản lý và chất lượng sản phẩm. Nếu tăng sản lượng bằng kéo dài giờ làm mà không tính sức khỏe hoặc lỗi sản phẩm, một con số đẹp có thể che chi phí đang chuyển sang người lao động hoặc khách hàng.</p>\n<p>Ví dụ giả định, một xưởng giảm được hàng lỗi nhờ đào tạo và bố trí chuyền hợp lý. Giá trị tạo ra trên mỗi giờ tăng, mở khả năng cải thiện tiền lương mà không làm chi phí mỗi sản phẩm tốt tăng tương ứng. Nhưng cần xem lợi ích ấy được phân chia thế nào và có duy trì được không. Đây là ví dụ của chuyên mục để minh họa câu hỏi phân phối, không phải một dự án cụ thể do Lim thực hiện.</p>\n<h2>Khi khó khăn xuất hiện, ai chịu phần điều chỉnh?</h2>\n<p>Lịch sử NWC đi qua các cú sốc dầu mỏ, suy thoái giữa thập niên 1980 và khủng hoảng châu Á cuối thập niên 1990. [2] Các bối cảnh khác nhau làm rõ rằng một quy tắc cố định về mức tăng lương khó phù hợp mọi thời điểm. Nhưng linh hoạt không nên chỉ có nghĩa chuyển toàn bộ rủi ro xuống người lao động. Cần xem bảo vệ thu nhập, khả năng giữ việc và trách nhiệm của doanh nghiệp được cân đối ra sao.</p>\n<p>Một hạn chế khi học từ Singapore là không thể sao chép tên tổ chức rồi mong có kết quả giống nhau. Quy mô nền kinh tế, quan hệ lao động, năng lực thực thi và mức độ đại diện đều quan trọng. Bài học có thể chuyển giao là những câu hỏi về thông tin và phối hợp; thiết kế cụ thể cần phù hợp hoàn cảnh. Việc thừa nhận khác biệt giúp học hỏi thực chất hơn là biến một kinh nghiệm thành khuôn mẫu duy nhất.</p>\n<h2>Liên hệ với doanh nghiệp Việt Nam</h2>\n<p>Ở cấp doanh nghiệp, có thể bắt đầu bằng cách giải thích rõ tiêu chí đánh giá, trao đổi định kỳ về chất lượng và lắng nghe đề xuất từ người trực tiếp làm việc. Khi thay đổi quy trình, nên nói rõ mục tiêu, cách đo kết quả và nguyên tắc chia sẻ lợi ích. Đây là liên hệ quản trị của chuyên mục, không phải hướng dẫn pháp lý về tiền lương. Quy định lao động hiện hành vẫn cần được kiểm tra riêng khi áp dụng.</p>\n<p>Di sản của Lim Chong Yah gợi nhắc rằng năng suất và đời sống người lao động không nên bị tách thành hai cuộc thảo luận độc lập. Một nền kinh tế cần tạo thêm giá trị và xây dựng cơ chế phân chia, điều chỉnh có thể được tin cậy. Với người học, câu hỏi đáng giữ lại là một quyết định được hình thành bằng thông tin nào, ai có tiếng nói và ai sẽ chịu tác động khi dự báo không diễn ra như mong đợi.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/tribute-to-emeritus-professor-lim-chong-yah\">NTU — Tribute to Emeritus Professor Lim Chong Yah</a></li><li><a href=\"https://www.mom.gov.sg/newsroom/press-releases/2023/0709-national-wages-council-statement-on-the-passing-of-emeritus-professor-lim-chong-yah\">Singapore Ministry of Manpower — National Wages Council tribute</a></li><li><a href=\"https://fass.nus.edu.sg/news/2023/07/13/in-memoriam-professor-emeritus-lim-chong-yah-eminent-economist-and-educator-founding-chairman-of-the-national-wages-council/\">NUS — In Memoriam Lim Chong Yah</a></li></ol><p><a href=\"https://www.ntu.edu.sg/alumni/alumni-stories-news/detail/tribute-to-emeritus-professor-lim-chong-yah\">Portrait reference / Nguồn ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/\">Robert Mundell: Đồng tiền, tỷ giá và những đánh đổi</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/",
+      "title": "Robert Mundell: Đồng tiền, tỷ giá và những đánh đổi",
+      "title_en": "Robert Mundell: Currencies, exchange rates and trade-offs"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1959&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/lim-chong-yah-tien-luong-va-dong-thuan/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/lim-chong-yah.webp"
+  },
+  {
+    "key": "widjojo-nitisastro",
+    "slug": "widjojo-nitisastro-on-dinh-va-phat-trien",
+    "title": "Widjojo Nitisastro: Ổn định kinh tế và giới hạn của chuyên gia",
+    "title_en": "Widjojo Nitisastro: Economic stability and the limits of expertise",
+    "excerpt": "Nhà kinh tế Indonesia, quy hoạch phát triển và câu hỏi đặt chuyên môn trong bối cảnh thể chế.",
+    "excerpt_en": "The Indonesian economist, development planning and expertise within political institutions.",
+    "credit": "Widjojo Nitisastro năm 1977. Ảnh: Rob C. Croes / Anefo, Nationaal Archief; CC BY-SA 3.0.",
+    "credit_en": "Widjojo Nitisastro in 1977. Photograph: Rob C. Croes / Anefo, Nationaal Archief; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Widjojo_Nitisastro_(1977).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "Universitas Indonesia — Widjojo Nitisastro",
+        "url": "https://lpem.org/member/prof-dr-widjojo-nitisastro-1955-1957/?lang=en"
+      },
+      {
+        "label": "Indonesian Coordinating Ministry for Economic Affairs — Biography",
+        "url": "https://www.ekon.go.id/profil/menteri-detail/20/prof-dr-widjojo-nitisastro"
+      },
+      {
+        "label": "Indonesian Academy of Sciences — Widjojo Nitisastro",
+        "url": "https://aipi.or.id/anggota/prof-dr-widjojo-nitisastro/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một chuyên gia kinh tế có thể giúp ổn định chính sách đến đâu khi các quyết định cuối cùng nằm trong một hệ thống chính trị rộng hơn? Widjojo Nitisastro là nhân vật đáng nghiên cứu từ câu hỏi này. Ông gắn với quá trình hoạch định phát triển của Indonesia trong nhiều thập niên. Câu chuyện không nên được kể như chiến thắng của một cá nhân, mà như quan hệ phức tạp giữa tri thức, tổ chức, quyền lực và những giới hạn thực tế.",
+        "en": "How far can economic experts stabilize policy when final decisions belong to a wider political system? Widjojo Nitisastro’s career in Indonesia invites that question. It is a story of knowledge, institutions, power and constraints rather than one individual’s triumph."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà kinh tế Indonesia có nền tảng học thuật quốc tế",
+        "en": "An Indonesian economist with international training"
+      },
+      {
+        "tag": "p",
+        "vi": "Widjojo sinh năm 1927 tại Malang và mất năm 2012 tại Jakarta. [2][3] Ông học tại Đại học Indonesia rồi tiếp tục nghiên cứu kinh tế và dân số học tại University of California, Berkeley. [1] Nền tảng này đưa những câu hỏi về dân số, nguồn lực và kế hoạch dài hạn vào sự nghiệp của ông. Nó cũng cho thấy phát triển không chỉ là tốc độ tăng của một năm, mà là khả năng chuẩn bị cho nhu cầu thay đổi qua nhiều thế hệ.",
+        "en": "Widjojo was born in Malang in 1927 and died in Jakarta in 2012. [2][3] He studied at Universitas Indonesia and pursued economics and demography at the University of California, Berkeley. [1] His background linked development with population and long-term resource needs."
+      },
+      {
+        "tag": "p",
+        "vi": "Tại Indonesia, ông từng làm trưởng khoa kinh tế, đứng đầu cơ quan quy hoạch phát triển và giữ vai trò bộ trưởng điều phối kinh tế. [1] Ông thường được nhắc đến cùng nhóm chuyên gia được gọi là Berkeley Mafia; đây là biệt danh của nhóm kinh tế, không phải kết luận rằng họ là một tổ chức tội phạm. [2] Khi dùng tên gọi lịch sử, cần giải thích ngữ cảnh để tránh tạo hiểu lầm chỉ vì một từ gây chú ý.",
+        "en": "He served as economics dean, development-planning chief and coordinating economic minister. [1] The group associated with him was nicknamed the “Berkeley Mafia”; this historical label for economists is not a claim that they formed a criminal organization. [2]"
+      },
+      {
+        "tag": "h2",
+        "vi": "Vì sao ổn định là điều kiện của kế hoạch dài hạn?",
+        "en": "Why stability matters for long-term plans"
+      },
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp khó đầu tư khi không thể ước lượng tương đối chi phí, sức mua hoặc khả năng thực hiện hợp đồng. Ở cấp quốc gia, bất ổn kinh tế cũng làm kế hoạch hạ tầng và dịch vụ công khó triển khai. Liên hệ này giúp hiểu vì sao chuyên gia hoạch định quan tâm đến tính nhất quán của chính sách. Tuy nhiên, ổn định không phải mục tiêu đủ cho tất cả: vẫn cần xem tăng trưởng tạo cơ hội cho ai và chi phí điều chỉnh rơi vào nhóm nào.",
+        "en": "Firms struggle to invest when costs, purchasing power or contracts are highly unpredictable. Governments face similar difficulties planning infrastructure and services. Stability helps, but it is not sufficient: opportunity and adjustment costs must also be considered."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một địa phương muốn mở rộng hệ thống nước sạch trong mười năm. Nếu chỉ chuẩn bị kinh phí xây dựng mà bỏ qua vận hành, bảo trì và thay đổi dân số, công trình có thể nhanh chóng quá tải. Tư duy phát triển cần nối vốn đầu tư ban đầu với chi phí về sau và người chịu trách nhiệm. Đây là ví dụ của chuyên mục về kế hoạch dài hạn, không phải mô tả một dự án của Widjojo.",
+        "en": "Imagine a ten-year clean-water expansion. Funding construction without planning maintenance, operations and population change may leave it overloaded. Development planning should connect initial investment with future costs and responsibility. This hypothetical is not a Widjojo project."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chuyên môn luôn hoạt động trong một thể chế",
+        "en": "Expertise always operates within institutions"
+      },
+      {
+        "tag": "p",
+        "vi": "Widjojo là nhân vật quan trọng trong đội ngũ kinh tế dưới thời Suharto. [1][2] Đánh giá giai đoạn này cần đặt chuyên môn trong bối cảnh quyền lực và trách nhiệm giải trình, thay vì coi một chính sách kỹ thuật là đứng ngoài chính trị. Kết quả kinh tế không tự xóa bỏ những vấn đề về cách quyền lực được sử dụng. Ngược lại, phê bình thể chế cũng không thay thế việc phân tích chính sách cụ thể đã hoạt động thế nào.",
+        "en": "Widjojo was a leading economic figure under Suharto. [1][2] Assessing that period requires attention to power and accountability. Economic outcomes do not settle questions about political authority, while institutional criticism does not replace analysis of specific policies."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với người đọc, có thể tách ba lớp: mục tiêu được công bố, công cụ được dùng và kết quả thực tế. Sau đó hỏi ai có quyền sửa quyết định khi kết quả lệch mục tiêu. Một nhóm chuyên gia giỏi vẫn có thể bị giới hạn bởi thông tin, lợi ích hoặc lựa chọn của người nắm quyền. Vì vậy, chất lượng cá nhân và chất lượng hệ thống cần được đánh giá cùng nhau, không dùng yếu tố này để mặc nhiên bảo đảm yếu tố kia.",
+        "en": "Separate stated objectives, instruments and actual outcomes, then ask who can revise failing decisions. Even capable experts face informational and political constraints. Individual competence and system quality should be assessed together."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không quy mọi thành công hay thất bại cho một người",
+        "en": "Avoid explaining everything through one person"
+      },
+      {
+        "tag": "p",
+        "vi": "Quá trình phát triển của một quốc gia chịu tác động của lao động, doanh nghiệp, tài nguyên, thương mại và môi trường quốc tế. Việc một nhân vật giữ vai trò nổi bật không có nghĩa ông kiểm soát toàn bộ các yếu tố ấy. Khi đọc tiểu sử kinh tế, nên cảnh giác với lối kể biến một người thành nguyên nhân duy nhất. Cách kể hấp dẫn có thể làm mất những điều kiện cần thiết để hiểu vì sao một chính sách thành công ở lúc này nhưng gặp khó ở lúc khác.",
+        "en": "National development depends on workers, firms, resources, trade and international conditions. A prominent official does not control all of them. Hero-centered biographies can obscure why a policy works in one setting and struggles in another."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần phân biệt kế hoạch với khả năng thực hiện. Một tài liệu có mục tiêu đúng vẫn có thể thiếu ngân sách, dữ liệu hoặc phối hợp giữa các đơn vị. Ngược lại, điều chỉnh kế hoạch trước thông tin mới không nhất thiết là thất bại; đôi khi đó là phản ứng có trách nhiệm. Điều quan trọng là có giải thích, bằng chứng và cơ chế theo dõi, thay vì thay mục tiêu liên tục để khiến mọi kết quả đều được gọi là thành công.",
+        "en": "A sound plan may still lack funding, data or coordination. Revising it when evidence changes can be responsible rather than a failure. The test is transparent explanation and monitoring, not continually redefining success."
+      },
+      {
+        "tag": "h2",
+        "vi": "Điều người học tại Việt Nam có thể giữ lại",
+        "en": "Questions Vietnamese readers can retain"
+      },
+      {
+        "tag": "p",
+        "vi": "Ở quy mô doanh nghiệp hay địa phương, bài học phương pháp là nối mục tiêu dài hạn với dữ liệu, nguồn lực và trách nhiệm thực hiện. Cần biết ai cung cấp thông tin, ai phản biện và khi nào phải xem lại phương án. Đây là liên hệ biên tập, không phải một công thức được gán cho Widjojo. Nó giúp người đọc đi từ câu chuyện nhân vật sang cách đánh giá một kế hoạch bằng những điều có thể kiểm chứng được.",
+        "en": "At firm or local-government level, connect long-term goals with data, resources and implementation responsibility. Identify who informs, challenges and reviews decisions. This is an editorial application, not a formula attributed to Widjojo."
+      },
+      {
+        "tag": "p",
+        "vi": "Chân dung Widjojo Nitisastro vì vậy đáng đọc cả ở đóng góp lẫn giới hạn của vai trò chuyên gia. Tri thức kinh tế có thể làm quyết định sáng rõ hơn, nhưng không tự thay thế cơ chế giám sát và trách nhiệm giải trình. Muốn học từ lịch sử, cần giữ được cả hai mặt: trân trọng năng lực phân tích và tiếp tục hỏi quyết định ấy được đưa ra trong điều kiện nào, phục vụ ai, và có thể được sửa bằng cách nào.",
+        "en": "Widjojo’s story illustrates both contributions and limits of expertise. Economic knowledge can improve decisions but cannot substitute for oversight and accountability. Historical learning requires asking about conditions, beneficiaries and mechanisms for correction."
+      }
+    ],
+    "html": "<p><em>Widjojo Nitisastro năm 1977. Ảnh: Rob C. Croes / Anefo, Nationaal Archief; CC BY-SA 3.0.</em></p>\n<p>Một chuyên gia kinh tế có thể giúp ổn định chính sách đến đâu khi các quyết định cuối cùng nằm trong một hệ thống chính trị rộng hơn? Widjojo Nitisastro là nhân vật đáng nghiên cứu từ câu hỏi này. Ông gắn với quá trình hoạch định phát triển của Indonesia trong nhiều thập niên. Câu chuyện không nên được kể như chiến thắng của một cá nhân, mà như quan hệ phức tạp giữa tri thức, tổ chức, quyền lực và những giới hạn thực tế.</p>\n<h2>Một nhà kinh tế Indonesia có nền tảng học thuật quốc tế</h2>\n<p>Widjojo sinh năm 1927 tại Malang và mất năm 2012 tại Jakarta. [2][3] Ông học tại Đại học Indonesia rồi tiếp tục nghiên cứu kinh tế và dân số học tại University of California, Berkeley. [1] Nền tảng này đưa những câu hỏi về dân số, nguồn lực và kế hoạch dài hạn vào sự nghiệp của ông. Nó cũng cho thấy phát triển không chỉ là tốc độ tăng của một năm, mà là khả năng chuẩn bị cho nhu cầu thay đổi qua nhiều thế hệ.</p>\n<p>Tại Indonesia, ông từng làm trưởng khoa kinh tế, đứng đầu cơ quan quy hoạch phát triển và giữ vai trò bộ trưởng điều phối kinh tế. [1] Ông thường được nhắc đến cùng nhóm chuyên gia được gọi là Berkeley Mafia; đây là biệt danh của nhóm kinh tế, không phải kết luận rằng họ là một tổ chức tội phạm. [2] Khi dùng tên gọi lịch sử, cần giải thích ngữ cảnh để tránh tạo hiểu lầm chỉ vì một từ gây chú ý.</p>\n<h2>Vì sao ổn định là điều kiện của kế hoạch dài hạn?</h2>\n<p>Một doanh nghiệp khó đầu tư khi không thể ước lượng tương đối chi phí, sức mua hoặc khả năng thực hiện hợp đồng. Ở cấp quốc gia, bất ổn kinh tế cũng làm kế hoạch hạ tầng và dịch vụ công khó triển khai. Liên hệ này giúp hiểu vì sao chuyên gia hoạch định quan tâm đến tính nhất quán của chính sách. Tuy nhiên, ổn định không phải mục tiêu đủ cho tất cả: vẫn cần xem tăng trưởng tạo cơ hội cho ai và chi phí điều chỉnh rơi vào nhóm nào.</p>\n<p>Ví dụ giả định, một địa phương muốn mở rộng hệ thống nước sạch trong mười năm. Nếu chỉ chuẩn bị kinh phí xây dựng mà bỏ qua vận hành, bảo trì và thay đổi dân số, công trình có thể nhanh chóng quá tải. Tư duy phát triển cần nối vốn đầu tư ban đầu với chi phí về sau và người chịu trách nhiệm. Đây là ví dụ của chuyên mục về kế hoạch dài hạn, không phải mô tả một dự án của Widjojo.</p>\n<h2>Chuyên môn luôn hoạt động trong một thể chế</h2>\n<p>Widjojo là nhân vật quan trọng trong đội ngũ kinh tế dưới thời Suharto. [1][2] Đánh giá giai đoạn này cần đặt chuyên môn trong bối cảnh quyền lực và trách nhiệm giải trình, thay vì coi một chính sách kỹ thuật là đứng ngoài chính trị. Kết quả kinh tế không tự xóa bỏ những vấn đề về cách quyền lực được sử dụng. Ngược lại, phê bình thể chế cũng không thay thế việc phân tích chính sách cụ thể đã hoạt động thế nào.</p>\n<p>Đối với người đọc, có thể tách ba lớp: mục tiêu được công bố, công cụ được dùng và kết quả thực tế. Sau đó hỏi ai có quyền sửa quyết định khi kết quả lệch mục tiêu. Một nhóm chuyên gia giỏi vẫn có thể bị giới hạn bởi thông tin, lợi ích hoặc lựa chọn của người nắm quyền. Vì vậy, chất lượng cá nhân và chất lượng hệ thống cần được đánh giá cùng nhau, không dùng yếu tố này để mặc nhiên bảo đảm yếu tố kia.</p>\n<h2>Không quy mọi thành công hay thất bại cho một người</h2>\n<p>Quá trình phát triển của một quốc gia chịu tác động của lao động, doanh nghiệp, tài nguyên, thương mại và môi trường quốc tế. Việc một nhân vật giữ vai trò nổi bật không có nghĩa ông kiểm soát toàn bộ các yếu tố ấy. Khi đọc tiểu sử kinh tế, nên cảnh giác với lối kể biến một người thành nguyên nhân duy nhất. Cách kể hấp dẫn có thể làm mất những điều kiện cần thiết để hiểu vì sao một chính sách thành công ở lúc này nhưng gặp khó ở lúc khác.</p>\n<p>Cũng cần phân biệt kế hoạch với khả năng thực hiện. Một tài liệu có mục tiêu đúng vẫn có thể thiếu ngân sách, dữ liệu hoặc phối hợp giữa các đơn vị. Ngược lại, điều chỉnh kế hoạch trước thông tin mới không nhất thiết là thất bại; đôi khi đó là phản ứng có trách nhiệm. Điều quan trọng là có giải thích, bằng chứng và cơ chế theo dõi, thay vì thay mục tiêu liên tục để khiến mọi kết quả đều được gọi là thành công.</p>\n<h2>Điều người học tại Việt Nam có thể giữ lại</h2>\n<p>Ở quy mô doanh nghiệp hay địa phương, bài học phương pháp là nối mục tiêu dài hạn với dữ liệu, nguồn lực và trách nhiệm thực hiện. Cần biết ai cung cấp thông tin, ai phản biện và khi nào phải xem lại phương án. Đây là liên hệ biên tập, không phải một công thức được gán cho Widjojo. Nó giúp người đọc đi từ câu chuyện nhân vật sang cách đánh giá một kế hoạch bằng những điều có thể kiểm chứng được.</p>\n<p>Chân dung Widjojo Nitisastro vì vậy đáng đọc cả ở đóng góp lẫn giới hạn của vai trò chuyên gia. Tri thức kinh tế có thể làm quyết định sáng rõ hơn, nhưng không tự thay thế cơ chế giám sát và trách nhiệm giải trình. Muốn học từ lịch sử, cần giữ được cả hai mặt: trân trọng năng lực phân tích và tiếp tục hỏi quyết định ấy được đưa ra trong điều kiện nào, phục vụ ai, và có thể được sửa bằng cách nào.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://lpem.org/member/prof-dr-widjojo-nitisastro-1955-1957/?lang=en\">Universitas Indonesia — Widjojo Nitisastro</a></li><li><a href=\"https://www.ekon.go.id/profil/menteri-detail/20/prof-dr-widjojo-nitisastro\">Indonesian Coordinating Ministry for Economic Affairs — Biography</a></li><li><a href=\"https://aipi.or.id/anggota/prof-dr-widjojo-nitisastro/\">Indonesian Academy of Sciences — Widjojo Nitisastro</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Widjojo_Nitisastro_(1977).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/\">Max Corden: Nhìn chính sách thương mại từ cả đầu vào lẫn đầu ra</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/",
+      "title": "Max Corden: Nhìn chính sách thương mại từ cả đầu vào lẫn đầu ra",
+      "title_en": "Max Corden: Trade policy through inputs and outputs"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/widjojo-nitisastro-on-dinh-va-phat-trien/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1961&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/widjojo-nitisastro-on-dinh-va-phat-trien/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/widjojo-nitisastro.webp"
+  }
+]
