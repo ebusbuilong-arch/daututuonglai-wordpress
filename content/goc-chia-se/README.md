@@ -20,7 +20,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Đã đăng 5 bài VI+EN ngày 14/11/2026; 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Đã xuất bản VI/EN ngày 14/11/2026 |
-| 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 14 | A. W. Phillips; Michio Morishima; Lâm Nghị Phu; Lim Chong Yah; Widjojo Nitisastro | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 15 | José Encarnación Jr.; Muhammad Yunus; Saman Kelegama; Dani Rodrik; Raúl Prebisch | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -170,3 +170,14 @@ Bản lưu: [package-10-bilingual.json](./package-10-bilingual.json). Đã nhậ
 - [Jan Tinbergen](https://daututuonglai.vn/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/) · [EN](https://daututuonglai.vn/en/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/)
 
 Bản lưu: [package-11-bilingual.json](./package-11-bilingual.json). Đã nhập 95 chuỗi EN và kiểm tra đầy đủ từng đoạn, tiêu đề, chú thích, năm mô tả ngắn EN. Bốn ảnh tư liệu có nguồn và giấy phép; Ester Boserup dùng minh họa AI tham chiếu với nhãn VI/EN. Năm ảnh WebP tải được, đúng người và object-fit: contain trên danh mục. Không thay theme.
+
+
+## Gói 12 đã xuất bản — 14/11/2026
+
+- [Sismondi](https://daututuonglai.vn/2026/11/14/sismondi-tang-truong-va-doi-song/) · [EN](https://daututuonglai.vn/en/2026/11/14/sismondi-tang-truong-va-doi-song/)
+- [Franco Modigliani](https://daututuonglai.vn/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/) · [EN](https://daututuonglai.vn/en/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/)
+- [Andreu Mas-Colell](https://daututuonglai.vn/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/) · [EN](https://daututuonglai.vn/en/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/)
+- [António Simões Lopes](https://daututuonglai.vn/2026/11/14/antonio-simoes-lopes-phat-trien-vung/) · [EN](https://daututuonglai.vn/en/2026/11/14/antonio-simoes-lopes-phat-trien-vung/)
+- [Michał Kalecki](https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/) · [EN](https://daututuonglai.vn/en/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/)
+
+Bản lưu: [package-12-bilingual.json](./package-12-bilingual.json). Nhập 89 chuỗi EN; kiểm tra toàn bộ đoạn, tiêu đề, chú thích, năm mô tả ngắn EN và ảnh tải đúng. Sismondi dùng tranh Amélie Munier-Romilly thuộc phạm vi công cộng; Modigliani (Umofomia, bản cắt JB Hoang Tam 2, CC BY-SA 3.0); Mas-Colell (George M. Bergman, CC BY-SA 4.0); Kalecki (chân dung Manuel García Jódar, CC BY 2.5 ES). Simões Lopes dùng minh họa AI tham chiếu RSAI, ghi nhãn VI/EN. Ảnh WebP tối đa 800 px; object-fit: contain trên danh mục. Không thay theme.
