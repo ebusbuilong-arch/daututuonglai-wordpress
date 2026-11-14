@@ -1,0 +1,529 @@
+[
+  {
+    "key": "sam-altman",
+    "slug": "sam-altman-san-pham-va-tang-truong",
+    "title": "Sam Altman: Tăng trưởng bắt đầu từ một sản phẩm được cần đến",
+    "title_en": "Sam Altman: Growth starts with a product people need",
+    "excerpt": "Từ Loopt và Y Combinator đến OpenAI: bài học của Sam Altman về sản phẩm, học hỏi và giới hạn của tham vọng tăng trưởng.",
+    "excerpt_en": "From Loopt and Y Combinator to OpenAI: Sam Altman on products, learning and the limits of growth ambitions.",
+    "credit": "Ảnh Sam Altman năm 2022: Village Global, CC BY 2.0.",
+    "credit_en": "Sam Altman in 2022: Village Global, CC BY 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Sam_Altman_November_2022.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Y Combinator — Sam Altman on How to Build the Future",
+        "url": "https://www.ycombinator.com/blog/sam-altman-on-how-to-build-the-future"
+      },
+      {
+        "label": "Y Combinator — Sam Altman for President",
+        "url": "https://www.ycombinator.com/blog/sam-altman-for-president"
+      },
+      {
+        "label": "Sam Altman — Startup Playbook",
+        "url": "https://playbook.samaltman.com/"
+      },
+      {
+        "label": "Sam Altman — How To Be Successful",
+        "url": "https://blog.samaltman.com/how-to-be-successful"
+      },
+      {
+        "label": "OpenAI — Remarks at the United Nations Security Council, 2026",
+        "url": "https://openai.com/index/sam-altman-un-security-council-remarks/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một sản phẩm có thể được nhiều người biết đến nhưng ít người thực sự cần. Khoảng cách giữa hai điều ấy là vấn đề mà người khởi nghiệp thường gặp sau ngày ra mắt. Đọc các bài viết của Sam Altman, ta có thể đặt câu chuyện tăng trưởng trở lại một câu hỏi rất cụ thể: nếu sản phẩm biến mất ngày mai, ai sẽ thấy công việc của mình khó hơn?",
+        "en": "A product can be widely known yet needed by very few people. Founders often encounter that gap after launch. Sam Altman's writing offers a way to bring growth back to a concrete question: if the product disappeared tomorrow, whose work would become harder?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ người sáng lập đến người hỗ trợ các nhà sáng lập",
+        "en": "From founder to helping other founders"
+      },
+      {
+        "tag": "p",
+        "vi": "Altman từng đồng sáng lập Loopt, doanh nghiệp được Green Dot mua lại năm 2012. Ông được công bố làm Chủ tịch Y Combinator năm 2014. Tại OpenAI, ông là đồng sáng lập và giữ vai trò CEO; thông báo chính thức tháng 9/2026 vẫn ghi chức danh này. Các mốc đó cho thấy hành trình đi qua cả xây dựng doanh nghiệp, hỗ trợ khởi nghiệp và điều hành một tổ chức AI. [1][2][5]",
+        "en": "Altman co-founded Loopt, which Green Dot acquired in 2012. He was announced as Y Combinator's president in 2014. At OpenAI, he is a co-founder and CEO, a title confirmed by its September 2026 announcement. His career spans building a company, supporting startups and leading an AI organization. [1][2][5]"
+      },
+      {
+        "tag": "p",
+        "vi": "Tuy vậy, chức danh hay quy mô công ty không biến mọi nhận định của một CEO thành quy luật. Cách đọc hữu ích là tách ba lớp: sự kiện đã xảy ra, quan điểm của nhân vật và bài học mình có thể thử nghiệm. Một doanh nghiệp nhỏ không có cùng vốn, đội ngũ hay khả năng chịu lỗ như một công ty công nghệ lớn.",
+        "en": "Titles and company scale do not turn every CEO opinion into a universal rule. A useful reading separates established events, the person's views and lessons worth testing. A small business has different funding, staff and capacity to absorb losses from a large technology company."
+      },
+      {
+        "tag": "h2",
+        "vi": "Sản phẩm tốt phải được kiểm chứng bằng hành vi",
+        "en": "Test product quality through behavior"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong Startup Playbook, Altman ưu tiên làm sản phẩm mà một nhóm nhỏ người dùng rất yêu thích, rồi mới mở rộng. Ông khuyến khích người sáng lập trực tiếp quan sát khách hàng, cải tiến sản phẩm và theo dõi việc họ có quay lại hay giới thiệu cho người khác. [3]",
+        "en": "In Startup Playbook, Altman prioritizes building something a small group of users loves before expanding. He encourages founders to observe customers directly, improve the product and watch whether people return or recommend it. [3]"
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một nhóm làm ứng dụng quản lý đơn hàng có 2.000 lượt đăng ký nhưng chỉ 40 cửa hàng dùng hàng tuần. Chạy thêm quảng cáo có thể làm con số đăng ký đẹp hơn. Nhưng nếu chủ cửa hàng bỏ cuộc vì nhập dữ liệu mất thời gian, chi phí quảng cáo đang đưa thêm người vào cùng một điểm nghẽn. Việc cần thử trước có thể là rút ngắn thao tác tạo đơn đầu tiên.",
+        "en": "Consider a hypothetical order-management app with 2,000 signups but only 40 stores using it weekly. More advertising could improve the signup figure. Yet if owners leave because data entry takes too long, advertising sends more people into the same bottleneck. The first experiment might be simplifying the creation of an initial order."
+      },
+      {
+        "tag": "p",
+        "vi": "Nhóm có thể đo thời gian hoàn thành, tỷ lệ quay lại sau bảy ngày và số lỗi phải hỗ trợ. Những chỉ số này không tự chứng minh mô hình sẽ có lãi, nhưng giúp biết thay đổi có giải quyết đúng vấn đề hay không. Một lời khen khi xem bản trình diễn ít có giá trị hơn việc khách hàng tự chọn sử dụng trong ngày bận rộn.",
+        "en": "The team could measure completion time, seven-day return rates and errors requiring support. These metrics do not prove profitability, but they reveal whether a change addresses the problem. Praise during a demonstration tells less than a customer's voluntary use on a busy day."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tích lũy năng lực và giữ khả năng tự sửa",
+        "en": "Accumulate capability and preserve self-correction"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong How To Be Successful, Altman bàn về hiệu ứng tích lũy của kỹ năng, công nghệ, thương hiệu và quan hệ hợp tác. Ông đồng thời cho rằng niềm tin vào bản thân cần đi cùng tự nhận thức và lắng nghe phê bình. [4] Đó là góc nhìn của một người khởi nghiệp, không phải cam kết rằng cứ kiên trì sẽ thành công.",
+        "en": "In How To Be Successful, Altman discusses the compounding effects of skills, technology, brand and relationships. He also argues that self-belief needs self-awareness and openness to criticism. [4] This is an entrepreneur's perspective, not a guarantee that persistence always succeeds."
+      },
+      {
+        "tag": "p",
+        "vi": "Với một cơ sở sản xuất, tích lũy có thể là bộ mẫu đã kiểm tra, dữ liệu lỗi được ghi lại hoặc quy trình giúp nhân viên mới làm đúng nhanh hơn. Mỗi đơn hàng hoàn thành không chỉ tạo doanh thu mà còn để lại năng lực dùng được cho đơn sau. Đây là cách diễn giải thực hành của bài viết, không phải ví dụ Altman đưa ra.",
+        "en": "For a manufacturer, accumulation might mean tested samples, recorded defects or procedures that help new staff work correctly sooner. Each completed order can leave reusable capability as well as revenue. This is this article's practical interpretation, not an example supplied by Altman."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tham vọng cần một giới hạn có thể đo",
+        "en": "Ambition needs measurable limits"
+      },
+      {
+        "tag": "p",
+        "vi": "Một kế hoạch dài hạn vẫn cần mốc kiểm tra ngắn hạn. Nếu khách hàng không quay lại, chi phí phục vụ tăng hoặc sản phẩm gây lỗi nghiêm trọng, người điều hành cần sửa giả định trước khi mở rộng. Với sản phẩm AI, độ tin cậy và cách xử lý sai sót cũng là một phần chất lượng sử dụng. Số lượng người biết đến sản phẩm không thể thay thế các kiểm tra đó.",
+        "en": "A long-term plan still needs short-term checkpoints. If customers do not return, service costs rise or serious errors occur, leaders should revisit assumptions before expanding. For AI products, reliability and error handling are part of usability. Awareness cannot substitute for those checks."
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học có thể mang về từ Altman là xây một vòng học hỏi rõ ràng: chọn vấn đề, làm bản thử, quan sát người dùng, đo kết quả rồi sửa. Tham vọng xác định hướng đi; bằng chứng quyết định bước tiếp theo. Cách làm ấy hữu ích hơn việc sao chép khẩu hiệu của một công ty thành công mà bỏ qua điều kiện riêng của mình.",
+        "en": "A transferable lesson from Altman is a clear learning cycle: select a problem, build a trial, observe users, measure results and revise. Ambition sets direction; evidence determines the next step. This is more useful than copying a successful company's slogans while ignoring one's own circumstances."
+      }
+    ],
+    "html": "<p><em>Ảnh Sam Altman năm 2022: Village Global, CC BY 2.0.</em></p>\n<p>Một sản phẩm có thể được nhiều người biết đến nhưng ít người thực sự cần. Khoảng cách giữa hai điều ấy là vấn đề mà người khởi nghiệp thường gặp sau ngày ra mắt. Đọc các bài viết của Sam Altman, ta có thể đặt câu chuyện tăng trưởng trở lại một câu hỏi rất cụ thể: nếu sản phẩm biến mất ngày mai, ai sẽ thấy công việc của mình khó hơn?</p>\n<h2>Từ người sáng lập đến người hỗ trợ các nhà sáng lập</h2>\n<p>Altman từng đồng sáng lập Loopt, doanh nghiệp được Green Dot mua lại năm 2012. Ông được công bố làm Chủ tịch Y Combinator năm 2014. Tại OpenAI, ông là đồng sáng lập và giữ vai trò CEO; thông báo chính thức tháng 9/2026 vẫn ghi chức danh này. Các mốc đó cho thấy hành trình đi qua cả xây dựng doanh nghiệp, hỗ trợ khởi nghiệp và điều hành một tổ chức AI. [1][2][5]</p>\n<p>Tuy vậy, chức danh hay quy mô công ty không biến mọi nhận định của một CEO thành quy luật. Cách đọc hữu ích là tách ba lớp: sự kiện đã xảy ra, quan điểm của nhân vật và bài học mình có thể thử nghiệm. Một doanh nghiệp nhỏ không có cùng vốn, đội ngũ hay khả năng chịu lỗ như một công ty công nghệ lớn.</p>\n<h2>Sản phẩm tốt phải được kiểm chứng bằng hành vi</h2>\n<p>Trong Startup Playbook, Altman ưu tiên làm sản phẩm mà một nhóm nhỏ người dùng rất yêu thích, rồi mới mở rộng. Ông khuyến khích người sáng lập trực tiếp quan sát khách hàng, cải tiến sản phẩm và theo dõi việc họ có quay lại hay giới thiệu cho người khác. [3]</p>\n<p>Ví dụ giả định, một nhóm làm ứng dụng quản lý đơn hàng có 2.000 lượt đăng ký nhưng chỉ 40 cửa hàng dùng hàng tuần. Chạy thêm quảng cáo có thể làm con số đăng ký đẹp hơn. Nhưng nếu chủ cửa hàng bỏ cuộc vì nhập dữ liệu mất thời gian, chi phí quảng cáo đang đưa thêm người vào cùng một điểm nghẽn. Việc cần thử trước có thể là rút ngắn thao tác tạo đơn đầu tiên.</p>\n<p>Nhóm có thể đo thời gian hoàn thành, tỷ lệ quay lại sau bảy ngày và số lỗi phải hỗ trợ. Những chỉ số này không tự chứng minh mô hình sẽ có lãi, nhưng giúp biết thay đổi có giải quyết đúng vấn đề hay không. Một lời khen khi xem bản trình diễn ít có giá trị hơn việc khách hàng tự chọn sử dụng trong ngày bận rộn.</p>\n<h2>Tích lũy năng lực và giữ khả năng tự sửa</h2>\n<p>Trong How To Be Successful, Altman bàn về hiệu ứng tích lũy của kỹ năng, công nghệ, thương hiệu và quan hệ hợp tác. Ông đồng thời cho rằng niềm tin vào bản thân cần đi cùng tự nhận thức và lắng nghe phê bình. [4] Đó là góc nhìn của một người khởi nghiệp, không phải cam kết rằng cứ kiên trì sẽ thành công.</p>\n<p>Với một cơ sở sản xuất, tích lũy có thể là bộ mẫu đã kiểm tra, dữ liệu lỗi được ghi lại hoặc quy trình giúp nhân viên mới làm đúng nhanh hơn. Mỗi đơn hàng hoàn thành không chỉ tạo doanh thu mà còn để lại năng lực dùng được cho đơn sau. Đây là cách diễn giải thực hành của bài viết, không phải ví dụ Altman đưa ra.</p>\n<h2>Tham vọng cần một giới hạn có thể đo</h2>\n<p>Một kế hoạch dài hạn vẫn cần mốc kiểm tra ngắn hạn. Nếu khách hàng không quay lại, chi phí phục vụ tăng hoặc sản phẩm gây lỗi nghiêm trọng, người điều hành cần sửa giả định trước khi mở rộng. Với sản phẩm AI, độ tin cậy và cách xử lý sai sót cũng là một phần chất lượng sử dụng. Số lượng người biết đến sản phẩm không thể thay thế các kiểm tra đó.</p>\n<p>Bài học có thể mang về từ Altman là xây một vòng học hỏi rõ ràng: chọn vấn đề, làm bản thử, quan sát người dùng, đo kết quả rồi sửa. Tham vọng xác định hướng đi; bằng chứng quyết định bước tiếp theo. Cách làm ấy hữu ích hơn việc sao chép khẩu hiệu của một công ty thành công mà bỏ qua điều kiện riêng của mình.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.ycombinator.com/blog/sam-altman-on-how-to-build-the-future\">Y Combinator — Sam Altman on How to Build the Future</a></li><li><a href=\"https://www.ycombinator.com/blog/sam-altman-for-president\">Y Combinator — Sam Altman for President</a></li><li><a href=\"https://playbook.samaltman.com/\">Sam Altman — Startup Playbook</a></li><li><a href=\"https://blog.samaltman.com/how-to-be-successful\">Sam Altman — How To Be Successful</a></li><li><a href=\"https://openai.com/index/sam-altman-un-security-council-remarks/\">OpenAI — Remarks at the United Nations Security Council, 2026</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Sam_Altman_November_2022.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license / Giấy phép ảnh</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/sam-altman.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/sam-altman-san-pham-va-tang-truong/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1810&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/sam-altman-san-pham-va-tang-truong/"
+  },
+  {
+    "key": "philip-fisher",
+    "slug": "philip-fisher-chat-luong-tang-truong",
+    "title": "Philip Fisher: Tìm chất lượng phía sau một câu chuyện tăng trưởng",
+    "title_en": "Philip Fisher: Finding quality behind a growth story",
+    "excerpt": "Philip Fisher và cách nghiên cứu năng lực doanh nghiệp, đối chiếu thông tin và phân biệt tăng trưởng bền vững với một năm thuận lợi.",
+    "excerpt_en": "Philip Fisher on researching business capability, cross-checking information and distinguishing lasting growth from a favorable year.",
+    "credit": "Chân dung Philip Fisher: minh họa AI tham chiếu ảnh tư liệu.",
+    "credit_en": "Philip Fisher: AI illustration based on an archival portrait.",
+    "photo_source": "https://thepeinvestor.com/2021/04/10/philip-fisher/",
+    "license": "",
+    "sources": [
+      {
+        "label": "Wiley — Common Stocks and Uncommon Profits and Other Writings",
+        "url": "https://www.wiley.com/en-us/common-stocks-and-uncommon-profits-and-other-writings-2nd-edition-p-9780471445500"
+      },
+      {
+        "label": "Wiley-VCH — Book contents",
+        "url": "https://www.wiley-vch.de/en/areas-interest/finance-economics-law/common-stocks-and-uncommon-profits-and-other-writings-978-0-471-44550-0"
+      },
+      {
+        "label": "AAII — The Philip Fisher Approach",
+        "url": "https://www.aaii.com/journal/article/the-philip-fisher-approach-to-screening-common-stocks-for-uncommon-profits"
+      },
+      {
+        "label": "The PE Investor — Reading notes on Philip Fisher",
+        "url": "https://thepeinvestor.com/2021/04/10/philip-fisher/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một công ty có doanh thu tăng mạnh chưa chắc đã xây được lợi thế lâu dài. Đơn hàng có thể đến từ một mùa thuận lợi, giá bán tăng hoặc một đối thủ gặp sự cố. Philip Fisher gợi ra cách đặt câu hỏi sâu hơn: điều gì trong tổ chức giúp doanh nghiệp tiếp tục tạo ra sản phẩm được khách hàng lựa chọn khi hoàn cảnh không còn dễ dàng?",
+        "en": "A sharp rise in revenue does not necessarily indicate a lasting advantage. Orders may reflect a favorable season, higher prices or a rival's problems. Philip Fisher suggests a deeper question: what organizational capabilities help a business keep producing things customers choose when conditions become harder?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà nghiên cứu doanh nghiệp trên thị trường cổ phiếu",
+        "en": "A business researcher in the stock market"
+      },
+      {
+        "tag": "p",
+        "vi": "Philip Arthur Fisher (1907–2004) bắt đầu làm chuyên viên phân tích chứng khoán năm 1928 và thành lập Fisher & Company năm 1931. Cuốn Common Stocks and Uncommon Profits xuất bản lần đầu năm 1958. [1] Di sản nổi bật của ông là đưa việc tìm hiểu chất lượng doanh nghiệp vào trung tâm của cách tiếp cận cổ phiếu tăng trưởng.",
+        "en": "Philip Arthur Fisher (1907–2004) began as a securities analyst in 1928 and founded Fisher & Company in 1931. Common Stocks and Uncommon Profits first appeared in 1958. [1] His lasting contribution was placing business quality at the center of an approach to growth stocks."
+      },
+      {
+        "tag": "p",
+        "vi": "Mục lục sách có các phần về scuttlebutt, 15 điểm xem xét khi chọn cổ phiếu và thời điểm nên hoặc không nên bán. [2] Chỉ riêng cấu trúc ấy đã cho thấy mua một mã chứng khoán là kết quả của quá trình nghiên cứu. Nó không bắt đầu và kết thúc ở việc thấy một con số tăng trưởng hấp dẫn trên bảng tổng hợp.",
+        "en": "The book includes chapters on scuttlebutt, fifteen points to examine in a stock and when to sell or refrain from selling. [2] That structure treats a purchase as the result of research, rather than a decision that starts and ends with an attractive growth figure in a table."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tăng trưởng cần một cơ chế tạo ra nó",
+        "en": "Growth needs an underlying mechanism"
+      },
+      {
+        "tag": "p",
+        "vi": "AAII mô tả cách tiếp cận Fisher qua chất lượng quản lý, khả năng tăng doanh thu dài hạn và lợi thế cạnh tranh. Tổ chức này phân biệt tiềm năng phát triển bền bỉ với mức tăng ngắn hạn do chu kỳ hay yếu tố chỉ xuất hiện một lần. [3] Đây là bản diễn giải của AAII, không phải toàn bộ hệ thống của Fisher.",
+        "en": "AAII describes Fisher's approach through management quality, long-term sales potential and competitive advantage. It distinguishes enduring development from short-term gains caused by a cycle or a one-off factor. [3] This is AAII's interpretation, not Fisher's entire system."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, hai nhà sản xuất cùng tăng doanh thu 25%. Công ty A nhận một đơn hàng lớn duy nhất nhưng phải giảm giá sâu. Công ty B có thêm nhiều khách hàng quay lại, sản phẩm mới đã được đặt lại và tỷ lệ hàng lỗi giảm. Hai con số bằng nhau có thể che giấu hai chất lượng vận hành khác nhau. Muốn hiểu, người đọc cần xem cả nguồn tăng trưởng lẫn chi phí tạo ra nó.",
+        "en": "Suppose two manufacturers both grow revenue by 25%. Company A receives one large order but grants a steep discount. Company B gains repeat customers, repeat orders for new products and fewer defects. Identical growth figures can conceal different operating quality. Understanding them requires examining both the source and cost of growth."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần theo dõi phần tiền chưa thu được. Một doanh nghiệp bán nhiều hơn nhưng kéo dài thời hạn thanh toán có thể phải vay thêm để vận hành. Vì thế, nhận xét về chất lượng nên được đối chiếu với dòng tiền, khoản phải thu và nhu cầu vốn. Những kiểm tra này là gợi ý phân tích của bài viết, không phải một công thức chấm điểm tự động mang tên Fisher.",
+        "en": "Uncollected cash also matters. A business that sells more while extending payment terms may need extra borrowing to operate. Quality judgments should therefore be checked against cash flow, receivables and capital needs. These are analytical suggestions from this article, not an automatic scoring formula attributed to Fisher."
+      },
+      {
+        "tag": "h2",
+        "vi": "Scuttlebutt: Đối chiếu nhiều góc nhìn",
+        "en": "Scuttlebutt: Cross-check different perspectives"
+      },
+      {
+        "tag": "p",
+        "vi": "Scuttlebutt thường được diễn giải là tìm hiểu doanh nghiệp qua khách hàng, nhà cung cấp, đối thủ và những người hiểu ngành. Mục tiêu là ghép các góc nhìn để nhận ra điểm mạnh và điểm yếu thực tế, thay vì chỉ nghe phần trình bày của ban lãnh đạo. [4]",
+        "en": "Scuttlebutt is commonly interpreted as learning about a business from customers, suppliers, competitors and people familiar with the industry. The aim is to combine perspectives on actual strengths and weaknesses rather than rely solely on management's presentation. [4]"
+      },
+      {
+        "tag": "p",
+        "vi": "Một nhận xét riêng lẻ vẫn có thể thiên lệch. Khách hàng lâu năm có thể dễ bỏ qua nhược điểm; đối thủ có thể đánh giá thấp năng lực của nhau. Cách thực hành thận trọng là ghi rõ nguồn, thời điểm, phạm vi trải nghiệm và những điểm chưa thống nhất. Chỉ sử dụng thông tin công khai hoặc được chia sẻ hợp pháp; nghiên cứu doanh nghiệp không đồng nghĩa tìm kiếm bí mật nội bộ.",
+        "en": "Any single account can be biased. Loyal customers may overlook weaknesses, while competitors may underestimate one another. Careful practice records the source, date, scope of experience and disagreements. Use public or lawfully shared information; business research is not a search for confidential inside information."
+      },
+      {
+        "tag": "h2",
+        "vi": "Kiên nhẫn phải đi cùng điều kiện xem xét lại",
+        "en": "Patience needs conditions for reassessment"
+      },
+      {
+        "tag": "p",
+        "vi": "Nắm giữ lâu chỉ có ý nghĩa khi lý do ban đầu còn đứng vững. Nếu sản phẩm mất sức hút, đội ngũ thay đổi hoặc lợi nhuận dự kiến không chuyển thành tiền, một hồ sơ nghiên cứu cần được cập nhật. Việc đã bỏ nhiều công sức tìm hiểu không tạo ra nghĩa vụ phải bảo vệ nhận định cũ.",
+        "en": "Holding for a long time makes sense only while the original reasoning remains sound. If products lose appeal, teams change or expected profits fail to become cash, the research file needs updating. Extensive past research creates no obligation to defend an old conclusion."
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học từ Fisher có thể bắt đầu bằng một trang ghi chép: doanh nghiệp phục vụ ai, vì sao khách hàng chọn họ, điều gì hỗ trợ tăng trưởng và bằng chứng nào khiến mình đổi ý. Chất lượng doanh nghiệp và mức giá trả vẫn là hai câu hỏi riêng. Đây là bài tìm hiểu phương pháp tư duy, không phải khuyến nghị mua một cổ phiếu cụ thể.",
+        "en": "A lesson from Fisher can begin with one page: whom the business serves, why customers choose it, what supports growth and what evidence would change the assessment. Business quality and the price paid remain separate questions. This article explores a way of thinking, not a recommendation to buy a particular stock."
+      }
+    ],
+    "html": "<p><em>Chân dung Philip Fisher: minh họa AI tham chiếu ảnh tư liệu.</em></p>\n<p>Một công ty có doanh thu tăng mạnh chưa chắc đã xây được lợi thế lâu dài. Đơn hàng có thể đến từ một mùa thuận lợi, giá bán tăng hoặc một đối thủ gặp sự cố. Philip Fisher gợi ra cách đặt câu hỏi sâu hơn: điều gì trong tổ chức giúp doanh nghiệp tiếp tục tạo ra sản phẩm được khách hàng lựa chọn khi hoàn cảnh không còn dễ dàng?</p>\n<h2>Một nhà nghiên cứu doanh nghiệp trên thị trường cổ phiếu</h2>\n<p>Philip Arthur Fisher (1907–2004) bắt đầu làm chuyên viên phân tích chứng khoán năm 1928 và thành lập Fisher &amp; Company năm 1931. Cuốn Common Stocks and Uncommon Profits xuất bản lần đầu năm 1958. [1] Di sản nổi bật của ông là đưa việc tìm hiểu chất lượng doanh nghiệp vào trung tâm của cách tiếp cận cổ phiếu tăng trưởng.</p>\n<p>Mục lục sách có các phần về scuttlebutt, 15 điểm xem xét khi chọn cổ phiếu và thời điểm nên hoặc không nên bán. [2] Chỉ riêng cấu trúc ấy đã cho thấy mua một mã chứng khoán là kết quả của quá trình nghiên cứu. Nó không bắt đầu và kết thúc ở việc thấy một con số tăng trưởng hấp dẫn trên bảng tổng hợp.</p>\n<h2>Tăng trưởng cần một cơ chế tạo ra nó</h2>\n<p>AAII mô tả cách tiếp cận Fisher qua chất lượng quản lý, khả năng tăng doanh thu dài hạn và lợi thế cạnh tranh. Tổ chức này phân biệt tiềm năng phát triển bền bỉ với mức tăng ngắn hạn do chu kỳ hay yếu tố chỉ xuất hiện một lần. [3] Đây là bản diễn giải của AAII, không phải toàn bộ hệ thống của Fisher.</p>\n<p>Ví dụ giả định, hai nhà sản xuất cùng tăng doanh thu 25%. Công ty A nhận một đơn hàng lớn duy nhất nhưng phải giảm giá sâu. Công ty B có thêm nhiều khách hàng quay lại, sản phẩm mới đã được đặt lại và tỷ lệ hàng lỗi giảm. Hai con số bằng nhau có thể che giấu hai chất lượng vận hành khác nhau. Muốn hiểu, người đọc cần xem cả nguồn tăng trưởng lẫn chi phí tạo ra nó.</p>\n<p>Cũng cần theo dõi phần tiền chưa thu được. Một doanh nghiệp bán nhiều hơn nhưng kéo dài thời hạn thanh toán có thể phải vay thêm để vận hành. Vì thế, nhận xét về chất lượng nên được đối chiếu với dòng tiền, khoản phải thu và nhu cầu vốn. Những kiểm tra này là gợi ý phân tích của bài viết, không phải một công thức chấm điểm tự động mang tên Fisher.</p>\n<h2>Scuttlebutt: Đối chiếu nhiều góc nhìn</h2>\n<p>Scuttlebutt thường được diễn giải là tìm hiểu doanh nghiệp qua khách hàng, nhà cung cấp, đối thủ và những người hiểu ngành. Mục tiêu là ghép các góc nhìn để nhận ra điểm mạnh và điểm yếu thực tế, thay vì chỉ nghe phần trình bày của ban lãnh đạo. [4]</p>\n<p>Một nhận xét riêng lẻ vẫn có thể thiên lệch. Khách hàng lâu năm có thể dễ bỏ qua nhược điểm; đối thủ có thể đánh giá thấp năng lực của nhau. Cách thực hành thận trọng là ghi rõ nguồn, thời điểm, phạm vi trải nghiệm và những điểm chưa thống nhất. Chỉ sử dụng thông tin công khai hoặc được chia sẻ hợp pháp; nghiên cứu doanh nghiệp không đồng nghĩa tìm kiếm bí mật nội bộ.</p>\n<h2>Kiên nhẫn phải đi cùng điều kiện xem xét lại</h2>\n<p>Nắm giữ lâu chỉ có ý nghĩa khi lý do ban đầu còn đứng vững. Nếu sản phẩm mất sức hút, đội ngũ thay đổi hoặc lợi nhuận dự kiến không chuyển thành tiền, một hồ sơ nghiên cứu cần được cập nhật. Việc đã bỏ nhiều công sức tìm hiểu không tạo ra nghĩa vụ phải bảo vệ nhận định cũ.</p>\n<p>Bài học từ Fisher có thể bắt đầu bằng một trang ghi chép: doanh nghiệp phục vụ ai, vì sao khách hàng chọn họ, điều gì hỗ trợ tăng trưởng và bằng chứng nào khiến mình đổi ý. Chất lượng doanh nghiệp và mức giá trả vẫn là hai câu hỏi riêng. Đây là bài tìm hiểu phương pháp tư duy, không phải khuyến nghị mua một cổ phiếu cụ thể.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.wiley.com/en-us/common-stocks-and-uncommon-profits-and-other-writings-2nd-edition-p-9780471445500\">Wiley — Common Stocks and Uncommon Profits and Other Writings</a></li><li><a href=\"https://www.wiley-vch.de/en/areas-interest/finance-economics-law/common-stocks-and-uncommon-profits-and-other-writings-978-0-471-44550-0\">Wiley-VCH — Book contents</a></li><li><a href=\"https://www.aaii.com/journal/article/the-philip-fisher-approach-to-screening-common-stocks-for-uncommon-profits\">AAII — The Philip Fisher Approach</a></li><li><a href=\"https://thepeinvestor.com/2021/04/10/philip-fisher/\">The PE Investor — Reading notes on Philip Fisher</a></li></ol><p><a href=\"https://thepeinvestor.com/2021/04/10/philip-fisher/\">Portrait reference / Nguồn ảnh</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/philip-fisher.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/philip-fisher-chat-luong-tang-truong/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1813&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/philip-fisher-chat-luong-tang-truong/"
+  },
+  {
+    "key": "john-templeton",
+    "slug": "john-templeton-tu-duy-dau-tu-toan-cau",
+    "title": "John Templeton: Mở rộng góc nhìn nhưng không bỏ qua giá trị",
+    "title_en": "John Templeton: Broaden the search without losing sight of value",
+    "excerpt": "Hành trình John Templeton và bài học về tư duy toàn cầu, sự khiêm tốn và việc kiểm chứng cơ hội khi thị trường bi quan.",
+    "excerpt_en": "John Templeton on global perspective, humility and testing opportunities when markets are pessimistic.",
+    "credit": "John Templeton thời trẻ: minh họa AI tham chiếu ảnh của John Templeton Foundation.",
+    "credit_en": "Young John Templeton: AI illustration based on a John Templeton Foundation photograph.",
+    "photo_source": "https://www.templeton.org/about/sir-john-templeton",
+    "license": "",
+    "sources": [
+      {
+        "label": "John Templeton Foundation — Sir John Templeton",
+        "url": "https://www.templeton.org/about/sir-john-templeton"
+      },
+      {
+        "label": "Franklin Templeton — Ten Principles to Investment Success",
+        "url": "https://www.franklintempleton.com.sg/resources/investor-education/investing-101/ten-principles-to-investment-success"
+      },
+      {
+        "label": "Templeton World Charity Foundation — Our Founder",
+        "url": "https://www.templetonworldcharity.org/about-us/our-founder"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Nhà đầu tư thường hiểu nhất những doanh nghiệp gần mình, nhưng sự quen thuộc đôi khi biến thành một giới hạn vô hình. John Templeton nổi tiếng với cách tìm cơ hội vượt ra ngoài thị trường trong nước. Điều đáng học không phải là cứ đi xa sẽ tìm được món hời, mà là giữ cùng một tiêu chuẩn nghiên cứu khi nhìn sang nơi mình chưa quen.",
+        "en": "Investors often understand nearby businesses best, yet familiarity can become an invisible limit. John Templeton became known for looking beyond his home market. The lesson is not that distant opportunities are automatically bargains, but that the same research standards should apply in unfamiliar places."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Tennessee đến những quỹ đầu tư quốc tế",
+        "en": "From Tennessee to international investment funds"
+      },
+      {
+        "tag": "p",
+        "vi": "Templeton sinh năm 1912 tại Winchester, Tennessee. Ông tốt nghiệp Yale năm 1934, học luật ở Oxford và bắt đầu sự nghiệp Phố Wall năm 1938. Năm 1954, ông thành lập Templeton Growth Fund; năm 1992, hệ thống quỹ Templeton được bán cho Franklin. Ông qua đời tại Bahamas năm 2008. [1]",
+        "en": "Templeton was born in Winchester, Tennessee, in 1912. He graduated from Yale in 1934, studied law at Oxford and began his Wall Street career in 1938. He founded Templeton Growth Fund in 1954; the Templeton fund group was sold to Franklin in 1992. He died in the Bahamas in 2008. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Các mốc ấy đặt ông trong một thời kỳ mà tiếp cận doanh nghiệp nước ngoài khó hơn nhiều so với việc mở một ứng dụng hôm nay. Tuy nhiên, tiếp cận thông tin dễ hơn không tự làm việc đánh giá dễ hơn. Bản báo cáo được dịch rõ ràng vẫn có thể chứa một mô hình kinh doanh mà người đọc chưa hiểu đầy đủ.",
+        "en": "Those milestones place him in an era when accessing foreign businesses was harder than opening an app today. Easier access to information, however, does not automatically simplify evaluation. Even a clearly translated report can describe a business model the reader does not fully understand."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đi ngược đám đông cần một lý do độc lập",
+        "en": "Going against the crowd requires independent reasoning"
+      },
+      {
+        "tag": "p",
+        "vi": "Các nguyên tắc Templeton được Franklin Templeton công bố đề cao tư duy cởi mở, tránh chạy theo số đông và quan tâm lợi nhuận thực sau thuế. [2] Nhưng biến điều đó thành khẩu hiệu “cứ giảm giá là mua” sẽ bỏ qua phần khó nhất: xác định vấn đề của doanh nghiệp là tạm thời hay lâu dài.",
+        "en": "Templeton's principles, published by Franklin Templeton, emphasize open-mindedness, resisting the crowd and real returns after taxes. [2] Turning that into “buy whenever prices fall” skips the hardest question: whether a business's problems are temporary or lasting."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một chuỗi cửa hàng giảm lợi nhuận vì đang sửa hệ thống kho. Một chuỗi khác giảm lợi nhuận vì khách hàng chuyển hẳn sang sản phẩm thay thế. Cả hai có thể bị thị trường đánh giá thấp hơn trước, nhưng khả năng phục hồi không giống nhau. Người phân tích cần tìm bằng chứng về nhu cầu, chi phí khắc phục và sức chịu đựng tài chính.",
+        "en": "Imagine one retail chain losing profit while repairing its warehouse system, and another losing profit because customers permanently switch to a substitute. Both may be valued lower than before, but their recovery prospects differ. Analysis needs evidence about demand, repair costs and financial resilience."
+      },
+      {
+        "tag": "p",
+        "vi": "Một luận điểm độc lập phải nói được vì sao thị trường có thể đang đánh giá sai, điều gì sẽ cho thấy nhận định đó đúng và điều gì sẽ bác bỏ nó. Nếu lý do duy nhất là giá đã giảm nhiều, người mua mới chỉ mô tả diễn biến quá khứ. Khoảng cách tới đỉnh cũ không phải thước đo đầy đủ của giá trị hiện tại.",
+        "en": "An independent thesis should explain why the market may be mistaken, what would support that view and what would disprove it. If the only reason is a large price decline, the buyer has merely described the past. Distance from an old peak is not a sufficient measure of present value."
+      },
+      {
+        "tag": "h2",
+        "vi": "Góc nhìn toàn cầu cũng mở thêm câu hỏi",
+        "en": "A global perspective brings additional questions"
+      },
+      {
+        "tag": "p",
+        "vi": "Tìm hiểu doanh nghiệp ở quốc gia khác đòi hỏi hiểu đồng tiền tạo doanh thu, đồng tiền vay nợ và môi trường hoạt động. Cùng một mức tăng lợi nhuận trên báo cáo có thể dẫn đến kết quả khác khi quy đổi về đồng tiền của người nắm giữ. Khả năng tiếp cận thông tin và bảo vệ cổ đông cũng cần được xem xét riêng.",
+        "en": "Researching a foreign business requires understanding its revenue currency, borrowing currency and operating environment. The same reported profit growth can produce a different result when translated into the holder's currency. Information access and shareholder protections also need separate examination."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một tài sản tăng 10% tính theo đồng tiền địa phương, nhưng đồng tiền đó mất 10% so với đồng tiền gốc của người mua. Trước phí và thuế, giá trị quy đổi chỉ còn 1,10 × 0,90 = 0,99 lần ban đầu, tức giảm 1%. Phép tính không dự báo tỷ giá; nó chỉ cho thấy vì sao không nên nhìn một tỷ lệ lợi nhuận đứng riêng.",
+        "en": "Suppose an asset rises 10% in local currency while that currency falls 10% against the buyer's base currency. Before fees and taxes, translated value becomes 1.10 × 0.90 = 0.99 of the starting amount, a 1% decline. This does not forecast exchange rates; it shows why a return figure should not be viewed in isolation."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khiêm tốn để tiếp tục học",
+        "en": "Humility makes continued learning possible"
+      },
+      {
+        "tag": "p",
+        "vi": "Templeton còn dành nguồn lực cho hoạt động thiện nguyện và nghiên cứu. Các tổ chức do ông sáng lập nhấn mạnh tinh thần cởi mở và việc nhận ra giới hạn hiểu biết. [1][3] Trong phân tích đầu tư, thái độ ấy có thể được chuyển thành thói quen ghi rõ phần chưa biết, thay vì dùng danh tiếng của một nhân vật để lấp chỗ trống.",
+        "en": "Templeton also devoted resources to philanthropy and research. Organizations he founded emphasize openness and recognizing the limits of knowledge. [1][3] In investment analysis, that attitude can become a habit of recording uncertainties rather than filling gaps with a famous person's authority."
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học thực hành là mở rộng danh sách câu hỏi trước khi mở rộng danh mục tài sản. Có thể tìm cơ hội ở nhiều nơi, nhưng mỗi nơi vẫn cần bằng chứng, mức giá hợp lý và khả năng chịu rủi ro phù hợp. Tinh thần độc lập chỉ có giá trị khi đi cùng sự sẵn sàng thừa nhận mình sai.",
+        "en": "The practical lesson is to broaden the questions before broadening the portfolio. Opportunities may exist in many places, but each still needs evidence, a reasonable valuation and suitable risk capacity. Independent thinking is valuable only when paired with a willingness to admit error."
+      }
+    ],
+    "html": "<p><em>John Templeton thời trẻ: minh họa AI tham chiếu ảnh của John Templeton Foundation.</em></p>\n<p>Nhà đầu tư thường hiểu nhất những doanh nghiệp gần mình, nhưng sự quen thuộc đôi khi biến thành một giới hạn vô hình. John Templeton nổi tiếng với cách tìm cơ hội vượt ra ngoài thị trường trong nước. Điều đáng học không phải là cứ đi xa sẽ tìm được món hời, mà là giữ cùng một tiêu chuẩn nghiên cứu khi nhìn sang nơi mình chưa quen.</p>\n<h2>Từ Tennessee đến những quỹ đầu tư quốc tế</h2>\n<p>Templeton sinh năm 1912 tại Winchester, Tennessee. Ông tốt nghiệp Yale năm 1934, học luật ở Oxford và bắt đầu sự nghiệp Phố Wall năm 1938. Năm 1954, ông thành lập Templeton Growth Fund; năm 1992, hệ thống quỹ Templeton được bán cho Franklin. Ông qua đời tại Bahamas năm 2008. [1]</p>\n<p>Các mốc ấy đặt ông trong một thời kỳ mà tiếp cận doanh nghiệp nước ngoài khó hơn nhiều so với việc mở một ứng dụng hôm nay. Tuy nhiên, tiếp cận thông tin dễ hơn không tự làm việc đánh giá dễ hơn. Bản báo cáo được dịch rõ ràng vẫn có thể chứa một mô hình kinh doanh mà người đọc chưa hiểu đầy đủ.</p>\n<h2>Đi ngược đám đông cần một lý do độc lập</h2>\n<p>Các nguyên tắc Templeton được Franklin Templeton công bố đề cao tư duy cởi mở, tránh chạy theo số đông và quan tâm lợi nhuận thực sau thuế. [2] Nhưng biến điều đó thành khẩu hiệu “cứ giảm giá là mua” sẽ bỏ qua phần khó nhất: xác định vấn đề của doanh nghiệp là tạm thời hay lâu dài.</p>\n<p>Ví dụ giả định, một chuỗi cửa hàng giảm lợi nhuận vì đang sửa hệ thống kho. Một chuỗi khác giảm lợi nhuận vì khách hàng chuyển hẳn sang sản phẩm thay thế. Cả hai có thể bị thị trường đánh giá thấp hơn trước, nhưng khả năng phục hồi không giống nhau. Người phân tích cần tìm bằng chứng về nhu cầu, chi phí khắc phục và sức chịu đựng tài chính.</p>\n<p>Một luận điểm độc lập phải nói được vì sao thị trường có thể đang đánh giá sai, điều gì sẽ cho thấy nhận định đó đúng và điều gì sẽ bác bỏ nó. Nếu lý do duy nhất là giá đã giảm nhiều, người mua mới chỉ mô tả diễn biến quá khứ. Khoảng cách tới đỉnh cũ không phải thước đo đầy đủ của giá trị hiện tại.</p>\n<h2>Góc nhìn toàn cầu cũng mở thêm câu hỏi</h2>\n<p>Tìm hiểu doanh nghiệp ở quốc gia khác đòi hỏi hiểu đồng tiền tạo doanh thu, đồng tiền vay nợ và môi trường hoạt động. Cùng một mức tăng lợi nhuận trên báo cáo có thể dẫn đến kết quả khác khi quy đổi về đồng tiền của người nắm giữ. Khả năng tiếp cận thông tin và bảo vệ cổ đông cũng cần được xem xét riêng.</p>\n<p>Ví dụ giả định, một tài sản tăng 10% tính theo đồng tiền địa phương, nhưng đồng tiền đó mất 10% so với đồng tiền gốc của người mua. Trước phí và thuế, giá trị quy đổi chỉ còn 1,10 × 0,90 = 0,99 lần ban đầu, tức giảm 1%. Phép tính không dự báo tỷ giá; nó chỉ cho thấy vì sao không nên nhìn một tỷ lệ lợi nhuận đứng riêng.</p>\n<h2>Khiêm tốn để tiếp tục học</h2>\n<p>Templeton còn dành nguồn lực cho hoạt động thiện nguyện và nghiên cứu. Các tổ chức do ông sáng lập nhấn mạnh tinh thần cởi mở và việc nhận ra giới hạn hiểu biết. [1][3] Trong phân tích đầu tư, thái độ ấy có thể được chuyển thành thói quen ghi rõ phần chưa biết, thay vì dùng danh tiếng của một nhân vật để lấp chỗ trống.</p>\n<p>Bài học thực hành là mở rộng danh sách câu hỏi trước khi mở rộng danh mục tài sản. Có thể tìm cơ hội ở nhiều nơi, nhưng mỗi nơi vẫn cần bằng chứng, mức giá hợp lý và khả năng chịu rủi ro phù hợp. Tinh thần độc lập chỉ có giá trị khi đi cùng sự sẵn sàng thừa nhận mình sai.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.templeton.org/about/sir-john-templeton\">John Templeton Foundation — Sir John Templeton</a></li><li><a href=\"https://www.franklintempleton.com.sg/resources/investor-education/investing-101/ten-principles-to-investment-success\">Franklin Templeton — Ten Principles to Investment Success</a></li><li><a href=\"https://www.templetonworldcharity.org/about-us/our-founder\">Templeton World Charity Foundation — Our Founder</a></li></ol><p><a href=\"https://www.templeton.org/about/sir-john-templeton\">Portrait reference / Nguồn ảnh</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/john-templeton.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/john-templeton-tu-duy-dau-tu-toan-cau/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1816&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/john-templeton-tu-duy-dau-tu-toan-cau/"
+  },
+  {
+    "key": "george-soros",
+    "slug": "george-soros-phan-hoi-va-bat-dinh",
+    "title": "George Soros: Khi kỳ vọng có thể thay đổi chính thị trường",
+    "title_en": "George Soros: When expectations can change the market itself",
+    "excerpt": "Tìm hiểu George Soros và tính phản hồi: vì sao niềm tin, hành động và nền tảng kinh tế có thể tác động qua lại.",
+    "excerpt_en": "George Soros and reflexivity: how beliefs, actions and economic fundamentals can influence one another.",
+    "credit": "Ảnh George Soros tại Hội nghị An ninh Munich 2012: Frank Plitt, CC BY 3.0.",
+    "credit_en": "George Soros at the 2012 Munich Security Conference: Frank Plitt, CC BY 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:George_Soros.jpg",
+    "license": "https://creativecommons.org/licenses/by/3.0/",
+    "sources": [
+      {
+        "label": "George Soros — The Life of George Soros",
+        "url": "https://www.georgesoros.com/the-life-of-george-soros/"
+      },
+      {
+        "label": "George Soros — Fallibility, Reflexivity, and the Human Uncertainty Principle",
+        "url": "https://www.georgesoros.com/2014/01/13/fallibility-reflexivity-and-the-human-uncertainty-principle-2./"
+      },
+      {
+        "label": "George Soros — General Theory of Reflexivity, CEU lecture",
+        "url": "https://www.georgesoros.com/2009/10/26/general_theory_of_reflexivity_lecture/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Giá trên thị trường thường được xem như kết quả của thông tin về doanh nghiệp và nền kinh tế. George Soros đặt thêm một chiều ngược lại: khi giá và niềm tin thay đổi, chúng có thể tác động đến khả năng vay vốn, đầu tư và hành vi của những người tham gia. Vì vậy, thị trường không chỉ quan sát thực tế; đôi khi nó còn tham gia tạo nên thực tế tiếp theo.",
+        "en": "Market prices are often viewed as the result of information about businesses and the economy. George Soros adds a reverse direction: changing prices and beliefs can affect borrowing, investment and participants' behavior. Markets therefore do not merely observe reality; sometimes they help shape what happens next."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Hungary đến lĩnh vực tài chính",
+        "en": "From Hungary to finance"
+      },
+      {
+        "tag": "p",
+        "vi": "Soros sinh tại Hungary năm 1930. Sau khi sống qua thời kỳ chiếm đóng của Đức Quốc xã, ông sang London năm 1947, học tại London School of Economics rồi tới Mỹ năm 1956. Ông thành lập Soros Fund Management năm 1970. Tư tưởng của Karl Popper là một ảnh hưởng quan trọng được Soros nhắc đến trong hành trình của mình. [1]",
+        "en": "Soros was born in Hungary in 1930. After surviving the Nazi occupation, he moved to London in 1947, studied at the London School of Economics and went to the United States in 1956. He established Soros Fund Management in 1970. He identifies Karl Popper's ideas as an important influence. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Bài viết này tập trung vào khung tư duy của Soros về thị trường. Tiểu sử của một nhà đầu tư giúp hiểu bối cảnh hình thành ý tưởng, nhưng thành công cá nhân không đủ để chứng minh mọi cách giải thích của họ đều đúng. Một lý thuyết vẫn cần được đối chiếu với dữ liệu và những cách giải thích khác.",
+        "en": "This article focuses on Soros's framework for thinking about markets. Biography helps explain the context of ideas, but individual success cannot establish that every explanation is correct. A theory still needs comparison with data and competing explanations."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tính phản hồi được hiểu thế nào?",
+        "en": "What does reflexivity mean?"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài viết về tính phản hồi và sự bất định, Soros phân biệt việc con người tìm hiểu thế giới với việc hành động để thay đổi nó. Khi hai quá trình tác động qua lại, nhận định có thể ảnh hưởng sự kiện, rồi sự kiện lại thay đổi nhận định. Ông cũng nhấn mạnh hiểu biết của người tham gia luôn có thể sai. [2]",
+        "en": "In his essay on reflexivity and uncertainty, Soros distinguishes understanding the world from acting to change it. When these processes interact, judgments can influence events, which then alter judgments. He also emphasizes that participants' understanding is fallible. [2]"
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể hình dung bằng một ví dụ giả định về doanh nghiệp đang mở rộng. Nhà đầu tư lạc quan làm việc huy động vốn thuận lợi hơn. Doanh nghiệp dùng vốn mới xây năng lực sản xuất, doanh thu sau đó tăng và củng cố sự lạc quan ban đầu. Trong tình huống này, kỳ vọng không chỉ đứng ngoài đánh giá kết quả; nó góp phần tạo điều kiện cho kết quả xuất hiện.",
+        "en": "Imagine a growing business. Optimistic investors make fundraising easier. The company uses new capital to expand capacity, and subsequent sales growth reinforces the original optimism. Expectations do not merely assess an outcome from outside; they help create conditions for it."
+      },
+      {
+        "tag": "p",
+        "vi": "Nhưng chuỗi đó có thể đi ngược lại. Nếu nhu cầu thực không theo kịp công suất, dòng tiền yếu đi và việc huy động vốn khó hơn. Công ty thu hẹp đầu tư, kết quả kinh doanh giảm và niềm tin tiếp tục suy yếu. Ví dụ này do bài viết xây dựng để giải thích cơ chế, không mô tả một thương vụ cụ thể của Soros.",
+        "en": "The sequence can also reverse. If actual demand fails to match capacity, cash flow weakens and fundraising becomes harder. Investment contracts, business performance deteriorates and confidence weakens further. This is an illustrative example created for the article, not an account of a particular Soros trade."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không phải mọi biến động đều là một vòng phản hồi",
+        "en": "Not every price movement is a feedback loop"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài giảng tại CEU năm 2009, Soros trình bày tính dễ sai và tính phản hồi như hai thành phần của khung tư duy của ông. [3] Khi áp dụng, cần chỉ ra kênh tác động cụ thể. Giá cổ phiếu tăng nhưng doanh nghiệp không huy động vốn, không đổi hành vi và không chịu tác động vận hành rõ ràng thì chưa đủ để kết luận có một vòng tự củng cố mạnh.",
+        "en": "In his 2009 CEU lecture, Soros presents fallibility and reflexivity as two elements of his framework. [3] Applying it requires identifying a concrete transmission channel. A rising share price without fundraising, behavioral changes or a clear operating impact does not by itself establish a strong reinforcing loop."
+      },
+      {
+        "tag": "p",
+        "vi": "Người đọc có thể đặt bốn câu hỏi: niềm tin nào đang thay đổi, ai hành động theo niềm tin ấy, hành động làm thay đổi yếu tố thực nào và yếu tố đó có quay lại củng cố niềm tin không? Nếu không tìm được mắt xích, nên ghi nhận đó là giả thuyết chưa đủ bằng chứng. Một câu chuyện nghe hợp lý vẫn có thể chỉ là cách diễn giải sau khi sự việc đã xảy ra.",
+        "en": "Readers can ask four questions: which belief is changing, who acts on it, what real factor the action changes, and whether that factor reinforces the belief. If a link is missing, the explanation remains an insufficiently supported hypothesis. A plausible story may still be an interpretation assembled after the event."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bất định phải đi vào cách ra quyết định",
+        "en": "Uncertainty should shape decisions"
+      },
+      {
+        "tag": "p",
+        "vi": "Hiểu cơ chế thị trường không đồng nghĩa biết chính xác thời điểm đảo chiều. Các lực tác động có thể kéo dài hơn dự kiến hoặc bị thay đổi bởi thông tin mới. Người học nên tách nhận định về hướng đi, mức độ tin cậy và giới hạn tổn thất có thể chịu. Ba nội dung này không thể thay thế nhau.",
+        "en": "Understanding a market mechanism does not mean knowing exactly when it will reverse. Forces can persist longer than expected or change with new information. Learners should distinguish a directional view, confidence in it and tolerable losses. These are separate matters."
+      },
+      {
+        "tag": "p",
+        "vi": "Một bài tập phù hợp là ghi dự đoán trong tài khoản mô phỏng, nêu trước dữ kiện sẽ khiến mình sửa nhận định, rồi xem lại khi có thông tin mới. Giá trị của cách đọc Soros nằm ở việc nhận ra mình cũng là người có thể sai trong một hệ thống đang thay đổi. Bài viết không khuyến khích sao chép giao dịch đòn bẩy hay xem bất kỳ nhân vật nào là người dự báo chắc chắn.",
+        "en": "A useful exercise is to record a forecast in a simulation account, state in advance what evidence would change it and revisit it when new information arrives. Reading Soros can help us recognize our own fallibility within a changing system. This article does not encourage copying leveraged trades or treating any individual as an infallible forecaster."
+      }
+    ],
+    "html": "<p><em>Ảnh George Soros tại Hội nghị An ninh Munich 2012: Frank Plitt, CC BY 3.0.</em></p>\n<p>Giá trên thị trường thường được xem như kết quả của thông tin về doanh nghiệp và nền kinh tế. George Soros đặt thêm một chiều ngược lại: khi giá và niềm tin thay đổi, chúng có thể tác động đến khả năng vay vốn, đầu tư và hành vi của những người tham gia. Vì vậy, thị trường không chỉ quan sát thực tế; đôi khi nó còn tham gia tạo nên thực tế tiếp theo.</p>\n<h2>Từ Hungary đến lĩnh vực tài chính</h2>\n<p>Soros sinh tại Hungary năm 1930. Sau khi sống qua thời kỳ chiếm đóng của Đức Quốc xã, ông sang London năm 1947, học tại London School of Economics rồi tới Mỹ năm 1956. Ông thành lập Soros Fund Management năm 1970. Tư tưởng của Karl Popper là một ảnh hưởng quan trọng được Soros nhắc đến trong hành trình của mình. [1]</p>\n<p>Bài viết này tập trung vào khung tư duy của Soros về thị trường. Tiểu sử của một nhà đầu tư giúp hiểu bối cảnh hình thành ý tưởng, nhưng thành công cá nhân không đủ để chứng minh mọi cách giải thích của họ đều đúng. Một lý thuyết vẫn cần được đối chiếu với dữ liệu và những cách giải thích khác.</p>\n<h2>Tính phản hồi được hiểu thế nào?</h2>\n<p>Trong bài viết về tính phản hồi và sự bất định, Soros phân biệt việc con người tìm hiểu thế giới với việc hành động để thay đổi nó. Khi hai quá trình tác động qua lại, nhận định có thể ảnh hưởng sự kiện, rồi sự kiện lại thay đổi nhận định. Ông cũng nhấn mạnh hiểu biết của người tham gia luôn có thể sai. [2]</p>\n<p>Có thể hình dung bằng một ví dụ giả định về doanh nghiệp đang mở rộng. Nhà đầu tư lạc quan làm việc huy động vốn thuận lợi hơn. Doanh nghiệp dùng vốn mới xây năng lực sản xuất, doanh thu sau đó tăng và củng cố sự lạc quan ban đầu. Trong tình huống này, kỳ vọng không chỉ đứng ngoài đánh giá kết quả; nó góp phần tạo điều kiện cho kết quả xuất hiện.</p>\n<p>Nhưng chuỗi đó có thể đi ngược lại. Nếu nhu cầu thực không theo kịp công suất, dòng tiền yếu đi và việc huy động vốn khó hơn. Công ty thu hẹp đầu tư, kết quả kinh doanh giảm và niềm tin tiếp tục suy yếu. Ví dụ này do bài viết xây dựng để giải thích cơ chế, không mô tả một thương vụ cụ thể của Soros.</p>\n<h2>Không phải mọi biến động đều là một vòng phản hồi</h2>\n<p>Trong bài giảng tại CEU năm 2009, Soros trình bày tính dễ sai và tính phản hồi như hai thành phần của khung tư duy của ông. [3] Khi áp dụng, cần chỉ ra kênh tác động cụ thể. Giá cổ phiếu tăng nhưng doanh nghiệp không huy động vốn, không đổi hành vi và không chịu tác động vận hành rõ ràng thì chưa đủ để kết luận có một vòng tự củng cố mạnh.</p>\n<p>Người đọc có thể đặt bốn câu hỏi: niềm tin nào đang thay đổi, ai hành động theo niềm tin ấy, hành động làm thay đổi yếu tố thực nào và yếu tố đó có quay lại củng cố niềm tin không? Nếu không tìm được mắt xích, nên ghi nhận đó là giả thuyết chưa đủ bằng chứng. Một câu chuyện nghe hợp lý vẫn có thể chỉ là cách diễn giải sau khi sự việc đã xảy ra.</p>\n<h2>Bất định phải đi vào cách ra quyết định</h2>\n<p>Hiểu cơ chế thị trường không đồng nghĩa biết chính xác thời điểm đảo chiều. Các lực tác động có thể kéo dài hơn dự kiến hoặc bị thay đổi bởi thông tin mới. Người học nên tách nhận định về hướng đi, mức độ tin cậy và giới hạn tổn thất có thể chịu. Ba nội dung này không thể thay thế nhau.</p>\n<p>Một bài tập phù hợp là ghi dự đoán trong tài khoản mô phỏng, nêu trước dữ kiện sẽ khiến mình sửa nhận định, rồi xem lại khi có thông tin mới. Giá trị của cách đọc Soros nằm ở việc nhận ra mình cũng là người có thể sai trong một hệ thống đang thay đổi. Bài viết không khuyến khích sao chép giao dịch đòn bẩy hay xem bất kỳ nhân vật nào là người dự báo chắc chắn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.georgesoros.com/the-life-of-george-soros/\">George Soros — The Life of George Soros</a></li><li><a href=\"https://www.georgesoros.com/2014/01/13/fallibility-reflexivity-and-the-human-uncertainty-principle-2./\">George Soros — Fallibility, Reflexivity, and the Human Uncertainty Principle</a></li><li><a href=\"https://www.georgesoros.com/2009/10/26/general_theory_of_reflexivity_lecture/\">George Soros — General Theory of Reflexivity, CEU lecture</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:George_Soros.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/3.0/\">Image license / Giấy phép ảnh</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/george-soros.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/george-soros-phan-hoi-va-bat-dinh/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1819&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/george-soros-phan-hoi-va-bat-dinh/"
+  },
+  {
+    "key": "ray-dalio",
+    "slug": "ray-dalio-nguyen-tac-va-sai-lam",
+    "title": "Ray Dalio: Biến sai lầm thành một nguyên tắc có thể kiểm tra",
+    "title_en": "Ray Dalio: Turn mistakes into principles that can be tested",
+    "excerpt": "Từ Bridgewater đến Principles: Ray Dalio và bài học về thừa nhận sai lầm, phản biện và xây quy trình ra quyết định.",
+    "excerpt_en": "From Bridgewater to Principles: Ray Dalio on admitting mistakes, disagreement and building decision processes.",
+    "credit": "Ảnh Ray Dalio năm 2017: Grameen America, CC BY 3.0.",
+    "credit_en": "Ray Dalio in 2017: Grameen America, CC BY 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Ray_Dalio_Sept_23_2017_NYC.jpg",
+    "license": "https://creativecommons.org/licenses/by/3.0/",
+    "sources": [
+      {
+        "label": "Bridgewater — Our Founder",
+        "url": "https://www.bridgewater.com/our-founder"
+      },
+      {
+        "label": "Bridgewater — Original Philosophy",
+        "url": "https://www.bridgewater.com/culture/bridgewaters-original-philosophy"
+      },
+      {
+        "label": "Ray Dalio — Principles: Open-mindedness",
+        "url": "https://www.principles.com/principles/8db90ad9-520a-4dd3-ba0c-dc0aec013ecb"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Sau một quyết định sai, lời hứa “lần sau sẽ cẩn thận hơn” thường không đủ. Nếu cách thu thập dữ liệu, cách phản biện và người chịu trách nhiệm đều giữ nguyên, lỗi cũ có thể quay lại dưới một hình thức khác. Câu chuyện Ray Dalio đáng đọc ở nỗ lực biến kinh nghiệm thành những nguyên tắc mà người khác có thể xem xét và áp dụng.",
+        "en": "After a bad decision, promising to be more careful next time is often insufficient. If data collection, challenge and accountability remain unchanged, the same error can return in another form. Ray Dalio's story is useful for its attempt to turn experience into principles others can examine and apply."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bridgewater bắt đầu từ một căn hộ",
+        "en": "Bridgewater began in an apartment"
+      },
+      {
+        "tag": "p",
+        "vi": "Theo lịch sử chính thức của Bridgewater, Dalio thành lập công ty năm 1975 tại căn hộ hai phòng ngủ ở New York. Ông từng giữ các vị trí CEO, CIO và Chủ tịch, rồi lần lượt rời các vai trò này vào năm 2017, 2020 và 2021. Hồ sơ hiện tại mô tả ông tập trung vào cố vấn và truyền lại kinh nghiệm. [1]",
+        "en": "Bridgewater's official history says Dalio founded the firm in 1975 in a two-bedroom New York apartment. He served as CEO, CIO and chairman, leaving those roles in 2017, 2020 and 2021 respectively. Its current profile describes his focus as mentoring and passing on experience. [1]"
+      },
+      {
+        "tag": "p",
+        "vi": "Chi tiết chuyển giao rất quan trọng khi đọc tiểu sử doanh nhân: người sáng lập không đồng nghĩa người đang điều hành. Thành quả của một tổ chức qua nhiều thập niên còn gắn với đội ngũ, hệ thống và các thế hệ kế nhiệm. Vì thế, bài học quản trị nên được xem ở khả năng tổ chức tiếp tục hoạt động, không chỉ ở hình ảnh một cá nhân.",
+        "en": "Succession matters in business biography: a founder is not necessarily the current operator. Decades of organizational performance also involve teams, systems and successors. Management lessons should therefore consider an organization's ability to keep functioning, rather than only an individual's image."
+      },
+      {
+        "tag": "h2",
+        "vi": "Sai lầm cần được chuyển thành câu hỏi cụ thể",
+        "en": "Translate mistakes into specific questions"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong Principles, Dalio nhắc lại thất bại lớn năm 1982 như một trải nghiệm buộc ông học sự khiêm tốn. Ông cho rằng cởi mở với khả năng mình sai không đồng nghĩa mất sự quyết đoán. [3] Đây là lời tự thuật về quá trình học của ông, không phải bằng chứng rằng một phương pháp sẽ loại bỏ mọi sai lầm.",
+        "en": "In Principles, Dalio describes his major 1982 failure as an experience that forced him to learn humility. He argues that openness to being wrong need not eliminate assertiveness. [3] This is his account of learning, not proof that a method can remove all mistakes."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một công ty nhận đơn hàng vượt năng lực và giao trễ. Kết luận “nhân viên phải cố hơn” có thể bỏ qua nguyên nhân: bộ phận bán hàng không thấy lịch máy, thời gian mua vật tư chưa được tính hoặc không ai có quyền từ chối lịch quá gấp. Chỉ khi xác định đúng nguyên nhân, doanh nghiệp mới thiết kế được thay đổi có thể kiểm tra.",
+        "en": "Suppose a company accepts more work than it can handle and delivers late. Saying staff must try harder may miss the cause: sales cannot see machine schedules, procurement time was omitted, or nobody can reject an unrealistic deadline. Only a clear diagnosis allows a testable change."
+      },
+      {
+        "tag": "p",
+        "vi": "Nguyên tắc mới có thể yêu cầu kiểm tra ba dữ kiện trước khi hứa ngày giao: công suất còn trống, vật tư đã sẵn sàng và người duyệt ngoại lệ. Sau một tháng, nhóm xem tỷ lệ giao đúng hẹn có cải thiện không. Nếu không, nguyên tắc phải được sửa tiếp. Đó là một ví dụ do bài viết đề xuất, không phải quy trình cụ thể của Bridgewater.",
+        "en": "A new rule might require checking three things before promising delivery: available capacity, material readiness and the person approving exceptions. After a month, the team checks whether on-time delivery improves. If not, the rule needs revision. This is an example proposed by the article, not a specific Bridgewater procedure."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phản biện cần dữ kiện và cách đối xử phù hợp",
+        "en": "Disagreement needs evidence and respectful conduct"
+      },
+      {
+        "tag": "p",
+        "vi": "Tuyên bố triết lý của Bridgewater khuyến khích tranh luận dựa trên lý lẽ, kể cả giữa cấp dưới và cấp trên; đồng thời xem việc nhận diện lỗi là đầu vào để cải thiện. Văn bản cũng thừa nhận tranh luận có thể tốn thời gian và tạo căng thẳng. [2] Đây là mô tả mục tiêu văn hóa của tổ chức, không phải đánh giá độc lập về mọi trải nghiệm làm việc tại đó.",
+        "en": "Bridgewater's philosophy encourages reasoned debate, including between junior and senior staff, and treats identifying errors as input for improvement. It also acknowledges that disagreement can consume time and create tension. [2] This describes an intended culture, not an independent assessment of every employee's experience."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một nhóm nhỏ, áp dụng có thể bắt đầu bằng cách yêu cầu mọi đề xuất nêu dữ kiện và giả định. Người phản biện chỉ ra phần nào chưa thuyết phục; người quyết định ghi lại vì sao chọn phương án cuối cùng. Việc góp ý nên hướng vào công việc và giữ sự tôn trọng. Công khai làm người khác mất mặt có thể khiến họ giấu lỗi, làm hỏng chính mục tiêu học hỏi.",
+        "en": "A small team can start by requiring proposals to state evidence and assumptions. A challenger identifies what remains unconvincing; the decision-maker records the reasons for the final choice. Feedback should concern the work and remain respectful. Public humiliation can encourage people to hide mistakes, undermining learning itself."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nguyên tắc tốt vẫn cần được cập nhật",
+        "en": "Good principles still need updating"
+      },
+      {
+        "tag": "p",
+        "vi": "Một nguyên tắc là câu trả lời tạm thời cho một nhóm tình huống, không phải mệnh lệnh đúng mãi mãi. Khi khách hàng, công nghệ hoặc điều kiện tài chính thay đổi, quy trình cũ có thể không còn phù hợp. Cần biết phạm vi áp dụng, trường hợp ngoại lệ và thời điểm kiểm tra lại. Viết ra nguyên tắc giúp người khác nhìn thấy những giới hạn ấy.",
+        "en": "A principle is a provisional answer for a class of situations, not a command that stays correct forever. Changes in customers, technology or financial conditions can make an old process unsuitable. Its scope, exceptions and review date should be clear. Writing it down makes those limits visible to others."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người học đầu tư, một nhật ký quyết định có thể ghi lý do, thông tin còn thiếu và điều kiện xem xét lại trước khi thực hành mô phỏng. Khi nhìn lại, hãy đánh giá cả cách suy nghĩ chứ không chỉ kết quả lời lỗ. Bài học từ Dalio là xây khả năng sửa sai có hệ thống; nó không biến thị trường bất định thành nơi có lợi nhuận được bảo đảm.",
+        "en": "For investment learners, a decision journal can record reasoning, missing information and review conditions before a simulation. Later, evaluate the thinking as well as the profit or loss. A lesson from Dalio is to build systematic self-correction; it does not turn uncertain markets into guaranteed returns."
+      }
+    ],
+    "html": "<p><em>Ảnh Ray Dalio năm 2017: Grameen America, CC BY 3.0.</em></p>\n<p>Sau một quyết định sai, lời hứa “lần sau sẽ cẩn thận hơn” thường không đủ. Nếu cách thu thập dữ liệu, cách phản biện và người chịu trách nhiệm đều giữ nguyên, lỗi cũ có thể quay lại dưới một hình thức khác. Câu chuyện Ray Dalio đáng đọc ở nỗ lực biến kinh nghiệm thành những nguyên tắc mà người khác có thể xem xét và áp dụng.</p>\n<h2>Bridgewater bắt đầu từ một căn hộ</h2>\n<p>Theo lịch sử chính thức của Bridgewater, Dalio thành lập công ty năm 1975 tại căn hộ hai phòng ngủ ở New York. Ông từng giữ các vị trí CEO, CIO và Chủ tịch, rồi lần lượt rời các vai trò này vào năm 2017, 2020 và 2021. Hồ sơ hiện tại mô tả ông tập trung vào cố vấn và truyền lại kinh nghiệm. [1]</p>\n<p>Chi tiết chuyển giao rất quan trọng khi đọc tiểu sử doanh nhân: người sáng lập không đồng nghĩa người đang điều hành. Thành quả của một tổ chức qua nhiều thập niên còn gắn với đội ngũ, hệ thống và các thế hệ kế nhiệm. Vì thế, bài học quản trị nên được xem ở khả năng tổ chức tiếp tục hoạt động, không chỉ ở hình ảnh một cá nhân.</p>\n<h2>Sai lầm cần được chuyển thành câu hỏi cụ thể</h2>\n<p>Trong Principles, Dalio nhắc lại thất bại lớn năm 1982 như một trải nghiệm buộc ông học sự khiêm tốn. Ông cho rằng cởi mở với khả năng mình sai không đồng nghĩa mất sự quyết đoán. [3] Đây là lời tự thuật về quá trình học của ông, không phải bằng chứng rằng một phương pháp sẽ loại bỏ mọi sai lầm.</p>\n<p>Ví dụ giả định, một công ty nhận đơn hàng vượt năng lực và giao trễ. Kết luận “nhân viên phải cố hơn” có thể bỏ qua nguyên nhân: bộ phận bán hàng không thấy lịch máy, thời gian mua vật tư chưa được tính hoặc không ai có quyền từ chối lịch quá gấp. Chỉ khi xác định đúng nguyên nhân, doanh nghiệp mới thiết kế được thay đổi có thể kiểm tra.</p>\n<p>Nguyên tắc mới có thể yêu cầu kiểm tra ba dữ kiện trước khi hứa ngày giao: công suất còn trống, vật tư đã sẵn sàng và người duyệt ngoại lệ. Sau một tháng, nhóm xem tỷ lệ giao đúng hẹn có cải thiện không. Nếu không, nguyên tắc phải được sửa tiếp. Đó là một ví dụ do bài viết đề xuất, không phải quy trình cụ thể của Bridgewater.</p>\n<h2>Phản biện cần dữ kiện và cách đối xử phù hợp</h2>\n<p>Tuyên bố triết lý của Bridgewater khuyến khích tranh luận dựa trên lý lẽ, kể cả giữa cấp dưới và cấp trên; đồng thời xem việc nhận diện lỗi là đầu vào để cải thiện. Văn bản cũng thừa nhận tranh luận có thể tốn thời gian và tạo căng thẳng. [2] Đây là mô tả mục tiêu văn hóa của tổ chức, không phải đánh giá độc lập về mọi trải nghiệm làm việc tại đó.</p>\n<p>Trong một nhóm nhỏ, áp dụng có thể bắt đầu bằng cách yêu cầu mọi đề xuất nêu dữ kiện và giả định. Người phản biện chỉ ra phần nào chưa thuyết phục; người quyết định ghi lại vì sao chọn phương án cuối cùng. Việc góp ý nên hướng vào công việc và giữ sự tôn trọng. Công khai làm người khác mất mặt có thể khiến họ giấu lỗi, làm hỏng chính mục tiêu học hỏi.</p>\n<h2>Nguyên tắc tốt vẫn cần được cập nhật</h2>\n<p>Một nguyên tắc là câu trả lời tạm thời cho một nhóm tình huống, không phải mệnh lệnh đúng mãi mãi. Khi khách hàng, công nghệ hoặc điều kiện tài chính thay đổi, quy trình cũ có thể không còn phù hợp. Cần biết phạm vi áp dụng, trường hợp ngoại lệ và thời điểm kiểm tra lại. Viết ra nguyên tắc giúp người khác nhìn thấy những giới hạn ấy.</p>\n<p>Với người học đầu tư, một nhật ký quyết định có thể ghi lý do, thông tin còn thiếu và điều kiện xem xét lại trước khi thực hành mô phỏng. Khi nhìn lại, hãy đánh giá cả cách suy nghĩ chứ không chỉ kết quả lời lỗ. Bài học từ Dalio là xây khả năng sửa sai có hệ thống; nó không biến thị trường bất định thành nơi có lợi nhuận được bảo đảm.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.bridgewater.com/our-founder\">Bridgewater — Our Founder</a></li><li><a href=\"https://www.bridgewater.com/culture/bridgewaters-original-philosophy\">Bridgewater — Original Philosophy</a></li><li><a href=\"https://www.principles.com/principles/8db90ad9-520a-4dd3-ba0c-dc0aec013ecb\">Ray Dalio — Principles: Open-mindedness</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Ray_Dalio_Sept_23_2017_NYC.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/3.0/\">Image license / Giấy phép ảnh</a></p>",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/ray-dalio.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1822&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/"
+  }
+]
