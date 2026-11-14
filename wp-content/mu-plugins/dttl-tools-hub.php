@@ -38,16 +38,16 @@ add_action('admin_init', function () {
 function dttl_th_key() { return is_page() ? get_post_meta(get_queried_object_id(), '_dttl_tool_key', true) : ''; }
 add_action('wp_enqueue_scripts', function () {
     $base = plugins_url('dttl-tools-hub/', __FILE__);
-    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.0.0', true);
+    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.0.1', true);
     $key = dttl_th_key();
     if (!is_page(array('cong-cu-mien-phi','cong-cu-dau-tu')) && !$key && !is_singular('dttl_app')) { return; }
-    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.0.0');
+    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.0.1');
     if (isset(dttl_th_registry()[$key])) {
-        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.0.0', true);
+        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.0.1', true);
         if (file_exists(__DIR__.'/dttl-tools-hub/modules/'.$key.'.js')) {
-            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.0.0', true);
+            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.0.1', true);
         }
-    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.0.0', true); }
+    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.0.1', true); }
 }, 99);
 add_filter('the_title', function ($title, $id) {
     if (is_admin()) { return $title; }
@@ -55,6 +55,11 @@ add_filter('the_title', function ($title, $id) {
     $tools = dttl_th_registry();
     return isset($tools[$key]) ? dttl_th_t($tools[$key]['title']) : $title;
 }, 20, 2);
+function dttl_th_app_title($app) {
+    $title = get_the_title($app);
+    if (!dttl_th_en()) { return $title; }
+    return str_replace(array('Phần mềm livestream màn hình miễn phí', 'VIE Scan – Quét tài liệu PDF/JPG'), array('Free screen livestream software', 'VIE Scan – PDF/JPG document scanner'), $title);
+}
 function dttl_th_catalog() {
     ob_start(); ?>
     <div class="dttl-th" data-tool-catalog>
@@ -66,7 +71,7 @@ function dttl_th_catalog() {
     <?php endforeach;
     $apps=get_posts(array('post_type'=>'dttl_app','post_status'=>'publish','numberposts'=>-1,'orderby'=>'title','order'=>'ASC'));
     foreach ($apps as $app): $url=get_post_meta($app->ID,'_dttl_online_url',true); ?>
-    <article class="th-card" data-group="apps"><span class="th-icon" aria-hidden="true">▦</span><h2><?php echo esc_html(get_the_title($app)); ?></h2><p><?php echo esc_html(dttl_th_t($url?array('Dùng ngay trên trình duyệt.','Use directly in your browser.'):array('Xem hướng dẫn và bản tải dành cho thiết bị của bạn.','View instructions and downloads for your device.'))); ?></p><a class="th-button" href="<?php echo esc_url($url ?: get_permalink($app)); ?>"><?php echo esc_html(dttl_th_t($url?array('Mở ứng dụng','Open app'):array('Tải & hướng dẫn','Download & guide'))); ?> →</a></article>
+    <article class="th-card" data-group="apps"><span class="th-icon" aria-hidden="true">▦</span><h2><?php echo esc_html(dttl_th_app_title($app)); ?></h2><p><?php echo esc_html(dttl_th_t($url?array('Dùng ngay trên trình duyệt.','Use directly in your browser.'):array('Xem hướng dẫn và bản tải dành cho thiết bị của bạn.','View instructions and downloads for your device.'))); ?></p><a class="th-button" href="<?php echo esc_url($url ?: get_permalink($app)); ?>"><?php echo esc_html(dttl_th_t($url?array('Mở ứng dụng','Open app'):array('Tải & hướng dẫn','Download & guide'))); ?> →</a></article>
     <?php endforeach; ?></div><p class="th-empty" hidden><?php echo esc_html(dttl_th_t(array('Chưa tìm thấy công cụ phù hợp. Thử từ khóa khác hoặc chọn tất cả nhóm.','No matching tools. Try another keyword or select all groups.'))); ?></p></div>
     <?php return ob_get_clean();
 }

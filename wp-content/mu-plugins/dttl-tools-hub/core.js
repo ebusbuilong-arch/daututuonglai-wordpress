@@ -12,7 +12,7 @@
       e.preventDefault(); output.replaceChildren(); output.removeAttribute('data-error');
       try {
         const values = {};
-        for (const input of form.querySelectorAll('input')) {
+        for (const input of form.querySelectorAll('input[type=number]')) {
           const n = Number(input.value);
           if (input.value.trim() === '' || !Number.isFinite(n) || !input.checkValidity()) throw Error(t('Vui lòng nhập số hợp lệ trong giới hạn của từng ô.', 'Enter valid numbers within each field’s limits.'));
           values[input.name] = n;
