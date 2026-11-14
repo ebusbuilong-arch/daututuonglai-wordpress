@@ -1,0 +1,566 @@
+[
+  {
+    "key": "sismondi",
+    "slug": "sismondi-tang-truong-va-doi-song",
+    "title": "Sismondi: Tăng trưởng để đời sống tốt hơn",
+    "title_en": "Sismondi: Growth in the service of better lives",
+    "excerpt": "Nhà tư tưởng Genève đặt câu hỏi về khoảng cách giữa của cải tăng lên và sự an toàn của người lao động.",
+    "excerpt_en": "The Genevan thinker who questioned the gap between growing wealth and workers’ security.",
+    "credit": "Tranh chân dung Sismondi, khoảng năm 1828, Amélie Munier-Romilly; phạm vi công cộng.",
+    "credit_en": "Portrait painting of Sismondi, circa 1828, by Amélie Munier-Romilly; public domain.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Jean_Charles_L%C3%A9onard_Simonde_de_Sismondi.jpg",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sources": [
+      {
+        "label": "Historical Dictionary of Switzerland — Sismondi",
+        "url": "https://hls-dhs-dss.ch/fr/articles/016007/2013-05-16/"
+      },
+      {
+        "label": "Sismondi — Nouveaux principes, 1819",
+        "url": "https://fr.wikisource.org/wiki/Livre:Sismondi_-_Nouveaux_Principes_d’économie_politique.djvu"
+      },
+      {
+        "label": "History of European Ideas — Republican foundations",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0191659904000348"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Sản xuất nhiều hơn có luôn khiến con người sống tốt hơn không? Sismondi đặt câu hỏi ấy khi châu Âu bước vào những thay đổi lớn của công nghiệp hóa. Điều làm câu chuyện của ông đáng đọc không phải một công thức kinh doanh nhanh chóng, mà là yêu cầu nhìn qua các con số tổng: ai nhận được lợi ích, ai phải thích nghi và ai có thể bị bỏ lại trong quá trình tăng trưởng.",
+        "en": "Does producing more always make lives better? Sismondi asked this as industrialization transformed Europe. His relevance is not a quick business formula, but a demand to look beyond totals: who benefits, who must adjust, and who risks being left behind?"
+      },
+      {
+        "tag": "h2",
+        "vi": "Một cuộc đời giữa nhiều xã hội châu Âu",
+        "en": "A life across European societies"
+      },
+      {
+        "tag": "p",
+        "vi": "Jean Charles Léonard Simonde de Sismondi sinh tại Genève năm 1773 và mất năm 1842 tại Chêne-Bougeries. Việc học luật của ông bị gián đoạn khi gia đình sang Anh; ông còn sống tại Tuscany trước khi trở lại Genève. [1] Trải nghiệm này giúp đặt tiểu sử ông trong một châu Âu biến động, thay vì hình dung một học giả chỉ xây dựng tư tưởng trong căn phòng tách biệt với lịch sử.",
+        "en": "Jean Charles Léonard Simonde de Sismondi was born in Geneva in 1773 and died in Chêne-Bougeries in 1842. His legal studies were interrupted by his family’s departure for England, and he lived in Tuscany before returning to Geneva. [1] His biography belongs to a changing Europe, not an isolated study."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông vừa là sử gia vừa nghiên cứu kinh tế chính trị. Tác phẩm năm 1803 của ông gần với Adam Smith, nhưng Nouveaux principes d’économie politique năm 1819 thể hiện sự phê phán đối với hậu quả xã hội của cạnh tranh và cơ giới hóa. [1][2] Đây là một thay đổi quan trọng trong lập luận, cho thấy việc học một trường phái không buộc người nghiên cứu phải giữ nguyên mọi kết luận khi quan sát thực tế khác đi.",
+        "en": "A historian as well as a political economist, he initially followed Smith in his 1803 work. His Nouveaux principes d’économie politique of 1819 criticized the social consequences of competition and mechanization. [1][2] Intellectual commitments can change when observations challenge earlier conclusions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Của cải là phương tiện, không phải toàn bộ mục tiêu",
+        "en": "Wealth is a means, not the whole objective"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách đọc phù hợp với tinh thần câu hỏi của Sismondi là phân biệt năng lực tạo sản phẩm với khả năng đem lại cuộc sống ổn định. Tổng sản lượng có thể tăng trong khi một bộ phận mất việc hoặc thu nhập bấp bênh hơn. Hai việc này không loại trừ nhau về mặt logic. Vì vậy, đánh giá tiến bộ cần thêm thông tin về phân phối, thời gian làm việc, điều kiện lao động và khả năng vượt qua cú sốc.",
+        "en": "One way to approach Sismondi’s question is to distinguish productive capacity from secure living conditions. Output can rise while some people lose work or face less stable incomes. Evaluating progress therefore also requires information about distribution, working conditions and resilience to shocks."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một xưởng thay máy giúp hoàn thành đơn hàng nhanh hơn, giảm giá bán và tăng lợi nhuận. Tuy nhiên, vài vị trí cũ không còn cần thiết. Nếu chỉ nhìn doanh thu, người quan sát có thể bỏ qua chi phí chuyển nghề; nếu chỉ nhìn mất việc trước mắt, họ có thể bỏ qua cơ hội mới. Phân tích tốt cần ghi nhận cả hai phía, xác định thời gian chuyển đổi và những người chịu tác động cụ thể.",
+        "en": "Consider a hypothetical workshop whose new machines reduce prices and raise profits but eliminate some jobs. Looking only at revenue misses retraining costs; looking only at immediate displacement misses new opportunities. Sound analysis identifies both effects, their timing and the people affected."
+      },
+      {
+        "tag": "h2",
+        "vi": "Sản xuất và khả năng tiêu thụ phải được xem cùng nhau",
+        "en": "Consider production alongside purchasing capacity"
+      },
+      {
+        "tag": "p",
+        "vi": "Mối quan tâm tới khủng hoảng và quan hệ giữa sản xuất với đời sống dân cư khiến Sismondi trở thành một tiếng nói khác biệt trong tranh luận kinh tế chính trị. [2][3] Không nên vì thế gọi mọi suy giảm nhu cầu hiện đại là bằng chứng ông đúng hoàn toàn. Những nền kinh tế khác nhau về tín dụng, thương mại, chính sách và tổ chức lao động; một tư tưởng lịch sử cần được đặt trong bối cảnh của nó trước khi áp dụng.",
+        "en": "His concern with crises and the relationship between production and people’s lives distinguished him in political-economy debates. [2][3] This does not make every modern demand slowdown proof of his entire theory. Credit, trade, policy and labor institutions differ across economies and periods."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người kinh doanh, bài học biên tập là không đồng nhất công suất với thị trường. Có thể mua thêm máy nhưng chưa có khách hàng đủ khả năng chi trả; có thể bán được hàng nhưng phải kéo dài công nợ để giữ đơn. Khi mở rộng, cần hỏi doanh số đến từ nhu cầu bền vững hay từ điều kiện thanh toán ngày càng dễ dãi. Đây là câu hỏi quản trị thực tế, không phải lời khuyên đầu tư được gán cho Sismondi.",
+        "en": "The editorial business lesson is that capacity is not a market. More machines do not ensure paying customers, and sales supported by increasingly generous credit may be fragile. Expansion should distinguish durable demand from relaxed payment terms; this is an application, not investment advice attributed to Sismondi."
+      },
+      {
+        "tag": "h2",
+        "vi": "Quan tâm tới con người không thay thế kiểm chứng",
+        "en": "Concern for people does not replace evidence"
+      },
+      {
+        "tag": "p",
+        "vi": "Một chính sách có mục tiêu tốt vẫn có thể gây tác dụng ngoài dự kiến. Bảo vệ công việc hiện tại quá lâu có thể trì hoãn đổi mới, trong khi để quá trình chuyển đổi diễn ra mà thiếu hỗ trợ lại làm chi phí tập trung vào người yếu thế. Vì vậy cần so sánh phương án cụ thể: hỗ trợ thu nhập, đào tạo có nơi tuyển dụng, hay cải thiện khả năng tìm việc, thay vì chỉ chọn một khẩu hiệu chung.",
+        "en": "Well-intended policies can have unintended effects. Protecting existing jobs indefinitely may delay innovation, while unsupported adjustment concentrates losses on vulnerable people. Compare concrete options such as temporary income support, training linked to employers and better job matching, rather than choosing a slogan."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bối cảnh Việt Nam, có thể dùng câu hỏi của Sismondi để đọc một dự án tăng năng suất: giá thành giảm bao nhiêu, khách hàng hưởng gì, người lao động chuyển sang việc nào và ngân sách hỗ trợ đến từ đâu. Những câu trả lời cần dữ liệu của dự án, không thể suy ra chỉ từ danh tiếng của nhà kinh tế. Cách đọc này giúp lịch sử tư tưởng trở thành công cụ đặt câu hỏi có trách nhiệm.",
+        "en": "In Vietnam, this perspective can guide questions about a productivity project: how much do costs fall, what do customers gain, where do workers move, and who pays for support? Answers require project evidence, not an economist’s reputation. Intellectual history becomes a tool for responsible inquiry."
+      },
+      {
+        "tag": "p",
+        "vi": "Sismondi không để lại một bộ hướng dẫn hoàn chỉnh cho mọi nền kinh tế hôm nay. Giá trị lâu dài của câu chuyện nằm ở việc yêu cầu sự tiến bộ phải được giải thích bằng đời sống của con người. Một bảng kết quả đáng tin không chỉ nói hệ thống đã tạo thêm bao nhiêu của cải, mà còn cho thấy lợi ích và chi phí ấy được phân bổ như thế nào qua thời gian.",
+        "en": "Sismondi did not provide a complete manual for today’s economies. His lasting challenge is to explain progress through people’s lives. A credible account of growth shows not only additional wealth but also how its benefits and costs are distributed over time."
+      }
+    ],
+    "html": "<p><em>Tranh chân dung Sismondi, khoảng năm 1828, Amélie Munier-Romilly; phạm vi công cộng.</em></p>\n<p>Sản xuất nhiều hơn có luôn khiến con người sống tốt hơn không? Sismondi đặt câu hỏi ấy khi châu Âu bước vào những thay đổi lớn của công nghiệp hóa. Điều làm câu chuyện của ông đáng đọc không phải một công thức kinh doanh nhanh chóng, mà là yêu cầu nhìn qua các con số tổng: ai nhận được lợi ích, ai phải thích nghi và ai có thể bị bỏ lại trong quá trình tăng trưởng.</p>\n<h2>Một cuộc đời giữa nhiều xã hội châu Âu</h2>\n<p>Jean Charles Léonard Simonde de Sismondi sinh tại Genève năm 1773 và mất năm 1842 tại Chêne-Bougeries. Việc học luật của ông bị gián đoạn khi gia đình sang Anh; ông còn sống tại Tuscany trước khi trở lại Genève. [1] Trải nghiệm này giúp đặt tiểu sử ông trong một châu Âu biến động, thay vì hình dung một học giả chỉ xây dựng tư tưởng trong căn phòng tách biệt với lịch sử.</p>\n<p>Ông vừa là sử gia vừa nghiên cứu kinh tế chính trị. Tác phẩm năm 1803 của ông gần với Adam Smith, nhưng Nouveaux principes d’économie politique năm 1819 thể hiện sự phê phán đối với hậu quả xã hội của cạnh tranh và cơ giới hóa. [1][2] Đây là một thay đổi quan trọng trong lập luận, cho thấy việc học một trường phái không buộc người nghiên cứu phải giữ nguyên mọi kết luận khi quan sát thực tế khác đi.</p>\n<h2>Của cải là phương tiện, không phải toàn bộ mục tiêu</h2>\n<p>Một cách đọc phù hợp với tinh thần câu hỏi của Sismondi là phân biệt năng lực tạo sản phẩm với khả năng đem lại cuộc sống ổn định. Tổng sản lượng có thể tăng trong khi một bộ phận mất việc hoặc thu nhập bấp bênh hơn. Hai việc này không loại trừ nhau về mặt logic. Vì vậy, đánh giá tiến bộ cần thêm thông tin về phân phối, thời gian làm việc, điều kiện lao động và khả năng vượt qua cú sốc.</p>\n<p>Ví dụ giả định: một xưởng thay máy giúp hoàn thành đơn hàng nhanh hơn, giảm giá bán và tăng lợi nhuận. Tuy nhiên, vài vị trí cũ không còn cần thiết. Nếu chỉ nhìn doanh thu, người quan sát có thể bỏ qua chi phí chuyển nghề; nếu chỉ nhìn mất việc trước mắt, họ có thể bỏ qua cơ hội mới. Phân tích tốt cần ghi nhận cả hai phía, xác định thời gian chuyển đổi và những người chịu tác động cụ thể.</p>\n<h2>Sản xuất và khả năng tiêu thụ phải được xem cùng nhau</h2>\n<p>Mối quan tâm tới khủng hoảng và quan hệ giữa sản xuất với đời sống dân cư khiến Sismondi trở thành một tiếng nói khác biệt trong tranh luận kinh tế chính trị. [2][3] Không nên vì thế gọi mọi suy giảm nhu cầu hiện đại là bằng chứng ông đúng hoàn toàn. Những nền kinh tế khác nhau về tín dụng, thương mại, chính sách và tổ chức lao động; một tư tưởng lịch sử cần được đặt trong bối cảnh của nó trước khi áp dụng.</p>\n<p>Với người kinh doanh, bài học biên tập là không đồng nhất công suất với thị trường. Có thể mua thêm máy nhưng chưa có khách hàng đủ khả năng chi trả; có thể bán được hàng nhưng phải kéo dài công nợ để giữ đơn. Khi mở rộng, cần hỏi doanh số đến từ nhu cầu bền vững hay từ điều kiện thanh toán ngày càng dễ dãi. Đây là câu hỏi quản trị thực tế, không phải lời khuyên đầu tư được gán cho Sismondi.</p>\n<h2>Quan tâm tới con người không thay thế kiểm chứng</h2>\n<p>Một chính sách có mục tiêu tốt vẫn có thể gây tác dụng ngoài dự kiến. Bảo vệ công việc hiện tại quá lâu có thể trì hoãn đổi mới, trong khi để quá trình chuyển đổi diễn ra mà thiếu hỗ trợ lại làm chi phí tập trung vào người yếu thế. Vì vậy cần so sánh phương án cụ thể: hỗ trợ thu nhập, đào tạo có nơi tuyển dụng, hay cải thiện khả năng tìm việc, thay vì chỉ chọn một khẩu hiệu chung.</p>\n<p>Trong bối cảnh Việt Nam, có thể dùng câu hỏi của Sismondi để đọc một dự án tăng năng suất: giá thành giảm bao nhiêu, khách hàng hưởng gì, người lao động chuyển sang việc nào và ngân sách hỗ trợ đến từ đâu. Những câu trả lời cần dữ liệu của dự án, không thể suy ra chỉ từ danh tiếng của nhà kinh tế. Cách đọc này giúp lịch sử tư tưởng trở thành công cụ đặt câu hỏi có trách nhiệm.</p>\n<p>Sismondi không để lại một bộ hướng dẫn hoàn chỉnh cho mọi nền kinh tế hôm nay. Giá trị lâu dài của câu chuyện nằm ở việc yêu cầu sự tiến bộ phải được giải thích bằng đời sống của con người. Một bảng kết quả đáng tin không chỉ nói hệ thống đã tạo thêm bao nhiêu của cải, mà còn cho thấy lợi ích và chi phí ấy được phân bổ như thế nào qua thời gian.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://hls-dhs-dss.ch/fr/articles/016007/2013-05-16/\">Historical Dictionary of Switzerland — Sismondi</a></li><li><a href=\"https://fr.wikisource.org/wiki/Livre:Sismondi_-_Nouveaux_Principes_d’économie_politique.djvu\">Sismondi — Nouveaux principes, 1819</a></li><li><a href=\"https://www.sciencedirect.com/science/article/pii/S0191659904000348\">History of European Ideas — Republican foundations</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Jean_Charles_L%C3%A9onard_Simonde_de_Sismondi.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/mark/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/\">Gunnar Myrdal: Phát triển kinh tế và những vòng lặp bất bình đẳng</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/",
+      "title": "Gunnar Myrdal: Phát triển kinh tế và những vòng lặp bất bình đẳng",
+      "title_en": "Gunnar Myrdal: Development and self-reinforcing inequality"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/sismondi.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/sismondi-tang-truong-va-doi-song/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1917&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/sismondi-tang-truong-va-doi-song/"
+  },
+  {
+    "key": "franco-modigliani",
+    "slug": "franco-modigliani-tiet-kiem-vong-doi",
+    "title": "Franco Modigliani: Tiết kiệm qua các giai đoạn cuộc đời",
+    "title_en": "Franco Modigliani: Saving across the life cycle",
+    "excerpt": "Từ nước Ý đến MIT, câu chuyện về một nhà kinh tế giúp giải thích vì sao thu nhập hôm nay chưa đủ để hiểu chi tiêu.",
+    "excerpt_en": "From Italy to MIT: an economist who showed why current income alone cannot explain spending.",
+    "credit": "Franco Modigliani tại MIT năm 2000. Ảnh: Umofomia; bản cắt JB Hoang Tam 2; CC BY-SA 3.0.",
+    "credit_en": "Franco Modigliani at MIT in 2000. Photograph: Umofomia; crop by JB Hoang Tam 2; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Franco_Modigliani_close-up_(cropped).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "University of Illinois — Franco Modigliani",
+        "url": "https://economics.illinois.edu/spotlight/historic-faculty/modigliani-franco"
+      },
+      {
+        "label": "Nobel Prize — Modigliani facts",
+        "url": "https://www.nobelprize.org/prizes/economic-sciences/1985/modigliani/facts/"
+      },
+      {
+        "label": "MIT — Franco Modigliani 1918–2003",
+        "url": "https://news.mit.edu/2003/modigliani-1001"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Hai người có cùng thu nhập tháng này vẫn có thể chi tiêu và tiết kiệm rất khác nhau. Một người mới đi làm, một người sắp nghỉ hưu; một người có quỹ dự phòng, người kia đang gánh khoản nợ dài hạn. Franco Modigliani giúp đưa thời gian vào việc giải thích khác biệt ấy. Muốn hiểu hành vi tài chính, cần nhìn cả hành trình thu nhập và nhu cầu chứ không chỉ một bức ảnh chụp tại thời điểm hiện tại.",
+        "en": "Two people with the same current income may spend and save differently. One may be starting work, another approaching retirement; their assets and debts also differ. Franco Modigliani brought time into the explanation: financial behavior reflects an income-and-needs trajectory, not just a snapshot."
+      },
+      {
+        "tag": "h2",
+        "vi": "Rời nước Ý và xây dựng sự nghiệp nghiên cứu",
+        "en": "Leaving Italy and building a research career"
+      },
+      {
+        "tag": "p",
+        "vi": "Modigliani sinh năm 1918 tại Rome, ban đầu học luật. Trước các đạo luật phân biệt chủng tộc của chế độ phát xít, ông rời Ý và tới Mỹ năm 1939; ông nhận bằng tiến sĩ tại New School năm 1944. [1] Đây là hoàn cảnh lịch sử quan trọng của cuộc đời ông, không phải một câu chuyện thành công chỉ nhờ lựa chọn nghề nghiệp thuận lợi hay ý chí cá nhân.",
+        "en": "Born in Rome in 1918, Modigliani initially studied law. Facing fascist racial laws, he left Italy and reached the United States in 1939, completing his doctorate at the New School in 1944. [1] His career unfolded against forced migration and historical upheaval."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông làm việc tại nhiều đại học trước khi gia nhập MIT năm 1962. Năm 1985, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho những phân tích về tiết kiệm và thị trường tài chính. Ông mất năm 2003. [2][3] Đằng sau danh hiệu là nhiều năm nghiên cứu, hợp tác và kiểm chứng; các đóng góp của ông không nên được rút gọn thành một câu khuyên mọi người phải tiết kiệm theo cùng một tỷ lệ.",
+        "en": "After appointments at several universities, he joined MIT in 1962. He received the 1985 economics memorial prize for work on saving and financial markets and died in 2003. [2][3] His research was not a rule that everyone should save the same percentage."
+      },
+      {
+        "tag": "h2",
+        "vi": "Giả thuyết vòng đời giải thích điều gì?",
+        "en": "What does the life-cycle hypothesis explain?"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong thời gian tại Illinois đầu thập niên 1950, Modigliani và Richard Brumberg phát triển những ý tưởng ban đầu về tiết kiệm theo vòng đời. [1] Trọng tâm là việc người dân cân nhắc nguồn lực và tiêu dùng qua nhiều giai đoạn. Thu nhập lao động không kéo dài mãi, trong khi nhu cầu sinh hoạt vẫn còn; tích lũy trong một giai đoạn có thể phục vụ chi tiêu ở giai đoạn khác.",
+        "en": "At Illinois in the early 1950s, Modigliani and Richard Brumberg developed early life-cycle saving ideas. [1] People consider resources and consumption across stages of life. Labor income is finite, while living expenses continue; accumulation in one stage can finance another."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định đơn giản: một người dự kiến còn nhiều năm làm việc trước khi nghỉ hưu. Nếu chỉ dùng toàn bộ thu nhập hiện tại, họ có thể thiếu nguồn chi sau này. Ngược lại, tiết kiệm đến mức bỏ qua nhu cầu thiết yếu hôm nay cũng không thể được gọi là tối ưu chỉ vì số dư lớn. Ví dụ này minh họa sự phân bổ qua thời gian, không đưa ra tỷ lệ tiết kiệm hay mức lợi nhuận phù hợp cho một cá nhân.",
+        "en": "In a hypothetical example, someone with years of work ahead may need to allocate income toward retirement. Spending everything now can leave future needs unmet, while neglecting necessities today is not optimal merely because balances grow. This illustrates timing, not a personalized saving rate or return target."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mô hình giúp đặt câu hỏi, thực tế bổ sung ràng buộc",
+        "en": "Models pose questions; reality adds constraints"
+      },
+      {
+        "tag": "p",
+        "vi": "Đời sống không diễn ra đúng một lịch trình đã biết. Thu nhập có thể gián đoạn, tuổi thọ chưa chắc chắn, chi phí chăm sóc thay đổi và tài sản có thể mất giá. Một người muốn phân bổ tiêu dùng đều hơn nhưng không vay được khi còn trẻ cũng không thể thực hiện đúng kế hoạch trên giấy. Vì vậy, khi dùng mô hình cần ghi rõ giả định về thu nhập, khả năng vay và mức độ bất định.",
+        "en": "Life does not follow a known schedule. Earnings may stop, longevity is uncertain, care costs change and assets can fall in value. A young person unable to borrow cannot implement a smooth consumption plan. Applications must state assumptions about income, credit access and uncertainty."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với người học kinh tế, khác biệt giữa mô hình và thực tế không nhất thiết làm mô hình vô ích. Nó chỉ ra câu hỏi nào cần bổ sung. Nếu các hộ gia đình có tài sản nhưng vẫn hạn chế chi tiêu, có thể cần xem tính thanh khoản hoặc nỗi lo tương lai. Nếu người cao tuổi tiếp tục tiết kiệm, cần xem nhu cầu dự phòng và mong muốn để lại tài sản, thay vì coi tất cả là hành vi phi lý.",
+        "en": "Differences from a model can identify missing questions rather than make the model useless. Asset-owning households may restrict spending because assets are illiquid or the future uncertain. Older people may keep saving for contingencies or bequests; deviations are not automatically irrational."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không nhầm thu nhập với toàn bộ nguồn lực",
+        "en": "Income is not the whole resource picture"
+      },
+      {
+        "tag": "p",
+        "vi": "Một ứng dụng biên tập là tách ba khái niệm: dòng tiền đến trong kỳ, tài sản đang có và nghĩa vụ phải trả. Cùng một mức lương nhưng khác nợ hoặc thời hạn cần tiền sẽ tạo ra tình thế khác. Bảng theo dõi chỉ ghi thu nhập thường bỏ qua phần này. Tuy nhiên, đưa thêm thông tin không đồng nghĩa có thể dự báo chính xác thị trường hay mọi biến cố trong gia đình.",
+        "en": "An editorial application separates incoming cash, existing assets and obligations. Identical salaries can support very different situations when debts and payment dates differ. Adding these details improves a financial picture without making markets or household events perfectly predictable."
+      },
+      {
+        "tag": "p",
+        "vi": "Ở cấp quốc gia, nghiên cứu về vòng đời giúp đặt vấn đề về cơ cấu tuổi và hệ thống hưu trí. [2] Khi đọc một đề xuất, người học có thể hỏi ai đóng góp, ai nhận chi trả, rủi ro được chia sẻ thế nào và giả định nhân khẩu học là gì. Đây là các câu hỏi đánh giá cơ chế; chúng không tự xác định rằng một mô hình hưu trí duy nhất phù hợp cho mọi xã hội.",
+        "en": "At national level, life-cycle research informs questions about age structure and pensions. [2] Readers can ask who contributes, who receives payments, how risks are shared and which demographic assumptions apply. Such questions assess mechanisms without prescribing one universal pension system."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản của một cách nhìn dài hơn",
+        "en": "The legacy of a longer view"
+      },
+      {
+        "tag": "p",
+        "vi": "Bài học quan trọng từ Modigliani là mở rộng khoảng thời gian phân tích. Một quyết định có vẻ dễ chịu trong tháng này có thể tạo áp lực nhiều năm sau; một khoản tích lũy hôm nay có ý nghĩa khác nhau tùy mục đích và thời hạn sử dụng. Đọc ông giúp người học phân biệt giải thích hành vi với đưa lời khuyên cá nhân, đồng thời thấy tài chính gắn với cả cuộc đời chứ không chỉ với một giao dịch.",
+        "en": "Modigliani’s lesson is to extend the analytical horizon. A comfortable choice now may create pressure later, and savings mean different things depending on their purpose and timing. His work helps distinguish explaining behavior from personal advice and connects finance to a lifetime rather than one transaction."
+      }
+    ],
+    "html": "<p><em>Franco Modigliani tại MIT năm 2000. Ảnh: Umofomia; bản cắt JB Hoang Tam 2; CC BY-SA 3.0.</em></p>\n<p>Hai người có cùng thu nhập tháng này vẫn có thể chi tiêu và tiết kiệm rất khác nhau. Một người mới đi làm, một người sắp nghỉ hưu; một người có quỹ dự phòng, người kia đang gánh khoản nợ dài hạn. Franco Modigliani giúp đưa thời gian vào việc giải thích khác biệt ấy. Muốn hiểu hành vi tài chính, cần nhìn cả hành trình thu nhập và nhu cầu chứ không chỉ một bức ảnh chụp tại thời điểm hiện tại.</p>\n<h2>Rời nước Ý và xây dựng sự nghiệp nghiên cứu</h2>\n<p>Modigliani sinh năm 1918 tại Rome, ban đầu học luật. Trước các đạo luật phân biệt chủng tộc của chế độ phát xít, ông rời Ý và tới Mỹ năm 1939; ông nhận bằng tiến sĩ tại New School năm 1944. [1] Đây là hoàn cảnh lịch sử quan trọng của cuộc đời ông, không phải một câu chuyện thành công chỉ nhờ lựa chọn nghề nghiệp thuận lợi hay ý chí cá nhân.</p>\n<p>Ông làm việc tại nhiều đại học trước khi gia nhập MIT năm 1962. Năm 1985, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho những phân tích về tiết kiệm và thị trường tài chính. Ông mất năm 2003. [2][3] Đằng sau danh hiệu là nhiều năm nghiên cứu, hợp tác và kiểm chứng; các đóng góp của ông không nên được rút gọn thành một câu khuyên mọi người phải tiết kiệm theo cùng một tỷ lệ.</p>\n<h2>Giả thuyết vòng đời giải thích điều gì?</h2>\n<p>Trong thời gian tại Illinois đầu thập niên 1950, Modigliani và Richard Brumberg phát triển những ý tưởng ban đầu về tiết kiệm theo vòng đời. [1] Trọng tâm là việc người dân cân nhắc nguồn lực và tiêu dùng qua nhiều giai đoạn. Thu nhập lao động không kéo dài mãi, trong khi nhu cầu sinh hoạt vẫn còn; tích lũy trong một giai đoạn có thể phục vụ chi tiêu ở giai đoạn khác.</p>\n<p>Ví dụ giả định đơn giản: một người dự kiến còn nhiều năm làm việc trước khi nghỉ hưu. Nếu chỉ dùng toàn bộ thu nhập hiện tại, họ có thể thiếu nguồn chi sau này. Ngược lại, tiết kiệm đến mức bỏ qua nhu cầu thiết yếu hôm nay cũng không thể được gọi là tối ưu chỉ vì số dư lớn. Ví dụ này minh họa sự phân bổ qua thời gian, không đưa ra tỷ lệ tiết kiệm hay mức lợi nhuận phù hợp cho một cá nhân.</p>\n<h2>Mô hình giúp đặt câu hỏi, thực tế bổ sung ràng buộc</h2>\n<p>Đời sống không diễn ra đúng một lịch trình đã biết. Thu nhập có thể gián đoạn, tuổi thọ chưa chắc chắn, chi phí chăm sóc thay đổi và tài sản có thể mất giá. Một người muốn phân bổ tiêu dùng đều hơn nhưng không vay được khi còn trẻ cũng không thể thực hiện đúng kế hoạch trên giấy. Vì vậy, khi dùng mô hình cần ghi rõ giả định về thu nhập, khả năng vay và mức độ bất định.</p>\n<p>Đối với người học kinh tế, khác biệt giữa mô hình và thực tế không nhất thiết làm mô hình vô ích. Nó chỉ ra câu hỏi nào cần bổ sung. Nếu các hộ gia đình có tài sản nhưng vẫn hạn chế chi tiêu, có thể cần xem tính thanh khoản hoặc nỗi lo tương lai. Nếu người cao tuổi tiếp tục tiết kiệm, cần xem nhu cầu dự phòng và mong muốn để lại tài sản, thay vì coi tất cả là hành vi phi lý.</p>\n<h2>Không nhầm thu nhập với toàn bộ nguồn lực</h2>\n<p>Một ứng dụng biên tập là tách ba khái niệm: dòng tiền đến trong kỳ, tài sản đang có và nghĩa vụ phải trả. Cùng một mức lương nhưng khác nợ hoặc thời hạn cần tiền sẽ tạo ra tình thế khác. Bảng theo dõi chỉ ghi thu nhập thường bỏ qua phần này. Tuy nhiên, đưa thêm thông tin không đồng nghĩa có thể dự báo chính xác thị trường hay mọi biến cố trong gia đình.</p>\n<p>Ở cấp quốc gia, nghiên cứu về vòng đời giúp đặt vấn đề về cơ cấu tuổi và hệ thống hưu trí. [2] Khi đọc một đề xuất, người học có thể hỏi ai đóng góp, ai nhận chi trả, rủi ro được chia sẻ thế nào và giả định nhân khẩu học là gì. Đây là các câu hỏi đánh giá cơ chế; chúng không tự xác định rằng một mô hình hưu trí duy nhất phù hợp cho mọi xã hội.</p>\n<h2>Di sản của một cách nhìn dài hơn</h2>\n<p>Bài học quan trọng từ Modigliani là mở rộng khoảng thời gian phân tích. Một quyết định có vẻ dễ chịu trong tháng này có thể tạo áp lực nhiều năm sau; một khoản tích lũy hôm nay có ý nghĩa khác nhau tùy mục đích và thời hạn sử dụng. Đọc ông giúp người học phân biệt giải thích hành vi với đưa lời khuyên cá nhân, đồng thời thấy tài chính gắn với cả cuộc đời chứ không chỉ với một giao dịch.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://economics.illinois.edu/spotlight/historic-faculty/modigliani-franco\">University of Illinois — Franco Modigliani</a></li><li><a href=\"https://www.nobelprize.org/prizes/economic-sciences/1985/modigliani/facts/\">Nobel Prize — Modigliani facts</a></li><li><a href=\"https://news.mit.edu/2003/modigliani-1001\">MIT — Franco Modigliani 1918–2003</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Franco_Modigliani_close-up_(cropped).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/\">Bengt Holmström: Đo điều gì, con người sẽ tập trung vào điều đó</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/bengt-holmstrom-do-luong-va-dong-luc/",
+      "title": "Bengt Holmström: Đo điều gì, con người sẽ tập trung vào điều đó",
+      "title_en": "Bengt Holmström: What you measure shapes effort"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/franco-modigliani.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1920&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/"
+  },
+  {
+    "key": "andreu-mas-colell",
+    "slug": "andreu-mas-colell-mo-hinh-va-gia-dinh",
+    "title": "Andreu Mas-Colell: Hiểu thị trường từ những giả định",
+    "title_en": "Andreu Mas-Colell: Understanding markets through assumptions",
+    "excerpt": "Nhà kinh tế Tây Ban Nha gắn với lý thuyết cân bằng tổng thể, đào tạo sau đại học và xây dựng tổ chức nghiên cứu.",
+    "excerpt_en": "The Spanish economist associated with general equilibrium, graduate education and research institutions.",
+    "credit": "Andreu Mas-Colell tại Berkeley, tháng 10/1980. Ảnh: George M. Bergman; CC BY-SA 4.0.",
+    "credit_en": "Andreu Mas-Colell at Berkeley, October 1980. Photograph: George M. Bergman; CC BY-SA 4.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Andreu_Mas-Colell,_1980_Oct.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sources": [
+      {
+        "label": "Universitat Pompeu Fabra — Biography",
+        "url": "https://www.upf.edu/en/web/andreu-mas-colell/biografia"
+      },
+      {
+        "label": "Barcelona School of Economics — Andreu Mas-Colell",
+        "url": "https://bse.eu/people/mas-colell-andreu"
+      },
+      {
+        "label": "University of Minnesota — Outstanding Achievement Award",
+        "url": "https://cla.umn.edu/economics/news-events/news/distinguished-alum-andreu-mas-colell-receives-umn-outstanding-achievement-award"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Khi một mô hình kết luận thị trường có thể đạt trạng thái cân bằng, điều đó có nghĩa giá ngày mai đã được dự báo chưa? Câu trả lời là chưa. Andreu Mas-Colell là một nhân vật phù hợp để người học hiểu khoảng cách giữa một kết quả lý thuyết và một dự báo thực tế. Toán học có thể giúp làm rõ lập luận, nhưng giá trị của kết luận luôn gắn với những điều đã được giả định từ đầu.",
+        "en": "Does a model showing that market equilibrium can exist predict tomorrow’s prices? No. Andreu Mas-Colell offers a useful introduction to the distinction between a theoretical result and an empirical forecast. Mathematics clarifies reasoning, but conclusions remain tied to assumptions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ đào tạo quốc tế đến nghiên cứu tại Barcelona",
+        "en": "From international training to research in Barcelona"
+      },
+      {
+        "tag": "p",
+        "vi": "Mas-Colell nhận bằng tiến sĩ kinh tế tại Đại học Minnesota năm 1972. Ông giảng dạy ở Berkeley trong giai đoạn 1972–1980, sau đó tại Harvard từ 1981 đến 1996. [1][3] Những chặng đường này đặt ông trong mạng lưới nghiên cứu kinh tế quốc tế, nơi các ý tưởng được phát triển qua trao đổi, phản biện, đào tạo nghiên cứu sinh và công bố khoa học chứ không chỉ qua một phát hiện riêng lẻ.",
+        "en": "Mas-Colell earned his economics doctorate at Minnesota in 1972, taught at Berkeley in 1972–1980 and at Harvard in 1981–1996. [1][3] These stages placed him in international networks of research, criticism and graduate training rather than a career defined by one isolated discovery."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông là nhà sáng lập Barcelona School of Economics và có đóng góp nổi bật trong kinh tế học toán, đặc biệt lý thuyết cân bằng tổng thể. Ông cũng đồng tác giả giáo trình Microeconomic Theory cùng Michael Whinston và Jerry Green. [2] Với chuyên mục này, điểm đáng chú ý là sự kết hợp giữa phát triển công cụ phân tích và xây dựng môi trường để nhiều người khác có thể học, kiểm tra và tiếp tục nghiên cứu.",
+        "en": "Founder of the Barcelona School of Economics, he contributed to mathematical economics and general equilibrium and co-authored Microeconomic Theory with Michael Whinston and Jerry Green. [2] His career combines analytical tools with institutions that enable others to learn and extend research."
+      },
+      {
+        "tag": "h2",
+        "vi": "Cân bằng tổng thể đặt các thị trường cạnh nhau",
+        "en": "General equilibrium connects markets"
+      },
+      {
+        "tag": "p",
+        "vi": "Một thị trường hiếm khi tồn tại độc lập. Giá điện ảnh hưởng chi phí sản xuất; thu nhập lao động ảnh hưởng sức mua; giá nhà có thể tác động đến quyết định di chuyển để tìm việc. Ví dụ liên hệ này là cách diễn giải của chuyên mục, không phải mô hình cụ thể của Mas-Colell. Nó giúp thấy vì sao nghiên cứu hệ thống nhiều thị trường cần xác định rõ quan hệ giữa các chủ thể và nguồn lực.",
+        "en": "Markets rarely stand alone: electricity affects production costs, wages affect purchasing power, and housing affects mobility. These are editorial examples, not a specific Mas-Colell model. They show why multi-market analysis must specify links among participants and resources."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một mô hình, cần mô tả người tiêu dùng muốn gì, doanh nghiệp có công nghệ nào, nguồn lực thuộc về ai và giao dịch diễn ra ra sao. Khi đó, câu hỏi về sự tồn tại của cân bằng có nội dung chính xác hơn một nhận xét chung rằng thị trường sẽ tự ổn. Đổi giả định có thể đổi kết quả. Việc chứng minh trong mô hình không tự xác nhận rằng mọi điều kiện của nó đều có ngoài đời.",
+        "en": "A model specifies preferences, technology, resource ownership and trading arrangements. Equilibrium existence then becomes a precise question, not a vague assertion that markets will work out. Different assumptions can yield different results; mathematical proof does not establish that its premises hold in reality."
+      },
+      {
+        "tag": "h2",
+        "vi": "Ba câu hỏi thường bị gộp làm một",
+        "en": "Three questions often confused"
+      },
+      {
+        "tag": "p",
+        "vi": "Người mới học dễ gộp việc có một trạng thái cân bằng, chỉ có một trạng thái như vậy và nền kinh tế thực sự đi đến đó. Đây là ba câu hỏi khác nhau. Một lời giải tồn tại chưa nói nó duy nhất; một lời giải duy nhất chưa nói quá trình điều chỉnh sẽ hội tụ nhanh hoặc không gây tổn thất. Tách các câu hỏi này giúp đọc nghiên cứu cẩn thận hơn và tránh dùng thuật ngữ như một lời bảo đảm.",
+        "en": "Existence, uniqueness and actual convergence are distinct questions. An equilibrium may exist without being unique; uniqueness does not guarantee quick or painless adjustment toward it. Separating these questions prevents theoretical terminology from being mistaken for a promise."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: hai cửa hàng cùng điều chỉnh giá theo quan sát đối thủ. Có thể viết ra một cặp giá mà không bên nào muốn đổi trong điều kiện đã chọn. Nhưng ngoài đời, thông tin đến chậm, chất lượng khác nhau và một bên có thể đổi sản phẩm. Muốn dự báo hành vi thật, phải nghiên cứu các yếu tố đó, thay vì lấy cặp giá trong bài tập làm mục tiêu chắc chắn của thị trường.",
+        "en": "Imagine two shops adjusting prices in response to each other. A model may identify prices neither wants to change. In practice, information lags, quality differs and products can change. Forecasting behavior requires studying those features rather than treating a classroom solution as inevitable."
+      },
+      {
+        "tag": "h2",
+        "vi": "Toán học là công cụ để lộ rõ lập luận",
+        "en": "Mathematics makes reasoning explicit"
+      },
+      {
+        "tag": "p",
+        "vi": "Điểm hữu ích của việc hình thức hóa là buộc người nghiên cứu nói rõ các bước suy luận. Nếu không đồng ý với kết luận, người đọc có thể tìm giả định nào không phù hợp hoặc quan hệ nào cần bằng chứng. Tuy nhiên, sự phức tạp của ký hiệu không tự tạo ra độ đúng. Một mô hình nhỏ, trả lời đúng câu hỏi và được đối chiếu dữ liệu có thể hữu ích hơn một mô hình lớn thiếu căn cứ thực nghiệm.",
+        "en": "Formalization makes steps explicit so critics can identify unsuitable assumptions or unsupported relationships. Complex notation does not create truth by itself. A small, well-targeted model tested against evidence may be more useful than a large one without empirical grounding."
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với độc giả Việt Nam, thói quen này áp dụng được khi đọc báo cáo dự báo, kế hoạch kinh doanh hoặc bài phân tích ngành. Hãy tìm giả định về nhu cầu, năng lực cung ứng, cạnh tranh và chi phí vốn; sau đó hỏi kết quả thay đổi ra sao nếu một giả định sai. Đây là bài học phương pháp do chuyên mục rút ra, không phải một khuyến nghị mua bán tài sản được gán cho nhà kinh tế.",
+        "en": "Vietnamese readers can apply this habit to forecasts, business plans and industry reports: identify demand, supply, competition and funding assumptions, then ask what changes if one fails. This is an editorial methodological lesson, not a trading recommendation attributed to Mas-Colell."
+      },
+      {
+        "tag": "h2",
+        "vi": "Xây dựng tri thức cũng cần tổ chức",
+        "en": "Knowledge also requires institutions"
+      },
+      {
+        "tag": "p",
+        "vi": "Sự nghiệp của Mas-Colell nhắc rằng ảnh hưởng học thuật không chỉ đo bằng tên một định lý. Đào tạo, biên tập tạp chí và xây dựng trường nghiên cứu tạo điều kiện để tri thức được kiểm tra qua nhiều thế hệ. [1][2] Với người học phổ thông, điều đáng giữ lại là một thái độ: hỏi mô hình giải thích được gì, chưa giải thích được gì và cần thông tin nào trước khi mang kết luận từ trang giấy ra đời sống.",
+        "en": "His career also shows that influence extends beyond a theorem: teaching, journal editing and research institutions enable cumulative scrutiny. [1][2] The practical attitude is to ask what a model explains, what it leaves out and what evidence is needed before applying it."
+      }
+    ],
+    "html": "<p><em>Andreu Mas-Colell tại Berkeley, tháng 10/1980. Ảnh: George M. Bergman; CC BY-SA 4.0.</em></p>\n<p>Khi một mô hình kết luận thị trường có thể đạt trạng thái cân bằng, điều đó có nghĩa giá ngày mai đã được dự báo chưa? Câu trả lời là chưa. Andreu Mas-Colell là một nhân vật phù hợp để người học hiểu khoảng cách giữa một kết quả lý thuyết và một dự báo thực tế. Toán học có thể giúp làm rõ lập luận, nhưng giá trị của kết luận luôn gắn với những điều đã được giả định từ đầu.</p>\n<h2>Từ đào tạo quốc tế đến nghiên cứu tại Barcelona</h2>\n<p>Mas-Colell nhận bằng tiến sĩ kinh tế tại Đại học Minnesota năm 1972. Ông giảng dạy ở Berkeley trong giai đoạn 1972–1980, sau đó tại Harvard từ 1981 đến 1996. [1][3] Những chặng đường này đặt ông trong mạng lưới nghiên cứu kinh tế quốc tế, nơi các ý tưởng được phát triển qua trao đổi, phản biện, đào tạo nghiên cứu sinh và công bố khoa học chứ không chỉ qua một phát hiện riêng lẻ.</p>\n<p>Ông là nhà sáng lập Barcelona School of Economics và có đóng góp nổi bật trong kinh tế học toán, đặc biệt lý thuyết cân bằng tổng thể. Ông cũng đồng tác giả giáo trình Microeconomic Theory cùng Michael Whinston và Jerry Green. [2] Với chuyên mục này, điểm đáng chú ý là sự kết hợp giữa phát triển công cụ phân tích và xây dựng môi trường để nhiều người khác có thể học, kiểm tra và tiếp tục nghiên cứu.</p>\n<h2>Cân bằng tổng thể đặt các thị trường cạnh nhau</h2>\n<p>Một thị trường hiếm khi tồn tại độc lập. Giá điện ảnh hưởng chi phí sản xuất; thu nhập lao động ảnh hưởng sức mua; giá nhà có thể tác động đến quyết định di chuyển để tìm việc. Ví dụ liên hệ này là cách diễn giải của chuyên mục, không phải mô hình cụ thể của Mas-Colell. Nó giúp thấy vì sao nghiên cứu hệ thống nhiều thị trường cần xác định rõ quan hệ giữa các chủ thể và nguồn lực.</p>\n<p>Trong một mô hình, cần mô tả người tiêu dùng muốn gì, doanh nghiệp có công nghệ nào, nguồn lực thuộc về ai và giao dịch diễn ra ra sao. Khi đó, câu hỏi về sự tồn tại của cân bằng có nội dung chính xác hơn một nhận xét chung rằng thị trường sẽ tự ổn. Đổi giả định có thể đổi kết quả. Việc chứng minh trong mô hình không tự xác nhận rằng mọi điều kiện của nó đều có ngoài đời.</p>\n<h2>Ba câu hỏi thường bị gộp làm một</h2>\n<p>Người mới học dễ gộp việc có một trạng thái cân bằng, chỉ có một trạng thái như vậy và nền kinh tế thực sự đi đến đó. Đây là ba câu hỏi khác nhau. Một lời giải tồn tại chưa nói nó duy nhất; một lời giải duy nhất chưa nói quá trình điều chỉnh sẽ hội tụ nhanh hoặc không gây tổn thất. Tách các câu hỏi này giúp đọc nghiên cứu cẩn thận hơn và tránh dùng thuật ngữ như một lời bảo đảm.</p>\n<p>Ví dụ giả định: hai cửa hàng cùng điều chỉnh giá theo quan sát đối thủ. Có thể viết ra một cặp giá mà không bên nào muốn đổi trong điều kiện đã chọn. Nhưng ngoài đời, thông tin đến chậm, chất lượng khác nhau và một bên có thể đổi sản phẩm. Muốn dự báo hành vi thật, phải nghiên cứu các yếu tố đó, thay vì lấy cặp giá trong bài tập làm mục tiêu chắc chắn của thị trường.</p>\n<h2>Toán học là công cụ để lộ rõ lập luận</h2>\n<p>Điểm hữu ích của việc hình thức hóa là buộc người nghiên cứu nói rõ các bước suy luận. Nếu không đồng ý với kết luận, người đọc có thể tìm giả định nào không phù hợp hoặc quan hệ nào cần bằng chứng. Tuy nhiên, sự phức tạp của ký hiệu không tự tạo ra độ đúng. Một mô hình nhỏ, trả lời đúng câu hỏi và được đối chiếu dữ liệu có thể hữu ích hơn một mô hình lớn thiếu căn cứ thực nghiệm.</p>\n<p>Đối với độc giả Việt Nam, thói quen này áp dụng được khi đọc báo cáo dự báo, kế hoạch kinh doanh hoặc bài phân tích ngành. Hãy tìm giả định về nhu cầu, năng lực cung ứng, cạnh tranh và chi phí vốn; sau đó hỏi kết quả thay đổi ra sao nếu một giả định sai. Đây là bài học phương pháp do chuyên mục rút ra, không phải một khuyến nghị mua bán tài sản được gán cho nhà kinh tế.</p>\n<h2>Xây dựng tri thức cũng cần tổ chức</h2>\n<p>Sự nghiệp của Mas-Colell nhắc rằng ảnh hưởng học thuật không chỉ đo bằng tên một định lý. Đào tạo, biên tập tạp chí và xây dựng trường nghiên cứu tạo điều kiện để tri thức được kiểm tra qua nhiều thế hệ. [1][2] Với người học phổ thông, điều đáng giữ lại là một thái độ: hỏi mô hình giải thích được gì, chưa giải thích được gì và cần thông tin nào trước khi mang kết luận từ trang giấy ra đời sống.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.upf.edu/en/web/andreu-mas-colell/biografia\">Universitat Pompeu Fabra — Biography</a></li><li><a href=\"https://bse.eu/people/mas-colell-andreu\">Barcelona School of Economics — Andreu Mas-Colell</a></li><li><a href=\"https://cla.umn.edu/economics/news-events/news/distinguished-alum-andreu-mas-colell-receives-umn-outstanding-achievement-award\">University of Minnesota — Outstanding Achievement Award</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Andreu_Mas-Colell,_1980_Oct.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/\">Jan Tinbergen: Muốn đạt mục tiêu cần chọn đúng công cụ</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/jan-tinbergen-muc-tieu-cong-cu-va-mo-hinh/",
+      "title": "Jan Tinbergen: Muốn đạt mục tiêu cần chọn đúng công cụ",
+      "title_en": "Jan Tinbergen: Matching objectives with effective instruments"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/andreu-mas-colell.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1923&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/"
+  },
+  {
+    "key": "antonio-simoes-lopes",
+    "slug": "antonio-simoes-lopes-phat-trien-vung",
+    "title": "António Simões Lopes: Phát triển kinh tế nhìn từ từng vùng",
+    "title_en": "António Simões Lopes: Economic development through regions",
+    "excerpt": "Nhà kinh tế Bồ Đào Nha giúp đưa lãnh thổ, khoảng cách và tổ chức địa phương vào câu hỏi phát triển.",
+    "excerpt_en": "The Portuguese economist who helped place territory, distance and local institutions within development analysis.",
+    "credit": "António Simões Lopes — minh họa AI tham chiếu chân dung của Regional Science Association International.",
+    "credit_en": "António Simões Lopes — AI illustration based on a portrait published by the Regional Science Association International.",
+    "photo_source": "https://www.regionalscience.org/index.php/news/obituaries/item/418-it-is-with-great-sadness-that-we-announce-the-passing-of-ant%C3%B3nio-sim%C3%B5es-lopes-founder-of-regional-science-in-portugal.html",
+    "license": "",
+    "sources": [
+      {
+        "label": "ISEG — In memory of António Simões Lopes",
+        "url": "https://www.iseg.ulisboa.pt/2012/12/falecimento-do-professor-antonio-simoes-lopes/"
+      },
+      {
+        "label": "University of Évora — Espaço, lugar e território",
+        "url": "https://dspace.uevora.pt/rdpc/bitstream/10174/33313/3/Carmo-A_2022_Espaco-Lugar-e-Territorio.pdf"
+      },
+      {
+        "label": "Regional Science Association International — António Simões Lopes",
+        "url": "https://www.regionalscience.org/index.php/news/obituaries/item/418-it-is-with-great-sadness-that-we-announce-the-passing-of-ant%C3%B3nio-sim%C3%B5es-lopes-founder-of-regional-science-in-portugal.html"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một quốc gia có thể tăng trưởng trong khi nhiều địa phương vẫn thiếu cơ hội việc làm. Số bình quân toàn quốc không nói đầy đủ nơi nào đang thu hút dân cư, nơi nào thiếu dịch vụ hoặc doanh nghiệp phải mất bao lâu để tiếp cận khách hàng. António Simões Lopes là một tên tuổi quan trọng để giới thiệu cách nhìn phát triển từ không gian và lãnh thổ: kinh tế luôn diễn ra ở những địa điểm cụ thể.",
+        "en": "A country can grow while many localities lack jobs. National averages do not show where people move, services are scarce or customers are difficult to reach. António Simões Lopes provides an introduction to development through space and territory: economic activity always happens somewhere."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Góis đến nghiên cứu kinh tế vùng",
+        "en": "From Góis to regional economics"
+      },
+      {
+        "tag": "p",
+        "vi": "Simões Lopes sinh tại Góis, Bồ Đào Nha, năm 1934. Ông tốt nghiệp ngành tài chính năm 1962 tại tiền thân của ISEG, sau đó học tiến sĩ kinh tế ở Oxford và trở về giảng dạy năm 1973. Ông qua đời năm 2012. [1] Lộ trình ấy gắn đào tạo quốc tế với việc phát triển một lĩnh vực nghiên cứu còn cần được xây dựng ở trong nước.",
+        "en": "Born in Góis, Portugal, in 1934, Simões Lopes graduated in finance in 1962 from ISEG’s predecessor, completed doctoral studies in economics at Oxford and returned to teach in 1973. He died in 2012. [1] His international training supported the development of regional research at home."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông góp phần hình thành nhóm nghiên cứu vùng và đô thị năm 1975, về sau trở thành CIRIUS, đồng thời giữ vai trò hiệu trưởng Đại học Kỹ thuật Lisbon giai đoạn 1987–1999. [1] Cuốn Desenvolvimento Regional: problemática, teoria e modelos xuất bản năm 1979 được ghi nhận là tài liệu quan trọng trong đào tạo phát triển vùng bằng tiếng Bồ Đào Nha. [2] Đóng góp của ông vì vậy vừa thuộc nghiên cứu vừa thuộc xây dựng tổ chức.",
+        "en": "He helped establish a regional and urban research group in 1975, later CIRIUS, and served as rector of the Technical University of Lisbon in 1987–1999. [1] His 1979 Desenvolvimento Regional became an important Portuguese-language teaching text. [2] His contribution combined scholarship and institution-building."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khoảng cách không chỉ là số kilômét",
+        "en": "Distance is more than kilometers"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách tiếp cận nhập môn của chuyên mục là xem khoảng cách như chi phí tiếp cận. Hai địa điểm cách nhau như nhau trên bản đồ có thể rất khác về thời gian vận chuyển, độ ổn định điện, kết nối thông tin và nguồn lao động. Đây là ví dụ giải thích kinh tế vùng, không phải một định lý riêng của Simões Lopes. Nó cho thấy vì sao không thể chuyển nguyên một phương án phát triển giữa hai địa phương mà không khảo sát.",
+        "en": "An introductory editorial approach treats distance as an access cost. Equal map distances can imply different transport times, electricity reliability, information access and labor availability. This illustrates regional economics rather than a theorem unique to Simões Lopes, and explains why local strategies cannot simply be copied."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: hai huyện cùng được xây một khu sản xuất. Huyện thứ nhất gần nhà cung cấp, có đường vận chuyển ổn định và trường nghề phù hợp. Huyện thứ hai thiếu các điều kiện đó. Diện tích nhà xưởng giống nhau không bảo đảm hiệu quả giống nhau. Để hiểu kết quả cần theo dõi kết nối, kỹ năng và thị trường, chứ không chỉ so sánh vốn xây dựng hoặc số hạng mục đã hoàn thành.",
+        "en": "Imagine two districts building similar industrial facilities. One has suppliers, reliable roads and relevant vocational training; the other does not. Equal floor space will not guarantee equal outcomes. Evaluation must track connections, skills and markets, not merely construction expenditure."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phát triển vùng không đồng nghĩa mọi nơi làm giống nhau",
+        "en": "Regional development does not mean identical local economies"
+      },
+      {
+        "tag": "p",
+        "vi": "Mỗi địa phương có nguồn lực, lịch sử và vị trí khác nhau. Một nơi có thể phù hợp với dịch vụ, nơi khác với chế biến nông sản hoặc một mắt xích trong chuỗi cung ứng. Điều cần đánh giá là hoạt động đó tạo thu nhập và cơ hội bền vững ra sao, có liên kết với phần còn lại của nền kinh tế không, và chi phí môi trường hoặc hạ tầng thuộc về ai.",
+        "en": "Places differ in resources, history and location. Services, food processing or a supply-chain function may suit different areas. Evaluation should ask whether activities generate durable income, connect to the wider economy and account for environmental and infrastructure costs."
+      },
+      {
+        "tag": "p",
+        "vi": "Tuy nhiên, lợi thế hiện tại cũng không phải số phận cố định. Đào tạo, công nghệ và đầu tư kết nối có thể thay đổi khả năng của một vùng, nhưng cần thời gian và điều kiện đi kèm. Câu hỏi hợp lý không phải địa phương nên sao chép mô hình nổi tiếng nào, mà là nút thắt nào đang ngăn người dân và doanh nghiệp sử dụng tốt hơn những nguồn lực có thể phát triển.",
+        "en": "Existing advantages are not destiny. Training, technology and connections can change regional capabilities, given time and complementary conditions. The useful question is which constraints prevent residents and firms from making better use of developable resources, rather than which celebrated model to copy."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chỉ tiêu cần bám theo người dân và doanh nghiệp",
+        "en": "Indicators should follow people and firms"
+      },
+      {
+        "tag": "p",
+        "vi": "Đếm dự án là việc dễ hơn đo thay đổi trong cuộc sống. Một công trình hoàn thành chưa nói thời gian đi lại đã giảm, người trẻ có ở lại làm việc hay doanh nghiệp nhỏ có tìm được khách hàng. Khi đánh giá chương trình, nên xác định trước kết quả mong muốn, nhóm chịu tác động và cách so sánh. Những tiêu chí này là gợi ý biên tập, không phải bộ chỉ tiêu được trích nguyên từ công trình của Simões Lopes.",
+        "en": "Counting projects is easier than measuring better lives. Completion does not establish shorter commutes, youth employment or customer access for small firms. Evaluation should define intended outcomes, affected groups and comparisons in advance. These are editorial suggestions, not indicators quoted from his work."
+      },
+      {
+        "tag": "p",
+        "vi": "Với Việt Nam, góc nhìn vùng đặc biệt hữu ích khi đọc các câu chuyện về liên kết tỉnh, di cư lao động hoặc phát triển cụm ngành. Một quyết định tại một địa phương có thể chuyển chi phí sang nơi khác, hoặc tạo lợi ích vượt ranh giới hành chính. Vì vậy cần xem phối hợp giữa các nơi và chất lượng dữ liệu, thay vì coi mỗi địa phương như một hòn đảo kinh tế độc lập.",
+        "en": "In Vietnam, regional analysis is useful for interprovincial links, labor migration and industrial clusters. A local decision may shift costs elsewhere or create benefits across administrative boundaries. Coordination and data matter because localities are not isolated economic islands."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản nằm cả ở việc xây dựng năng lực nghiên cứu",
+        "en": "A legacy of research capacity"
+      },
+      {
+        "tag": "p",
+        "vi": "Sự nghiệp Simões Lopes cho thấy một nhà kinh tế có thể tạo ảnh hưởng bằng việc đào tạo người khác và xây dựng nơi nghiên cứu bền vững. [1][3] Bài học khi đọc ông là đưa bản đồ trở lại bên cạnh bảng số liệu. Trước khi kết luận một chính sách thành công, hãy hỏi thành công ở đâu, với ai, nhờ điều kiện nào và có thể duy trì khi điều kiện ấy thay đổi hay không.",
+        "en": "Simões Lopes also influenced development through teaching and durable research institutions. [1][3] His story encourages placing a map beside the spreadsheet: where did a policy work, for whom, under what conditions, and can its effects last if those conditions change?"
+      }
+    ],
+    "html": "<p><em>António Simões Lopes — minh họa AI tham chiếu chân dung của Regional Science Association International.</em></p>\n<p>Một quốc gia có thể tăng trưởng trong khi nhiều địa phương vẫn thiếu cơ hội việc làm. Số bình quân toàn quốc không nói đầy đủ nơi nào đang thu hút dân cư, nơi nào thiếu dịch vụ hoặc doanh nghiệp phải mất bao lâu để tiếp cận khách hàng. António Simões Lopes là một tên tuổi quan trọng để giới thiệu cách nhìn phát triển từ không gian và lãnh thổ: kinh tế luôn diễn ra ở những địa điểm cụ thể.</p>\n<h2>Từ Góis đến nghiên cứu kinh tế vùng</h2>\n<p>Simões Lopes sinh tại Góis, Bồ Đào Nha, năm 1934. Ông tốt nghiệp ngành tài chính năm 1962 tại tiền thân của ISEG, sau đó học tiến sĩ kinh tế ở Oxford và trở về giảng dạy năm 1973. Ông qua đời năm 2012. [1] Lộ trình ấy gắn đào tạo quốc tế với việc phát triển một lĩnh vực nghiên cứu còn cần được xây dựng ở trong nước.</p>\n<p>Ông góp phần hình thành nhóm nghiên cứu vùng và đô thị năm 1975, về sau trở thành CIRIUS, đồng thời giữ vai trò hiệu trưởng Đại học Kỹ thuật Lisbon giai đoạn 1987–1999. [1] Cuốn Desenvolvimento Regional: problemática, teoria e modelos xuất bản năm 1979 được ghi nhận là tài liệu quan trọng trong đào tạo phát triển vùng bằng tiếng Bồ Đào Nha. [2] Đóng góp của ông vì vậy vừa thuộc nghiên cứu vừa thuộc xây dựng tổ chức.</p>\n<h2>Khoảng cách không chỉ là số kilômét</h2>\n<p>Một cách tiếp cận nhập môn của chuyên mục là xem khoảng cách như chi phí tiếp cận. Hai địa điểm cách nhau như nhau trên bản đồ có thể rất khác về thời gian vận chuyển, độ ổn định điện, kết nối thông tin và nguồn lao động. Đây là ví dụ giải thích kinh tế vùng, không phải một định lý riêng của Simões Lopes. Nó cho thấy vì sao không thể chuyển nguyên một phương án phát triển giữa hai địa phương mà không khảo sát.</p>\n<p>Ví dụ giả định: hai huyện cùng được xây một khu sản xuất. Huyện thứ nhất gần nhà cung cấp, có đường vận chuyển ổn định và trường nghề phù hợp. Huyện thứ hai thiếu các điều kiện đó. Diện tích nhà xưởng giống nhau không bảo đảm hiệu quả giống nhau. Để hiểu kết quả cần theo dõi kết nối, kỹ năng và thị trường, chứ không chỉ so sánh vốn xây dựng hoặc số hạng mục đã hoàn thành.</p>\n<h2>Phát triển vùng không đồng nghĩa mọi nơi làm giống nhau</h2>\n<p>Mỗi địa phương có nguồn lực, lịch sử và vị trí khác nhau. Một nơi có thể phù hợp với dịch vụ, nơi khác với chế biến nông sản hoặc một mắt xích trong chuỗi cung ứng. Điều cần đánh giá là hoạt động đó tạo thu nhập và cơ hội bền vững ra sao, có liên kết với phần còn lại của nền kinh tế không, và chi phí môi trường hoặc hạ tầng thuộc về ai.</p>\n<p>Tuy nhiên, lợi thế hiện tại cũng không phải số phận cố định. Đào tạo, công nghệ và đầu tư kết nối có thể thay đổi khả năng của một vùng, nhưng cần thời gian và điều kiện đi kèm. Câu hỏi hợp lý không phải địa phương nên sao chép mô hình nổi tiếng nào, mà là nút thắt nào đang ngăn người dân và doanh nghiệp sử dụng tốt hơn những nguồn lực có thể phát triển.</p>\n<h2>Chỉ tiêu cần bám theo người dân và doanh nghiệp</h2>\n<p>Đếm dự án là việc dễ hơn đo thay đổi trong cuộc sống. Một công trình hoàn thành chưa nói thời gian đi lại đã giảm, người trẻ có ở lại làm việc hay doanh nghiệp nhỏ có tìm được khách hàng. Khi đánh giá chương trình, nên xác định trước kết quả mong muốn, nhóm chịu tác động và cách so sánh. Những tiêu chí này là gợi ý biên tập, không phải bộ chỉ tiêu được trích nguyên từ công trình của Simões Lopes.</p>\n<p>Với Việt Nam, góc nhìn vùng đặc biệt hữu ích khi đọc các câu chuyện về liên kết tỉnh, di cư lao động hoặc phát triển cụm ngành. Một quyết định tại một địa phương có thể chuyển chi phí sang nơi khác, hoặc tạo lợi ích vượt ranh giới hành chính. Vì vậy cần xem phối hợp giữa các nơi và chất lượng dữ liệu, thay vì coi mỗi địa phương như một hòn đảo kinh tế độc lập.</p>\n<h2>Di sản nằm cả ở việc xây dựng năng lực nghiên cứu</h2>\n<p>Sự nghiệp Simões Lopes cho thấy một nhà kinh tế có thể tạo ảnh hưởng bằng việc đào tạo người khác và xây dựng nơi nghiên cứu bền vững. [1][3] Bài học khi đọc ông là đưa bản đồ trở lại bên cạnh bảng số liệu. Trước khi kết luận một chính sách thành công, hãy hỏi thành công ở đâu, với ai, nhờ điều kiện nào và có thể duy trì khi điều kiện ấy thay đổi hay không.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.iseg.ulisboa.pt/2012/12/falecimento-do-professor-antonio-simoes-lopes/\">ISEG — In memory of António Simões Lopes</a></li><li><a href=\"https://dspace.uevora.pt/rdpc/bitstream/10174/33313/3/Carmo-A_2022_Espaco-Lugar-e-Territorio.pdf\">University of Évora — Espaço, lugar e território</a></li><li><a href=\"https://www.regionalscience.org/index.php/news/obituaries/item/418-it-is-with-great-sadness-that-we-announce-the-passing-of-ant%C3%B3nio-sim%C3%B5es-lopes-founder-of-regional-science-in-portugal.html\">Regional Science Association International — António Simões Lopes</a></li></ol><p><a href=\"https://www.regionalscience.org/index.php/news/obituaries/item/418-it-is-with-great-sadness-that-we-announce-the-passing-of-ant%C3%B3nio-sim%C3%B5es-lopes-founder-of-regional-science-in-portugal.html\">Portrait reference / Nguồn ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/\">Gunnar Myrdal: Phát triển kinh tế và những vòng lặp bất bình đẳng</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/gunnar-myrdal-phat-trien-va-vong-lap/",
+      "title": "Gunnar Myrdal: Phát triển kinh tế và những vòng lặp bất bình đẳng",
+      "title_en": "Gunnar Myrdal: Development and self-reinforcing inequality"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/antonio-simoes-lopes.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/antonio-simoes-lopes-phat-trien-vung/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1926&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/antonio-simoes-lopes-phat-trien-vung/"
+  },
+  {
+    "key": "michal-kalecki",
+    "slug": "michal-kalecki-dau-tu-va-viec-lam",
+    "title": "Michał Kalecki: Đầu tư, việc làm và những điều kiện phía sau",
+    "title_en": "Michał Kalecki: Investment, employment and the conditions behind them",
+    "excerpt": "Nhà kinh tế Ba Lan tiếp cận chu kỳ và việc làm bằng cách kết nối chi tiêu, sản xuất và bối cảnh chính trị.",
+    "excerpt_en": "The Polish economist who connected spending, production and political conditions in the study of cycles and employment.",
+    "credit": "Chân dung Michał Kalecki của Manuel García Jódar, 2009; CC BY 2.5 ES.",
+    "credit_en": "Portrait of Michał Kalecki by Manuel García Jódar, 2009; CC BY 2.5 ES.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Michal_Kalecki.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.5/es/",
+    "sources": [
+      {
+        "label": "SGH Warsaw School of Economics — Michał Kalecki",
+        "url": "https://gazeta.sgh.waw.pl/nauka-w-sgh/profesor-michal-kalecki-w-55-rocznice-smierci"
+      },
+      {
+        "label": "Political Quarterly — Political Aspects of Full Employment",
+        "url": "https://politicalquarterly.org.uk/blog/political-aspects-of-full-employment/"
+      },
+      {
+        "label": "Kalecki — Political Aspects of Full Employment, 1943",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1467-923X.1943.tb01016.x"
+      },
+      {
+        "label": "Complutense University — Kalecki bibliography",
+        "url": "https://biblioteca.ucm.es/cee/exposicion-bibliografica-de-michal-kalecki-mayo-2011"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Vì sao nhà xưởng còn công suất, người dân muốn làm việc mà nền kinh tế vẫn có thể thiếu việc làm? Michał Kalecki là một trong những nhà kinh tế giúp đặt câu hỏi về mối quan hệ giữa chi tiêu, sản xuất và đầu tư. Câu chuyện của ông còn mở thêm một lớp: chính sách có thể khả thi về kỹ thuật nhưng vẫn gặp trở ngại từ lợi ích và tổ chức xã hội.",
+        "en": "Why can unemployment persist when factories have spare capacity and people want work? Michał Kalecki studied links among spending, production and investment, adding another layer: technically feasible policies can still encounter institutional and political obstacles."
+      },
+      {
+        "tag": "h2",
+        "vi": "Con đường nghiên cứu không theo khuôn mẫu",
+        "en": "An unconventional route into research"
+      },
+      {
+        "tag": "p",
+        "vi": "Kalecki sinh tại Łódź, Ba Lan, năm 1899. Ông từng học kỹ thuật nhưng không hoàn thành chương trình đại học; năm 1929 ông làm việc tại viện nghiên cứu chu kỳ kinh doanh và giá cả ở Warsaw. Năm 1933, ông công bố một công trình quan trọng về lý thuyết chu kỳ. [1] Tiểu sử này cho thấy một con đường khác thường, nhưng không nên dùng nó để suy ra đào tạo bài bản là không cần thiết.",
+        "en": "Born in Łódź in 1899, Kalecki studied engineering without completing a degree and joined Warsaw’s institute for business-cycle and price research in 1929. A major cycle-theory work followed in 1933. [1] His unusual path does not imply that formal training is unnecessary."
+      },
+      {
+        "tag": "p",
+        "vi": "Các phân tích của ông về kinh tế vĩ mô thường được đặt trong đối thoại với Keynes và truyền thống Marx. [4] Việc so sánh cần giữ khác biệt giữa các hệ thống lý luận, thay vì coi ông là bản sao của một nhà tư tưởng nổi tiếng hơn. Ông qua đời năm 1970. Những câu hỏi về đầu tư và việc làm vẫn tạo ảnh hưởng sau đó, dù không có nghĩa mọi chính sách mang tên ông đều đã được kiểm chứng thành công.",
+        "en": "His macroeconomics is often discussed alongside Keynesian and Marxian traditions. [4] Such comparisons should preserve differences rather than treat him as a copy of another thinker. He died in 1970; continued influence does not validate every policy later associated with his name."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chi tiêu của người này là doanh thu của người khác",
+        "en": "One participant’s spending is another’s revenue"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách nhập môn là nhìn mối liên hệ giữa các chủ thể. Khi một doanh nghiệp mua máy, khoản chi ấy tạo doanh thu cho nhà cung cấp; khi người lao động có thu nhập, một phần được dùng mua hàng hóa. Nếu nhiều bên đồng thời giảm chi tiêu, doanh thu của các bên khác cũng có thể chịu tác động. Đây là diễn giải tổng quát của chuyên mục, không phải một phương trình đầy đủ thay thế công trình của Kalecki.",
+        "en": "An introductory illustration follows connections: machinery purchases generate suppliers’ revenue, while wages support consumption. If many participants cut spending simultaneously, others’ sales may fall. This is a general editorial explanation, not a substitute for Kalecki’s formal analysis."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một nhóm xưởng cùng hoãn đầu tư vì lo sức mua yếu. Nhà cung cấp thiết bị giảm đơn hàng, nhân viên của họ hạn chế mua sắm, khiến các cửa hàng gần đó mất thêm doanh thu. Cơ chế này có thể khuếch đại khó khăn ban đầu. Tuy nhiên, mức độ tác động còn phụ thuộc thương mại, tín dụng, tồn kho và các nguồn chi khác, nên không thể chỉ kể câu chuyện rồi kết luận đã chứng minh quan hệ nhân quả.",
+        "en": "Suppose several workshops postpone investment because demand looks weak. Equipment suppliers lose orders and their workers reduce purchases, affecting local shops. Such feedback can amplify weakness, but trade, credit, inventories and other spending matter. A plausible story is not causal proof."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đầy đủ việc làm vẫn có điều kiện về nguồn lực",
+        "en": "Full employment still depends on resources"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bài viết năm 1943 về các khía cạnh chính trị của đầy đủ việc làm, Kalecki bàn khả năng chi tiêu công hỗ trợ nhu cầu, đồng thời nêu điều kiện về năng lực sản xuất và nguyên liệu. [2][3] Vì vậy không nên rút tư tưởng thành câu chi bao nhiêu cũng được. Nếu nguồn cung bị giới hạn, tăng cầu có thể chuyển thành tăng giá hoặc tăng nhập khẩu thay vì tạo đúng lượng sản xuất mong muốn.",
+        "en": "In his 1943 essay on the political aspects of full employment, Kalecki considered public spending that supports demand while specifying productive-capacity and material constraints. [2][3] This is not a claim that spending is unlimited. Supply constraints can turn demand into prices or imports."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người học, cần tách hai tình huống: nguồn lực sẵn có nhưng thiếu đơn hàng, và đơn hàng nhiều nhưng thiếu năng lực đáp ứng. Cùng một công cụ có thể cho kết quả khác trong hai hoàn cảnh. Một báo cáo đáng tin phải nói rõ đang chẩn đoán vấn đề nào, bằng dữ liệu gì, và dấu hiệu nào sẽ khiến người viết thay đổi đánh giá. Nếu không, chính sách dễ trở thành một phản xạ áp dụng cho mọi thời điểm.",
+        "en": "Distinguish idle resources lacking orders from strong orders facing insufficient capacity. The same instrument can behave differently in these settings. Credible analysis states the diagnosis, supporting data and evidence that would change it, rather than prescribing one reflex for every situation."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chính sách không vận hành bên ngoài xã hội",
+        "en": "Policy does not operate outside society"
+      },
+      {
+        "tag": "p",
+        "vi": "Tên bài viết của Kalecki đã nhấn mạnh rằng việc làm có khía cạnh chính trị. [3] Ở mức phương pháp, điều này nhắc người đọc xem cả nhóm hưởng lợi, nhóm chịu chi phí và cơ chế thực hiện. Một phương án tốt trên giấy có thể gặp phản đối vì cách phân bổ quyền quyết định hoặc trách nhiệm. Phân tích các yếu tố ấy không đồng nghĩa quy mọi hành vi của doanh nghiệp hay người lao động về một động cơ duy nhất.",
+        "en": "The essay’s title highlights the political dimension of employment. [3] Methodologically, readers should examine beneficiaries, costs and implementation. A technically attractive proposal may face objections over authority or responsibility. This does not reduce all employers or workers to one uniform motive."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong bối cảnh Việt Nam, có thể dùng cách hỏi này khi đọc chương trình hỗ trợ sản xuất: tiền đến đúng nơi còn năng lực không, đơn vị thực hiện có động cơ phù hợp không, thời hạn giải ngân có khớp nhu cầu và kết quả được đánh giá bằng gì. Những câu hỏi này là liên hệ biên tập. Không thể suy ra hiệu quả của một chương trình cụ thể chỉ bằng việc gắn nó với tên một nhà kinh tế.",
+        "en": "Applied editorially to Vietnam, ask whether production support reaches available capacity, implementation incentives align, timing fits needs and outcomes are measurable. A programme’s effectiveness cannot be inferred simply by attaching an economist’s name to it."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đọc chu kỳ mà không hứa đoán đúng thị trường",
+        "en": "Studying cycles without promising market predictions"
+      },
+      {
+        "tag": "p",
+        "vi": "Kalecki giúp người học nhìn nền kinh tế như các quan hệ tương tác, đồng thời giữ câu hỏi về tổ chức và quyền quyết định. Điều đó hữu ích để phân tích bối cảnh, nhưng không tạo lịch dự báo chính xác lúc giá cổ phiếu tăng hay giảm. Bài học thực tế là kiểm tra cơ chế, điều kiện và bằng chứng; khi những yếu tố đó thay đổi, kết luận cũng cần được xem xét lại một cách minh bạch.",
+        "en": "Kalecki encourages attention to interacting relationships and decision-making institutions. This informs contextual analysis without providing a precise stock-market calendar. The useful habit is to examine mechanisms, conditions and evidence, revising conclusions transparently when those change."
+      }
+    ],
+    "html": "<p><em>Chân dung Michał Kalecki của Manuel García Jódar, 2009; CC BY 2.5 ES.</em></p>\n<p>Vì sao nhà xưởng còn công suất, người dân muốn làm việc mà nền kinh tế vẫn có thể thiếu việc làm? Michał Kalecki là một trong những nhà kinh tế giúp đặt câu hỏi về mối quan hệ giữa chi tiêu, sản xuất và đầu tư. Câu chuyện của ông còn mở thêm một lớp: chính sách có thể khả thi về kỹ thuật nhưng vẫn gặp trở ngại từ lợi ích và tổ chức xã hội.</p>\n<h2>Con đường nghiên cứu không theo khuôn mẫu</h2>\n<p>Kalecki sinh tại Łódź, Ba Lan, năm 1899. Ông từng học kỹ thuật nhưng không hoàn thành chương trình đại học; năm 1929 ông làm việc tại viện nghiên cứu chu kỳ kinh doanh và giá cả ở Warsaw. Năm 1933, ông công bố một công trình quan trọng về lý thuyết chu kỳ. [1] Tiểu sử này cho thấy một con đường khác thường, nhưng không nên dùng nó để suy ra đào tạo bài bản là không cần thiết.</p>\n<p>Các phân tích của ông về kinh tế vĩ mô thường được đặt trong đối thoại với Keynes và truyền thống Marx. [4] Việc so sánh cần giữ khác biệt giữa các hệ thống lý luận, thay vì coi ông là bản sao của một nhà tư tưởng nổi tiếng hơn. Ông qua đời năm 1970. Những câu hỏi về đầu tư và việc làm vẫn tạo ảnh hưởng sau đó, dù không có nghĩa mọi chính sách mang tên ông đều đã được kiểm chứng thành công.</p>\n<h2>Chi tiêu của người này là doanh thu của người khác</h2>\n<p>Một cách nhập môn là nhìn mối liên hệ giữa các chủ thể. Khi một doanh nghiệp mua máy, khoản chi ấy tạo doanh thu cho nhà cung cấp; khi người lao động có thu nhập, một phần được dùng mua hàng hóa. Nếu nhiều bên đồng thời giảm chi tiêu, doanh thu của các bên khác cũng có thể chịu tác động. Đây là diễn giải tổng quát của chuyên mục, không phải một phương trình đầy đủ thay thế công trình của Kalecki.</p>\n<p>Ví dụ giả định: một nhóm xưởng cùng hoãn đầu tư vì lo sức mua yếu. Nhà cung cấp thiết bị giảm đơn hàng, nhân viên của họ hạn chế mua sắm, khiến các cửa hàng gần đó mất thêm doanh thu. Cơ chế này có thể khuếch đại khó khăn ban đầu. Tuy nhiên, mức độ tác động còn phụ thuộc thương mại, tín dụng, tồn kho và các nguồn chi khác, nên không thể chỉ kể câu chuyện rồi kết luận đã chứng minh quan hệ nhân quả.</p>\n<h2>Đầy đủ việc làm vẫn có điều kiện về nguồn lực</h2>\n<p>Trong bài viết năm 1943 về các khía cạnh chính trị của đầy đủ việc làm, Kalecki bàn khả năng chi tiêu công hỗ trợ nhu cầu, đồng thời nêu điều kiện về năng lực sản xuất và nguyên liệu. [2][3] Vì vậy không nên rút tư tưởng thành câu chi bao nhiêu cũng được. Nếu nguồn cung bị giới hạn, tăng cầu có thể chuyển thành tăng giá hoặc tăng nhập khẩu thay vì tạo đúng lượng sản xuất mong muốn.</p>\n<p>Với người học, cần tách hai tình huống: nguồn lực sẵn có nhưng thiếu đơn hàng, và đơn hàng nhiều nhưng thiếu năng lực đáp ứng. Cùng một công cụ có thể cho kết quả khác trong hai hoàn cảnh. Một báo cáo đáng tin phải nói rõ đang chẩn đoán vấn đề nào, bằng dữ liệu gì, và dấu hiệu nào sẽ khiến người viết thay đổi đánh giá. Nếu không, chính sách dễ trở thành một phản xạ áp dụng cho mọi thời điểm.</p>\n<h2>Chính sách không vận hành bên ngoài xã hội</h2>\n<p>Tên bài viết của Kalecki đã nhấn mạnh rằng việc làm có khía cạnh chính trị. [3] Ở mức phương pháp, điều này nhắc người đọc xem cả nhóm hưởng lợi, nhóm chịu chi phí và cơ chế thực hiện. Một phương án tốt trên giấy có thể gặp phản đối vì cách phân bổ quyền quyết định hoặc trách nhiệm. Phân tích các yếu tố ấy không đồng nghĩa quy mọi hành vi của doanh nghiệp hay người lao động về một động cơ duy nhất.</p>\n<p>Trong bối cảnh Việt Nam, có thể dùng cách hỏi này khi đọc chương trình hỗ trợ sản xuất: tiền đến đúng nơi còn năng lực không, đơn vị thực hiện có động cơ phù hợp không, thời hạn giải ngân có khớp nhu cầu và kết quả được đánh giá bằng gì. Những câu hỏi này là liên hệ biên tập. Không thể suy ra hiệu quả của một chương trình cụ thể chỉ bằng việc gắn nó với tên một nhà kinh tế.</p>\n<h2>Đọc chu kỳ mà không hứa đoán đúng thị trường</h2>\n<p>Kalecki giúp người học nhìn nền kinh tế như các quan hệ tương tác, đồng thời giữ câu hỏi về tổ chức và quyền quyết định. Điều đó hữu ích để phân tích bối cảnh, nhưng không tạo lịch dự báo chính xác lúc giá cổ phiếu tăng hay giảm. Bài học thực tế là kiểm tra cơ chế, điều kiện và bằng chứng; khi những yếu tố đó thay đổi, kết luận cũng cần được xem xét lại một cách minh bạch.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://gazeta.sgh.waw.pl/nauka-w-sgh/profesor-michal-kalecki-w-55-rocznice-smierci\">SGH Warsaw School of Economics — Michał Kalecki</a></li><li><a href=\"https://politicalquarterly.org.uk/blog/political-aspects-of-full-employment/\">Political Quarterly — Political Aspects of Full Employment</a></li><li><a href=\"https://onlinelibrary.wiley.com/doi/10.1111/j.1467-923X.1943.tb01016.x\">Kalecki — Political Aspects of Full Employment, 1943</a></li><li><a href=\"https://biblioteca.ucm.es/cee/exposicion-bibliografica-de-michal-kalecki-mayo-2011\">Complutense University — Kalecki bibliography</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Michal_Kalecki.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/2.5/es/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/\">Ragnar Frisch: Đưa lý thuyết kinh tế đến với phép đo</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/ragnar-frisch-kinh-te-luong-va-kiem-chung/",
+      "title": "Ragnar Frisch: Đưa lý thuyết kinh tế đến với phép đo",
+      "title_en": "Ragnar Frisch: Bringing economic theory to measurement"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/michal-kalecki.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1929&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/"
+  }
+]
