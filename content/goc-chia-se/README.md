@@ -18,7 +18,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 ảnh tư liệu có nguồn |
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 chân dung tư liệu có nguồn |
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Đã đăng 5 bài VI+EN ngày 14/11/2026; 4 ảnh thật và 1 minh họa AI tham chiếu |
-| 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -148,3 +148,14 @@ Bản lưu: [package-08-bilingual.json](./package-08-bilingual.json). Đã nhậ
 - [Bernard Arnault](https://daututuonglai.vn/2026/11/14/bernard-arnault-thuong-hieu-va-ban-sac/) · [EN](https://daututuonglai.vn/en/2026/11/14/bernard-arnault-thuong-hieu-va-ban-sac/)
 
 Bản lưu: [package-09-bilingual.json](./package-09-bilingual.json). Đã nhập 96 chuỗi EN, kiểm tra đủ tiêu đề, từng đoạn, chú thích và cả năm mô tả ngắn trên danh mục. Bốn ảnh thật: Rakesh Jhunjhunwala (Sagar Karkhanis, tác giả hiến tặng vào phạm vi công cộng); Masayoshi Son (nobihaya, CC BY 2.0); Ingvar Kamprad (Hasse Karlsson, bản cắt Theresa Sillketrucker, nguồn cho phép sử dụng tự do); Bernard Arnault (Jérémy Barande / École polytechnique Université Paris-Saclay, bản cắt Titlutin, CC BY-SA 2.0). Ortega dùng minh họa AI tham chiếu chân dung Fundación Amancio Ortega, có nhãn rõ VI/EN. Ảnh WebP cạnh dài tối đa 800 px, không ghi thao tác chuyển đổi trong chú thích. Đã thêm liên kết đọc tiếp sang hồ sơ liên quan và lộ trình học; kiểm tra ảnh tải được và object-fit: contain trên danh mục. Vai trò Son và Arnault được đối chiếu với hồ sơ chính thức; tầm nhìn ASI được trình bày là mục tiêu, không phải kết quả đã đạt. Không thay theme.
+
+
+## Gói 10 đã xuất bản — 14/11/2026
+
+- [Sara Blakely](https://daututuonglai.vn/2026/11/14/sara-blakely-khoi-nghiep-tu-van-de-nho/) · [EN](https://daututuonglai.vn/en/2026/11/14/sara-blakely-khoi-nghiep-tu-van-de-nho/)
+- [Nguyễn Duy Hưng](https://daututuonglai.vn/2026/11/14/nguyen-duy-hung-niem-tin-va-thi-truong-von/) · [EN](https://daututuonglai.vn/en/2026/11/14/nguyen-duy-hung-niem-tin-va-thi-truong-von/)
+- [Nguyễn Thị Phương Thảo](https://daututuonglai.vn/2026/11/14/nguyen-thi-phuong-thao-mo-rong-co-hoi-bay/) · [EN](https://daututuonglai.vn/en/2026/11/14/nguyen-thi-phuong-thao-mo-rong-co-hoi-bay/)
+- [Karl Marx](https://daututuonglai.vn/2026/11/14/karl-marx-lao-dong-tu-ban-va-phan-phoi/) · [EN](https://daututuonglai.vn/en/2026/11/14/karl-marx-lao-dong-tu-ban-va-phan-phoi/)
+- [Léon Walras](https://daututuonglai.vn/2026/11/14/leon-walras-cac-thi-truong-lien-ket/) · [EN](https://daututuonglai.vn/en/2026/11/14/leon-walras-cac-thi-truong-lien-ket/)
+
+Bản lưu: [package-10-bilingual.json](./package-10-bilingual.json). Đã nhập 91 chuỗi EN; kiểm tra đủ từng đoạn, tiêu đề, chú thích và năm mô tả ngắn EN. Ba chân dung tư liệu: Sara Blakely (David Shankbone, CC BY 3.0), Karl Marx (John Jabez Edwin Mayall, phạm vi công cộng), Léon Walras (tác giả không rõ, phạm vi công cộng). Hai chân dung Nguyễn Duy Hưng và Nguyễn Thị Phương Thảo là minh họa AI tham chiếu ảnh, có nhãn VI/EN. Đã sửa lỗi gắn nhầm ảnh trong quá trình đăng, xác nhận cuối cùng năm ảnh đúng người, tải được và object-fit: contain. Tệp WebP cạnh dài tối đa 800px; không ghi thao tác chuyển đổi trong chú thích. Gói 11–16 tiếp tục trong cùng yêu cầu hoàn tất toàn bộ.
