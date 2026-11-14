@@ -16,7 +16,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh, 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ ảnh, 3 ảnh thật và 2 minh họa AI tham chiếu |
 | 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 ảnh tư liệu có nguồn |
-| 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 chân dung tư liệu có nguồn |
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -126,3 +126,14 @@ Bản lưu: [package-06-bilingual.json](./package-06-bilingual.json). Đã nhậ
 - [J. P. Morgan](https://daututuonglai.vn/2026/11/14/jp-morgan-niem-tin-va-thanh-khoan/) · [EN](https://daututuonglai.vn/en/2026/11/14/jp-morgan-niem-tin-va-thanh-khoan/)
 
 Bản lưu: [package-07-bilingual.json](./package-07-bilingual.json). Đã nhập 80 chuỗi EN; kiểm tra đủ tiêu đề, từng đoạn, chú thích ảnh và cả năm mô tả ngắn trên danh mục. Năm ảnh tư liệu: Howard Marks (kellywritershouse, CC BY 2.0), Jim Simons (Gleuschk, CC BY-SA 3.0), Jesse Livermore (Financial World 1923, phạm vi công cộng tại Mỹ), André Kostolany bên trái Gottfried Heller (Bennys Buidl Fabrik, CC BY-SA 4.0), J. P. Morgan (Pach Brothers/The Henry Ford, phạm vi công cộng). Ảnh WebP cạnh dài tối đa 800 px; không ghi thao tác chuyển đổi trong chú thích. Đã kiểm tra ảnh tải được và object-fit: contain trên danh mục. Không thay theme.
+
+
+## Gói 08 đã xuất bản — 14/11/2026
+
+- [Mayer Amschel Rothschild](https://daututuonglai.vn/2026/11/14/mayer-amschel-rothschild-uy-tin-va-hop-tac/) · [EN](https://daututuonglai.vn/en/2026/11/14/mayer-amschel-rothschild-uy-tin-va-hop-tac/)
+- [John D. Rockefeller](https://daututuonglai.vn/2026/11/14/john-rockefeller-hieu-qua-va-gioi-han/) · [EN](https://daututuonglai.vn/en/2026/11/14/john-rockefeller-hieu-qua-va-gioi-han/)
+- [Andrew Carnegie](https://daututuonglai.vn/2026/11/14/andrew-carnegie-thep-va-trach-nhiem/) · [EN](https://daututuonglai.vn/en/2026/11/14/andrew-carnegie-thep-va-trach-nhiem/)
+- [Hetty Green](https://daututuonglai.vn/2026/11/14/hetty-green-tien-mat-va-doc-lap/) · [EN](https://daututuonglai.vn/en/2026/11/14/hetty-green-tien-mat-va-doc-lap/)
+- [Lý Lục](https://daututuonglai.vn/2026/11/14/ly-luc-tu-duy-so-huu-doanh-nghiep/) · [EN](https://daututuonglai.vn/en/2026/11/14/ly-luc-tu-duy-so-huu-doanh-nghiep/)
+
+Bản lưu: [package-08-bilingual.json](./package-08-bilingual.json). Đã nhập 92 chuỗi EN; kiểm tra đủ tiêu đề, từng đoạn, chú thích ảnh và cả năm mô tả ngắn EN trên danh mục. Năm chân dung tư liệu: Mayer Amschel Rothschild (tranh trong sách Elbert Hubbard/Project Gutenberg, họa sĩ chưa rõ, phạm vi công cộng tại Mỹ); John D. Rockefeller (Oscar White, bản tư liệu Commons CC BY-SA 4.0); Andrew Carnegie (Library of Congress, 1896, phạm vi công cộng tại Mỹ); Hetty Green (National Magazine, 1905, phạm vi công cộng tại Mỹ); Lý Lục (Joichi Ito, 2007, CC BY 3.0). Tệp WebP cạnh dài tối đa 800 px, chú thích không chứa thao tác chuyển đổi. Đã kiểm tra năm ảnh tải được và object-fit: contain trên danh mục. Không thay theme.
