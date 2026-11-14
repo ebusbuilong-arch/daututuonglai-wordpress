@@ -209,7 +209,7 @@ function clearRequest(r){try{recoveryStore.remove(r.payload.request_id);renderRe
 async function checkRequest(r){
  if(state.busy)return;state.busy=true;preview();renderRecovery();
  try{const result=await api('request-status?kind='+(r.path==='trade'?'market':'limit')+'&request_id='+encodeURIComponent(r.payload.request_id));
- if(result.found){state.account=result.account;state.accountVersion++;state.amend=null;$('#quantity').value='';clearRequest(r);renderAccount();message('Đã tìm thấy lệnh #'+result.order_id+' · '+({pending:'đang chờ',filled:'đã khớp',cancelled:'đã hủy',expired:'hết hạn',replaced:'đã thay thế'}[result.status]||result.status)+'.');}
+ if(result.found){state.account=result.account;state.accountVersion++;state.amend=null;$('#quantity').value='';clearRequest(r);renderAccount();message('Đã tìm thấy lệnh #'+result.order_id+' · '+({pending:'đang chờ',filled:'đã khớp',cancelled:'đã hủy',expired:'hết hạn',replaced:'đã thay thế'}[result.status]||result.status)+'.'+(r.path==='trade'&&result.status==='filled'?saleResult(result,r.payload):''));}
  else message('Chưa tìm thấy kết quả. Yêu cầu trước có thể vẫn đang xử lý. Có thể kiểm tra lại hoặc thử gửi lại cùng mã.',true);
  }catch(e){message(e.message,true);}finally{state.busy=false;renderRecovery();preview();}
 }
@@ -221,7 +221,12 @@ function saleResult(result,payload){
  const pnl=row?.realized==null?NaN:Number(row.realized);
  if(!Number.isSafeInteger(pnl))return '';
  const outcome=pnl>0?label('Lãi','Profit'):pnl<0?label('Lỗ','Loss'):label('Hòa vốn','Break-even');
- return ' '+row.symbol.replace(/USDT$/,'')+' · '+outcome+' '+pnlText(pnl)+' AIM';
+ const accountRealized=result.account.realized_total;
+ const cumulative=accountRealized==null?NaN:Number(accountRealized);
+ const orderText=' '+row.symbol.replace(/USDT$/,'')+' · '+outcome+' '+pnlText(pnl)+' AIM';
+ const accountText=Number.isSafeInteger(cumulative)
+  ?' · '+label('Lãi/lỗ đã chốt lũy kế của tài khoản','Account cumulative realized P/L')+' '+pnlText(cumulative)+' AIM':'';
+ return orderText+accountText;
 }
 async function sendRequest(record,retry=false){
  if(state.busy)return;
