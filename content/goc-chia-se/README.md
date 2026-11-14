@@ -15,7 +15,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 04 | Milton Friedman; Jeff Bezos; Jensen Huang; John Maynard Keynes; Friedrich Hayek | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ 5 ảnh thật và nguồn |
 | 05 | Satya Nadella; Sundar Pichai; Daniel Kahneman; Mahbub ul Haq; Tim Cook | Đã đăng 5 bài VI+EN ngày 13/11/2026; đủ ảnh, 4 ảnh thật và 1 minh họa AI tham chiếu |
 | 06 | Sam Altman; Philip Fisher; John Templeton; George Soros; Ray Dalio | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ ảnh, 3 ảnh thật và 2 minh họa AI tham chiếu |
-| 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 07 | Howard Marks; Jim Simons; Jesse Livermore; André Kostolany; J. P. Morgan | Đã đăng 5 bài VI+EN ngày 14/11/2026; đủ 5 ảnh tư liệu có nguồn |
 | 08 | Mayer Amschel Rothschild; John D. Rockefeller; Andrew Carnegie; Hetty Green; Lý Lục | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 09 | Rakesh Jhunjhunwala; Masayoshi Son; Ingvar Kamprad; Amancio Ortega; Bernard Arnault | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -115,3 +115,14 @@ Theo yêu cầu chủ website, đã bỏ các câu mô tả thao tác thu nhỏ/
 - [Ray Dalio](https://daututuonglai.vn/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/) · [EN](https://daututuonglai.vn/en/2026/11/14/ray-dalio-nguyen-tac-va-sai-lam/)
 
 Bản lưu: [package-06-bilingual.json](./package-06-bilingual.json). Đã nhập 87 chuỗi tiếng Anh; kiểm tra đủ từng đoạn, đề mục, tiêu đề, chú thích và năm mô tả ngắn trên danh mục. Ba ảnh thật: Altman (Village Global, CC BY 2.0), Soros (Frank Plitt, CC BY 3.0), Dalio (Grameen America, CC BY 3.0). Fisher và Templeton thời trẻ dùng minh họa AI tham chiếu ảnh tư liệu, ghi nhãn rõ bằng VI/EN. Tệp WebP khoảng 33–56 KB, cạnh dài tối đa 800 px; chú thích không chứa mô tả thao tác chuyển đổi. Đã kiểm tra ảnh tải được và Additional CSS giữ nguyên khuôn mặt với object-fit: contain. Dalio được ghi đúng là nhà sáng lập đã chuyển giao các vai trò điều hành. Không thay theme.
+
+
+## Gói 07 đã xuất bản — 14/11/2026
+
+- [Howard Marks](https://daututuonglai.vn/2026/11/14/howard-marks-tu-duy-bac-hai/) · [EN](https://daututuonglai.vn/en/2026/11/14/howard-marks-tu-duy-bac-hai/)
+- [Jim Simons](https://daututuonglai.vn/2026/11/14/jim-simons-du-lieu-va-kiem-chung/) · [EN](https://daututuonglai.vn/en/2026/11/14/jim-simons-du-lieu-va-kiem-chung/)
+- [Jesse Livermore](https://daututuonglai.vn/2026/11/14/jesse-livermore-ky-luat-va-gioi-han/) · [EN](https://daututuonglai.vn/en/2026/11/14/jesse-livermore-ky-luat-va-gioi-han/)
+- [André Kostolany](https://daututuonglai.vn/2026/11/14/andre-kostolany-kien-nhan-va-tam-ly/) · [EN](https://daututuonglai.vn/en/2026/11/14/andre-kostolany-kien-nhan-va-tam-ly/)
+- [J. P. Morgan](https://daututuonglai.vn/2026/11/14/jp-morgan-niem-tin-va-thanh-khoan/) · [EN](https://daututuonglai.vn/en/2026/11/14/jp-morgan-niem-tin-va-thanh-khoan/)
+
+Bản lưu: [package-07-bilingual.json](./package-07-bilingual.json). Đã nhập 80 chuỗi EN; kiểm tra đủ tiêu đề, từng đoạn, chú thích ảnh và cả năm mô tả ngắn trên danh mục. Năm ảnh tư liệu: Howard Marks (kellywritershouse, CC BY 2.0), Jim Simons (Gleuschk, CC BY-SA 3.0), Jesse Livermore (Financial World 1923, phạm vi công cộng tại Mỹ), André Kostolany bên trái Gottfried Heller (Bennys Buidl Fabrik, CC BY-SA 4.0), J. P. Morgan (Pach Brothers/The Henry Ford, phạm vi công cộng). Ảnh WebP cạnh dài tối đa 800 px; không ghi thao tác chuyển đổi trong chú thích. Đã kiểm tra ảnh tải được và object-fit: contain trên danh mục. Không thay theme.
