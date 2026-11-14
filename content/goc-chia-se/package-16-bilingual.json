@@ -1,0 +1,592 @@
+[
+  {
+    "key": "celso-furtado",
+    "slug": "celso-furtado-phat-trien-va-lich-su",
+    "title": "Celso Furtado: Phát triển bắt đầu từ hiểu lịch sử",
+    "title_en": "Celso Furtado: Development begins with understanding history",
+    "excerpt": "Nhà kinh tế Brazil và cách nhìn tăng trưởng qua cơ cấu sản xuất, khác biệt vùng và đời sống xã hội.",
+    "excerpt_en": "The Brazilian economist on productive structure, regional differences and social development.",
+    "credit": "Celso Furtado, 1962. Nguồn: Public domain / Arquivo Nacional Collection.",
+    "credit_en": "Celso Furtado, 1962. Source: Public domain / Arquivo Nacional Collection.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Celso_Furtado.tif?page=1",
+    "license": "https://commons.wikimedia.org/wiki/File:Celso_Furtado.tif#Licensing",
+    "sources": [
+      {
+        "label": "Brazilian Government — Celso Furtado",
+        "url": "https://www.gov.br/mdr/pt-br/noticias/dez-anos-sem-o-economista-celso-furtado/"
+      },
+      {
+        "label": "ECLAC — Method and passion in Celso Furtado",
+        "url": "https://www.cepal.org/en/publications/11045-method-and-passion-celso-furtado"
+      },
+      {
+        "label": "Fundação Joaquim Nabuco — Celso Furtado",
+        "url": "https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/celso-furtado/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Tại sao một quốc gia có thể mở rộng sản xuất mà vẫn còn những vùng bị bỏ lại? Celso Furtado giúp đặt câu hỏi phát triển vào lịch sử, cơ cấu và sự khác biệt bên trong nền kinh tế. Chân dung của ông gắn với Brazil, nhưng vấn đề rộng hơn rất nhiều: tăng trưởng không diễn ra trên một mặt phẳng đồng nhất. Các vùng và nhóm xã hội bước vào quá trình ấy với nguồn lực, quyền lựa chọn và khả năng tiếp cận cơ hội khác nhau.",
+        "en": "Why can production expand while some regions remain behind? Celso Furtado situated development within history, structure and internal differences. His Brazilian experience raises a wider question: regions and social groups enter growth with unequal resources and opportunities."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một cuộc đời gắn với câu hỏi phát triển Brazil",
+        "en": "A career devoted to Brazilian development"
+      },
+      {
+        "tag": "p",
+        "vi": "Furtado sinh năm 1920 tại Pombal, vùng Đông Bắc Brazil, và mất năm 2004 tại Rio de Janeiro. Ông tham gia xây dựng Sudene, cơ quan phát triển vùng Đông Bắc, và trở thành người đứng đầu đầu tiên của tổ chức này. [1] Những dấu mốc ấy cho thấy vấn đề vùng không chỉ là chủ đề học thuật xa xôi: nó gắn với công việc tổ chức và lựa chọn đầu tư trong một nền kinh tế có khác biệt lớn về điều kiện sống.",
+        "en": "Furtado was born in Pombal in Brazil’s Northeast in 1920 and died in Rio de Janeiro in 2004. He helped establish and first led Sudene, the Northeast development agency. [1] Regional development connected scholarship with institutional and investment choices."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông cũng từng giữ vai trò bộ trưởng kế hoạch và bộ trưởng văn hóa ở những giai đoạn khác nhau. [1] Tác phẩm Formação econômica do Brasil xuất bản năm 1959 là một phần quan trọng trong sự nghiệp nghiên cứu lịch sử kinh tế của ông. [3] Đặt kinh tế bên cạnh văn hóa và lịch sử giúp người đọc thấy phát triển không chỉ liên quan thiết bị hay vốn, mà còn liên quan mục tiêu của xã hội và cách con người sống cùng nhau.",
+        "en": "He also served as planning minister and, in another period, culture minister. [1] His 1959 Formação econômica do Brasil was central to his economic-historical work. [3] Development concerns social purposes alongside capital and equipment."
+      },
+      {
+        "tag": "h2",
+        "vi": "Lịch sử giúp giải thích cấu trúc hiện tại",
+        "en": "History helps explain present structures"
+      },
+      {
+        "tag": "p",
+        "vi": "Một bài nghiên cứu trên CEPAL Review mô tả phương pháp của Furtado là chủ yếu mang tính lịch sử. [2] Điều đó không có nghĩa chỉ kể lại các mốc thời gian. Lịch sử giúp tìm hiểu vì sao một cơ cấu sản xuất hình thành, lợi ích tích tụ ở đâu và những lựa chọn trước đây giới hạn lựa chọn hôm nay như thế nào. Khi bỏ qua quá trình ấy, ta dễ xem một kết quả hiện tại như điều tự nhiên không thể thay đổi.",
+        "en": "A CEPAL Review study characterizes Furtado’s method as fundamentally historical. [2] History explains how productive structures formed, where benefits accumulated and how past choices constrain present options, rather than merely listing dates."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, hai địa phương cùng được đầu tư đường mới nhưng có kết quả khác nhau. Nơi đã có lao động kỹ năng và mạng lưới doanh nghiệp có thể tận dụng nhanh hơn nơi thiếu cả hai. Con đường vẫn quan trọng, nhưng hiệu quả của nó phụ thuộc những điều kiện đã tích lũy trước đó. Đây là ví dụ biên tập về vai trò của bối cảnh, không phải một dự án cụ thể được rút từ tác phẩm của Furtado.",
+        "en": "Imagine two places receiving new roads. The one with skills and business networks may benefit faster than the one lacking both. Infrastructure matters, but inherited conditions shape its effects. This is an editorial hypothetical, not a Furtado case study."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khác biệt vùng không chỉ là khoảng cách địa lý",
+        "en": "Regional inequality is more than distance"
+      },
+      {
+        "tag": "p",
+        "vi": "Một vùng có thể gặp hạn chế về dịch vụ công, khả năng tiếp cận vốn hoặc thị trường, trong khi vùng khác có lợi thế tích tụ. Chỉ so thu nhập trung bình sẽ cho biết một phần kết quả mà chưa giải thích cơ chế. Cần hỏi người dân phải đi bao xa để học nghề, doanh nghiệp kết nối với ai và công việc có ổn định không. Những câu hỏi cụ thể giúp tránh dùng một từ nghèo để che lấp nhiều loại thiếu hụt khác nhau.",
+        "en": "Regions differ in services, finance, markets and accumulated advantages. Average income shows an outcome without fully explaining it. Training access, business connections and employment stability reveal distinct constraints hidden by a broad label such as poverty."
+      },
+      {
+        "tag": "p",
+        "vi": "Điều này cũng làm rõ giới hạn của cách phân bổ giống nhau cho mọi nơi. Nhu cầu khác nhau có thể cần giải pháp khác nhau, nhưng ưu tiên theo vùng phải có tiêu chí và đánh giá. Nếu chỉ đưa tiền vào một công trình dễ thấy mà không giải quyết điểm nghẽn, chênh lệch có thể còn nguyên. Chính sách phát triển vùng cần theo dõi ai thực sự sử dụng được dịch vụ và cơ hội nào đã được mở thêm sau đầu tư.",
+        "en": "Equal allocations do not always address different needs, but regional priorities still require transparent criteria and evaluation. Visible construction may leave the binding constraint untouched. Track actual service use and newly available opportunities."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tăng trưởng và đời sống là hai lớp cần nối lại",
+        "en": "Connecting growth with lived outcomes"
+      },
+      {
+        "tag": "p",
+        "vi": "Khi sản lượng tăng, nên xem việc làm, kỹ năng và khả năng tiếp cận dịch vụ thay đổi thế nào. Một khu vực sản xuất hiện đại có thể cùng tồn tại với nhiều hoạt động năng suất thấp mà ít liên kết giữa hai bên. Bài viết không coi điều đó là quy luật tất yếu, nhưng dùng nó để đặt câu hỏi về mức độ lan tỏa. Tăng trưởng có ích hơn khi tạo ra năng lực và cơ hội rộng, thay vì chỉ làm một chỉ tiêu tổng tăng lên.",
+        "en": "Output growth should be examined alongside jobs, skills and service access. Modern production can coexist with weakly connected low-productivity activities. This is not inevitable, but it makes linkages and diffusion important questions."
+      },
+      {
+        "tag": "p",
+        "vi": "Một đánh giá cũng cần tính chi phí môi trường và nguồn lực duy trì. Nếu lợi ích hôm nay dựa vào khai thác khiến người dân mất sinh kế về sau, tổng kết ngắn hạn sẽ thiếu phần quan trọng. Ngược lại, không nên dùng mục tiêu dài hạn mơ hồ để phủ nhận nhu cầu việc làm hiện tại. Phân tích tốt làm rõ các lựa chọn và đánh đổi, để quyết định không bị dẫn dắt chỉ bởi một kết quả dễ đo.",
+        "en": "Evaluation should include environmental and maintenance costs without using vague long-term goals to dismiss present employment needs. Good analysis makes choices and trade-offs visible rather than following one easily measured outcome."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bài học phương pháp cho Việt Nam",
+        "en": "A methodological lesson for Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Khi nhìn chênh lệch giữa các địa phương Việt Nam, có thể bắt đầu bằng lịch sử hình thành ngành, hạ tầng và nguồn nhân lực. Sau đó mới hỏi loại đầu tư nào tháo được trở ngại quan trọng nhất. Đây là liên hệ phương pháp, không phải đề xuất sao chép một cơ quan của Brazil. Mô hình tổ chức cần phù hợp năng lực thực thi, dữ liệu và cơ chế chịu trách nhiệm tại nơi áp dụng, thay vì chỉ giống nhau về tên gọi hoặc mục tiêu.",
+        "en": "Vietnamese regional analysis can begin with the history of industries, infrastructure and skills, then identify the most important constraint. This does not imply copying a Brazilian agency; design must fit local implementation and accountability."
+      },
+      {
+        "tag": "p",
+        "vi": "Furtado để lại một cách nhìn phát triển có chiều sâu thời gian. Muốn biết nên đi đâu, cần hiểu vì sao mình đang ở vị trí này và ai được tham gia vào bước chuyển tiếp theo. Lịch sử không quyết định sẵn tương lai, nhưng giúp tránh những lời giải quá đơn giản. Đó là giá trị của việc đọc một nhà kinh tế như người đặt câu hỏi về xã hội, chứ không chỉ người tìm cách làm cho con số tăng nhanh hơn.",
+        "en": "Furtado adds historical depth to development: understand how the present emerged and who can participate in change. History does not predetermine the future, but it guards against oversimplified solutions."
+      }
+    ],
+    "html": "<p><em>Celso Furtado, 1962. Nguồn: Public domain / Arquivo Nacional Collection.</em></p>\n<p>Tại sao một quốc gia có thể mở rộng sản xuất mà vẫn còn những vùng bị bỏ lại? Celso Furtado giúp đặt câu hỏi phát triển vào lịch sử, cơ cấu và sự khác biệt bên trong nền kinh tế. Chân dung của ông gắn với Brazil, nhưng vấn đề rộng hơn rất nhiều: tăng trưởng không diễn ra trên một mặt phẳng đồng nhất. Các vùng và nhóm xã hội bước vào quá trình ấy với nguồn lực, quyền lựa chọn và khả năng tiếp cận cơ hội khác nhau.</p>\n<h2>Một cuộc đời gắn với câu hỏi phát triển Brazil</h2>\n<p>Furtado sinh năm 1920 tại Pombal, vùng Đông Bắc Brazil, và mất năm 2004 tại Rio de Janeiro. Ông tham gia xây dựng Sudene, cơ quan phát triển vùng Đông Bắc, và trở thành người đứng đầu đầu tiên của tổ chức này. [1] Những dấu mốc ấy cho thấy vấn đề vùng không chỉ là chủ đề học thuật xa xôi: nó gắn với công việc tổ chức và lựa chọn đầu tư trong một nền kinh tế có khác biệt lớn về điều kiện sống.</p>\n<p>Ông cũng từng giữ vai trò bộ trưởng kế hoạch và bộ trưởng văn hóa ở những giai đoạn khác nhau. [1] Tác phẩm Formação econômica do Brasil xuất bản năm 1959 là một phần quan trọng trong sự nghiệp nghiên cứu lịch sử kinh tế của ông. [3] Đặt kinh tế bên cạnh văn hóa và lịch sử giúp người đọc thấy phát triển không chỉ liên quan thiết bị hay vốn, mà còn liên quan mục tiêu của xã hội và cách con người sống cùng nhau.</p>\n<h2>Lịch sử giúp giải thích cấu trúc hiện tại</h2>\n<p>Một bài nghiên cứu trên CEPAL Review mô tả phương pháp của Furtado là chủ yếu mang tính lịch sử. [2] Điều đó không có nghĩa chỉ kể lại các mốc thời gian. Lịch sử giúp tìm hiểu vì sao một cơ cấu sản xuất hình thành, lợi ích tích tụ ở đâu và những lựa chọn trước đây giới hạn lựa chọn hôm nay như thế nào. Khi bỏ qua quá trình ấy, ta dễ xem một kết quả hiện tại như điều tự nhiên không thể thay đổi.</p>\n<p>Ví dụ giả định, hai địa phương cùng được đầu tư đường mới nhưng có kết quả khác nhau. Nơi đã có lao động kỹ năng và mạng lưới doanh nghiệp có thể tận dụng nhanh hơn nơi thiếu cả hai. Con đường vẫn quan trọng, nhưng hiệu quả của nó phụ thuộc những điều kiện đã tích lũy trước đó. Đây là ví dụ biên tập về vai trò của bối cảnh, không phải một dự án cụ thể được rút từ tác phẩm của Furtado.</p>\n<h2>Khác biệt vùng không chỉ là khoảng cách địa lý</h2>\n<p>Một vùng có thể gặp hạn chế về dịch vụ công, khả năng tiếp cận vốn hoặc thị trường, trong khi vùng khác có lợi thế tích tụ. Chỉ so thu nhập trung bình sẽ cho biết một phần kết quả mà chưa giải thích cơ chế. Cần hỏi người dân phải đi bao xa để học nghề, doanh nghiệp kết nối với ai và công việc có ổn định không. Những câu hỏi cụ thể giúp tránh dùng một từ nghèo để che lấp nhiều loại thiếu hụt khác nhau.</p>\n<p>Điều này cũng làm rõ giới hạn của cách phân bổ giống nhau cho mọi nơi. Nhu cầu khác nhau có thể cần giải pháp khác nhau, nhưng ưu tiên theo vùng phải có tiêu chí và đánh giá. Nếu chỉ đưa tiền vào một công trình dễ thấy mà không giải quyết điểm nghẽn, chênh lệch có thể còn nguyên. Chính sách phát triển vùng cần theo dõi ai thực sự sử dụng được dịch vụ và cơ hội nào đã được mở thêm sau đầu tư.</p>\n<h2>Tăng trưởng và đời sống là hai lớp cần nối lại</h2>\n<p>Khi sản lượng tăng, nên xem việc làm, kỹ năng và khả năng tiếp cận dịch vụ thay đổi thế nào. Một khu vực sản xuất hiện đại có thể cùng tồn tại với nhiều hoạt động năng suất thấp mà ít liên kết giữa hai bên. Bài viết không coi điều đó là quy luật tất yếu, nhưng dùng nó để đặt câu hỏi về mức độ lan tỏa. Tăng trưởng có ích hơn khi tạo ra năng lực và cơ hội rộng, thay vì chỉ làm một chỉ tiêu tổng tăng lên.</p>\n<p>Một đánh giá cũng cần tính chi phí môi trường và nguồn lực duy trì. Nếu lợi ích hôm nay dựa vào khai thác khiến người dân mất sinh kế về sau, tổng kết ngắn hạn sẽ thiếu phần quan trọng. Ngược lại, không nên dùng mục tiêu dài hạn mơ hồ để phủ nhận nhu cầu việc làm hiện tại. Phân tích tốt làm rõ các lựa chọn và đánh đổi, để quyết định không bị dẫn dắt chỉ bởi một kết quả dễ đo.</p>\n<h2>Bài học phương pháp cho Việt Nam</h2>\n<p>Khi nhìn chênh lệch giữa các địa phương Việt Nam, có thể bắt đầu bằng lịch sử hình thành ngành, hạ tầng và nguồn nhân lực. Sau đó mới hỏi loại đầu tư nào tháo được trở ngại quan trọng nhất. Đây là liên hệ phương pháp, không phải đề xuất sao chép một cơ quan của Brazil. Mô hình tổ chức cần phù hợp năng lực thực thi, dữ liệu và cơ chế chịu trách nhiệm tại nơi áp dụng, thay vì chỉ giống nhau về tên gọi hoặc mục tiêu.</p>\n<p>Furtado để lại một cách nhìn phát triển có chiều sâu thời gian. Muốn biết nên đi đâu, cần hiểu vì sao mình đang ở vị trí này và ai được tham gia vào bước chuyển tiếp theo. Lịch sử không quyết định sẵn tương lai, nhưng giúp tránh những lời giải quá đơn giản. Đó là giá trị của việc đọc một nhà kinh tế như người đặt câu hỏi về xã hội, chứ không chỉ người tìm cách làm cho con số tăng nhanh hơn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.gov.br/mdr/pt-br/noticias/dez-anos-sem-o-economista-celso-furtado/\">Brazilian Government — Celso Furtado</a></li><li><a href=\"https://www.cepal.org/en/publications/11045-method-and-passion-celso-furtado\">ECLAC — Method and passion in Celso Furtado</a></li><li><a href=\"https://pesquisaescolar.fundaj.gov.br/pt-br/artigo/celso-furtado/\">Fundação Joaquim Nabuco — Celso Furtado</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/\">János Kornai: Khi kỳ vọng được cứu làm thay đổi quyết định</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Celso_Furtado.tif?page=1\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Celso_Furtado.tif#Licensing\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/",
+      "title": "János Kornai: Khi kỳ vọng được cứu làm thay đổi quyết định",
+      "title_en": "János Kornai: How expected rescue changes decisions"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/celso-furtado-phat-trien-va-lich-su/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1973&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/celso-furtado-phat-trien-va-lich-su/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/celso-furtado.webp"
+  },
+  {
+    "key": "manfred-max-neef",
+    "slug": "manfred-max-neef-nhu-cau-con-nguoi",
+    "title": "Manfred Max-Neef: Phát triển nhìn từ nhu cầu con người",
+    "title_en": "Manfred Max-Neef: Development through human needs",
+    "excerpt": "Nhà kinh tế Chile và cách phân biệt nhu cầu với những phương tiện dùng để đáp ứng nhu cầu ấy.",
+    "excerpt_en": "The Chilean economist and the distinction between needs and the ways of satisfying them.",
+    "credit": "Manfred Max-Neef, 2007. Ảnh: Olga Berrios; CC BY 2.0.",
+    "credit_en": "Manfred Max-Neef, 2007. Photo: Olga Berrios; CC BY 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Manfred_Max_Neef.jpg",
+    "license": "https://creativecommons.org/licenses/by/2.0/",
+    "sources": [
+      {
+        "label": "Right Livelihood — Manfred Max-Neef / CEPAUR",
+        "url": "https://rightlivelihood.org/the-change-makers/find-a-laureate/manfred-max-neef/"
+      },
+      {
+        "label": "Max-Neef, Elizalde and Hopenhayn — Human Scale Development",
+        "url": "https://www.daghammarskjold.se/wp-content/uploads/1989/05/89_1.pdf"
+      },
+      {
+        "label": "Dag Hammarskjöld Foundation — Human Scale Development",
+        "url": "https://www.daghammarskjold.se/publication/human-scale-development-option-future/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một cộng đồng có thêm hàng hóa nhưng ít thời gian nghỉ ngơi, ít quan hệ hỗ trợ và ít tiếng nói có chắc đã sống tốt hơn? Manfred Max-Neef đặt con người cùng nhu cầu của họ vào trung tâm câu hỏi phát triển. Cách tiếp cận này không phủ nhận vai trò của thu nhập. Nó nhắc rằng tiền là một phương tiện quan trọng, nhưng để hiểu đời sống cần hỏi phương tiện ấy có giúp con người đáp ứng những điều thực sự cần thiết hay không.",
+        "en": "Is a community necessarily better off with more goods but less rest, mutual support and voice? Manfred Max-Neef centered development on human needs. Income matters, but evaluating life requires asking what it enables people to achieve."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một nhà kinh tế Chile tìm cách làm việc gần cộng đồng",
+        "en": "A Chilean economist working close to communities"
+      },
+      {
+        "tag": "p",
+        "vi": "Max-Neef sinh tại Valparaíso năm 1932 và mất năm 2019. Ông được biết đến với kinh tế học chân đất, gắn phân tích với trải nghiệm tại các cộng đồng, và cùng CEPAUR nhận Right Livelihood Award năm 1983. [1] Đây là giải thưởng riêng, không phải một giải Nobel. Việc gọi đúng tên giúp giữ sự chính xác, đồng thời không làm giảm ý nghĩa của đóng góp mà tổ chức trao giải muốn ghi nhận.",
+        "en": "Born in Valparaíso in 1932, Max-Neef died in 2019. Known for “barefoot economics,” he and CEPAUR received the Right Livelihood Award in 1983. [1] This is a distinct award, not a Nobel Prize."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong Human Scale Development, ông làm việc cùng Antonio Elizalde và Martín Hopenhayn để xây dựng một khung suy nghĩ về nhu cầu và cách đáp ứng nhu cầu. [2] Vì đây là công trình hợp tác, không nên gán toàn bộ nội dung cho một người. Câu chuyện cũng cho thấy kinh tế học có thể trao đổi với các lĩnh vực khác khi đối tượng nghiên cứu là đời sống đa chiều, nơi một thước đo đơn lẻ khó phản ánh đầy đủ mọi thay đổi.",
+        "en": "Human Scale Development was developed with Antonio Elizalde and Martín Hopenhayn. [2] It is collaborative work connecting needs with their satisfiers and recognizing that multidimensional lives resist reduction to a single measure."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhu cầu khác với sản phẩm đáp ứng nhu cầu",
+        "en": "Needs differ from the products that satisfy them"
+      },
+      {
+        "tag": "p",
+        "vi": "Khung của các tác giả phân biệt nhu cầu cơ bản với phương thức hoặc điều kiện đáp ứng chúng. [2] Có thể dùng ví dụ đơn giản: muốn kết nối với người khác không đồng nghĩa nhất thiết phải sở hữu một mẫu điện thoại cụ thể. Thiết bị có thể hỗ trợ, nhưng quan hệ, thời gian và khả năng sử dụng cũng quan trọng. Phân biệt này giúp tránh nhầm số lượng hàng hóa với mức độ nhu cầu đã được đáp ứng.",
+        "en": "The framework distinguishes fundamental needs from their satisfiers. [2] For example, social connection does not require one particular phone model. Devices may help, but relationships, time and usability also matter. Goods are not identical to fulfilled needs."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ trên chỉ minh họa trực giác của chuyên mục. Nó không có nghĩa sản phẩm hiện đại là không cần thiết, hoặc người ngoài có quyền quyết định nhu cầu thay cho cộng đồng. Một công cụ có thể tạo cơ hội học tập, làm việc và liên lạc rất lớn. Điều cần hỏi là ai sử dụng được, dùng để làm gì và có rào cản nào khiến lợi ích dự kiến không xảy ra. Cùng một vật phẩm có thể mang ý nghĩa rất khác trong những hoàn cảnh khác nhau.",
+        "en": "This editorial example neither rejects modern products nor lets outsiders define communities’ needs. A tool may enable learning, work and communication. Ask who can use it, for what purpose and with which barriers."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một giải pháp có thể phục vụ nhiều nhu cầu",
+        "en": "One intervention can address several needs"
+      },
+      {
+        "tag": "p",
+        "vi": "Giả sử một khu dân cư xây dựng không gian sinh hoạt chung có cây xanh và hoạt động học tập. Nếu được thiết kế cùng người sử dụng, nơi đó có thể hỗ trợ nghỉ ngơi, kết nối và học hỏi. Nhưng nếu khó tiếp cận hoặc không được duy trì, lợi ích sẽ khác xa bản vẽ. Đây là ví dụ giả định để đặt câu hỏi về chất lượng sử dụng, không phải một dự án được Max-Neef trực tiếp thực hiện.",
+        "en": "Imagine a shared green space with learning activities. Designed with users, it may support rest, connection and education. Poor access or maintenance can defeat those aims. This is a hypothetical illustration, not a Max-Neef project."
+      },
+      {
+        "tag": "p",
+        "vi": "Vì thế, đánh giá không nên dừng ở số công trình hoặc số người có mặt trong ngày khai trương. Cần xem những nhóm khác nhau có thực sự dùng được không, hoạt động có duy trì không và nhu cầu nào còn bỏ ngỏ. Cách hỏi này làm mục tiêu phát triển trở nên cụ thể hơn. Nó cũng tạo chỗ cho người dân phản hồi, thay vì chỉ để đơn vị cung cấp dịch vụ tự kết luận mình đã đáp ứng tốt.",
+        "en": "Evaluation should go beyond facility counts or opening-day attendance to actual access, continuity and unmet needs. User feedback matters alongside providers’ own assessments."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tránh biến một khung nhân văn thành bảng kiểm cứng",
+        "en": "Avoid turning a human-centered framework into a rigid checklist"
+      },
+      {
+        "tag": "p",
+        "vi": "Một danh sách nhu cầu có thể giúp mở rộng tầm nhìn, nhưng không nên được dùng để chấm điểm đời sống người khác theo cách áp đặt. Các cộng đồng có lịch sử, ưu tiên và cách tổ chức khác nhau. Việc nhận diện nhu cầu cần trao đổi thực chất và khả năng sửa phương án. Nếu người tham gia chỉ được nghe một kế hoạch đã chốt, nhãn lấy con người làm trung tâm sẽ không tự làm quá trình ấy trở nên có sự tham gia.",
+        "en": "A needs framework can broaden attention but should not impose judgments on others’ lives. Communities differ in history and priorities. Meaningful participation requires the ability to change plans, not merely hear decisions already made."
+      },
+      {
+        "tag": "p",
+        "vi": "Khó khăn khác là đo lường. Thu nhập có thể cộng thành một con số, còn cảm giác an toàn, sự gắn kết hay quyền lựa chọn cần nhiều loại bằng chứng. Điều đó không có nghĩa bỏ đo lường; cần kết hợp chỉ tiêu định lượng với phản hồi và quan sát phù hợp. Mỗi phương pháp đều có hạn chế, nên tốt hơn là nói rõ mình đo được gì và chưa đo được gì, thay vì tuyên bố đã tìm ra một chỉ số hoàn hảo.",
+        "en": "Income is easier to aggregate than safety, connection or choice. That calls for combining quantitative indicators with appropriate feedback and observation, while acknowledging what each method misses."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với sản phẩm và dịch vụ tại Việt Nam",
+        "en": "Implications for products and services in Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp có thể hỏi khách hàng đang cần giải quyết việc gì trước khi quyết định thêm tính năng. Một trường học có thể hỏi trẻ và phụ huynh gặp trở ngại gì trước khi mua thiết bị. Các câu hỏi ấy không bảo đảm mọi quyết định đúng, nhưng giúp tránh nhầm đầu tư nhiều với đáp ứng tốt. Đây là liên hệ biên tập từ cách phân biệt nhu cầu và phương tiện, không phải công thức quản trị do Max-Neef đưa ra.",
+        "en": "Firms can identify customers’ underlying tasks before adding features, and schools can ask about barriers before buying devices. More spending is not necessarily better fulfillment. These are editorial applications, not management formulas attributed to Max-Neef."
+      },
+      {
+        "tag": "p",
+        "vi": "Giá trị của Max-Neef nằm ở việc kéo câu hỏi phát triển trở lại gần trải nghiệm con người. Tăng trưởng, công nghệ và tiêu dùng cần được nối với những khả năng mà chúng mở ra trong đời sống. Khi đánh giá một sáng kiến, hãy hỏi nhu cầu nào được đáp ứng, ai còn bị bỏ lại và người sử dụng có tiếng nói ra sao. Cách nhìn ấy bổ sung cho các chỉ số kinh tế, giúp chúng phục vụ con người rõ ràng hơn.",
+        "en": "Max-Neef reconnects development with lived experience. Growth, technology and consumption should be assessed through the capabilities they enable, the people excluded and users’ voice. This complements economic indicators rather than simply discarding them."
+      }
+    ],
+    "html": "<p><em>Manfred Max-Neef, 2007. Ảnh: Olga Berrios; CC BY 2.0.</em></p>\n<p>Một cộng đồng có thêm hàng hóa nhưng ít thời gian nghỉ ngơi, ít quan hệ hỗ trợ và ít tiếng nói có chắc đã sống tốt hơn? Manfred Max-Neef đặt con người cùng nhu cầu của họ vào trung tâm câu hỏi phát triển. Cách tiếp cận này không phủ nhận vai trò của thu nhập. Nó nhắc rằng tiền là một phương tiện quan trọng, nhưng để hiểu đời sống cần hỏi phương tiện ấy có giúp con người đáp ứng những điều thực sự cần thiết hay không.</p>\n<h2>Một nhà kinh tế Chile tìm cách làm việc gần cộng đồng</h2>\n<p>Max-Neef sinh tại Valparaíso năm 1932 và mất năm 2019. Ông được biết đến với kinh tế học chân đất, gắn phân tích với trải nghiệm tại các cộng đồng, và cùng CEPAUR nhận Right Livelihood Award năm 1983. [1] Đây là giải thưởng riêng, không phải một giải Nobel. Việc gọi đúng tên giúp giữ sự chính xác, đồng thời không làm giảm ý nghĩa của đóng góp mà tổ chức trao giải muốn ghi nhận.</p>\n<p>Trong Human Scale Development, ông làm việc cùng Antonio Elizalde và Martín Hopenhayn để xây dựng một khung suy nghĩ về nhu cầu và cách đáp ứng nhu cầu. [2] Vì đây là công trình hợp tác, không nên gán toàn bộ nội dung cho một người. Câu chuyện cũng cho thấy kinh tế học có thể trao đổi với các lĩnh vực khác khi đối tượng nghiên cứu là đời sống đa chiều, nơi một thước đo đơn lẻ khó phản ánh đầy đủ mọi thay đổi.</p>\n<h2>Nhu cầu khác với sản phẩm đáp ứng nhu cầu</h2>\n<p>Khung của các tác giả phân biệt nhu cầu cơ bản với phương thức hoặc điều kiện đáp ứng chúng. [2] Có thể dùng ví dụ đơn giản: muốn kết nối với người khác không đồng nghĩa nhất thiết phải sở hữu một mẫu điện thoại cụ thể. Thiết bị có thể hỗ trợ, nhưng quan hệ, thời gian và khả năng sử dụng cũng quan trọng. Phân biệt này giúp tránh nhầm số lượng hàng hóa với mức độ nhu cầu đã được đáp ứng.</p>\n<p>Ví dụ trên chỉ minh họa trực giác của chuyên mục. Nó không có nghĩa sản phẩm hiện đại là không cần thiết, hoặc người ngoài có quyền quyết định nhu cầu thay cho cộng đồng. Một công cụ có thể tạo cơ hội học tập, làm việc và liên lạc rất lớn. Điều cần hỏi là ai sử dụng được, dùng để làm gì và có rào cản nào khiến lợi ích dự kiến không xảy ra. Cùng một vật phẩm có thể mang ý nghĩa rất khác trong những hoàn cảnh khác nhau.</p>\n<h2>Một giải pháp có thể phục vụ nhiều nhu cầu</h2>\n<p>Giả sử một khu dân cư xây dựng không gian sinh hoạt chung có cây xanh và hoạt động học tập. Nếu được thiết kế cùng người sử dụng, nơi đó có thể hỗ trợ nghỉ ngơi, kết nối và học hỏi. Nhưng nếu khó tiếp cận hoặc không được duy trì, lợi ích sẽ khác xa bản vẽ. Đây là ví dụ giả định để đặt câu hỏi về chất lượng sử dụng, không phải một dự án được Max-Neef trực tiếp thực hiện.</p>\n<p>Vì thế, đánh giá không nên dừng ở số công trình hoặc số người có mặt trong ngày khai trương. Cần xem những nhóm khác nhau có thực sự dùng được không, hoạt động có duy trì không và nhu cầu nào còn bỏ ngỏ. Cách hỏi này làm mục tiêu phát triển trở nên cụ thể hơn. Nó cũng tạo chỗ cho người dân phản hồi, thay vì chỉ để đơn vị cung cấp dịch vụ tự kết luận mình đã đáp ứng tốt.</p>\n<h2>Tránh biến một khung nhân văn thành bảng kiểm cứng</h2>\n<p>Một danh sách nhu cầu có thể giúp mở rộng tầm nhìn, nhưng không nên được dùng để chấm điểm đời sống người khác theo cách áp đặt. Các cộng đồng có lịch sử, ưu tiên và cách tổ chức khác nhau. Việc nhận diện nhu cầu cần trao đổi thực chất và khả năng sửa phương án. Nếu người tham gia chỉ được nghe một kế hoạch đã chốt, nhãn lấy con người làm trung tâm sẽ không tự làm quá trình ấy trở nên có sự tham gia.</p>\n<p>Khó khăn khác là đo lường. Thu nhập có thể cộng thành một con số, còn cảm giác an toàn, sự gắn kết hay quyền lựa chọn cần nhiều loại bằng chứng. Điều đó không có nghĩa bỏ đo lường; cần kết hợp chỉ tiêu định lượng với phản hồi và quan sát phù hợp. Mỗi phương pháp đều có hạn chế, nên tốt hơn là nói rõ mình đo được gì và chưa đo được gì, thay vì tuyên bố đã tìm ra một chỉ số hoàn hảo.</p>\n<h2>Liên hệ với sản phẩm và dịch vụ tại Việt Nam</h2>\n<p>Một doanh nghiệp có thể hỏi khách hàng đang cần giải quyết việc gì trước khi quyết định thêm tính năng. Một trường học có thể hỏi trẻ và phụ huynh gặp trở ngại gì trước khi mua thiết bị. Các câu hỏi ấy không bảo đảm mọi quyết định đúng, nhưng giúp tránh nhầm đầu tư nhiều với đáp ứng tốt. Đây là liên hệ biên tập từ cách phân biệt nhu cầu và phương tiện, không phải công thức quản trị do Max-Neef đưa ra.</p>\n<p>Giá trị của Max-Neef nằm ở việc kéo câu hỏi phát triển trở lại gần trải nghiệm con người. Tăng trưởng, công nghệ và tiêu dùng cần được nối với những khả năng mà chúng mở ra trong đời sống. Khi đánh giá một sáng kiến, hãy hỏi nhu cầu nào được đáp ứng, ai còn bị bỏ lại và người sử dụng có tiếng nói ra sao. Cách nhìn ấy bổ sung cho các chỉ số kinh tế, giúp chúng phục vụ con người rõ ràng hơn.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://rightlivelihood.org/the-change-makers/find-a-laureate/manfred-max-neef/\">Right Livelihood — Manfred Max-Neef / CEPAUR</a></li><li><a href=\"https://www.daghammarskjold.se/wp-content/uploads/1989/05/89_1.pdf\">Max-Neef, Elizalde and Hopenhayn — Human Scale Development</a></li><li><a href=\"https://www.daghammarskjold.se/publication/human-scale-development-option-future/\">Dag Hammarskjöld Foundation — Human Scale Development</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/\">Wassily Leontief: Một ngành thay đổi, cả mạng lưới chuyển động</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Manfred_Max_Neef.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/2.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/",
+      "title": "Wassily Leontief: Một ngành thay đổi, cả mạng lưới chuyển động",
+      "title_en": "Wassily Leontief: How one industry connects to the wider economy"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/manfred-max-neef-nhu-cau-con-nguoi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1975&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/manfred-max-neef-nhu-cau-con-nguoi/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/manfred-max-neef.webp"
+  },
+  {
+    "key": "hernando-de-soto",
+    "slug": "hernando-de-soto-tai-san-va-the-che",
+    "title": "Hernando de Soto: Tài sản cần một hệ thống để phát huy giá trị",
+    "title_en": "Hernando de Soto: Assets need institutions to become useful capital",
+    "excerpt": "Nhà kinh tế Peru, quyền tài sản và giới hạn của ý tưởng chỉ cần giấy tờ là có thể mở khóa nguồn vốn.",
+    "excerpt_en": "The Peruvian economist, property rights and why documentation alone does not guarantee access to capital.",
+    "credit": "Hernando de Soto. Ảnh: Institute for Liberty and Democracy; CC BY-SA 3.0.",
+    "credit_en": "Hernando de Soto. Photo: Institute for Liberty and Democracy; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Hernando_de_Soto_president.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "Institute for Liberty and Democracy — Hernando de Soto",
+        "url": "https://www.ild.org.pe/about-us/ild-president"
+      },
+      {
+        "label": "ILD — The Mystery of Capital",
+        "url": "https://www.ild.org.pe/publications/books/the-mystery-of-capital"
+      },
+      {
+        "label": "Field and Torero — Property Titles and Credit Access, 2006",
+        "url": "https://scholar.harvard.edu/sites/scholar.harvard.edu/files/field/files/fieldtorerocs.pdf"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một người có nhà, đất hoặc cơ sở làm ăn nhưng thiếu hồ sơ được công nhận có thể gặp khó khi ký hợp đồng, chuyển nhượng hay tiếp cận tín dụng. Hernando de Soto đưa vấn đề ấy vào cuộc tranh luận về nghèo đói và phát triển. Tuy nhiên, có tài sản, có giấy tờ và có khả năng huy động vốn là ba trạng thái khác nhau. Hiểu các bước nối chúng với nhau giúp tránh biến một ý tưởng có ảnh hưởng thành lời hứa quá đơn giản.",
+        "en": "People with homes, land or businesses may struggle to contract, transfer assets or obtain credit without recognized records. Hernando de Soto brought this issue into development debates. Possession, documentation and access to finance are distinct states requiring institutional connections."
+      },
+      {
+        "tag": "h2",
+        "vi": "Nhà kinh tế Peru và khu vực ngoài hệ thống chính thức",
+        "en": "A Peruvian economist and the extralegal economy"
+      },
+      {
+        "tag": "p",
+        "vi": "De Soto gắn với Institute for Liberty and Democracy tại Peru. Hai cuốn sách nổi bật của ông là The Other Path năm 1986 và The Mystery of Capital năm 2000. [1] Công việc của ông tập trung vào những rào cản khiến người dân và doanh nghiệp khó tham gia hệ thống kinh tế chính thức. Khi đọc, cần phân biệt mô tả người dân bị loại khỏi cơ chế pháp lý với việc cho rằng mọi hoạt động ngoài hệ thống đều giống nhau.",
+        "en": "De Soto is associated with Peru’s Institute for Liberty and Democracy. His major books include The Other Path (1986) and The Mystery of Capital (2000). [1] His work examines barriers to formal participation without implying that all informal activities are identical."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong cách tiếp cận được trình bày ở The Mystery of Capital, khả năng ghi nhận và kết nối quyền tài sản là một phần quan trọng của việc sử dụng tài sản trong nền kinh tế rộng hơn. [2] Trọng tâm không chỉ là vật thể, mà còn là hệ thống cho phép người khác biết quyền thuộc về ai và giao dịch dựa vào thông tin ấy. Chính phần tổ chức này thường khó nhìn thấy hơn ngôi nhà hay cửa hàng trước mắt.",
+        "en": "The Mystery of Capital emphasizes recording and connecting property rights so assets can function within a wider economy. [2] The issue includes systems that establish who holds rights and make that information usable in transactions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Giấy tờ là một mắt xích trong chuỗi thể chế",
+        "en": "Documentation is one link in an institutional chain"
+      },
+      {
+        "tag": "p",
+        "vi": "Một hồ sơ chỉ hữu ích khi thông tin đáng tin, có thể cập nhật và được các bên liên quan chấp nhận. Nếu tranh chấp không được giải quyết, chi phí thủ tục quá cao hoặc quyền ghi trên giấy không được thực thi, giá trị thực tế sẽ khác kỳ vọng. Vì thế, không nên rút gọn lập luận về thể chế thành việc in thêm giấy chứng nhận. Cần xem toàn bộ chuỗi từ xác lập quyền, lưu trữ, giao dịch đến xử lý khi có bất đồng.",
+        "en": "Records require reliability, updating, recognition and enforcement. High costs or unresolved disputes can undermine formal rights. Institutional reform is therefore more than issuing certificates; it spans establishment, registration, transactions and dispute resolution."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một hộ kinh doanh có địa điểm hoạt động ổn định nhưng hợp đồng và hồ sơ thiếu rõ ràng. Việc chuẩn hóa có thể giúp họ ký kết thuận tiện hơn. Tuy nhiên, nếu thu nhập không đủ trả nợ thì bộ hồ sơ tốt cũng không biến khoản vay lớn thành lựa chọn phù hợp. Ví dụ này nhằm phân biệt khả năng chứng minh quyền với khả năng tài chính, không phải hướng dẫn pháp lý cho một trường hợp cụ thể.",
+        "en": "Imagine a business with a stable location but unclear contracts and records. Better documentation may facilitate transactions, yet inadequate cash flow still makes a large loan unsuitable. This distinguishes proof of rights from financial capacity, not case-specific legal advice."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bằng chứng về tín dụng không hoàn toàn đơn giản",
+        "en": "Credit evidence is more complicated"
+      },
+      {
+        "tag": "p",
+        "vi": "Nghiên cứu của Erica Field và Máximo Torero về chương trình cấp quyền tài sản ở Peru không tìm thấy bằng chứng rằng giấy chứng nhận làm tăng khả năng nhận tín dụng từ ngân hàng tư nhân trong mẫu được nghiên cứu, dù có những kết quả khác về điều kiện vay. [3] Đây là một kết quả trong bối cảnh cụ thể, không chứng minh rằng quyền tài sản không quan trọng. Nó cho thấy còn những rào cản khác giữa hồ sơ pháp lý và quyết định cho vay.",
+        "en": "Field and Torero’s study of a Peruvian titling program found no evidence of increased private-bank credit receipt in the studied setting, alongside other lending-related effects. [3] This does not make property rights irrelevant; it shows additional barriers between documentation and credit decisions."
+      },
+      {
+        "tag": "p",
+        "vi": "Ngân hàng còn phải xem thu nhập, chi phí thu hồi, tính thanh khoản của tài sản và điều kiện hợp đồng. Người sở hữu cũng có thể không muốn dùng nhà làm bảo đảm vì hậu quả nếu mất khả năng trả nợ. Do đó, tăng khả năng vay không nên tự động được coi là mục tiêu cuối cùng của mọi cải cách tài sản. Sự an toàn về nơi ở, khả năng đầu tư dài hạn và chi phí giao dịch cũng là những kết quả cần xem xét.",
+        "en": "Lenders consider income, recovery costs and liquidity, while owners may reasonably avoid risking their homes. More borrowing is not necessarily the ultimate objective. Tenure security, investment and transaction costs also matter."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chính thức hóa cần tính cả chi phí tham gia",
+        "en": "Formalization must account for participation costs"
+      },
+      {
+        "tag": "p",
+        "vi": "Một doanh nghiệp nhỏ có thể muốn tham gia hệ thống nhưng gặp yêu cầu phức tạp hoặc thiếu thông tin. Cải cách hữu ích cần hiểu quy trình thực tế, thời gian và chi phí mà người dùng phải chịu. Tuy nhiên, đơn giản hóa không có nghĩa bỏ mọi tiêu chuẩn bảo vệ người lao động, khách hàng hoặc cộng đồng. Câu hỏi là quy định nào tạo giá trị công, quy trình nào gây chi phí không cần thiết và làm sao phân biệt hai nhóm ấy bằng bằng chứng.",
+        "en": "Small firms may face complex requirements or limited information. Simplification should reduce unnecessary costs while preserving protections for workers, customers and communities. Evidence is needed to distinguish useful standards from burdensome procedures."
+      },
+      {
+        "tag": "p",
+        "vi": "Cũng cần bảo đảm quá trình ghi nhận quyền không làm nhóm yếu thế mất tiếng nói. Khi quyền sử dụng thực tế, quyền tập thể hoặc tranh chấp tồn tại, một biểu mẫu đơn giản có thể không phản ánh đầy đủ. Đây là câu hỏi thiết kế chung, không phải cáo buộc về một chương trình của de Soto. Chất lượng cải cách phụ thuộc việc xử lý những tình huống khó, thay vì chỉ đếm số hồ sơ đã hoàn thành trong những trường hợp dễ nhất.",
+        "en": "Recording rights should not silence vulnerable groups or ignore collective uses and disputes. This is a general design question, not an allegation about de Soto’s programs. Reform quality depends on difficult cases as well as processing totals."
+      },
+      {
+        "tag": "h2",
+        "vi": "Liên hệ với việc quản lý tài sản và doanh nghiệp tại Việt Nam",
+        "en": "Questions for asset and business management in Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Độc giả Việt Nam có thể giữ một bài học thực tế: thông tin rõ ràng và hợp đồng có thể kiểm tra là một phần của năng lực kinh doanh. Nhưng các vấn đề đất đai, quyền tài sản và thế chấp phải được xác minh theo pháp luật hiện hành, không suy từ ví dụ nước ngoài. Bài viết cung cấp khung đọc tư tưởng kinh tế; nó không kết luận giấy tờ nào đủ điều kiện vay hay quyền của một tài sản cụ thể đã được xác lập.",
+        "en": "Clear records and verifiable contracts are business capabilities. Vietnamese property and collateral questions still require current local legal verification. This profile explains economic ideas, not the status of a particular asset or loan application."
+      },
+      {
+        "tag": "p",
+        "vi": "Đóng góp của de Soto là làm nổi bật những rào cản thể chế mà người có tài sản nhỏ thường phải đối mặt. Giới hạn cần nhớ là quyền được ghi nhận chỉ phát huy tác dụng qua một hệ thống hoạt động tốt. Học từ ông nên đi cùng kiểm tra thực nghiệm: thủ tục đã dễ dùng hơn chưa, quyền có được bảo vệ không và người dân có thêm lựa chọn thực sự hay chỉ thêm một tờ giấy trong hồ sơ.",
+        "en": "De Soto highlights institutional barriers facing small asset holders. Recognized rights need functioning systems. Evaluate whether procedures become usable, rights are protected and people gain real choices rather than merely another document."
+      }
+    ],
+    "html": "<p><em>Hernando de Soto. Ảnh: Institute for Liberty and Democracy; CC BY-SA 3.0.</em></p>\n<p>Một người có nhà, đất hoặc cơ sở làm ăn nhưng thiếu hồ sơ được công nhận có thể gặp khó khi ký hợp đồng, chuyển nhượng hay tiếp cận tín dụng. Hernando de Soto đưa vấn đề ấy vào cuộc tranh luận về nghèo đói và phát triển. Tuy nhiên, có tài sản, có giấy tờ và có khả năng huy động vốn là ba trạng thái khác nhau. Hiểu các bước nối chúng với nhau giúp tránh biến một ý tưởng có ảnh hưởng thành lời hứa quá đơn giản.</p>\n<h2>Nhà kinh tế Peru và khu vực ngoài hệ thống chính thức</h2>\n<p>De Soto gắn với Institute for Liberty and Democracy tại Peru. Hai cuốn sách nổi bật của ông là The Other Path năm 1986 và The Mystery of Capital năm 2000. [1] Công việc của ông tập trung vào những rào cản khiến người dân và doanh nghiệp khó tham gia hệ thống kinh tế chính thức. Khi đọc, cần phân biệt mô tả người dân bị loại khỏi cơ chế pháp lý với việc cho rằng mọi hoạt động ngoài hệ thống đều giống nhau.</p>\n<p>Trong cách tiếp cận được trình bày ở The Mystery of Capital, khả năng ghi nhận và kết nối quyền tài sản là một phần quan trọng của việc sử dụng tài sản trong nền kinh tế rộng hơn. [2] Trọng tâm không chỉ là vật thể, mà còn là hệ thống cho phép người khác biết quyền thuộc về ai và giao dịch dựa vào thông tin ấy. Chính phần tổ chức này thường khó nhìn thấy hơn ngôi nhà hay cửa hàng trước mắt.</p>\n<h2>Giấy tờ là một mắt xích trong chuỗi thể chế</h2>\n<p>Một hồ sơ chỉ hữu ích khi thông tin đáng tin, có thể cập nhật và được các bên liên quan chấp nhận. Nếu tranh chấp không được giải quyết, chi phí thủ tục quá cao hoặc quyền ghi trên giấy không được thực thi, giá trị thực tế sẽ khác kỳ vọng. Vì thế, không nên rút gọn lập luận về thể chế thành việc in thêm giấy chứng nhận. Cần xem toàn bộ chuỗi từ xác lập quyền, lưu trữ, giao dịch đến xử lý khi có bất đồng.</p>\n<p>Ví dụ giả định, một hộ kinh doanh có địa điểm hoạt động ổn định nhưng hợp đồng và hồ sơ thiếu rõ ràng. Việc chuẩn hóa có thể giúp họ ký kết thuận tiện hơn. Tuy nhiên, nếu thu nhập không đủ trả nợ thì bộ hồ sơ tốt cũng không biến khoản vay lớn thành lựa chọn phù hợp. Ví dụ này nhằm phân biệt khả năng chứng minh quyền với khả năng tài chính, không phải hướng dẫn pháp lý cho một trường hợp cụ thể.</p>\n<h2>Bằng chứng về tín dụng không hoàn toàn đơn giản</h2>\n<p>Nghiên cứu của Erica Field và Máximo Torero về chương trình cấp quyền tài sản ở Peru không tìm thấy bằng chứng rằng giấy chứng nhận làm tăng khả năng nhận tín dụng từ ngân hàng tư nhân trong mẫu được nghiên cứu, dù có những kết quả khác về điều kiện vay. [3] Đây là một kết quả trong bối cảnh cụ thể, không chứng minh rằng quyền tài sản không quan trọng. Nó cho thấy còn những rào cản khác giữa hồ sơ pháp lý và quyết định cho vay.</p>\n<p>Ngân hàng còn phải xem thu nhập, chi phí thu hồi, tính thanh khoản của tài sản và điều kiện hợp đồng. Người sở hữu cũng có thể không muốn dùng nhà làm bảo đảm vì hậu quả nếu mất khả năng trả nợ. Do đó, tăng khả năng vay không nên tự động được coi là mục tiêu cuối cùng của mọi cải cách tài sản. Sự an toàn về nơi ở, khả năng đầu tư dài hạn và chi phí giao dịch cũng là những kết quả cần xem xét.</p>\n<h2>Chính thức hóa cần tính cả chi phí tham gia</h2>\n<p>Một doanh nghiệp nhỏ có thể muốn tham gia hệ thống nhưng gặp yêu cầu phức tạp hoặc thiếu thông tin. Cải cách hữu ích cần hiểu quy trình thực tế, thời gian và chi phí mà người dùng phải chịu. Tuy nhiên, đơn giản hóa không có nghĩa bỏ mọi tiêu chuẩn bảo vệ người lao động, khách hàng hoặc cộng đồng. Câu hỏi là quy định nào tạo giá trị công, quy trình nào gây chi phí không cần thiết và làm sao phân biệt hai nhóm ấy bằng bằng chứng.</p>\n<p>Cũng cần bảo đảm quá trình ghi nhận quyền không làm nhóm yếu thế mất tiếng nói. Khi quyền sử dụng thực tế, quyền tập thể hoặc tranh chấp tồn tại, một biểu mẫu đơn giản có thể không phản ánh đầy đủ. Đây là câu hỏi thiết kế chung, không phải cáo buộc về một chương trình của de Soto. Chất lượng cải cách phụ thuộc việc xử lý những tình huống khó, thay vì chỉ đếm số hồ sơ đã hoàn thành trong những trường hợp dễ nhất.</p>\n<h2>Liên hệ với việc quản lý tài sản và doanh nghiệp tại Việt Nam</h2>\n<p>Độc giả Việt Nam có thể giữ một bài học thực tế: thông tin rõ ràng và hợp đồng có thể kiểm tra là một phần của năng lực kinh doanh. Nhưng các vấn đề đất đai, quyền tài sản và thế chấp phải được xác minh theo pháp luật hiện hành, không suy từ ví dụ nước ngoài. Bài viết cung cấp khung đọc tư tưởng kinh tế; nó không kết luận giấy tờ nào đủ điều kiện vay hay quyền của một tài sản cụ thể đã được xác lập.</p>\n<p>Đóng góp của de Soto là làm nổi bật những rào cản thể chế mà người có tài sản nhỏ thường phải đối mặt. Giới hạn cần nhớ là quyền được ghi nhận chỉ phát huy tác dụng qua một hệ thống hoạt động tốt. Học từ ông nên đi cùng kiểm tra thực nghiệm: thủ tục đã dễ dùng hơn chưa, quyền có được bảo vệ không và người dân có thêm lựa chọn thực sự hay chỉ thêm một tờ giấy trong hồ sơ.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.ild.org.pe/about-us/ild-president\">Institute for Liberty and Democracy — Hernando de Soto</a></li><li><a href=\"https://www.ild.org.pe/publications/books/the-mystery-of-capital\">ILD — The Mystery of Capital</a></li><li><a href=\"https://scholar.harvard.edu/sites/scholar.harvard.edu/files/field/files/fieldtorerocs.pdf\">Field and Torero — Property Titles and Credit Access, 2006</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/\">Mikhail Tugan-Baranovsky: Chu kỳ kinh tế và sự lệch nhịp giữa các ngành</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Hernando_de_Soto_president.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/",
+      "title": "Mikhail Tugan-Baranovsky: Chu kỳ kinh tế và sự lệch nhịp giữa các ngành",
+      "title_en": "Mikhail Tugan-Baranovsky: Cycles and mismatches between industries"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/hernando-de-soto-tai-san-va-the-che/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1977&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/hernando-de-soto-tai-san-va-the-che/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/hernando-de-soto.webp"
+  },
+  {
+    "key": "santiago-levy",
+    "slug": "santiago-levy-chinh-sach-va-dong-co",
+    "title": "Santiago Levy: Ý định tốt cần thiết kế đúng",
+    "title_en": "Santiago Levy: Good intentions require sound design",
+    "excerpt": "Nhà kinh tế Mexico và cách xem chính sách xã hội cùng những động cơ mà toàn bộ hệ thống tạo ra.",
+    "excerpt_en": "The Mexican economist on social policy and incentives created by the system as a whole.",
+    "credit": "Santiago Levy, 2017. Ảnh: Inter-American Dialogue; CC BY-SA 2.0.",
+    "credit_en": "Santiago Levy, 2017. Photo: Inter-American Dialogue; CC BY-SA 2.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Santiago_Levy.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "sources": [
+      {
+        "label": "Brookings — Santiago Levy",
+        "url": "https://www.brookings.edu/people/santiago-levy/"
+      },
+      {
+        "label": "Levy — Good Intentions, Bad Outcomes",
+        "url": "https://www.brookings.edu/books/good-intentions-bad-outcomes/"
+      },
+      {
+        "label": "Inter-American Development Bank — The end of inherited poverty",
+        "url": "https://www.iadb.org/en/news/end-inherited-poverty"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một chính sách có mục tiêu tốt có thể tạo ra kết quả không mong muốn khi đặt cạnh những quy định khác. Santiago Levy, nhà kinh tế Mexico, giúp người đọc nhìn vào khoảng cách giữa ý định và động cơ thực tế. Câu hỏi không chỉ là chương trình muốn hỗ trợ ai, mà còn người dân và doanh nghiệp sẽ phản ứng thế nào trước toàn bộ điều kiện đang áp dụng. Đó là cách nhìn chính sách như một hệ thống có tương tác.",
+        "en": "A well-intentioned policy can produce unwanted outcomes when combined with other rules. Mexican economist Santiago Levy examines the gap between objectives and incentives, asking how households and firms respond to the system as a whole."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một sự nghiệp đi qua nghiên cứu và điều hành",
+        "en": "A career spanning research and public administration"
+      },
+      {
+        "tag": "p",
+        "vi": "Levy từng là thứ trưởng tài chính Mexico giai đoạn 1994–2000, lãnh đạo Viện An sinh Xã hội Mexico giai đoạn 2000–2005 và giữ vai trò phó chủ tịch tại Ngân hàng Phát triển Liên Mỹ giai đoạn 2008–2018. [1] Những trải nghiệm ấy đặt ông gần các vấn đề về ngân sách, lao động và bảo trợ xã hội. Chúng cũng cho thấy việc thiết kế chính sách không kết thúc khi văn bản được thông qua; phản ứng trong đời sống mới là phần cần tiếp tục quan sát.",
+        "en": "Levy served as Mexico’s deputy finance minister in 1994–2000, headed its Social Security Institute in 2000–2005 and was an IDB vice president in 2008–2018. [1] His experience spans budgets, labor and social protection, where implementation and responses matter beyond legislation."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông được gắn với việc thiết kế Progresa, chương trình chuyển tiền có điều kiện khởi đầu ở Mexico năm 1997, hướng đến giáo dục, sức khỏe và dinh dưỡng của các hộ nghèo. [3] Đây là một ví dụ về nối hỗ trợ hiện tại với mục tiêu dài hạn. Tuy nhiên, mô tả mục tiêu không thay thế đánh giá tác động, và kết quả của một chương trình không cho phép mặc nhiên kết luận mọi thành phần chính sách xã hội đều đã phối hợp tốt.",
+        "en": "He helped design Progresa, launched in Mexico in 1997, linking transfers with education, health and nutrition. [3] Connecting current support with long-term goals still requires evaluation and does not establish that all social policies work coherently together."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khi những chương trình riêng lẻ tạo ra tín hiệu trái nhau",
+        "en": "When separate programs send conflicting signals"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong Good Intentions, Bad Outcomes năm 2008, Levy phân tích quan hệ giữa chính sách xã hội, lao động phi chính thức và năng suất tại Mexico. [2] Lập luận của ông tập trung vào những động cơ do cách tổ chức hệ thống tạo ra, không đơn giản quy trách nhiệm cho người lao động. Khi lợi ích, chi phí và điều kiện tham gia khác nhau giữa các khu vực, quyết định của doanh nghiệp và người dân có thể lệch khỏi mục tiêu mà nhà hoạch định mong muốn.",
+        "en": "Good Intentions, Bad Outcomes (2008) examines social policy, informality and productivity in Mexico. [2] Levy focuses on incentives embedded in the system rather than simply blaming workers. Different benefits and participation costs can alter choices in unintended ways."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một chương trình khuyến khích đơn vị mở rộng quy mô, nhưng khi vượt một ngưỡng thì nhiều chi phí tăng đột ngột và một số hỗ trợ biến mất. Đơn vị có thể trì hoãn mở rộng hoặc chia nhỏ hoạt động. Cần kiểm tra dữ liệu để biết phản ứng ấy có thực sự xảy ra. Ví dụ này minh họa cách nhìn động cơ, không mô tả một quy định hiện hành của Mexico hoặc Việt Nam và không hướng dẫn né tránh nghĩa vụ.",
+        "en": "Imagine expansion support combined with a threshold where costs suddenly rise and benefits disappear. Firms might delay growth or fragment operations, but evidence is needed. This hypothetical neither describes current law nor advises avoidance."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phân tích động cơ không có nghĩa bỏ bảo vệ xã hội",
+        "en": "Incentive analysis does not mean abandoning protection"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cách đọc sai là nghĩ rằng nếu hỗ trợ có thể ảnh hưởng hành vi thì nên xóa mọi hỗ trợ. Thực tế, câu hỏi thiết kế là làm thế nào bảo vệ con người mà giảm những méo mó không cần thiết. Tác phẩm của Levy thảo luận việc tổ chức quyền lợi xã hội theo hướng bao phủ rộng hơn. [2] Cần đánh giá phương án thay thế về nguồn lực, công bằng và khả năng thực thi, thay vì chỉ chỉ ra vấn đề rồi dừng ở đó.",
+        "en": "Finding incentive effects does not imply eliminating support. The design question is how to protect people while reducing avoidable distortions. Levy discusses broader social entitlements. [2] Alternatives require assessment of financing, fairness and implementation."
+      },
+      {
+        "tag": "p",
+        "vi": "Người lao động cũng không phải lúc nào có đầy đủ lựa chọn. Thiếu việc làm chính thức, hạn chế kỹ năng, chăm sóc gia đình hoặc khoảng cách địa lý có thể thu hẹp khả năng tham gia. Do đó, một phân tích tốt cần xem cả động cơ lẫn ràng buộc. Nếu chỉ giả định ai cũng tự do chọn phương án tốt nhất, ta có thể bỏ qua những người không thể chuyển sang lựa chọn mà chính sách đang khuyến khích.",
+        "en": "Workers may lack genuine alternatives because of job availability, skills, care duties or geography. Analysis must include constraints as well as incentives, rather than assume everyone can freely choose the encouraged option."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đánh giá một chương trình và đánh giá cả hệ thống",
+        "en": "Evaluating a program and the wider system"
+      },
+      {
+        "tag": "p",
+        "vi": "Một chương trình có thể cải thiện kết quả của nhóm tham gia nhưng vẫn tương tác chưa tốt với thuế, bảo hiểm hoặc thị trường lao động. Hai cấp đánh giá không phủ định nhau. Cấp chương trình hỏi hỗ trợ có tạo thay đổi không; cấp hệ thống hỏi các phần có cùng hướng và tạo cơ hội bền vững không. Tách hai câu hỏi giúp tránh dùng thành công cục bộ để bỏ qua vấn đề lớn, hoặc dùng vấn đề lớn để phủ nhận mọi cải thiện nhỏ.",
+        "en": "A program may help participants while interacting poorly with taxes, insurance or labor markets. Program evaluation asks whether support works; system evaluation asks whether components align toward durable opportunity. Both levels are necessary."
+      },
+      {
+        "tag": "p",
+        "vi": "Dữ liệu cần được theo dõi đủ lâu để thấy phản ứng điều chỉnh. Kết quả ban đầu có thể khác kết quả sau khi doanh nghiệp hiểu quy tắc hoặc người dân thay đổi kế hoạch. Tuy nhiên, chờ lâu không có nghĩa trì hoãn vô hạn việc sửa sai. Nên xác định trước tiêu chí theo dõi, những dấu hiệu đáng lo và trách nhiệm xem lại. Đây là liên hệ phương pháp của chuyên mục từ chủ đề thiết kế chính sách, không phải một quy trình nguyên văn của Levy.",
+        "en": "Responses evolve as firms and households learn rules. Monitoring should be long enough to detect adjustment, with predefined review triggers rather than indefinite delay. This is an editorial methodological application, not Levy’s verbatim procedure."
+      },
+      {
+        "tag": "h2",
+        "vi": "Bài học cho cách thiết kế quy tắc trong tổ chức",
+        "en": "Lessons for organizational rules"
+      },
+      {
+        "tag": "p",
+        "vi": "Ngay trong doanh nghiệp, tiền thưởng, chỉ tiêu chất lượng và quy định giao hàng có thể tạo tín hiệu trái nhau. Nếu thưởng mạnh theo số lượng nhưng không tính hàng lỗi, nhân viên có thể tập trung vào điều được đo. Khi sửa, cần xem toàn bộ cơ chế chứ không chỉ nhắc mọi người có tinh thần trách nhiệm. Ví dụ này là liên hệ quản trị, cho thấy vấn đề phối hợp chính sách cũng có một phiên bản dễ quan sát ở quy mô nhỏ.",
+        "en": "Within firms, output bonuses, quality targets and delivery rules can conflict. Rewarding volume without defects may redirect attention toward the measured target. This management analogy highlights system design rather than relying solely on exhortations."
+      },
+      {
+        "tag": "p",
+        "vi": "Levy đáng đọc vì buộc người học tách ý định khỏi kết quả và xem phản ứng hành vi là một phần của phân tích. Với độc giả Việt Nam, câu hỏi giữ lại là một quy tắc đang thưởng cho điều gì, gây khó cho ai và tương tác ra sao với các quy tắc bên cạnh. Câu trả lời cần bằng chứng cùng sự quan tâm đến con người, để hiệu quả và bảo vệ xã hội được thảo luận trong cùng một khung.",
+        "en": "Levy encourages separating intentions from outcomes and including behavioral responses. Ask what a rule rewards, whom it constrains and how it interacts with neighboring rules, combining evidence with concern for social protection."
+      }
+    ],
+    "html": "<p><em>Santiago Levy, 2017. Ảnh: Inter-American Dialogue; CC BY-SA 2.0.</em></p>\n<p>Một chính sách có mục tiêu tốt có thể tạo ra kết quả không mong muốn khi đặt cạnh những quy định khác. Santiago Levy, nhà kinh tế Mexico, giúp người đọc nhìn vào khoảng cách giữa ý định và động cơ thực tế. Câu hỏi không chỉ là chương trình muốn hỗ trợ ai, mà còn người dân và doanh nghiệp sẽ phản ứng thế nào trước toàn bộ điều kiện đang áp dụng. Đó là cách nhìn chính sách như một hệ thống có tương tác.</p>\n<h2>Một sự nghiệp đi qua nghiên cứu và điều hành</h2>\n<p>Levy từng là thứ trưởng tài chính Mexico giai đoạn 1994–2000, lãnh đạo Viện An sinh Xã hội Mexico giai đoạn 2000–2005 và giữ vai trò phó chủ tịch tại Ngân hàng Phát triển Liên Mỹ giai đoạn 2008–2018. [1] Những trải nghiệm ấy đặt ông gần các vấn đề về ngân sách, lao động và bảo trợ xã hội. Chúng cũng cho thấy việc thiết kế chính sách không kết thúc khi văn bản được thông qua; phản ứng trong đời sống mới là phần cần tiếp tục quan sát.</p>\n<p>Ông được gắn với việc thiết kế Progresa, chương trình chuyển tiền có điều kiện khởi đầu ở Mexico năm 1997, hướng đến giáo dục, sức khỏe và dinh dưỡng của các hộ nghèo. [3] Đây là một ví dụ về nối hỗ trợ hiện tại với mục tiêu dài hạn. Tuy nhiên, mô tả mục tiêu không thay thế đánh giá tác động, và kết quả của một chương trình không cho phép mặc nhiên kết luận mọi thành phần chính sách xã hội đều đã phối hợp tốt.</p>\n<h2>Khi những chương trình riêng lẻ tạo ra tín hiệu trái nhau</h2>\n<p>Trong Good Intentions, Bad Outcomes năm 2008, Levy phân tích quan hệ giữa chính sách xã hội, lao động phi chính thức và năng suất tại Mexico. [2] Lập luận của ông tập trung vào những động cơ do cách tổ chức hệ thống tạo ra, không đơn giản quy trách nhiệm cho người lao động. Khi lợi ích, chi phí và điều kiện tham gia khác nhau giữa các khu vực, quyết định của doanh nghiệp và người dân có thể lệch khỏi mục tiêu mà nhà hoạch định mong muốn.</p>\n<p>Ví dụ giả định, một chương trình khuyến khích đơn vị mở rộng quy mô, nhưng khi vượt một ngưỡng thì nhiều chi phí tăng đột ngột và một số hỗ trợ biến mất. Đơn vị có thể trì hoãn mở rộng hoặc chia nhỏ hoạt động. Cần kiểm tra dữ liệu để biết phản ứng ấy có thực sự xảy ra. Ví dụ này minh họa cách nhìn động cơ, không mô tả một quy định hiện hành của Mexico hoặc Việt Nam và không hướng dẫn né tránh nghĩa vụ.</p>\n<h2>Phân tích động cơ không có nghĩa bỏ bảo vệ xã hội</h2>\n<p>Một cách đọc sai là nghĩ rằng nếu hỗ trợ có thể ảnh hưởng hành vi thì nên xóa mọi hỗ trợ. Thực tế, câu hỏi thiết kế là làm thế nào bảo vệ con người mà giảm những méo mó không cần thiết. Tác phẩm của Levy thảo luận việc tổ chức quyền lợi xã hội theo hướng bao phủ rộng hơn. [2] Cần đánh giá phương án thay thế về nguồn lực, công bằng và khả năng thực thi, thay vì chỉ chỉ ra vấn đề rồi dừng ở đó.</p>\n<p>Người lao động cũng không phải lúc nào có đầy đủ lựa chọn. Thiếu việc làm chính thức, hạn chế kỹ năng, chăm sóc gia đình hoặc khoảng cách địa lý có thể thu hẹp khả năng tham gia. Do đó, một phân tích tốt cần xem cả động cơ lẫn ràng buộc. Nếu chỉ giả định ai cũng tự do chọn phương án tốt nhất, ta có thể bỏ qua những người không thể chuyển sang lựa chọn mà chính sách đang khuyến khích.</p>\n<h2>Đánh giá một chương trình và đánh giá cả hệ thống</h2>\n<p>Một chương trình có thể cải thiện kết quả của nhóm tham gia nhưng vẫn tương tác chưa tốt với thuế, bảo hiểm hoặc thị trường lao động. Hai cấp đánh giá không phủ định nhau. Cấp chương trình hỏi hỗ trợ có tạo thay đổi không; cấp hệ thống hỏi các phần có cùng hướng và tạo cơ hội bền vững không. Tách hai câu hỏi giúp tránh dùng thành công cục bộ để bỏ qua vấn đề lớn, hoặc dùng vấn đề lớn để phủ nhận mọi cải thiện nhỏ.</p>\n<p>Dữ liệu cần được theo dõi đủ lâu để thấy phản ứng điều chỉnh. Kết quả ban đầu có thể khác kết quả sau khi doanh nghiệp hiểu quy tắc hoặc người dân thay đổi kế hoạch. Tuy nhiên, chờ lâu không có nghĩa trì hoãn vô hạn việc sửa sai. Nên xác định trước tiêu chí theo dõi, những dấu hiệu đáng lo và trách nhiệm xem lại. Đây là liên hệ phương pháp của chuyên mục từ chủ đề thiết kế chính sách, không phải một quy trình nguyên văn của Levy.</p>\n<h2>Bài học cho cách thiết kế quy tắc trong tổ chức</h2>\n<p>Ngay trong doanh nghiệp, tiền thưởng, chỉ tiêu chất lượng và quy định giao hàng có thể tạo tín hiệu trái nhau. Nếu thưởng mạnh theo số lượng nhưng không tính hàng lỗi, nhân viên có thể tập trung vào điều được đo. Khi sửa, cần xem toàn bộ cơ chế chứ không chỉ nhắc mọi người có tinh thần trách nhiệm. Ví dụ này là liên hệ quản trị, cho thấy vấn đề phối hợp chính sách cũng có một phiên bản dễ quan sát ở quy mô nhỏ.</p>\n<p>Levy đáng đọc vì buộc người học tách ý định khỏi kết quả và xem phản ứng hành vi là một phần của phân tích. Với độc giả Việt Nam, câu hỏi giữ lại là một quy tắc đang thưởng cho điều gì, gây khó cho ai và tương tác ra sao với các quy tắc bên cạnh. Câu trả lời cần bằng chứng cùng sự quan tâm đến con người, để hiệu quả và bảo vệ xã hội được thảo luận trong cùng một khung.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.brookings.edu/people/santiago-levy/\">Brookings — Santiago Levy</a></li><li><a href=\"https://www.brookings.edu/books/good-intentions-bad-outcomes/\">Levy — Good Intentions, Bad Outcomes</a></li><li><a href=\"https://www.iadb.org/en/news/end-inherited-poverty\">Inter-American Development Bank — The end of inherited poverty</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/\">Robert Mundell: Đồng tiền, tỷ giá và những đánh đổi</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Santiago_Levy.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/",
+      "title": "Robert Mundell: Đồng tiền, tỷ giá và những đánh đổi",
+      "title_en": "Robert Mundell: Currencies, exchange rates and trade-offs"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/santiago-levy-chinh-sach-va-dong-co/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1979&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/santiago-levy-chinh-sach-va-dong-co/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/santiago-levy.webp"
+  },
+  {
+    "key": "samir-amin",
+    "slug": "samir-amin-phat-trien-va-tu-chu",
+    "title": "Samir Amin: Phát triển, phụ thuộc và quyền tự chủ",
+    "title_en": "Samir Amin: Development, dependence and autonomy",
+    "excerpt": "Nhà kinh tế Ai Cập–Pháp và cách đặt câu hỏi về quan hệ quyền lực trong hệ thống kinh tế toàn cầu.",
+    "excerpt_en": "The Egyptian-French economist and questions of power within the global economic system.",
+    "credit": "Samir Amin, 2012. Ảnh: Rosa-Luxemburg-Stiftung; CC BY 3.0.",
+    "credit_en": "Samir Amin, 2012. Photo: Rosa-Luxemburg-Stiftung; CC BY 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Samir_Amin_(cropped).jpg",
+    "license": "https://creativecommons.org/licenses/by/3.0/",
+    "sources": [
+      {
+        "label": "CODESRIA — Samir Amin, first Executive Secretary",
+        "url": "https://codesria.org/pr-samir-amin-1973-1975/"
+      },
+      {
+        "label": "CODESRIA Bulletin — Samir Amin: A Titan has Gone Home to Rest",
+        "url": "https://journals.codesria.org/index.php/codesriabulletin/article/view/211"
+      },
+      {
+        "label": "Samir Amin — Renewing Development Paradigms for 21st Century",
+        "url": "https://www.journals.codesria.org/index.php/codesriabulletin/article/view/438"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Khi một nền kinh tế phát triển chậm, ta thường tìm nguyên nhân bên trong quốc gia ấy. Samir Amin yêu cầu nhìn thêm vào các quan hệ bên ngoài: ai kiểm soát công nghệ, vốn, thị trường và điều kiện trao đổi. Cách đặt câu hỏi này có ảnh hưởng lớn trong tư tưởng phát triển phê phán. Nhưng để sử dụng có ích, cần phân biệt một khung phân tích quyền lực với lời giải thích coi mọi kết quả trong nước đều do tác động từ bên ngoài.",
+        "en": "Slow development is often explained through domestic factors. Samir Amin also asks who controls technology, capital, markets and terms of exchange. This influential critical perspective should be distinguished from blaming every domestic outcome on external forces."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một học giả Ai Cập–Pháp gắn với nghiên cứu châu Phi",
+        "en": "An Egyptian-French scholar engaged with Africa"
+      },
+      {
+        "tag": "p",
+        "vi": "Amin sống từ năm 1931 đến 2018 và là nhà kinh tế chính trị theo truyền thống Marxist. [3] Ông là Tổng thư ký điều hành đầu tiên của CODESRIA trong giai đoạn 1973–1975. [1] Sự nghiệp của ông gắn với nỗ lực xây dựng nghiên cứu xã hội từ các nước phương Nam, nơi kinh nghiệm lịch sử và câu hỏi phát triển có thể khác những điều được đặt ở trung tâm các trường phái kinh tế phổ biến.",
+        "en": "Amin lived from 1931 to 2018 and worked in Marxist political economy. [3] He was CODESRIA’s first Executive Secretary from 1973 to 1975. [1] His work helped develop social research grounded in Southern experiences and questions."
+      },
+      {
+        "tag": "p",
+        "vi": "CODESRIA ghi nhận ảnh hưởng của tinh thần đoàn kết Á–Phi và Hội nghị Bandung năm 1955 đối với tư tưởng của ông. [1] Đây là bối cảnh giúp hiểu vì sao quyền tự chủ và quan hệ giữa các nước trở thành chủ đề nổi bật. Tuy nhiên, trình bày bối cảnh không có nghĩa người đọc phải đồng ý với mọi kết luận. Một chân dung học thuật nên cho thấy tác giả đặt câu hỏi từ đâu, đồng thời giữ chỗ để kiểm tra và phản biện lập luận.",
+        "en": "CODESRIA notes the influence of Afro-Asian solidarity and the 1955 Bandung Conference. [1] This context helps explain Amin’s emphasis on autonomy without requiring agreement with every conclusion. Intellectual history should leave room for testing and criticism."
+      },
+      {
+        "tag": "h2",
+        "vi": "Phát triển và kém phát triển trong cùng một hệ thống",
+        "en": "Development and underdevelopment within one system"
+      },
+      {
+        "tag": "p",
+        "vi": "Amin nghiên cứu mối liên hệ giữa phát triển ở một số khu vực và những điều kiện hạn chế phát triển ở khu vực khác. [1] Thay vì chỉ xếp các quốc gia trên một chiếc thang chung, ông quan tâm cách hệ thống tạo ra và duy trì khác biệt. Đây là lập trường lý thuyết cần được đánh giá bằng tư liệu và cơ chế cụ thể, không phải bằng cách mặc nhiên chấp nhận rằng mọi bất bình đẳng đều có cùng một nguyên nhân.",
+        "en": "Amin examined connections between development in some regions and constraints elsewhere. [1] Rather than treating countries as independent positions on one ladder, he studied how systemic relations sustain differences. These claims require specific evidence and mechanisms."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một doanh nghiệp xuất khẩu phụ thuộc vào một khách hàng kiểm soát thiết kế và phân phối. Doanh số có thể tăng nhưng khả năng thương lượng vẫn yếu nếu doanh nghiệp dễ bị thay thế. Ở quy mô nhỏ, ví dụ này giúp hình dung câu hỏi về quan hệ phụ thuộc. Nó không chứng minh toàn bộ lý thuyết của Amin và cũng không cho phép suy thẳng từ một hợp đồng doanh nghiệp sang quan hệ giữa mọi quốc gia.",
+        "en": "Imagine an exporter dependent on one buyer controlling design and distribution. Sales may rise without bargaining power if replacement is easy. This hypothetical illustrates dependence but neither proves Amin’s theory nor equates firm contracts with all international relations."
+      },
+      {
+        "tag": "h2",
+        "vi": "Tự chủ không đồng nghĩa cắt đứt mọi trao đổi",
+        "en": "Autonomy is not simply ending all exchange"
+      },
+      {
+        "tag": "p",
+        "vi": "Khái niệm delinking của Amin thường dễ bị hiểu thành đóng cửa hoàn toàn. Bài thảo luận của CODESRIA giải thích trọng tâm là đặt quan hệ đối ngoại dưới những mục tiêu chuyển đổi xã hội trong nước, thay vì chỉ điều chỉnh theo hệ thống bên ngoài. [2] Cách hiểu này vẫn để lại nhiều câu hỏi khó về khả năng thực hiện, chi phí và người có quyền xác định mục tiêu. Không nên biến một khái niệm tranh luận thành khẩu hiệu tự đủ nghĩa.",
+        "en": "Amin’s “delinking” is often mistaken for complete isolation. CODESRIA explains it as subordinating external relations to domestic social transformation goals. [2] Feasibility, costs and who defines those goals remain difficult questions."
+      },
+      {
+        "tag": "p",
+        "vi": "Muốn tăng quyền chủ động, một nền kinh tế có thể cần năng lực sản xuất, tri thức và lựa chọn đối tác rộng hơn. Nhưng giảm một loại phụ thuộc có thể tạo loại phụ thuộc khác hoặc làm chi phí tăng. Vì vậy, cần xác định rõ đang muốn tự chủ ở khâu nào và chấp nhận đánh đổi gì. Phân tích đáng tin không hứa rằng chỉ cần thay định hướng là mọi giới hạn về công nghệ, tài chính và thị trường sẽ biến mất.",
+        "en": "Greater autonomy may require productive capabilities, knowledge and more partner options. Reducing one dependence may create another or raise costs. Specify the activity, objective and trade-off instead of assuming that a change of orientation removes all constraints."
+      },
+      {
+        "tag": "h2",
+        "vi": "Quyền lực bên trong cũng cần được kiểm tra",
+        "en": "Domestic power also requires scrutiny"
+      },
+      {
+        "tag": "p",
+        "vi": "Nếu chỉ nhìn quan hệ quốc tế, ta có thể bỏ qua lợi ích và lựa chọn của các nhóm trong nước. Một chính sách mang tên tự chủ vẫn có thể phục vụ lợi ích hẹp nếu thiếu trách nhiệm giải trình. Do đó, cần hỏi ai tham gia quyết định, ai được hưởng lợi và ai gánh chi phí. Câu hỏi này là yêu cầu phân tích của chuyên mục, không phải kết luận rằng mọi chương trình theo đuổi tự chủ đều có cùng một động cơ hoặc kết quả.",
+        "en": "Focusing only internationally can overlook domestic interests. A policy labeled autonomy may serve narrow groups without accountability. Ask who decides, benefits and pays; this is an analytical requirement, not a judgment about all autonomy policies."
+      },
+      {
+        "tag": "p",
+        "vi": "Tương tự, hợp tác quốc tế không nhất thiết chỉ tạo phụ thuộc. Nó có thể mở cơ hội học hỏi và tiếp cận những nguồn lực chưa có. Vấn đề là điều kiện hợp tác, năng lực hấp thụ và khả năng giữ lại tri thức. Cách tiếp cận có ích nên phân biệt từng quan hệ thay vì dùng một nhãn chung cho tất cả. Như vậy, tranh luận về quyền lực có thể dẫn đến câu hỏi kiểm chứng được, thay vì chỉ dẫn đến khẳng định có sẵn.",
+        "en": "International cooperation can also enable learning and resource access. Terms, absorptive capacity and retained knowledge matter. Distinguishing relationships turns a discussion of power into testable questions rather than predetermined assertions."
+      },
+      {
+        "tag": "h2",
+        "vi": "Cách đọc Amin từ Việt Nam",
+        "en": "Reading Amin from Vietnam"
+      },
+      {
+        "tag": "p",
+        "vi": "Độc giả Việt Nam có thể dùng câu hỏi của Amin để xem vị trí trong chuỗi giá trị: ai quyết định tiêu chuẩn, ai sở hữu dữ liệu hoặc thương hiệu và khi một đối tác rút đi thì còn lựa chọn nào. Đây là cách phân tích rủi ro và năng lực, không phải đề nghị rời bỏ thương mại quốc tế. Mỗi lĩnh vực có cấu trúc khác nhau, nên cần dữ liệu về công nghệ, thị trường và khả năng chuyển đổi thực tế.",
+        "en": "Vietnamese readers can examine who sets standards, owns data or brands and what alternatives remain if a partner exits. This assesses risks and capabilities rather than recommending withdrawal from trade. Sector-specific evidence is essential."
+      },
+      {
+        "tag": "p",
+        "vi": "Giá trị của việc đọc Samir Amin là mở rộng phạm vi câu hỏi về phát triển sang quan hệ quyền lực và lịch sử. Giới hạn cần giữ là không để một cách nhìn thay thế mọi cách nhìn khác. Khi kết hợp phân tích bên ngoài với thể chế và lựa chọn trong nước, người học có thể hiểu rõ hơn những ràng buộc thật sự. Từ đó, quyền tự chủ trở thành năng lực có thể xây dựng và kiểm tra, chứ không chỉ là một lời tuyên bố.",
+        "en": "Amin broadens development inquiry toward power and history. That perspective should complement, not replace, analysis of domestic institutions and choices. Autonomy then becomes a capability to build and assess rather than merely proclaim."
+      }
+    ],
+    "html": "<p><em>Samir Amin, 2012. Ảnh: Rosa-Luxemburg-Stiftung; CC BY 3.0.</em></p>\n<p>Khi một nền kinh tế phát triển chậm, ta thường tìm nguyên nhân bên trong quốc gia ấy. Samir Amin yêu cầu nhìn thêm vào các quan hệ bên ngoài: ai kiểm soát công nghệ, vốn, thị trường và điều kiện trao đổi. Cách đặt câu hỏi này có ảnh hưởng lớn trong tư tưởng phát triển phê phán. Nhưng để sử dụng có ích, cần phân biệt một khung phân tích quyền lực với lời giải thích coi mọi kết quả trong nước đều do tác động từ bên ngoài.</p>\n<h2>Một học giả Ai Cập–Pháp gắn với nghiên cứu châu Phi</h2>\n<p>Amin sống từ năm 1931 đến 2018 và là nhà kinh tế chính trị theo truyền thống Marxist. [3] Ông là Tổng thư ký điều hành đầu tiên của CODESRIA trong giai đoạn 1973–1975. [1] Sự nghiệp của ông gắn với nỗ lực xây dựng nghiên cứu xã hội từ các nước phương Nam, nơi kinh nghiệm lịch sử và câu hỏi phát triển có thể khác những điều được đặt ở trung tâm các trường phái kinh tế phổ biến.</p>\n<p>CODESRIA ghi nhận ảnh hưởng của tinh thần đoàn kết Á–Phi và Hội nghị Bandung năm 1955 đối với tư tưởng của ông. [1] Đây là bối cảnh giúp hiểu vì sao quyền tự chủ và quan hệ giữa các nước trở thành chủ đề nổi bật. Tuy nhiên, trình bày bối cảnh không có nghĩa người đọc phải đồng ý với mọi kết luận. Một chân dung học thuật nên cho thấy tác giả đặt câu hỏi từ đâu, đồng thời giữ chỗ để kiểm tra và phản biện lập luận.</p>\n<h2>Phát triển và kém phát triển trong cùng một hệ thống</h2>\n<p>Amin nghiên cứu mối liên hệ giữa phát triển ở một số khu vực và những điều kiện hạn chế phát triển ở khu vực khác. [1] Thay vì chỉ xếp các quốc gia trên một chiếc thang chung, ông quan tâm cách hệ thống tạo ra và duy trì khác biệt. Đây là lập trường lý thuyết cần được đánh giá bằng tư liệu và cơ chế cụ thể, không phải bằng cách mặc nhiên chấp nhận rằng mọi bất bình đẳng đều có cùng một nguyên nhân.</p>\n<p>Ví dụ giả định, một doanh nghiệp xuất khẩu phụ thuộc vào một khách hàng kiểm soát thiết kế và phân phối. Doanh số có thể tăng nhưng khả năng thương lượng vẫn yếu nếu doanh nghiệp dễ bị thay thế. Ở quy mô nhỏ, ví dụ này giúp hình dung câu hỏi về quan hệ phụ thuộc. Nó không chứng minh toàn bộ lý thuyết của Amin và cũng không cho phép suy thẳng từ một hợp đồng doanh nghiệp sang quan hệ giữa mọi quốc gia.</p>\n<h2>Tự chủ không đồng nghĩa cắt đứt mọi trao đổi</h2>\n<p>Khái niệm delinking của Amin thường dễ bị hiểu thành đóng cửa hoàn toàn. Bài thảo luận của CODESRIA giải thích trọng tâm là đặt quan hệ đối ngoại dưới những mục tiêu chuyển đổi xã hội trong nước, thay vì chỉ điều chỉnh theo hệ thống bên ngoài. [2] Cách hiểu này vẫn để lại nhiều câu hỏi khó về khả năng thực hiện, chi phí và người có quyền xác định mục tiêu. Không nên biến một khái niệm tranh luận thành khẩu hiệu tự đủ nghĩa.</p>\n<p>Muốn tăng quyền chủ động, một nền kinh tế có thể cần năng lực sản xuất, tri thức và lựa chọn đối tác rộng hơn. Nhưng giảm một loại phụ thuộc có thể tạo loại phụ thuộc khác hoặc làm chi phí tăng. Vì vậy, cần xác định rõ đang muốn tự chủ ở khâu nào và chấp nhận đánh đổi gì. Phân tích đáng tin không hứa rằng chỉ cần thay định hướng là mọi giới hạn về công nghệ, tài chính và thị trường sẽ biến mất.</p>\n<h2>Quyền lực bên trong cũng cần được kiểm tra</h2>\n<p>Nếu chỉ nhìn quan hệ quốc tế, ta có thể bỏ qua lợi ích và lựa chọn của các nhóm trong nước. Một chính sách mang tên tự chủ vẫn có thể phục vụ lợi ích hẹp nếu thiếu trách nhiệm giải trình. Do đó, cần hỏi ai tham gia quyết định, ai được hưởng lợi và ai gánh chi phí. Câu hỏi này là yêu cầu phân tích của chuyên mục, không phải kết luận rằng mọi chương trình theo đuổi tự chủ đều có cùng một động cơ hoặc kết quả.</p>\n<p>Tương tự, hợp tác quốc tế không nhất thiết chỉ tạo phụ thuộc. Nó có thể mở cơ hội học hỏi và tiếp cận những nguồn lực chưa có. Vấn đề là điều kiện hợp tác, năng lực hấp thụ và khả năng giữ lại tri thức. Cách tiếp cận có ích nên phân biệt từng quan hệ thay vì dùng một nhãn chung cho tất cả. Như vậy, tranh luận về quyền lực có thể dẫn đến câu hỏi kiểm chứng được, thay vì chỉ dẫn đến khẳng định có sẵn.</p>\n<h2>Cách đọc Amin từ Việt Nam</h2>\n<p>Độc giả Việt Nam có thể dùng câu hỏi của Amin để xem vị trí trong chuỗi giá trị: ai quyết định tiêu chuẩn, ai sở hữu dữ liệu hoặc thương hiệu và khi một đối tác rút đi thì còn lựa chọn nào. Đây là cách phân tích rủi ro và năng lực, không phải đề nghị rời bỏ thương mại quốc tế. Mỗi lĩnh vực có cấu trúc khác nhau, nên cần dữ liệu về công nghệ, thị trường và khả năng chuyển đổi thực tế.</p>\n<p>Giá trị của việc đọc Samir Amin là mở rộng phạm vi câu hỏi về phát triển sang quan hệ quyền lực và lịch sử. Giới hạn cần giữ là không để một cách nhìn thay thế mọi cách nhìn khác. Khi kết hợp phân tích bên ngoài với thể chế và lựa chọn trong nước, người học có thể hiểu rõ hơn những ràng buộc thật sự. Từ đó, quyền tự chủ trở thành năng lực có thể xây dựng và kiểm tra, chứ không chỉ là một lời tuyên bố.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://codesria.org/pr-samir-amin-1973-1975/\">CODESRIA — Samir Amin, first Executive Secretary</a></li><li><a href=\"https://journals.codesria.org/index.php/codesriabulletin/article/view/211\">CODESRIA Bulletin — Samir Amin: A Titan has Gone Home to Rest</a></li><li><a href=\"https://www.journals.codesria.org/index.php/codesriabulletin/article/view/438\">Samir Amin — Renewing Development Paradigms for 21st Century</a></li></ol>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/\">Max Corden: Nhìn chính sách thương mại từ cả đầu vào lẫn đầu ra</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>\n<p><a href=\"https://commons.wikimedia.org/wiki/File:Samir_Amin_(cropped).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by/3.0/\">Image license / Giấy phép ảnh</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/",
+      "title": "Max Corden: Nhìn chính sách thương mại từ cả đầu vào lẫn đầu ra",
+      "title_en": "Max Corden: Trade policy through inputs and outputs"
+    },
+    "url": "https://daututuonglai.vn/2026/11/14/samir-amin-phat-trien-va-tu-chu/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1981&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/samir-amin-phat-trien-va-tu-chu/",
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/samir-amin.webp"
+  }
+]
