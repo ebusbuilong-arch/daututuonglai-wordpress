@@ -38,16 +38,16 @@ add_action('admin_init', function () {
 function dttl_th_key() { return is_page() ? get_post_meta(get_queried_object_id(), '_dttl_tool_key', true) : ''; }
 add_action('wp_enqueue_scripts', function () {
     $base = plugins_url('dttl-tools-hub/', __FILE__);
-    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.0.1', true);
+    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.0.2', true);
     $key = dttl_th_key();
     if (!is_page(array('cong-cu-mien-phi','cong-cu-dau-tu')) && !$key && !is_singular('dttl_app')) { return; }
-    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.0.1');
+    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.0.2');
     if (isset(dttl_th_registry()[$key])) {
-        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.0.1', true);
+        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.0.2', true);
         if (file_exists(__DIR__.'/dttl-tools-hub/modules/'.$key.'.js')) {
-            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.0.1', true);
+            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.0.2', true);
         }
-    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.0.1', true); }
+    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.0.2', true); }
 }, 99);
 add_filter('the_title', function ($title, $id) {
     if (is_admin()) { return $title; }
@@ -67,7 +67,7 @@ function dttl_th_catalog() {
     <form class="th-filters" role="search"><label><?php echo esc_html(dttl_th_t(array('Tìm công cụ','Find a tool'))); ?><input type="search" name="tim" placeholder="<?php echo esc_attr(dttl_th_t(array('Tên hoặc chức năng','Name or function'))); ?>"></label><label><?php echo esc_html(dttl_th_t(array('Nhóm công cụ','Tool group'))); ?><select name="nhom"><option value=""><?php echo esc_html(dttl_th_t(array('Tất cả nhóm','All groups'))); ?></option><option value="investment"><?php echo esc_html(dttl_th_t(array('Tính toán đầu tư','Investment calculators'))); ?></option><option value="learning"><?php echo esc_html(dttl_th_t(array('Học tập & thực hành','Learning & practice'))); ?></option><option value="apps"><?php echo esc_html(dttl_th_t(array('Ứng dụng','Apps'))); ?></option></select></label><button type="submit"><?php echo esc_html(dttl_th_t(array('Tìm kiếm','Search'))); ?></button></form>
     <p class="th-count" role="status"></p><div class="th-grid">
     <?php foreach (dttl_th_registry() as $key=>$tool): ?>
-    <article class="th-card" data-group="<?php echo in_array($key,array('journal','checklist','progress'),true)?'learning':'investment'; ?>"><span class="th-icon" aria-hidden="true"><?php echo esc_html(array('profit'=>'±','average'=>'÷','recovery'=>'↗','allocation'=>'%','compound'=>'Σ','journal'=>'▤','checklist'=>'✓','progress'=>'7')[$key]); ?></span><h2><?php echo esc_html(dttl_th_t($tool['title'])); ?></h2><p><?php echo esc_html(dttl_th_t($tool['description'])); ?></p><a class="th-button" href="<?php echo esc_url(dttl_th_url($tool['slug'])); ?>"><?php echo esc_html(dttl_th_t(array('Mở công cụ','Open tool'))); ?> →</a></article>
+    <article class="th-card" data-group="<?php echo in_array($key,array('journal','checklist','progress'),true)?'learning':'investment'; ?>"><span class="th-icon" aria-hidden="true"><?php echo esc_html(array('profit'=>'±','average'=>'÷','recovery'=>'+%','allocation'=>'%','compound'=>'Σ','journal'=>'▤','checklist'=>'✓','progress'=>'7')[$key]); ?></span><h2><?php echo esc_html(dttl_th_t($tool['title'])); ?></h2><p><?php echo esc_html(dttl_th_t($tool['description'])); ?></p><a class="th-button" href="<?php echo esc_url(dttl_th_url($tool['slug'])); ?>"><?php echo esc_html(dttl_th_t(array('Mở công cụ','Open tool'))); ?> →</a></article>
     <?php endforeach;
     $apps=get_posts(array('post_type'=>'dttl_app','post_status'=>'publish','numberposts'=>-1,'orderby'=>'title','order'=>'ASC'));
     foreach ($apps as $app): $url=get_post_meta($app->ID,'_dttl_online_url',true); ?>
@@ -95,4 +95,17 @@ add_shortcode('dttl_tool', function ($atts) {
     <?php else: include __DIR__.'/dttl-tools-hub/modules/'.$key.'.php'; endif; ?>
     </section><noscript><?php echo esc_html(dttl_th_t(array('Bật JavaScript để sử dụng chức năng tương tác.','Enable JavaScript to use interactive features.'))); ?></noscript>
     </div><?php return ob_get_clean();
+});
+
+// Invalidate only affected public URLs; leave cache/preload configuration unchanged.
+add_action('admin_init', function () {
+    if (!current_user_can('manage_options') || get_option('dttl_th_cache_version') === '1.0.2') { return; }
+    if (function_exists('rocket_clean_files')) {
+        $paths = array('cong-cu-mien-phi/', 'cong-cu-dau-tu/', 'lo-trinh-hoc/');
+        foreach (dttl_th_registry() as $tool) { $paths[] = 'cong-cu-mien-phi/'.$tool['slug'].'/'; }
+        $urls = array();
+        foreach ($paths as $path) { $urls[] = home_url('/'.$path); $urls[] = home_url('/en/'.$path); }
+        rocket_clean_files($urls);
+    }
+    update_option('dttl_th_cache_version', '1.0.2', false);
 });
