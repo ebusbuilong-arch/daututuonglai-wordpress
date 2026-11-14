@@ -21,7 +21,7 @@ Phạm vi: 80 nhân vật, 16 gói, 5 bài/gói. Đây là danh sách biên tậ
 | 10 | Sara Blakely; Nguyễn Duy Hưng; Nguyễn Thị Phương Thảo; Karl Marx; Léon Walras | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 11 | Gunnar Myrdal; Ragnar Frisch; Ester Boserup; Bengt Holmström; Jan Tinbergen | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 12 | Jean Charles Léonard de Sismondi; Franco Modigliani; Andreu Mas-Colell; António Simões Lopes; Michał Kalecki | Đã xuất bản VI/EN ngày 14/11/2026 |
-| 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
+| 13 | János Kornai; Wassily Leontief; Mikhail Tugan-Baranovsky; Robert Mundell; Max Corden | Đã xuất bản VI/EN ngày 14/11/2026 |
 | 14 | A. W. Phillips; Michio Morishima; Lâm Nghị Phu; Lim Chong Yah; Widjojo Nitisastro | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 15 | José Encarnación Jr.; Muhammad Yunus; Saman Kelegama; Dani Rodrik; Raúl Prebisch | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
 | 16 | Celso Furtado; Manfred Max-Neef; Hernando de Soto; Santiago Levy; Samir Amin | Chờ thực hiện; đối chiếu bài cũ trước khi viết |
@@ -181,3 +181,14 @@ Bản lưu: [package-11-bilingual.json](./package-11-bilingual.json). Đã nhậ
 - [Michał Kalecki](https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/) · [EN](https://daututuonglai.vn/en/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/)
 
 Bản lưu: [package-12-bilingual.json](./package-12-bilingual.json). Nhập 89 chuỗi EN; kiểm tra toàn bộ đoạn, tiêu đề, chú thích, năm mô tả ngắn EN và ảnh tải đúng. Sismondi dùng tranh Amélie Munier-Romilly thuộc phạm vi công cộng; Modigliani (Umofomia, bản cắt JB Hoang Tam 2, CC BY-SA 3.0); Mas-Colell (George M. Bergman, CC BY-SA 4.0); Kalecki (chân dung Manuel García Jódar, CC BY 2.5 ES). Simões Lopes dùng minh họa AI tham chiếu RSAI, ghi nhãn VI/EN. Ảnh WebP tối đa 800 px; object-fit: contain trên danh mục. Không thay theme.
+
+
+## Gói 13 đã xuất bản — 14/11/2026
+
+- [János Kornai](https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/) · [EN](https://daututuonglai.vn/en/2026/11/14/janos-kornai-ngan-sach-mem/)
+- [Wassily Leontief](https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/) · [EN](https://daututuonglai.vn/en/2026/11/14/wassily-leontief-dau-vao-dau-ra/)
+- [Mikhail Tugan-Baranovsky](https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/) · [EN](https://daututuonglai.vn/en/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/)
+- [Robert Mundell](https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/) · [EN](https://daututuonglai.vn/en/2026/11/14/robert-mundell-tien-te-va-danh-doi/)
+- [Max Corden](https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/) · [EN](https://daututuonglai.vn/en/2026/11/14/max-corden-thuong-mai-va-chi-phi/)
+
+Bản lưu: [package-13-bilingual.json](./package-13-bilingual.json). Đã nhập 89 chuỗi EN; kiểm tra đủ từng đoạn, tiêu đề, chú thích và năm mô tả ngắn EN. Bốn chân dung tư liệu có ghi nguồn, tác giả và giấy phép; Max Corden dùng minh họa AI tham chiếu, ghi nhãn VI/EN. Năm ảnh WebP tải được, object-fit: contain trên danh mục. Không thay theme.
