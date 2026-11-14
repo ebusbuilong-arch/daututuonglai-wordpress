@@ -1,0 +1,1 @@
+DTTLTools.register('recovery', (v,{t,fmt}) => ({stats:[[t('Mức giảm','Loss'),fmt(v.drop)+'%'],[t('Mức tăng cần thiết','Required gain'),v.drop===100?t('Không thể hòa vốn bằng tỷ lệ tăng từ số dư 0.','No finite percentage gain can recover from a zero balance.'):fmt(v.drop/(100-v.drop)*100)+'%']]}));

@@ -23,8 +23,9 @@ def digest(data):
 def allowed(name):
     live_mp3 = name == 'wp-content/mu-plugins/dttl-live-mp3.php' or name.startswith('wp-content/mu-plugins/dttl-live-mp3/')
     lesson_recordings = name == 'wp-content/mu-plugins/dttl-lesson-recordings.php'
+    tools_hub = name == 'wp-content/mu-plugins/dttl-tools-hub.php' or name.startswith('wp-content/mu-plugins/dttl-tools-hub/')
     ga4 = name == 'wp-content/mu-plugins/dttl-ga4.php'
-    return ((live_mp3 or lesson_recordings or ga4 or name.startswith(PREFIXES)) and not any(p.startswith('.') or p == '..'
+    return ((live_mp3 or lesson_recordings or ga4 or tools_hub or name.startswith(PREFIXES)) and not any(p.startswith('.') or p == '..'
             for p in PurePosixPath(name).parts) and
             PurePosixPath(name).suffix.lower() in {'.php', '.js', '.css', '.html', '.json', '.svg', '.png', '.jpg', '.webp', '.woff', '.woff2'})
 

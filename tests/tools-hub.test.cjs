@@ -1,0 +1,13 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+const calc={};for(const key of ['profit','average','recovery','allocation','compound'])vm.runInNewContext(fs.readFileSync('wp-content/mu-plugins/dttl-tools-hub/modules/'+key+'.js','utf8'),{DTTLTools:{register:(k,f)=>calc[k]=f}});
+const ctx={t:(vi,en)=>en,fmt:n=>n};
+let r=calc.profit({buy:20000,sell:22000,qty:100,bfee:.15,sfee:.15,tax:.1},ctx);assert.match(r.stats[2][1],/^191500/);
+assert.throws(()=>calc.profit({buy:0},ctx));assert.throws(()=>calc.profit({buy:1,sfee:50,tax:50},ctx));
+r=calc.average({p1:20000,q1:100,p2:22000,q2:100,p3:0,q3:0,cost:1000},ctx);assert.equal(r.stats[2][1],21005);
+assert.throws(()=>calc.average({p1:1,q1:0,p2:0,q2:0,p3:0,q3:0,cost:0},ctx));
+assert.equal(calc.recovery({drop:20},ctx).stats[1][1],'25%');assert.equal(calc.recovery({drop:50},ctx).stats[1][1],'100%');assert.match(calc.recovery({drop:100},ctx).stats[1][1],/No finite/);
+assert.throws(()=>calc.allocation({capital:100,w1:25,w2:25,w3:25,w4:24},ctx));assert.equal(calc.allocation({capital:100,w1:40,w2:30,w3:20,w4:10},ctx).stats[3][1],'10 VND');
+r=calc.compound({initial:1000,monthly:100,rate:0,years:2},ctx);assert.equal(r.rows[2][2],3400);assert.equal(r.rows[2][3],0);
+r=calc.compound({initial:1000,monthly:0,rate:10,years:1},ctx);assert.ok(Math.abs(r.rows[1][2]-1100)<1e-8);
+r=calc.compound({initial:1000,monthly:0,rate:-50,years:1},ctx);assert.ok(Math.abs(r.rows[1][2]-500)<1e-8);
+console.log('PASS: fees, average cost, recovery, allocation validation, zero/positive/negative compound returns');

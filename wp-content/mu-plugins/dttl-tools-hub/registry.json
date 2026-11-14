@@ -1,0 +1,388 @@
+{
+  "profit": {
+    "slug": "tinh-lai-lo",
+    "title": [
+      "Tính lãi/lỗ sau phí",
+      "Profit and loss after fees"
+    ],
+    "description": [
+      "Tính kết quả một giao dịch mua rồi bán, gồm phí và thuế do bạn nhập.",
+      "Calculate one buy-and-sell trade using your own fees and taxes."
+    ],
+    "fields": [
+      {
+        "id": "buy",
+        "label": [
+          "Giá mua / đơn vị",
+          "Buy price / unit"
+        ],
+        "value": 20000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "sell",
+        "label": [
+          "Giá bán / đơn vị",
+          "Sell price / unit"
+        ],
+        "value": 22000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "qty",
+        "label": [
+          "Số lượng",
+          "Quantity"
+        ],
+        "value": 100,
+        "min": 1e-08,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "bfee",
+        "label": [
+          "Phí mua (%)",
+          "Buy fee (%)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 99,
+        "step": "any"
+      },
+      {
+        "id": "sfee",
+        "label": [
+          "Phí bán (%)",
+          "Sell fee (%)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 99,
+        "step": "any"
+      },
+      {
+        "id": "tax",
+        "label": [
+          "Thuế trên giá trị bán (%)",
+          "Tax on sale value (%)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 99,
+        "step": "any"
+      }
+    ],
+    "note": [
+      "Vốn mua = giá mua × số lượng × (1 + phí mua). Tiền bán ròng = giá bán × số lượng × (1 − phí bán − thuế). Lãi/lỗ = tiền bán ròng − vốn mua. Phí mặc định 0 để bạn tự nhập; chưa tính lãi vay, cổ tức, trượt giá hoặc phí cố định.",
+      "Purchase cost = buy price × quantity × (1 + buy fee). Net proceeds = sell price × quantity × (1 − sell fee − tax). Profit/loss = net proceeds − purchase cost. Fees default to zero for you to enter; financing, dividends, slippage and fixed fees are excluded."
+    ]
+  },
+  "average": {
+    "slug": "gia-von-binh-quan",
+    "title": [
+      "Giá vốn bình quân",
+      "Average cost"
+    ],
+    "description": [
+      "Tính giá vốn của tối đa ba lần mua cùng một tài sản.",
+      "Calculate the average cost of up to three purchases of the same asset."
+    ],
+    "fields": [
+      {
+        "id": "p1",
+        "label": [
+          "Giá mua lần 1",
+          "Purchase 1 price"
+        ],
+        "value": 20000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "q1",
+        "label": [
+          "Số lượng lần 1",
+          "Purchase 1 quantity"
+        ],
+        "value": 100,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "p2",
+        "label": [
+          "Giá mua lần 2",
+          "Purchase 2 price"
+        ],
+        "value": 22000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "q2",
+        "label": [
+          "Số lượng lần 2",
+          "Purchase 2 quantity"
+        ],
+        "value": 100,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "p3",
+        "label": [
+          "Giá mua lần 3",
+          "Purchase 3 price"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "q3",
+        "label": [
+          "Số lượng lần 3",
+          "Purchase 3 quantity"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "cost",
+        "label": [
+          "Tổng phí mua",
+          "Total purchase fees"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      }
+    ],
+    "note": [
+      "Giá vốn = (tổng giá trị mua + tổng phí) ÷ tổng số lượng. Để số lượng 0 ở lần không sử dụng. Chưa xử lý bán bớt, chia tách, cổ tức cổ phiếu hoặc quyền mua.",
+      "Average cost = (total purchase value + total fees) ÷ total quantity. Set unused quantities to zero. Partial sales, splits, stock dividends and rights issues are not included."
+    ]
+  },
+  "recovery": {
+    "slug": "tang-de-hoa-von",
+    "title": [
+      "Mức tăng để hòa vốn",
+      "Break-even recovery"
+    ],
+    "description": [
+      "Xem mức tăng cần thiết sau khi khoản đầu tư giảm giá.",
+      "Find the gain needed to recover from a loss."
+    ],
+    "fields": [
+      {
+        "id": "drop",
+        "label": [
+          "Mức giảm (%)",
+          "Loss (%)"
+        ],
+        "value": 20,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      }
+    ],
+    "note": [
+      "Mức tăng cần thiết = mức giảm ÷ (100 − mức giảm) × 100%. Ví dụ giảm 20% cần tăng 25%. Chưa tính phí, thuế hoặc góp thêm vốn.",
+      "Required gain = loss ÷ (100 − loss) × 100%. A 20% loss requires a 25% gain. Fees, taxes and additional contributions are excluded."
+    ]
+  },
+  "allocation": {
+    "slug": "phan-bo-von",
+    "title": [
+      "Phân bổ vốn",
+      "Capital allocation"
+    ],
+    "description": [
+      "Chia số vốn theo tỷ trọng bạn tự chọn.",
+      "Divide capital using your chosen weights."
+    ],
+    "fields": [
+      {
+        "id": "capital",
+        "label": [
+          "Tổng vốn (VNĐ)",
+          "Total capital (VND)"
+        ],
+        "value": 100000000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "w1",
+        "label": [
+          "Nhóm tài sản 1 (%)",
+          "Asset group 1 (%)"
+        ],
+        "value": 40,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "w2",
+        "label": [
+          "Nhóm tài sản 2 (%)",
+          "Asset group 2 (%)"
+        ],
+        "value": 30,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "w3",
+        "label": [
+          "Nhóm tài sản 3 (%)",
+          "Asset group 3 (%)"
+        ],
+        "value": 20,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "w4",
+        "label": [
+          "Tiền dự phòng (%)",
+          "Cash reserve (%)"
+        ],
+        "value": 10,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      }
+    ],
+    "note": [
+      "Tổng tỷ trọng phải bằng 100%. Công cụ chỉ chia số tiền, không đề xuất danh mục đầu tư.",
+      "Weights must total 100%. This tool divides amounts; it does not recommend a portfolio."
+    ]
+  },
+  "compound": {
+    "slug": "lai-kep",
+    "title": [
+      "Tính lãi kép",
+      "Compound growth"
+    ],
+    "description": [
+      "Ước tính tăng trưởng khi góp thêm tiền đều đặn mỗi tháng.",
+      "Estimate growth with regular monthly contributions."
+    ],
+    "fields": [
+      {
+        "id": "initial",
+        "label": [
+          "Vốn ban đầu (VNĐ)",
+          "Initial capital (VND)"
+        ],
+        "value": 10000000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "monthly",
+        "label": [
+          "Góp mỗi tháng (VNĐ)",
+          "Monthly contribution (VND)"
+        ],
+        "value": 1000000,
+        "min": 0,
+        "max": 1000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "rate",
+        "label": [
+          "Lợi suất giả định / năm (%)",
+          "Assumed annual return (%)"
+        ],
+        "value": 6,
+        "min": -90,
+        "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "years",
+        "label": [
+          "Số năm",
+          "Years"
+        ],
+        "value": 10,
+        "min": 1,
+        "max": 50,
+        "step": 1
+      }
+    ],
+    "note": [
+      "Quy đổi lợi suất năm hiệu dụng sang tháng: (1 + r)^(1/12) − 1; góp tiền cuối mỗi tháng. Không tính thuế, phí hoặc lạm phát. Lợi suất giả định cố định không phải dự báo hay cam kết lợi nhuận.",
+      "Effective annual return is converted to a monthly rate: (1 + r)^(1/12) − 1. Contributions are made at month-end. Taxes, fees and inflation are excluded. A fixed assumed return is not a forecast or guarantee."
+    ]
+  },
+  "journal": {
+    "slug": "nhat-ky-dau-tu",
+    "title": [
+      "Nhật ký đầu tư",
+      "Investment journal"
+    ],
+    "description": [
+      "Tải mẫu CSV để ghi lý do, rủi ro và bài học sau mỗi giao dịch.",
+      "Download a CSV template to record reasons, risks and lessons from each trade."
+    ],
+    "fields": [],
+    "note": [
+      "",
+      ""
+    ]
+  },
+  "checklist": {
+    "slug": "checklist-dau-tu",
+    "title": [
+      "Checklist trước giao dịch",
+      "Pre-trade checklist"
+    ],
+    "description": [
+      "Rà soát thông tin, chi phí và khả năng chịu rủi ro trước khi quyết định.",
+      "Review information, costs and risk tolerance before deciding."
+    ],
+    "fields": [],
+    "note": [
+      "",
+      ""
+    ]
+  },
+  "progress": {
+    "slug": "tien-do-hoc",
+    "title": [
+      "Tiến độ học",
+      "Learning progress"
+    ],
+    "description": [
+      "Theo dõi 7 ngày học và các bài đã đọc bằng dữ liệu hiện có.",
+      "Track your seven learning days and read articles using your existing progress."
+    ],
+    "fields": [],
+    "note": [
+      "",
+      ""
+    ]
+  }
+}
