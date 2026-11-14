@@ -1,0 +1,562 @@
+[
+  {
+    "key": "janos-kornai",
+    "slug": "janos-kornai-ngan-sach-mem",
+    "title": "János Kornai: Khi kỳ vọng được cứu làm thay đổi quyết định",
+    "title_en": "János Kornai: How expected rescue changes decisions",
+    "excerpt": "Nhà kinh tế Hungary và khái niệm ràng buộc ngân sách mềm: điều quan trọng nằm ở kỳ vọng trước khi khó khăn xảy ra.",
+    "excerpt_en": "The Hungarian economist and the soft budget constraint: expectations matter before financial trouble arrives.",
+    "credit": "János Kornai năm 2005. Ảnh: Szabó Katalin; CC BY-SA 4.0.",
+    "credit_en": "János Kornai in 2005. Photograph: Szabó Katalin; CC BY-SA 4.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Janos_Kornai_2005.jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sources": [
+      {
+        "label": "Harvard — In memoriam János Kornai",
+        "url": "https://www.economics.harvard.edu/news/memoriam-j%C3%A1nos-kornai-1928-2021"
+      },
+      {
+        "label": "Kornai, Maskin and Roland — Understanding the Soft Budget Constraint",
+        "url": "https://www.aeaweb.org/articles?id=10.1257/002205103771799999"
+      },
+      {
+        "label": "Kornai — The Soft Budget Constraint, 1986",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-6435.1986.tb01252.x"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một đơn vị sẽ quyết định chi tiêu thế nào nếu tin rằng khi thiếu tiền luôn có người khác bù vào? Câu hỏi này giúp tiếp cận một đóng góp nổi bật của János Kornai. Vấn đề không chỉ là khoản lỗ đã xảy ra, mà còn là kỳ vọng về cách xử lý khoản lỗ ấy tác động ngược trở lại hành vi trước đó. Khi trách nhiệm và quyền quyết định tách xa nhau, động cơ có thể thay đổi.",
+        "en": "How does an organization spend when it expects someone else to cover a shortfall? This question introduces János Kornai’s work. The issue is not just an existing loss: expected responses to future losses can alter decisions made today, especially when authority and responsibility diverge."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một học giả Hungary nghiên cứu hệ thống kinh tế",
+        "en": "A Hungarian scholar of economic systems"
+      },
+      {
+        "tag": "p",
+        "vi": "Kornai sống từ năm 1928 đến 2021 và có sự nghiệp gắn với Hungary cùng Harvard. Ông giữ ghế giáo sư Allie S. Freed tại Harvard từ năm 1986 đến 2002. Cuốn Economics of Shortage năm 1980 giúp phổ biến những phân tích của ông về thiếu hụt kéo dài trong các nền kinh tế xã hội chủ nghĩa. [1] Ông nghiên cứu cơ chế của cả hệ thống, thay vì xem mọi vấn đề chỉ là sai sót của một người quản lý.",
+        "en": "Kornai lived from 1928 to 2021, working in Hungary and at Harvard, where he held the Allie S. Freed chair from 1986 to 2002. His 1980 Economics of Shortage examined persistent shortages in socialist economies. [1] His focus was systemic mechanisms, not merely individual managerial errors."
+      },
+      {
+        "tag": "p",
+        "vi": "Trong các tranh luận chuyển đổi kinh tế ở Đông Âu, tiếng nói của ông có ảnh hưởng lớn. [1] Tuy nhiên, khái niệm ngân sách mềm không chỉ được dùng cho một loại chế độ. Bài tổng quan năm 2003 của Kornai, Eric Maskin và Gérard Roland bàn hiện tượng trong các nền kinh tế xã hội chủ nghĩa, chuyển đổi và thị trường. [2] Điều cần tìm là cấu trúc quan hệ và kỳ vọng cụ thể, không phải nhãn gọi của tổ chức.",
+        "en": "He influenced Eastern Europe’s transition debates. [1] Yet soft budget constraints are not confined to one system: the 2003 review by Kornai, Eric Maskin and Gérard Roland discusses socialist, transitional and market economies. [2] The relevant issue is relationships and expectations, not an organizational label."
+      },
+      {
+        "tag": "h2",
+        "vi": "Ngân sách mềm là vấn đề động cơ qua thời gian",
+        "en": "A soft budget constraint concerns incentives over time"
+      },
+      {
+        "tag": "p",
+        "vi": "Có thể hiểu sơ bộ rằng một giới hạn ngân sách trở nên mềm khi đơn vị tin việc vượt giới hạn sẽ được điều chỉnh bằng hỗ trợ từ bên ngoài. Kỳ vọng ấy có thể làm giảm sức ép lựa chọn dự án, kiểm soát chi phí hoặc dừng hoạt động kém hiệu quả. [2][3] Đây là mô tả một cơ chế cần được kiểm chứng, không phải kết luận mọi đơn vị nhận trợ cấp đều quản trị yếu.",
+        "en": "Broadly, a budget constraint softens when an organization expects outside support to accommodate overruns. Such expectations can weaken project selection, cost control or exit discipline. [2][3] This is a testable mechanism, not a claim that every subsidized organization is poorly managed."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một bộ phận được giao hạn mức nhưng cuối kỳ luôn được bổ sung, bất kể kết quả. Người phụ trách có thể ưu tiên mở rộng hơn là cân đối nguồn lực, vì chi phí vượt kế hoạch không do bộ phận chịu đầy đủ. Muốn kiểm tra cần xem quy định, các lần xử lý trước và cách người quản lý dự đoán phản ứng. Chỉ nhìn một khoản lỗ chưa đủ để biết kỳ vọng đó có tồn tại hay không.",
+        "en": "Imagine a division whose annual overspending is always covered regardless of performance. Its manager may favor expansion over resource discipline. Testing this requires rules, past responses and expectations; a single loss does not establish the mechanism."
+      },
+      {
+        "tag": "h2",
+        "vi": "Không đánh đồng mọi cứu trợ với dung túng",
+        "en": "Not every rescue is indulgence"
+      },
+      {
+        "tag": "p",
+        "vi": "Một tổ chức có thể gặp cú sốc ngoài khả năng kiểm soát, và việc hỗ trợ có thể nhằm bảo vệ dịch vụ thiết yếu hoặc hạn chế tác động lan truyền. Câu hỏi là hỗ trợ được thiết kế thế nào, ai chịu tổn thất, có điều kiện cải tổ không và thông điệp gửi tới lần quyết định sau là gì. Phân biệt mục tiêu cứu trợ với tác động động cơ giúp tránh lựa chọn cực đoan giữa luôn cứu và không bao giờ cứu.",
+        "en": "An organization may face an uncontrollable shock, and support may protect essential services or contain spillovers. Ask how assistance is designed, who bears losses, whether reform is required and what future expectations it creates. Rescue objectives and incentive effects should be assessed separately."
+      },
+      {
+        "tag": "p",
+        "vi": "Đây cũng là khác biệt giữa một khoản đầu tư có kế hoạch và một lời bảo đảm ngầm không giới hạn. Đầu tư có thể chấp nhận lỗ trong thời gian đầu nếu có tiêu chí, nguồn vốn và điều kiện dừng rõ. Vấn đề xuất hiện khi tiêu chí liên tục được thay đổi để tránh thừa nhận kết quả xấu. Nhận xét này là liên hệ quản trị của chuyên mục, không phải công thức định lượng trực tiếp từ Kornai.",
+        "en": "Planned investment with early losses can have funding, milestones and stopping rules. That differs from an implicit unlimited guarantee, particularly when criteria continually change to avoid acknowledging failure. This is an editorial management application, not a quantitative rule from Kornai."
+      },
+      {
+        "tag": "h2",
+        "vi": "Muốn thay hành vi phải xem cả quan hệ tài trợ",
+        "en": "Changing behavior requires examining funding relationships"
+      },
+      {
+        "tag": "p",
+        "vi": "Yêu cầu tiết kiệm trên giấy có thể không đủ nếu mọi bên vẫn dự đoán cuối cùng sẽ được cấp bù. Ngược lại, một giới hạn quá cứng mà bỏ qua nhiệm vụ công hoặc cú sốc bất thường cũng có thể gây tổn hại. Do đó, cần làm rõ trách nhiệm, thông tin và cách xử lý ngoại lệ. Điều quan trọng là tính đáng tin của quy tắc thực tế, không chỉ sự nghiêm khắc của lời tuyên bố.",
+        "en": "Written austerity rules may do little if everyone expects a later top-up. Conversely, rigid limits that ignore public duties or exceptional shocks can cause damage. Responsibility, information and exception procedures matter; credibility is more important than harsh rhetoric."
+      },
+      {
+        "tag": "p",
+        "vi": "Độc giả Việt Nam có thể dùng cách hỏi này khi đọc báo cáo dự án hoặc phương án tái cơ cấu: dòng tiền nào tự tạo ra, khoản nào phụ thuộc cấp thêm, quyền quyết định thuộc ai và kịch bản không đạt mục tiêu đã được công bố chưa. Không nên dùng khái niệm để buộc tội một doanh nghiệp khi chưa có dữ liệu. Giá trị của nó nằm ở việc làm rõ cơ chế, không thay thế điều tra bằng một nhãn phán xét.",
+        "en": "Vietnamese readers can examine projects or restructuring plans by separating internally generated cash from additional funding and identifying authority and failure scenarios. Without evidence, the concept should not become an accusation against a firm. It clarifies mechanisms rather than replacing investigation."
+      },
+      {
+        "tag": "p",
+        "vi": "Di sản Kornai nhắc rằng kết quả tài chính không thể tách khỏi kỳ vọng và thể chế. Muốn hiểu vì sao một hành vi lặp lại, hãy xem điều gì khiến người thực hiện tin đó là lựa chọn hợp lý đối với họ. Một thay đổi bền vững cần tác động vào mối quan hệ ấy, đồng thời minh bạch chi phí xã hội của quá trình điều chỉnh.",
+        "en": "Kornai’s legacy connects financial outcomes to expectations and institutions. To understand repeated behavior, examine why participants consider it reasonable. Durable reform must address those relationships while acknowledging the social costs of adjustment."
+      }
+    ],
+    "html": "<p><em>János Kornai năm 2005. Ảnh: Szabó Katalin; CC BY-SA 4.0.</em></p>\n<p>Một đơn vị sẽ quyết định chi tiêu thế nào nếu tin rằng khi thiếu tiền luôn có người khác bù vào? Câu hỏi này giúp tiếp cận một đóng góp nổi bật của János Kornai. Vấn đề không chỉ là khoản lỗ đã xảy ra, mà còn là kỳ vọng về cách xử lý khoản lỗ ấy tác động ngược trở lại hành vi trước đó. Khi trách nhiệm và quyền quyết định tách xa nhau, động cơ có thể thay đổi.</p>\n<h2>Một học giả Hungary nghiên cứu hệ thống kinh tế</h2>\n<p>Kornai sống từ năm 1928 đến 2021 và có sự nghiệp gắn với Hungary cùng Harvard. Ông giữ ghế giáo sư Allie S. Freed tại Harvard từ năm 1986 đến 2002. Cuốn Economics of Shortage năm 1980 giúp phổ biến những phân tích của ông về thiếu hụt kéo dài trong các nền kinh tế xã hội chủ nghĩa. [1] Ông nghiên cứu cơ chế của cả hệ thống, thay vì xem mọi vấn đề chỉ là sai sót của một người quản lý.</p>\n<p>Trong các tranh luận chuyển đổi kinh tế ở Đông Âu, tiếng nói của ông có ảnh hưởng lớn. [1] Tuy nhiên, khái niệm ngân sách mềm không chỉ được dùng cho một loại chế độ. Bài tổng quan năm 2003 của Kornai, Eric Maskin và Gérard Roland bàn hiện tượng trong các nền kinh tế xã hội chủ nghĩa, chuyển đổi và thị trường. [2] Điều cần tìm là cấu trúc quan hệ và kỳ vọng cụ thể, không phải nhãn gọi của tổ chức.</p>\n<h2>Ngân sách mềm là vấn đề động cơ qua thời gian</h2>\n<p>Có thể hiểu sơ bộ rằng một giới hạn ngân sách trở nên mềm khi đơn vị tin việc vượt giới hạn sẽ được điều chỉnh bằng hỗ trợ từ bên ngoài. Kỳ vọng ấy có thể làm giảm sức ép lựa chọn dự án, kiểm soát chi phí hoặc dừng hoạt động kém hiệu quả. [2][3] Đây là mô tả một cơ chế cần được kiểm chứng, không phải kết luận mọi đơn vị nhận trợ cấp đều quản trị yếu.</p>\n<p>Ví dụ giả định: một bộ phận được giao hạn mức nhưng cuối kỳ luôn được bổ sung, bất kể kết quả. Người phụ trách có thể ưu tiên mở rộng hơn là cân đối nguồn lực, vì chi phí vượt kế hoạch không do bộ phận chịu đầy đủ. Muốn kiểm tra cần xem quy định, các lần xử lý trước và cách người quản lý dự đoán phản ứng. Chỉ nhìn một khoản lỗ chưa đủ để biết kỳ vọng đó có tồn tại hay không.</p>\n<h2>Không đánh đồng mọi cứu trợ với dung túng</h2>\n<p>Một tổ chức có thể gặp cú sốc ngoài khả năng kiểm soát, và việc hỗ trợ có thể nhằm bảo vệ dịch vụ thiết yếu hoặc hạn chế tác động lan truyền. Câu hỏi là hỗ trợ được thiết kế thế nào, ai chịu tổn thất, có điều kiện cải tổ không và thông điệp gửi tới lần quyết định sau là gì. Phân biệt mục tiêu cứu trợ với tác động động cơ giúp tránh lựa chọn cực đoan giữa luôn cứu và không bao giờ cứu.</p>\n<p>Đây cũng là khác biệt giữa một khoản đầu tư có kế hoạch và một lời bảo đảm ngầm không giới hạn. Đầu tư có thể chấp nhận lỗ trong thời gian đầu nếu có tiêu chí, nguồn vốn và điều kiện dừng rõ. Vấn đề xuất hiện khi tiêu chí liên tục được thay đổi để tránh thừa nhận kết quả xấu. Nhận xét này là liên hệ quản trị của chuyên mục, không phải công thức định lượng trực tiếp từ Kornai.</p>\n<h2>Muốn thay hành vi phải xem cả quan hệ tài trợ</h2>\n<p>Yêu cầu tiết kiệm trên giấy có thể không đủ nếu mọi bên vẫn dự đoán cuối cùng sẽ được cấp bù. Ngược lại, một giới hạn quá cứng mà bỏ qua nhiệm vụ công hoặc cú sốc bất thường cũng có thể gây tổn hại. Do đó, cần làm rõ trách nhiệm, thông tin và cách xử lý ngoại lệ. Điều quan trọng là tính đáng tin của quy tắc thực tế, không chỉ sự nghiêm khắc của lời tuyên bố.</p>\n<p>Độc giả Việt Nam có thể dùng cách hỏi này khi đọc báo cáo dự án hoặc phương án tái cơ cấu: dòng tiền nào tự tạo ra, khoản nào phụ thuộc cấp thêm, quyền quyết định thuộc ai và kịch bản không đạt mục tiêu đã được công bố chưa. Không nên dùng khái niệm để buộc tội một doanh nghiệp khi chưa có dữ liệu. Giá trị của nó nằm ở việc làm rõ cơ chế, không thay thế điều tra bằng một nhãn phán xét.</p>\n<p>Di sản Kornai nhắc rằng kết quả tài chính không thể tách khỏi kỳ vọng và thể chế. Muốn hiểu vì sao một hành vi lặp lại, hãy xem điều gì khiến người thực hiện tin đó là lựa chọn hợp lý đối với họ. Một thay đổi bền vững cần tác động vào mối quan hệ ấy, đồng thời minh bạch chi phí xã hội của quá trình điều chỉnh.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.economics.harvard.edu/news/memoriam-j%C3%A1nos-kornai-1928-2021\">Harvard — In memoriam János Kornai</a></li><li><a href=\"https://www.aeaweb.org/articles?id=10.1257/002205103771799999\">Kornai, Maskin and Roland — Understanding the Soft Budget Constraint</a></li><li><a href=\"https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-6435.1986.tb01252.x\">Kornai — The Soft Budget Constraint, 1986</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Janos_Kornai_2005.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/\">Michał Kalecki: Đầu tư, việc làm và những điều kiện phía sau</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/",
+      "title": "Michał Kalecki: Đầu tư, việc làm và những điều kiện phía sau",
+      "title_en": "Michał Kalecki: Investment, employment and the conditions behind them"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/janos-kornai.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/janos-kornai-ngan-sach-mem/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1934&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/janos-kornai-ngan-sach-mem/"
+  },
+  {
+    "key": "wassily-leontief",
+    "slug": "wassily-leontief-dau-vao-dau-ra",
+    "title": "Wassily Leontief: Một ngành thay đổi, cả mạng lưới chuyển động",
+    "title_en": "Wassily Leontief: How one industry connects to the wider economy",
+    "excerpt": "Phân tích đầu vào–đầu ra giúp nhìn sau một sản phẩm để thấy những ngành cùng tham gia tạo ra nó.",
+    "excerpt_en": "Input-output analysis looks behind a product to reveal the industries involved in producing it.",
+    "credit": "Wassily Leontief năm 1973. Ảnh: Keystone; phạm vi công cộng tại Mỹ theo Wikimedia Commons.",
+    "credit_en": "Wassily Leontief in 1973. Photograph: Keystone; public domain in the United States according to Wikimedia Commons.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Wassily_Leontief_1973.jpg",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sources": [
+      {
+        "label": "Harvard — Wassily W. Leontief memorial",
+        "url": "https://news.harvard.edu/gazette/story/2002/11/faculty-of-arts-and-sciences-memorial-minute-3/"
+      },
+      {
+        "label": "BEA — Wassily Leontief",
+        "url": "https://apps.bea.gov/scb/issues/2020/12-december/1220-influencer-leontief.htm"
+      },
+      {
+        "label": "Nobel Prize — Wassily Leontief",
+        "url": "https://www.nobelprize.org/prizes/economic-sciences/1973/leontief/facts/"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một chiếc áo không chỉ là sản phẩm của xưởng may. Nó còn chứa đóng góp của ngành sợi, dệt, điện, vận tải, máy móc và nhiều dịch vụ khác. Wassily Leontief giúp biến trực giác về sự liên kết ấy thành một phương pháp phân tích có số liệu. Thay vì nhìn các ngành như những hộp tách rời, ông đặt câu hỏi mỗi ngành mua gì từ ngành khác và bán sản phẩm cho ai.",
+        "en": "A shirt involves more than a sewing workshop: fibers, textiles, electricity, transport, machinery and services all contribute. Wassily Leontief turned this intuition about interdependence into quantitative analysis, asking what each industry buys from others and where its output goes."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ đào tạo ở châu Âu đến nghiên cứu tại Mỹ",
+        "en": "From European training to research in America"
+      },
+      {
+        "tag": "p",
+        "vi": "Leontief học tại Leningrad và Berlin, nhận bằng tiến sĩ năm 1928. Ông sang Mỹ năm 1931 và có sự nghiệp nghiên cứu lâu dài tại Harvard, sau đó chuyển tới New York University năm 1975. [1] Ông là nhà kinh tế Mỹ gốc Nga; câu chuyện của ông đi qua nhiều môi trường học thuật, nên không nên giản lược lịch sử nghiên cứu thành thành tựu tách biệt của riêng một quốc gia.",
+        "en": "Leontief studied in Leningrad and Berlin, earned his doctorate in 1928 and moved to the United States in 1931. After a long Harvard career he moved to New York University in 1975. [1] The Russian-American economist’s work developed across several academic environments."
+      },
+      {
+        "tag": "p",
+        "vi": "Năm 1973, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho phương pháp đầu vào–đầu ra và các ứng dụng. [2][3] Một đặc điểm nổi bật trong công việc của ông là yêu cầu kết nối lý thuyết với đo lường. Mô hình cần được chuyển thành những đại lượng có thể quan sát và ước lượng, dù việc thu thập dữ liệu và tính toán thời đó khó khăn hơn rất nhiều so với hôm nay. [1]",
+        "en": "He received the 1973 economics memorial prize for the input-output method and its applications. [2][3] His work emphasized measurement: theoretical concepts should become observable, estimable quantities despite the considerable data and computing constraints of his era. [1]"
+      },
+      {
+        "tag": "h2",
+        "vi": "Bảng đầu vào–đầu ra nhìn những dòng giao dịch nào?",
+        "en": "What does an input-output table track?"
+      },
+      {
+        "tag": "p",
+        "vi": "Ở mức nhập môn, bảng ghi lại việc ngành này sử dụng sản phẩm của ngành khác để sản xuất. Một phần sản lượng được dùng làm đầu vào trung gian, phần khác đáp ứng nhu cầu cuối cùng. Từ các mối liên hệ ấy, có thể phân tích tác động trực tiếp và gián tiếp của thay đổi nhu cầu trong những giả định nhất định. [2][3] Đây là công cụ mô tả cấu trúc, không phải phép nhân tự động biến mọi khoản chi thành lợi ích ròng.",
+        "en": "An input-output table records how industries use one another’s products. Some output becomes intermediate input and some serves final demand. Under stated assumptions, these links help assess direct and indirect effects. [2][3] This is not an automatic multiplier turning every expense into net benefit."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: nhu cầu áo tăng khiến xưởng đặt thêm vải. Nhà dệt mua thêm sợi, sử dụng thêm điện và thuê vận chuyển. Nếu chỉ đếm doanh thu ở từng khâu rồi cộng toàn bộ như giá trị mới tạo ra, người phân tích có thể tính trùng. Cần phân biệt tổng sản lượng, giá trị gia tăng và chi tiêu cuối cùng. Những khái niệm này trả lời các câu hỏi khác nhau, nên không được dùng thay thế tùy tiện.",
+        "en": "Suppose higher shirt demand leads workshops to buy fabric, weavers to buy yarn, and both to use electricity and transport. Summing every sale as newly created value can double-count. Gross output, value added and final expenditure answer different questions and must remain distinct."
+      },
+      {
+        "tag": "h2",
+        "vi": "Sự liên kết cũng truyền đi các cú sốc",
+        "en": "Connections can transmit shocks"
+      },
+      {
+        "tag": "p",
+        "vi": "Cùng một mạng lưới có thể truyền nhu cầu tăng hoặc truyền khó khăn. Thiếu một đầu vào khó thay thế có thể làm chậm hoạt động ở nhiều nơi; giá năng lượng tăng có thể tác động qua nhiều vòng chi phí. Ví dụ này là diễn giải ứng dụng của chuyên mục. Để lượng hóa cần biết doanh nghiệp có tồn kho, nhà cung cấp thay thế hoặc công nghệ tiết kiệm đầu vào hay không, thay vì chỉ quan sát một đường liên kết trên sơ đồ.",
+        "en": "Networks can transmit growth or disruption. A hard-to-replace input can delay many activities, while energy costs can pass through several stages. Quantification requires evidence on inventories, alternative suppliers and technology, not merely a connection drawn on a diagram."
+      },
+      {
+        "tag": "p",
+        "vi": "Vì thế, một ngành có quy mô nhỏ vẫn có thể quan trọng nếu cung cấp đầu vào đặc biệt. Nhưng tính quan trọng không đồng nghĩa có thể xác định ngay lợi nhuận của mọi doanh nghiệp trong ngành. Giá bán, hợp đồng, cạnh tranh và khả năng thay thế có thể làm kết quả khác nhau. Phân tích cấu trúc giúp phát hiện câu hỏi cần điều tra; nó không thay cho việc đọc dữ liệu tài chính của từng đơn vị.",
+        "en": "A small industry may matter if it supplies a critical input. That does not determine every supplier’s profitability: contracts, competition and substitution matter. Structural analysis identifies questions for investigation, not a replacement for firm-level financial evidence."
+      },
+      {
+        "tag": "h2",
+        "vi": "Giả định cố định cần được nhớ khi thực tế thay đổi",
+        "en": "Remember fixed assumptions when conditions change"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong mô hình cơ bản, các hệ số đầu vào được coi tương đối cố định. [1] Nhưng doanh nghiệp thực tế có thể thay vật liệu, đổi thiết kế, nhập khẩu hoặc tăng năng suất. Nếu dữ liệu lấy từ nhiều năm trước, cấu trúc sản xuất hôm nay có thể đã khác. Do đó, đọc một kết quả cần hỏi năm dữ liệu, phạm vi ngành, cách xử lý nhập khẩu và mô hình có cho phép thay thế đầu vào hay không.",
+        "en": "Basic models treat input coefficients as relatively fixed. [1] Actual firms can change materials, designs, imports and productivity. Results therefore depend on data vintage, sector definitions, import treatment and whether substitution is allowed; older structures may no longer describe current production."
+      },
+      {
+        "tag": "p",
+        "vi": "Một hạn chế khác là năng lực cung ứng. Nếu tăng nhu cầu nhưng nhà xưởng đã chạy hết công suất, không thể giả định sản lượng tăng ngay theo tỷ lệ dự tính. Có thể cần đầu tư thêm, đào tạo hoặc chờ giao máy. Bởi vậy, một ước tính tác động phải được đọc cùng điều kiện thực hiện và thời gian, thay vì chỉ trình bày con số tổng lớn nhất như một kết quả chắc chắn.",
+        "en": "Capacity also matters. Demand increases cannot instantly raise output proportionately when plants are full. Investment, training and equipment delivery take time. Impact estimates should include implementation conditions and timing rather than present the largest total as guaranteed."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thói quen nhìn xuyên qua sản phẩm cuối cùng",
+        "en": "Looking behind the final product"
+      },
+      {
+        "tag": "p",
+        "vi": "Đối với người học và người kinh doanh tại Việt Nam, di sản Leontief gợi một việc rất cụ thể: vẽ lại những đầu vào quan trọng của hoạt động mình đang quan sát, tìm phần phụ thuộc lớn và kiểm tra dữ liệu. Khi đọc một tin kinh tế, đừng chỉ hỏi ngành được nhắc tới có lợi hay bất lợi. Hãy hỏi thay đổi sẽ đi qua ai, theo hợp đồng nào và mất bao lâu để thể hiện trong sản xuất thực tế.",
+        "en": "For Vietnamese readers and businesses, Leontief suggests mapping critical inputs, dependencies and evidence. When reading economic news, ask not just whether the named industry benefits, but through whom effects travel, under which contracts and over what production timetable."
+      }
+    ],
+    "html": "<p><em>Wassily Leontief năm 1973. Ảnh: Keystone; phạm vi công cộng tại Mỹ theo Wikimedia Commons.</em></p>\n<p>Một chiếc áo không chỉ là sản phẩm của xưởng may. Nó còn chứa đóng góp của ngành sợi, dệt, điện, vận tải, máy móc và nhiều dịch vụ khác. Wassily Leontief giúp biến trực giác về sự liên kết ấy thành một phương pháp phân tích có số liệu. Thay vì nhìn các ngành như những hộp tách rời, ông đặt câu hỏi mỗi ngành mua gì từ ngành khác và bán sản phẩm cho ai.</p>\n<h2>Từ đào tạo ở châu Âu đến nghiên cứu tại Mỹ</h2>\n<p>Leontief học tại Leningrad và Berlin, nhận bằng tiến sĩ năm 1928. Ông sang Mỹ năm 1931 và có sự nghiệp nghiên cứu lâu dài tại Harvard, sau đó chuyển tới New York University năm 1975. [1] Ông là nhà kinh tế Mỹ gốc Nga; câu chuyện của ông đi qua nhiều môi trường học thuật, nên không nên giản lược lịch sử nghiên cứu thành thành tựu tách biệt của riêng một quốc gia.</p>\n<p>Năm 1973, ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel cho phương pháp đầu vào–đầu ra và các ứng dụng. [2][3] Một đặc điểm nổi bật trong công việc của ông là yêu cầu kết nối lý thuyết với đo lường. Mô hình cần được chuyển thành những đại lượng có thể quan sát và ước lượng, dù việc thu thập dữ liệu và tính toán thời đó khó khăn hơn rất nhiều so với hôm nay. [1]</p>\n<h2>Bảng đầu vào–đầu ra nhìn những dòng giao dịch nào?</h2>\n<p>Ở mức nhập môn, bảng ghi lại việc ngành này sử dụng sản phẩm của ngành khác để sản xuất. Một phần sản lượng được dùng làm đầu vào trung gian, phần khác đáp ứng nhu cầu cuối cùng. Từ các mối liên hệ ấy, có thể phân tích tác động trực tiếp và gián tiếp của thay đổi nhu cầu trong những giả định nhất định. [2][3] Đây là công cụ mô tả cấu trúc, không phải phép nhân tự động biến mọi khoản chi thành lợi ích ròng.</p>\n<p>Ví dụ giả định: nhu cầu áo tăng khiến xưởng đặt thêm vải. Nhà dệt mua thêm sợi, sử dụng thêm điện và thuê vận chuyển. Nếu chỉ đếm doanh thu ở từng khâu rồi cộng toàn bộ như giá trị mới tạo ra, người phân tích có thể tính trùng. Cần phân biệt tổng sản lượng, giá trị gia tăng và chi tiêu cuối cùng. Những khái niệm này trả lời các câu hỏi khác nhau, nên không được dùng thay thế tùy tiện.</p>\n<h2>Sự liên kết cũng truyền đi các cú sốc</h2>\n<p>Cùng một mạng lưới có thể truyền nhu cầu tăng hoặc truyền khó khăn. Thiếu một đầu vào khó thay thế có thể làm chậm hoạt động ở nhiều nơi; giá năng lượng tăng có thể tác động qua nhiều vòng chi phí. Ví dụ này là diễn giải ứng dụng của chuyên mục. Để lượng hóa cần biết doanh nghiệp có tồn kho, nhà cung cấp thay thế hoặc công nghệ tiết kiệm đầu vào hay không, thay vì chỉ quan sát một đường liên kết trên sơ đồ.</p>\n<p>Vì thế, một ngành có quy mô nhỏ vẫn có thể quan trọng nếu cung cấp đầu vào đặc biệt. Nhưng tính quan trọng không đồng nghĩa có thể xác định ngay lợi nhuận của mọi doanh nghiệp trong ngành. Giá bán, hợp đồng, cạnh tranh và khả năng thay thế có thể làm kết quả khác nhau. Phân tích cấu trúc giúp phát hiện câu hỏi cần điều tra; nó không thay cho việc đọc dữ liệu tài chính của từng đơn vị.</p>\n<h2>Giả định cố định cần được nhớ khi thực tế thay đổi</h2>\n<p>Trong mô hình cơ bản, các hệ số đầu vào được coi tương đối cố định. [1] Nhưng doanh nghiệp thực tế có thể thay vật liệu, đổi thiết kế, nhập khẩu hoặc tăng năng suất. Nếu dữ liệu lấy từ nhiều năm trước, cấu trúc sản xuất hôm nay có thể đã khác. Do đó, đọc một kết quả cần hỏi năm dữ liệu, phạm vi ngành, cách xử lý nhập khẩu và mô hình có cho phép thay thế đầu vào hay không.</p>\n<p>Một hạn chế khác là năng lực cung ứng. Nếu tăng nhu cầu nhưng nhà xưởng đã chạy hết công suất, không thể giả định sản lượng tăng ngay theo tỷ lệ dự tính. Có thể cần đầu tư thêm, đào tạo hoặc chờ giao máy. Bởi vậy, một ước tính tác động phải được đọc cùng điều kiện thực hiện và thời gian, thay vì chỉ trình bày con số tổng lớn nhất như một kết quả chắc chắn.</p>\n<h2>Thói quen nhìn xuyên qua sản phẩm cuối cùng</h2>\n<p>Đối với người học và người kinh doanh tại Việt Nam, di sản Leontief gợi một việc rất cụ thể: vẽ lại những đầu vào quan trọng của hoạt động mình đang quan sát, tìm phần phụ thuộc lớn và kiểm tra dữ liệu. Khi đọc một tin kinh tế, đừng chỉ hỏi ngành được nhắc tới có lợi hay bất lợi. Hãy hỏi thay đổi sẽ đi qua ai, theo hợp đồng nào và mất bao lâu để thể hiện trong sản xuất thực tế.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://news.harvard.edu/gazette/story/2002/11/faculty-of-arts-and-sciences-memorial-minute-3/\">Harvard — Wassily W. Leontief memorial</a></li><li><a href=\"https://apps.bea.gov/scb/issues/2020/12-december/1220-influencer-leontief.htm\">BEA — Wassily Leontief</a></li><li><a href=\"https://www.nobelprize.org/prizes/economic-sciences/1973/leontief/facts/\">Nobel Prize — Wassily Leontief</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Wassily_Leontief_1973.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/mark/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/\">Andreu Mas-Colell: Hiểu thị trường từ những giả định</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/andreu-mas-colell-mo-hinh-va-gia-dinh/",
+      "title": "Andreu Mas-Colell: Hiểu thị trường từ những giả định",
+      "title_en": "Andreu Mas-Colell: Understanding markets through assumptions"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/wassily-leontief.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/wassily-leontief-dau-vao-dau-ra/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1937&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/wassily-leontief-dau-vao-dau-ra/"
+  },
+  {
+    "key": "mikhail-tugan-baranovsky",
+    "slug": "tugan-baranovsky-chu-ky-va-co-cau",
+    "title": "Mikhail Tugan-Baranovsky: Chu kỳ kinh tế và sự lệch nhịp giữa các ngành",
+    "title_en": "Mikhail Tugan-Baranovsky: Cycles and mismatches between industries",
+    "excerpt": "Nhà kinh tế gắn với Ukraine nghiên cứu khủng hoảng công nghiệp, đầu tư và vai trò của hợp tác.",
+    "excerpt_en": "The economist associated with Ukraine who studied industrial crises, investment and cooperation.",
+    "credit": "Mikhail Tugan-Baranovsky, đầu thế kỷ XX; tác giả ảnh chưa rõ, nguồn Wikimedia Commons đánh dấu phạm vi công cộng.",
+    "credit_en": "Mikhail Tugan-Baranovsky, early twentieth century; photographer unknown, marked public domain by Wikimedia Commons.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Mikhail_Ivanovich_Tugan-Baranovskij.jpg",
+    "license": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "sources": [
+      {
+        "label": "Canadian Institute of Ukrainian Studies — Tuhan-Baranovsky",
+        "url": "https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CT%5CU%5CTuhan6BaranovskyMykhailo.htm"
+      },
+      {
+        "label": "Journal of the History of Economic Thought — Pioneer of trade cycle analysis",
+        "url": "https://www.cambridge.org/core/journals/journal-of-the-history-of-economic-thought/article/abs/tuganbaranovsky-as-a-pioneer-of-trade-cycle-analysis/C3C6CCDFBA28DDCA2B89892DD7C9865C"
+      },
+      {
+        "label": "Routledge — Structural theories of the business cycle",
+        "url": "https://www.routledgehistoricalresources.com/economic-thought/sets/business-cycle-theory-part-i/volumes/structural-theories-of-the-business-cycle"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Nền kinh tế có thể gặp khó khăn không chỉ vì làm quá ít, mà còn vì các bộ phận mở rộng không phù hợp với nhau. Một ngành tăng công suất nhanh, ngành khác thiếu đầu vào hoặc không có đủ nhu cầu để hấp thụ sản phẩm. Mikhail Tugan-Baranovsky là một nhân vật giúp giới thiệu cách nhìn chu kỳ từ cơ cấu sản xuất và đầu tư, thay vì chỉ quan sát một con số tăng trưởng chung.",
+        "en": "Economic difficulties can arise not only from producing too little but also from mismatched expansion. One industry grows capacity while others lack inputs or sufficient demand. Mikhail Tugan-Baranovsky introduces a structural view of cycles, production and investment beyond aggregate growth."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một tiểu sử đi qua những thay đổi lịch sử",
+        "en": "A biography across historical change"
+      },
+      {
+        "tag": "p",
+        "vi": "Tugan-Baranovsky, còn được viết là Mykhailo Tuhan-Baranovsky, sinh năm 1865 tại vùng Kharkiv và mất năm 1919 gần Odesa. Ông học tại Kharkiv, tiếp tục nghiên cứu ở Moscow và giảng dạy tại Saint Petersburg. [1] Trong tuyến bài theo quốc gia, ông được giới thiệu gắn với Ukraine, đồng thời ghi nhận sự nghiệp diễn ra trong bối cảnh Đế quốc Nga và những chuyển biến chính trị đầu thế kỷ XX, không áp đơn giản ranh giới hôm nay lên quá khứ.",
+        "en": "Also known as Mykhailo Tuhan-Baranovsky, he was born in the Kharkiv region in 1865 and died near Odesa in 1919. He studied in Kharkiv and Moscow and taught in Saint Petersburg. [1] This series associates him with Ukraine while recognizing the Russian imperial context of his career."
+      },
+      {
+        "tag": "p",
+        "vi": "Công trình năm 1894 về khủng hoảng công nghiệp ở Anh gắn tên ông với phân tích chu kỳ. [1][2] Ông còn nghiên cứu hợp tác xã và tham gia xây dựng các tổ chức học thuật Ukraine sau năm 1917. [1] Các lĩnh vực ấy cho thấy mối quan tâm của ông không dừng ở diễn biến lên xuống của sản xuất, mà mở sang cách con người tổ chức hoạt động kinh tế và theo đuổi mục tiêu xã hội.",
+        "en": "His 1894 study of British industrial crises established his place in cycle analysis. [1][2] He also studied cooperatives and helped build Ukrainian academic institutions after 1917. [1] His interests extended from production fluctuations to economic organization and social objectives."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mở rộng đúng ngành nhưng sai nhịp vẫn có thể gây khó",
+        "en": "Expansion can be poorly synchronized"
+      },
+      {
+        "tag": "p",
+        "vi": "Một điểm trong cách đọc đóng góp của ông là chú ý sự không cân đối giữa các bộ phận sản xuất. [1][3] Đầu tư tạo thêm năng lực, nhưng năng lực ấy cần đầu vào, khách hàng và thời gian để vận hành. Khi nhiều quyết định được đưa ra riêng lẻ, tổng kết quả có thể không khớp kế hoạch của từng người. Đây là vấn đề phối hợp, không thể giải thích đầy đủ chỉ bằng nhận xét rằng một vài chủ thể quá lạc quan.",
+        "en": "His contribution highlights disproportions among parts of production. [1][3] New capacity needs inputs, customers and time. Separately made investment decisions can produce an aggregate outcome inconsistent with individual plans. Coordination problems go beyond saying a few participants were overly optimistic."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: nhiều doanh nghiệp đồng thời xây nhà máy chế biến vì giá bán đang thuận lợi, nhưng nguồn nguyên liệu chỉ tăng chậm. Khi các nhà máy hoàn thành, họ cạnh tranh đầu vào, chi phí tăng và một số máy móc hoạt động dưới công suất. Nếu sau đó giá bán giảm, khó khăn càng rõ. Đây chỉ là minh họa một cơ chế, không phải mô tả một ngành cụ thể hay bằng chứng cho mọi cuộc khủng hoảng.",
+        "en": "Suppose many processors build plants while raw-material supply grows slowly. When plants open, input competition raises costs and leaves some capacity idle; lower selling prices can intensify the problem. This illustrates a mechanism, not a factual claim about a particular sector or every crisis."
+      },
+      {
+        "tag": "h2",
+        "vi": "Thời gian xây dựng khiến quyết định khó sửa ngay",
+        "en": "Construction delays make adjustment difficult"
+      },
+      {
+        "tag": "p",
+        "vi": "Một cửa hàng có thể đổi lượng đặt hàng khá nhanh, nhưng nhà máy, đường sắt hoặc hệ thống năng lượng cần thời gian dài. Điều kiện thị trường khi ra quyết định có thể khác điều kiện lúc dự án hoạt động. Bài học biên tập là khi đọc đầu tư, phải xem cả tiến độ và khả năng điều chỉnh. Không nên coi mọi công suất đang xây như sản lượng chắc chắn sẽ được bán với giá hiện tại.",
+        "en": "A shop may change orders quickly; factories, railways and energy systems take longer. Conditions at approval can differ from those at completion. The editorial lesson is to examine timing and flexibility rather than price all future capacity at current selling conditions."
+      },
+      {
+        "tag": "p",
+        "vi": "Với doanh nghiệp nhỏ, có thể bắt đầu bằng câu hỏi thực tế: nếu nhu cầu thấp hơn dự kiến, máy móc có dùng cho sản phẩm khác không, hợp đồng đầu vào có linh hoạt không, và dòng tiền đủ chờ bao lâu. Những câu hỏi này là ứng dụng quản trị hiện đại, không phải lời khuyên nguyên văn của Tugan-Baranovsky. Chúng giúp chuyển một ý tưởng về cơ cấu thành cách kiểm tra giả định trước khi cam kết nguồn lực lớn.",
+        "en": "A small firm can ask whether equipment has alternative uses, input contracts are flexible and cash can cover a demand shortfall. These modern management applications are not quotations from Tugan-Baranovsky; they translate structural thinking into checks before major commitments."
+      },
+      {
+        "tag": "h2",
+        "vi": "Hợp tác không tự động xóa bỏ xung đột",
+        "en": "Cooperation does not automatically remove conflict"
+      },
+      {
+        "tag": "p",
+        "vi": "Nghiên cứu của ông về hợp tác xã là một phần đáng chú ý bên cạnh lý thuyết chu kỳ. [1] Khi giới thiệu cho người mới, cần tránh lý tưởng hóa bất kỳ hình thức tổ chức nào. Nhiều người góp sức vẫn phải quyết định ai quản lý, chia lợi ích theo tiêu chí gì và xử lý bất đồng ra sao. Một mục tiêu cộng đồng tốt cần cơ chế vận hành có thể kiểm tra, không chỉ dựa vào sự đồng thuận lúc ban đầu.",
+        "en": "His cooperative studies are another important strand. [1] No organizational form should be romanticized: joint effort still requires governance, benefit-sharing rules and dispute resolution. A community objective needs workable, accountable mechanisms beyond initial enthusiasm."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, các hộ sản xuất cùng mua vật tư để giảm chi phí nhưng phải thống nhất chất lượng, thời điểm giao và trách nhiệm thanh toán. Nếu quy định mơ hồ, lợi ích quy mô có thể bị mất vì tranh chấp. Đây là cách chuyên mục liên hệ tư tưởng về tổ chức với vấn đề thường gặp. Nó không khẳng định rằng mọi hợp tác đều thành công hoặc rằng chỉ một mô hình sở hữu có thể tạo hiệu quả.",
+        "en": "Producers buying inputs jointly may reduce costs but must agree on quality, delivery and payment responsibility. Ambiguous rules can erase scale benefits through disputes. This editorial example neither guarantees cooperation succeeds nor privileges one ownership form universally."
+      },
+      {
+        "tag": "h2",
+        "vi": "Chu kỳ là câu hỏi nghiên cứu, không phải đồng hồ đếm ngược",
+        "en": "A cycle is not a countdown clock"
+      },
+      {
+        "tag": "p",
+        "vi": "Đọc Tugan-Baranovsky giúp người học hỏi nền kinh tế đang mở rộng ở đâu và các phần có tương thích không. Nhưng không thể từ đó suy ra khủng hoảng sẽ đến sau một số năm cố định. Cần dữ liệu đầu tư, công suất, nhu cầu và tài chính, đồng thời so sánh các giải thích khác. Giá trị lâu dài là nhìn vào quan hệ giữa các ngành và độ trễ của quyết định, thay vì tìm một lịch lặp lại chắc chắn cho thị trường.",
+        "en": "His work encourages asking where expansion occurs and whether its parts fit together. It does not establish a fixed countdown to crisis. Investment, capacity, demand and financial data must be compared with alternative explanations. Interdependence and timing matter more than a supposedly certain market calendar."
+      }
+    ],
+    "html": "<p><em>Mikhail Tugan-Baranovsky, đầu thế kỷ XX; tác giả ảnh chưa rõ, nguồn Wikimedia Commons đánh dấu phạm vi công cộng.</em></p>\n<p>Nền kinh tế có thể gặp khó khăn không chỉ vì làm quá ít, mà còn vì các bộ phận mở rộng không phù hợp với nhau. Một ngành tăng công suất nhanh, ngành khác thiếu đầu vào hoặc không có đủ nhu cầu để hấp thụ sản phẩm. Mikhail Tugan-Baranovsky là một nhân vật giúp giới thiệu cách nhìn chu kỳ từ cơ cấu sản xuất và đầu tư, thay vì chỉ quan sát một con số tăng trưởng chung.</p>\n<h2>Một tiểu sử đi qua những thay đổi lịch sử</h2>\n<p>Tugan-Baranovsky, còn được viết là Mykhailo Tuhan-Baranovsky, sinh năm 1865 tại vùng Kharkiv và mất năm 1919 gần Odesa. Ông học tại Kharkiv, tiếp tục nghiên cứu ở Moscow và giảng dạy tại Saint Petersburg. [1] Trong tuyến bài theo quốc gia, ông được giới thiệu gắn với Ukraine, đồng thời ghi nhận sự nghiệp diễn ra trong bối cảnh Đế quốc Nga và những chuyển biến chính trị đầu thế kỷ XX, không áp đơn giản ranh giới hôm nay lên quá khứ.</p>\n<p>Công trình năm 1894 về khủng hoảng công nghiệp ở Anh gắn tên ông với phân tích chu kỳ. [1][2] Ông còn nghiên cứu hợp tác xã và tham gia xây dựng các tổ chức học thuật Ukraine sau năm 1917. [1] Các lĩnh vực ấy cho thấy mối quan tâm của ông không dừng ở diễn biến lên xuống của sản xuất, mà mở sang cách con người tổ chức hoạt động kinh tế và theo đuổi mục tiêu xã hội.</p>\n<h2>Mở rộng đúng ngành nhưng sai nhịp vẫn có thể gây khó</h2>\n<p>Một điểm trong cách đọc đóng góp của ông là chú ý sự không cân đối giữa các bộ phận sản xuất. [1][3] Đầu tư tạo thêm năng lực, nhưng năng lực ấy cần đầu vào, khách hàng và thời gian để vận hành. Khi nhiều quyết định được đưa ra riêng lẻ, tổng kết quả có thể không khớp kế hoạch của từng người. Đây là vấn đề phối hợp, không thể giải thích đầy đủ chỉ bằng nhận xét rằng một vài chủ thể quá lạc quan.</p>\n<p>Ví dụ giả định: nhiều doanh nghiệp đồng thời xây nhà máy chế biến vì giá bán đang thuận lợi, nhưng nguồn nguyên liệu chỉ tăng chậm. Khi các nhà máy hoàn thành, họ cạnh tranh đầu vào, chi phí tăng và một số máy móc hoạt động dưới công suất. Nếu sau đó giá bán giảm, khó khăn càng rõ. Đây chỉ là minh họa một cơ chế, không phải mô tả một ngành cụ thể hay bằng chứng cho mọi cuộc khủng hoảng.</p>\n<h2>Thời gian xây dựng khiến quyết định khó sửa ngay</h2>\n<p>Một cửa hàng có thể đổi lượng đặt hàng khá nhanh, nhưng nhà máy, đường sắt hoặc hệ thống năng lượng cần thời gian dài. Điều kiện thị trường khi ra quyết định có thể khác điều kiện lúc dự án hoạt động. Bài học biên tập là khi đọc đầu tư, phải xem cả tiến độ và khả năng điều chỉnh. Không nên coi mọi công suất đang xây như sản lượng chắc chắn sẽ được bán với giá hiện tại.</p>\n<p>Với doanh nghiệp nhỏ, có thể bắt đầu bằng câu hỏi thực tế: nếu nhu cầu thấp hơn dự kiến, máy móc có dùng cho sản phẩm khác không, hợp đồng đầu vào có linh hoạt không, và dòng tiền đủ chờ bao lâu. Những câu hỏi này là ứng dụng quản trị hiện đại, không phải lời khuyên nguyên văn của Tugan-Baranovsky. Chúng giúp chuyển một ý tưởng về cơ cấu thành cách kiểm tra giả định trước khi cam kết nguồn lực lớn.</p>\n<h2>Hợp tác không tự động xóa bỏ xung đột</h2>\n<p>Nghiên cứu của ông về hợp tác xã là một phần đáng chú ý bên cạnh lý thuyết chu kỳ. [1] Khi giới thiệu cho người mới, cần tránh lý tưởng hóa bất kỳ hình thức tổ chức nào. Nhiều người góp sức vẫn phải quyết định ai quản lý, chia lợi ích theo tiêu chí gì và xử lý bất đồng ra sao. Một mục tiêu cộng đồng tốt cần cơ chế vận hành có thể kiểm tra, không chỉ dựa vào sự đồng thuận lúc ban đầu.</p>\n<p>Ví dụ giả định, các hộ sản xuất cùng mua vật tư để giảm chi phí nhưng phải thống nhất chất lượng, thời điểm giao và trách nhiệm thanh toán. Nếu quy định mơ hồ, lợi ích quy mô có thể bị mất vì tranh chấp. Đây là cách chuyên mục liên hệ tư tưởng về tổ chức với vấn đề thường gặp. Nó không khẳng định rằng mọi hợp tác đều thành công hoặc rằng chỉ một mô hình sở hữu có thể tạo hiệu quả.</p>\n<h2>Chu kỳ là câu hỏi nghiên cứu, không phải đồng hồ đếm ngược</h2>\n<p>Đọc Tugan-Baranovsky giúp người học hỏi nền kinh tế đang mở rộng ở đâu và các phần có tương thích không. Nhưng không thể từ đó suy ra khủng hoảng sẽ đến sau một số năm cố định. Cần dữ liệu đầu tư, công suất, nhu cầu và tài chính, đồng thời so sánh các giải thích khác. Giá trị lâu dài là nhìn vào quan hệ giữa các ngành và độ trễ của quyết định, thay vì tìm một lịch lặp lại chắc chắn cho thị trường.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://www.encyclopediaofukraine.com/display.asp?linkpath=pages%5CT%5CU%5CTuhan6BaranovskyMykhailo.htm\">Canadian Institute of Ukrainian Studies — Tuhan-Baranovsky</a></li><li><a href=\"https://www.cambridge.org/core/journals/journal-of-the-history-of-economic-thought/article/abs/tuganbaranovsky-as-a-pioneer-of-trade-cycle-analysis/C3C6CCDFBA28DDCA2B89892DD7C9865C\">Journal of the History of Economic Thought — Pioneer of trade cycle analysis</a></li><li><a href=\"https://www.routledgehistoricalresources.com/economic-thought/sets/business-cycle-theory-part-i/volumes/structural-theories-of-the-business-cycle\">Routledge — Structural theories of the business cycle</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Mikhail_Ivanovich_Tugan-Baranovskij.jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/publicdomain/mark/1.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/\">Michał Kalecki: Đầu tư, việc làm và những điều kiện phía sau</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/michal-kalecki-dau-tu-va-viec-lam/",
+      "title": "Michał Kalecki: Đầu tư, việc làm và những điều kiện phía sau",
+      "title_en": "Michał Kalecki: Investment, employment and the conditions behind them"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/mikhail-tugan-baranovsky.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1942&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/tugan-baranovsky-chu-ky-va-co-cau/"
+  },
+  {
+    "key": "robert-mundell",
+    "slug": "robert-mundell-tien-te-va-danh-doi",
+    "title": "Robert Mundell: Đồng tiền, tỷ giá và những đánh đổi",
+    "title_en": "Robert Mundell: Currencies, exchange rates and trade-offs",
+    "excerpt": "Nhà kinh tế Canada đặt nền tảng để phân tích chính sách trong nền kinh tế mở và điều kiện sử dụng đồng tiền chung.",
+    "excerpt_en": "The Canadian economist who helped explain open-economy policy and the conditions for a shared currency.",
+    "credit": "Robert Mundell năm 2011. Ảnh: Economicforum; bản cắt TDKR Chicago 101; CC BY-SA 3.0.",
+    "credit_en": "Robert Mundell in 2011. Photograph: Economicforum; crop by TDKR Chicago 101; CC BY-SA 3.0.",
+    "photo_source": "https://commons.wikimedia.org/wiki/File:Robert_Mundell_(headshot).jpg",
+    "license": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sources": [
+      {
+        "label": "University of Chicago — Robert Mundell 1932–2021",
+        "url": "https://economics.uchicago.edu/news/robert-.-mundell-former-professor-of-economics-the-university-of-chicago-and-father-of-the"
+      },
+      {
+        "label": "MIT — Mundell doctoral thesis and Nobel Prize",
+        "url": "https://news.mit.edu/1999/mundell"
+      },
+      {
+        "label": "Nobel Committee — Advanced information, 1999",
+        "url": "https://www.nobelprize.org/uploads/2018/06/advanced-economicsciences1999-2.pdf"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một chính sách có thể hiệu quả trong nền kinh tế này nhưng cho kết quả khác ở nền kinh tế khác. Robert Mundell giúp giải thích vì sao phải xem tỷ giá, dòng vốn và quan hệ với bên ngoài trước khi đánh giá công cụ tiền tệ hay tài khóa. Câu chuyện của ông đặc biệt hữu ích khi người đọc gặp những khẳng định quá đơn giản rằng chỉ cần tăng chi hoặc hạ lãi suất là đạt được mọi mục tiêu.",
+        "en": "The same policy can work differently across economies. Robert Mundell showed why exchange rates, capital flows and external relationships matter when assessing monetary or fiscal instruments. His work challenges simple claims that spending increases or lower rates can achieve every objective."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ Canada đến kinh tế học quốc tế",
+        "en": "From Canada to international economics"
+      },
+      {
+        "tag": "p",
+        "vi": "Mundell sinh năm 1932 và mất năm 2021. Ông là nhà kinh tế Canada, nhận bằng tiến sĩ tại MIT năm 1956, nghiên cứu các thị trường vốn quốc tế dưới sự hướng dẫn của Charles Kindleberger. [1][2] Con đường học thuật này đặt vấn đề kinh tế trong quan hệ giữa các quốc gia, nơi thay đổi trong nước có thể kéo theo phản ứng của dòng tiền, thương mại và tỷ giá.",
+        "en": "The Canadian economist lived from 1932 to 2021 and earned his MIT doctorate in 1956 under Charles Kindleberger, studying international capital markets. [1][2] His analytical setting linked domestic changes to international finance, trade and exchange-rate responses."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel năm 1999 cho phân tích chính sách dưới các chế độ tỷ giá và các khu vực tiền tệ tối ưu. [1][3] Hai bài viết quan trọng năm 1961 và 1963 được thực hiện trong thời gian làm việc tại IMF. [2] Danh tiếng liên quan tới đồng euro không có nghĩa ông một mình thiết kế hoặc quyết định toàn bộ quá trình xây dựng liên minh tiền tệ châu Âu.",
+        "en": "His 1999 economics memorial prize recognized policy analysis under different exchange-rate regimes and optimum currency areas. [1][3] Important 1961 and 1963 papers came during his IMF work. [2] His association with the euro does not mean he single-handedly designed or decided European monetary integration."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mở cửa làm thay đổi đường truyền chính sách",
+        "en": "Openness changes policy transmission"
+      },
+      {
+        "tag": "p",
+        "vi": "Trong một nền kinh tế có giao dịch quốc tế, lãi suất và chi tiêu không chỉ tác động bên trong. Chúng có thể ảnh hưởng dòng vốn, nhu cầu ngoại tệ và khả năng cạnh tranh. Kết quả còn phụ thuộc tỷ giá được cố định, thả nổi hay quản lý theo một cơ chế khác, cũng như mức độ vốn có thể di chuyển. [3] Vì vậy, kết luận của mô hình cần đi kèm điều kiện, không thể rút thành một quy tắc áp dụng bất kể bối cảnh.",
+        "en": "In an internationally connected economy, interest rates and spending can affect capital flows, currency demand and competitiveness. Outcomes depend on the exchange-rate regime and capital mobility. [3] Model conclusions are conditional rather than universal rules."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một nước muốn giảm lãi suất để hỗ trợ hoạt động trong nước nhưng đồng thời giữ chặt tỷ giá trong điều kiện vốn di chuyển dễ dàng. Áp lực trên thị trường ngoại hối có thể khiến việc theo đuổi các mục tiêu cùng lúc trở nên khó khăn. Ví dụ này minh họa sự đánh đổi, không mô tả chính sách hiện tại của Việt Nam và cũng không dự báo một mức tỷ giá cụ thể.",
+        "en": "Imagine a country cutting rates while tightly fixing its exchange rate and allowing easy capital movement. Foreign-exchange pressures may make simultaneous objectives difficult. This illustrates a trade-off, not current Vietnamese policy or a forecast of a particular exchange rate."
+      },
+      {
+        "tag": "h2",
+        "vi": "Khi nào dùng chung một đồng tiền có lợi?",
+        "en": "When can sharing a currency help?"
+      },
+      {
+        "tag": "p",
+        "vi": "Một đồng tiền chung có thể giảm chi phí đổi tiền và bớt bất định tỷ giá giữa các vùng. Nhưng các vùng có thể gặp cú sốc khác nhau, trong khi không còn công cụ tỷ giá riêng để điều chỉnh. Mundell nhấn mạnh vai trò của sự di chuyển lao động trong việc xử lý các khác biệt ấy. [3] Lợi ích giao dịch vì vậy phải được xem cùng năng lực điều chỉnh, không tách riêng một mặt thuận lợi.",
+        "en": "A shared currency can lower conversion costs and exchange-rate uncertainty, but regions may face different shocks without separate exchange rates to adjust. Mundell emphasized labor mobility as an adjustment mechanism. [3] Transaction benefits must be weighed against adjustment capacity."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định: một vùng phụ thuộc du lịch, vùng khác phụ thuộc công nghiệp. Nếu du lịch suy giảm nhưng công nghiệp vẫn mạnh, một chính sách tiền tệ chung có thể không đáp ứng đúng nhu cầu của cả hai. Việc người lao động có thể chuyển nơi làm việc hay được đào tạo lại sẽ ảnh hưởng quá trình thích nghi. Ngoài đời, ngôn ngữ, nhà ở và gia đình khiến sự di chuyển không diễn ra dễ dàng như một giả định trên giấy.",
+        "en": "Suppose tourism weakens in one region while manufacturing remains strong in another. A common monetary policy may not fit both. Mobility and retraining affect adjustment, but language, housing and family constraints make real-world movement harder than a simplifying assumption suggests."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một mô hình không chứa hết mọi thể chế",
+        "en": "A model does not contain every institution"
+      },
+      {
+        "tag": "p",
+        "vi": "Các nền kinh tế còn khác về ngân hàng, nợ, hợp đồng, độ tin cậy chính sách và khả năng phối hợp ngân sách. Vì vậy, không nên dùng một kết quả lý thuyết để tuyên bố mọi nước phải dùng chung tiền hoặc phải giữ tiền riêng. Phân tích tốt cần so sánh chi phí và lợi ích của những phương án thực tế, với dữ liệu cụ thể và những ràng buộc chính trị, xã hội có thể quan sát.",
+        "en": "Banking systems, debts, contracts, policy credibility and fiscal coordination also differ. A theoretical result cannot establish that every country should share a currency or retain its own. Practical alternatives require evidence and attention to social and political constraints."
+      },
+      {
+        "tag": "p",
+        "vi": "Với người kinh doanh tại Việt Nam, bài học biên tập là nhìn đồng thời đồng tiền thu, đồng tiền chi và thời điểm thanh toán khi phân tích rủi ro. Một biến động tỷ giá có thể giúp bên xuất khẩu này nhưng làm bên nhập nguyên liệu khác khó khăn hơn. Không thể xác định ai được lợi chỉ từ tên ngành. Cần xem hợp đồng, tỷ lệ đầu vào nhập khẩu và khả năng điều chỉnh giá bán của từng hoạt động.",
+        "en": "An editorial business lesson for Vietnam is to track the currencies and timing of receipts and payments. Exchange-rate changes can help one exporter while hurting an importer of inputs. Industry labels alone are insufficient; contracts, imported content and pricing flexibility matter."
+      },
+      {
+        "tag": "h2",
+        "vi": "Di sản của việc hỏi điều kiện trước kết luận",
+        "en": "Asking about conditions before conclusions"
+      },
+      {
+        "tag": "p",
+        "vi": "Mundell để lại một cách đặt câu hỏi mạnh: công cụ này vận hành trong cơ chế tỷ giá và dòng vốn nào? Khi muốn đạt nhiều mục tiêu, đánh đổi nằm ở đâu? Những câu hỏi ấy giúp đọc tin kinh tế quốc tế tỉnh táo hơn, nhưng không cung cấp tín hiệu mua bán ngoại tệ chắc chắn. Mô hình hữu ích nhất khi làm rõ giới hạn của lựa chọn, thay vì được dùng để che đi những điều chưa biết.",
+        "en": "Mundell’s enduring questions concern the exchange-rate and capital-flow setting of a policy and the trade-offs between objectives. They improve economic interpretation without producing certain currency-trading signals. Models help most when they clarify limits rather than conceal uncertainty."
+      }
+    ],
+    "html": "<p><em>Robert Mundell năm 2011. Ảnh: Economicforum; bản cắt TDKR Chicago 101; CC BY-SA 3.0.</em></p>\n<p>Một chính sách có thể hiệu quả trong nền kinh tế này nhưng cho kết quả khác ở nền kinh tế khác. Robert Mundell giúp giải thích vì sao phải xem tỷ giá, dòng vốn và quan hệ với bên ngoài trước khi đánh giá công cụ tiền tệ hay tài khóa. Câu chuyện của ông đặc biệt hữu ích khi người đọc gặp những khẳng định quá đơn giản rằng chỉ cần tăng chi hoặc hạ lãi suất là đạt được mọi mục tiêu.</p>\n<h2>Từ Canada đến kinh tế học quốc tế</h2>\n<p>Mundell sinh năm 1932 và mất năm 2021. Ông là nhà kinh tế Canada, nhận bằng tiến sĩ tại MIT năm 1956, nghiên cứu các thị trường vốn quốc tế dưới sự hướng dẫn của Charles Kindleberger. [1][2] Con đường học thuật này đặt vấn đề kinh tế trong quan hệ giữa các quốc gia, nơi thay đổi trong nước có thể kéo theo phản ứng của dòng tiền, thương mại và tỷ giá.</p>\n<p>Ông nhận giải thưởng kinh tế tưởng nhớ Alfred Nobel năm 1999 cho phân tích chính sách dưới các chế độ tỷ giá và các khu vực tiền tệ tối ưu. [1][3] Hai bài viết quan trọng năm 1961 và 1963 được thực hiện trong thời gian làm việc tại IMF. [2] Danh tiếng liên quan tới đồng euro không có nghĩa ông một mình thiết kế hoặc quyết định toàn bộ quá trình xây dựng liên minh tiền tệ châu Âu.</p>\n<h2>Mở cửa làm thay đổi đường truyền chính sách</h2>\n<p>Trong một nền kinh tế có giao dịch quốc tế, lãi suất và chi tiêu không chỉ tác động bên trong. Chúng có thể ảnh hưởng dòng vốn, nhu cầu ngoại tệ và khả năng cạnh tranh. Kết quả còn phụ thuộc tỷ giá được cố định, thả nổi hay quản lý theo một cơ chế khác, cũng như mức độ vốn có thể di chuyển. [3] Vì vậy, kết luận của mô hình cần đi kèm điều kiện, không thể rút thành một quy tắc áp dụng bất kể bối cảnh.</p>\n<p>Ví dụ giả định: một nước muốn giảm lãi suất để hỗ trợ hoạt động trong nước nhưng đồng thời giữ chặt tỷ giá trong điều kiện vốn di chuyển dễ dàng. Áp lực trên thị trường ngoại hối có thể khiến việc theo đuổi các mục tiêu cùng lúc trở nên khó khăn. Ví dụ này minh họa sự đánh đổi, không mô tả chính sách hiện tại của Việt Nam và cũng không dự báo một mức tỷ giá cụ thể.</p>\n<h2>Khi nào dùng chung một đồng tiền có lợi?</h2>\n<p>Một đồng tiền chung có thể giảm chi phí đổi tiền và bớt bất định tỷ giá giữa các vùng. Nhưng các vùng có thể gặp cú sốc khác nhau, trong khi không còn công cụ tỷ giá riêng để điều chỉnh. Mundell nhấn mạnh vai trò của sự di chuyển lao động trong việc xử lý các khác biệt ấy. [3] Lợi ích giao dịch vì vậy phải được xem cùng năng lực điều chỉnh, không tách riêng một mặt thuận lợi.</p>\n<p>Ví dụ giả định: một vùng phụ thuộc du lịch, vùng khác phụ thuộc công nghiệp. Nếu du lịch suy giảm nhưng công nghiệp vẫn mạnh, một chính sách tiền tệ chung có thể không đáp ứng đúng nhu cầu của cả hai. Việc người lao động có thể chuyển nơi làm việc hay được đào tạo lại sẽ ảnh hưởng quá trình thích nghi. Ngoài đời, ngôn ngữ, nhà ở và gia đình khiến sự di chuyển không diễn ra dễ dàng như một giả định trên giấy.</p>\n<h2>Một mô hình không chứa hết mọi thể chế</h2>\n<p>Các nền kinh tế còn khác về ngân hàng, nợ, hợp đồng, độ tin cậy chính sách và khả năng phối hợp ngân sách. Vì vậy, không nên dùng một kết quả lý thuyết để tuyên bố mọi nước phải dùng chung tiền hoặc phải giữ tiền riêng. Phân tích tốt cần so sánh chi phí và lợi ích của những phương án thực tế, với dữ liệu cụ thể và những ràng buộc chính trị, xã hội có thể quan sát.</p>\n<p>Với người kinh doanh tại Việt Nam, bài học biên tập là nhìn đồng thời đồng tiền thu, đồng tiền chi và thời điểm thanh toán khi phân tích rủi ro. Một biến động tỷ giá có thể giúp bên xuất khẩu này nhưng làm bên nhập nguyên liệu khác khó khăn hơn. Không thể xác định ai được lợi chỉ từ tên ngành. Cần xem hợp đồng, tỷ lệ đầu vào nhập khẩu và khả năng điều chỉnh giá bán của từng hoạt động.</p>\n<h2>Di sản của việc hỏi điều kiện trước kết luận</h2>\n<p>Mundell để lại một cách đặt câu hỏi mạnh: công cụ này vận hành trong cơ chế tỷ giá và dòng vốn nào? Khi muốn đạt nhiều mục tiêu, đánh đổi nằm ở đâu? Những câu hỏi ấy giúp đọc tin kinh tế quốc tế tỉnh táo hơn, nhưng không cung cấp tín hiệu mua bán ngoại tệ chắc chắn. Mô hình hữu ích nhất khi làm rõ giới hạn của lựa chọn, thay vì được dùng để che đi những điều chưa biết.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://economics.uchicago.edu/news/robert-.-mundell-former-professor-of-economics-the-university-of-chicago-and-father-of-the\">University of Chicago — Robert Mundell 1932–2021</a></li><li><a href=\"https://news.mit.edu/1999/mundell\">MIT — Mundell doctoral thesis and Nobel Prize</a></li><li><a href=\"https://www.nobelprize.org/uploads/2018/06/advanced-economicsciences1999-2.pdf\">Nobel Committee — Advanced information, 1999</a></li></ol><p><a href=\"https://commons.wikimedia.org/wiki/File:Robert_Mundell_(headshot).jpg\">Portrait reference / Nguồn ảnh</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\">Image license / Giấy phép ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/\">Franco Modigliani: Tiết kiệm qua các giai đoạn cuộc đời</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/franco-modigliani-tiet-kiem-vong-doi/",
+      "title": "Franco Modigliani: Tiết kiệm qua các giai đoạn cuộc đời",
+      "title_en": "Franco Modigliani: Saving across the life cycle"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/robert-mundell.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/robert-mundell-tien-te-va-danh-doi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1945&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/robert-mundell-tien-te-va-danh-doi/"
+  },
+  {
+    "key": "max-corden",
+    "slug": "max-corden-thuong-mai-va-chi-phi",
+    "title": "Max Corden: Nhìn chính sách thương mại từ cả đầu vào lẫn đầu ra",
+    "title_en": "Max Corden: Trade policy through inputs and outputs",
+    "excerpt": "Nhà kinh tế Australia giúp giải thích vì sao thuế trên hàng cuối cùng chưa nói đủ mức bảo hộ một ngành nhận được.",
+    "excerpt_en": "The Australian economist who showed why final-goods tariffs alone do not measure an industry’s protection.",
+    "credit": "Max Corden — minh họa AI tham chiếu chân dung được Đại học Melbourne giới thiệu.",
+    "credit_en": "Max Corden — AI illustration based on the portrait presented by the University of Melbourne.",
+    "photo_source": "https://fbe.unimelb.edu.au/centenary/our-stories/profiles/max-corden",
+    "license": "",
+    "sources": [
+      {
+        "label": "University of Melbourne — Max Corden",
+        "url": "https://fbe.unimelb.edu.au/centenary/our-stories/profiles/max-corden"
+      },
+      {
+        "label": "University of Oxford — Max Corden memorial",
+        "url": "https://www.economics.ox.ac.uk/article/max-corden-1927-2023-distinguished-economist-and-former-nuffield-reader-1"
+      },
+      {
+        "label": "Douglas Irwin, CEPR — Trade theory and policy",
+        "url": "https://cepr.org/voxeu/columns/trade-theory-and-trade-policy-work-max-corden-1927-2023"
+      }
+    ],
+    "sections": [
+      {
+        "tag": "p",
+        "vi": "Một mức thuế nhập khẩu có vẻ giúp nhà sản xuất trong nước, nhưng điều gì xảy ra nếu chính doanh nghiệp ấy phải nhập nguyên liệu chịu thuế cao? Max Corden giúp đặt câu hỏi về cả cấu trúc chính sách thương mại, thay vì chỉ nhìn một con số trên sản phẩm cuối cùng. Câu chuyện của ông cho thấy lập luận rõ ràng có thể làm thay đổi cách đánh giá chính sách mà không cần những lời khẳng định tuyệt đối.",
+        "en": "A tariff may appear to help a domestic producer, but what if its imported inputs also face high tariffs? Max Corden examined the structure of trade policy rather than one final-product rate. His work illustrates the value of clear, conditional reasoning."
+      },
+      {
+        "tag": "h2",
+        "vi": "Từ người tị nạn đến nhà kinh tế Australia",
+        "en": "From refugee to Australian economist"
+      },
+      {
+        "tag": "p",
+        "vi": "Corden sinh năm 1927 tại Breslau, khi đó thuộc Đức; gia đình ông rời chế độ Quốc xã và định cư tại Australia. Ông học tại Đại học Melbourne rồi nhận bằng tiến sĩ ở London School of Economics năm 1956. [1][2] Trong sự nghiệp, ông làm việc tại Australia, Anh và Mỹ. Tiểu sử ấy gắn với sự dịch chuyển do hoàn cảnh lịch sử, chứ không chỉ là một hành trình học thuật được lựa chọn trong điều kiện thuận lợi.",
+        "en": "Born in Breslau, then Germany, in 1927, Corden fled the Nazi regime with his family and settled in Australia. He studied at Melbourne and completed his LSE doctorate in 1956. [1][2] His career spanned Australia, Britain and America, shaped initially by historical displacement."
+      },
+      {
+        "tag": "p",
+        "vi": "Ông giảng dạy tại Oxford giai đoạn 1967–1976 và được biết đến với nghiên cứu bảo hộ thương mại, phúc lợi và kinh tế mở. Ông mất năm 2023. [2] Cuốn The Theory of Protection năm 1971 là một mốc trong công việc về thương mại. [1] Giá trị của các nghiên cứu này không nằm ở việc tán thành hay phản đối mọi loại thuế bằng một khẩu hiệu, mà ở việc làm rõ cơ chế và tác động liên quan.",
+        "en": "Teaching at Oxford in 1967–1976, he became known for trade protection, welfare and open-economy analysis. He died in 2023. [2] His 1971 The Theory of Protection was a major contribution. [1] The approach explains mechanisms rather than endorsing or rejecting every tariff through a slogan."
+      },
+      {
+        "tag": "h2",
+        "vi": "Mức bảo hộ thực tế cần nhìn vào giá trị gia tăng",
+        "en": "Effective protection concerns value added"
+      },
+      {
+        "tag": "p",
+        "vi": "Đóng góp về bảo hộ hiệu dụng nhắc rằng phải xét cả thuế trên sản phẩm và thuế trên đầu vào trung gian. [3] Một ngành có thể được bảo hộ ở khâu bán hàng nhưng chịu chi phí cao hơn ở khâu mua nguyên liệu. Phần tạo ra trong nước vì vậy có thể được khuyến khích nhiều hơn hoặc ít hơn mức thuế danh nghĩa gợi ý. Điều này quan trọng trong nền sản xuất mà một sản phẩm đi qua nhiều quốc gia trước khi tới người mua.",
+        "en": "Effective-protection analysis considers tariffs on final products and intermediate inputs together. [3] Protection at the selling stage may coexist with higher material costs. Domestic value added may therefore receive more or less support than the headline tariff suggests, especially in cross-border production chains."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, chưa có thuế: sản phẩm bán 100 đơn vị tiền, đầu vào nhập khẩu tốn 60, còn 40 là phần giá trị gia tăng. Nếu giá sản phẩm tăng thành 110 do thuế trong mô hình đơn giản, còn đầu vào giữ 60, phần còn lại tăng thành 50. Nếu đầu vào cũng tăng thành 72, phần còn lại chỉ là 38. Ví dụ bỏ qua nhiều điều kiện thực tế nhưng cho thấy phải nhìn cả hai phía.",
+        "en": "In a simplified hypothetical case, output sells for 100 and imported inputs cost 60, leaving value added of 40. If the output price becomes 110 while inputs stay at 60, value added rises to 50. If inputs also rise to 72, it falls to 38. Both sides matter."
+      },
+      {
+        "tag": "p",
+        "vi": "Những con số đó không dự báo giá sẽ truyền qua đầy đủ ngoài đời. Tỷ giá, cạnh tranh, tỷ lệ hàng nhập và khả năng điều chỉnh biên lợi nhuận có thể làm kết quả khác. Chúng chỉ minh họa vì sao không thể lấy mức thuế cuối cùng làm toàn bộ kết luận. Khi đánh giá một chính sách cụ thể, cần dữ liệu về chuỗi đầu vào và cách giá thực sự phản ứng, không chỉ một bảng thuế niêm yết.",
+        "en": "These numbers do not predict full price pass-through in reality. Exchange rates, competition, import shares and margins can change outcomes. The illustration shows why evaluating an actual policy requires input-chain and price-response evidence, not just a tariff schedule."
+      },
+      {
+        "tag": "h2",
+        "vi": "Một ngành bùng nổ cũng có thể tác động tới ngành khác",
+        "en": "A booming industry can reshape others"
+      },
+      {
+        "tag": "p",
+        "vi": "Corden cùng Peter Neary công bố nghiên cứu năm 1982 về một ngành bùng nổ và quá trình giảm vai trò công nghiệp trong nền kinh tế mở nhỏ, gắn với chủ đề thường gọi là bệnh Hà Lan. [1][2] Khi một lĩnh vực thu hút nguồn lực và làm thay đổi chi tiêu, các lĩnh vực khác có thể chịu tác động. Nhưng một ngành tăng trưởng nhanh không tự động chứng minh toàn bộ nền kinh tế đang mắc hiện tượng ấy.",
+        "en": "Corden and Peter Neary’s 1982 paper examined a booming sector and deindustrialization in a small open economy, associated with Dutch-disease analysis. [1][2] Resource and spending shifts can affect other sectors, but fast growth in one industry alone does not establish that diagnosis."
+      },
+      {
+        "tag": "p",
+        "vi": "Ví dụ giả định, một ngành xuất khẩu phát triển nhanh khiến nhu cầu lao động và dịch vụ địa phương tăng. Các ngành khác có thể phải trả chi phí cao hơn, trong khi khả năng tăng giá bán không giống nhau. Muốn đánh giá cần xem năng suất, di chuyển lao động và cơ chế tỷ giá. Cách nhìn này không biến thành kết luận nên ngăn mọi thành công; nó yêu cầu tính đến hệ quả rộng hơn và cách thích nghi.",
+        "en": "Imagine export growth raising local labor and service demand. Other industries may face higher costs without equal pricing power. Productivity, labor movement and exchange-rate mechanisms matter. This is not a reason to suppress every success, but to assess wider effects and adjustment."
+      },
+      {
+        "tag": "h2",
+        "vi": "Đọc chính sách bằng cả người được lợi và người trả chi phí",
+        "en": "Read policy through benefits and costs"
+      },
+      {
+        "tag": "p",
+        "vi": "Độc giả Việt Nam có thể vận dụng phương pháp của Corden khi đọc tin thuế quan: ai bán sản phẩm được bảo hộ, ai mua nó làm nguyên liệu, người tiêu dùng chịu gì và doanh nghiệp xuất khẩu có bị ảnh hưởng không. Đây là các câu hỏi phân tích cơ chế, không phải tư vấn thuế cho một hợp đồng cụ thể. Những vấn đề pháp lý và mức thuế hiện hành cần được kiểm tra riêng theo thời điểm và loại hàng.",
+        "en": "Vietnamese readers can ask who sells the protected product, who uses it as an input, what consumers bear and how exporters are affected. These are analytical questions rather than tax advice for a contract; current legal rates require separate verification by date and product."
+      },
+      {
+        "tag": "h2",
+        "vi": "Rõ ràng là một đóng góp học thuật",
+        "en": "Clarity is an academic contribution"
+      },
+      {
+        "tag": "p",
+        "vi": "Các đồng nghiệp ghi nhận Corden ở khả năng giảng giải vấn đề phức tạp một cách mạch lạc. [2][3] Bài học của câu chuyện này là đi từng bước qua chuỗi tác động, nêu giả định và giữ chỗ cho phản ứng ngoài dự kiến. Một kết luận hữu ích không cần hứa lợi ích cho tất cả mọi người; nó cần chỉ rõ ai chịu tác động, mức độ phụ thuộc điều kiện nào và bằng chứng nào có thể khiến kết luận thay đổi.",
+        "en": "Colleagues remembered Corden’s ability to explain complex issues clearly. [2][3] His story encourages tracing effects step by step, stating assumptions and allowing for unexpected responses. Useful conclusions specify affected groups, conditions and evidence that could change the assessment."
+      }
+    ],
+    "html": "<p><em>Max Corden — minh họa AI tham chiếu chân dung được Đại học Melbourne giới thiệu.</em></p>\n<p>Một mức thuế nhập khẩu có vẻ giúp nhà sản xuất trong nước, nhưng điều gì xảy ra nếu chính doanh nghiệp ấy phải nhập nguyên liệu chịu thuế cao? Max Corden giúp đặt câu hỏi về cả cấu trúc chính sách thương mại, thay vì chỉ nhìn một con số trên sản phẩm cuối cùng. Câu chuyện của ông cho thấy lập luận rõ ràng có thể làm thay đổi cách đánh giá chính sách mà không cần những lời khẳng định tuyệt đối.</p>\n<h2>Từ người tị nạn đến nhà kinh tế Australia</h2>\n<p>Corden sinh năm 1927 tại Breslau, khi đó thuộc Đức; gia đình ông rời chế độ Quốc xã và định cư tại Australia. Ông học tại Đại học Melbourne rồi nhận bằng tiến sĩ ở London School of Economics năm 1956. [1][2] Trong sự nghiệp, ông làm việc tại Australia, Anh và Mỹ. Tiểu sử ấy gắn với sự dịch chuyển do hoàn cảnh lịch sử, chứ không chỉ là một hành trình học thuật được lựa chọn trong điều kiện thuận lợi.</p>\n<p>Ông giảng dạy tại Oxford giai đoạn 1967–1976 và được biết đến với nghiên cứu bảo hộ thương mại, phúc lợi và kinh tế mở. Ông mất năm 2023. [2] Cuốn The Theory of Protection năm 1971 là một mốc trong công việc về thương mại. [1] Giá trị của các nghiên cứu này không nằm ở việc tán thành hay phản đối mọi loại thuế bằng một khẩu hiệu, mà ở việc làm rõ cơ chế và tác động liên quan.</p>\n<h2>Mức bảo hộ thực tế cần nhìn vào giá trị gia tăng</h2>\n<p>Đóng góp về bảo hộ hiệu dụng nhắc rằng phải xét cả thuế trên sản phẩm và thuế trên đầu vào trung gian. [3] Một ngành có thể được bảo hộ ở khâu bán hàng nhưng chịu chi phí cao hơn ở khâu mua nguyên liệu. Phần tạo ra trong nước vì vậy có thể được khuyến khích nhiều hơn hoặc ít hơn mức thuế danh nghĩa gợi ý. Điều này quan trọng trong nền sản xuất mà một sản phẩm đi qua nhiều quốc gia trước khi tới người mua.</p>\n<p>Ví dụ giả định, chưa có thuế: sản phẩm bán 100 đơn vị tiền, đầu vào nhập khẩu tốn 60, còn 40 là phần giá trị gia tăng. Nếu giá sản phẩm tăng thành 110 do thuế trong mô hình đơn giản, còn đầu vào giữ 60, phần còn lại tăng thành 50. Nếu đầu vào cũng tăng thành 72, phần còn lại chỉ là 38. Ví dụ bỏ qua nhiều điều kiện thực tế nhưng cho thấy phải nhìn cả hai phía.</p>\n<p>Những con số đó không dự báo giá sẽ truyền qua đầy đủ ngoài đời. Tỷ giá, cạnh tranh, tỷ lệ hàng nhập và khả năng điều chỉnh biên lợi nhuận có thể làm kết quả khác. Chúng chỉ minh họa vì sao không thể lấy mức thuế cuối cùng làm toàn bộ kết luận. Khi đánh giá một chính sách cụ thể, cần dữ liệu về chuỗi đầu vào và cách giá thực sự phản ứng, không chỉ một bảng thuế niêm yết.</p>\n<h2>Một ngành bùng nổ cũng có thể tác động tới ngành khác</h2>\n<p>Corden cùng Peter Neary công bố nghiên cứu năm 1982 về một ngành bùng nổ và quá trình giảm vai trò công nghiệp trong nền kinh tế mở nhỏ, gắn với chủ đề thường gọi là bệnh Hà Lan. [1][2] Khi một lĩnh vực thu hút nguồn lực và làm thay đổi chi tiêu, các lĩnh vực khác có thể chịu tác động. Nhưng một ngành tăng trưởng nhanh không tự động chứng minh toàn bộ nền kinh tế đang mắc hiện tượng ấy.</p>\n<p>Ví dụ giả định, một ngành xuất khẩu phát triển nhanh khiến nhu cầu lao động và dịch vụ địa phương tăng. Các ngành khác có thể phải trả chi phí cao hơn, trong khi khả năng tăng giá bán không giống nhau. Muốn đánh giá cần xem năng suất, di chuyển lao động và cơ chế tỷ giá. Cách nhìn này không biến thành kết luận nên ngăn mọi thành công; nó yêu cầu tính đến hệ quả rộng hơn và cách thích nghi.</p>\n<h2>Đọc chính sách bằng cả người được lợi và người trả chi phí</h2>\n<p>Độc giả Việt Nam có thể vận dụng phương pháp của Corden khi đọc tin thuế quan: ai bán sản phẩm được bảo hộ, ai mua nó làm nguyên liệu, người tiêu dùng chịu gì và doanh nghiệp xuất khẩu có bị ảnh hưởng không. Đây là các câu hỏi phân tích cơ chế, không phải tư vấn thuế cho một hợp đồng cụ thể. Những vấn đề pháp lý và mức thuế hiện hành cần được kiểm tra riêng theo thời điểm và loại hàng.</p>\n<h2>Rõ ràng là một đóng góp học thuật</h2>\n<p>Các đồng nghiệp ghi nhận Corden ở khả năng giảng giải vấn đề phức tạp một cách mạch lạc. [2][3] Bài học của câu chuyện này là đi từng bước qua chuỗi tác động, nêu giả định và giữ chỗ cho phản ứng ngoài dự kiến. Một kết luận hữu ích không cần hứa lợi ích cho tất cả mọi người; nó cần chỉ rõ ai chịu tác động, mức độ phụ thuộc điều kiện nào và bằng chứng nào có thể khiến kết luận thay đổi.</p>\n<h2>Nguồn tham khảo</h2><ol><li><a href=\"https://fbe.unimelb.edu.au/centenary/our-stories/profiles/max-corden\">University of Melbourne — Max Corden</a></li><li><a href=\"https://www.economics.ox.ac.uk/article/max-corden-1927-2023-distinguished-economist-and-former-nuffield-reader-1\">University of Oxford — Max Corden memorial</a></li><li><a href=\"https://cepr.org/voxeu/columns/trade-theory-and-trade-policy-work-max-corden-1927-2023\">Douglas Irwin, CEPR — Trade theory and policy</a></li></ol><p><a href=\"https://fbe.unimelb.edu.au/centenary/our-stories/profiles/max-corden\">Portrait reference / Nguồn ảnh</a></p>\n<h2>Đọc tiếp</h2><p><a href=\"https://daututuonglai.vn/2026/11/14/antonio-simoes-lopes-phat-trien-vung/\">António Simões Lopes: Phát triển kinh tế nhìn từ từng vùng</a></p><p><a href=\"https://daututuonglai.vn/lo-trinh-hoc/\">Lộ trình học đầu tư</a></p>",
+    "related": {
+      "url": "https://daututuonglai.vn/2026/11/14/antonio-simoes-lopes-phat-trien-vung/",
+      "title": "António Simões Lopes: Phát triển kinh tế nhìn từ từng vùng",
+      "title_en": "António Simões Lopes: Economic development through regions"
+    },
+    "image": "https://daututuonglai.vn/wp-content/uploads/2026/11/max-corden.webp",
+    "url": "https://daututuonglai.vn/2026/11/14/max-corden-thuong-mai-va-chi-phi/",
+    "edit": "https://daututuonglai.vn/wp-admin/post.php?post=1948&action=edit",
+    "url_en": "https://daututuonglai.vn/en/2026/11/14/max-corden-thuong-mai-va-chi-phi/"
+  }
+]
