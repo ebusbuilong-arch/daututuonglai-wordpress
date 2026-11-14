@@ -215,11 +215,19 @@ async function checkRequest(r){
 }
 function retryRequest(r){if(state.busy)return;modal('Khôi phục yêu cầu',[{label:'Tài sản',value:r.payload.symbol},{label:'Chiều / lượng',value:(r.payload.side==='buy'?'Mua ':'Bán ')+r.payload.quantity},...(r.path!=='trade'?[{label:'Hiệu lực',value:expiryText(r.payload.expires_at||0)}]:[]),{label:'Giá đặt',value:r.path==='trade'?'Giá thị trường khi máy chủ nhận':r.payload.limit_price+' USDT'},...(r.payload.order_type==='tpsl'?[{label:'SL',value:r.payload.stop_price+' USDT'}]:[]),{text:'Gửi lại đúng mã và nội dung cũ. Lệnh đã nhận sẽ được trả lại kết quả. Lệnh chưa được nhận có thể được tạo lúc này; giá thị trường và điều kiện TP/SL có thể thay đổi.'}],()=>sendRequest(r,true));val('#dialog-confirm','Thử lại cùng mã');}
 function forgetRequest(r){if(state.busy)return;modal('Bỏ theo dõi yêu cầu',[{text:'Thao tác này chỉ bỏ mã lưu trên trình duyệt, KHÔNG hủy lệnh trên máy chủ. Lệnh trước có thể vẫn khớp. Kiểm tra lịch sử lệnh và lịch sử giao dịch trước khi tạo yêu cầu khác.'},{label:'Mã yêu cầu',value:r.payload.request_id}],()=>{if(!clearRequest(r))return;$('#dialog').close();message('Đã bỏ theo dõi trên trình duyệt. Đây không phải xác nhận hủy lệnh.',true);preview();});val('#dialog-confirm','Bỏ theo dõi, không hủy lệnh');}
+function saleResult(result,payload){
+ if(payload.side!=='sell')return '';
+ const row=result.account?.ledger?.find(item=>String(item.id)===String(result.order_id)&&item.kind==='sell'&&item.symbol===payload.symbol);
+ const pnl=row?.realized==null?NaN:Number(row.realized);
+ if(!Number.isSafeInteger(pnl))return '';
+ const outcome=pnl>0?label('Lãi','Profit'):pnl<0?label('Lỗ','Loss'):label('Hòa vốn','Break-even');
+ return ' '+row.symbol.replace(/USDT$/,'')+' · '+outcome+' '+pnlText(pnl)+' AIM';
+}
 async function sendRequest(record,retry=false){
  if(state.busy)return;
  try{if(!recoveryStore)throw Error();record=recoveryStore.put(record);recoveryStorageError=false;}catch{recoveryStorageError=true;renderRecovery();return message('Chưa lưu được mã yêu cầu trong trình duyệt. Lệnh chưa được gửi.',true);}
  state.busy=true;$('#dialog-confirm').disabled=true;preview();renderRecovery();
- try{const r=await api(record.path,record.payload);state.amend=null;state.account=r.account;state.accountVersion++;clearRequest(record);$('#dialog').close();$('#quantity').value='';renderAccount();message('Lệnh #'+r.order_id+(r.replayed?' đã được ghi nhận trước đó.':record.path==='trade'?' đã khớp.':' đã nhận. Kiểm tra trạng thái trong Lệnh chờ / TP-SL.'));}
+ try{const r=await api(record.path,record.payload);state.amend=null;state.account=r.account;state.accountVersion++;clearRequest(record);$('#dialog').close();$('#quantity').value='';renderAccount();message('Lệnh #'+r.order_id+(r.replayed?' đã được ghi nhận trước đó.':record.path==='trade'?' đã khớp.':' đã nhận. Kiểm tra trạng thái trong Lệnh chờ / TP-SL.')+(record.path==='trade'?saleResult(r,record.payload):''));}
  catch(err){const uncertain=retry||!err.status||err.status>=500||err.status===408;
  if(uncertain){state.confirm=()=>sendRequest(record,true);let note=$('#retry-note');if(!note){note=document.createElement('p');note.id='retry-note';note.setAttribute('role','status');$('#dialog-body').append(note);}note.textContent='Chưa rõ kết quả. Mã đã được lưu để kiểm tra sau khi tải lại trang. Thử lại dùng đúng mã cũ; lệnh thị trường chưa nhận có thể khớp ở giá mới.';val('#dialog-confirm','Thử lại cùng mã');message(err.message+' Yêu cầu được giữ trong mục cần kiểm tra.',true);}
  else{clearRequest(record);$('#dialog').close();message(err.message,true);}}
