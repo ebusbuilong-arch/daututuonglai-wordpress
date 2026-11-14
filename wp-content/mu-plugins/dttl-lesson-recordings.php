@@ -28,11 +28,21 @@ function dttl_lesson_recording_map() {
         'hang-hoa-vat-chat-va-phai-sinh' => ['_Qk_Z9DTc4M', '078'],
         'hang-hoa-doc-bang-gia' => ['4Hf7V5jyOA8', '079'],
         'hang-hoa-nhat-ky-quan-sat' => ['OeCGvgLyOkY', '080'],
+        'hang-hoa-doc-dac-ta-hop-dong' => ['pvIBdYM59-0', '081'],
+        'hang-hoa-gia-giao-ngay-va-ky-han' => ['7AQysMcTtoA', '082'],
+        'hang-hoa-ky-quy-va-tien-du-phong' => ['qKHGfHs1zhM', '083'],
+        'hang-hoa-ton-kho-mua-vu-va-gia' => ['yRTkD--Flo4', '084'],
+        'hang-hoa-daohan-va-nhat-ky-hop-dong' => ['lXvOA8gJSpM', '085'],
+        'hang-hoa-phan-tich-vang-lai-suat-usd' => ['aPkLjs6MYVM', '086'],
+        'hang-hoa-doc-ton-kho-dau-eia' => ['QH2YjBxRltk', '087'],
+        'hang-hoa-phan-tich-dong-kim-loai-cong-nghiep' => ['GQkH7Ct33kQ', '088'],
+        'hang-hoa-doc-wasde-cung-cau-nong-san' => ['qOmB-khvIqg', '089'],
+        'hang-hoa-phan-tich-ca-phe-arabica-robusta' => ['uCFkTLjSQcQ', '090'],
     ];
 }
 
 add_action('wp_loaded', static function () {
-    $option = 'dttl_replay_cache_refreshed_071_080';
+    $option = 'dttl_replay_cache_refreshed_081_090';
     if (!function_exists('rocket_clean_files') || get_option($option)) {
         return;
     }
