@@ -97,7 +97,7 @@
         const elements = jobs.map((job) => {
             const number = lessonName(job.lesson);
             const tr = document.createElement('tr');
-            for (const value of [number, job.title || 'Bài ' + number, labels[job.state] || job.state]) {
+            for (const value of [number, job.title || 'Bài ' + number, job.state === 'processing' && job.progress >= 100 ? 'Chờ đồng bộ link API' : (labels[job.state] || job.state)]) {
                 tr.insertCell().textContent = value;
             }
             const details = [job.state === 'processing' && job.progress > 0 ? job.progress + '%' : '', job.detail].filter(Boolean);
@@ -117,6 +117,18 @@
                 link.textContent = 'Tải ' + number + '.mp3';
                 cell.append(link);
             } else if (job.can_recheck) {
+                if (job.external_download_url) {
+                    const direct = document.createElement('a');
+                    direct.href = job.external_download_url;
+                    direct.target = '_blank';
+                    direct.rel = 'noopener noreferrer';
+                    direct.className = 'button button-primary';
+                    direct.textContent = 'Tải ' + number + '.mp3 tại EverAI';
+                    direct.title = 'Dùng phiên đăng nhập EverAI; file phải còn thời hạn lưu.';
+                    const hint = document.createElement('small');
+                    hint.textContent = 'Cần đăng nhập EverAI; file có thể hết hạn.';
+                    cell.append(direct, hint, document.createElement('br'));
+                }
                 const recheck = document.createElement('button');
                 recheck.type = 'button';
                 recheck.className = 'button';

@@ -26,7 +26,7 @@ final class DTTL_Live_MP3 {
             }
             $url = plugin_dir_url(__FILE__) . 'dttl-live-mp3/';
             wp_enqueue_style(self::PAGE, $url . 'admin.css', [], '1.0.1');
-            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.2', true);
+            wp_enqueue_script(self::PAGE, $url . 'admin.js', [], '1.0.3', true);
             wp_localize_script(self::PAGE, 'dttlLiveMp3', ['nonce' => wp_create_nonce(self::PAGE)]);
         });
         add_action('admin_post_dttl_live_mp3_settings', [self::class, 'save_settings']);
@@ -376,20 +376,30 @@ final class DTTL_Live_MP3 {
         return $host === 'everai.vn' || str_ends_with($host, '.everai.vn') || $host === 'media.everaicdn.com';
     }
 
+    // EverAI's authenticated browser download works even when API audio_link is absent.
+    static function external_download_url($request_id) {
+        if (!is_string($request_id) || !preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/iD', $request_id)) {
+            return '';
+        }
+        return 'https://everai.vn/text-to-speech/download?request_id=' . rawurlencode($request_id);
+    }
+
     static function jobs($page = 1) {
         if (get_option('dttl_live_mp3_schema') !== '1') {
             return [];
         }
         global $wpdb;
         $rows = $wpdb->get_results($wpdb->prepare(
-            'SELECT lesson,title,state,detail,progress,(request_id <> \'\') AS has_request FROM ' . self::table()
+            'SELECT lesson,title,state,detail,progress,request_id FROM ' . self::table()
             . ' ORDER BY lesson DESC LIMIT 30 OFFSET %d',
             ($page - 1) * 30
         )) ?: [];
         foreach ($rows as $row) {
-            $row->can_recheck = (bool) $row->has_request
+            $row->can_recheck = (bool) $row->request_id
                 && in_array($row->state, ['processing', 'uncertain'], true);
-            unset($row->has_request);
+            $row->external_download_url = $row->can_recheck && (float) $row->progress >= 100
+                ? self::external_download_url($row->request_id) : '';
+            unset($row->request_id);
             if ($row->state === 'ready') {
                 $row->download_nonce = wp_create_nonce('dttl_live_mp3_download_' . $row->lesson);
             }
