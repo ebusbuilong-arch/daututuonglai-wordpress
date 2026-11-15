@@ -22,3 +22,10 @@ foreach (['request_id' => 'other', 'status' => 'PROCESSING', 'audio_expired' => 
 }
 check(DTTL_Live_MP3::callback_audio('job-81', 200, null), '');
 echo "Callback recovery tests passed\n";
+
+$id = '1bfd106b-e6c3-4fd2-bee9-4673adfc09d9';
+check(DTTL_Live_MP3::external_download_url($id), 'https://everai.vn/text-to-speech/download?request_id=' . $id);
+foreach (['', 'https://evil.example', $id . '&next=evil', $id . "\n", null] as $invalid) {
+    check(DTTL_Live_MP3::external_download_url($invalid), '');
+}
+echo "External download tests passed\n";
