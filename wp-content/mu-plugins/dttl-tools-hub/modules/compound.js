@@ -1,7 +1,10 @@
-DTTLTools.register('compound', (v,{t,fmt}) => {
-  const rate=Math.pow(1+v.rate/100,1/12)-1,rows=[[0,v.initial,v.initial,0]];
-  let balance=v.initial;
-  for(let m=1;m<=v.years*12;m++) {balance=balance*(1+rate)+v.monthly;if(m%12===0){const paid=v.initial+v.monthly*m;rows.push([m/12,paid,balance,balance-paid]);}}
-  const contributed=v.initial+v.monthly*v.years*12;
-  return {stats:[[t('Vốn đã góp','Total contributions'),fmt(contributed)+' VND'],[t('Giá trị cuối kỳ','Ending value'),fmt(balance)+' VND'],[t('Lãi/lỗ theo giả định','Assumed gain/loss'),fmt(balance-contributed)+' VND']],rows};
+DTTLTools.register('compound',(v,{t,fmt})=>{
+  const growth=v.growth||0,inflation=v.inflation||0,goal=v.goal||0,spread=v.spread||0;
+  function simulate(rate,monthly=v.monthly,initial=v.initial){const r=Math.pow(1+rate/100,1/12)-1,rows=[[0,initial,initial,0]];let balance=initial,paid=initial;
+    for(let m=1;m<=v.years*12;m++){const contribution=monthly*Math.pow(1+growth/100,Math.floor((m-1)/12));paid+=contribution;balance=balance*(1+r)+contribution;if(m%12===0)rows.push([m/12,paid,balance,balance-paid]);}
+    return {balance,paid,rows};
+  }
+  const main=simulate(v.rate),real=main.balance/Math.pow(1+inflation/100,v.years),stats=[[t('Vốn đã góp','Total contributions'),fmt(main.paid)+' VND'],[t('Giá trị cuối kỳ','Ending value'),fmt(main.balance)+' VND'],[t('Lãi/lỗ theo giả định','Assumed gain/loss'),fmt(main.balance-main.paid)+' VND'],[t('Sức mua theo tiền hiện tại','Purchasing power in today’s money'),fmt(real)+' VND']];
+  if(goal>0){const base=simulate(v.rate,0).balance,unit=simulate(v.rate,1,0).balance,required=Math.max(0,(goal-base)/unit);stats.push([t('Thiếu so với mục tiêu','Goal shortfall'),fmt(Math.max(0,goal-main.balance))+' VND'],[t('Mức góp tháng năm đầu để đạt mục tiêu','First-year monthly contribution to reach goal'),fmt(required)+' VND']);}
+  return {stats,rows:main.rows,tables:[{title:t('Ba kịch bản lợi suất giả định','Three assumed-return scenarios'),headers:[t('Kịch bản','Scenario'),t('Lợi suất năm (%)','Annual return (%)'),t('Giá trị cuối kỳ','Ending value'),t('Sức mua hiện tại','Today’s purchasing power')],rows:[[t('Thấp hơn','Lower'),Math.max(-90,v.rate-spread)],[t('Cơ sở','Base'),v.rate],[t('Cao hơn','Higher'),Math.min(100,v.rate+spread)]].map(([label,rate])=>{const s=simulate(rate);return [label,rate,s.balance,s.balance/Math.pow(1+inflation/100,v.years)];})}],notes:[t('Kịch bản giữ nguyên mức góp và thời gian. Lợi suất được giới hạn từ −90% đến 100%/năm. Mục tiêu là giá trị danh nghĩa, không tự điều chỉnh theo lạm phát.','Scenarios keep contributions and duration unchanged. Returns are bounded between −90% and 100% annually. The goal is nominal and is not automatically inflation-adjusted.')]};
 });

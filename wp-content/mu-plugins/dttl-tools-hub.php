@@ -1,7 +1,7 @@
 <?php
 /** Plugin Name: DTTL Modular Tools Hub
  * Description: Independent investment tools, bilingual catalog and legacy links.
- * Version: 1.0.0
+ * Version: 1.1.0
  */
 if (!defined('ABSPATH')) { exit; }
 function dttl_th_registry() {
@@ -38,16 +38,16 @@ add_action('admin_init', function () {
 function dttl_th_key() { return is_page() ? get_post_meta(get_queried_object_id(), '_dttl_tool_key', true) : ''; }
 add_action('wp_enqueue_scripts', function () {
     $base = plugins_url('dttl-tools-hub/', __FILE__);
-    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.0.2', true);
+    wp_enqueue_script('dttl-tool-links', $base.'links.js', array(), '1.1.0', true);
     $key = dttl_th_key();
     if (!is_page(array('cong-cu-mien-phi','cong-cu-dau-tu')) && !$key && !is_singular('dttl_app')) { return; }
-    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.0.2');
+    wp_enqueue_style('dttl-tools-hub', $base.'tools.css', array(), '1.1.0');
     if (isset(dttl_th_registry()[$key])) {
-        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.0.2', true);
+        wp_enqueue_script('dttl-tools-core', $base.'core.js', array(), '1.1.0', true);
         if (file_exists(__DIR__.'/dttl-tools-hub/modules/'.$key.'.js')) {
-            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.0.2', true);
+            wp_enqueue_script('dttl-tool-'.$key, $base.'modules/'.$key.'.js', array('dttl-tools-core'), '1.1.0', true);
         }
-    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.0.2', true); }
+    } else { wp_enqueue_script('dttl-tools-catalog', $base.'catalog.js', array(), '1.1.0', true); }
 }, 99);
 add_filter('the_title', function ($title, $id) {
     if (is_admin()) { return $title; }
@@ -83,7 +83,7 @@ add_shortcode('dttl_tool', function ($atts) {
     $key = sanitize_key($atts['key'] ?? ''); $tools=dttl_th_registry();
     if (!isset($tools[$key])) { return ''; } $tool=$tools[$key];
     ob_start(); ?>
-    <div class="dttl-th" data-tool-page="<?php echo esc_attr($key); ?>" data-lang="<?php echo dttl_th_en()?'en':'vi'; ?>" <?php if ($key !== 'progress') { echo 'data-no-translation'; } ?>>
+    <div class="dttl-th" data-tool-page="<?php echo esc_attr($key); ?>" data-owner="<?php echo esc_attr((string)get_current_user_id()); ?>" data-lang="<?php echo dttl_th_en()?'en':'vi'; ?>" <?php if ($key !== 'progress') { echo 'data-no-translation'; } ?>>
     <nav class="th-nav"><a href="<?php echo esc_url(dttl_th_url()); ?>">← <?php echo esc_html(dttl_th_t(array('Tất cả công cụ','All tools'))); ?></a></nav>
     <p><?php echo esc_html(dttl_th_t($tool['description'])); ?></p>
     <section class="th-panel">
@@ -99,7 +99,7 @@ add_shortcode('dttl_tool', function ($atts) {
 
 // Invalidate only affected public URLs; leave cache/preload configuration unchanged.
 add_action('admin_init', function () {
-    if (!current_user_can('manage_options') || get_option('dttl_th_cache_version') === '1.0.2') { return; }
+    if (!current_user_can('manage_options') || get_option('dttl_th_cache_version') === '1.1.0') { return; }
     if (function_exists('rocket_clean_files')) {
         $paths = array('cong-cu-mien-phi/', 'cong-cu-dau-tu/', 'lo-trinh-hoc/');
         foreach (dttl_th_registry() as $tool) { $paths[] = 'cong-cu-mien-phi/'.$tool['slug'].'/'; }
@@ -107,5 +107,5 @@ add_action('admin_init', function () {
         foreach ($paths as $path) { $urls[] = home_url('/'.$path); $urls[] = home_url('/en/'.$path); }
         rocket_clean_files($urls);
     }
-    update_option('dttl_th_cache_version', '1.0.2', false);
+    update_option('dttl_th_cache_version', '1.1.0', false);
 });

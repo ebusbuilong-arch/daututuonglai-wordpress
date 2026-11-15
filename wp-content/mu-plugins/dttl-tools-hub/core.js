@@ -3,13 +3,25 @@
   const root = document.querySelector('[data-tool-page]');
   const en = root && root.dataset.lang === 'en';
   const t = (vi, eng) => en ? eng : vi;
-  const fmt = n => new Intl.NumberFormat(en ? 'en-US' : 'vi-VN', {maximumFractionDigits: 2}).format(n);
-  window.DTTLTools = {t, fmt, register(key, calculate) {
+  const fmt = n => new Intl.NumberFormat(en ? 'en-US' : 'vi-VN', {maximumFractionDigits: Math.abs(n) > 0 && Math.abs(n) < 0.01 ? 8 : 2}).format(n);
+  function download(name, text, type='text/csv;charset=utf-8;') {
+    const url=URL.createObjectURL(new Blob([text],{type})),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  function csv(rows) {return '\uFEFF'+rows.map(row=>row.map(value=>{let s=String(value ?? '');if(typeof value==='string' && /^[=+\-@\t\r]/.test(s))s="'"+s;return '"'+s.replace(/"/g,'""')+'"';}).join(',')).join('\r\n');}
+  window.DTTLTools = {t, fmt, download, csv, register(key, calculate) {
     const form = root && root.querySelector('[data-calculator="' + key + '"]');
     if (!form) return;
     const output = form.querySelector('.th-result');
+    const actions=document.createElement('div');actions.className='th-actions';
+    const reset=document.createElement('button'),exportButton=document.createElement('button');
+    reset.type='button';reset.className='th-secondary';reset.textContent=t('Khôi phục ví dụ','Restore example');
+    exportButton.type='button';exportButton.className='th-secondary';exportButton.textContent=t('Xuất kết quả CSV','Export result CSV');exportButton.hidden=true;
+    actions.append(reset,exportButton);output.before(actions);let exported=[];
+    reset.addEventListener('click',()=>{form.reset();output.replaceChildren();exportButton.hidden=true;exported=[];});
+    exportButton.addEventListener('click',()=>download('dttl-'+key+'.csv',csv(exported)));
+
     form.addEventListener('submit', e => {
-      e.preventDefault(); output.replaceChildren(); output.removeAttribute('data-error');
+      e.preventDefault(); exportButton.hidden=true; exported=[]; output.replaceChildren(); output.removeAttribute('data-error');
       try {
         const values = {};
         for (const input of form.querySelectorAll('input[type=number]')) {
@@ -18,6 +30,8 @@
           values[input.name] = n;
         }
         const result = calculate(values, {t, fmt});
+        exported=[[t('Thông số đầu vào','Inputs')],...Object.entries(values).map(([name,value])=>[form.elements.namedItem(name).closest('label')?.textContent.trim()||name,value]),[],...result.stats];
+
         const list = document.createElement('dl'); list.className = 'th-stats';
         for (const [label, value] of result.stats) {
           const box = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
@@ -38,10 +52,18 @@
           for (const title of [t('Năm','Year'),t('Vốn đã góp','Contributions'),t('Giá trị cuối kỳ','Ending value'),t('Lãi/lỗ','Gain/loss')]) { const th=document.createElement('th');th.scope='col';th.textContent=title;head.append(th); }
           const body=table.createTBody();
           for (const row of result.rows) { const tr=body.insertRow(); for(const n of row) tr.insertCell().textContent=fmt(n); }
-          wrap.append(table); output.append(wrap);
+          wrap.append(table); output.append(wrap);exported.push([], [caption.textContent], [...head.cells].map(x=>x.textContent), ...result.rows);
         }
+        for(const tableData of result.tables||[]){
+          const wrap=document.createElement('div');wrap.className='th-table';wrap.tabIndex=0;const table=document.createElement('table');table.createCaption().textContent=tableData.title;
+          const head=table.createTHead().insertRow();for(const title of tableData.headers){const th=document.createElement('th');th.scope='col';th.textContent=title;head.append(th);}
+          const body=table.createTBody();for(const row of tableData.rows){const tr=body.insertRow();for(const value of row)tr.insertCell().textContent=typeof value==='number'?fmt(value):value;}
+          wrap.append(table);output.append(wrap);exported.push([], [tableData.title],tableData.headers,...tableData.rows);
+        }
+        for(const note of result.notes||[]){const p=document.createElement('p');p.textContent=note;output.append(p);exported.push([], [note]);}
+        exportButton.hidden=false;
       } catch (err) { output.dataset.error='1'; output.textContent=err.message; }
     });
-    form.addEventListener('input', () => { output.removeAttribute('data-error'); output.textContent=t('Dữ liệu đã thay đổi. Bấm tính để cập nhật kết quả.', 'Inputs changed. Calculate again to update the result.'); });
+    form.addEventListener('input', () => { exportButton.hidden=true;exported=[];output.removeAttribute('data-error'); output.textContent=t('Dữ liệu đã thay đổi. Bấm tính để cập nhật kết quả.', 'Inputs changed. Calculate again to update the result.'); });
   }};
 })();

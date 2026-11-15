@@ -1,5 +1,6 @@
-DTTLTools.register('allocation', (v,{t,fmt}) => {
+DTTLTools.register('allocation',(v,{t,fmt})=>{
   const weights=[v.w1,v.w2,v.w3,v.w4],sum=weights.reduce((a,b)=>a+b,0);
   if(Math.abs(sum-100)>0.000001)throw Error(t('Tổng tỷ trọng phải bằng 100%. Hiện tại: ','Weights must total 100%. Current total: ')+fmt(sum)+'%.');
-  return {stats:weights.map((w,i)=>[i===3?t('Tiền dự phòng','Cash reserve'):t('Nhóm tài sản ','Asset group ')+(i+1),fmt(v.capital*w/100)+' VND'])};
+  const current=[1,2,3,4].map(i=>v['current'+i]||0),total=current.reduce((a,b)=>a+b,0),labels=weights.map((w,i)=>i===3?t('Tiền dự phòng','Cash reserve'):t('Nhóm tài sản ','Asset group ')+(i+1));
+  return {stats:[...weights.map((w,i)=>[labels[i],fmt(v.capital*w/100)+' VND']),[t('Tổng giá trị hiện có','Current total value'),fmt(total)+' VND'],[t('Chênh lệch vốn mục tiêu − hiện có','Target minus current capital'),fmt(v.capital-total)+' VND']],tables:[{title:t('Đối chiếu phân bổ','Allocation comparison'),headers:[t('Nhóm','Group'),t('Mục tiêu (%)','Target (%)'),t('Hiện có','Current value'),t('Theo mục tiêu','Target value'),t('Thiếu (+) / vượt (−)','Shortfall (+) / excess (−)')],rows:weights.map((w,i)=>[labels[i],w,current[i],v.capital*w/100,v.capital*w/100-current[i]])}],notes:[t('Nếu chưa có danh mục, giữ các ô hiện có bằng 0. Tổng chênh lệch bằng tổng vốn mục tiêu trừ tổng giá trị hiện có.','If you have no portfolio yet, leave current values at zero. Gaps sum to target capital minus current value.')]};
 });

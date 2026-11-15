@@ -75,11 +75,44 @@
         "min": 0,
         "max": 99,
         "step": "any"
+      },
+      {
+        "id": "fixed",
+        "label": [
+          "Tổng phí cố định hai chiều",
+          "Total fixed buy/sell fees"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "income",
+        "label": [
+          "Thu nhập tiền mặt khác (sau thuế)",
+          "Other cash income (after tax)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "target",
+        "label": [
+          "Mức lãi mục tiêu (%)",
+          "Target return (%)"
+        ],
+        "value": 10,
+        "min": 0,
+        "max": 1000,
+        "step": "any"
       }
     ],
     "note": [
-      "Vốn mua = giá mua × số lượng × (1 + phí mua). Tiền bán ròng = giá bán × số lượng × (1 − phí bán − thuế). Lãi/lỗ = tiền bán ròng − vốn mua. Phí mặc định 0 để bạn tự nhập; chưa tính lãi vay, cổ tức, trượt giá hoặc phí cố định.",
-      "Purchase cost = buy price × quantity × (1 + buy fee). Net proceeds = sell price × quantity × (1 − sell fee − tax). Profit/loss = net proceeds − purchase cost. Fees default to zero for you to enter; financing, dividends, slippage and fixed fees are excluded."
+      "Vốn mua gồm giá trị mua, phí mua theo % và toàn bộ phí cố định hai chiều. Thu nhập tiền mặt được cộng sau thuế. Giá bán hòa vốn và mục tiêu dùng cùng mô hình phí, không đòn bẩy. Không tự lấy giá thị trường, không dự báo lợi nhuận.",
+      "Purchase cost includes the purchase value, percentage buy fee and all fixed round-trip fees. Other cash income is net of tax. Break-even and target prices use this fee model without leverage. No live prices or return forecasts."
     ]
   },
   "average": {
@@ -89,8 +122,8 @@
       "Average cost"
     ],
     "description": [
-      "Tính giá vốn của tối đa ba lần mua cùng một tài sản.",
-      "Calculate the average cost of up to three purchases of the same asset."
+      "Thêm từng lần mua, xem tỷ trọng vốn và lãi/lỗ theo giá bạn nhập.",
+      "Add purchase lots and review cost weights and profit/loss at your entered price."
     ],
     "fields": [
       {
@@ -169,11 +202,22 @@
         "min": 0,
         "max": 1000000000000.0,
         "step": "any"
+      },
+      {
+        "id": "market",
+        "label": [
+          "Giá tham chiếu hiện tại (0 = bỏ qua)",
+          "Current reference price (0 = skip)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
       }
     ],
     "note": [
-      "Giá vốn = (tổng giá trị mua + tổng phí) ÷ tổng số lượng. Để số lượng 0 ở lần không sử dụng. Chưa xử lý bán bớt, chia tách, cổ tức cổ phiếu hoặc quyền mua.",
-      "Average cost = (total purchase value + total fees) ÷ total quantity. Set unused quantities to zero. Partial sales, splits, stock dividends and rights issues are not included."
+      "Giá vốn = (tổng giá trị mua + tổng phí) ÷ tổng số lượng. Thêm tối đa 20 lần mua; số lượng 0 là bỏ qua. Lãi/lỗ tham chiếu chưa trừ chi phí bán. Không xử lý bán bớt giữa các lần mua, chia tách hoặc quyền mua.",
+      "Average cost = (purchase values + total fees) ÷ total quantity. Add up to 20 lots; zero quantity skips a lot. Reference profit/loss excludes selling costs. Partial sales between purchases, splits and rights issues are not handled."
     ]
   },
   "recovery": {
@@ -196,6 +240,28 @@
         "value": 20,
         "min": 0,
         "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "initial",
+        "label": [
+          "Vốn ban đầu",
+          "Initial capital"
+        ],
+        "value": 100000000,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "additional",
+        "label": [
+          "Vốn góp bổ sung",
+          "Additional contribution"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
         "step": "any"
       }
     ],
@@ -269,11 +335,55 @@
         "min": 0,
         "max": 100,
         "step": "any"
+      },
+      {
+        "id": "current1",
+        "label": [
+          "Giá trị hiện có — nhóm 1",
+          "Current value — group 1"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "current2",
+        "label": [
+          "Giá trị hiện có — nhóm 2",
+          "Current value — group 2"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "current3",
+        "label": [
+          "Giá trị hiện có — nhóm 3",
+          "Current value — group 3"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
+      },
+      {
+        "id": "current4",
+        "label": [
+          "Giá trị hiện có — dự phòng",
+          "Current value — cash reserve"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1000000000000.0,
+        "step": "any"
       }
     ],
     "note": [
-      "Tổng tỷ trọng phải bằng 100%. Công cụ chỉ chia số tiền, không đề xuất danh mục đầu tư.",
-      "Weights must total 100%. This tool divides amounts; it does not recommend a portfolio."
+      "Tổng tỷ trọng phải bằng 100%. Tổng vốn là quy mô danh mục mục tiêu sau điều chỉnh. Chênh lệch dương là số còn thiếu, âm là số vượt mục tiêu. Chưa tính phí, thuế, bước giá hay lô giao dịch; đây không phải đề xuất mua/bán.",
+      "Weights must total 100%. Total capital is the target portfolio size after adjustments. A positive gap is a shortfall and a negative gap is an excess. Fees, taxes, ticks and trading lots are excluded; these are not trade recommendations."
     ]
   },
   "compound": {
@@ -330,11 +440,55 @@
         "min": 1,
         "max": 50,
         "step": 1
+      },
+      {
+        "id": "inflation",
+        "label": [
+          "Lạm phát giả định / năm (%)",
+          "Assumed annual inflation (%)"
+        ],
+        "value": 3,
+        "min": 0,
+        "max": 50,
+        "step": "any"
+      },
+      {
+        "id": "growth",
+        "label": [
+          "Tăng mức góp mỗi năm (%)",
+          "Annual contribution increase (%)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 100,
+        "step": "any"
+      },
+      {
+        "id": "goal",
+        "label": [
+          "Mục tiêu cuối kỳ (VNĐ, 0 = bỏ qua)",
+          "Ending goal (VND, 0 = skip)"
+        ],
+        "value": 0,
+        "min": 0,
+        "max": 1e+18,
+        "step": "any"
+      },
+      {
+        "id": "spread",
+        "label": [
+          "Biên kịch bản lợi suất (điểm %)",
+          "Return scenario spread (percentage points)"
+        ],
+        "value": 2,
+        "min": 0,
+        "max": 20,
+        "step": "any"
       }
     ],
     "note": [
-      "Quy đổi lợi suất năm hiệu dụng sang tháng: (1 + r)^(1/12) − 1; góp tiền cuối mỗi tháng. Không tính thuế, phí hoặc lạm phát. Lợi suất giả định cố định không phải dự báo hay cam kết lợi nhuận.",
-      "Effective annual return is converted to a monthly rate: (1 + r)^(1/12) − 1. Contributions are made at month-end. Taxes, fees and inflation are excluded. A fixed assumed return is not a forecast or guarantee."
+      "Lợi suất năm hiệu dụng đổi sang tháng: (1 + r)^(1/12) − 1, góp tiền cuối tháng. Mức góp tăng vào đầu mỗi năm mới. Giá trị sức mua = giá trị cuối kỳ ÷ (1 + lạm phát)^số năm. Mục tiêu dùng giá trị danh nghĩa, mức góp gợi tính là mức góp tháng của năm đầu. Ba kịch bản không phải khoảng tin cậy hay dự báo. Không tính thuế hoặc phí.",
+      "Effective annual return converts to a monthly rate: (1 + r)^(1/12) − 1, with month-end contributions. Contributions increase at the start of each new year. Purchasing power = ending value ÷ (1 + inflation)^years. The goal is nominal; calculated required contributions are the first-year monthly amount. The three scenarios are neither confidence intervals nor forecasts. Taxes and fees are excluded."
     ]
   },
   "journal": {
@@ -344,8 +498,8 @@
       "Investment journal"
     ],
     "description": [
-      "Tải mẫu CSV để ghi lý do, rủi ro và bài học sau mỗi giao dịch.",
-      "Download a CSV template to record reasons, risks and lessons from each trade."
+      "Ghi giao dịch đã đóng, tự tính lãi/lỗ, lưu trên trình duyệt và xuất CSV hoặc bản sao JSON.",
+      "Record closed trades, calculate profit/loss, save in this browser and export CSV or a JSON backup."
     ],
     "fields": [],
     "note": [
@@ -360,8 +514,8 @@
       "Pre-trade checklist"
     ],
     "description": [
-      "Rà soát thông tin, chi phí và khả năng chịu rủi ro trước khi quyết định.",
-      "Review information, costs and risk tolerance before deciding."
+      "Rà soát quyết định, ghi chú và lưu bản kiểm tra trên trình duyệt.",
+      "Review a decision, add notes and save your checklist in this browser."
     ],
     "fields": [],
     "note": [

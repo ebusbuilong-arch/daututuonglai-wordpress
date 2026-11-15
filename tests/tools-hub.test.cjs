@@ -11,3 +11,13 @@ r=calc.compound({initial:1000,monthly:100,rate:0,years:2},ctx);assert.equal(r.ro
 r=calc.compound({initial:1000,monthly:0,rate:10,years:1},ctx);assert.ok(Math.abs(r.rows[1][2]-1100)<1e-8);
 r=calc.compound({initial:1000,monthly:0,rate:-50,years:1},ctx);assert.ok(Math.abs(r.rows[1][2]-500)<1e-8);
 console.log('PASS: fees, average cost, recovery, allocation validation, zero/positive/negative compound returns');
+// Detailed calculators: independently derived cash-flow and contribution examples.
+r=calc.profit({buy:100,sell:120,qty:10,bfee:1,sfee:1,tax:1,fixed:5,income:20,target:10},ctx);
+assert.equal(r.tables[0].rows[1][1],10);assert.match(r.stats[2][1],/^181 /);assert.ok(Math.abs(r.stats[4][1]-(1015*1.1-20)/9.8)<1e-10);
+r=calc.average({p1:10,q1:2,p2:0,q2:0,p3:0,q3:0,p4:20,q4:3,cost:5,market:18},ctx);assert.equal(r.stats[2][1],17);assert.equal(r.tables[0].rows.length,2);assert.match(r.stats[4][1],/^5 /);
+r=calc.recovery({drop:50,initial:100,additional:25},ctx);assert.equal(r.stats[4][1],25);assert.match(r.stats[5][1],/^33\.333/);
+r=calc.allocation({capital:100,w1:40,w2:30,w3:20,w4:10,current1:50,current2:10,current3:10,current4:10},ctx);assert.equal(r.tables[0].rows.reduce((s,row)=>s+row[4],0),20);
+r=calc.compound({initial:0,monthly:100,rate:0,years:2,growth:10,inflation:0,goal:5040,spread:2},ctx);assert.ok(Math.abs(r.rows[2][2]-2520)<1e-8);assert.ok(Math.abs(parseFloat(r.stats[5][1])-200)<1e-8);
+r=calc.compound({initial:1000,monthly:0,rate:0,years:1,growth:0,inflation:25,goal:0,spread:2},ctx);assert.equal(r.stats[3][1],'800 VND');
+const sandbox={document:{querySelector:()=>null},window:{},Intl};vm.runInNewContext(fs.readFileSync('wp-content/mu-plugins/dttl-tools-hub/core.js','utf8'),sandbox);const csv=sandbox.window.DTTLTools.csv([['=HYPERLINK("x")','quoted "text"',-12,'a\nb']]);assert.ok(csv.includes("'=HYPERLINK"));assert.ok(csv.includes('quoted ""text""'));assert.ok(csv.includes('"-12"'));assert.ok(csv.includes('"a\nb"'));
+console.log('PASS: detailed cash flows, extra purchase lots, contributions, reallocation, inflation, goal funding and safe CSV');
