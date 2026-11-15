@@ -289,7 +289,44 @@ final class DTTL_Live_MP3 {
         $payload = json_decode(wp_remote_retrieve_body($response), true);
         $result = is_array($payload['result'] ?? null) ? $payload['result'] : [];
         $update = self::outcome($row, $sending, $http, $payload, $result);
+        // Recover the existing request only; never submit text again here.
+        if (!$sending && $http >= 200 && $http < 300
+            && (string) ($payload['status'] ?? '') === '1'
+            && !in_array($update['state'], ['ready', 'failed', 'expired'], true)
+            && ((int) ($result['progress'] ?? 0) >= 99
+                || in_array(strtolower((string) ($result['status'] ?? '')), ['done', 'success', 'completed'], true))) {
+            $callback = wp_remote_request($url . '/callback-result', $args);
+            $recovered = self::callback_audio($row->request_id,
+                (int) wp_remote_retrieve_response_code($callback),
+                json_decode(wp_remote_retrieve_body($callback), true));
+            if ($recovered !== '') {
+                $update = ['state' => 'ready', 'progress' => 100, 'detail' => '', 'audio_url' => $recovered];
+            } else {
+                $update['next_check'] = time() + 90;
+            }
+        }
         $wpdb->update($table, $update + ['touched' => time()], $where);
+    }
+
+    static function callback_audio($request_id, $http, $data) {
+        if ($http < 200 || $http >= 300 || (string) ($data['status'] ?? '') !== '1') {
+            return '';
+        }
+        $result = $data['result'] ?? [];
+        if (!is_array($result) || (string) ($result['request_id'] ?? '') !== (string) $request_id) {
+            return '';
+        }
+        $payload = $result['payload'] ?? [];
+        if (is_string($payload)) {
+            $payload = json_decode($payload, true);
+        }
+        if (!is_array($payload) || (string) ($payload['request_id'] ?? '') !== (string) $request_id
+            || strtolower((string) ($payload['status'] ?? '')) !== 'success'
+            || filter_var($payload['audio_expired'] ?? false, FILTER_VALIDATE_BOOLEAN)) {
+            return '';
+        }
+        $url = is_string($payload['audio_link'] ?? null) ? trim($payload['audio_link']) : '';
+        return self::valid_audio_url($url) ? $url : '';
     }
 
     static function outcome($row, $sending, $http, $payload, $result) {
