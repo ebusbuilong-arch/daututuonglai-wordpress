@@ -3,14 +3,25 @@ defined('ABSPATH') || exit;
 
 /** Public reference prices used for manual AIM practice orders. */
 final class AIM_Commodity_Public_Quote {
- const METALS=array('XAU_USD'=>'XAU','XAG_USD'=>'XAG');
- const OIL=array('WTICO_USD'=>'RWTCD','BCO_USD'=>'RBRTED');
+ const METALS=array('XAU_USD'=>'XAU','XAG_USD'=>'XAG','XPT_USD'=>'XPT','XPD_USD'=>'XPD');
+ const DAILY=array(
+  'WTICO_USD'=>array('pet/hist/RWTCD.htm','Cushing, OK WTI Spot Price FOB'),
+  'BCO_USD'=>array('pet/hist/RBRTED.htm','Europe Brent Spot Price FOB'),
+  'NG_USD'=>array('ng/hist/rngwhhdD.htm','Henry Hub Natural Gas Spot Price (Dollars per Million Btu)'),
+ );
  const GOLD_SOURCE='Gold API';
  const OIL_SOURCE='EIA';
  const SPREAD=0.001;
 
  static function source($symbol){
-  return isset(self::METALS[$symbol])?self::GOLD_SOURCE:(isset(self::OIL[$symbol])?self::OIL_SOURCE:null);
+  return isset(self::METALS[$symbol])?self::GOLD_SOURCE:(isset(self::DAILY[$symbol])?self::OIL_SOURCE:null);
+ }
+ static function instruments($en){
+  return array(
+   array('CAPITALCOM:XPTUSD','XPT/USD',$en?'Platinum':'Bạch kim','USD/oz'),
+   array('OANDA:XPDUSD','XPD/USD','Palladium','USD/oz'),
+   array('NYMEX:NG1!','NG/USD',$en?'Henry Hub natural gas':'Khí tự nhiên Henry Hub','USD/MMBtu'),
+  );
  }
  static function is_public($source){return in_array($source,array(self::GOLD_SOURCE,self::OIL_SOURCE),true);}
  static function now(){return (int)round(microtime(true)*1000);}
@@ -23,14 +34,14 @@ final class AIM_Commodity_Public_Quote {
   return self::book($symbol,$data['price']??null,$time,$now,'timestamp');
  }
 
- static function oil($body,$symbol,$now){
-  $name=$symbol==='WTICO_USD'?'Cushing, OK WTI Spot Price FOB':'Europe Brent Spot Price FOB';
+ static function daily($body,$symbol,$now){
+  $name=self::DAILY[$symbol][1];
   if(strpos($body,$name)===false||!preg_match('/Release Date:\s*(\d{1,2}\/\d{1,2}\/\d{4})/i',$body,$release)){
    throw new RuntimeException('EIA chưa trả đúng bảng giá giao ngay.');
   }
   $published=DateTimeImmutable::createFromFormat('!n/j/Y',$release[1],new DateTimeZone('UTC'));
   if(!$published||$published->format('n/j/Y')!==ltrim(str_replace('/0','/',$release[1]),'0')||$published->getTimestamp()*1000>$now){
-   throw new RuntimeException('Ngày công bố giá dầu EIA không hợp lệ.');
+   throw new RuntimeException('Ngày công bố giá EIA không hợp lệ.');
   }
   preg_match_all("~<td\\b[^>]*class=['\"]B6['\"][^>]*>(.*?)</td>((?:\\s*<td\\b[^>]*class=['\"]B3['\"][^>]*>.*?</td>){5})~is",$body,$rows,PREG_SET_ORDER);
   foreach(array_reverse($rows) as $row){
@@ -49,7 +60,7 @@ final class AIM_Commodity_Public_Quote {
     return $q;
    }
   }
-  throw new RuntimeException('EIA chưa công bố giá dầu hợp lệ.');
+  throw new RuntimeException('EIA chưa công bố giá hợp lệ.');
  }
 
  static function book($symbol,$raw,$time,$now,$basis){
@@ -70,12 +81,12 @@ final class AIM_Commodity_Public_Quote {
   if(is_array($cached))return $cached;
   if(get_transient($key.'_retry'))return AIM_Trading::error('Nguồn tham chiếu đang tạm gián đoạn.',503);
   $metal=isset(self::METALS[$symbol]);
-  $url=$metal?'https://api.gold-api.com/price/'.self::METALS[$symbol]:'https://www.eia.gov/dnav/pet/hist/'.self::OIL[$symbol].'.htm';
+  $url=$metal?'https://api.gold-api.com/price/'.self::METALS[$symbol]:'https://www.eia.gov/dnav/'.self::DAILY[$symbol][0];
   $response=wp_safe_remote_get($url,array('timeout'=>8,'redirection'=>0,'limit_response_size'=>$metal?16384:2000000));
   try{
    if(is_wp_error($response)||(int)wp_remote_retrieve_response_code($response)!==200)throw new RuntimeException('Chưa đọc được giá từ '.$source.'.');
    $body=wp_remote_retrieve_body($response);$now=self::now();
-   $quote=$metal?self::metal($body,$symbol,$now):self::oil($body,$symbol,$now);
+   $quote=$metal?self::metal($body,$symbol,$now):self::daily($body,$symbol,$now);
    set_transient($key,$quote,$metal?60:900);
    return $quote;
   }catch(RuntimeException $e){
@@ -84,7 +95,16 @@ final class AIM_Commodity_Public_Quote {
   }
  }
 
- static function spec($symbol){return AIM_Reference_Feed::spec($symbol);}
+ static function spec($symbol){
+  $spec=AIM_Reference_Feed::spec($symbol);
+  if(in_array($symbol,array('XPT_USD','XPD_USD'),true))$spec['lot_units']=10;
+  if($symbol==='NG_USD'){
+   $spec['display_precision']=3;
+   $spec['tick']=0.001;
+   $spec['pip']=0.001;
+  }
+  return $spec;
+ }
 
  static function valid_clock($q,$now){
   $time=$q['time']??null;$received=$q['received']??null;$symbol=$q['symbol']??'';
