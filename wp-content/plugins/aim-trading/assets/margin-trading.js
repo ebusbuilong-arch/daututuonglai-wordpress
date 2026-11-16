@@ -62,6 +62,7 @@ function draw(){if(dismissConfirmation&&commodity)dismissConfirmation();const s=
 protect.onsubmit=e=>{e.preventDefault();send({type:'protect',id:p.id,tp:tp.value.trim()||null,sl:sl.value.trim()||null});};wrap.append(protect);$('ex-panel-positions').append(wrap);});
  const t=table(['UTC','Nghiệp vụ','Vị thế','Lãi/lỗ trước phí','Phí','Đối ứng quỹ']);for(const h of account.history||[]){for(const ev of h.events){const row=document.createElement('tr');[h.created,ev.kind+(ev.reason?' · '+ev.reason:'')+(ev.quote_source?' · '+ev.quote_source:'')+(ev.observation_date?' · '+dayLabel(ev.observation_date):ev.saved_quote?' · Báo giá lưu '+quoteDate(ev.quote_time):''),ev.id??'—',money(ev.pnl||0),money(ev.fee||0),money(ev.pool_delta||0)].forEach(v=>row.append(node('td',String(v))));t.append(row);}}$('ex-panel-history').replaceChildren(t);controls();}
 function message(v){$('fx-pilot-message').textContent=v;}
+if(forex)$('fx-pilot-open-submit').insertAdjacentElement('afterend',$('fx-pilot-message'));
 async function refresh(silent=false){
  if(refreshing)return false;
  if(!c.logged){$('fx-pilot-readiness').textContent='Đăng nhập để giao dịch.';controls();return false;}
@@ -115,6 +116,7 @@ async function perform(){
  }catch(e){
   if([400,403,409].includes(e.status)){localStorage.removeItem(key);pending=null;}
   resultMessage=e.name==='AbortError'?'Chưa rõ kết quả. Bấm kiểm tra lại yêu cầu trước; không đặt lại bằng mã mới.':e.message;
+  message(resultMessage);
   if(closing)setPositionNotice('Vị thế #'+request.id+' · '+resultMessage+(pending?' Dùng nút Đối chiếu lệnh đóng.':''));
  }finally{
   const updated=await refresh();busy=false;controls();
@@ -180,10 +182,27 @@ function quoteUsable(){
 }
 function mapped(v){return ({'WTI':'WTICO_USD','BRENT':'BCO_USD'})[v]||v.replace('/','_');}
 function quoteFresh(){return !!liveQuote&&liveQuote.open&&liveQuote.symbol===$('fx-pilot-symbol').value&&Date.now()-liveQuote.time<=(liveQuote.time_basis==='provider_response'?120000:180000)&&Date.now()-liveQuote.received<=90000;}
+function forexEstimate(lots,price,leverage,spec,cash){
+ const units=lots*spec.lot_units;
+ const wholeUnits=units.toLocaleString(c.lang==='en'?'en-US':'vi-VN',{maximumFractionDigits:spec.unit_precision});
+ const exposure=Math.round(units*price*1000);
+ const required=Math.ceil(units*price*Math.max(1/leverage,spec.margin_rate)*1000)+Math.ceil(lots*3500);
+ let label=wholeUnits+' đơn vị · Giá trị '+money(exposure)+' AIM · Cần khoảng '+money(required)+' AIM gồm ký quỹ và phí mở.';
+ if(units<spec.min_units||units>spec.max_units)label+=' Khối lượng ngoài giới hạn của cặp tiền.';
+ else if(Number.isFinite(cash)&&required>cash)label+=' AIM khả dụng '+money(cash)+': dự kiến thiếu '+money(required-cash)+' AIM.';
+ return label;
+}
 function estimate(){
- if(!quoteUsable()){$('mt-estimate').textContent=commodity?'Chưa có báo giá giao dịch cho mã này.':'Chưa có giá mới trong phiên; tạm khóa mở lệnh.';return;}
+ if(!quoteUsable()){
+  const priceStatus=$('mt-price').textContent;
+  $('mt-estimate').textContent=commodity?'Chưa có báo giá giao dịch cho mã này.'
+   :priceStatus.startsWith('Mua ')?'Báo giá đã hết hiệu lực. Chờ cập nhật trước khi mở lệnh.':priceStatus;
+  return;
+ }
  const lots=Number($('fx-pilot-lots').value),lev=Number($('fx-pilot-leverage').value),price=liveQuote[$('fx-pilot-side').value==='long'?'ask':'bid'],value=lots*liveSpec.lot_units*price/1000;
- $('mt-estimate').textContent=lots>0&&Number.isFinite(value)?'Giá trị '+money(Math.round(value*1e6))+' AIM · Ký quỹ ước tính '+money(Math.ceil(value/lev*1e6))+' AIM, chưa gồm phí.'+(liveQuote.manual_only?' · Chỉ mở/đóng thủ công.':''):'Nhập khối lượng hợp lệ.';
+ $('mt-estimate').textContent=lots>0&&Number.isFinite(value)?(forex
+  ?forexEstimate(lots,price,lev,liveSpec,account?.state?.cash)
+  :'Giá trị '+money(Math.round(value*1e6))+' AIM · Ký quỹ ước tính '+money(Math.ceil(value/lev*1e6))+' AIM, chưa gồm phí.'+(liveQuote.manual_only?' · Chỉ mở/đóng thủ công.':'')):'Nhập khối lượng hợp lệ.';
 }
 async function loadQuote(preview=null){
  clearTimeout(quoteTimer);const serial=++quoteSerial;liveQuote=null;liveSpec=null;savedOrderQuote=false;orderQuoteToken=null;controls();estimate();
@@ -217,7 +236,7 @@ const r=await fetch(c.api+'market-launch/quote?symbol='+encodeURIComponent(symbo
 }
 document.addEventListener('aim-symbol-change',e=>{if(dismissConfirmation)dismissConfirmation();$('fx-pilot-symbol').value=mapped(e.detail.symbol);loadQuote(e.detail.commodityQuote);});
 for(const side of ['buy','sell'])$('ex-'+side).addEventListener('click',()=>{if(dismissConfirmation)dismissConfirmation();$('fx-pilot-side').value=side==='buy'?'long':'short';$('fx-pilot-open-submit').className='action '+side;controls();estimate();});
-for(const id of ['fx-pilot-lots','fx-pilot-leverage'])$(id).addEventListener('input',()=>{if(dismissConfirmation)dismissConfirmation();estimate();});
+for(const id of ['fx-pilot-lots','fx-pilot-leverage'])for(const event of ['input','change'])$(id).addEventListener(event,()=>{if(dismissConfirmation)dismissConfirmation();estimate();});
 for(const id of ['fx-pilot-tp','fx-pilot-sl'])$(id).addEventListener('input',()=>{if(dismissConfirmation)dismissConfirmation();});
 $('fx-pilot-symbol').value=commodity&&!(c.commoditySymbols??[]).includes(mapped($('ex-symbol').textContent))?'':mapped($('ex-symbol').textContent);
 const freshnessTimer=setInterval(()=>{controls();estimate();},1000);
