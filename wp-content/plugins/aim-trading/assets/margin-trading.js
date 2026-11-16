@@ -6,14 +6,14 @@ const node=(tag,value)=>{const el=document.createElement(tag);el.textContent=val
 const forex=c.market==='forex',commodity=c.market==='commodity',positionsPanel=$('ex-panel-positions');
 const positionStatus=(forex||commodity)?node('p',''):null;
 const closeRetry=(forex||commodity)?node('button','Đối chiếu lệnh đóng'):null;
-let closeNotice='',closeReceipt=null;
+let positionNotice='',closeReceipt=null;
 if(positionStatus)positionStatus.setAttribute('role','status');
 if(closeRetry){
  closeRetry.type='button';closeRetry.className='start';closeRetry.hidden=true;closeRetry.onclick=perform;
 }
 function renderPositionStatus(){
  if(!positionStatus)return;
- let status=closeNotice;
+ let status=positionNotice;
  if(closeReceipt){
   const {id,units}=closeReceipt;
   const position=account?.state?.positions?.[id];
@@ -26,7 +26,7 @@ function renderPositionStatus(){
  if(positionStatus.parentNode!==positionsPanel)positionsPanel.prepend(positionStatus);
  if(closeRetry.parentNode!==positionsPanel)positionStatus.after(closeRetry);
 }
-function setCloseNotice(status){closeNotice=status;closeReceipt=null;renderPositionStatus();}
+function setPositionNotice(status){positionNotice=status;closeReceipt=null;renderPositionStatus();}
 function removeConfirmedFullClose(receipt,replayed){
  const previous=account?.state?.positions?.[receipt.id];
  if(replayed||!previous||receipt.units<previous.units)return;
@@ -50,12 +50,12 @@ function draw(){if(dismissConfirmation&&commodity)dismissConfirmation();const s=
   try{
    const data=await api('order-quote?symbol='+encodeURIComponent(p.symbol)+'&position='+p.id);
    if(!button.isConnected||busy||refreshing||pending)return;
-   setCloseNotice('');
+   setPositionNotice('');
    const price=data.quote[p.side==='long'?'bid':'ask'];
    if(await confirmOrder(order,button,['#'+p.id+' · '+p.symbol.replace('_','/')+' · '+order.units+' đơn vị','Giá '+price+' USD',quoteLabel(data.quote,data.saved),...(data.quote.source!==(p.source??'OANDA Practice')?['Vị thế mở theo '+(p.source??'OANDA Practice')+'. Lãi/lỗ khi đóng tính theo nguồn hiển thị ở trên.']:[])])){
     await send({...order,quote_token:data.token});
    }
-  }catch(error){message(error.message);setCloseNotice('Vị thế #'+p.id+' · '+error.message);}
+  }catch(error){message(error.message);setPositionNotice('Vị thế #'+p.id+' · '+error.message);}
   finally{controls();}};wrap.append(closeForm);
  const protect=document.createElement('form'),tp=document.createElement('input'),sl=document.createElement('input'),save=node('button','Lưu TP/SL');tp.value=p.tp===null?'':String(p.tp);sl.value=p.sl===null?'':String(p.sl);tp.placeholder='TP';sl.placeholder='SL';tp.setAttribute('aria-label','Chốt lời vị thế '+p.id);sl.setAttribute('aria-label','Cắt lỗ vị thế '+p.id);save.dataset.fxMutation='1';save.className='start';protect.append(tp,sl,save);
  if(commodity&&publicSource(p.source)){protect.hidden=true;wrap.append(node('small','Giá tham chiếu · Chỉ đóng thủ công.'));}
@@ -82,34 +82,51 @@ async function refresh(silent=false){
   return ok;
  }finally{refreshing=false;controls();}
 }
+function forexOpenResult(receipt,latest){
+ const label='#'+receipt.id+' · '+receipt.symbol.replace('_','/')+' · '+receipt.side.toUpperCase();
+ if(latest?.state?.positions?.[receipt.id])return 'Đã mở vị thế '+label+'. Xem trong tab Vị thế.';
+ if(latest?.history?.some(row=>row.events?.some(event=>event.kind==='close'&&event.id===receipt.id))){
+  return 'Vị thế '+label+' đã khớp và đã đóng. Xem lý do trong Lịch sử.';
+ }
+ return 'Đã ghi nhận lệnh mở '+label+' nhưng chưa thấy trong danh sách vị thế đang mở. Bấm Làm mới tài khoản và xem Lịch sử trước khi đặt lại.';
+}
 async function perform(){
  if(busy||refreshing||!pending)return;busy=true;controls();message('Đang xử lý; giữ nguyên mã yêu cầu nếu kết nối gián đoạn.');
  const request=pending,closing=(forex||commodity)&&request.type==='close';
- if(closing)setCloseNotice('Đang gửi lệnh đóng vị thế #'+request.id+'…');
- let resultMessage='',succeeded=false;
+ if(closing)setPositionNotice('Đang gửi lệnh đóng vị thế #'+request.id+'…');
+ let resultMessage='',succeeded=false,opened=null,openSkipped=false;
  try{
   const completedType=pending.type;const r=await api('action',pending);localStorage.removeItem(key);pending=null;succeeded=true;
+  openSkipped=r.events.some(e=>e.kind==='open_skipped');
+  if(forex&&completedType==='open')opened=r.events.find(e=>e.kind==='open')??null;
   if(closing){
    closeReceipt=r.events.find(e=>e.kind==='close'&&e.id===request.id)??null;
-   closeNotice=closeReceipt?'':'Chưa nhận được xác nhận khớp cho vị thế #'+request.id+'.';
+   positionNotice=closeReceipt?'':'Chưa nhận được xác nhận khớp cho vị thế #'+request.id+'.';
    if(closeReceipt){
     removeConfirmedFullClose(closeReceipt,r.replayed);
-    closeNotice='Đã khớp lệnh đóng #'+request.id+'. Đang cập nhật danh sách vị thế.';
-    if(!positionStatus.hidden)positionStatus.textContent=closeNotice;
+    positionNotice='Đã khớp lệnh đóng #'+request.id+'. Đang cập nhật danh sách vị thế.';
+    if(!positionStatus.hidden)positionStatus.textContent=positionNotice;
    }else renderPositionStatus();
   }
-  if(completedType==='open'&&!r.events.some(e=>e.kind==='open_skipped'))for(const id of ['fx-pilot-lots','fx-pilot-tp','fx-pilot-sl'])$(id).value='';
+  if(completedType==='open'&&!openSkipped)for(const id of ['fx-pilot-lots','fx-pilot-tp','fx-pilot-sl'])$(id).value='';
   if(['transfer_in','transfer_out'].includes(completedType))$('fx-pilot-amount').value='';estimate();
-  resultMessage=r.replayed?'Đã đối chiếu yêu cầu trước, không hạch toán lần hai.':r.events.some(e=>e.kind==='open_skipped')?'Đã xử lý vị thế cũ. Lệnh mở mới chưa được thực hiện.':'Đã thực hiện thành công.';
+  resultMessage=r.replayed?'Đã đối chiếu yêu cầu trước, không hạch toán lần hai.':openSkipped?'Đã xử lý vị thế cũ. Lệnh mở mới chưa được thực hiện.':'Đã thực hiện thành công.';
   message('Đã ghi nhận. Đang cập nhật số dư và lịch sử… / Updating balances and history…');
  }catch(e){
   if([400,403,409].includes(e.status)){localStorage.removeItem(key);pending=null;}
   resultMessage=e.name==='AbortError'?'Chưa rõ kết quả. Bấm kiểm tra lại yêu cầu trước; không đặt lại bằng mã mới.':e.message;
-  if(closing)setCloseNotice('Vị thế #'+request.id+' · '+resultMessage+(pending?' Dùng nút Đối chiếu lệnh đóng.':''));
+  if(closing)setPositionNotice('Vị thế #'+request.id+' · '+resultMessage+(pending?' Dùng nút Đối chiếu lệnh đóng.':''));
  }finally{
   const updated=await refresh();busy=false;controls();
   if(commodity&&!succeeded&&!pending)void loadQuote();
-  message(resultMessage+(succeeded?(updated?' Số dư, vị thế và lịch sử đã cập nhật.':' Giao dịch đã ghi nhận nhưng chưa tải đủ số dư mới. Bấm Làm mới tài khoản; không gửi lại lệnh.'):''));
+  if(opened){
+   const status=forexOpenResult(opened,account);
+   setPositionNotice(status);
+   $('ex-tab-positions').click();
+   message(status);
+  }else if(forex&&request.type==='open'&&succeeded&&!openSkipped){
+   message('Máy chủ chưa trả mã vị thế mới. Xem Lịch sử trước khi đặt lại.');
+  }else message(resultMessage+(succeeded?(updated?' Số dư, vị thế và lịch sử đã cập nhật.':' Giao dịch đã ghi nhận nhưng chưa tải đủ số dư mới. Bấm Làm mới tài khoản; không gửi lại lệnh.'):''));
  }
 }
 async function send(body){if(!c.logged||busy||refreshing||pending||!storageOK)return message('Cần đối chiếu yêu cầu trước trước khi thao tác tiếp.');try{body.request_id=crypto.randomUUID();const raw=JSON.stringify(body);localStorage.setItem(key,raw);if(localStorage.getItem(key)!==raw)throw Error();pending=body;}catch{storageOK=false;controls();return message('Không lưu được mã yêu cầu trên trình duyệt; chưa gửi lệnh.');}await perform();}
@@ -219,7 +236,7 @@ if(commodity){
 $('fx-pilot-direction').onchange=controls;$('fx-pilot-refresh').onclick=()=>refresh();$('fx-pilot-retry').onclick=perform;
 if(pending){
  message('Có yêu cầu chưa đối chiếu từ lần trước. Bấm kiểm tra lại để tránh ghi trùng.');
- if((forex||commodity)&&pending.type==='close')setCloseNotice('Vị thế #'+pending.id+' · Đang chờ đối chiếu lệnh đóng trước.');
+ if((forex||commodity)&&pending.type==='close')setPositionNotice('Vị thế #'+pending.id+' · Đang chờ đối chiếu lệnh đóng trước.');
 }
 refresh();
 })();
