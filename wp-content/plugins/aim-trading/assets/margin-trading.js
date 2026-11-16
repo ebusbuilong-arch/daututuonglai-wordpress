@@ -213,7 +213,7 @@ window.addEventListener('pagehide',()=>{clearTimeout(quoteTimer);clearInterval(f
 loadQuote();
 if(commodity){
  const note=$('fx-pilot').querySelector('p.ex-small');
- if(note)note.textContent='1 AIM = 1.000 USD sức mua mô phỏng. Vàng và bạc lấy giá tham chiếu từ Gold API, WTI và Brent lấy giá giao ngay theo ngày từ EIA. Lệnh theo giá tham chiếu mở và đóng thủ công với chênh lệch mua/bán mô phỏng 0,1%.';
+ if(note)note.textContent='1 AIM = 1.000 USD sức mua mô phỏng. Kim loại lấy giá tham chiếu từ Gold API. Dầu và khí tự nhiên lấy giá giao ngay theo ngày từ EIA. Lệnh theo giá tham chiếu mở và đóng thủ công với chênh lệch mua/bán mô phỏng 0,1%.';
 }
 
 $('fx-pilot-direction').onchange=controls;$('fx-pilot-refresh').onclick=()=>refresh();$('fx-pilot-retry').onclick=perform;

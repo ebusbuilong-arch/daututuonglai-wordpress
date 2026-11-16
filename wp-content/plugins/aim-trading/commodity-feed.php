@@ -5,7 +5,8 @@ require_once __DIR__.'/reference-feed.php';
 require_once __DIR__.'/commodity-public-quote.php';
 final class AIM_Commodity_Feed {
  const MAX_AGE=15000;
- static function symbols(){return array('XAU_USD','XAG_USD','WTICO_USD','BCO_USD');}
+ static function symbols(){return array_merge(array_keys(AIM_Commodity_Public_Quote::METALS),array_keys(AIM_Commodity_Public_Quote::DAILY));}
+ static function live_symbols(){return array('XAU_USD','XAG_USD','WTICO_USD','BCO_USD');}
  static function configured(){if(class_exists('AIM_Oil_Reference')&&AIM_Oil_Reference::key())return true;return AIM_Reference_Feed::selected()?(bool)AIM_Reference_Feed::key():(bool)self::credentials();}
  static function credentials(){
   $token=defined('AIM_OANDA_PRACTICE_TOKEN')?AIM_OANDA_PRACTICE_TOKEN:'';
@@ -25,7 +26,7 @@ final class AIM_Commodity_Feed {
   return $time*1000+(int)substr(str_pad($fraction,3,'0'),0,3);
  }
  static function spec($row,$symbol){
-  self::need(in_array($symbol,self::symbols(),true)&&is_array($row)&&($row['name']??'')===$symbol&&($row['type']??'')===(in_array($symbol,array('XAU_USD','XAG_USD'),true)?'METAL':'CFD'),'Sai mã hoặc loại sản phẩm hàng hóa.');
+  self::need(in_array($symbol,self::live_symbols(),true)&&is_array($row)&&($row['name']??'')===$symbol&&($row['type']??'')===(in_array($symbol,array('XAU_USD','XAG_USD'),true)?'METAL':'CFD'),'Sai mã hoặc loại sản phẩm hàng hóa.');
   $precision=$row['tradeUnitsPrecision']??null;$display=$row['displayPrecision']??null;$pip=$row['pipLocation']??null;
   self::need(is_int($precision)&&$precision>=0&&$precision<=8&&is_int($display)&&$display>=1&&$display<=8&&is_int($pip)&&$pip>=-8&&$pip<=0,'Thông số bước giá không hợp lệ.');
   $min=self::number($row['minimumTradeSize']??null);$max=self::number($row['maximumOrderUnits']??null);$margin=self::number($row['marginRate']??null);
@@ -33,7 +34,7 @@ final class AIM_Commodity_Feed {
   return array('symbol'=>$symbol,'unit_precision'=>$precision,'display_precision'=>$display,'pip'=>pow(10,$pip),'tick'=>pow(10,-$display),'min_units'=>$min,'max_units'=>$max,'margin_rate'=>$margin,'lot_units'=>($symbol==='XAU_USD'?10:100),'quote_currency'=>'USD');
  }
  static function price($row,$symbol,$received,$now){
-  self::need(in_array($symbol,self::symbols(),true)&&is_array($row)&&($row['instrument']??'')===$symbol,'Báo giá sai mã.');
+  self::need(in_array($symbol,self::live_symbols(),true)&&is_array($row)&&($row['instrument']??'')===$symbol,'Báo giá sai mã.');
   $time=self::timestamp($row['time']??null);self::need(is_int($received)&&is_int($now)&&$received<=$now+1000&&$now-$received<=5000,'Báo giá máy chủ đã cũ.');
   self::need($time<=$now+2000&&$now-$time<=self::MAX_AGE,'Báo giá nguồn đã cũ hoặc sai đồng hồ.');
   self::need(in_array($row['status']??'',array('tradeable','non-tradeable','invalid'),true),'Thiếu trạng thái thị trường.');
@@ -69,7 +70,7 @@ final class AIM_Commodity_Feed {
  static function request($kind){
   $credentials=self::credentials();if(!$credentials)return AIM_Trading::error('Chưa cấu hình tài khoản và token OANDA Practice trên máy chủ.',503);
   if(!in_array($kind,array('pricing','instruments'),true))return AIM_Trading::error('Tuyến dữ liệu không hợp lệ.');
-  if($kind==='pricing'){$meta=self::request('instruments');if(is_wp_error($meta))return $meta;$available=array();foreach(($meta['data']['instruments']??array()) as $row)if(in_array($row['name']??'',self::symbols(),true))$available[]=$row['name'];sort($available);if(!$available)return AIM_Trading::error('Tài khoản nguồn chưa cung cấp mã hàng hóa được hỗ trợ.',503);}
+  if($kind==='pricing'){$meta=self::request('instruments');if(is_wp_error($meta))return $meta;$available=array();foreach(($meta['data']['instruments']??array()) as $row)if(in_array($row['name']??'',self::live_symbols(),true))$available[]=$row['name'];sort($available);if(!$available)return AIM_Trading::error('Tài khoản nguồn chưa cung cấp mã hàng hóa được hỗ trợ.',503);}
   $cache_key='aimtr_cm_'.substr(hash('sha256',$credentials['account'].'|'.$credentials['token'].'|'.$kind.($kind==='pricing'?'|'.implode(',',$available):'')),0,32);$cached=get_transient($cache_key);if(is_array($cached))return $cached;
   $backoff_key='aimtr_cm_backoff_'.substr(hash('sha256',$credentials['account']),0,16);if(get_transient($backoff_key))return AIM_Trading::error('Nguồn hàng hóa đang giới hạn truy cập; chờ một phút rồi kiểm tra lại.',503);
   $url='https://api-fxpractice.oanda.com/v3/accounts/'.$credentials['account'].'/'.$kind.($kind==='pricing'?'?'.http_build_query(array('instruments'=>implode(',',$available)),'','&',PHP_QUERY_RFC3986):'');
@@ -81,19 +82,19 @@ final class AIM_Commodity_Feed {
   $out=array('data'=>$data,'received'=>(int)round(microtime(true)*1000));set_transient($cache_key,$out,$kind==='instruments'?300:2);return $out;
  }
  static function snapshot($symbols=null){
-  if(AIM_Reference_Feed::selected())return AIM_Reference_Feed::snapshot($symbols??self::symbols());
+  if(AIM_Reference_Feed::selected())return AIM_Reference_Feed::snapshot($symbols??self::live_symbols());
   $meta=self::request('instruments');if(is_wp_error($meta))return $meta;$prices=self::request('pricing');if(is_wp_error($prices))return $prices;
   try{$now=(int)round(microtime(true)*1000);$specs=array();$quotes=array();$missing=array();
    self::need(is_array($meta['data']['instruments']??null)&&is_array($prices['data']['prices']??null),'Nguồn hàng hóa thiếu danh sách sản phẩm hoặc báo giá.');
-   foreach($meta['data']['instruments'] as $row){$symbol=$row['name']??'';if(in_array($symbol,self::symbols(),true)){self::need(!isset($specs[$symbol]),'Sản phẩm trùng trong nguồn.');$specs[$symbol]=self::spec($row,$symbol);}}
-   foreach($prices['data']['prices'] as $row){$symbol=$row['instrument']??'';if(in_array($symbol,self::symbols(),true)){self::need(!isset($quotes[$symbol]),'Báo giá trùng trong nguồn.');$quotes[$symbol]=self::price($row,$symbol,$prices['received'],$now);}}
-   foreach(self::symbols() as $symbol)if(!isset($specs[$symbol],$quotes[$symbol]))$missing[]=$symbol;
+   foreach($meta['data']['instruments'] as $row){$symbol=$row['name']??'';if(in_array($symbol,self::live_symbols(),true)){self::need(!isset($specs[$symbol]),'Sản phẩm trùng trong nguồn.');$specs[$symbol]=self::spec($row,$symbol);}}
+   foreach($prices['data']['prices'] as $row){$symbol=$row['instrument']??'';if(in_array($symbol,self::live_symbols(),true)){self::need(!isset($quotes[$symbol]),'Báo giá trùng trong nguồn.');$quotes[$symbol]=self::price($row,$symbol,$prices['received'],$now);}}
+   foreach(self::live_symbols() as $symbol)if(!isset($specs[$symbol],$quotes[$symbol]))$missing[]=$symbol;
    return array('source'=>'OANDA Practice','mode'=>'admin_diagnostics_only','execution_enabled'=>false,'specs'=>$specs,'quotes'=>$quotes,'missing'=>$missing,'received'=>$prices['received'],'notice'=>'Chỉ kiểm tra nguồn; chưa gửi lệnh AIM. Cần kiểm tra quyền sử dụng dữ liệu công khai và hoàn tất nối bộ khớp lệnh.');
   }catch(Throwable $e){return AIM_Trading::error($e->getMessage(),503);}
  }
- static function status(){if(AIM_Reference_Feed::selected())return array('configured'=>(bool)AIM_Reference_Feed::key(),'source'=>AIM_Reference_Feed::SOURCE,'symbols'=>self::symbols(),'execution_enabled'=>false,'needed'=>array('AIM_TWELVE_DATA_KEY'),'notice'=>'Giá tham chiếu + spread mô phỏng; admin đối ứng.');return array('configured'=>(bool)self::credentials(),'source'=>'OANDA Practice','symbols'=>self::symbols(),'execution_enabled'=>false,'needed'=>array('AIM_OANDA_PRACTICE_ACCOUNT','AIM_OANDA_PRACTICE_TOKEN'),'notice'=>'Khóa chỉ đặt trên máy chủ; không gửi khóa vào trò chuyện. Không dùng tài khoản tiền thật.');}
+ static function status(){if(AIM_Reference_Feed::selected())return array('configured'=>(bool)AIM_Reference_Feed::key(),'source'=>AIM_Reference_Feed::SOURCE,'symbols'=>self::live_symbols(),'execution_enabled'=>false,'needed'=>array('AIM_TWELVE_DATA_KEY'),'notice'=>'Giá tham chiếu + spread mô phỏng; admin đối ứng.');return array('configured'=>(bool)self::credentials(),'source'=>'OANDA Practice','symbols'=>self::live_symbols(),'execution_enabled'=>false,'needed'=>array('AIM_OANDA_PRACTICE_ACCOUNT','AIM_OANDA_PRACTICE_TOKEN'),'notice'=>'Khóa chỉ đặt trên máy chủ; không gửi khóa vào trò chuyện. Không dùng tài khoản tiền thật.');}
  static function preview($request){
-  $p=$request->get_json_params();if(!is_array($p)||!in_array($p['symbol']??null,self::symbols(),true))return AIM_Trading::error('Mã hàng hóa không hỗ trợ.');
+  $p=$request->get_json_params();if(!is_array($p)||!in_array($p['symbol']??null,self::live_symbols(),true))return AIM_Trading::error('Mã hàng hóa không hỗ trợ.');
   $snapshot=self::snapshot(array($p['symbol']));if(is_wp_error($snapshot))return $snapshot;$symbol=$p['symbol'];if(!isset($snapshot['specs'][$symbol],$snapshot['quotes'][$symbol]))return AIM_Trading::error('Tài khoản nguồn không cung cấp mã này.',503);
   try{return self::execution($snapshot['quotes'][$symbol],$snapshot['specs'][$symbol],$p['side']??null,$p['lots']??null,$p['leverage']??null,(int)round(microtime(true)*1000),$p['limit']??null);}catch(Throwable $e){return AIM_Trading::error($e->getMessage());}
  }
