@@ -14,6 +14,20 @@ const vndFormatter=new Intl.NumberFormat(en?'en-US':'vi-VN',{maximumFractionDigi
 const vnd=value=>vndFormatter.format(value)+(en?' VND':' VNĐ');
 const priceText=(price,cur)=>cur==='VND'?vnd(price):num(price)+' '+cur;
 const amountText=(amount,cur)=>cur==='VND'?vnd(amount*25000000/1e6):money(amount);
+function historyPnl(event,cur){
+ if(event.side!=='sell')return '—';
+ const raw=event.realized??(event.funding==='margin'?event.settlement?.realized:null);
+ const amount=(typeof raw==='number'||(typeof raw==='string'&&raw.trim()!==''))?Number(raw):NaN;
+ if(!Number.isSafeInteger(amount)){
+  const unavailable=node('span','—');
+  unavailable.title=en?'Realized P/L is missing from this fill':'Lệnh này thiếu dữ liệu lãi/lỗ đã chốt';
+  return unavailable;
+ }
+ const result=node('strong',(amount>0?'+':'')+amountText(amount,cur));
+ result.style.color=amount<0?'#ef9a9a':amount>0?'#66d4b5':'inherit';
+ result.title=en?'Realized P/L after fees for this sale':'Lãi/lỗ sau phí của riêng lệnh bán này';
+ return result;
+}
 const settlementTime=new Intl.DateTimeFormat(en?'en-GB':'vi-VN',{
  timeZone:'Asia/Ho_Chi_Minh',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hourCycle:'h23'
 });
@@ -119,7 +133,7 @@ function renderAccount(){
  panel.append(portfolioActions);
  table($('ex-panel-history'),['Thời gian UTC','Lệnh','Mã','Số CP','Giá','Phí','Lãi/lỗ đã chốt'],account.history.map(({created,event})=>{
   const cur=event.currency||currency(event.symbol);
-  return [created,event.side==='buy'?'Mua':'Bán',event.symbol,num(event.quantity),priceText(event.price,cur),amountText(event.fee,cur),amountText(event.realized,cur)];
+  return [created,event.side==='buy'?'Mua':'Bán',event.symbol,num(event.quantity),priceText(event.price,cur),amountText(event.fee,cur),historyPnl(event,cur)];
  }));
  $('ex-panel-orders').replaceChildren(node('p','Market và Limit IOC được xử lý ngay, không có lệnh chờ qua phiên.'));
  $('ex-account-status').textContent=account.enabled&&account.configured?'Đã bật · chỉ khớp khi có giá hợp lệ':'Chờ kết nối / kích hoạt nguồn';
